@@ -1,0 +1,89 @@
+/// Generated - Do Not Edit
+namespace BabylonJS
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using Microsoft.JSInterop;
+
+    public interface IEffectFallbacks { }
+    
+    [JsonConverter(typeof(CachedEntityConverter))]
+    public class IEffectFallbacksCachedEntity : CachedEntityObject, IEffectFallbacks
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+        
+        public bool hasMoreFallbacks
+        {
+            get
+            {
+            return EventHorizonBlazorInteropt.Get<bool>(
+                    this.___guid,
+                    "hasMoreFallbacks"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInteropt.Set(
+                    this.___guid,
+                    "hasMoreFallbacks",
+                    value
+                );
+            }
+        }
+        #endregion
+        
+        #region Constructor
+        public IEffectFallbacksCachedEntity() : base() { }
+
+        public IEffectFallbacksCachedEntity(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+        }
+
+
+        #endregion
+
+        #region Methods
+        public string reduce(string currentDefines, Effect effect)
+        {
+            return EventHorizonBlazorInteropt.Func<string>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "reduce" }, currentDefines, effect
+                }
+            );
+        }
+
+        public void unBindMesh()
+        {
+            EventHorizonBlazorInteropt.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "unBindMesh" }
+                }
+            );
+        }
+        #endregion
+    }
+}

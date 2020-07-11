@@ -1,0 +1,194 @@
+/// Generated - Do Not Edit
+namespace BabylonJS
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter))]
+    public class GroundMesh : Mesh
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+        public static GroundMesh Parse(CachedEntity parsedMesh, Scene scene)
+        {
+            return EventHorizonBlazorInteropt.FuncClass<GroundMesh>(
+                entity => new GroundMesh(entity),
+                new object[] 
+                {
+                    new string[] { "BABYLON", "GroundMesh", "Parse" }, parsedMesh, scene
+                }
+            );
+        }
+        #endregion
+
+        #region Accessors
+        
+        public decimal subdivisions
+        {
+            get
+            {
+            return EventHorizonBlazorInteropt.Get<decimal>(
+                    this.___guid,
+                    "subdivisions"
+                );
+            }
+        }
+
+        
+        public decimal subdivisionsX
+        {
+            get
+            {
+            return EventHorizonBlazorInteropt.Get<decimal>(
+                    this.___guid,
+                    "subdivisionsX"
+                );
+            }
+        }
+
+        
+        public decimal subdivisionsY
+        {
+            get
+            {
+            return EventHorizonBlazorInteropt.Get<decimal>(
+                    this.___guid,
+                    "subdivisionsY"
+                );
+            }
+        }
+        #endregion
+
+        #region Properties
+        
+        public bool generateOctree
+        {
+            get
+            {
+            return EventHorizonBlazorInteropt.Get<bool>(
+                    this.___guid,
+                    "generateOctree"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInteropt.Set(
+                    this.___guid,
+                    "generateOctree",
+                    value
+                );
+            }
+        }
+        #endregion
+        
+        #region Constructor
+        public GroundMesh() : base() { }
+
+        public GroundMesh(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+        }
+
+        public GroundMesh(
+            string name, Scene scene
+        ) : base()
+        {
+            var entity = EventHorizonBlazorInteropt.New(
+                new string[] { "BABYLON", "GroundMesh" },
+                name, scene
+            );
+            ___guid = entity.___guid;
+        }
+        #endregion
+
+        #region Methods
+        public string getClassName()
+        {
+            return EventHorizonBlazorInteropt.Func<string>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "getClassName" }
+                }
+            );
+        }
+
+        public void optimize(decimal chunksCount, System.Nullable<decimal> octreeBlocksSize = null)
+        {
+            EventHorizonBlazorInteropt.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "optimize" }, chunksCount, octreeBlocksSize
+                }
+            );
+        }
+
+        public decimal getHeightAtCoordinates(decimal x, decimal z)
+        {
+            return EventHorizonBlazorInteropt.Func<decimal>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "getHeightAtCoordinates" }, x, z
+                }
+            );
+        }
+
+        public Vector3 getNormalAtCoordinates(decimal x, decimal z)
+        {
+            return EventHorizonBlazorInteropt.FuncClass<Vector3>(
+                entity => new Vector3(entity),
+                new object[] 
+                {
+                    new string[] { this.___guid, "getNormalAtCoordinates" }, x, z
+                }
+            );
+        }
+
+        public GroundMesh getNormalAtCoordinatesToRef(decimal x, decimal z, Vector3 @ref)
+        {
+            return EventHorizonBlazorInteropt.FuncClass<GroundMesh>(
+                entity => new GroundMesh(entity),
+                new object[] 
+                {
+                    new string[] { this.___guid, "getNormalAtCoordinatesToRef" }, x, z, @ref
+                }
+            );
+        }
+
+        public GroundMesh updateCoordinateHeights()
+        {
+            return EventHorizonBlazorInteropt.FuncClass<GroundMesh>(
+                entity => new GroundMesh(entity),
+                new object[] 
+                {
+                    new string[] { this.___guid, "updateCoordinateHeights" }
+                }
+            );
+        }
+
+        public void serialize(CachedEntity serializationObject)
+        {
+            EventHorizonBlazorInteropt.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "serialize" }, serializationObject
+                }
+            );
+        }
+        #endregion
+    }
+}

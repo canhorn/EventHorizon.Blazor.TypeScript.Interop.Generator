@@ -31,11 +31,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.Interop
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.BabylonJS", "Sample\EventHorizon.Blazor.BabylonJS\EventHorizon.Blazor.BabylonJS.csproj", "{51468F62-B8CA-419E-964B-2E1B3F3E8A8C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp", "Sample\EventHorizon.BabylonJS.Interop.Generator.ConsoleApp\EventHorizon.BabylonJS.Interop.Generator.ConsoleApp.csproj", "{85219EAB-9352-4503-93C8-30E6904E2046}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.BabylonJS.Interop.Generator.ConsoleApp", "Sample\EventHorizon.BabylonJS.Interop.Generator.ConsoleApp\EventHorizon.BabylonJS.Interop.Generator.ConsoleApp.csproj", "{85219EAB-9352-4503-93C8-30E6904E2046}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_generated", "_generated", "{0690BCB4-142E-4BCB-8A18-02716DA1899A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_generated", "_generated", "{814FBBAC-9509-4BE5-BA55-515D3884676D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.BabylonJS.WASM", "Sample\_generated\EventHorizon.Blazor.BabylonJS.WASM\EventHorizon.Blazor.BabylonJS.WASM.csproj", "{ABAA112A-695F-4415-93A4-25171F997B81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.BabylonJS.WASM", "Sample\_generated\EventHorizon.Blazor.BabylonJS.WASM\EventHorizon.Blazor.BabylonJS.WASM.csproj", "{E4E07011-BE05-4984-8F6A-3141131F0AB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,10 +71,10 @@ Global
 		{85219EAB-9352-4503-93C8-30E6904E2046}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85219EAB-9352-4503-93C8-30E6904E2046}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85219EAB-9352-4503-93C8-30E6904E2046}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ABAA112A-695F-4415-93A4-25171F997B81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ABAA112A-695F-4415-93A4-25171F997B81}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ABAA112A-695F-4415-93A4-25171F997B81}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ABAA112A-695F-4415-93A4-25171F997B81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4E07011-BE05-4984-8F6A-3141131F0AB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4E07011-BE05-4984-8F6A-3141131F0AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4E07011-BE05-4984-8F6A-3141131F0AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4E07011-BE05-4984-8F6A-3141131F0AB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,8 +85,8 @@ Global
 		{2D4F13D7-9E25-42F7-9440-D23766724CD1} = {F40B53F2-E384-4DE7-95D5-8CC5924C09CD}
 		{51468F62-B8CA-419E-964B-2E1B3F3E8A8C} = {F40B53F2-E384-4DE7-95D5-8CC5924C09CD}
 		{85219EAB-9352-4503-93C8-30E6904E2046} = {F40B53F2-E384-4DE7-95D5-8CC5924C09CD}
-		{0690BCB4-142E-4BCB-8A18-02716DA1899A} = {F40B53F2-E384-4DE7-95D5-8CC5924C09CD}
-		{ABAA112A-695F-4415-93A4-25171F997B81} = {0690BCB4-142E-4BCB-8A18-02716DA1899A}
+		{814FBBAC-9509-4BE5-BA55-515D3884676D} = {F40B53F2-E384-4DE7-95D5-8CC5924C09CD}
+		{E4E07011-BE05-4984-8F6A-3141131F0AB2} = {814FBBAC-9509-4BE5-BA55-515D3884676D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DB1241E0-8802-4F96-9FD7-B938FE890192}

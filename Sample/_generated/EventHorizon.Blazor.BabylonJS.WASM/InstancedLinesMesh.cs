@@ -1,0 +1,88 @@
+/// Generated - Do Not Edit
+namespace BabylonJS
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter))]
+    public class InstancedLinesMesh : InstancedMesh
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+        
+        public decimal intersectionThreshold
+        {
+            get
+            {
+            return EventHorizonBlazorInteropt.Get<decimal>(
+                    this.___guid,
+                    "intersectionThreshold"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInteropt.Set(
+                    this.___guid,
+                    "intersectionThreshold",
+                    value
+                );
+            }
+        }
+        #endregion
+        
+        #region Constructor
+        public InstancedLinesMesh() : base() { }
+
+        public InstancedLinesMesh(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+        }
+
+        public InstancedLinesMesh(
+            string name, LinesMesh source
+        ) : base()
+        {
+            var entity = EventHorizonBlazorInteropt.New(
+                new string[] { "BABYLON", "InstancedLinesMesh" },
+                name, source
+            );
+            ___guid = entity.___guid;
+        }
+        #endregion
+
+        #region Methods
+        public string getClassName()
+        {
+            return EventHorizonBlazorInteropt.Func<string>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "getClassName" }
+                }
+            );
+        }
+        #endregion
+    }
+}
