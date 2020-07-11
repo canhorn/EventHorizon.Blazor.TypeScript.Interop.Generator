@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\EventHorizon.Blazor.TypeScript.Interop.Generator.Model\EventHorizon.Blazor.TypeScript.Interop.Generator.Model.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Templates\*" />
+    </ItemGroup>
+
+</Project>

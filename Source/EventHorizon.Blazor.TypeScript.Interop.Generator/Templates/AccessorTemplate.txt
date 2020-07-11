@@ -1,0 +1,8 @@
+﻿        [[CACHE_SECTION]]
+        public [[STATIC]][[TYPE]][[ARRAY]] [[NAME]]
+        {
+            get
+            {
+[[PROPERTY_GETTER]]
+            }
+        }

@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Remove="_generated\**" />
+        <Compile Remove="_generated\**" />
+        <EmbeddedResource Remove="_generated\**" />
+        <None Remove="_generated\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Source\EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project\EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project.csproj" />
+        <ProjectReference Include="..\..\Source\EventHorizon.Blazor.TypeScript.Interop.Generator\EventHorizon.Blazor.TypeScript.Interop.Generator.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="SourceFiles\babylon.d.ts">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="SourceFiles\babylon.gui.d.ts">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="SourceFiles\button.ts">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="SourceFiles\observable.ts">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="SourceFiles\testing.d.ts">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
+</Project>

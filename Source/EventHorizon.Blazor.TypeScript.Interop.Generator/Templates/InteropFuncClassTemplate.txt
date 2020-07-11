@@ -1,0 +1,7 @@
+﻿EventHorizonBlazorInteropt.FuncClass<[[TYPE]]>(
+                entity => new [[TYPE]][[INTERFACE_POSTFIX]](entity),
+                new object[] 
+                {
+                    new string[] { [[PROPERTY_IDENTIFIER]], "[[PROPERTY]]" }[[PROPERTY_ARGUMENTS]]
+                }
+            )

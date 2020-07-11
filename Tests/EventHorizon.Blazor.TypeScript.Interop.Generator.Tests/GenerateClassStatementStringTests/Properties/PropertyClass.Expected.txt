@@ -1,0 +1,80 @@
+/// Generated - Do Not Edit
+namespace Static.Primitive
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter))]
+    public class ExampleClass : CachedEntityObject
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+        private Vector2 __height;
+        public Vector2 height
+        {
+            get
+            {
+            if(__height == null)
+            {
+                __height = EventHorizonBlazorInteropt.GetClass<Vector2>(
+                    this.___guid,
+                    "height",
+                    (entity) =>
+                    {
+                        return new Vector2(entity);
+                    }
+                );
+            }
+            return __height;
+            }
+            set
+            {
+__height = null;
+                EventHorizonBlazorInteropt.Set(
+                    this.___guid,
+                    "height",
+                    value
+                );
+            }
+        }
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { } 
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+
+        #endregion
+
+        #region Methods
+
+        #endregion
+    }
+}

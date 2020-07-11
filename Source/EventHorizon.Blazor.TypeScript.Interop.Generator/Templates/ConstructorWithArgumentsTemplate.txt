@@ -1,0 +1,10 @@
+﻿        public [[CLASS_NAME]][[INTERFACE_POSTFIX]](
+            [[ARGUMENTS]]
+        )[[BASE_CLASS_CALL]]
+        {
+            var entity = EventHorizonBlazorInteropt.New(
+                new string[] { [[PROPERTY_NAMESPACE]], "[[CLASS_NAME]]" },
+                [[PROPERTY_ARGUMENTS]]
+            );
+            ___guid = entity.___guid;
+        }

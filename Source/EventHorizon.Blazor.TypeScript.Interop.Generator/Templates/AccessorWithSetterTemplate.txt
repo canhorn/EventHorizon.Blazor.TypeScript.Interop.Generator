@@ -1,0 +1,13 @@
+﻿        [[CACHE_SECTION]]
+        public [[STATIC]][[TYPE]][[ARRAY]] [[NAME]]
+        {
+            get
+            {
+[[PROPERTY_GETTER]]
+            }
+            set
+            {
+[[CACHE_SETTTER_SECTION]]
+[[PROPERTY_SETTER]]
+            }
+        }

@@ -1,0 +1,94 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EF084C56-BA91-4932-BFAA-0EEF00FF85CD}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{932AD335-24DD-419D-9F45-93720F37D7DE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.TypeScript.Interop.Generator.Tests", "Tests\EventHorizon.Blazor.TypeScript.Interop.Generator.Tests\EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.csproj", "{CAEED771-5D2A-48F8-9DF5-8E60FA569FA0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.TypeScript.Interop.Generator.Model", "Source\EventHorizon.Blazor.TypeScript.Interop.Generator.Model\EventHorizon.Blazor.TypeScript.Interop.Generator.Model.csproj", "{44F613AB-610E-428F-8529-EC7BDCAAF57D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.TypeScript.Interop.Generator", "Source\EventHorizon.Blazor.TypeScript.Interop.Generator\EventHorizon.Blazor.TypeScript.Interop.Generator.csproj", "{CB890B5E-A7F7-4742-B3F5-71E0668B6960}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project", "Source\EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project\EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project.csproj", "{2D1BE986-B7C9-457F-8F09-E7D71EEA0D8F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Writers", "Writers", "{66BA240A-9512-4874-A05A-FE86C72DAA5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{F40B53F2-E384-4DE7-95D5-8CC5924C09CD}"
+	ProjectSection(SolutionItems) = preProject
+		Sample\README.md = Sample\README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.Interop", "Sample\EventHorizon.Blazor.Interop\EventHorizon.Blazor.Interop.csproj", "{2D4F13D7-9E25-42F7-9440-D23766724CD1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.BabylonJS", "Sample\EventHorizon.Blazor.BabylonJS\EventHorizon.Blazor.BabylonJS.csproj", "{51468F62-B8CA-419E-964B-2E1B3F3E8A8C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp", "Sample\EventHorizon.BabylonJS.Interop.Generator.ConsoleApp\EventHorizon.BabylonJS.Interop.Generator.ConsoleApp.csproj", "{85219EAB-9352-4503-93C8-30E6904E2046}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_generated", "_generated", "{0690BCB4-142E-4BCB-8A18-02716DA1899A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.BabylonJS.WASM", "Sample\_generated\EventHorizon.Blazor.BabylonJS.WASM\EventHorizon.Blazor.BabylonJS.WASM.csproj", "{ABAA112A-695F-4415-93A4-25171F997B81}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAEED771-5D2A-48F8-9DF5-8E60FA569FA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAEED771-5D2A-48F8-9DF5-8E60FA569FA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAEED771-5D2A-48F8-9DF5-8E60FA569FA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAEED771-5D2A-48F8-9DF5-8E60FA569FA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44F613AB-610E-428F-8529-EC7BDCAAF57D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44F613AB-610E-428F-8529-EC7BDCAAF57D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44F613AB-610E-428F-8529-EC7BDCAAF57D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44F613AB-610E-428F-8529-EC7BDCAAF57D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB890B5E-A7F7-4742-B3F5-71E0668B6960}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB890B5E-A7F7-4742-B3F5-71E0668B6960}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB890B5E-A7F7-4742-B3F5-71E0668B6960}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB890B5E-A7F7-4742-B3F5-71E0668B6960}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D1BE986-B7C9-457F-8F09-E7D71EEA0D8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D1BE986-B7C9-457F-8F09-E7D71EEA0D8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D1BE986-B7C9-457F-8F09-E7D71EEA0D8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D1BE986-B7C9-457F-8F09-E7D71EEA0D8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D4F13D7-9E25-42F7-9440-D23766724CD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D4F13D7-9E25-42F7-9440-D23766724CD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D4F13D7-9E25-42F7-9440-D23766724CD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D4F13D7-9E25-42F7-9440-D23766724CD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51468F62-B8CA-419E-964B-2E1B3F3E8A8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51468F62-B8CA-419E-964B-2E1B3F3E8A8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51468F62-B8CA-419E-964B-2E1B3F3E8A8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51468F62-B8CA-419E-964B-2E1B3F3E8A8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85219EAB-9352-4503-93C8-30E6904E2046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85219EAB-9352-4503-93C8-30E6904E2046}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85219EAB-9352-4503-93C8-30E6904E2046}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85219EAB-9352-4503-93C8-30E6904E2046}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABAA112A-695F-4415-93A4-25171F997B81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABAA112A-695F-4415-93A4-25171F997B81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABAA112A-695F-4415-93A4-25171F997B81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABAA112A-695F-4415-93A4-25171F997B81}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CAEED771-5D2A-48F8-9DF5-8E60FA569FA0} = {932AD335-24DD-419D-9F45-93720F37D7DE}
+		{2D1BE986-B7C9-457F-8F09-E7D71EEA0D8F} = {66BA240A-9512-4874-A05A-FE86C72DAA5B}
+		{2D4F13D7-9E25-42F7-9440-D23766724CD1} = {F40B53F2-E384-4DE7-95D5-8CC5924C09CD}
+		{51468F62-B8CA-419E-964B-2E1B3F3E8A8C} = {F40B53F2-E384-4DE7-95D5-8CC5924C09CD}
+		{85219EAB-9352-4503-93C8-30E6904E2046} = {F40B53F2-E384-4DE7-95D5-8CC5924C09CD}
+		{0690BCB4-142E-4BCB-8A18-02716DA1899A} = {F40B53F2-E384-4DE7-95D5-8CC5924C09CD}
+		{ABAA112A-695F-4415-93A4-25171F997B81} = {0690BCB4-142E-4BCB-8A18-02716DA1899A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DB1241E0-8802-4F96-9FD7-B938FE890192}
+	EndGlobalSection
+EndGlobal

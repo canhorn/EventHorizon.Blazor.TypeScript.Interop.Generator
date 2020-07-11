@@ -1,0 +1,10 @@
+﻿                if (CachedEntityMap["[[PROPERTY]]"] == null)
+                {
+                    CachedEntityMap["[[PROPERTY]]"] = new [[PROPERTY_NAME]](
+                        EventHorizonBlazorInteropt.cacheEntity(
+                            this.___guid,
+                            "[[PROPERTY]]"
+                        )
+                    );
+                }
+                return CachedEntityMap["[[PROPERTY]]"] as [[PROPERTY_NAME]];

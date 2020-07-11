@@ -1,0 +1,4 @@
+﻿        public [[STATIC]][[TYPE]][[ARRAY]] [[NAME]]([[ARGUMENTS]])
+        {
+[[BODY]]
+        }

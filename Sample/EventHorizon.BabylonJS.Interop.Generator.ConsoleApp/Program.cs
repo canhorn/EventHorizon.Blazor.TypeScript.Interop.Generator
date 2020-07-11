@@ -1,0 +1,79 @@
+﻿namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
+{
+    using System.Collections.Generic;
+    using System.IO;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project;
+
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            var projectFileInteropProjectReference = "<ProjectReference Include=\"..\\..\\EventHorizon.Blazor.Interop\\EventHorizon.Blazor.Interop.csproj\" />";
+            var projectAssembly = "EventHorizon.Blazor.BabylonJS.WASM";
+            var projectGenerationLocation = Path.Combine(
+                "..",
+                "_generated"
+            );
+
+            var sourceDirectory = Path.Combine(
+                ".",
+                "SourceFiles"
+            );
+            var writer = new ProjectWriter(
+                projectGenerationLocation,
+                projectAssembly,
+                //"BabylonJS.Generated",
+                projectFileInteropProjectReference
+            );
+            var sourceFiles = new List<string>
+            {
+                "babylon.d.ts",
+                "babylon.gui.d.ts",
+            };
+            var generationList = new List<string>
+            {
+                "Scene",
+                "VertexBuffer",
+                "ICameraInput",
+                "AbstractActionManager",
+                "ICustomAnimationFrameRequester",
+                "IAction",
+                "Vector3",
+                "EventState",
+                "Observable",
+                "Container",
+                "Control",
+                "Button",
+                "UniversalCamera",
+                "PointLight",
+                "Grid",
+                "StackPanel",
+            };
+
+            // Remove any already Generated Source.
+            if (Directory.Exists(Path.Combine(
+                projectGenerationLocation,
+                projectAssembly
+            )))
+            {
+                Directory.Delete(
+                    Path.Combine(
+                        projectGenerationLocation,
+                        projectAssembly
+                    ),
+                    true
+                );
+            }
+            GlobalLogger.Info("Removed Generation Directory");
+
+            new GenerateSource().Run(
+                projectAssembly,
+                sourceDirectory,
+                sourceFiles,
+                generationList,
+                writer
+            );
+        }
+    }
+}

@@ -1,0 +1,8 @@
+﻿EventHorizonBlazorInteropt.GetClass<[[TYPE]]>(
+                    [[ROOT]],
+                    "[[PROPERTY]]",
+                    (entity) =>
+                    {
+                        return new [[TYPE]][[INTERFACE_POSTFIX]](entity);
+                    }
+                )
