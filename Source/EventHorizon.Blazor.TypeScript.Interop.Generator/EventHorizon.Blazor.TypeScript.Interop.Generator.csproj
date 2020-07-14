@@ -11,7 +11,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\EventHorizon.Blazor.TypeScript.Interop.Generator.Model\EventHorizon.Blazor.TypeScript.Interop.Generator.Model.csproj" />
-        <ProjectReference Include="..\EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project\EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project.csproj" />
     </ItemGroup>
 
     <ItemGroup>
