@@ -1,5 +1,5 @@
-/// Generated - Do Not Edit
-namespace Static.Primitive
+﻿/// Generated - Do Not Edit
+namespace Static.Class
 {
     using System;
     using System.Collections.Generic;
@@ -22,30 +22,20 @@ namespace Static.Primitive
         #endregion
 
         #region Static Methods
-
+        public static Matrix2D[] Identitys()
+        {
+            return EventHorizonBlazorInteropt.FuncArrayClass<Matrix2D>(
+                entity => new Matrix2D(entity),
+                new object[]
+                {
+                    new string[] { "Static", "Class", "ExampleClass", "Identitys" }
+                }
+            );
+        }
         #endregion
 
         #region Accessors
-        
-        public decimal Now
-        {
-            get
-            {
-            return EventHorizonBlazorInteropt.Get<decimal>(
-                    this.___guid,
-                    "Now"
-                );
-            }
-            set
-            {
 
-                EventHorizonBlazorInteropt.Set(
-                    this.___guid,
-                    "Now",
-                    value
-                );
-            }
-        }
         #endregion
 
         #region Properties

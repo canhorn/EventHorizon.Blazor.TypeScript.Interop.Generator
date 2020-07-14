@@ -166,7 +166,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             ClassMetadata classMetadata
         )
         {
-            var newList = nodes.Where(a => IsGetterRule.Check(a)).Select(
+            var flattenedAccessorList = nodes.Where(a => IsGetterRule.Check(a)).Select(
                 accessor => {
                     var type = TypeIdentifier.Identify(
                         accessor,
@@ -182,26 +182,20 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                             ast,
                             type
                         ),
+                        HasSetter = IsSetterRule.Check(accessor),
                         IsArrayResponse = IsArrayResposneTypeRule.Check(accessor),
                         UsedClassNames = UsedClassNamesIdentifier.Identify(accessor, classMetadata),
                     };
                 }
             ).ToList();
+            // Loop through Setters and on the setter flat as HasSetter
             foreach (var node in nodes.Where(a => IsSetterRule.Check(a)))
             {
-                var name = node.IdentifierStr;
-                if (newList.Any(a => a.Name == name))
-                {
-                    var alreadyInList = newList.First(a => a.Name == name);
-                    alreadyInList.HasSetter = true;
-                }
-                else
-                {
-                    // Is only a getter, ignore.
-                    GlobalLogger.Warning($"Is not a Setter: {name}");
-                }
+                flattenedAccessorList.First(
+                    a => a.Name == node.IdentifierStr
+                ).HasSetter = true;
             }
-            return newList;
+            return flattenedAccessorList;
         }
 
 
@@ -223,12 +217,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             {
                 return namespaceText;
             }
-            if (classDeclaration.Parent != null)
-            {
-                return GetNamespace(classDeclaration.Parent, namespaceText);
-            }
-
-            return namespaceText;
+            return GetNamespace(classDeclaration.Parent, namespaceText);
         }
 
         private static bool IsPropertyType(

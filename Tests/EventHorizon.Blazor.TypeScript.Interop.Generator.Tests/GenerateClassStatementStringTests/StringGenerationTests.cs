@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System.IO;
+using Xunit;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassStatementStringTests
 {
@@ -38,16 +39,38 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             expectedFile
         );
 
+        // Primitive
         [Theory(DisplayName = "StaticMethods")]
         [Trait("Category", "StringGeneration.StaticMethods")]
+        [InlineData("MethodStaticVoid.ts", "Methods", "MethodStaticVoid.Expected.txt")]
         [InlineData("MethodStaticClass.ts", "Methods", "MethodStaticClass.Expected.txt")]
-        [InlineData("MethodStaticClassWithLiteralInArguments.ts", "Methods", "MethodStaticClassWithLiteralInArguments.Expected.txt")]
+        [InlineData("MethodStaticClassArray.ts", "Methods", "MethodStaticClassArray.Expected.txt")]
+        [InlineData("MethodStaticPrimitive.ts", "Methods", "MethodStaticPrimitive.Expected.txt")]
+        [InlineData("MethodStaticPrimitiveArray.ts", "Methods", "MethodStaticPrimitiveArray.Expected.txt")]
         public void ShouldGenerateStaticMethodStrings(
             string sourceFile,
             string path,
             string expectedFile
         ) => ValidateGenerateStrings(
             path,
+            sourceFile,
+            expectedFile
+        );
+
+        [Theory(DisplayName = "StaticMethod.Scenarios")]
+        [Trait("Category", "StringGeneration.StaticMethod.Scenarios")]
+        [InlineData("MethodStaticClassWithLiteralInArguments.ts", "Methods", "Scenarios", "MethodStaticClassWithLiteralInArguments.Expected.txt")]
+        [InlineData("MethodStaticClassWithNullArgument.ts", "Methods", "Scenarios", "MethodStaticClassWithNullArgument.Expected.txt")]
+        [InlineData("MethodStaticClassWithUndefinedArgument.ts", "Methods", "Scenarios", "MethodStaticClassWithUndefinedArgument.Expected.txt")]
+        [InlineData("MethodStaticAction.ts", "Methods", "Scenarios", "MethodStaticAction.Expected.txt")]
+        [InlineData("MethodStaticWithLiteralAsResult.ts", "Methods", "Scenarios", "MethodStaticWithLiteralAsResult.Expected.txt")]
+        public void ShouldGenerateStaticMethodScenarioStrings(
+            string sourceFile,
+            string rootPath,
+            string scenariosPath,
+            string expectedFile
+        ) => ValidateGenerateStrings(
+            Path.Combine(rootPath, scenariosPath),
             sourceFile,
             expectedFile
         );

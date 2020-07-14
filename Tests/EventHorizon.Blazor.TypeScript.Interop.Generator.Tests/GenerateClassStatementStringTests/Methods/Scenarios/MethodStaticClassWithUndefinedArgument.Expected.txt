@@ -1,5 +1,5 @@
-/// Generated - Do Not Edit
-namespace Static.Primitive
+﻿/// Generated - Do Not Edit
+namespace Static.Method.Argument
 {
     using System;
     using System.Collections.Generic;
@@ -22,30 +22,19 @@ namespace Static.Primitive
         #endregion
 
         #region Static Methods
-
+        public static bool undefinedArgument(System.Nullable<decimal> arg1 = null)
+        {
+            return EventHorizonBlazorInteropt.Func<bool>(
+                new object[] 
+                {
+                    new string[] { "Static", "Method", "Argument", "ExampleClass", "undefinedArgument" }, arg1
+                }
+            );
+        }
         #endregion
 
         #region Accessors
-        
-        public decimal Now
-        {
-            get
-            {
-            return EventHorizonBlazorInteropt.Get<decimal>(
-                    this.___guid,
-                    "Now"
-                );
-            }
-            set
-            {
 
-                EventHorizonBlazorInteropt.Set(
-                    this.___guid,
-                    "Now",
-                    value
-                );
-            }
-        }
         #endregion
 
         #region Properties

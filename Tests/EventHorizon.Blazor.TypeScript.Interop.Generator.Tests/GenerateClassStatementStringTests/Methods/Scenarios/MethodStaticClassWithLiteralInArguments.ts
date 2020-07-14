@@ -11,5 +11,8 @@
             updatable?: boolean;
             onReady?: (mesh: GroundMesh) => void;
         }, scene?: Nullable<Scene>): GroundMesh;
+        static ObjectLiteralAsSecondArgument(options: string | {
+            value1?: number;
+        }): void;
     }
 }

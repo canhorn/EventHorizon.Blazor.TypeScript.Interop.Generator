@@ -15,7 +15,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Rules
         {
             var nodes = node.Children
                 .Where(a => a.Kind != SyntaxKind.TypeLiteral);
-            return nodes.Any(a => a.Kind == SyntaxKind.QuestionToken || a.OfKind(SyntaxKind.QuestionToken).Any())
+            return nodes.Any(a => a.Kind == SyntaxKind.QuestionToken)
                 || nodes.Any(a => a.Kind == SyntaxKind.UndefinedKeyword || a.OfKind(SyntaxKind.UndefinedKeyword).Any())
                 || nodes.Any(a => a.Kind == SyntaxKind.NullKeyword || a.OfKind(SyntaxKind.NullKeyword).Any());
         }

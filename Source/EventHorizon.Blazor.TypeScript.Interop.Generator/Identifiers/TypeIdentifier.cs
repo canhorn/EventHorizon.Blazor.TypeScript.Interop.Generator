@@ -37,7 +37,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 type = jsType;
             }
             if (NullableTypeIdentifier.Identify(
-                type, 
+                type,
                 node.Last,
                 classMetadata,
                 usedTypeParamterList,
@@ -45,6 +45,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             ))
             {
                 type = nullableType;
+            }
+            if (VoidTypeParameterIdentifier.Identify(
+                node,
+                type,
+                out var voidType
+            ))
+            {
+                type = voidType;
             }
 
             return type;

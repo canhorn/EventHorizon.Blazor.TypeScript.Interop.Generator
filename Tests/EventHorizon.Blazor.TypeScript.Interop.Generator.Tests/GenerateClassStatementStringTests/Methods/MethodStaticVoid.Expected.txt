@@ -1,5 +1,5 @@
-/// Generated - Do Not Edit
-namespace Static.Primitive
+﻿/// Generated - Do Not Edit
+namespace Static.Class
 {
     using System;
     using System.Collections.Generic;
@@ -22,30 +22,29 @@ namespace Static.Primitive
         #endregion
 
         #region Static Methods
+        public static void makeObserverTopPriority(Observer observer)
+        {
+            EventHorizonBlazorInteropt.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { "Static", "Class", "ExampleClass", "makeObserverTopPriority" }, observer
+                }
+            );
+        }
 
+        public static void VoidMethodNoIdentifier()
+        {
+            EventHorizonBlazorInteropt.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { "Static", "Class", "ExampleClass", "VoidMethodNoIdentifier" }
+                }
+            );
+        }
         #endregion
 
         #region Accessors
-        
-        public decimal Now
-        {
-            get
-            {
-            return EventHorizonBlazorInteropt.Get<decimal>(
-                    this.___guid,
-                    "Now"
-                );
-            }
-            set
-            {
 
-                EventHorizonBlazorInteropt.Set(
-                    this.___guid,
-                    "Now",
-                    value
-                );
-            }
-        }
         #endregion
 
         #region Properties

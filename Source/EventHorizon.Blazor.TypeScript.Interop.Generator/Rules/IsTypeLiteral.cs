@@ -22,10 +22,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Rules
         }
         private static bool IsCorrectResponseType(Node node)
         {
-            if (node == null)
-            {
-                return false;
-            }
             if (node.Children.Any())
             {
                 foreach (var nodeChild in node.Children)

@@ -22,13 +22,22 @@ namespace Static.Class
         #endregion
 
         #region Static Methods
-        public static GroundMesh CreateGroundFromHeightMap(string name, string url, object options, Scene scene = null)
+        public static CachedEntity ObjectLiteralFirstUnionResult()
         {
-            return EventHorizonBlazorInteropt.FuncClass<GroundMesh>(
-                entity => new GroundMesh(entity),
+            return EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
                 {
-                    new string[] { "Static", "Class", "ExampleClass", "CreateGroundFromHeightMap" }, name, url, options, scene
+                    new string[] { "Static", "Class", "ExampleClass", "ObjectLiteralFirstUnionResult" }
+                }
+            );
+        }
+
+        public static string ObjectLiteralLastUnionResult()
+        {
+            return EventHorizonBlazorInteropt.Func<string>(
+                new object[] 
+                {
+                    new string[] { "Static", "Class", "ExampleClass", "ObjectLiteralLastUnionResult" }
                 }
             );
         }
