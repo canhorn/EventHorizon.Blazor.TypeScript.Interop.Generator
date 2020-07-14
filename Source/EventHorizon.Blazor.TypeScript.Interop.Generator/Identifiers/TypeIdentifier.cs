@@ -98,16 +98,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             IList<string> usedTypeParamterList
         )
         {
-            if (node.Last.First != null)
-            {
-                return GetFromNode(
-                    node,
-                    node.Last.First.Kind,
-                    classMetadata,
-                    usedTypeParamterList
-                );
-            }
-            return GenerationIdentifiedTypes.Unknown;
+            return GetFromNode(
+                node,
+                node.Last.First.Kind,
+                classMetadata,
+                usedTypeParamterList
+            );
         }
 
         private static string ParenthesizedTypeCheck(

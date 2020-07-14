@@ -22,26 +22,7 @@ namespace Static.Class
         #endregion
 
         #region Static Methods
-        public static GroundMesh CreateGroundFromHeightMap(string name, string url, object options, Scene scene = null)
-        {
-            return EventHorizonBlazorInteropt.FuncClass<GroundMesh>(
-                entity => new GroundMesh(entity),
-                new object[] 
-                {
-                    new string[] { "Static", "Class", "ExampleClass", "CreateGroundFromHeightMap" }, name, url, options, scene
-                }
-            );
-        }
 
-        public static void ObjectLiteralAsSecondArgument(string options)
-        {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { "Static", "Class", "ExampleClass", "ObjectLiteralAsSecondArgument" }, options
-                }
-            );
-        }
         #endregion
 
         #region Accessors
@@ -66,7 +47,16 @@ namespace Static.Class
         #endregion
 
         #region Methods
-
+        public ExampleClass methodWithThis()
+        {
+            return EventHorizonBlazorInteropt.FuncClass<ExampleClass>(
+                entity => new ExampleClass(entity),
+                new object[] 
+                {
+                    new string[] { this.___guid, "methodWithThis" }
+                }
+            );
+        }
         #endregion
     }
 }

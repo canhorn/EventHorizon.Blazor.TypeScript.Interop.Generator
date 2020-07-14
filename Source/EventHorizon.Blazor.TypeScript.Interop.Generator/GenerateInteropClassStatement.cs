@@ -191,9 +191,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             // Loop through Setters and on the setter flat as HasSetter
             foreach (var node in nodes.Where(a => IsSetterRule.Check(a)))
             {
-                flattenedAccessorList.First(
+                var getNode = flattenedAccessorList.FirstOrDefault(
                     a => a.Name == node.IdentifierStr
-                ).HasSetter = true;
+                );
+                if (getNode != null) {
+                    getNode.HasSetter = true;
+                }
             }
             return flattenedAccessorList;
         }

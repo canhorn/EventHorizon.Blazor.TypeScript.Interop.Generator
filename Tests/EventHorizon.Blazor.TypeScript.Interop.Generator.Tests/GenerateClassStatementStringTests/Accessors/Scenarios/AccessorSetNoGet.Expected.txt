@@ -1,5 +1,5 @@
-﻿/// Generated - Do Not Edit
-namespace Static.Class
+/// Generated - Do Not Edit
+namespace Static.Primitive
 {
     using System;
     using System.Collections.Generic;
@@ -22,26 +22,7 @@ namespace Static.Class
         #endregion
 
         #region Static Methods
-        public static GroundMesh CreateGroundFromHeightMap(string name, string url, object options, Scene scene = null)
-        {
-            return EventHorizonBlazorInteropt.FuncClass<GroundMesh>(
-                entity => new GroundMesh(entity),
-                new object[] 
-                {
-                    new string[] { "Static", "Class", "ExampleClass", "CreateGroundFromHeightMap" }, name, url, options, scene
-                }
-            );
-        }
 
-        public static void ObjectLiteralAsSecondArgument(string options)
-        {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { "Static", "Class", "ExampleClass", "ObjectLiteralAsSecondArgument" }, options
-                }
-            );
-        }
         #endregion
 
         #region Accessors

@@ -608,7 +608,7 @@ __boundingBoxPosition = null;
         }
 
         public RenderTargetTexture(
-            string name, Scene scene, System.Nullable<decimal> size = null, System.Nullable<bool> generateMipMaps = null, System.Nullable<bool> doNotChangeAspectRatio = null, System.Nullable<decimal> type = null, System.Nullable<bool> isCube = null, System.Nullable<decimal> samplingMode = null, System.Nullable<bool> generateDepthBuffer = null, System.Nullable<bool> generateStencilBuffer = null, System.Nullable<bool> isMulti = null, System.Nullable<decimal> format = null, System.Nullable<bool> delayAllocation = null
+            string name, decimal size, Scene scene, System.Nullable<bool> generateMipMaps = null, System.Nullable<bool> doNotChangeAspectRatio = null, System.Nullable<decimal> type = null, System.Nullable<bool> isCube = null, System.Nullable<decimal> samplingMode = null, System.Nullable<bool> generateDepthBuffer = null, System.Nullable<bool> generateStencilBuffer = null, System.Nullable<bool> isMulti = null, System.Nullable<decimal> format = null, System.Nullable<bool> delayAllocation = null
         ) : base()
         {
             var entity = EventHorizonBlazorInteropt.New(

@@ -63,6 +63,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
         [InlineData("MethodStaticClassWithUndefinedArgument.ts", "Methods", "Scenarios", "MethodStaticClassWithUndefinedArgument.Expected.txt")]
         [InlineData("MethodStaticAction.ts", "Methods", "Scenarios", "MethodStaticAction.Expected.txt")]
         [InlineData("MethodStaticWithLiteralAsResult.ts", "Methods", "Scenarios", "MethodStaticWithLiteralAsResult.Expected.txt")]
+        [InlineData("MethodThisAsResult.ts", "Methods", "Scenarios", "MethodThisAsResult.Expected.txt")]
         public void ShouldGenerateStaticMethodScenarioStrings(
             string sourceFile,
             string rootPath,
@@ -91,6 +92,20 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             expectedFile
         );
 
+        [Theory(DisplayName = "Accessor.Scenarios")]
+        [Trait("Category", "StringGeneration.Accessor.Scenarios")]
+        [InlineData("AccessorSetNoGet.ts", "Accessors", "Scenarios", "AccessorSetNoGet.Expected.txt")]
+        public void ShouldGenerateAccessorScenarioStrings(
+            string sourceFile,
+            string rootPath,
+            string scenariosPath,
+            string expectedFile
+        ) => ValidateGenerateStrings(
+            Path.Combine(rootPath, scenariosPath),
+            sourceFile,
+            expectedFile
+        );
+
         [Theory(DisplayName = "Properties")]
         [Trait("Category", "StringGeneration.Properties")]
         // Properties
@@ -104,6 +119,21 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             string expectedFile
         ) => ValidateGenerateStrings(
             path,
+            sourceFile,
+            expectedFile
+        );
+
+        // Parenthesized 
+        [Theory(DisplayName = "Property.Scenarios")]
+        [Trait("Category", "StringGeneration.Property.Scenarios")]
+        [InlineData("PropertyParenthesized.ts", "Properties", "Scenarios", "PropertyParenthesized.Expected.txt")]
+        public void ShouldGeneratePropertyScenarioStrings(
+            string sourceFile,
+            string rootPath,
+            string scenariosPath,
+            string expectedFile
+        ) => ValidateGenerateStrings(
+            Path.Combine(rootPath, scenariosPath),
             sourceFile,
             expectedFile
         );

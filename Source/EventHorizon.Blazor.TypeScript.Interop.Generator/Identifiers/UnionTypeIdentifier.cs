@@ -36,7 +36,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                         a => a.Kind != SyntaxKind.TypeReference
                     ).Select(
                         a => TypeIdentifier.Identify(
-                            a.Parent is Node parentNode ? parentNode : a,
+                            a.Last != null ? a : new Node()
+                            {
+                                Children = new List<Node> { a }
+                            },
                             classMetadata,
                             usedTypeParamterList
                         )
