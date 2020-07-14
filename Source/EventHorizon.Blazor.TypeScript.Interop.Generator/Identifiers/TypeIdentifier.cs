@@ -31,7 +31,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 usedTypeParamterList
             );
             if (JavaScriptProvidedApiIdentifier.Identify(
-                type, out var jsType
+                type, 
+                out var jsType
             ))
             {
                 type = jsType;

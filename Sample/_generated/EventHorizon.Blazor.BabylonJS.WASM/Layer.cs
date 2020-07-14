@@ -396,7 +396,7 @@ __onAfterRenderObservable = null;
         }
 
         public Layer(
-            string name, string imgUrl, Scene scene, System.Nullable<bool> isBackground = null, Color4 color = null
+            string name, Scene scene, string imgUrl = null, System.Nullable<bool> isBackground = null, Color4 color = null
         )
         {
             var entity = EventHorizonBlazorInteropt.New(

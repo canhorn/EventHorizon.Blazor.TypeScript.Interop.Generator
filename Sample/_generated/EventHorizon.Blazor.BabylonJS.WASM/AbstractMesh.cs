@@ -1555,7 +1555,7 @@ __onRebuildObservable = null;
             );
         }
 
-        public AbstractMesh setIndices(decimal[] indices, decimal totalVertices)
+        public AbstractMesh setIndices(decimal[] indices, System.Nullable<decimal> totalVertices = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
                 entity => new AbstractMesh(entity),

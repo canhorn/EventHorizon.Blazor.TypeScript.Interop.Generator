@@ -639,7 +639,7 @@ __onAfterRenderObservable = null;
         }
 
         public PostProcess(
-            string name, string fragmentUrl, string[] parameters, string[] samplers, decimal options, Camera camera, System.Nullable<decimal> samplingMode = null, Engine engine = null, System.Nullable<bool> reusable = null, string defines = null, System.Nullable<decimal> textureType = null, string vertexUrl = null, object indexParameters = null, System.Nullable<bool> blockCompilation = null, System.Nullable<decimal> textureFormat = null
+            string name, string fragmentUrl, decimal options, Camera camera, string[] parameters = null, string[] samplers = null, System.Nullable<decimal> samplingMode = null, Engine engine = null, System.Nullable<bool> reusable = null, string defines = null, System.Nullable<decimal> textureType = null, string vertexUrl = null, object indexParameters = null, System.Nullable<bool> blockCompilation = null, System.Nullable<decimal> textureFormat = null
         )
         {
             var entity = EventHorizonBlazorInteropt.New(

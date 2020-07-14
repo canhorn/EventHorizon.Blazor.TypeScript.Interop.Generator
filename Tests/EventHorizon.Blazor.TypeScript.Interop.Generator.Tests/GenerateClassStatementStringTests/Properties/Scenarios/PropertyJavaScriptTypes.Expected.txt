@@ -1,5 +1,5 @@
 /// Generated - Do Not Edit
-namespace BabylonJS
+namespace Static.Primitive
 {
     using System;
     using System.Collections.Generic;
@@ -11,7 +11,7 @@ namespace BabylonJS
     
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class IntersectionInfo : CachedEntityObject
+    public class ExampleClass : CachedEntityObject
     {
         #region Static Accessors
 
@@ -31,13 +31,13 @@ namespace BabylonJS
 
         #region Properties
         
-        public decimal bu
+        public string stringType
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInteropt.Get<string>(
                     this.___guid,
-                    "bu"
+                    "stringType"
                 );
             }
             set
@@ -45,20 +45,20 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     this.___guid,
-                    "bu",
+                    "stringType",
                     value
                 );
             }
         }
 
         
-        public decimal bv
+        public bool booleanType
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInteropt.Get<bool>(
                     this.___guid,
-                    "bv"
+                    "booleanType"
                 );
             }
             set
@@ -66,20 +66,20 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     this.___guid,
-                    "bv",
+                    "booleanType",
                     value
                 );
             }
         }
 
         
-        public decimal distance
+        public CachedEntity htmlElementType
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInteropt.Get<CachedEntity>(
                     this.___guid,
-                    "distance"
+                    "htmlElementType"
                 );
             }
             set
@@ -87,20 +87,20 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     this.___guid,
-                    "distance",
+                    "htmlElementType",
                     value
                 );
             }
         }
 
         
-        public decimal faceId
+        public decimal intType
         {
             get
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     this.___guid,
-                    "faceId"
+                    "intType"
                 );
             }
             set
@@ -108,28 +108,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     this.___guid,
-                    "faceId",
-                    value
-                );
-            }
-        }
-
-        
-        public decimal subMeshId
-        {
-            get
-            {
-            return EventHorizonBlazorInteropt.Get<decimal>(
-                    this.___guid,
-                    "subMeshId"
-                );
-            }
-            set
-            {
-
-                EventHorizonBlazorInteropt.Set(
-                    this.___guid,
-                    "subMeshId",
+                    "intType",
                     value
                 );
             }
@@ -137,25 +116,16 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public IntersectionInfo() : base() { } 
+        public ExampleClass() : base() { } 
 
-        public IntersectionInfo(
+        public ExampleClass(
             ICachedEntity entity
         ) : base(entity)
         {
             ___guid = entity.___guid;
         }
 
-        public IntersectionInfo(
-            decimal distance, System.Nullable<decimal> bu = null, System.Nullable<decimal> bv = null
-        )
-        {
-            var entity = EventHorizonBlazorInteropt.New(
-                new string[] { "BABYLON", "IntersectionInfo" },
-                bu, bv, distance
-            );
-            ___guid = entity.___guid;
-        }
+
         #endregion
 
         #region Methods

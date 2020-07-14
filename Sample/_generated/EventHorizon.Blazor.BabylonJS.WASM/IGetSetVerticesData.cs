@@ -96,7 +96,7 @@ namespace BabylonJS
             );
         }
 
-        public void setIndices(decimal[] indices, decimal totalVertices, System.Nullable<bool> updatable = null)
+        public void setIndices(decimal[] indices, System.Nullable<decimal> totalVertices = null, System.Nullable<bool> updatable = null)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

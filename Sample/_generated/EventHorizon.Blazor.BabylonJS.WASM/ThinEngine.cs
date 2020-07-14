@@ -1382,7 +1382,7 @@ __onBeforeTextureInitObservable = null;
             );
         }
 
-        public WebGLProgram createShaderProgram(IPipelineContext pipelineContext, string vertexCode, string fragmentCode, string defines, WebGLRenderingContext context = null, string[] transformFeedbackVaryings = null)
+        public WebGLProgram createShaderProgram(IPipelineContext pipelineContext, string vertexCode, string fragmentCode, string defines = null, WebGLRenderingContext context = null, string[] transformFeedbackVaryings = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<WebGLProgram>(
                 entity => new WebGLProgramCachedEntity(entity),
@@ -1743,7 +1743,7 @@ __onBeforeTextureInitObservable = null;
             );
         }
 
-        public void updateTextureWrappingMode(InternalTexture texture, decimal wrapU, System.Nullable<decimal> wrapV = null, System.Nullable<decimal> wrapR = null)
+        public void updateTextureWrappingMode(InternalTexture texture, System.Nullable<decimal> wrapU = null, System.Nullable<decimal> wrapV = null, System.Nullable<decimal> wrapR = null)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

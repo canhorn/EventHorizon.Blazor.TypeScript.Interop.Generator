@@ -2514,7 +2514,7 @@ __onAfterShaderCompilationObservable = null;
             );
         }
 
-        public WebGLProgram createShaderProgram(IPipelineContext pipelineContext, string vertexCode, string fragmentCode, string defines, WebGLRenderingContext context = null, string[] transformFeedbackVaryings = null)
+        public WebGLProgram createShaderProgram(IPipelineContext pipelineContext, string vertexCode, string fragmentCode, string defines = null, WebGLRenderingContext context = null, string[] transformFeedbackVaryings = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<WebGLProgram>(
                 entity => new WebGLProgramCachedEntity(entity),

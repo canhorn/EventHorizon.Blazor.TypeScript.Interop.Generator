@@ -1,5 +1,5 @@
 ﻿/// Generated - Do Not Edit
-namespace Static.Method.Argument
+namespace Static.Class
 {
     using System;
     using System.Collections.Generic;
@@ -22,25 +22,7 @@ namespace Static.Method.Argument
         #endregion
 
         #region Static Methods
-        public static bool undefinedArgument(System.Nullable<decimal> arg1 = null)
-        {
-            return EventHorizonBlazorInteropt.Func<bool>(
-                new object[] 
-                {
-                    new string[] { "Static", "Method", "Argument", "ExampleClass", "undefinedArgument" }, arg1
-                }
-            );
-        }
 
-        public static bool nullableArgument(System.Nullable<decimal> arg1 = null)
-        {
-            return EventHorizonBlazorInteropt.Func<bool>(
-                new object[] 
-                {
-                    new string[] { "Static", "Method", "Argument", "ExampleClass", "nullableArgument" }, arg1
-                }
-            );
-        }
         #endregion
 
         #region Accessors
@@ -65,7 +47,15 @@ namespace Static.Method.Argument
         #endregion
 
         #region Methods
-
+        public CachedEntity getExternalData(string key)
+        {
+            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "getExternalData" }, key
+                }
+            );
+        }
         #endregion
     }
 }

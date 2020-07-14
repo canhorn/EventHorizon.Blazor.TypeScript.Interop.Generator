@@ -9,8 +9,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model
         #region General Types - Types provided by the JavaScript framework
         public static string Promise => "Promise";
         public static string Function => "Function";
-        public static string Int => "int";
-        public static string Float => "float";
         public static string Boolean => "Boolean";
         public static string String => "String";
         public static string Array => "Array";
@@ -43,6 +41,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model
         public static string Nullable => "Nullable";
         public static string Observer => "Observer";
         public static string Observable => "Observable";
+        public static string Int => "int";
+        public static string Float => "float";
         #endregion
     }
 }
