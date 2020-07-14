@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 
@@ -15,6 +16,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             ClassGenerationTemplates templates
         )
         {
+            GlobalLogger.Info($"Generating Base Constructor: {constructorDetails}");
             var template = templates.Constructor;
             var extendsClass = classStatement.ExtendedClassNames.Any();
 

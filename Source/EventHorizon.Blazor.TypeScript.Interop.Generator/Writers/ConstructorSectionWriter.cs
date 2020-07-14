@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 
@@ -19,6 +20,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             var arguments = constructorDetails.Arguments;
             if (arguments.Any())
             {
+                GlobalLogger.Info($"Generating Argument Constructor: {constructorDetails}");
                 var template = templates.ConstructorWithArgumentsTemplate;
                 var extendsClass = classStatement.ExtendedClassNames.Any();
 

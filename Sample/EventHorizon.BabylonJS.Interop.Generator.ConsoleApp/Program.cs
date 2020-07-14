@@ -1,6 +1,7 @@
 ﻿namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
 {
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.IO;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project;
@@ -9,6 +10,7 @@
     {
         static void Main(string[] args)
         {
+            var stopwatch = Stopwatch.StartNew();
             var projectFileInteropProjectReference = "<ProjectReference Include=\"..\\..\\EventHorizon.Blazor.Interop\\EventHorizon.Blazor.Interop.csproj\" />";
             var projectAssembly = "EventHorizon.Blazor.BabylonJS.WASM";
             var projectGenerationLocation = Path.Combine(
@@ -75,6 +77,10 @@
                 generationList,
                 writer
             );
+            stopwatch.Stop();
+            GlobalLogger.Info("Removed Generation Directory");
+            System.Console.WriteLine($"Took {stopwatch.ElapsedMilliseconds}ms to generate.");
+            
         }
     }
 }

@@ -26,6 +26,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             var current = 1;
             foreach (var method in methods)
             {
+                GlobalLogger.Info($"Generating Method: {method}");
                 var isLast = current == methods.Count();
                 var isClassResponse = method.UsedClassNames.Any(a => a == method.Type);
                 var template = templates.Method;

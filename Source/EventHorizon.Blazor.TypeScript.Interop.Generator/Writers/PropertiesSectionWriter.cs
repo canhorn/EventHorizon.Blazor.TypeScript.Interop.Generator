@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers;
@@ -24,6 +25,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             var current = 1;
             foreach (var property in properties)
             {
+                GlobalLogger.Info($"Generating Property: {property}");
                 var isLast = current == properties.Count();
                 var isClassResponse = property.UsedClassNames.Any(a => a == property.Type);
                 var template = templates.AccessorWithSetter;
