@@ -39,7 +39,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             expectedFile
         );
 
-        // Primitive
         [Theory(DisplayName = "StaticMethods")]
         [Trait("Category", "StringGeneration.StaticMethods")]
         [InlineData("MethodStaticVoid.ts", "Methods", "MethodStaticVoid.Expected.txt")]
@@ -114,6 +113,23 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
         // Arrays
         [InlineData("PropertyArrayTypes.ts", "Properties", "PropertyArrayTypes.Expected.txt")]
         public void ShouldGenerateArrayTypeStrings(
+            string sourceFile,
+            string path,
+            string expectedFile
+        ) => ValidateGenerateStrings(
+            path,
+            sourceFile,
+            expectedFile
+        );
+
+        [Theory(DisplayName = "Methods")]
+        [Trait("Category", "StringGeneration.Methods")]
+        [InlineData("MethodClass.ts", "Methods", "MethodClass.Expected.txt")]
+        [InlineData("MethodClassArray.ts", "Methods", "MethodClassArray.Expected.txt")]
+        [InlineData("MethodPrimitive.ts", "Methods", "MethodPrimitive.Expected.txt")]
+        [InlineData("MethodPrimitiveArray.ts", "Methods", "MethodPrimitiveArray.Expected.txt")]
+        [InlineData("MethodVoid.ts", "Methods", "MethodVoid.Expected.txt")]
+        public void ShouldGenerateMethodStrings(
             string sourceFile,
             string path,
             string expectedFile

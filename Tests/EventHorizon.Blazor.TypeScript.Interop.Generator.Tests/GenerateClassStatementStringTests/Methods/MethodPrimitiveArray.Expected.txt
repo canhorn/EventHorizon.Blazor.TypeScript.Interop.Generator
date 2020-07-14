@@ -1,0 +1,71 @@
+﻿/// Generated - Do Not Edit
+namespace Static.Class
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter))]
+    public class ExampleClass : CachedEntityObject
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { } 
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+
+        #endregion
+
+        #region Methods
+        public bool[] isBooleans()
+        {
+            return EventHorizonBlazorInteropt.FuncArray<bool>(
+                new object[]
+                {
+                    new string[] { this.___guid, "isBooleans" }
+                }
+            );
+        }
+
+        public bool[] isBooleansAsArray()
+        {
+            return EventHorizonBlazorInteropt.FuncArray<bool>(
+                new object[]
+                {
+                    new string[] { this.___guid, "isBooleansAsArray" }
+                }
+            );
+        }
+        #endregion
+    }
+}

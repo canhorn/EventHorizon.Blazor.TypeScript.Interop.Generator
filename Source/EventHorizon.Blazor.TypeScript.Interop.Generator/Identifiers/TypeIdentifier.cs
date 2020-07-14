@@ -162,54 +162,34 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             {
                 return classMetadata.Name;
             }
-            if (node.Kind == SyntaxKind.SetAccessor)
-            {
-                var getClassName = GetClassName(
-                    node,
-                    classMetadata,
-                    usedTypeParamterList
-                );
-                if (getClassName != GenerationIdentifiedTypes.Unknown)
-                {
-                    return getClassName;
-                }
-                return GenerationIdentifiedTypes.Object;
-            }
             if (node.Kind == SyntaxKind.GetAccessor)
             {
-                var getClassName = GetClassName(
+                return GetClassName(
                     node,
                     classMetadata,
                     usedTypeParamterList
                 );
-                if (getClassName != GenerationIdentifiedTypes.Unknown)
-                {
-                    return getClassName;
-                }
-                return GenerationIdentifiedTypes.Void;
             }
 
-            var referenceNode = node.OfKind(SyntaxKind.TypeReference)
-                .LastOrDefault();
             // Check if generic
-            if (referenceNode is TypeReferenceNode typed)
+            if (node.OfKind(SyntaxKind.TypeReference)
+                .LastOrDefault() is TypeReferenceNode typed
+                && typed.TypeArguments != null && typed.TypeArguments.Any()
+            )
             {
-                if (typed.TypeArguments != null && typed.TypeArguments.Any())
-                {
-                    return GetFromNode(
-                        node,
-                        typed.TypeArguments.Last().Kind,
-                        classMetadata,
-                        usedTypeParamterList
-                    );
-                }
+                return GetFromNode(
+                    node,
+                    typed.TypeArguments.Last().Kind,
+                    classMetadata,
+                    usedTypeParamterList
+                );
             }
-            var nodeClassName = GetClassName(
+
+            return GetClassName(
                 node,
                 classMetadata,
                 usedTypeParamterList
             );
-            return nodeClassName;
         }
 
         private static string GetClassName(
@@ -235,17 +215,15 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 }
             }
             if (classMetadata.TypeIdentifier.Any(a => a == reference.IdentifierStr)
-                || usedTypeParamterList.Any(a => a == reference.IdentifierStr))
+                || usedTypeParamterList.Any(a => a == reference.IdentifierStr)
+            )
             {
-                if (
-                    reference.Parent.Kind == SyntaxKind.TypeReference
+                if (reference.Parent.Kind == SyntaxKind.TypeReference
                     && reference.Parent.Parent.Kind == SyntaxKind.TypeReference
+                    && reference.Parent.Parent is Node parentReference
                 )
                 {
-                    if (reference.Parent.Parent is Node parentReference)
-                    {
-                        return parentReference.IdentifierStr;
-                    }
+                    return parentReference.IdentifierStr;
                 }
                 return GenerationIdentifiedTypes.Object;
             }
