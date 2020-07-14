@@ -22,7 +22,7 @@ namespace BabylonJS
         #endregion
 
         #region Static Methods
-        public static Skeleton Parse(CachedEntity parsedSkeleton, Scene scene)
+        public static Skeleton Parse(object parsedSkeleton, Scene scene)
         {
             return EventHorizonBlazorInteropt.FuncClass<Skeleton>(
                 entity => new Skeleton(entity),

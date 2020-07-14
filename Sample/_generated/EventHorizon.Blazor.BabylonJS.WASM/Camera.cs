@@ -240,7 +240,7 @@ namespace BabylonJS
         }
         #endregion
 
-        public static Camera Parse(CachedEntity parsedCamera, Scene scene)
+        public static Camera Parse(object parsedCamera, Scene scene)
         {
             return EventHorizonBlazorInteropt.FuncClass<Camera>(
                 entity => new Camera(entity),
@@ -1141,7 +1141,7 @@ __rigParent = null;
             );
         }
 
-        public void attachControl(CachedEntity element, System.Nullable<bool> noPreventDefault = null)
+        public void attachControl(object element, System.Nullable<bool> noPreventDefault = null)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -1151,7 +1151,7 @@ __rigParent = null;
             );
         }
 
-        public void detachControl(CachedEntity element)
+        public void detachControl(object element)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -1318,7 +1318,7 @@ __rigParent = null;
             );
         }
 
-        public void setCameraRigMode(decimal mode, CachedEntity rigParams)
+        public void setCameraRigMode(decimal mode, object rigParams)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -1328,7 +1328,7 @@ __rigParent = null;
             );
         }
 
-        public void setCameraRigParameter(string name, CachedEntity value)
+        public void setCameraRigParameter(string name, object value)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

@@ -49,6 +49,7 @@
                 "PointLight",
                 "Grid",
                 "StackPanel",
+                "MeshBuilder",
             };
 
             // Remove any already Generated Source.

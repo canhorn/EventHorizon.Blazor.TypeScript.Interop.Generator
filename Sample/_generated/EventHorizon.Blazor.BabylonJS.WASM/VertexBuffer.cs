@@ -420,7 +420,7 @@ namespace BabylonJS
         }
 
         public VertexBuffer(
-            CachedEntity engine, object data, string kind, bool updatable, System.Nullable<bool> postponeInternalCreation = null, System.Nullable<decimal> stride = null, System.Nullable<bool> instanced = null, System.Nullable<decimal> offset = null, System.Nullable<decimal> size = null, System.Nullable<decimal> type = null, System.Nullable<bool> normalized = null, System.Nullable<bool> useBytes = null, System.Nullable<decimal> divisor = null
+            object engine, object data, string kind, bool updatable, System.Nullable<bool> postponeInternalCreation = null, System.Nullable<decimal> stride = null, System.Nullable<bool> instanced = null, System.Nullable<decimal> offset = null, System.Nullable<decimal> size = null, System.Nullable<decimal> type = null, System.Nullable<bool> normalized = null, System.Nullable<bool> useBytes = null, System.Nullable<decimal> divisor = null
         )
         {
             var entity = EventHorizonBlazorInteropt.New(

@@ -54,7 +54,7 @@ namespace BabylonJS
         }
 
         public Buffer(
-            CachedEntity engine, DataArray data, bool updatable, System.Nullable<decimal> stride = null, System.Nullable<bool> postponeInternalCreation = null, System.Nullable<bool> instanced = null, System.Nullable<bool> useBytes = null, System.Nullable<decimal> divisor = null
+            object engine, DataArray data, bool updatable, System.Nullable<decimal> stride = null, System.Nullable<bool> postponeInternalCreation = null, System.Nullable<bool> instanced = null, System.Nullable<bool> useBytes = null, System.Nullable<decimal> divisor = null
         )
         {
             var entity = EventHorizonBlazorInteropt.New(

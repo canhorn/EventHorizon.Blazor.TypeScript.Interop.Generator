@@ -1199,9 +1199,10 @@ __onBeforeTextureInitObservable = null;
             );
         }
 
-        public CachedEntity recordVertexArrayObject(CachedEntity vertexBuffers, DataBuffer indexBuffer, Effect effect)
+        public WebGLVertexArrayObject recordVertexArrayObject(object vertexBuffers, DataBuffer indexBuffer, Effect effect)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<WebGLVertexArrayObject>(
+                entity => new WebGLVertexArrayObjectCachedEntity(entity),
                 new object[] 
                 {
                     new string[] { this.___guid, "recordVertexArrayObject" }, vertexBuffers, indexBuffer, effect
@@ -1229,7 +1230,7 @@ __onBeforeTextureInitObservable = null;
             );
         }
 
-        public void bindBuffers(CachedEntity vertexBuffers, DataBuffer indexBuffer, Effect effect)
+        public void bindBuffers(object vertexBuffers, DataBuffer indexBuffer, Effect effect)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -1359,7 +1360,7 @@ __onBeforeTextureInitObservable = null;
             );
         }
 
-        public Effect createEffect(CachedEntity baseName, string attributesNamesOrOptions, string uniformsNamesOrEngine, string[] samplers = null, string defines = null, IEffectFallbacks fallbacks = null, Effect onCompiled = null, Effect onError = null, CachedEntity indexParameters = null)
+        public Effect createEffect(object baseName, string attributesNamesOrOptions, string uniformsNamesOrEngine, string[] samplers = null, string defines = null, IEffectFallbacks fallbacks = null, Effect onCompiled = null, Effect onError = null, object indexParameters = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
                 entity => new Effect(entity),

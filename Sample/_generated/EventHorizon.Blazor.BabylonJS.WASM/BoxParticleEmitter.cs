@@ -231,7 +231,7 @@ __maxEmitBox = null;
             );
         }
 
-        public void parse(CachedEntity serializationObject)
+        public void parse(object serializationObject)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

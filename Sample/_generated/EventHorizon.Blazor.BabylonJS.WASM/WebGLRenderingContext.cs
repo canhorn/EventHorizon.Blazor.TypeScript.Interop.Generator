@@ -718,7 +718,7 @@ namespace BabylonJS
             );
         }
 
-        public void bindBufferBase(decimal target, decimal index, WebGLBuffer buffer)
+        public void bindBufferBase(decimal target, decimal index, WebGLBuffer buffer = null)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

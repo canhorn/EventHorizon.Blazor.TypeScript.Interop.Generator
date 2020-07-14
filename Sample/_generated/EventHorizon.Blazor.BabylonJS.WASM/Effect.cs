@@ -370,7 +370,7 @@ __onErrorObservable = null;
         }
 
         public Effect(
-            CachedEntity baseName, string attributesNamesOrOptions, string uniformsNamesOrEngine, string[] samplers = null, ThinEngine engine = null, string defines = null, IEffectFallbacks fallbacks = null, Effect onCompiled = null, Effect onError = null, CachedEntity indexParameters = null
+            object baseName, string attributesNamesOrOptions, string uniformsNamesOrEngine, string[] samplers = null, ThinEngine engine = null, string defines = null, IEffectFallbacks fallbacks = null, Effect onCompiled = null, Effect onError = null, object indexParameters = null
         ) : base()
         {
             var entity = EventHorizonBlazorInteropt.New(

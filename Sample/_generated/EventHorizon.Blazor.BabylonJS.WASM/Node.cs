@@ -32,7 +32,7 @@ namespace BabylonJS
             );
         }
 
-        public static Node Construct(string type, string name, Scene scene, CachedEntity options = null)
+        public static Node Construct(string type, string name, Scene scene, object options = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Node>(
                 entity => new Node(entity),
@@ -43,7 +43,7 @@ namespace BabylonJS
             );
         }
 
-        public static void ParseAnimationRanges(Node node, CachedEntity parsedNode, Scene scene)
+        public static void ParseAnimationRanges(Node node, object parsedNode, Scene scene)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

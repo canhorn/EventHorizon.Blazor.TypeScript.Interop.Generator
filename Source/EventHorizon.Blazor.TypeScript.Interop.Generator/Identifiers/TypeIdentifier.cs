@@ -135,7 +135,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             {
                 return JavaScriptTypes.Observable;
             }
-            if (IsTypeLiteralRule.Check(node))
+            if (IsTypeLiteralRule.Check(node.Last))
             {
                 return GenerationIdentifiedTypes.Object;
             }

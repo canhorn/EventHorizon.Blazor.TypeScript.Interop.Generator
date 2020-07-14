@@ -54,7 +54,7 @@ namespace BabylonJS
             );
         }
 
-        public static Geometry Parse(CachedEntity parsedVertexData, Scene scene, string rootUrl)
+        public static Geometry Parse(object parsedVertexData, Scene scene, string rootUrl)
         {
             return EventHorizonBlazorInteropt.FuncClass<Geometry>(
                 entity => new Geometry(entity),

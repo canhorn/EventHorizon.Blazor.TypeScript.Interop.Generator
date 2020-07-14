@@ -152,9 +152,9 @@ namespace BabylonJS
         }
         #endregion
 
-        public CachedEntity forceCompilationAsync(CachedEntity options = null)
+        public void forceCompilationAsync(object options = null)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "forceCompilationAsync" }, options

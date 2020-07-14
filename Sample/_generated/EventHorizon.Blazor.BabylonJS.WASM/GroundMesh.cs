@@ -22,7 +22,7 @@ namespace BabylonJS
         #endregion
 
         #region Static Methods
-        public static GroundMesh Parse(CachedEntity parsedMesh, Scene scene)
+        public static GroundMesh Parse(object parsedMesh, Scene scene)
         {
             return EventHorizonBlazorInteropt.FuncClass<GroundMesh>(
                 entity => new GroundMesh(entity),
@@ -180,7 +180,7 @@ namespace BabylonJS
             );
         }
 
-        public void serialize(CachedEntity serializationObject)
+        public void serialize(object serializationObject)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

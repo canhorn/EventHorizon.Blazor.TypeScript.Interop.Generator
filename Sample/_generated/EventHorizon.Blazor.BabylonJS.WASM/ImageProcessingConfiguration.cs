@@ -86,7 +86,7 @@ namespace BabylonJS
             );
         }
 
-        public static ImageProcessingConfiguration Parse(CachedEntity source)
+        public static ImageProcessingConfiguration Parse(object source)
         {
             return EventHorizonBlazorInteropt.FuncClass<ImageProcessingConfiguration>(
                 entity => new ImageProcessingConfiguration(entity),

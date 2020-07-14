@@ -5152,7 +5152,7 @@ __actionManager = null;
             );
         }
 
-        public bool addExternalData(string key, CachedEntity data)
+        public bool addExternalData(string key, object data)
         {
             return EventHorizonBlazorInteropt.Func<bool>(
                 new object[] 

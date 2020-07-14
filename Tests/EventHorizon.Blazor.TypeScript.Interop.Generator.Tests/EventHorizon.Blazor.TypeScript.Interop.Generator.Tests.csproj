@@ -38,4 +38,16 @@
         </None>
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="GenerateClassStatementStringTests\Methods\MethodStaticClassWithLiteralInArguments.Expected.txt">
+        <SubType>Code</SubType>
+      </None>
+      <None Update="GenerateClassStatementStringTests\Methods\MethodStaticClassWithLiteralInArguments.ts">
+        <SubType>Code</SubType>
+      </None>
+      <None Update="GenerateClassStatementStringTests\Methods\MethodStaticClass.Expected.txt">
+        <SubType>Code</SubType>
+      </None>
+    </ItemGroup>
+
 </Project>

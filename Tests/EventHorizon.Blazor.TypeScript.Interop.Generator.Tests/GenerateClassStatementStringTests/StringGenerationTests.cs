@@ -15,7 +15,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             string sourceFile,
             string path,
             string expectedFile
-        ) => ValidateGenerateAccessorStrings(
+        ) => ValidateGenerateStrings(
             path,
             sourceFile,
             expectedFile
@@ -32,7 +32,21 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             string sourceFile,
             string path,
             string expectedFile
-        ) => ValidateGenerateAccessorStrings(
+        ) => ValidateGenerateStrings(
+            path,
+            sourceFile,
+            expectedFile
+        );
+
+        [Theory(DisplayName = "StaticMethods")]
+        [Trait("Category", "StringGeneration.StaticMethods")]
+        [InlineData("MethodStaticClass.ts", "Methods", "MethodStaticClass.Expected.txt")]
+        [InlineData("MethodStaticClassWithLiteralInArguments.ts", "Methods", "MethodStaticClassWithLiteralInArguments.Expected.txt")]
+        public void ShouldGenerateStaticMethodStrings(
+            string sourceFile,
+            string path,
+            string expectedFile
+        ) => ValidateGenerateStrings(
             path,
             sourceFile,
             expectedFile
@@ -49,7 +63,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             string sourceFile,
             string path,
             string expectedFile
-        ) => ValidateGenerateAccessorStrings(
+        ) => ValidateGenerateStrings(
             path,
             sourceFile,
             expectedFile
@@ -66,7 +80,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             string sourceFile,
             string path,
             string expectedFile
-        ) => ValidateGenerateAccessorStrings(
+        ) => ValidateGenerateStrings(
             path,
             sourceFile,
             expectedFile
@@ -80,7 +94,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             string sourceFile,
             string path,
             string expectedFile
-        ) => ValidateGenerateAccessorStrings(
+        ) => ValidateGenerateStrings(
             path,
             sourceFile,
             expectedFile

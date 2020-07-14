@@ -64,7 +64,7 @@ namespace BabylonJS
             );
         }
 
-        public static void Parse(CachedEntity jsonData, Scene scene, AssetContainer container, string rootUrl)
+        public static void Parse(object jsonData, Scene scene, AssetContainer container, string rootUrl)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

@@ -56,7 +56,7 @@ namespace BabylonJS
         #endregion
 
         #region Static Methods
-        public static ParticleSystem Parse(CachedEntity parsedParticleSystem, Scene scene, string rootUrl, System.Nullable<bool> doNotStart = null)
+        public static ParticleSystem Parse(object parsedParticleSystem, Scene scene, string rootUrl, System.Nullable<bool> doNotStart = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<ParticleSystem>(
                 entity => new ParticleSystem(entity),
@@ -802,7 +802,7 @@ __onDisposeObservable = null;
             );
         }
 
-        public ParticleSystem clone(string name, CachedEntity newEmitter)
+        public ParticleSystem clone(string name, object newEmitter)
         {
             return EventHorizonBlazorInteropt.FuncClass<ParticleSystem>(
                 entity => new ParticleSystem(entity),

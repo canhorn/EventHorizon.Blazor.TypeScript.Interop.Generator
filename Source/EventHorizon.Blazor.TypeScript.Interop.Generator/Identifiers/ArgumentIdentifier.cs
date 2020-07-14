@@ -30,7 +30,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     if (!UnionTypeIdentifier.Identify(
                         parameter,
                         classMetadata,
-                        methodTypeParameters, 
+                        methodTypeParameters,
                         out type
                     ))
                     {
@@ -39,6 +39,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                             classMetadata,
                             methodTypeParameters
                         );
+                    }
+                    if (type == GenerationIdentifiedTypes.Object)
+                    {
+                        type = GenerationIdentifiedTypes.Literal;
                     }
 
                     return new ArgumentStatement

@@ -675,7 +675,7 @@ __webkitURL = null;
         }
 
         public Everything(
-            string arg1, object arg2, System.Nullable<decimal> arg3 = null, System.Nullable<decimal> arg4 = null, Class3 arg5 = null, CachedEntity arg6 = null
+            string arg1, object arg2, System.Nullable<decimal> arg3 = null, System.Nullable<decimal> arg4 = null, Class3 arg5 = null, object arg6 = null
         ) : base()
         {
             var entity = EventHorizonBlazorInteropt.New(
@@ -697,7 +697,7 @@ __webkitURL = null;
             );
         }
 
-        public void literalTypeArgument(CachedEntity literal)
+        public void literalTypeArgument(object literal)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -803,7 +803,7 @@ __webkitURL = null;
         }
         #endregion
 
-        public Vector2 theOtherMatrix(CachedEntity methodData, CachedEntity classData)
+        public Vector2 theOtherMatrix(object methodData, object classData)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector2>(
                 entity => new Vector2(entity),

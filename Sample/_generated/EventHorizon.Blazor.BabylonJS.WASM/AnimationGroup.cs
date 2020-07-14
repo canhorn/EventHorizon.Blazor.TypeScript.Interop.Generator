@@ -22,7 +22,7 @@ namespace BabylonJS
         #endregion
 
         #region Static Methods
-        public static AnimationGroup Parse(CachedEntity parsedAnimationGroup, Scene scene)
+        public static AnimationGroup Parse(object parsedAnimationGroup, Scene scene)
         {
             return EventHorizonBlazorInteropt.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup(entity),
@@ -398,7 +398,7 @@ __onAnimationGroupPlayObservable = null;
         #endregion
 
         #region Methods
-        public TargetedAnimation addTargetedAnimation(Animation animation, CachedEntity target)
+        public TargetedAnimation addTargetedAnimation(Animation animation, object target)
         {
             return EventHorizonBlazorInteropt.FuncClass<TargetedAnimation>(
                 entity => new TargetedAnimation(entity),

@@ -377,7 +377,7 @@ namespace BabylonJS
         }
         #endregion
 
-        public static Animation Parse(CachedEntity parsedAnimation)
+        public static Animation Parse(object parsedAnimation)
         {
             return EventHorizonBlazorInteropt.FuncClass<Animation>(
                 entity => new Animation(entity),
@@ -388,7 +388,7 @@ namespace BabylonJS
             );
         }
 
-        public static void AppendSerializedAnimations(IAnimatable source, CachedEntity destination)
+        public static void AppendSerializedAnimations(IAnimatable source, object destination)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

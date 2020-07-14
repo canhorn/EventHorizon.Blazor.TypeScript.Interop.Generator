@@ -224,7 +224,7 @@ namespace BabylonJS
         #endregion
 
         #region Static Methods
-        public static Material Parse(CachedEntity parsedMaterial, Scene scene, string rootUrl)
+        public static Material Parse(object parsedMaterial, Scene scene, string rootUrl)
         {
             return EventHorizonBlazorInteropt.FuncClass<Material>(
                 entity => new Material(entity),

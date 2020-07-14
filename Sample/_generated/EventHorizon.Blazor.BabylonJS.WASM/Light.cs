@@ -233,7 +233,7 @@ namespace BabylonJS
             );
         }
 
-        public static Light Parse(CachedEntity parsedLight, Scene scene)
+        public static Light Parse(object parsedLight, Scene scene)
         {
             return EventHorizonBlazorInteropt.FuncClass<Light>(
                 entity => new Light(entity),
@@ -735,7 +735,7 @@ __specular = null;
             );
         }
 
-        public void prepareLightSpecificDefines(CachedEntity defines, decimal lightIndex)
+        public void prepareLightSpecificDefines(object defines, decimal lightIndex)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

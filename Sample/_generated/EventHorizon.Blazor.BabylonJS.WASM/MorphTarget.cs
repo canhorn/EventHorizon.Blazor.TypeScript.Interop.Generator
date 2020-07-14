@@ -22,7 +22,7 @@ namespace BabylonJS
         #endregion
 
         #region Static Methods
-        public static MorphTarget Parse(CachedEntity serializationObject)
+        public static MorphTarget Parse(object serializationObject)
         {
             return EventHorizonBlazorInteropt.FuncClass<MorphTarget>(
                 entity => new MorphTarget(entity),

@@ -96,7 +96,7 @@ namespace BabylonJS
             );
         }
 
-        public CachedEntity serialize(CachedEntity parent)
+        public CachedEntity serialize(object parent)
         {
             return EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

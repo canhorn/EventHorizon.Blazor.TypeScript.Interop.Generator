@@ -260,7 +260,7 @@ namespace BabylonJS
         #endregion
 
         #region Static Methods
-        public static Mesh Parse(CachedEntity parsedMesh, Scene scene, string rootUrl)
+        public static Mesh Parse(object parsedMesh, Scene scene, string rootUrl)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
                 entity => new Mesh(entity),
@@ -326,7 +326,7 @@ namespace BabylonJS
             );
         }
 
-        public static Mesh CreateCylinder(string name, decimal height, decimal diameterTop, decimal diameterBottom, decimal tessellation, CachedEntity subdivisions, Scene scene = null, CachedEntity updatable = null, System.Nullable<decimal> sideOrientation = null)
+        public static Mesh CreateCylinder(string name, decimal height, decimal diameterTop, decimal diameterBottom, decimal tessellation, object subdivisions, Scene scene = null, object updatable = null, System.Nullable<decimal> sideOrientation = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
                 entity => new Mesh(entity),
@@ -381,7 +381,7 @@ namespace BabylonJS
             );
         }
 
-        public static Mesh CreatePolygon(string name, Vector3[] shape, Scene scene, Vector3[] holes = null, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null, CachedEntity earcutInjection = null)
+        public static Mesh CreatePolygon(string name, Vector3[] shape, Scene scene, Vector3[] holes = null, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null, object earcutInjection = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
                 entity => new Mesh(entity),
@@ -392,7 +392,7 @@ namespace BabylonJS
             );
         }
 
-        public static Mesh ExtrudePolygon(string name, Vector3[] shape, decimal depth, Scene scene, Vector3[] holes = null, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null, CachedEntity earcutInjection = null)
+        public static Mesh ExtrudePolygon(string name, Vector3[] shape, decimal depth, Scene scene, Vector3[] holes = null, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null, object earcutInjection = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
                 entity => new Mesh(entity),
@@ -447,9 +447,10 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity CreateTiledGround(string name, decimal xmin, decimal zmin, decimal xmax, decimal zmax, CachedEntity subdivisions, CachedEntity precision, Scene scene, System.Nullable<bool> updatable = null)
+        public static Mesh CreateTiledGround(string name, decimal xmin, decimal zmin, decimal xmax, decimal zmax, object subdivisions, object precision, Scene scene, System.Nullable<bool> updatable = null)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+                entity => new Mesh(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreateTiledGround" }, name, xmin, zmin, xmax, zmax, subdivisions, precision, scene, updatable
@@ -500,9 +501,10 @@ namespace BabylonJS
         }
         #endregion
 
-        public static CachedEntity CreateTube(string name, Vector3[] path, decimal radius, decimal tessellation, CachedEntity radiusFunction, decimal cap, Scene scene, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null, Mesh instance = null)
+        public static Mesh CreateTube(string name, Vector3[] path, decimal radius, decimal tessellation, object radiusFunction, decimal cap, Scene scene, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null, Mesh instance = null)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+                entity => new Mesh(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreateTube" }, name, path, radius, tessellation, radiusFunction, cap, scene, updatable, sideOrientation, instance
@@ -510,9 +512,10 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity CreatePolyhedron(string name, Scene scene, CachedEntity options = null)
+        public static Mesh CreatePolyhedron(string name, object options, Scene scene)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+                entity => new Mesh(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreatePolyhedron" }, name, options, scene
@@ -520,9 +523,10 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity CreateIcoSphere(string name, Scene scene, CachedEntity options = null)
+        public static Mesh CreateIcoSphere(string name, object options, Scene scene)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+                entity => new Mesh(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreateIcoSphere" }, name, options, scene
@@ -551,9 +555,10 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity Center(CachedEntity meshesOrMinMaxVector)
+        public static Vector3 Center(Vector3 meshesOrMinMaxVector)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<Vector3>(
+                entity => new Vector3(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "Center" }, meshesOrMinMaxVector
@@ -1834,7 +1839,7 @@ __morphTargetManager = null;
         }
         #endregion
 
-        public void serialize(CachedEntity serializationObject)
+        public void serialize(object serializationObject)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

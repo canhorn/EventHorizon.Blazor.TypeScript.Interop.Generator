@@ -42,7 +42,7 @@ namespace BabylonJS
             );
         }
 
-        public static ColorCurves Parse(CachedEntity source)
+        public static ColorCurves Parse(object source)
         {
             return EventHorizonBlazorInteropt.FuncClass<ColorCurves>(
                 entity => new ColorCurves(entity),

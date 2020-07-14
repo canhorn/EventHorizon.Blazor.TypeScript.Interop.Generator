@@ -122,7 +122,7 @@ namespace BabylonJS
         }
 
         public RuntimeAnimation(
-            CachedEntity target, Animation animation, Scene scene, Animatable host
+            object target, Animation animation, Scene scene, Animatable host
         )
         {
             var entity = EventHorizonBlazorInteropt.New(
@@ -164,7 +164,7 @@ namespace BabylonJS
             );
         }
 
-        public void setValue(CachedEntity currentValue, decimal weight)
+        public void setValue(object currentValue, decimal weight)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

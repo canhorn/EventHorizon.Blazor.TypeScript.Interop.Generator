@@ -533,7 +533,7 @@ namespace BabylonJS
             );
         }
 
-        public static void PerspectiveFovWebVRToRef(CachedEntity fov, decimal znear, decimal zfar, Matrix result, System.Nullable<bool> rightHanded = null)
+        public static void PerspectiveFovWebVRToRef(object fov, decimal znear, decimal zfar, Matrix result, System.Nullable<bool> rightHanded = null)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

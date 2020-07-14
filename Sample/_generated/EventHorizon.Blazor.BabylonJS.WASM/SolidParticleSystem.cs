@@ -535,7 +535,7 @@ __mesh = null;
         }
 
         public SolidParticleSystem(
-            string name, Scene scene, CachedEntity options = null
+            string name, Scene scene, object options = null
         ) : base()
         {
             var entity = EventHorizonBlazorInteropt.New(
@@ -558,9 +558,10 @@ __mesh = null;
             );
         }
 
-        public CachedEntity digest(Mesh mesh, CachedEntity options = null)
+        public SolidParticleSystem digest(Mesh mesh, object options = null)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<SolidParticleSystem>(
+                entity => new SolidParticleSystem(entity),
                 new object[] 
                 {
                     new string[] { this.___guid, "digest" }, mesh, options
@@ -568,7 +569,7 @@ __mesh = null;
             );
         }
 
-        public decimal addShape(Mesh mesh, decimal nb, CachedEntity options = null)
+        public decimal addShape(Mesh mesh, decimal nb, object options = null)
         {
             return EventHorizonBlazorInteropt.Func<decimal>(
                 new object[] 

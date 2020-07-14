@@ -411,7 +411,7 @@ __onAnimationLoopObservable = null;
             );
         }
 
-        public void appendAnimations(CachedEntity target, Animation[] animations)
+        public void appendAnimations(object target, Animation[] animations)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

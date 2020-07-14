@@ -90,9 +90,10 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity CreateRibbon(CachedEntity options = null)
+        public static VertexData CreateRibbon(object options)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+                entity => new VertexData(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateRibbon" }, options
@@ -100,9 +101,10 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity CreateBox(CachedEntity options = null)
+        public static VertexData CreateBox(object options)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+                entity => new VertexData(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateBox" }, options
@@ -110,9 +112,10 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity CreateTiledBox(CachedEntity options = null)
+        public static VertexData CreateTiledBox(object options)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+                entity => new VertexData(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateTiledBox" }, options
@@ -120,9 +123,10 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity CreateTiledPlane(CachedEntity options = null)
+        public static VertexData CreateTiledPlane(object options)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+                entity => new VertexData(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateTiledPlane" }, options
@@ -130,9 +134,10 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity CreateSphere(CachedEntity options = null)
+        public static VertexData CreateSphere(object options)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+                entity => new VertexData(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateSphere" }, options
@@ -140,9 +145,10 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity CreateCylinder(CachedEntity options = null)
+        public static VertexData CreateCylinder(object options)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+                entity => new VertexData(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateCylinder" }, options
@@ -150,9 +156,10 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity CreateTorus(CachedEntity options = null)
+        public static VertexData CreateTorus(object options)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+                entity => new VertexData(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateTorus" }, options
@@ -160,9 +167,10 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity CreateLineSystem(CachedEntity options = null)
+        public static VertexData CreateLineSystem(object options)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+                entity => new VertexData(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateLineSystem" }, options
@@ -170,9 +178,10 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity CreateDashedLines(CachedEntity options = null)
+        public static VertexData CreateDashedLines(object options)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+                entity => new VertexData(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateDashedLines" }, options
@@ -180,9 +189,10 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity CreateGround(CachedEntity options = null)
+        public static VertexData CreateGround(object options)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+                entity => new VertexData(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateGround" }, options
@@ -190,9 +200,10 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity CreateTiledGround(CachedEntity options = null)
+        public static VertexData CreateTiledGround(object options)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+                entity => new VertexData(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateTiledGround" }, options
@@ -200,9 +211,10 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity CreateGroundFromHeightMap(CachedEntity options)
+        public static VertexData CreateGroundFromHeightMap(object options)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+                entity => new VertexData(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateGroundFromHeightMap" }, options
@@ -210,9 +222,10 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity CreatePlane(CachedEntity options = null)
+        public static VertexData CreatePlane(object options)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+                entity => new VertexData(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreatePlane" }, options
@@ -220,9 +233,10 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity CreateDisc(CachedEntity options = null)
+        public static VertexData CreateDisc(object options)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+                entity => new VertexData(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateDisc" }, options
@@ -241,9 +255,10 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity CreateIcoSphere(CachedEntity options = null)
+        public static VertexData CreateIcoSphere(object options)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+                entity => new VertexData(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateIcoSphere" }, options
@@ -251,9 +266,10 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity CreatePolyhedron(CachedEntity options = null)
+        public static VertexData CreatePolyhedron(object options)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+                entity => new VertexData(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreatePolyhedron" }, options
@@ -261,9 +277,10 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity CreateTorusKnot(CachedEntity options = null)
+        public static VertexData CreateTorusKnot(object options)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+                entity => new VertexData(entity),
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateTorusKnot" }, options
@@ -271,7 +288,7 @@ namespace BabylonJS
             );
         }
 
-        public static void ComputeNormals(CachedEntity positions, CachedEntity indices, CachedEntity normals, CachedEntity options = null)
+        public static void ComputeNormals(object positions, object indices, object normals, object options = null)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -281,7 +298,7 @@ namespace BabylonJS
             );
         }
 
-        public static void ImportVertexData(CachedEntity parsedVertexData, Geometry geometry)
+        public static void ImportVertexData(object parsedVertexData, Geometry geometry)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

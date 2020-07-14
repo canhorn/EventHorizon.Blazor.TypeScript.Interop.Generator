@@ -223,7 +223,7 @@ namespace BabylonJS
             );
         }
 
-        public bool notifyObservers(CachedEntity eventData, System.Nullable<decimal> mask = null, CachedEntity target = null, CachedEntity currentTarget = null)
+        public bool notifyObservers(object eventData, System.Nullable<decimal> mask = null, object target = null, object currentTarget = null)
         {
             return EventHorizonBlazorInteropt.Func<bool>(
                 new object[] 
@@ -233,7 +233,7 @@ namespace BabylonJS
             );
         }
 
-        public Task notifyObserversWithPromise(CachedEntity eventData, System.Nullable<decimal> mask = null, CachedEntity target = null, CachedEntity currentTarget = null)
+        public Task notifyObserversWithPromise(object eventData, System.Nullable<decimal> mask = null, object target = null, object currentTarget = null)
         {
             return EventHorizonBlazorInteropt.Func<Task>(
                 new object[] 
@@ -243,7 +243,7 @@ namespace BabylonJS
             );
         }
 
-        public void notifyObserver(Observer observer, CachedEntity eventData, System.Nullable<decimal> mask = null)
+        public void notifyObserver(Observer observer, object eventData, System.Nullable<decimal> mask = null)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

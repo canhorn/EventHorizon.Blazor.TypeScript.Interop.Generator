@@ -6,7 +6,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
 {
     public class GenerateStringTestBase
     {
-        public void ValidateGenerateAccessorStrings(
+        public void ValidateGenerateStrings(
             string path,
             string sourceFile,
             string expectedFile

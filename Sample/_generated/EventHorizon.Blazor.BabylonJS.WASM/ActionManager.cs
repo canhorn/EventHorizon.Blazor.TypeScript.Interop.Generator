@@ -224,7 +224,7 @@ namespace BabylonJS
         #endregion
 
         #region Static Methods
-        public static void Parse(CachedEntity parsedActions, AbstractMesh @object, Scene scene)
+        public static void Parse(object parsedActions, AbstractMesh @object, Scene scene)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

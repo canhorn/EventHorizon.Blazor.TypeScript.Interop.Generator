@@ -166,7 +166,7 @@ __direction = null;
             );
         }
 
-        public void prepareLightSpecificDefines(CachedEntity defines, decimal lightIndex)
+        public void prepareLightSpecificDefines(object defines, decimal lightIndex)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

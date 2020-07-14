@@ -134,7 +134,7 @@ __attached = null;
         }
 
         public CameraInputsManager(
-            CachedEntity camera
+            object camera
         )
         {
             var entity = EventHorizonBlazorInteropt.New(
@@ -230,7 +230,7 @@ __attached = null;
             );
         }
 
-        public void attachElement(CachedEntity element, System.Nullable<bool> noPreventDefault = null)
+        public void attachElement(object element, System.Nullable<bool> noPreventDefault = null)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -240,7 +240,7 @@ __attached = null;
             );
         }
 
-        public void detachElement(CachedEntity element, System.Nullable<bool> disconnect = null)
+        public void detachElement(object element, System.Nullable<bool> disconnect = null)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -270,7 +270,7 @@ __attached = null;
             );
         }
 
-        public void serialize(CachedEntity serializedCamera)
+        public void serialize(object serializedCamera)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -280,7 +280,7 @@ __attached = null;
             );
         }
 
-        public void parse(CachedEntity parsedCamera)
+        public void parse(object parsedCamera)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

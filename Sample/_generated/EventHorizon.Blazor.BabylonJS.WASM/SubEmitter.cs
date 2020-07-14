@@ -22,7 +22,7 @@ namespace BabylonJS
         #endregion
 
         #region Static Methods
-        public static SubEmitter Parse(CachedEntity serializationObject, Scene scene, string rootUrl)
+        public static SubEmitter Parse(object serializationObject, Scene scene, string rootUrl)
         {
             return EventHorizonBlazorInteropt.FuncClass<SubEmitter>(
                 entity => new SubEmitter(entity),

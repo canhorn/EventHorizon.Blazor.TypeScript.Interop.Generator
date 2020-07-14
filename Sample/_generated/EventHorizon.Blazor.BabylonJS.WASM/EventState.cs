@@ -147,7 +147,7 @@ namespace BabylonJS
         }
 
         public EventState(
-            decimal mask, System.Nullable<bool> skipNextObservers = null, CachedEntity target = null, CachedEntity currentTarget = null
+            decimal mask, System.Nullable<bool> skipNextObservers = null, object target = null, object currentTarget = null
         )
         {
             var entity = EventHorizonBlazorInteropt.New(
@@ -159,7 +159,7 @@ namespace BabylonJS
         #endregion
 
         #region Methods
-        public EventState initalize(decimal mask, System.Nullable<bool> skipNextObservers = null, CachedEntity target = null, CachedEntity currentTarget = null)
+        public EventState initalize(decimal mask, System.Nullable<bool> skipNextObservers = null, object target = null, object currentTarget = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<EventState>(
                 entity => new EventState(entity),

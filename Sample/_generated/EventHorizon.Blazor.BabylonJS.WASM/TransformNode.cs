@@ -146,7 +146,7 @@ namespace BabylonJS
         #endregion
 
         #region Static Methods
-        public static TransformNode Parse(CachedEntity parsedTransformNode, Scene scene, string rootUrl)
+        public static TransformNode Parse(object parsedTransformNode, Scene scene, string rootUrl)
         {
             return EventHorizonBlazorInteropt.FuncClass<TransformNode>(
                 entity => new TransformNode(entity),
@@ -1113,7 +1113,7 @@ __onAfterWorldMatrixUpdateObservable = null;
             );
         }
 
-        public CachedEntity serialize(CachedEntity currentSerializationObject = null)
+        public CachedEntity serialize(object currentSerializationObject = null)
         {
             return EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

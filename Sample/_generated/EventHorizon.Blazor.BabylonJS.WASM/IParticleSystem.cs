@@ -1291,7 +1291,7 @@ __noiseStrength = null;
             );
         }
 
-        public IParticleSystem clone(string name, CachedEntity newEmitter)
+        public IParticleSystem clone(string name, object newEmitter)
         {
             return EventHorizonBlazorInteropt.FuncClass<IParticleSystem>(
                 entity => new IParticleSystemCachedEntity(entity),

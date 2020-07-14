@@ -1,0 +1,62 @@
+﻿/// Generated - Do Not Edit
+namespace Static.Class
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter))]
+    public class ExampleClass : CachedEntityObject
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+        public static GroundMesh CreateGroundFromHeightMap(string name, string url, object options, Scene scene = null)
+        {
+            return EventHorizonBlazorInteropt.FuncClass<GroundMesh>(
+                entity => new GroundMesh(entity),
+                new object[] 
+                {
+                    new string[] { "Static", "Class", "ExampleClass", "CreateGroundFromHeightMap" }, name, url, options, scene
+                }
+            );
+        }
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { } 
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+
+        #endregion
+
+        #region Methods
+
+        #endregion
+    }
+}

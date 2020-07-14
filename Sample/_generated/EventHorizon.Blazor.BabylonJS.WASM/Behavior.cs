@@ -75,7 +75,7 @@ namespace BabylonJS
             );
         }
 
-        public void attach(CachedEntity target)
+        public void attach(object target)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

@@ -350,7 +350,7 @@ __inputs = null;
         }
         #endregion
 
-        public void attachControl(CachedEntity element, System.Nullable<bool> noPreventDefault = null)
+        public void attachControl(object element, System.Nullable<bool> noPreventDefault = null)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -360,7 +360,7 @@ __inputs = null;
             );
         }
 
-        public void detachControl(CachedEntity element)
+        public void detachControl(object element)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

@@ -22,7 +22,7 @@ namespace BabylonJS
         #endregion
 
         #region Static Methods
-        public static MorphTargetManager Parse(CachedEntity serializationObject, Scene scene)
+        public static MorphTargetManager Parse(object serializationObject, Scene scene)
         {
             return EventHorizonBlazorInteropt.FuncClass<MorphTargetManager>(
                 entity => new MorphTargetManager(entity),

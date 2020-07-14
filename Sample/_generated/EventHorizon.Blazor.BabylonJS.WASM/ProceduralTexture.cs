@@ -152,7 +152,7 @@ __onGeneratedObservable = null;
         }
 
         public ProceduralTexture(
-            string name, CachedEntity size, CachedEntity fragment, Scene scene, Texture fallbackTexture = null, System.Nullable<bool> generateMipMaps = null, System.Nullable<bool> isCube = null
+            string name, object size, object fragment, Scene scene, Texture fallbackTexture = null, System.Nullable<bool> generateMipMaps = null, System.Nullable<bool> isCube = null
         ) : base()
         {
             var entity = EventHorizonBlazorInteropt.New(
@@ -260,7 +260,7 @@ __onGeneratedObservable = null;
             );
         }
 
-        public void setFragment(CachedEntity fragment)
+        public void setFragment(object fragment)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

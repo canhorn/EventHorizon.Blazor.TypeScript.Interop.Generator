@@ -13,8 +13,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Rules
             Node node
         )
         {
-            return node.OfKind(SyntaxKind.QuestionToken).Any()
-                || node.OfKind(SyntaxKind.UndefinedKeyword).Any();
+            var nodes = node.Children
+                .Where(a => a.Kind != SyntaxKind.TypeLiteral);
+            return nodes.Any(a => a.Kind == SyntaxKind.QuestionToken || a.OfKind(SyntaxKind.QuestionToken).Any())
+                || nodes.Any(a => a.Kind == SyntaxKind.UndefinedKeyword || a.OfKind(SyntaxKind.UndefinedKeyword).Any())
+                || nodes.Any(a => a.Kind == SyntaxKind.NullKeyword || a.OfKind(SyntaxKind.NullKeyword).Any());
         }
     }
 }

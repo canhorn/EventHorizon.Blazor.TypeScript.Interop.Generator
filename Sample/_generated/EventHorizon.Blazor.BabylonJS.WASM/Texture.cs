@@ -398,7 +398,7 @@ namespace BabylonJS
         #endregion
 
         #region Static Methods
-        public static BaseTexture Parse(CachedEntity parsedTexture, Scene scene, string rootUrl)
+        public static BaseTexture Parse(object parsedTexture, Scene scene, string rootUrl)
         {
             return EventHorizonBlazorInteropt.FuncClass<BaseTexture>(
                 entity => new BaseTexture(entity),

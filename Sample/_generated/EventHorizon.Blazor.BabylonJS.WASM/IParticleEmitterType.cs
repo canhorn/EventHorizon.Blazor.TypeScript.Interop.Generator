@@ -117,7 +117,7 @@ namespace BabylonJS
             );
         }
 
-        public void parse(CachedEntity serializationObject, Scene scene)
+        public void parse(object serializationObject, Scene scene)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

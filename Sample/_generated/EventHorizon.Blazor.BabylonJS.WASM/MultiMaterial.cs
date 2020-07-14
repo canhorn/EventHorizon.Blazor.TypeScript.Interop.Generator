@@ -22,7 +22,7 @@ namespace BabylonJS
         #endregion
 
         #region Static Methods
-        public static MultiMaterial ParseMultiMaterial(CachedEntity parsedMultiMaterial, Scene scene)
+        public static MultiMaterial ParseMultiMaterial(object parsedMultiMaterial, Scene scene)
         {
             return EventHorizonBlazorInteropt.FuncClass<MultiMaterial>(
                 entity => new MultiMaterial(entity),
