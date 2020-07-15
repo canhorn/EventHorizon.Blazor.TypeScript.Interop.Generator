@@ -851,7 +851,16 @@ __onLoadObservable = null;
         {
         }
 
-
+        public Texture(
+            object sceneOrEngine, string url = null, System.Nullable<bool> noMipmap = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, CachedEntity onLoad = null, CachedEntity onError = null, string buffer = null, System.Nullable<bool> deleteBuffer = null, System.Nullable<decimal> format = null, string mimeType = null
+        ) : base()
+        {
+            var entity = EventHorizonBlazorInteropt.New(
+                new string[] { "BABYLON", "Texture" },
+                url, sceneOrEngine, noMipmap, invertY, samplingMode, onLoad, onError, buffer, deleteBuffer, format, mimeType
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods

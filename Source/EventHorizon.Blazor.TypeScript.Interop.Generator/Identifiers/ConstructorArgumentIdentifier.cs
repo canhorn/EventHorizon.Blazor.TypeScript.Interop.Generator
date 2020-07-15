@@ -26,23 +26,29 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     constructor,
                     classMetadata
                 );
-                if (!ContainsActionArgument(list))
-                {
-                    return list;
-                }
+                return ConvertActionToObject(
+                    list
+                );
 
             }
 
             return EMTPY;
         }
 
-        private static bool ContainsActionArgument(
+        private static IList<ArgumentStatement> ConvertActionToObject(
             IList<ArgumentStatement> list
         )
         {
-            return list.Any(
-                a => a.Type == GenerationIdentifiedTypes.Action
-            );
+            return list.Select(
+                a =>
+                {
+                    if (a.Type == GenerationIdentifiedTypes.Action)
+                    {
+                        a.Type = GenerationIdentifiedTypes.Object;
+                    }
+                    return a;
+                }
+            ).ToList();
         }
     }
 }

@@ -104,7 +104,16 @@ namespace BabylonJS
             ___guid = entity.___guid;
         }
 
-
+        public AnimationEvent(
+            decimal frame, CachedEntity action, System.Nullable<bool> onlyOnce = null
+        )
+        {
+            var entity = EventHorizonBlazorInteropt.New(
+                new string[] { "BABYLON", "AnimationEvent" },
+                frame, action, onlyOnce
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods

@@ -297,7 +297,16 @@ __onAnimationLoopObservable = null;
             ___guid = entity.___guid;
         }
 
-
+        public Animatable(
+            Scene scene, object target, System.Nullable<decimal> fromFrame = null, System.Nullable<decimal> toFrame = null, System.Nullable<bool> loopAnimation = null, System.Nullable<decimal> speedRatio = null, CachedEntity onAnimationEnd = null, Animation[] animations = null, CachedEntity onAnimationLoop = null
+        )
+        {
+            var entity = EventHorizonBlazorInteropt.New(
+                new string[] { "BABYLON", "Animatable" },
+                scene, target, fromFrame, toFrame, loopAnimation, speedRatio, onAnimationEnd, animations, onAnimationLoop
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods

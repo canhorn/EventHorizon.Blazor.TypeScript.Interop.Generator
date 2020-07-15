@@ -1,0 +1,82 @@
+﻿/// Generated - Do Not Edit
+namespace Static.Class
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter))]
+    public class ExampleClass : CachedEntityObject
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { } 
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+
+        #endregion
+
+        #region Methods
+        public Style nullableClassStyle()
+        {
+            return EventHorizonBlazorInteropt.FuncClass<Style>(
+                entity => new Style(entity),
+                new object[] 
+                {
+                    new string[] { this.___guid, "nullableClassStyle" }
+                }
+            );
+        }
+
+        public decimal nullableGenericNumber()
+        {
+            return EventHorizonBlazorInteropt.Func<decimal>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "nullableGenericNumber" }
+                }
+            );
+        }
+
+        public void orderNullArguments(Animatable[] animatables, Scene scene = null, Node targetConverter = null)
+        {
+            EventHorizonBlazorInteropt.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "orderNullArguments" }, scene, animatables, targetConverter
+                }
+            );
+        }
+        #endregion
+    }
+}

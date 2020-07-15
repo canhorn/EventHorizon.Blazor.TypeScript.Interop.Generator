@@ -1,0 +1,100 @@
+/// Generated - Do Not Edit
+namespace Static.Primitive
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter))]
+    public class ExampleClass : CachedEntityObject
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+
+        #region Accessors
+        private AbstractMesh __linkedMesh;
+        public AbstractMesh linkedMesh
+        {
+            get
+            {
+            if(__linkedMesh == null)
+            {
+                __linkedMesh = EventHorizonBlazorInteropt.GetClass<AbstractMesh>(
+                    this.___guid,
+                    "linkedMesh",
+                    (entity) =>
+                    {
+                        return new AbstractMesh(entity);
+                    }
+                );
+            }
+            return __linkedMesh;
+            }
+        }
+
+        private Style __style;
+        public Style style
+        {
+            get
+            {
+            if(__style == null)
+            {
+                __style = EventHorizonBlazorInteropt.GetClass<Style>(
+                    this.___guid,
+                    "style",
+                    (entity) =>
+                    {
+                        return new Style(entity);
+                    }
+                );
+            }
+            return __style;
+            }
+            set
+            {
+__style = null;
+                EventHorizonBlazorInteropt.Set(
+                    this.___guid,
+                    "style",
+                    value
+                );
+            }
+        }
+        #endregion
+
+        #region Properties
+
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { } 
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+
+        #endregion
+
+        #region Methods
+
+        #endregion
+    }
+}

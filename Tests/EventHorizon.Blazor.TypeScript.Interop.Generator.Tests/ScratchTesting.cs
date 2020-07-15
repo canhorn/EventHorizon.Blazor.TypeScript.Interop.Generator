@@ -10,7 +10,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
 {
     public class StractTesting
     {
-        [Fact(Skip = "only for testing")]
+        //[Fact(Skip = "only for testing")]
         public void ShouldTesting()
         {
             // Given
@@ -34,7 +34,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
 
         }
 
-        [Fact(Skip = "only for testing")]
+        //[Fact(Skip = "only for testing")]
         public void ShoudlGenerateExpectedButton()
         {
             // Given
@@ -162,7 +162,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
                 );
         }
 
-        [Fact(Skip = "only for testing")]
+        //[Fact(Skip = "only for testing")]
         public void ShouldGenerateExpectedControl()
         {
             // Given
@@ -796,86 +796,5 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
                     }
                 );
         }
-
-        string expected = @"/// Generated - Do Not Edit
-namespace BabylonJS.GUI
-{
-    using EventHorizon.Blazor.Interop;
-
-    public class Button : ICachedEntity
-    {
-        public decimal Width
-        {
-            get
-            {
-                return EventHorizonBlazorInteropt.Get<decimal>(
-                    this.___guid,
-                    ""width""
-                );
-            }
-            set
-            {
-                EventHorizonBlazorInteropt.Set(
-                    this,
-                    ""width"",
-                    value
-                );
-            }
-        }
-        public string Height
-        {
-            get
-            {
-                return EventHorizonBlazorInteropt.Get<string>(
-                    this.___guid,
-                    ""height""
-                );
-            }
-            set
-            {
-                EventHorizonBlazorInteropt.Set(
-                    this,
-                    ""height"",
-                    value
-                );
-            }
-        }
-
-        private Observable _onPointerClickObservable;
-        public Observable OnPointerClickObservable
-        {
-            get
-            {
-                if (_onPointerClickObservable == null)
-                {
-                    _onPointerClickObservable = Observable.Create(
-                        ___guid,
-                        ""onPointerClickObservable""
-                    );
-                }
-                return _onPointerClickObservable;
-            }
-        }
-
-        public static Button CreateSimpleButton(
-            string name,
-            string text
-        ) => new Button(
-            EventHorizonBlazorInteropt.Func(
-                new string[] { ""BABYLON"", ""GUI"", ""Button"", ""CreateSimpleButton"" },
-                name,
-                text
-            )
-        );
-
-        private Button(
-            ICachedEntity entity
-        )
-        {
-            ___guid = entity.___guid;
-        }
-    }
-}
-";
     }
 }

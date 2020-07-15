@@ -1,0 +1,80 @@
+/// Generated - Do Not Edit
+namespace Static.Primitive
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter))]
+    public class ExampleClass : CachedEntityObject
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+        private URL __webkitURL;
+        public URL webkitURL
+        {
+            get
+            {
+            if(__webkitURL == null)
+            {
+                __webkitURL = EventHorizonBlazorInteropt.GetClass<URL>(
+                    this.___guid,
+                    "webkitURL",
+                    (entity) =>
+                    {
+                        return new URL(entity);
+                    }
+                );
+            }
+            return __webkitURL;
+            }
+            set
+            {
+__webkitURL = null;
+                EventHorizonBlazorInteropt.Set(
+                    this.___guid,
+                    "webkitURL",
+                    value
+                );
+            }
+        }
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { } 
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+
+        #endregion
+
+        #region Methods
+
+        #endregion
+    }
+}

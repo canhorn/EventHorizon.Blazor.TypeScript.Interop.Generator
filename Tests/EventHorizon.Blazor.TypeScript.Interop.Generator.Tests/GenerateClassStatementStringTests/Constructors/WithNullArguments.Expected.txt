@@ -1,0 +1,62 @@
+/// Generated - Do Not Edit
+namespace Examples
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter))]
+    public class ExampleClass : CachedEntityObject
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { } 
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+        public ExampleClass(
+            string arg1, object arg2, System.Nullable<decimal> arg3 = null, System.Nullable<decimal> arg4 = null, Class3 arg5 = null, object arg6 = null
+        )
+        {
+            var entity = EventHorizonBlazorInteropt.New(
+                new string[] { "Examples", "ExampleClass" },
+                arg1, arg2, arg3, arg4, arg5, arg6
+            );
+            ___guid = entity.___guid;
+        }
+        #endregion
+
+        #region Methods
+
+        #endregion
+    }
+}

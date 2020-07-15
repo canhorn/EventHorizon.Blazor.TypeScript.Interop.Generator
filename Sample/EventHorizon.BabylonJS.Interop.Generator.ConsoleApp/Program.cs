@@ -52,6 +52,8 @@
                 "Grid",
                 "StackPanel",
                 "MeshBuilder",
+                "StandardMaterial",
+                "Texture",
             };
 
             // Remove any already Generated Source.

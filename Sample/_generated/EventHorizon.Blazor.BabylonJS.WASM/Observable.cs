@@ -57,7 +57,16 @@ namespace BabylonJS
             ___guid = entity.___guid;
         }
 
-
+        public Observable(
+            CachedEntity onObserverAdded = null
+        )
+        {
+            var entity = EventHorizonBlazorInteropt.New(
+                new string[] { "BABYLON", "Observable" },
+                onObserverAdded
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods

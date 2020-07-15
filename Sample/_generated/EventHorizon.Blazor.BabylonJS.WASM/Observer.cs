@@ -104,7 +104,16 @@ namespace BabylonJS
             ___guid = entity.___guid;
         }
 
-
+        public Observer(
+            CachedEntity callback, decimal mask, object scope = null
+        )
+        {
+            var entity = EventHorizonBlazorInteropt.New(
+                new string[] { "BABYLON", "Observer" },
+                callback, mask, scope
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods
