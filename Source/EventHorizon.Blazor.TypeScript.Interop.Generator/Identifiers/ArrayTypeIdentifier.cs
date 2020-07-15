@@ -17,29 +17,24 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             ClassMetadata classMetadata
         )
         {
-            if (IsArrayResponseTypeRule.Check(node))
+            if (!IsArrayResponseTypeRule.Check(node.Last))
             {
-                if (!IsArrayResponseTypeRule.Check(node.Last))
+                if (JavaScriptTypes.NumberArrayTypes.Any(
+                    a => a == node.Last.IdentifierStr
+                ))
                 {
-                    if (JavaScriptTypes.NumberArrayTypes.Any(
-                        a => a == node.Last.IdentifierStr
-                    ))
-                    {
-                        return GenerationIdentifiedTypes.Number;
-                    }
-
-                    return TypeIdentifier.Identify(
-                        node.Last,
-                        classMetadata,
-                        TypeParameterIdentifier.Identify(node)
-                    );
+                    return GenerationIdentifiedTypes.Number;
                 }
-                return Identify(
+                return TypeIdentifier.Identify(
                     node.Last,
-                    classMetadata
+                    classMetadata,
+                    TypeParameterIdentifier.Identify(node)
                 );
             }
-            return GenerationIdentifiedTypes.Object;
+            return Identify(
+                node.Last,
+                classMetadata
+            );
         }
     }
 }

@@ -20,10 +20,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             IList<string> usedTypeParamterList
         )
         {
-            if (node.Last == null)
-            {
-                return GenerationIdentifiedTypes.Unknown;
-            }
             var type = GetFromNode(
                 node,
                 node.Last.Kind,

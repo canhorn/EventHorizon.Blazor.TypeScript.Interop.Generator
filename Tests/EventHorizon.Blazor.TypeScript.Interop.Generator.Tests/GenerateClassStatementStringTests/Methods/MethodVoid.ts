@@ -3,5 +3,6 @@
         javaScriptApiFunctionClass: Function;
         literalTypeArgument(literal: { prop1: string }): void;
         makeObserverTopPriority(observer: Observer<T>): void;
+        voidInArguments(observer: void): void;
     }
 }

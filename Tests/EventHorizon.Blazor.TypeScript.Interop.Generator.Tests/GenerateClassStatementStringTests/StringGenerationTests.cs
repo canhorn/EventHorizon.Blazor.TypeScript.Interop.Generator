@@ -109,6 +109,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
         [InlineData("GenericObserver.ts", "Accessors", "Scenarios", "GenericObserver.Expected.txt")]
         [InlineData("NullableTyping.ts", "Accessors", "Scenarios", "NullableTyping.Expected.txt")]
         [InlineData("InterfaceResponse.ts", "Accessors", "Scenarios", "InterfaceResponse.Expected.txt")]
+        [InlineData("StaticRootNamespace.ts", "Accessors", "Scenarios", "StaticRootNamespace.Expected.txt")]
         public void ShouldGenerateAccessorScenarioStrings(
             string sourceFile,
             string rootPath,
@@ -153,7 +154,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
         );
 
         [Theory(DisplayName = "ArrayTypes")]
-        [Trait("Category", "StringGeneration.ArrayTypes")]
+        [Trait("Category", "StringGeneration.Properties.ArrayTypes")]
         [InlineData("PropertyArrayTypes.ts", "Properties", "PropertyArrayTypes.Expected.txt")]
         public void ShouldGenerateArrayTypeStrings(
             string sourceFile,
