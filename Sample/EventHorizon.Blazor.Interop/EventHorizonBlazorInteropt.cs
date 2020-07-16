@@ -1,4 +1,4 @@
-﻿namespace EventHorizon.Blazor.Interop
+namespace EventHorizon.Blazor.Interop
 {
     using System;
     using System.Collections.Generic;

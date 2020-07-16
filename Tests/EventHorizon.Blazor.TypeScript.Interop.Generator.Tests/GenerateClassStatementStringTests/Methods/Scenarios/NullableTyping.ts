@@ -1,4 +1,4 @@
-﻿declare module Static.Class {
+declare module Static.Class {
     export class ExampleClass {
         nullableClassStyle(): Nullable<Style>;
         nullableGenericNumber(): Nullable<number>;

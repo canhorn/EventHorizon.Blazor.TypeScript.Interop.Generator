@@ -1,4 +1,4 @@
-﻿declare module Static.Class {
+declare module Static.Class {
     export class ExampleClass<T> {
         javaScriptApiFunctionClass: Function;
         literalTypeArgument(literal: { prop1: string }): void;

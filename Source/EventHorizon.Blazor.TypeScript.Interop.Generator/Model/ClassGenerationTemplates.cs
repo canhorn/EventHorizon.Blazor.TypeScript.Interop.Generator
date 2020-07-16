@@ -1,4 +1,4 @@
-﻿namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model
+namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model
 {
     public class ClassGenerationTemplates
     {

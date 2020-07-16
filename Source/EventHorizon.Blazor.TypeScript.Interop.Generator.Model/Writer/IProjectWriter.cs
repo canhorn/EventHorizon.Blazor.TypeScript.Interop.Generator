@@ -1,4 +1,4 @@
-﻿namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Writer
+namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Writer
 {
     using System.Collections.Generic;
 

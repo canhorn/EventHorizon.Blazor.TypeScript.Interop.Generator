@@ -1,1 +1,1 @@
-﻿            [[RETURN_TYPE_CONTENT]];
+            [[RETURN_TYPE_CONTENT]];

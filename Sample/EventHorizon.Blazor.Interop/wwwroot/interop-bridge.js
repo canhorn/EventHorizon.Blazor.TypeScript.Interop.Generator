@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
     const refCache = [];
     const argumentCache = new Map();
     const methodCache = new Map();

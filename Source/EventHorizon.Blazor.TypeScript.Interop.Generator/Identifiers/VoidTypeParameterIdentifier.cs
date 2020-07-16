@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
 using Sdcb.TypeScript.TsTypes;
 

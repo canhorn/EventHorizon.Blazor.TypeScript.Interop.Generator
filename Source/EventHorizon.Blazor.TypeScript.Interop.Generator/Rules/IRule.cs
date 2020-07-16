@@ -1,4 +1,4 @@
-﻿using Sdcb.TypeScript.TsTypes;
+using Sdcb.TypeScript.TsTypes;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Rules
 {

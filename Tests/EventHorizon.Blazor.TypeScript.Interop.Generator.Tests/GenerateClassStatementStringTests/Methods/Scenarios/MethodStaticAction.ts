@@ -1,4 +1,4 @@
-﻿declare module Static.Class {
+declare module Static.Class {
     export class ExampleClass {
         static OnNewCacheEntry: (entry: string) => void;
     }

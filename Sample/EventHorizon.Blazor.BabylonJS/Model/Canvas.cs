@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 using EventHorizon.Blazor.Interop;
 
 namespace EventHorizon.Blazor.BabylonJS.Model

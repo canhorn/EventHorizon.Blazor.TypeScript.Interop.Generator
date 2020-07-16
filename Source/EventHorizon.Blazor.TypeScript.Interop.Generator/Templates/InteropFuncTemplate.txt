@@ -1,4 +1,4 @@
-﻿EventHorizonBlazorInteropt.Func<[[TYPE]]>(
+EventHorizonBlazorInteropt.Func<[[TYPE]]>(
                 new object[] 
                 {
                     new string[] { [[PROPERTY_IDENTIFIER]], "[[PROPERTY]]" }[[PROPERTY_ARGUMENTS]]

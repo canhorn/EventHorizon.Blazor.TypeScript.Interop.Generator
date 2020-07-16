@@ -1,4 +1,4 @@
-﻿        public [[CLASS_NAME]][[INTERFACE_POSTFIX]](
+        public [[CLASS_NAME]][[INTERFACE_POSTFIX]](
             [[ARGUMENTS]]
         )[[BASE_CLASS_CALL]]
         {

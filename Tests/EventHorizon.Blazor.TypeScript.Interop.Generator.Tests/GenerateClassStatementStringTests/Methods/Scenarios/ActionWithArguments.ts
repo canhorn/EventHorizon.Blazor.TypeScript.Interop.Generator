@@ -1,4 +1,4 @@
-﻿declare module Static.Class {
+declare module Static.Class {
     export class ExampleClass<T> {
         add(callback: (eventData: T, eventState: EventState) => void,
             mask?: number,

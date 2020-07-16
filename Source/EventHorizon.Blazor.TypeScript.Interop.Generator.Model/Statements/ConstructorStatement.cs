@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements

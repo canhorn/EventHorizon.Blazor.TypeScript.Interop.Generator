@@ -1,4 +1,4 @@
-﻿            if(__[[NAME]] == null)
+            if(__[[NAME]] == null)
             {
                 __[[NAME]] = [[RETURN_TYPE_CONTENT]];
             }

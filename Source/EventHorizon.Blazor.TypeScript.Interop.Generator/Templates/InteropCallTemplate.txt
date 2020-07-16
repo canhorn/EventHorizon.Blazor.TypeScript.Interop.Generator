@@ -1,1 +1,1 @@
-﻿EventHorizonBlazorInteropt.Call(this,"[[PROPERTY]]"[[PROPERTY_ARGUMENTS]]);
+EventHorizonBlazorInteropt.Call(this,"[[PROPERTY]]"[[PROPERTY_ARGUMENTS]]);

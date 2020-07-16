@@ -1,4 +1,4 @@
-﻿EventHorizonBlazorInteropt.GetClass<[[TYPE]]>(
+EventHorizonBlazorInteropt.GetClass<[[TYPE]]>(
                     [[ROOT]],
                     "[[PROPERTY]]",
                     (entity) =>

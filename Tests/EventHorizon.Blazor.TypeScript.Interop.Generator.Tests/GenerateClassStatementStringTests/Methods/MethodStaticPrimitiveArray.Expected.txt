@@ -1,4 +1,4 @@
-﻿/// Generated - Do Not Edit
+/// Generated - Do Not Edit
 namespace Static.Class
 {
     using System;

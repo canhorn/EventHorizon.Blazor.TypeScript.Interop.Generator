@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,8 +13,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
     public static class ArgumentIdentifier
     {
-        private static IRule IsArrayResponseTypeRule = new IsArrayResponseType();
-        private static IRule IsOptionalRule = new IsOptional();
+        private static readonly IRule IsArrayResponseTypeRule = new IsArrayResponseType();
+        private static readonly IRule IsOptionalRule = new IsOptional();
+
         internal static IList<ArgumentStatement> Identify(
             Node node,
             ClassMetadata classMetadata

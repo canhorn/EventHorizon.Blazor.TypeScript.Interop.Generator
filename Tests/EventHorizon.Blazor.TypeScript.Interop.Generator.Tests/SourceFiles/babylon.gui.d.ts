@@ -1,4 +1,4 @@
-﻿declare module BABYLON.GUI {
+declare module BABYLON.GUI {
     /**
      * Class used to specific a value and its associated unit
      */

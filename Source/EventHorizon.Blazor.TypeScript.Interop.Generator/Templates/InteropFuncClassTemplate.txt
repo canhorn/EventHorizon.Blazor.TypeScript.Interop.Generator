@@ -1,4 +1,4 @@
-﻿EventHorizonBlazorInteropt.FuncClass<[[TYPE]]>(
+EventHorizonBlazorInteropt.FuncClass<[[TYPE]]>(
                 entity => new [[TYPE]][[INTERFACE_POSTFIX]](entity),
                 new object[] 
                 {

@@ -1,4 +1,4 @@
-﻿                if (_cachedEntityMap["[[PROPERTY]]"] == null)
+                if (_cachedEntityMap["[[PROPERTY]]"] == null)
                 {
                     _cachedEntityMap["[[PROPERTY]]"] = new [[PROPERTY_NAME]](
                         EventHorizonBlazorInteropt.cacheEntity(

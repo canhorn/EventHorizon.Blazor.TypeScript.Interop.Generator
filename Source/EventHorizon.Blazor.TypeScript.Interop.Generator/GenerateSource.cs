@@ -1,4 +1,4 @@
-﻿namespace EventHorizon.Blazor.TypeScript.Interop.Generator
+namespace EventHorizon.Blazor.TypeScript.Interop.Generator
 {
     using System.Collections.Generic;
     using System.Diagnostics;

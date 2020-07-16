@@ -1,4 +1,4 @@
-﻿declare module Static.Class {
+declare module Static.Class {
     export class ExampleClass {
         static CreateGroundFromHeightMap(name: string, url: string, options: {
             width?: number;
