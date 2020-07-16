@@ -1,4 +1,4 @@
-﻿namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
+namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
 {
     using System.Collections.Generic;
     using System.Diagnostics;
@@ -54,6 +54,7 @@
                 "MeshBuilder",
                 "StandardMaterial",
                 "Texture",
+                "HemisphericLight",
             };
 
             // Remove any already Generated Source.
