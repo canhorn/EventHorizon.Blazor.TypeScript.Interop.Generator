@@ -59,7 +59,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                 classStatement,
                 classGenerationTemplates
             );
-            classTokenMap["[[INTERFACE_POSTFIX]]"] = classStatement.IsInterface ? Constants.InterfacePostfix : string.Empty;
+            classTokenMap["[[INTERFACE_POSTFIX]]"] = classStatement.IsInterface ? Constants.INTERFACE_POSTFIX : string.Empty;
             classTokenMap["[[EXTENDED_CLASSES_SECTION]]"] = BuildExtendedClassesSection(
                 classStatement
             );
@@ -127,7 +127,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             ClassStatement classStatement
         )
         {
-            // TODO: This position will be updated with support for expected classes
             // Check if extendedClassName is interface
             // If all are interfaces, add ClientEntity
             var interfaceNames = classStatement.ImplementedInterfaceNames;
@@ -158,17 +157,5 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             );
         }
 
-    }
-
-    // TODO: Move to extensions folder??
-    public static class StringExtensions
-    {
-        public static string Captialize(
-            this string str
-        )
-        {
-            return str.Remove(0, 1)
-                .Insert(0, char.ToUpper(str[0]).ToString());
-        }
     }
 }

@@ -107,7 +107,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Scene.FOGMODE_NONE"
+                    "Scene.FOGMODE_NONE"
                 );
             }
         }
@@ -119,7 +119,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Scene.FOGMODE_EXP"
+                    "Scene.FOGMODE_EXP"
                 );
             }
         }
@@ -131,7 +131,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Scene.FOGMODE_EXP2"
+                    "Scene.FOGMODE_EXP2"
                 );
             }
         }
@@ -143,7 +143,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Scene.FOGMODE_LINEAR"
+                    "Scene.FOGMODE_LINEAR"
                 );
             }
         }
@@ -155,7 +155,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Scene.MinDeltaTime"
+                    "Scene.MinDeltaTime"
                 );
             }
             set
@@ -163,7 +163,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".Scene.MinDeltaTime",
+                    "Scene.MinDeltaTime",
                     value
                 );
             }
@@ -176,7 +176,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Scene.MaxDeltaTime"
+                    "Scene.MaxDeltaTime"
                 );
             }
             set
@@ -184,7 +184,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".Scene.MaxDeltaTime",
+                    "Scene.MaxDeltaTime",
                     value
                 );
             }

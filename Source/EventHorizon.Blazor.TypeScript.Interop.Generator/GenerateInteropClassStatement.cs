@@ -7,7 +7,6 @@ using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 using Sdcb.TypeScript;
 using Sdcb.TypeScript.TsTypes;
-using System.Runtime.InteropServices.ComTypes;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator
 {
@@ -25,7 +24,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
         public static ClassStatement Generate(
             string projectAssembly,
             string classIdentifier,
-            TypeScriptAST ast
+            TypeScriptAST ast,
+            IDictionary<string, string> typeOverrideMap
         )
         {
             //var namespaceIdentifier = string.Join(".", identifier.Take(identifier.Count - 1)); // "Bablyon";
@@ -42,12 +42,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                     return null;
                 }
             }
+            var namespaceIdentifier = string.Join(".", GetNamespace(toGenerateNode));
             var classMetadata = new ClassMetadata
             {
+                Namespace = namespaceIdentifier,
                 Name = classIdentifier,
                 TypeIdentifier = TypeParameterIdentifier.Identify(toGenerateNode),
             };
-            var namespaceIdentifier = string.Join(".", GetNamespace(toGenerateNode));
 
 
             // Get ExtendedClassNames
@@ -95,62 +96,96 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                 ConstructorStatement = new ConstructorStatement
                 {
                     Arguments = ConstructorArgumentIdentifier.Identify(
-                        toGenerateNode, 
-                        classMetadata
+                        toGenerateNode,
+                        classMetadata,
+                        typeOverrideMap
                     ),
                 },
                 PublicPropertyStatements = publicProperties.ToList().Select(
                     a =>
                     {
+                        var name = a.IdentifierStr;
+                        var isStatic = IsStaticRule.Check(a);
                         var type = TypeIdentifier.Identify(
                             a,
                             classMetadata,
                             TypeParameterIdentifier.Identify(a)
                         );
+                        if (TypeOverrideIdentifier.Identify(
+                            TypeOverrideDeclarationIdentifier.Identify(
+                                classMetadata,
+                                isStatic,
+                                name
+                            ),
+                            typeOverrideMap,
+                            type,
+                            out var overrideType
+                        ))
+                        {
+                            type = overrideType;
+                        }
                         return new PublicPropertyStatement
                         {
-                            Name = a.IdentifierStr,
+                            Name = name,
                             Type = type,
-                            IsStatic = IsStaticRule.Check(a),
+                            IsStatic = isStatic,
                             IsInterfaceResponse = StringTypeInterfaceIdentifier.Identify(
                                 ast,
                                 type
                             ),
                             IsArrayResponse = IsArrayResposneTypeRule.Check(a),
                             IsReadonly = IsReadonlyRule.Check(a),
-                            UsedClassNames = UsedClassNamesIdentifier.Identify(a, classMetadata),
+                            UsedClassNames = UsedClassNamesIdentifier.Identify(type),
                         };
                     }
                 ).ToList(),
                 PublicMethodStatements = publicMethods.ToList().Select(
                     a =>
                     {
+                        var name = a.IdentifierStr;
+                        var isStatic = IsStaticRule.Check(a);
                         var type = TypeIdentifier.Identify(
                             a,
                             classMetadata,
                             TypeParameterIdentifier.Identify(a)
                         );
+                        if (TypeOverrideIdentifier.Identify(
+                            TypeOverrideDeclarationIdentifier.Identify(
+                                classMetadata,
+                                isStatic,
+                                name
+                            ),
+                            typeOverrideMap,
+                            type,
+                            out var overrideType
+                        ))
+                        {
+                            type = overrideType;
+                        }
                         return new PublicMethodStatement
                         {
-                            Name = a.IdentifierStr,
+                            Name = name,
                             Type = type,
                             Arguments = ArgumentIdentifier.Identify(
-                                a, 
-                                classMetadata
+                                a,
+                                classMetadata,
+                                typeOverrideMap,
+                                isStatic
                             ),
-                            IsStatic = IsStaticRule.Check(a),
+                            IsStatic = isStatic,
                             IsInterfaceResponse = StringTypeInterfaceIdentifier.Identify(
                                 ast,
                                 type
                             ),
                             IsArrayResponse = IsArrayResposneTypeRule.Check(a),
-                            UsedClassNames = UsedClassNamesIdentifier.Identify(a, classMetadata),
+                            UsedClassNames = UsedClassNamesIdentifier.Identify(type),
                         };
                     }
                 ).ToList(),
                 AccessorStatements = accessorMethods.FlattenAccessorStatements(
                     ast,
-                    classMetadata
+                    classMetadata,
+                    typeOverrideMap
                 ),
             };
             classStatement.ConstructorStatement.NeedsInvokableReference = InvokableReferenceIdentifier.Identify(
@@ -163,28 +198,45 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
         public static IList<AccessorStatement> FlattenAccessorStatements(
             this IEnumerable<Node> nodes,
             TypeScriptAST ast,
-            ClassMetadata classMetadata
+            ClassMetadata classMetadata,
+            IDictionary<string, string> typeOverrideMap
         )
         {
             var flattenedAccessorList = nodes.Where(a => IsGetterRule.Check(a)).Select(
-                accessor => {
+                accessor =>
+                {
+                    var name = accessor.IdentifierStr;
+                    var isStatic = IsStaticRule.Check(accessor);
                     var type = TypeIdentifier.Identify(
                         accessor,
                         classMetadata,
                         TypeParameterIdentifier.Identify(accessor)
                     );
+                    if (TypeOverrideIdentifier.Identify(
+                        TypeOverrideDeclarationIdentifier.Identify(
+                            classMetadata,
+                            isStatic,
+                            name
+                        ),
+                        typeOverrideMap,
+                        type,
+                        out var overrideType
+                    ))
+                    {
+                        type = overrideType;
+                    }
                     return new AccessorStatement
                     {
-                        Name = accessor.IdentifierStr,
+                        Name = name,
                         Type = type,
-                        IsStatic = IsStaticRule.Check(accessor),
+                        IsStatic = isStatic,
                         IsInterfaceResponse = StringTypeInterfaceIdentifier.Identify(
                             ast,
                             type
                         ),
                         HasSetter = IsSetterRule.Check(accessor),
                         IsArrayResponse = IsArrayResposneTypeRule.Check(accessor),
-                        UsedClassNames = UsedClassNamesIdentifier.Identify(accessor, classMetadata),
+                        UsedClassNames = UsedClassNamesIdentifier.Identify(type),
                     };
                 }
             ).ToList();
@@ -194,7 +246,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                 var getNode = flattenedAccessorList.FirstOrDefault(
                     a => a.Name == node.IdentifierStr
                 );
-                if (getNode != null) {
+                if (getNode != null)
+                {
                     getNode.HasSetter = true;
                 }
             }

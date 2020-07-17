@@ -25,7 +25,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Light.FALLOFF_DEFAULT"
+                    "Light.FALLOFF_DEFAULT"
                 );
             }
         }
@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Light.FALLOFF_PHYSICAL"
+                    "Light.FALLOFF_PHYSICAL"
                 );
             }
         }
@@ -49,7 +49,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Light.FALLOFF_GLTF"
+                    "Light.FALLOFF_GLTF"
                 );
             }
         }
@@ -61,7 +61,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Light.FALLOFF_STANDARD"
+                    "Light.FALLOFF_STANDARD"
                 );
             }
         }
@@ -73,7 +73,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Light.LIGHTMAP_DEFAULT"
+                    "Light.LIGHTMAP_DEFAULT"
                 );
             }
         }
@@ -85,7 +85,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Light.LIGHTMAP_SPECULAR"
+                    "Light.LIGHTMAP_SPECULAR"
                 );
             }
         }
@@ -97,7 +97,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Light.LIGHTMAP_SHADOWSONLY"
+                    "Light.LIGHTMAP_SHADOWSONLY"
                 );
             }
         }
@@ -109,7 +109,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Light.INTENSITYMODE_AUTOMATIC"
+                    "Light.INTENSITYMODE_AUTOMATIC"
                 );
             }
         }
@@ -121,7 +121,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Light.INTENSITYMODE_LUMINOUSPOWER"
+                    "Light.INTENSITYMODE_LUMINOUSPOWER"
                 );
             }
         }
@@ -133,7 +133,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Light.INTENSITYMODE_LUMINOUSINTENSITY"
+                    "Light.INTENSITYMODE_LUMINOUSINTENSITY"
                 );
             }
         }
@@ -145,7 +145,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Light.INTENSITYMODE_ILLUMINANCE"
+                    "Light.INTENSITYMODE_ILLUMINANCE"
                 );
             }
         }
@@ -157,7 +157,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Light.INTENSITYMODE_LUMINANCE"
+                    "Light.INTENSITYMODE_LUMINANCE"
                 );
             }
         }
@@ -169,7 +169,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Light.LIGHTTYPEID_POINTLIGHT"
+                    "Light.LIGHTTYPEID_POINTLIGHT"
                 );
             }
         }
@@ -181,7 +181,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Light.LIGHTTYPEID_DIRECTIONALLIGHT"
+                    "Light.LIGHTTYPEID_DIRECTIONALLIGHT"
                 );
             }
         }
@@ -193,7 +193,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Light.LIGHTTYPEID_SPOTLIGHT"
+                    "Light.LIGHTTYPEID_SPOTLIGHT"
                 );
             }
         }
@@ -205,7 +205,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Light.LIGHTTYPEID_HEMISPHERICLIGHT"
+                    "Light.LIGHTTYPEID_HEMISPHERICLIGHT"
                 );
             }
         }

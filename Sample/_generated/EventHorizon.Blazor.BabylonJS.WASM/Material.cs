@@ -25,7 +25,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Material.TriangleFillMode"
+                    "Material.TriangleFillMode"
                 );
             }
         }
@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Material.WireFrameFillMode"
+                    "Material.WireFrameFillMode"
                 );
             }
         }
@@ -49,7 +49,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Material.PointFillMode"
+                    "Material.PointFillMode"
                 );
             }
         }
@@ -61,7 +61,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Material.PointListDrawMode"
+                    "Material.PointListDrawMode"
                 );
             }
         }
@@ -73,7 +73,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Material.LineListDrawMode"
+                    "Material.LineListDrawMode"
                 );
             }
         }
@@ -85,7 +85,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Material.LineLoopDrawMode"
+                    "Material.LineLoopDrawMode"
                 );
             }
         }
@@ -97,7 +97,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Material.LineStripDrawMode"
+                    "Material.LineStripDrawMode"
                 );
             }
         }
@@ -109,7 +109,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Material.TriangleStripDrawMode"
+                    "Material.TriangleStripDrawMode"
                 );
             }
         }
@@ -121,7 +121,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Material.TriangleFanDrawMode"
+                    "Material.TriangleFanDrawMode"
                 );
             }
         }
@@ -133,7 +133,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Material.ClockWiseSideOrientation"
+                    "Material.ClockWiseSideOrientation"
                 );
             }
         }
@@ -145,7 +145,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Material.CounterClockWiseSideOrientation"
+                    "Material.CounterClockWiseSideOrientation"
                 );
             }
         }
@@ -157,7 +157,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Material.TextureDirtyFlag"
+                    "Material.TextureDirtyFlag"
                 );
             }
         }
@@ -169,7 +169,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Material.LightDirtyFlag"
+                    "Material.LightDirtyFlag"
                 );
             }
         }
@@ -181,7 +181,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Material.FresnelDirtyFlag"
+                    "Material.FresnelDirtyFlag"
                 );
             }
         }
@@ -193,7 +193,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Material.AttributesDirtyFlag"
+                    "Material.AttributesDirtyFlag"
                 );
             }
         }
@@ -205,7 +205,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Material.MiscDirtyFlag"
+                    "Material.MiscDirtyFlag"
                 );
             }
         }
@@ -217,7 +217,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Material.AllDirtyFlag"
+                    "Material.AllDirtyFlag"
                 );
             }
         }

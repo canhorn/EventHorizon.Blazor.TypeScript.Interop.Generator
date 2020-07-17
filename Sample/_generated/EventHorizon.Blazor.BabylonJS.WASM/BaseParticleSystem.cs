@@ -25,7 +25,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".BaseParticleSystem.BLENDMODE_ONEONE"
+                    "BaseParticleSystem.BLENDMODE_ONEONE"
                 );
             }
             set
@@ -33,7 +33,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".BaseParticleSystem.BLENDMODE_ONEONE",
+                    "BaseParticleSystem.BLENDMODE_ONEONE",
                     value
                 );
             }
@@ -46,7 +46,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".BaseParticleSystem.BLENDMODE_STANDARD"
+                    "BaseParticleSystem.BLENDMODE_STANDARD"
                 );
             }
             set
@@ -54,7 +54,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".BaseParticleSystem.BLENDMODE_STANDARD",
+                    "BaseParticleSystem.BLENDMODE_STANDARD",
                     value
                 );
             }
@@ -67,7 +67,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".BaseParticleSystem.BLENDMODE_ADD"
+                    "BaseParticleSystem.BLENDMODE_ADD"
                 );
             }
             set
@@ -75,7 +75,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".BaseParticleSystem.BLENDMODE_ADD",
+                    "BaseParticleSystem.BLENDMODE_ADD",
                     value
                 );
             }
@@ -88,7 +88,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".BaseParticleSystem.BLENDMODE_MULTIPLY"
+                    "BaseParticleSystem.BLENDMODE_MULTIPLY"
                 );
             }
             set
@@ -96,7 +96,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".BaseParticleSystem.BLENDMODE_MULTIPLY",
+                    "BaseParticleSystem.BLENDMODE_MULTIPLY",
                     value
                 );
             }
@@ -109,7 +109,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".BaseParticleSystem.BLENDMODE_MULTIPLYADD"
+                    "BaseParticleSystem.BLENDMODE_MULTIPLYADD"
                 );
             }
             set
@@ -117,7 +117,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".BaseParticleSystem.BLENDMODE_MULTIPLYADD",
+                    "BaseParticleSystem.BLENDMODE_MULTIPLYADD",
                     value
                 );
             }

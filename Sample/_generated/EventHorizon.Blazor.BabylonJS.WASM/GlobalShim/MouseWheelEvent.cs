@@ -4,9 +4,9 @@
 
 using EventHorizon.Blazor.Interop;
 
-public class WebGL2RenderingContext : CachedEntity
+public class MouseWheelEvent : CachedEntity
 {
-    public WebGL2RenderingContext(
+    public MouseWheelEvent(
         ICachedEntity entity
     )
     {

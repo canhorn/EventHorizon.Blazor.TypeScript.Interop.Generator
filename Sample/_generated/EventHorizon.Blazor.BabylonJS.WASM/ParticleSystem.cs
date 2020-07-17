@@ -25,7 +25,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ParticleSystem.BILLBOARDMODE_Y"
+                    "ParticleSystem.BILLBOARDMODE_Y"
                 );
             }
         }
@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ParticleSystem.BILLBOARDMODE_ALL"
+                    "ParticleSystem.BILLBOARDMODE_ALL"
                 );
             }
         }
@@ -49,7 +49,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ParticleSystem.BILLBOARDMODE_STRETCHED"
+                    "ParticleSystem.BILLBOARDMODE_STRETCHED"
                 );
             }
         }

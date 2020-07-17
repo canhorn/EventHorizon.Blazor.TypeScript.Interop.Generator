@@ -18,12 +18,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
             var sourceFile = "observable.ts";
             var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
             var ast = new TypeScriptAST(source, sourceFile);
+            var typeOverrideMap = new Dictionary<string, string>();
 
             // When
             var actual = GenerateInteropClassStatement.Generate(
                 "ProjectAssembly",
                 "Observable",
-                ast
+                ast,
+                typeOverrideMap
             );
             Console.WriteLine("stop");
         }
@@ -36,12 +38,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
             var sourceFile = "observable.ts";
             var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
             var ast = new TypeScriptAST(source, sourceFile);
+            var typeOverrideMap = new Dictionary<string, string>();
 
             // When
             var actual = GenerateInteropClassStatement.Generate(
                 "ProjectAssembly",
                 "Observable",
-                ast
+                ast,
+                typeOverrideMap
             );
 
             // Then

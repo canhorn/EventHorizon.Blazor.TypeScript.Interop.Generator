@@ -25,7 +25,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ActionManager.NothingTrigger"
+                    "ActionManager.NothingTrigger"
                 );
             }
         }
@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ActionManager.OnPickTrigger"
+                    "ActionManager.OnPickTrigger"
                 );
             }
         }
@@ -49,7 +49,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ActionManager.OnLeftPickTrigger"
+                    "ActionManager.OnLeftPickTrigger"
                 );
             }
         }
@@ -61,7 +61,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ActionManager.OnRightPickTrigger"
+                    "ActionManager.OnRightPickTrigger"
                 );
             }
         }
@@ -73,7 +73,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ActionManager.OnCenterPickTrigger"
+                    "ActionManager.OnCenterPickTrigger"
                 );
             }
         }
@@ -85,7 +85,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ActionManager.OnPickDownTrigger"
+                    "ActionManager.OnPickDownTrigger"
                 );
             }
         }
@@ -97,7 +97,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ActionManager.OnDoublePickTrigger"
+                    "ActionManager.OnDoublePickTrigger"
                 );
             }
         }
@@ -109,7 +109,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ActionManager.OnPickUpTrigger"
+                    "ActionManager.OnPickUpTrigger"
                 );
             }
         }
@@ -121,7 +121,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ActionManager.OnPickOutTrigger"
+                    "ActionManager.OnPickOutTrigger"
                 );
             }
         }
@@ -133,7 +133,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ActionManager.OnLongPressTrigger"
+                    "ActionManager.OnLongPressTrigger"
                 );
             }
         }
@@ -145,7 +145,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ActionManager.OnPointerOverTrigger"
+                    "ActionManager.OnPointerOverTrigger"
                 );
             }
         }
@@ -157,7 +157,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ActionManager.OnPointerOutTrigger"
+                    "ActionManager.OnPointerOutTrigger"
                 );
             }
         }
@@ -169,7 +169,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ActionManager.OnEveryFrameTrigger"
+                    "ActionManager.OnEveryFrameTrigger"
                 );
             }
         }
@@ -181,7 +181,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ActionManager.OnIntersectionEnterTrigger"
+                    "ActionManager.OnIntersectionEnterTrigger"
                 );
             }
         }
@@ -193,7 +193,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ActionManager.OnIntersectionExitTrigger"
+                    "ActionManager.OnIntersectionExitTrigger"
                 );
             }
         }
@@ -205,7 +205,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ActionManager.OnKeyDownTrigger"
+                    "ActionManager.OnKeyDownTrigger"
                 );
             }
         }
@@ -217,7 +217,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ActionManager.OnKeyUpTrigger"
+                    "ActionManager.OnKeyUpTrigger"
                 );
             }
         }

@@ -68,7 +68,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.GetArray<CachedEntity>(
                     "BABYLON",
-                    ".ThinEngine.ExceptionList"
+                    "ThinEngine.ExceptionList"
                 );
             }
             set
@@ -76,7 +76,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".ThinEngine.ExceptionList",
+                    "ThinEngine.ExceptionList",
                     value
                 );
             }
@@ -89,7 +89,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ThinEngine.CollisionsEpsilon"
+                    "ThinEngine.CollisionsEpsilon"
                 );
             }
             set
@@ -97,7 +97,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".ThinEngine.CollisionsEpsilon",
+                    "ThinEngine.CollisionsEpsilon",
                     value
                 );
             }

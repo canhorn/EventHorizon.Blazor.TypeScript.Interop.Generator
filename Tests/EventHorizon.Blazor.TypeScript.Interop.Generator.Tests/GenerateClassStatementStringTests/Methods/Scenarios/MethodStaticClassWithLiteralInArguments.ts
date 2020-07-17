@@ -14,5 +14,6 @@ declare module Static.Class {
         static ObjectLiteralAsSecondArgument(options: string | {
             value1?: number;
         }): void;
+        static ObjectLiteral(options: object): void;
     }
 }

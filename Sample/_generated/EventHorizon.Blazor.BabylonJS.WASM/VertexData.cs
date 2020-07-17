@@ -25,7 +25,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".VertexData.FRONTSIDE"
+                    "VertexData.FRONTSIDE"
                 );
             }
         }
@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".VertexData.BACKSIDE"
+                    "VertexData.BACKSIDE"
                 );
             }
         }
@@ -49,7 +49,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".VertexData.DOUBLESIDE"
+                    "VertexData.DOUBLESIDE"
                 );
             }
         }
@@ -61,7 +61,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".VertexData.DEFAULTSIDE"
+                    "VertexData.DEFAULTSIDE"
                 );
             }
         }

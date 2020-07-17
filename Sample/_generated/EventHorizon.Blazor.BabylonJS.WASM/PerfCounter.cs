@@ -25,7 +25,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<bool>(
                     "BABYLON",
-                    ".PerfCounter.Enabled"
+                    "PerfCounter.Enabled"
                 );
             }
             set
@@ -33,7 +33,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".PerfCounter.Enabled",
+                    "PerfCounter.Enabled",
                     value
                 );
             }

@@ -25,7 +25,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Mesh.FRONTSIDE"
+                    "Mesh.FRONTSIDE"
                 );
             }
         }
@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Mesh.BACKSIDE"
+                    "Mesh.BACKSIDE"
                 );
             }
         }
@@ -49,7 +49,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Mesh.DOUBLESIDE"
+                    "Mesh.DOUBLESIDE"
                 );
             }
         }
@@ -61,7 +61,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Mesh.DEFAULTSIDE"
+                    "Mesh.DEFAULTSIDE"
                 );
             }
         }
@@ -73,7 +73,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Mesh.NO_CAP"
+                    "Mesh.NO_CAP"
                 );
             }
         }
@@ -85,7 +85,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Mesh.CAP_START"
+                    "Mesh.CAP_START"
                 );
             }
         }
@@ -97,7 +97,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Mesh.CAP_END"
+                    "Mesh.CAP_END"
                 );
             }
         }
@@ -109,7 +109,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Mesh.CAP_ALL"
+                    "Mesh.CAP_ALL"
                 );
             }
         }
@@ -121,7 +121,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Mesh.NO_FLIP"
+                    "Mesh.NO_FLIP"
                 );
             }
         }
@@ -133,7 +133,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Mesh.FLIP_TILE"
+                    "Mesh.FLIP_TILE"
                 );
             }
         }
@@ -145,7 +145,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Mesh.ROTATE_TILE"
+                    "Mesh.ROTATE_TILE"
                 );
             }
         }
@@ -157,7 +157,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Mesh.FLIP_ROW"
+                    "Mesh.FLIP_ROW"
                 );
             }
         }
@@ -169,7 +169,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Mesh.ROTATE_ROW"
+                    "Mesh.ROTATE_ROW"
                 );
             }
         }
@@ -181,7 +181,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Mesh.FLIP_N_ROTATE_TILE"
+                    "Mesh.FLIP_N_ROTATE_TILE"
                 );
             }
         }
@@ -193,7 +193,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Mesh.FLIP_N_ROTATE_ROW"
+                    "Mesh.FLIP_N_ROTATE_ROW"
                 );
             }
         }
@@ -205,7 +205,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Mesh.CENTER"
+                    "Mesh.CENTER"
                 );
             }
         }
@@ -217,7 +217,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Mesh.LEFT"
+                    "Mesh.LEFT"
                 );
             }
         }
@@ -229,7 +229,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Mesh.RIGHT"
+                    "Mesh.RIGHT"
                 );
             }
         }
@@ -241,7 +241,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Mesh.TOP"
+                    "Mesh.TOP"
                 );
             }
         }
@@ -253,7 +253,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Mesh.BOTTOM"
+                    "Mesh.BOTTOM"
                 );
             }
         }

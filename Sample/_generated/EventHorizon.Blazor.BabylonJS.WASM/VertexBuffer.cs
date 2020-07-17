@@ -25,7 +25,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".VertexBuffer.BYTE"
+                    "VertexBuffer.BYTE"
                 );
             }
         }
@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".VertexBuffer.UNSIGNED_BYTE"
+                    "VertexBuffer.UNSIGNED_BYTE"
                 );
             }
         }
@@ -49,7 +49,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".VertexBuffer.SHORT"
+                    "VertexBuffer.SHORT"
                 );
             }
         }
@@ -61,7 +61,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".VertexBuffer.UNSIGNED_SHORT"
+                    "VertexBuffer.UNSIGNED_SHORT"
                 );
             }
         }
@@ -73,7 +73,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".VertexBuffer.INT"
+                    "VertexBuffer.INT"
                 );
             }
         }
@@ -85,7 +85,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".VertexBuffer.UNSIGNED_INT"
+                    "VertexBuffer.UNSIGNED_INT"
                 );
             }
         }
@@ -97,7 +97,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".VertexBuffer.FLOAT"
+                    "VertexBuffer.FLOAT"
                 );
             }
         }
@@ -109,7 +109,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<string>(
                     "BABYLON",
-                    ".VertexBuffer.PositionKind"
+                    "VertexBuffer.PositionKind"
                 );
             }
         }
@@ -121,7 +121,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<string>(
                     "BABYLON",
-                    ".VertexBuffer.NormalKind"
+                    "VertexBuffer.NormalKind"
                 );
             }
         }
@@ -133,7 +133,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<string>(
                     "BABYLON",
-                    ".VertexBuffer.TangentKind"
+                    "VertexBuffer.TangentKind"
                 );
             }
         }
@@ -145,7 +145,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<string>(
                     "BABYLON",
-                    ".VertexBuffer.UVKind"
+                    "VertexBuffer.UVKind"
                 );
             }
         }
@@ -157,7 +157,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<string>(
                     "BABYLON",
-                    ".VertexBuffer.UV2Kind"
+                    "VertexBuffer.UV2Kind"
                 );
             }
         }
@@ -169,7 +169,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<string>(
                     "BABYLON",
-                    ".VertexBuffer.UV3Kind"
+                    "VertexBuffer.UV3Kind"
                 );
             }
         }
@@ -181,7 +181,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<string>(
                     "BABYLON",
-                    ".VertexBuffer.UV4Kind"
+                    "VertexBuffer.UV4Kind"
                 );
             }
         }
@@ -193,7 +193,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<string>(
                     "BABYLON",
-                    ".VertexBuffer.UV5Kind"
+                    "VertexBuffer.UV5Kind"
                 );
             }
         }
@@ -205,7 +205,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<string>(
                     "BABYLON",
-                    ".VertexBuffer.UV6Kind"
+                    "VertexBuffer.UV6Kind"
                 );
             }
         }
@@ -217,7 +217,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<string>(
                     "BABYLON",
-                    ".VertexBuffer.ColorKind"
+                    "VertexBuffer.ColorKind"
                 );
             }
         }
@@ -229,7 +229,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<string>(
                     "BABYLON",
-                    ".VertexBuffer.MatricesIndicesKind"
+                    "VertexBuffer.MatricesIndicesKind"
                 );
             }
         }
@@ -241,7 +241,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<string>(
                     "BABYLON",
-                    ".VertexBuffer.MatricesWeightsKind"
+                    "VertexBuffer.MatricesWeightsKind"
                 );
             }
         }
@@ -253,7 +253,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<string>(
                     "BABYLON",
-                    ".VertexBuffer.MatricesIndicesExtraKind"
+                    "VertexBuffer.MatricesIndicesExtraKind"
                 );
             }
         }
@@ -265,7 +265,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<string>(
                     "BABYLON",
-                    ".VertexBuffer.MatricesWeightsExtraKind"
+                    "VertexBuffer.MatricesWeightsExtraKind"
                 );
             }
         }

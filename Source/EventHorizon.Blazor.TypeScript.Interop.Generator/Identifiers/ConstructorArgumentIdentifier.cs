@@ -11,10 +11,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
     public static class ConstructorArgumentIdentifier
     {
-        private static IList<ArgumentStatement> EMTPY = new List<ArgumentStatement>().AsReadOnly();
+        private static IList<ArgumentStatement> EMPTY = new List<ArgumentStatement>().AsReadOnly();
         internal static IList<ArgumentStatement> Identify(
             Node classDeclaration,
-            ClassMetadata classMetadata
+            ClassMetadata classMetadata,
+            IDictionary<string, string> typeOverrideMap
         )
         {
             var constructor = classDeclaration
@@ -24,7 +25,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             {
                 var list = ArgumentIdentifier.Identify(
                     constructor,
-                    classMetadata
+                    classMetadata,
+                    typeOverrideMap
                 );
                 return ConvertActionToObject(
                     list
@@ -32,7 +34,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 
             }
 
-            return EMTPY;
+            return EMPTY;
         }
 
         private static IList<ArgumentStatement> ConvertActionToObject(

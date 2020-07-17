@@ -25,7 +25,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".BaseTexture.DEFAULT_ANISOTROPIC_FILTERING_LEVEL"
+                    "BaseTexture.DEFAULT_ANISOTROPIC_FILTERING_LEVEL"
                 );
             }
             set
@@ -33,7 +33,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".BaseTexture.DEFAULT_ANISOTROPIC_FILTERING_LEVEL",
+                    "BaseTexture.DEFAULT_ANISOTROPIC_FILTERING_LEVEL",
                     value
                 );
             }

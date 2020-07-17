@@ -11,7 +11,7 @@ namespace BabylonJS
     
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class ModelShape : CachedEntityObject
+    public class PointerInfo : PointerInfoBase
     {
         #region Static Accessors
 
@@ -30,22 +30,30 @@ namespace BabylonJS
         #endregion
 
         #region Properties
-        
-        public decimal shapeID
+        private PickingInfo __pickInfo;
+        public PickingInfo pickInfo
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            if(__pickInfo == null)
+            {
+                __pickInfo = EventHorizonBlazorInteropt.GetClass<PickingInfo>(
                     this.___guid,
-                    "shapeID"
+                    "pickInfo",
+                    (entity) =>
+                    {
+                        return new PickingInfo(entity);
+                    }
                 );
+            }
+            return __pickInfo;
             }
             set
             {
-
+__pickInfo = null;
                 EventHorizonBlazorInteropt.Set(
                     this.___guid,
-                    "shapeID",
+                    "pickInfo",
                     value
                 );
             }
@@ -53,22 +61,21 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public ModelShape() : base() { } 
+        public PointerInfo() : base() { }
 
-        public ModelShape(
+        public PointerInfo(
             ICachedEntity entity
         ) : base(entity)
         {
-            ___guid = entity.___guid;
         }
 
-        public ModelShape(
-            decimal id, Vector3[] shape, decimal[] indices, decimal[] normals, decimal[] colors, decimal[] shapeUV, SolidParticle posFunction, Vector3 vtxFunction, Material material
-        )
+        public PointerInfo(
+            decimal type, object @event, PickingInfo pickInfo
+        ) : base()
         {
             var entity = EventHorizonBlazorInteropt.New(
-                new string[] { "BABYLON", "ModelShape" },
-                id, shape, indices, normals, colors, shapeUV, posFunction, vtxFunction, material
+                new string[] { "BABYLON", "PointerInfo" },
+                type, @event, pickInfo
             );
             ___guid = entity.___guid;
         }

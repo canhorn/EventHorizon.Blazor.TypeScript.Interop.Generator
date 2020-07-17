@@ -45,12 +45,19 @@
                 if (argumentCache.has(root)) {
                     value = argumentCache.get(root);
                 }
+                if (!value) {
+                    return null;
+                }
                 for (var i = 0; i < identifier.length; i++) {
                     value = value[identifier[i]];
                 }
 
                 if (typeof (value) === "number") {
-                    return value;
+                    //if (parseInt(value) === value) {
+                        console.log({ value })
+                    //    value = parseFloat(`${value}.1`);
+                    //}
+                    //return value;
                 }
                 return BINDING.js_to_mono_obj(value);
             } catch (ex) {
@@ -74,6 +81,9 @@
                 }
                 for (var i = 0; i < identifier.length; i++) {
                     value = value[identifier[i]];
+                }
+                if (!value) {
+                    return null;
                 }
                 if (!argumentCache.has(value[cacheKey])) {
                     // Add to cache
@@ -170,31 +180,6 @@
                     values = values[identifier[i]];
                 }
                 return values;
-            } catch (ex) {
-                console.log("error", ex);
-            }
-        },
-        /**
-         * This will call a function on a cached object.
-         * arguments[0] = Cached Entity
-         * arguments[1] = Property Key
-         * arguments[2] = Property Value
-         **/
-        setOld: function () {
-            try {
-                var cachedObj = arguments[0];
-                var prop = arguments[1];
-                var propValue = arguments[2];
-
-                if (argumentCache.has(cachedObj[cacheKey])) {
-                    var cachedObj = argumentCache.get(cachedObj[cacheKey]);
-                    if (cachedObj[prop]) {
-                        if (propValue[cacheKey] && argumentCache.has(propValue[cacheKey])) {
-                            propValue = argumentCache.get(propValue[cacheKey]);
-                        }
-                        cachedObj[prop] = propValue;
-                    }
-                }
             } catch (ex) {
                 console.log("error", ex);
             }
@@ -474,8 +459,26 @@
 
             const cachedEntity = argumentCache.get(entity);
             cachedEntity[funcCallbackName](function (/* TODO: Support passing back props */) {
-                //console.log({ entity, funcCallbackName, referenceMethod, invokableReference })
-                invokableReference.invokeMethodAsync(referenceMethod, {});
+                const args = [];
+                for (var arg of arguments) {
+                    if (typeof (arg) === "object"
+                        && !Array.isArray(arg)
+                    ) {
+                        const newCacheKey = guid();
+                        arg[cacheKey] = newCacheKey;
+                        argumentCache.set(newCacheKey, arg);
+                        args.push({ [cacheKey]: newCacheKey });
+                    } else if (Array.isArray(arg)) {
+                        // TODO: Support Array Response
+                        args.push([]);
+                    } else {
+                        args.push(arg);
+                    }
+                }
+                if (referenceMethod === "CallAddActions") {
+                    console.log({ type: arguments[0].type, entity, funcCallbackName, referenceMethod, invokableReference, arguments, args })
+                }
+                invokableReference.invokeMethodAsync(referenceMethod, ...args);
             });
         },
         /**

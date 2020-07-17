@@ -1,0 +1,254 @@
+/// Generated - Do Not Edit
+namespace Examples
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter))]
+    public class ExampleClass : CachedEntityObject
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+        private Vector3 __ref;
+        public Vector3 @ref
+        {
+            get
+            {
+            if(__ref == null)
+            {
+                __ref = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                    this.___guid,
+                    "ref",
+                    (entity) =>
+                    {
+                        return new Vector3(entity);
+                    }
+                );
+            }
+            return __ref;
+            }
+            set
+            {
+__ref = null;
+                EventHorizonBlazorInteropt.Set(
+                    this.___guid,
+                    "ref",
+                    value
+                );
+            }
+        }
+
+        private Vector3 __lock;
+        public Vector3 @lock
+        {
+            get
+            {
+            if(__lock == null)
+            {
+                __lock = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                    this.___guid,
+                    "lock",
+                    (entity) =>
+                    {
+                        return new Vector3(entity);
+                    }
+                );
+            }
+            return __lock;
+            }
+            set
+            {
+__lock = null;
+                EventHorizonBlazorInteropt.Set(
+                    this.___guid,
+                    "lock",
+                    value
+                );
+            }
+        }
+
+        private Vector3 __unlock;
+        public Vector3 @unlock
+        {
+            get
+            {
+            if(__unlock == null)
+            {
+                __unlock = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                    this.___guid,
+                    "unlock",
+                    (entity) =>
+                    {
+                        return new Vector3(entity);
+                    }
+                );
+            }
+            return __unlock;
+            }
+            set
+            {
+__unlock = null;
+                EventHorizonBlazorInteropt.Set(
+                    this.___guid,
+                    "unlock",
+                    value
+                );
+            }
+        }
+
+        private Vector3 __object;
+        public Vector3 @object
+        {
+            get
+            {
+            if(__object == null)
+            {
+                __object = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                    this.___guid,
+                    "object",
+                    (entity) =>
+                    {
+                        return new Vector3(entity);
+                    }
+                );
+            }
+            return __object;
+            }
+            set
+            {
+__object = null;
+                EventHorizonBlazorInteropt.Set(
+                    this.___guid,
+                    "object",
+                    value
+                );
+            }
+        }
+
+        private Vector3 __event;
+        public Vector3 @event
+        {
+            get
+            {
+            if(__event == null)
+            {
+                __event = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                    this.___guid,
+                    "event",
+                    (entity) =>
+                    {
+                        return new Vector3(entity);
+                    }
+                );
+            }
+            return __event;
+            }
+            set
+            {
+__event = null;
+                EventHorizonBlazorInteropt.Set(
+                    this.___guid,
+                    "event",
+                    value
+                );
+            }
+        }
+
+        private Vector3 __bool;
+        public Vector3 @bool
+        {
+            get
+            {
+            if(__bool == null)
+            {
+                __bool = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                    this.___guid,
+                    "bool",
+                    (entity) =>
+                    {
+                        return new Vector3(entity);
+                    }
+                );
+            }
+            return __bool;
+            }
+            set
+            {
+__bool = null;
+                EventHorizonBlazorInteropt.Set(
+                    this.___guid,
+                    "bool",
+                    value
+                );
+            }
+        }
+
+        private Vector3 __virtual;
+        public Vector3 @virtual
+        {
+            get
+            {
+            if(__virtual == null)
+            {
+                __virtual = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                    this.___guid,
+                    "virtual",
+                    (entity) =>
+                    {
+                        return new Vector3(entity);
+                    }
+                );
+            }
+            return __virtual;
+            }
+            set
+            {
+__virtual = null;
+                EventHorizonBlazorInteropt.Set(
+                    this.___guid,
+                    "virtual",
+                    value
+                );
+            }
+        }
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { } 
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+
+        #endregion
+
+        #region Methods
+
+        #endregion
+    }
+}

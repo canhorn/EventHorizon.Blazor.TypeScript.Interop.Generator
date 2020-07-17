@@ -8,5 +8,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model
     {
         public string Name { get; internal set; }
         public IList<string> TypeIdentifier { get; internal set; }
+        public string Namespace { get; internal set; }
     }
 }

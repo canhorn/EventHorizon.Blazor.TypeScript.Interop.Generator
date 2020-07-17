@@ -42,6 +42,16 @@ namespace Static.Class
                 }
             );
         }
+
+        public static void ObjectLiteral(object options)
+        {
+            EventHorizonBlazorInteropt.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { "Static", "Class", "ExampleClass", "ObjectLiteral" }, options
+                }
+            );
+        }
         #endregion
 
         #region Accessors

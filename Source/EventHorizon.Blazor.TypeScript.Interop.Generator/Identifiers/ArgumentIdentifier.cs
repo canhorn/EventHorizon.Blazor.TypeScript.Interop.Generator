@@ -18,7 +18,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 
         internal static IList<ArgumentStatement> Identify(
             Node node,
-            ClassMetadata classMetadata
+            ClassMetadata classMetadata,
+            IDictionary<string, string> typeOverrideMap,
+            bool isStatic = false
         )
         {
             var methodTypeParameters = TypeParameterIdentifier.Identify(node);
@@ -45,6 +47,26 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     {
                         type = GenerationIdentifiedTypes.Literal;
                     }
+                    var name = parameter.IdentifierStr;
+                    var methodOrConstructorName = node.IdentifierStr;
+                    if (node.Kind == SyntaxKind.Constructor)
+                    {
+                        methodOrConstructorName = Constants.TYPESCRIPT_CONSTRUCTOR_NAME;
+                    }
+                    if (TypeOverrideIdentifier.Identify(
+                        TypeOverrideDeclarationIdentifier.IdentifyArgument(
+                            classMetadata,
+                            isStatic,
+                            methodOrConstructorName,
+                            name
+                        ),
+                        typeOverrideMap,
+                        type,
+                        out var overrideType
+                    ))
+                    {
+                        type = overrideType;
+                    }
 
                     return new ArgumentStatement
                     {
@@ -57,8 +79,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                             parameter
                         ),
                         UsedClassNames = UsedClassNamesIdentifier.Identify(
-                            parameter,
-                            classMetadata
+                            type
                         ),
                     };
                 }).ToList();

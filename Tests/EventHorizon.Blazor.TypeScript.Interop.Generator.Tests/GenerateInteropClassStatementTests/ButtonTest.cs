@@ -17,12 +17,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
             var sourceFile = "babylon.gui.d.ts";
             var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
             var ast = new TypeScriptAST(source, sourceFile);
+            var typeOverrideMap = new Dictionary<string, string>();
 
             // When
             var actual = GenerateInteropClassStatement.Generate(
                 "ProjectAssembly",
                 "Button",
-                ast
+                ast,
+                typeOverrideMap
             );
 
             // Then

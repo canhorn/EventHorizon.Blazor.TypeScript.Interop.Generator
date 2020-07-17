@@ -80,6 +80,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 SyntaxKind.StringKeyword => GenerationIdentifiedTypes.String,
                 SyntaxKind.BooleanKeyword => GenerationIdentifiedTypes.Bool,
                 SyntaxKind.NumberKeyword => GenerationIdentifiedTypes.Number,
+                SyntaxKind.ObjectKeyword => GenerationIdentifiedTypes.Object,
                 // All Other Types
                 _ => AllOtherTypeChecks(
                     node,

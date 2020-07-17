@@ -25,7 +25,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".RenderTargetTexture.REFRESHRATE_RENDER_ONCE"
+                    "RenderTargetTexture.REFRESHRATE_RENDER_ONCE"
                 );
             }
         }
@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".RenderTargetTexture.REFRESHRATE_RENDER_ONEVERYFRAME"
+                    "RenderTargetTexture.REFRESHRATE_RENDER_ONEVERYFRAME"
                 );
             }
         }
@@ -49,7 +49,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".RenderTargetTexture.REFRESHRATE_RENDER_ONEVERYTWOFRAMES"
+                    "RenderTargetTexture.REFRESHRATE_RENDER_ONEVERYTWOFRAMES"
                 );
             }
         }

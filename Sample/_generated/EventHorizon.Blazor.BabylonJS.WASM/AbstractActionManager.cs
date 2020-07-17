@@ -47,7 +47,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<CachedEntity>(
                     "BABYLON",
-                    ".AbstractActionManager.Triggers"
+                    "AbstractActionManager.Triggers"
                 );
             }
             set
@@ -55,7 +55,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".AbstractActionManager.Triggers",
+                    "AbstractActionManager.Triggers",
                     value
                 );
             }

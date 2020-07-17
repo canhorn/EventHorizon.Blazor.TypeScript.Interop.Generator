@@ -56,7 +56,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                             .Skip(1)
                             .Select(part => @$"{part}")
                     );
-                    propertyIdentifier += $".{classStatement.Name}.{property.Name}";
+                    if (propertyIdentifier.Length > 0)
+                    {
+                        propertyIdentifier += $".{classStatement.Name}.{property.Name}";
+                    }
+                    else
+                    {
+                        propertyIdentifier = $"{classStatement.Name}.{property.Name}";
+                    }
                 }
 
                 if (isClassResponse && property.IsArrayResponse)
@@ -67,8 +74,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 {
                     propertyGetterTemplate = templates.ReturnTypeClass;
                     propertyGetterResultType = templates.InteropGetClass;
-                    cacheSection = "private [[STATIC]][[TYPE]] __[[NAME]];";
-                    cacheSetterSection = "__[[NAME]] = null;";
+                    cacheSection = "private [[STATIC]][[TYPE]] __[[CACHE_NAME]];";
+                    cacheSetterSection = "__[[CACHE_NAME]] = null;";
                 }
                 else if (property.IsArrayResponse)
                 {
@@ -106,6 +113,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                             property.Name
                         )
                     ).Replace(
+                        "[[CACHE_NAME]]",
+                        property.Name
+                    ).Replace(
                         "[[NAME_CAPTIALIZED]]",
                         property.Name.Captialize()
                     ).Replace(
@@ -122,7 +132,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         root
                     ).Replace(
                         "[[INTERFACE_POSTFIX]]",
-                        property.IsInterfaceResponse ? Constants.InterfacePostfix : string.Empty
+                        property.IsInterfaceResponse ? Constants.INTERFACE_POSTFIX : string.Empty
                     )
                 ;
                 section.Append(

@@ -95,7 +95,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".AbstractMesh.OCCLUSION_TYPE_NONE"
+                    "AbstractMesh.OCCLUSION_TYPE_NONE"
                 );
             }
             set
@@ -103,7 +103,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".AbstractMesh.OCCLUSION_TYPE_NONE",
+                    "AbstractMesh.OCCLUSION_TYPE_NONE",
                     value
                 );
             }
@@ -116,7 +116,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".AbstractMesh.OCCLUSION_TYPE_OPTIMISTIC"
+                    "AbstractMesh.OCCLUSION_TYPE_OPTIMISTIC"
                 );
             }
             set
@@ -124,7 +124,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".AbstractMesh.OCCLUSION_TYPE_OPTIMISTIC",
+                    "AbstractMesh.OCCLUSION_TYPE_OPTIMISTIC",
                     value
                 );
             }
@@ -137,7 +137,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".AbstractMesh.OCCLUSION_TYPE_STRICT"
+                    "AbstractMesh.OCCLUSION_TYPE_STRICT"
                 );
             }
             set
@@ -145,7 +145,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".AbstractMesh.OCCLUSION_TYPE_STRICT",
+                    "AbstractMesh.OCCLUSION_TYPE_STRICT",
                     value
                 );
             }
@@ -158,7 +158,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".AbstractMesh.OCCLUSION_ALGORITHM_TYPE_ACCURATE"
+                    "AbstractMesh.OCCLUSION_ALGORITHM_TYPE_ACCURATE"
                 );
             }
             set
@@ -166,7 +166,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".AbstractMesh.OCCLUSION_ALGORITHM_TYPE_ACCURATE",
+                    "AbstractMesh.OCCLUSION_ALGORITHM_TYPE_ACCURATE",
                     value
                 );
             }
@@ -179,7 +179,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".AbstractMesh.OCCLUSION_ALGORITHM_TYPE_CONSERVATIVE"
+                    "AbstractMesh.OCCLUSION_ALGORITHM_TYPE_CONSERVATIVE"
                 );
             }
             set
@@ -187,7 +187,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".AbstractMesh.OCCLUSION_ALGORITHM_TYPE_CONSERVATIVE",
+                    "AbstractMesh.OCCLUSION_ALGORITHM_TYPE_CONSERVATIVE",
                     value
                 );
             }
@@ -200,7 +200,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".AbstractMesh.CULLINGSTRATEGY_STANDARD"
+                    "AbstractMesh.CULLINGSTRATEGY_STANDARD"
                 );
             }
         }
@@ -212,7 +212,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".AbstractMesh.CULLINGSTRATEGY_BOUNDINGSPHERE_ONLY"
+                    "AbstractMesh.CULLINGSTRATEGY_BOUNDINGSPHERE_ONLY"
                 );
             }
         }
@@ -224,7 +224,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".AbstractMesh.CULLINGSTRATEGY_OPTIMISTIC_INCLUSION"
+                    "AbstractMesh.CULLINGSTRATEGY_OPTIMISTIC_INCLUSION"
                 );
             }
         }
@@ -236,7 +236,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".AbstractMesh.CULLINGSTRATEGY_OPTIMISTIC_INCLUSION_THEN_BSPHERE_ONLY"
+                    "AbstractMesh.CULLINGSTRATEGY_OPTIMISTIC_INCLUSION_THEN_BSPHERE_ONLY"
                 );
             }
         }

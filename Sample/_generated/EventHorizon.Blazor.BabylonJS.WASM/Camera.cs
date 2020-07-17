@@ -25,7 +25,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Camera.PERSPECTIVE_CAMERA"
+                    "Camera.PERSPECTIVE_CAMERA"
                 );
             }
         }
@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Camera.ORTHOGRAPHIC_CAMERA"
+                    "Camera.ORTHOGRAPHIC_CAMERA"
                 );
             }
         }
@@ -49,7 +49,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Camera.FOVMODE_VERTICAL_FIXED"
+                    "Camera.FOVMODE_VERTICAL_FIXED"
                 );
             }
         }
@@ -61,7 +61,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Camera.FOVMODE_HORIZONTAL_FIXED"
+                    "Camera.FOVMODE_HORIZONTAL_FIXED"
                 );
             }
         }
@@ -73,7 +73,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Camera.RIG_MODE_NONE"
+                    "Camera.RIG_MODE_NONE"
                 );
             }
         }
@@ -85,7 +85,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Camera.RIG_MODE_STEREOSCOPIC_ANAGLYPH"
+                    "Camera.RIG_MODE_STEREOSCOPIC_ANAGLYPH"
                 );
             }
         }
@@ -97,7 +97,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Camera.RIG_MODE_STEREOSCOPIC_SIDEBYSIDE_PARALLEL"
+                    "Camera.RIG_MODE_STEREOSCOPIC_SIDEBYSIDE_PARALLEL"
                 );
             }
         }
@@ -109,7 +109,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Camera.RIG_MODE_STEREOSCOPIC_SIDEBYSIDE_CROSSEYED"
+                    "Camera.RIG_MODE_STEREOSCOPIC_SIDEBYSIDE_CROSSEYED"
                 );
             }
         }
@@ -121,7 +121,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Camera.RIG_MODE_STEREOSCOPIC_OVERUNDER"
+                    "Camera.RIG_MODE_STEREOSCOPIC_OVERUNDER"
                 );
             }
         }
@@ -133,7 +133,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Camera.RIG_MODE_STEREOSCOPIC_INTERLACED"
+                    "Camera.RIG_MODE_STEREOSCOPIC_INTERLACED"
                 );
             }
         }
@@ -145,7 +145,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Camera.RIG_MODE_VR"
+                    "Camera.RIG_MODE_VR"
                 );
             }
         }
@@ -157,7 +157,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Camera.RIG_MODE_WEBVR"
+                    "Camera.RIG_MODE_WEBVR"
                 );
             }
         }
@@ -169,7 +169,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Camera.RIG_MODE_CUSTOM"
+                    "Camera.RIG_MODE_CUSTOM"
                 );
             }
         }
@@ -181,7 +181,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<bool>(
                     "BABYLON",
-                    ".Camera.ForceAttachControlToAlwaysPreventDefault"
+                    "Camera.ForceAttachControlToAlwaysPreventDefault"
                 );
             }
             set
@@ -189,7 +189,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".Camera.ForceAttachControlToAlwaysPreventDefault",
+                    "Camera.ForceAttachControlToAlwaysPreventDefault",
                     value
                 );
             }

@@ -43,7 +43,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project
                 _interopPackageReference
             );
 
-            // TODO: Create Files from GeneratedStatementList
+            // Create Files from GeneratedStatementList
             foreach (var generatedStatement in generatedStatementList)
             {
                 GeneratedStatementFile(
@@ -118,7 +118,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project
 
         private void GenerateProjectDirectory()
         {
-            if (Directory.Exists(_projectDirectory))
+            if (Directory.Exists(_projectDirectory)
+                && (Directory.GetFiles(_projectDirectory).Any()
+                    || Directory.GetDirectories(_projectDirectory).Any()))
             {
                 throw new Exception($"{_projectDirectory} already exists.");
             }

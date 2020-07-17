@@ -1,0 +1,110 @@
+/// Generated - Do Not Edit
+namespace Examples
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter))]
+    public class ExampleClass : CachedEntityObject
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+        public static int methodStaticCheck(Vector3 arg1, decimal arg2)
+        {
+            return EventHorizonBlazorInteropt.Func<int>(
+                new object[] 
+                {
+                    new string[] { "Examples", "ExampleClass", "methodStaticCheck" }, arg1, arg2
+                }
+            );
+        }
+
+        public static bool vectorStaticMethodCheck(OverrideVector4 arg1, decimal arg2)
+        {
+            return EventHorizonBlazorInteropt.Func<bool>(
+                new object[] 
+                {
+                    new string[] { "Examples", "ExampleClass", "vectorStaticMethodCheck" }, arg1, arg2
+                }
+            );
+        }
+
+        public static bool primativeStaticMethodCheck(Vector3 arg1, int arg2)
+        {
+            return EventHorizonBlazorInteropt.Func<bool>(
+                new object[] 
+                {
+                    new string[] { "Examples", "ExampleClass", "primativeStaticMethodCheck" }, arg1, arg2
+                }
+            );
+        }
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { } 
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+
+        #endregion
+
+        #region Methods
+        public OverrideVector4 methodCheck(Vector3 arg1, decimal arg2)
+        {
+            return EventHorizonBlazorInteropt.FuncClass<OverrideVector4>(
+                entity => new OverrideVector4(entity),
+                new object[] 
+                {
+                    new string[] { this.___guid, "methodCheck" }, arg1, arg2
+                }
+            );
+        }
+
+        public bool vectorMethodCheck(OverrideVector4 arg1, decimal arg2)
+        {
+            return EventHorizonBlazorInteropt.Func<bool>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "vectorMethodCheck" }, arg1, arg2
+                }
+            );
+        }
+
+        public bool primativeMethodCheck(Vector3 arg1, int arg2)
+        {
+            return EventHorizonBlazorInteropt.Func<bool>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "primativeMethodCheck" }, arg1, arg2
+                }
+            );
+        }
+        #endregion
+    }
+}

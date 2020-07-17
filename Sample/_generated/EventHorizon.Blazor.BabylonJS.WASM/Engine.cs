@@ -103,7 +103,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.ALPHA_DISABLE"
+                    "Engine.ALPHA_DISABLE"
                 );
             }
         }
@@ -115,7 +115,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.ALPHA_ADD"
+                    "Engine.ALPHA_ADD"
                 );
             }
         }
@@ -127,7 +127,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.ALPHA_COMBINE"
+                    "Engine.ALPHA_COMBINE"
                 );
             }
         }
@@ -139,7 +139,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.ALPHA_SUBTRACT"
+                    "Engine.ALPHA_SUBTRACT"
                 );
             }
         }
@@ -151,7 +151,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.ALPHA_MULTIPLY"
+                    "Engine.ALPHA_MULTIPLY"
                 );
             }
         }
@@ -163,7 +163,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.ALPHA_MAXIMIZED"
+                    "Engine.ALPHA_MAXIMIZED"
                 );
             }
         }
@@ -175,7 +175,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.ALPHA_ONEONE"
+                    "Engine.ALPHA_ONEONE"
                 );
             }
         }
@@ -187,7 +187,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.ALPHA_PREMULTIPLIED"
+                    "Engine.ALPHA_PREMULTIPLIED"
                 );
             }
         }
@@ -199,7 +199,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.ALPHA_PREMULTIPLIED_PORTERDUFF"
+                    "Engine.ALPHA_PREMULTIPLIED_PORTERDUFF"
                 );
             }
         }
@@ -211,7 +211,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.ALPHA_INTERPOLATE"
+                    "Engine.ALPHA_INTERPOLATE"
                 );
             }
         }
@@ -223,7 +223,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.ALPHA_SCREENMODE"
+                    "Engine.ALPHA_SCREENMODE"
                 );
             }
         }
@@ -235,7 +235,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.DELAYLOADSTATE_NONE"
+                    "Engine.DELAYLOADSTATE_NONE"
                 );
             }
         }
@@ -247,7 +247,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.DELAYLOADSTATE_LOADED"
+                    "Engine.DELAYLOADSTATE_LOADED"
                 );
             }
         }
@@ -259,7 +259,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.DELAYLOADSTATE_LOADING"
+                    "Engine.DELAYLOADSTATE_LOADING"
                 );
             }
         }
@@ -271,7 +271,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.DELAYLOADSTATE_NOTLOADED"
+                    "Engine.DELAYLOADSTATE_NOTLOADED"
                 );
             }
         }
@@ -283,7 +283,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.NEVER"
+                    "Engine.NEVER"
                 );
             }
         }
@@ -295,7 +295,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.ALWAYS"
+                    "Engine.ALWAYS"
                 );
             }
         }
@@ -307,7 +307,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.LESS"
+                    "Engine.LESS"
                 );
             }
         }
@@ -319,7 +319,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.EQUAL"
+                    "Engine.EQUAL"
                 );
             }
         }
@@ -331,7 +331,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.LEQUAL"
+                    "Engine.LEQUAL"
                 );
             }
         }
@@ -343,7 +343,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.GREATER"
+                    "Engine.GREATER"
                 );
             }
         }
@@ -355,7 +355,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.GEQUAL"
+                    "Engine.GEQUAL"
                 );
             }
         }
@@ -367,7 +367,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.NOTEQUAL"
+                    "Engine.NOTEQUAL"
                 );
             }
         }
@@ -379,7 +379,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.KEEP"
+                    "Engine.KEEP"
                 );
             }
         }
@@ -391,7 +391,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.REPLACE"
+                    "Engine.REPLACE"
                 );
             }
         }
@@ -403,7 +403,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.INCR"
+                    "Engine.INCR"
                 );
             }
         }
@@ -415,7 +415,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.DECR"
+                    "Engine.DECR"
                 );
             }
         }
@@ -427,7 +427,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.INVERT"
+                    "Engine.INVERT"
                 );
             }
         }
@@ -439,7 +439,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.INCR_WRAP"
+                    "Engine.INCR_WRAP"
                 );
             }
         }
@@ -451,7 +451,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.DECR_WRAP"
+                    "Engine.DECR_WRAP"
                 );
             }
         }
@@ -463,7 +463,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_CLAMP_ADDRESSMODE"
+                    "Engine.TEXTURE_CLAMP_ADDRESSMODE"
                 );
             }
         }
@@ -475,7 +475,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_WRAP_ADDRESSMODE"
+                    "Engine.TEXTURE_WRAP_ADDRESSMODE"
                 );
             }
         }
@@ -487,7 +487,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_MIRROR_ADDRESSMODE"
+                    "Engine.TEXTURE_MIRROR_ADDRESSMODE"
                 );
             }
         }
@@ -499,7 +499,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTUREFORMAT_ALPHA"
+                    "Engine.TEXTUREFORMAT_ALPHA"
                 );
             }
         }
@@ -511,7 +511,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTUREFORMAT_LUMINANCE"
+                    "Engine.TEXTUREFORMAT_LUMINANCE"
                 );
             }
         }
@@ -523,7 +523,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTUREFORMAT_LUMINANCE_ALPHA"
+                    "Engine.TEXTUREFORMAT_LUMINANCE_ALPHA"
                 );
             }
         }
@@ -535,7 +535,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTUREFORMAT_RGB"
+                    "Engine.TEXTUREFORMAT_RGB"
                 );
             }
         }
@@ -547,7 +547,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTUREFORMAT_RGBA"
+                    "Engine.TEXTUREFORMAT_RGBA"
                 );
             }
         }
@@ -559,7 +559,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTUREFORMAT_RED"
+                    "Engine.TEXTUREFORMAT_RED"
                 );
             }
         }
@@ -571,7 +571,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTUREFORMAT_R"
+                    "Engine.TEXTUREFORMAT_R"
                 );
             }
         }
@@ -583,7 +583,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTUREFORMAT_RG"
+                    "Engine.TEXTUREFORMAT_RG"
                 );
             }
         }
@@ -595,7 +595,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTUREFORMAT_RED_INTEGER"
+                    "Engine.TEXTUREFORMAT_RED_INTEGER"
                 );
             }
         }
@@ -607,7 +607,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTUREFORMAT_R_INTEGER"
+                    "Engine.TEXTUREFORMAT_R_INTEGER"
                 );
             }
         }
@@ -619,7 +619,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTUREFORMAT_RG_INTEGER"
+                    "Engine.TEXTUREFORMAT_RG_INTEGER"
                 );
             }
         }
@@ -631,7 +631,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTUREFORMAT_RGB_INTEGER"
+                    "Engine.TEXTUREFORMAT_RGB_INTEGER"
                 );
             }
         }
@@ -643,7 +643,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTUREFORMAT_RGBA_INTEGER"
+                    "Engine.TEXTUREFORMAT_RGBA_INTEGER"
                 );
             }
         }
@@ -655,7 +655,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURETYPE_UNSIGNED_BYTE"
+                    "Engine.TEXTURETYPE_UNSIGNED_BYTE"
                 );
             }
         }
@@ -667,7 +667,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURETYPE_UNSIGNED_INT"
+                    "Engine.TEXTURETYPE_UNSIGNED_INT"
                 );
             }
         }
@@ -679,7 +679,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURETYPE_FLOAT"
+                    "Engine.TEXTURETYPE_FLOAT"
                 );
             }
         }
@@ -691,7 +691,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURETYPE_HALF_FLOAT"
+                    "Engine.TEXTURETYPE_HALF_FLOAT"
                 );
             }
         }
@@ -703,7 +703,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURETYPE_BYTE"
+                    "Engine.TEXTURETYPE_BYTE"
                 );
             }
         }
@@ -715,7 +715,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURETYPE_SHORT"
+                    "Engine.TEXTURETYPE_SHORT"
                 );
             }
         }
@@ -727,7 +727,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURETYPE_UNSIGNED_SHORT"
+                    "Engine.TEXTURETYPE_UNSIGNED_SHORT"
                 );
             }
         }
@@ -739,7 +739,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURETYPE_INT"
+                    "Engine.TEXTURETYPE_INT"
                 );
             }
         }
@@ -751,7 +751,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURETYPE_UNSIGNED_INTEGER"
+                    "Engine.TEXTURETYPE_UNSIGNED_INTEGER"
                 );
             }
         }
@@ -763,7 +763,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURETYPE_UNSIGNED_SHORT_4_4_4_4"
+                    "Engine.TEXTURETYPE_UNSIGNED_SHORT_4_4_4_4"
                 );
             }
         }
@@ -775,7 +775,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURETYPE_UNSIGNED_SHORT_5_5_5_1"
+                    "Engine.TEXTURETYPE_UNSIGNED_SHORT_5_5_5_1"
                 );
             }
         }
@@ -787,7 +787,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURETYPE_UNSIGNED_SHORT_5_6_5"
+                    "Engine.TEXTURETYPE_UNSIGNED_SHORT_5_6_5"
                 );
             }
         }
@@ -799,7 +799,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURETYPE_UNSIGNED_INT_2_10_10_10_REV"
+                    "Engine.TEXTURETYPE_UNSIGNED_INT_2_10_10_10_REV"
                 );
             }
         }
@@ -811,7 +811,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURETYPE_UNSIGNED_INT_24_8"
+                    "Engine.TEXTURETYPE_UNSIGNED_INT_24_8"
                 );
             }
         }
@@ -823,7 +823,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURETYPE_UNSIGNED_INT_10F_11F_11F_REV"
+                    "Engine.TEXTURETYPE_UNSIGNED_INT_10F_11F_11F_REV"
                 );
             }
         }
@@ -835,7 +835,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURETYPE_UNSIGNED_INT_5_9_9_9_REV"
+                    "Engine.TEXTURETYPE_UNSIGNED_INT_5_9_9_9_REV"
                 );
             }
         }
@@ -847,7 +847,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURETYPE_FLOAT_32_UNSIGNED_INT_24_8_REV"
+                    "Engine.TEXTURETYPE_FLOAT_32_UNSIGNED_INT_24_8_REV"
                 );
             }
         }
@@ -859,7 +859,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_NEAREST_SAMPLINGMODE"
+                    "Engine.TEXTURE_NEAREST_SAMPLINGMODE"
                 );
             }
         }
@@ -871,7 +871,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_BILINEAR_SAMPLINGMODE"
+                    "Engine.TEXTURE_BILINEAR_SAMPLINGMODE"
                 );
             }
         }
@@ -883,7 +883,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_TRILINEAR_SAMPLINGMODE"
+                    "Engine.TEXTURE_TRILINEAR_SAMPLINGMODE"
                 );
             }
         }
@@ -895,7 +895,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_NEAREST_NEAREST_MIPLINEAR"
+                    "Engine.TEXTURE_NEAREST_NEAREST_MIPLINEAR"
                 );
             }
         }
@@ -907,7 +907,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_LINEAR_LINEAR_MIPNEAREST"
+                    "Engine.TEXTURE_LINEAR_LINEAR_MIPNEAREST"
                 );
             }
         }
@@ -919,7 +919,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_LINEAR_LINEAR_MIPLINEAR"
+                    "Engine.TEXTURE_LINEAR_LINEAR_MIPLINEAR"
                 );
             }
         }
@@ -931,7 +931,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_NEAREST_NEAREST_MIPNEAREST"
+                    "Engine.TEXTURE_NEAREST_NEAREST_MIPNEAREST"
                 );
             }
         }
@@ -943,7 +943,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_NEAREST_LINEAR_MIPNEAREST"
+                    "Engine.TEXTURE_NEAREST_LINEAR_MIPNEAREST"
                 );
             }
         }
@@ -955,7 +955,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_NEAREST_LINEAR_MIPLINEAR"
+                    "Engine.TEXTURE_NEAREST_LINEAR_MIPLINEAR"
                 );
             }
         }
@@ -967,7 +967,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_NEAREST_LINEAR"
+                    "Engine.TEXTURE_NEAREST_LINEAR"
                 );
             }
         }
@@ -979,7 +979,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_NEAREST_NEAREST"
+                    "Engine.TEXTURE_NEAREST_NEAREST"
                 );
             }
         }
@@ -991,7 +991,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_LINEAR_NEAREST_MIPNEAREST"
+                    "Engine.TEXTURE_LINEAR_NEAREST_MIPNEAREST"
                 );
             }
         }
@@ -1003,7 +1003,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_LINEAR_NEAREST_MIPLINEAR"
+                    "Engine.TEXTURE_LINEAR_NEAREST_MIPLINEAR"
                 );
             }
         }
@@ -1015,7 +1015,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_LINEAR_LINEAR"
+                    "Engine.TEXTURE_LINEAR_LINEAR"
                 );
             }
         }
@@ -1027,7 +1027,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_LINEAR_NEAREST"
+                    "Engine.TEXTURE_LINEAR_NEAREST"
                 );
             }
         }
@@ -1039,7 +1039,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_EXPLICIT_MODE"
+                    "Engine.TEXTURE_EXPLICIT_MODE"
                 );
             }
         }
@@ -1051,7 +1051,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_SPHERICAL_MODE"
+                    "Engine.TEXTURE_SPHERICAL_MODE"
                 );
             }
         }
@@ -1063,7 +1063,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_PLANAR_MODE"
+                    "Engine.TEXTURE_PLANAR_MODE"
                 );
             }
         }
@@ -1075,7 +1075,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_CUBIC_MODE"
+                    "Engine.TEXTURE_CUBIC_MODE"
                 );
             }
         }
@@ -1087,7 +1087,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_PROJECTION_MODE"
+                    "Engine.TEXTURE_PROJECTION_MODE"
                 );
             }
         }
@@ -1099,7 +1099,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_SKYBOX_MODE"
+                    "Engine.TEXTURE_SKYBOX_MODE"
                 );
             }
         }
@@ -1111,7 +1111,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_INVCUBIC_MODE"
+                    "Engine.TEXTURE_INVCUBIC_MODE"
                 );
             }
         }
@@ -1123,7 +1123,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_EQUIRECTANGULAR_MODE"
+                    "Engine.TEXTURE_EQUIRECTANGULAR_MODE"
                 );
             }
         }
@@ -1135,7 +1135,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_FIXED_EQUIRECTANGULAR_MODE"
+                    "Engine.TEXTURE_FIXED_EQUIRECTANGULAR_MODE"
                 );
             }
         }
@@ -1147,7 +1147,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.TEXTURE_FIXED_EQUIRECTANGULAR_MIRRORED_MODE"
+                    "Engine.TEXTURE_FIXED_EQUIRECTANGULAR_MIRRORED_MODE"
                 );
             }
         }
@@ -1159,7 +1159,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.SCALEMODE_FLOOR"
+                    "Engine.SCALEMODE_FLOOR"
                 );
             }
         }
@@ -1171,7 +1171,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.SCALEMODE_NEAREST"
+                    "Engine.SCALEMODE_NEAREST"
                 );
             }
         }
@@ -1183,7 +1183,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Engine.SCALEMODE_CEILING"
+                    "Engine.SCALEMODE_CEILING"
                 );
             }
         }
@@ -1197,7 +1197,7 @@ namespace BabylonJS
             {
                 __audioEngine = EventHorizonBlazorInteropt.GetClass<IAudioEngine>(
                     "BABYLON",
-                    ".Engine.audioEngine",
+                    "Engine.audioEngine",
                     (entity) =>
                     {
                         return new IAudioEngineCachedEntity(entity);
@@ -1211,7 +1211,7 @@ namespace BabylonJS
 __audioEngine = null;
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".Engine.audioEngine",
+                    "Engine.audioEngine",
                     value
                 );
             }

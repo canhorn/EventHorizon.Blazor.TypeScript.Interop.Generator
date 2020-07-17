@@ -6,6 +6,7 @@ using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
 {
@@ -45,7 +46,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     }
                     var argumentString = argumentsTemplate.Replace(
                         "[[NAME]]",
-                        argument.Name
+                        DotNetNormailzer.Normailze(
+                            argument.Name
+                        )
                     ).Replace(
                         "[[TYPE]]",
                         argument.Type
@@ -62,7 +65,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 var propertyArguments = string.Join(
                     ", ",
                     arguments.Select(
-                        argument => argument.Name
+                        argument => DotNetNormailzer.Normailze(
+                            argument.Name
+                        )
                     )
                 );
 

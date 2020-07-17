@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 using FluentAssertions;
@@ -18,12 +19,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
             var sourceFile = "testing.d.ts";
             var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
             var ast = new TypeScriptAST(source, sourceFile);
+            var typeOverrideMap = new Dictionary<string, string>();
 
             // When
             var generatedButton = GenerateInteropClassStatement.Generate(
                 "ProjectAssembly",
                 "Engine",
-                ast
+                ast,
+                typeOverrideMap
             );
             var actual = GenerateClassStatementString.Generate(
                 generatedButton
@@ -41,12 +44,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
             var sourceFile = "babylon.gui.d.ts";
             var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
             var ast = new TypeScriptAST(source, sourceFile);
+            var typeOverrideMap = new Dictionary<string, string>();
 
             // When
             var actual = GenerateInteropClassStatement.Generate(
                 "ProjectAssembly",
                 "Button",
-                ast
+                ast,
+                typeOverrideMap
             );
 
             // Then
@@ -169,12 +174,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
             var sourceFile = "babylon.gui.d.ts";
             var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
             var ast = new TypeScriptAST(source, sourceFile);
+            var typeOverrideMap = new Dictionary<string, string>();
 
             // When
             var actual = GenerateInteropClassStatement.Generate(
                 "ProjectAssembly",
                 "Control",
-                ast
+                ast,
+                typeOverrideMap
             );
 
             // Then

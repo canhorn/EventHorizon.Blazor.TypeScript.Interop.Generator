@@ -25,7 +25,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".TransformNode.BILLBOARDMODE_NONE"
+                    "TransformNode.BILLBOARDMODE_NONE"
                 );
             }
             set
@@ -33,7 +33,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".TransformNode.BILLBOARDMODE_NONE",
+                    "TransformNode.BILLBOARDMODE_NONE",
                     value
                 );
             }
@@ -46,7 +46,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".TransformNode.BILLBOARDMODE_X"
+                    "TransformNode.BILLBOARDMODE_X"
                 );
             }
             set
@@ -54,7 +54,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".TransformNode.BILLBOARDMODE_X",
+                    "TransformNode.BILLBOARDMODE_X",
                     value
                 );
             }
@@ -67,7 +67,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".TransformNode.BILLBOARDMODE_Y"
+                    "TransformNode.BILLBOARDMODE_Y"
                 );
             }
             set
@@ -75,7 +75,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".TransformNode.BILLBOARDMODE_Y",
+                    "TransformNode.BILLBOARDMODE_Y",
                     value
                 );
             }
@@ -88,7 +88,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".TransformNode.BILLBOARDMODE_Z"
+                    "TransformNode.BILLBOARDMODE_Z"
                 );
             }
             set
@@ -96,7 +96,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".TransformNode.BILLBOARDMODE_Z",
+                    "TransformNode.BILLBOARDMODE_Z",
                     value
                 );
             }
@@ -109,7 +109,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".TransformNode.BILLBOARDMODE_ALL"
+                    "TransformNode.BILLBOARDMODE_ALL"
                 );
             }
             set
@@ -117,7 +117,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".TransformNode.BILLBOARDMODE_ALL",
+                    "TransformNode.BILLBOARDMODE_ALL",
                     value
                 );
             }
@@ -130,7 +130,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".TransformNode.BILLBOARDMODE_USE_POSITION"
+                    "TransformNode.BILLBOARDMODE_USE_POSITION"
                 );
             }
             set
@@ -138,7 +138,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".TransformNode.BILLBOARDMODE_USE_POSITION",
+                    "TransformNode.BILLBOARDMODE_USE_POSITION",
                     value
                 );
             }

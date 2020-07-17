@@ -202,7 +202,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     propertyArguments
                 ).Replace(
                     "[[INTERFACE_POSTFIX]]",
-                    method.IsInterfaceResponse ? Constants.InterfacePostfix : string.Empty
+                    method.IsInterfaceResponse ? Constants.INTERFACE_POSTFIX : string.Empty
                 );
 
                 section.Append(

@@ -18,7 +18,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             string sourceDirectory,
             IList<string> sourceFiles,
             IList<string> generationList,
-            IWriter writer
+            IWriter writer,
+            IDictionary<string, string> typeOverrideMap
         )
         {
             var sourceFilesAsText = GetSourceFilesAsSingleTextString(
@@ -47,6 +48,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                 projectAssembly,
                 generationList,
                 notGeneratedClassNames,
+                typeOverrideMap,
                 new List<ClassStatement> { cachedEntityObject }
             );
             GlobalLogger.Info("Generate Class From List");
@@ -117,6 +119,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             string projectAssembly,
             IList<string> generationList,
             IList<string> notGeneratedClassNames,
+            IDictionary<string, string> typeOverrideMap,
             IList<ClassStatement> generatedStatements
         )
         {
@@ -141,8 +144,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                 stopwatch.Restart();
                 var generated = GenerateInteropClassStatement.Generate(
                     projectAssembly,
-                    classIdentifier, 
-                    ast
+                    classIdentifier,
+                    ast,
+                    typeOverrideMap
                 );
                 stopwatch.Stop();
                 GlobalLogger.Info(
@@ -174,6 +178,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                     projectAssembly,
                     toGenerateList,
                     notGeneratedClassNames,
+                    typeOverrideMap,
                     generatedStatements
                 );
             }

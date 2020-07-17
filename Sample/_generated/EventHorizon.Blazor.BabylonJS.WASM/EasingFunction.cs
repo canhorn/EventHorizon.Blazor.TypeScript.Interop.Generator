@@ -25,7 +25,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".EasingFunction.EASINGMODE_EASEIN"
+                    "EasingFunction.EASINGMODE_EASEIN"
                 );
             }
         }
@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".EasingFunction.EASINGMODE_EASEOUT"
+                    "EasingFunction.EASINGMODE_EASEOUT"
                 );
             }
         }
@@ -49,7 +49,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".EasingFunction.EASINGMODE_EASEINOUT"
+                    "EasingFunction.EASINGMODE_EASEINOUT"
                 );
             }
         }

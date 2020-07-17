@@ -36,6 +36,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
             {
                 "Everything",
             };
+            var typeOverrideMap = new Dictionary<string, string>();
 
             var writerMock = new Mock<IWriter>();
 
@@ -46,7 +47,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
                 sourceDirectory,
                 sourceFiles,
                 generationList,
-                writerMock.Object
+                writerMock.Object, 
+                typeOverrideMap
             );
 
 

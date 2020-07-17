@@ -25,7 +25,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<bool>(
                     "BABYLON",
-                    ".Animation.AllowMatricesInterpolation"
+                    "Animation.AllowMatricesInterpolation"
                 );
             }
             set
@@ -33,7 +33,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".Animation.AllowMatricesInterpolation",
+                    "Animation.AllowMatricesInterpolation",
                     value
                 );
             }
@@ -46,7 +46,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<bool>(
                     "BABYLON",
-                    ".Animation.AllowMatrixDecomposeForInterpolation"
+                    "Animation.AllowMatrixDecomposeForInterpolation"
                 );
             }
             set
@@ -54,7 +54,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".Animation.AllowMatrixDecomposeForInterpolation",
+                    "Animation.AllowMatrixDecomposeForInterpolation",
                     value
                 );
             }
@@ -67,7 +67,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Animation.ANIMATIONTYPE_FLOAT"
+                    "Animation.ANIMATIONTYPE_FLOAT"
                 );
             }
         }
@@ -79,7 +79,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Animation.ANIMATIONTYPE_VECTOR3"
+                    "Animation.ANIMATIONTYPE_VECTOR3"
                 );
             }
         }
@@ -91,7 +91,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Animation.ANIMATIONTYPE_QUATERNION"
+                    "Animation.ANIMATIONTYPE_QUATERNION"
                 );
             }
         }
@@ -103,7 +103,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Animation.ANIMATIONTYPE_MATRIX"
+                    "Animation.ANIMATIONTYPE_MATRIX"
                 );
             }
         }
@@ -115,7 +115,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Animation.ANIMATIONTYPE_COLOR3"
+                    "Animation.ANIMATIONTYPE_COLOR3"
                 );
             }
         }
@@ -127,7 +127,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Animation.ANIMATIONTYPE_COLOR4"
+                    "Animation.ANIMATIONTYPE_COLOR4"
                 );
             }
         }
@@ -139,7 +139,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Animation.ANIMATIONTYPE_VECTOR2"
+                    "Animation.ANIMATIONTYPE_VECTOR2"
                 );
             }
         }
@@ -151,7 +151,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Animation.ANIMATIONTYPE_SIZE"
+                    "Animation.ANIMATIONTYPE_SIZE"
                 );
             }
         }
@@ -163,7 +163,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Animation.ANIMATIONLOOPMODE_RELATIVE"
+                    "Animation.ANIMATIONLOOPMODE_RELATIVE"
                 );
             }
         }
@@ -175,7 +175,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Animation.ANIMATIONLOOPMODE_CYCLE"
+                    "Animation.ANIMATIONLOOPMODE_CYCLE"
                 );
             }
         }
@@ -187,7 +187,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".Animation.ANIMATIONLOOPMODE_CONSTANT"
+                    "Animation.ANIMATIONLOOPMODE_CONSTANT"
                 );
             }
         }

@@ -55,6 +55,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
                 "StandardMaterial",
                 "Texture",
                 "HemisphericLight",
+                "PointerInfo",
+                "PointerInfoBase",
             };
 
             // Remove any already Generated Source.
@@ -78,12 +80,16 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
                 sourceDirectory,
                 sourceFiles,
                 generationList,
-                writer
+                writer,
+                new Dictionary<string, string>
+                {
+                    { "BABYLON.PointerInfoBase | type", "int" }
+                }
             );
             stopwatch.Stop();
             GlobalLogger.Info("Removed Generation Directory");
             System.Console.WriteLine($"Took {stopwatch.ElapsedMilliseconds}ms to generate.");
-            
+
         }
     }
 }

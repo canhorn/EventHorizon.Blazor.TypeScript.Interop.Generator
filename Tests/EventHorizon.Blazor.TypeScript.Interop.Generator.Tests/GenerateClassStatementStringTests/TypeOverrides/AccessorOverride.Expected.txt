@@ -1,0 +1,113 @@
+/// Generated - Do Not Edit
+namespace Examples
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter))]
+    public class ExampleClass : CachedEntityObject
+    {
+        #region Static Accessors
+        private static OverrideVector4 __vectorStaticCheck;
+        public static OverrideVector4 vectorStaticCheck
+        {
+            get
+            {
+            if(__vectorStaticCheck == null)
+            {
+                __vectorStaticCheck = EventHorizonBlazorInteropt.GetClass<OverrideVector4>(
+                    "Examples",
+                    "ExampleClass.vectorStaticCheck",
+                    (entity) =>
+                    {
+                        return new OverrideVector4(entity);
+                    }
+                );
+            }
+            return __vectorStaticCheck;
+            }
+        }
+
+        
+        public static int primativeStaticCheck
+        {
+            get
+            {
+            return EventHorizonBlazorInteropt.Get<int>(
+                    "Examples",
+                    "ExampleClass.primativeStaticCheck"
+                );
+            }
+        }
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+
+        #region Accessors
+        private OverrideVector4 __vectorCheck;
+        public OverrideVector4 vectorCheck
+        {
+            get
+            {
+            if(__vectorCheck == null)
+            {
+                __vectorCheck = EventHorizonBlazorInteropt.GetClass<OverrideVector4>(
+                    this.___guid,
+                    "vectorCheck",
+                    (entity) =>
+                    {
+                        return new OverrideVector4(entity);
+                    }
+                );
+            }
+            return __vectorCheck;
+            }
+        }
+
+        
+        public int primativeCheck
+        {
+            get
+            {
+            return EventHorizonBlazorInteropt.Get<int>(
+                    this.___guid,
+                    "primativeCheck"
+                );
+            }
+        }
+        #endregion
+
+        #region Properties
+
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { } 
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+
+        #endregion
+
+        #region Methods
+
+        #endregion
+    }
+}

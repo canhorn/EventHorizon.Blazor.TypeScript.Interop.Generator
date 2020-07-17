@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using Xunit;
 
@@ -7,6 +8,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
     {
         [Theory(DisplayName = "Constructor")]
         [Trait("Category", "StringGeneration.Constructors")]
+        [InlineData("DotNetNormalizedArguments.ts", "Constructors", "DotNetNormalizedArguments.Expected.txt")]
         [InlineData("NoConstructor.ts", "Constructors", "NoConstructor.Expected.txt")]
         [InlineData("WithNullArguments.ts", "Constructors", "WithNullArguments.Expected.txt")]
         [InlineData("WithActionArgument.ts", "Constructors", "WithActionArgument.Expected.txt")]
@@ -106,6 +108,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
         [Theory(DisplayName = "Accessor.Scenarios")]
         [Trait("Category", "StringGeneration.Accessor.Scenarios")]
         [InlineData("AccessorSetNoGet.ts", "Accessors", "Scenarios", "AccessorSetNoGet.Expected.txt")]
+        [InlineData("DotNetNormalized.ts", "Accessors", "Scenarios", "DotNetNormalized.Expected.txt")]
         [InlineData("GenericObserver.ts", "Accessors", "Scenarios", "GenericObserver.Expected.txt")]
         [InlineData("NullableTyping.ts", "Accessors", "Scenarios", "NullableTyping.Expected.txt")]
         [InlineData("InterfaceResponse.ts", "Accessors", "Scenarios", "InterfaceResponse.Expected.txt")]
@@ -139,9 +142,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
 
         [Theory(DisplayName = "Property.Scenarios")]
         [Trait("Category", "StringGeneration.Property.Scenarios")]
+        [InlineData("DotNetNormalized.ts", "Properties", "Scenarios", "DotNetNormalized.Expected.txt")]
         [InlineData("PropertyJavaScriptTypes.ts", "Properties", "Scenarios", "PropertyJavaScriptTypes.Expected.txt")]
         [InlineData("PropertyParenthesized.ts", "Properties", "Scenarios", "PropertyParenthesized.Expected.txt")]
         [InlineData("TypeofResponse.ts", "Properties", "Scenarios", "TypeofResponse.Expected.txt")]
+        [InlineData("PropertyStaticRootNamespace.ts", "Properties", "Scenarios", "PropertyStaticRootNamespace.Expected.txt")]
         public void ShouldGeneratePropertyScenarioStrings(
             string sourceFile,
             string rootPath,
@@ -199,6 +204,39 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
         ) => ValidateGenerateStrings(
             Path.Combine(rootPath, scenariosPath),
             sourceFile,
+            expectedFile
+        );
+
+        [Theory(DisplayName = "TypeOverride.Scenarios")]
+        [Trait("Category", "StringGeneration.TypeOverride.Scenarios")]
+        [InlineData("AccessorOverride.ts", "TypeOverrides", "AccessorOverride.Expected.txt")]
+        [InlineData("PropertyOverride.ts", "TypeOverrides", "PropertyOverride.Expected.txt")]
+        [InlineData("MethodOverride.ts", "TypeOverrides", "MethodOverride.Expected.txt")]
+        [InlineData("ConstructorOverride.ts", "TypeOverrides", "ConstructorOverride.Expected.txt")]
+        public void ShouldGenerateTypeOverrideScenarioStrings(
+            string sourceFile,
+            string path,
+            string expectedFile
+        ) => ValidateGenerateWithTypeOverrideStrings(
+            path,
+            sourceFile,
+            new Dictionary<string, string>
+            {
+                { "Examples.ExampleClass | static | vectorStaticCheck", "OverrideVector4" },
+                { "Examples.ExampleClass | static | primativeStaticCheck", "int" },
+                { "Examples.ExampleClass | vectorCheck", "OverrideVector4" },
+                { "Examples.ExampleClass | primativeCheck", "int" },
+
+                { "Examples.ExampleClass | static | methodStaticCheck", "int" },
+                { "Examples.ExampleClass | static | vectorStaticMethodCheck | arg1", "OverrideVector4" },
+                { "Examples.ExampleClass | static | primativeStaticMethodCheck | arg2", "int" },
+                { "Examples.ExampleClass | methodCheck", "OverrideVector4" },
+                { "Examples.ExampleClass | vectorMethodCheck | arg1", "OverrideVector4" },
+                { "Examples.ExampleClass | primativeMethodCheck | arg2", "int" },
+
+                { "Examples.ExampleClass | constructor | arg1", "OverrideVector4" },
+                { "Examples.ExampleClass | constructor | arg2", "int" },
+            },
             expectedFile
         );
     }

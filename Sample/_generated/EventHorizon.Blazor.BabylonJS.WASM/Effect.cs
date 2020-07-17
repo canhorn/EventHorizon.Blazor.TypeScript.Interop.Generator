@@ -25,7 +25,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<string>(
                     "BABYLON",
-                    ".Effect.ShadersRepository"
+                    "Effect.ShadersRepository"
                 );
             }
             set
@@ -33,7 +33,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".Effect.ShadersRepository",
+                    "Effect.ShadersRepository",
                     value
                 );
             }
@@ -46,7 +46,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<CachedEntity>(
                     "BABYLON",
-                    ".Effect.ShadersStore"
+                    "Effect.ShadersStore"
                 );
             }
             set
@@ -54,7 +54,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".Effect.ShadersStore",
+                    "Effect.ShadersStore",
                     value
                 );
             }
@@ -67,7 +67,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<CachedEntity>(
                     "BABYLON",
-                    ".Effect.IncludesShadersStore"
+                    "Effect.IncludesShadersStore"
                 );
             }
             set
@@ -75,7 +75,7 @@ namespace BabylonJS
 
                 EventHorizonBlazorInteropt.Set(
                     "BABYLON",
-                    ".Effect.IncludesShadersStore",
+                    "Effect.IncludesShadersStore",
                     value
                 );
             }

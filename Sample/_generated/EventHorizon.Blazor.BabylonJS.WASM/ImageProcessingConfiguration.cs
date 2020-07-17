@@ -47,7 +47,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ImageProcessingConfiguration.TONEMAPPING_STANDARD"
+                    "ImageProcessingConfiguration.TONEMAPPING_STANDARD"
                 );
             }
         }
@@ -59,7 +59,7 @@ namespace BabylonJS
             {
             return EventHorizonBlazorInteropt.Get<decimal>(
                     "BABYLON",
-                    ".ImageProcessingConfiguration.TONEMAPPING_ACES"
+                    "ImageProcessingConfiguration.TONEMAPPING_ACES"
                 );
             }
         }

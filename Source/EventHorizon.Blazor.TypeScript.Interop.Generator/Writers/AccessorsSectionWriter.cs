@@ -74,8 +74,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 {
                     propertyGetterTemplate = templates.ReturnTypeClass;
                     propertyGetterResultType = templates.InteropGetClass;
-                    cacheSection = "private [[STATIC]][[TYPE]] __[[NAME]];";
-                    cacheSetterSection = "__[[NAME]] = null;";
+                    cacheSection = "private [[STATIC]][[TYPE]] __[[CACHE_NAME]];";
+                    cacheSetterSection = "__[[CACHE_NAME]] = null;";
                 }
                 else if (accessor.IsArrayResponse)
                 {
@@ -101,6 +101,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     ).Replace(
                         "[[CACHE_SETTTER_SECTION]]",
                         cacheSetterSection
+                    ).Replace(
+                        "[[CACHE_NAME]]",
+                        accessor.Name
                     ).Replace(
                         "[[PROPERTYTYPE]]",
                         classStatement.Name
@@ -132,7 +135,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         root
                     ).Replace(
                         "[[INTERFACE_POSTFIX]]",
-                        accessor.IsInterfaceResponse ? Constants.InterfacePostfix : string.Empty
+                        accessor.IsInterfaceResponse ? Constants.INTERFACE_POSTFIX : string.Empty
                     )
                 ;
                 section.Append(
