@@ -5,6 +5,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
     using System.IO;
     using System.Linq;
     using System.Text;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
@@ -69,17 +70,20 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
 
             foreach (var notGeneratedInterfaceName in notGeneratedClassNames)
             {
-                var classShim = GenerateClassShim.GenerateClassStatement(
-                    notGeneratedInterfaceName
-                );
-                generatedStatements.Add(
-                    new GeneratedStatement(
-                        classShim,
-                        GenerateClassShim.GenerateString(
-                            classShim
+                if (!JavaScriptProvidedApiIdentifier.Identify(notGeneratedInterfaceName, out _))
+                {
+                    var classShim = GenerateClassShim.GenerateClassStatement(
+                        notGeneratedInterfaceName
+                    );
+                    generatedStatements.Add(
+                        new GeneratedStatement(
+                            classShim,
+                            GenerateClassShim.GenerateString(
+                                classShim
+                            )
                         )
-                    )
-                );
+                    );
+                }
             }
             GlobalLogger.Info("Generated NOT Generated Class Names");
 
@@ -130,8 +134,17 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             }
             foreach (var classIdentifier in generationList)
             {
-                if (generatedStatements.Any(a => a.Name == classIdentifier))
+                if (generatedStatements.Any(a => a.Name == classIdentifier)
+                    || notGeneratedClassNames.Contains(classIdentifier))
                 {
+                    continue;
+                }
+                if (JavaScriptProvidedApiIdentifier.Identify(classIdentifier, out _))
+                {
+                    if (!notGeneratedClassNames.Contains(classIdentifier))
+                    {
+                        notGeneratedClassNames.Contains(classIdentifier);
+                    }
                     continue;
                 }
                 if (classIdentifier == null)
@@ -154,12 +167,15 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                 );
                 if (generated == null)
                 {
-                    GlobalLogger.Error(
-                        $"Was not found in AST. classIdentifier: {classIdentifier}"
-                    );
-                    notGeneratedClassNames.Add(
-                        classIdentifier
-                    );
+                    if (!notGeneratedClassNames.Contains(classIdentifier))
+                    {
+                        GlobalLogger.Error(
+                            $"Was not found in AST. classIdentifier: {classIdentifier}"
+                        );
+                        notGeneratedClassNames.Add(
+                            classIdentifier
+                        );
+                    }
                     continue;
                 }
                 generatedStatements.Add(generated);

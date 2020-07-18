@@ -44,9 +44,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             return list.Select(
                 a =>
                 {
-                    if (a.Type == GenerationIdentifiedTypes.Action)
+                    if (a.Type.Name == GenerationIdentifiedTypes.Action)
                     {
-                        a.Type = GenerationIdentifiedTypes.Object;
+                        a.Type.Name = GenerationIdentifiedTypes.CachedEntity;
                     }
                     return a;
                 }

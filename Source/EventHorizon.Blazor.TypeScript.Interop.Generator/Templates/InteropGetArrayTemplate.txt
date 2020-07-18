@@ -1,4 +1,4 @@
-EventHorizonBlazorInteropt.GetArray<[[TYPE]]>(
+EventHorizonBlazorInteropt.GetArray<[[ARRAY_TYPE]]>(
                     [[ROOT]],
                     "[[PROPERTY]]"
                 )

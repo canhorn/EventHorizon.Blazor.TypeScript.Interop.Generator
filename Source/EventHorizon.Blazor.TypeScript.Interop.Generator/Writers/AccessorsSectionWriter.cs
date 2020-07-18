@@ -28,7 +28,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             {
                 GlobalLogger.Info($"Generating Accessor: {accessor}");
                 var isLast = current == accessors.Count();
-                var isClassResponse = accessor.UsedClassNames.Any(a => a == accessor.Type);
+                var isClassResponse = ClassResponseIdentifier.Identify(
+                    accessor.Type,
+                    accessor.UsedClassNames
+                );
                 var template = templates.Accessor;
                 var propertyGetterResultType = templates.InteropGet;
                 var root = "this.___guid";
@@ -66,7 +69,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     }
                 }
 
-                if (isClassResponse && accessor.IsArrayResponse)
+                if (isClassResponse && accessor.Type.IsArray)
                 {
                     propertyGetterResultType = templates.InteropGetArrayClass;
                 }
@@ -77,7 +80,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     cacheSection = "private [[STATIC]][[TYPE]] __[[CACHE_NAME]];";
                     cacheSetterSection = "__[[CACHE_NAME]] = null;";
                 }
-                else if (accessor.IsArrayResponse)
+                else if (accessor.Type.IsArray)
                 {
                     propertyGetterResultType = templates.InteropGetArray;
                 }
@@ -112,7 +115,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         accessor.IsStatic ? "static " : string.Empty
                     ).Replace(
                         "[[ARRAY]]",
-                        accessor.IsArrayResponse ? "[]" : string.Empty
+                        string.Empty
                     ).Replace(
                         "[[NAME]]",
                         DotNetNormailzer.Normailze(
@@ -123,7 +126,17 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         accessor.Name.Captialize()
                     ).Replace(
                         "[[TYPE]]",
-                        accessor.Type
+                        // TODO: [TypeStatementWriter]: Use Writer Here
+                        TypeStatementWriter.Write(
+                            accessor.Type
+                        )
+                    ).Replace(
+                        "[[ARRAY_TYPE]]",
+                        // TODO: [TypeStatementWriter]: Use Writer Here
+                        TypeStatementWriter.Write(
+                            accessor.Type,
+                            true
+                        )
                     ).Replace(
                         "[[PROPERTY]]",
                         property

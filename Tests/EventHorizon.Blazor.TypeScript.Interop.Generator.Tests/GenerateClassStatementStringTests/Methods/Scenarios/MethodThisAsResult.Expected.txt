@@ -50,7 +50,7 @@ namespace Static.Class
         public ExampleClass methodWithThis()
         {
             return EventHorizonBlazorInteropt.FuncClass<ExampleClass>(
-                entity => new ExampleClass(entity),
+                entity => new ExampleClass() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "methodWithThis" }

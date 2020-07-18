@@ -6,18 +6,17 @@ using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
-    class ClassIdentifier
+    public class ClassIdentifier
     {
-        internal static bool Identify(
+        public static bool Identify(
             IList<string> classNameList,
             string typeAsString
         )
         {
             return classNameList.Any(
                 arg => arg == typeAsString
-            ) || typeAsString == GenerationIdentifiedTypes.Object
-            || typeAsString == GenerationIdentifiedTypes.Literal
-            || typeAsString == GenerationIdentifiedTypes.String;
+            ) || typeAsString == GenerationIdentifiedTypes.Literal
+            || typeAsString == GenerationIdentifiedTypes.Object;
         }
     }
 }

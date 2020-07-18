@@ -1,8 +1,8 @@
-EventHorizonBlazorInteropt.GetArrayClass<[[TYPE]]>(
+EventHorizonBlazorInteropt.GetArrayClass<[[ARRAY_TYPE]]>(
                     [[ROOT]],
                     "[[PROPERTY]]",
                     (entity) =>
                     {
-                        return new [[TYPE]][[INTERFACE_POSTFIX]](entity);
+                        return new [[ARRAY_TYPE]][[INTERFACE_POSTFIX]](entity);
                     }
                 )

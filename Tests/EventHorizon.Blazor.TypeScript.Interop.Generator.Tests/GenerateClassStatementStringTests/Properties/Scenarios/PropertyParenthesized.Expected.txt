@@ -30,6 +30,35 @@ namespace Static.Primitive
         #endregion
 
         #region Properties
+        private Vector2 __wrappedHeight;
+        public Vector2 wrappedHeight
+        {
+            get
+            {
+            if(__wrappedHeight == null)
+            {
+                __wrappedHeight = EventHorizonBlazorInteropt.GetClass<Vector2>(
+                    this.___guid,
+                    "wrappedHeight",
+                    (entity) =>
+                    {
+                        return new Vector2(entity);
+                    }
+                );
+            }
+            return __wrappedHeight;
+            }
+            set
+            {
+__wrappedHeight = null;
+                EventHorizonBlazorInteropt.Set(
+                    this.___guid,
+                    "wrappedHeight",
+                    value
+                );
+            }
+        }
+
         private Vector2 __height;
         public Vector2 height
         {

@@ -14,11 +14,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Rules
             Node node
         )
         {
-            if (node.Last == null)
-            {
-                return false;
-            }
-            var classId = node.Last.IdentifierStr;
+            var classId = node.IdentifierStr;
             if (classId == JavaScriptTypes.Function)
             {
                 return true;

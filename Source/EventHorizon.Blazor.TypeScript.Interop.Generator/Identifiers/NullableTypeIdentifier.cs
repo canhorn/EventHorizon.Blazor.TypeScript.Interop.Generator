@@ -9,31 +9,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
     public class NullableTypeIdentifier
     {
         public static bool Identify(
-            string type,
-            Node node,
-            ClassMetadata classMetadata,
-            IList<string> usedTypeParamterList,
-            out string nullableType
+            string type
         )
         {
-            nullableType = type;
-            if (JavaScriptTypes.Nullable.Equals(
+            return JavaScriptTypes.Nullable.Equals(
                 type
-            ))
-            {
-                nullableType = TypeIdentifier.Identify(
-                    node,
-                    classMetadata,
-                    usedTypeParamterList
-                );
-                if (GenerationIdentifiedTypes.Unknown.Equals(nullableType))
-                {
-                    nullableType = GenerationIdentifiedTypes.Object;
-                }
-                return true;
-            }
-
-            return false;
+            );
         }
     }
 }

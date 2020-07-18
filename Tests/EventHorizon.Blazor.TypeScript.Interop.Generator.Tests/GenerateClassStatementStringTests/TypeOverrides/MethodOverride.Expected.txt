@@ -78,7 +78,7 @@ namespace Examples
         public OverrideVector4 methodCheck(Vector3 arg1, decimal arg2)
         {
             return EventHorizonBlazorInteropt.FuncClass<OverrideVector4>(
-                entity => new OverrideVector4(entity),
+                entity => new OverrideVector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "methodCheck" }, arg1, arg2

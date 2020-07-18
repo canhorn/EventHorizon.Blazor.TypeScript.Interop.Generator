@@ -25,7 +25,7 @@ namespace Static.Class
         public static GroundMesh CreateGroundFromHeightMap(string name, string url, object options, Scene scene = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<GroundMesh>(
-                entity => new GroundMesh(entity),
+                entity => new GroundMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "Static", "Class", "ExampleClass", "CreateGroundFromHeightMap" }, name, url, options, scene

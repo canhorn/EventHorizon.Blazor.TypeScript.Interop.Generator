@@ -12,7 +12,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         internal static bool Identify(IList<ArgumentStatement> arguments)
         {
             return arguments.Any(
-                arg => arg.Type == GenerationIdentifiedTypes.Void
+                arg => arg.Type.Name == GenerationIdentifiedTypes.Void
+                    || arg.Type.GenericTypes.Any(a => a.Name == GenerationIdentifiedTypes.Void)
             );
         }
     }

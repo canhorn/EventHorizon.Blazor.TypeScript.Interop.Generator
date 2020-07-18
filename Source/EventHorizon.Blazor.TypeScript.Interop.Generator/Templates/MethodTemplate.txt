@@ -1,4 +1,4 @@
-        public [[STATIC]][[TYPE]][[ARRAY]] [[NAME]]([[ARGUMENTS]])
+        public [[STATIC]][[TYPE]][[ARRAY]] [[NAME]][[GENERIC_SECTION]]([[ARGUMENTS]])[[WHERE_CONSTRAINT]]
         {
 [[BODY]]
         }

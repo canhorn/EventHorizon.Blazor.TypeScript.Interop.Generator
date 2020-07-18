@@ -29,34 +29,50 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 var argumentStrings = new List<string>();
                 foreach (var argument in arguments.OrderBy(a => a.IsOptional))
                 {
-                    // Method Signature String
-                    // Standard: [[TYPE]][[IS_ARRAY]] [[NAME]]
-                    // Optional: System.Nullable<[[TYPE]][[IS_ARRAY]]> [[NAME]]
                     var argumentsTemplate = "[[TYPE]][[IS_ARRAY]] [[NAME]]";
                     if (argument.IsOptional)
                     {
                         argumentsTemplate = "System.Nullable<[[TYPE]][[IS_ARRAY]]> [[NAME]] = null";
-                        if (ClassIdentifier.Identify(
+                        if (argument.Type.IsNullable)
+                        {
+                            var typeIdentifier = argument.Type.GenericTypes.First().Name;
+                            if (ClassIdentifier.Identify(
+                                argument.UsedClassNames,
+                                typeIdentifier
+                            ) || typeIdentifier == GenerationIdentifiedTypes.Action)
+                            {
+                                argumentsTemplate = "[[TYPE]][[IS_ARRAY]] [[NAME]] = null";
+                            }
+                        }
+                        else if (ClassIdentifier.Identify(
                             argument.UsedClassNames,
-                            argument.Type
-                        ) || argument.IsArrayResponse)
+                            argument.Type.Name
+                        ))
                         {
                             argumentsTemplate = "[[TYPE]][[IS_ARRAY]] [[NAME]] = null";
                         }
                     }
                     var argumentString = argumentsTemplate.Replace(
                         "[[NAME]]",
-                        DotNetNormailzer.Normailze(
-                            argument.Name
-                        )
+                        DotNetNormailzer.Normailze(argument.Name)
                     ).Replace(
                         "[[TYPE]]",
-                        argument.Type
+                        TypeStatementWriter.Write(
+                            argument.Type
+                        )
+                    ).Replace(
+                        "[[ARRAY_TYPE]]",
+                        TypeStatementWriter.Write(
+                            argument.Type,
+                            true
+                        )
                     ).Replace(
                         "[[IS_ARRAY]]",
-                        argument.IsArrayResponse ? "[]" : string.Empty
+                        string.Empty
                     );
-                    argumentStrings.Add(argumentString);
+                    argumentStrings.Add(
+                        argumentString
+                    );
                 }
                 var constructorArguments = string.Join(
                     ", ",

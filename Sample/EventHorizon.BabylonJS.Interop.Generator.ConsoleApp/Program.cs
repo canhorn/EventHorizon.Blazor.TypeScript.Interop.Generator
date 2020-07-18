@@ -57,6 +57,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
                 "HemisphericLight",
                 "PointerInfo",
                 "PointerInfoBase",
+                "SceneLoader",
             };
 
             // Remove any already Generated Source.

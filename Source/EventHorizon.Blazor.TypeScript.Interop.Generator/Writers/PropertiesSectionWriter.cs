@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
@@ -27,7 +28,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             {
                 GlobalLogger.Info($"Generating Property: {property}");
                 var isLast = current == properties.Count();
-                var isClassResponse = property.UsedClassNames.Any(a => a == property.Type);
+                var isClassResponse = ClassResponseIdentifier.Identify(
+                    property.Type,
+                    property.UsedClassNames
+                );
                 var template = templates.AccessorWithSetter;
                 var propertyGetterResultType = templates.InteropGet;
                 var root = "this.___guid";
@@ -66,7 +70,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     }
                 }
 
-                if (isClassResponse && property.IsArrayResponse)
+                if (isClassResponse && property.Type.IsArray)
                 {
                     propertyGetterResultType = templates.InteropGetArrayClass;
                 }
@@ -77,7 +81,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     cacheSection = "private [[STATIC]][[TYPE]] __[[CACHE_NAME]];";
                     cacheSetterSection = "__[[CACHE_NAME]] = null;";
                 }
-                else if (property.IsArrayResponse)
+                else if (property.Type.IsArray)
                 {
                     propertyGetterResultType = templates.InteropGetArray;
                 }
@@ -106,7 +110,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         property.IsStatic ? "static " : string.Empty
                     ).Replace(
                         "[[ARRAY]]",
-                        property.IsArrayResponse ? "[]" : string.Empty
+                        string.Empty
                     ).Replace(
                         "[[NAME]]",
                         DotNetNormailzer.Normailze(
@@ -120,7 +124,17 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         property.Name.Captialize()
                     ).Replace(
                         "[[TYPE]]",
-                        property.Type
+                        // TODO: [TypeStatementWriter]: Use Writer Here
+                        TypeStatementWriter.Write(
+                            property.Type
+                        )
+                    ).Replace(
+                        "[[ARRAY_TYPE]]",
+                        // TODO: [TypeStatementWriter]: Use Writer Here
+                        TypeStatementWriter.Write(
+                            property.Type,
+                            true
+                        )
                     ).Replace(
                         "[[PROPERTY]]",
                         propertyIdentifier

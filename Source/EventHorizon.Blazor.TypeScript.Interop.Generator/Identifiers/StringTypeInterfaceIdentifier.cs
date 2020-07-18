@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 using Sdcb.TypeScript;
 using Sdcb.TypeScript.TsTypes;
 
@@ -14,9 +15,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 
         internal static bool Identify(
             TypeScriptAST ast,
-            string idefntifierString
+            TypeStatement type
         )
         {
+            var idefntifierString = type.Name;
             if (_cache.TryGetValue(idefntifierString, out var value))
             {
                 return value;

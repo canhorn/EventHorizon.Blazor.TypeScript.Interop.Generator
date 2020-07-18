@@ -7,6 +7,7 @@ using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 using Sdcb.TypeScript;
 using Sdcb.TypeScript.TsTypes;
+using System;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator
 {
@@ -15,7 +16,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
         static readonly IRule IsObservablePropertyRule = new IsObservableProperty();
         static readonly IRule IsGetterRule = new IsGetter();
         static readonly IRule IsSetterRule = new IsSetter();
-        static readonly IRule IsArrayResposneTypeRule = new IsArrayResponseType();
         static readonly IRule IsStaticRule = new IsStatic();
         static readonly IRule IsReadonlyRule = new IsReadonly();
         static readonly IRule IsClassBasedMethodRule = new IsClassBasedMethod();
@@ -106,10 +106,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                     {
                         var name = a.IdentifierStr;
                         var isStatic = IsStaticRule.Check(a);
-                        var type = TypeIdentifier.Identify(
-                            a,
-                            classMetadata,
-                            TypeParameterIdentifier.Identify(a)
+                        var type = GenericTypeIdentifier.Identify(
+                            a.Last,
+                            classMetadata
                         );
                         if (TypeOverrideIdentifier.Identify(
                             TypeOverrideDeclarationIdentifier.Identify(
@@ -127,13 +126,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                         return new PublicPropertyStatement
                         {
                             Name = name,
-                            Type = type,
+                            Type = NormalizeLiteralTypeStatement(type),
                             IsStatic = isStatic,
                             IsInterfaceResponse = StringTypeInterfaceIdentifier.Identify(
                                 ast,
                                 type
                             ),
-                            IsArrayResponse = IsArrayResposneTypeRule.Check(a),
+                            //IsArrayResponse = IsArrayResposneTypeRule.Check(a),
                             IsReadonly = IsReadonlyRule.Check(a),
                             UsedClassNames = UsedClassNamesIdentifier.Identify(type),
                         };
@@ -144,10 +143,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                     {
                         var name = a.IdentifierStr;
                         var isStatic = IsStaticRule.Check(a);
-                        var type = TypeIdentifier.Identify(
-                            a,
-                            classMetadata,
-                            TypeParameterIdentifier.Identify(a)
+                        var type = GenericTypeIdentifier.Identify(
+                            a.Last,
+                            classMetadata
                         );
                         if (TypeOverrideIdentifier.Identify(
                             TypeOverrideDeclarationIdentifier.Identify(
@@ -165,7 +163,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                         return new PublicMethodStatement
                         {
                             Name = name,
-                            Type = type,
+                            Type = NormalizeLiteralTypeStatement(type),
+                            GenericTypes = DeclarationGenericTypesIdentifier.Identify(
+                                a
+                            ),
                             Arguments = ArgumentIdentifier.Identify(
                                 a,
                                 classMetadata,
@@ -177,7 +178,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                                 ast,
                                 type
                             ),
-                            IsArrayResponse = IsArrayResposneTypeRule.Check(a),
                             UsedClassNames = UsedClassNamesIdentifier.Identify(type),
                         };
                     }
@@ -195,6 +195,17 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             return classStatement;
         }
 
+        private static TypeStatement NormalizeLiteralTypeStatement(
+            TypeStatement type
+        )
+        {
+            if (type.IsLiteral)
+            {
+                type.Name = GenerationIdentifiedTypes.CachedEntity;
+            }
+            return type;
+        }
+
         public static IList<AccessorStatement> FlattenAccessorStatements(
             this IEnumerable<Node> nodes,
             TypeScriptAST ast,
@@ -207,10 +218,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                 {
                     var name = accessor.IdentifierStr;
                     var isStatic = IsStaticRule.Check(accessor);
-                    var type = TypeIdentifier.Identify(
-                        accessor,
-                        classMetadata,
-                        TypeParameterIdentifier.Identify(accessor)
+                    var type = GenericTypeIdentifier.Identify(
+                        accessor.Last,
+                        classMetadata
                     );
                     if (TypeOverrideIdentifier.Identify(
                         TypeOverrideDeclarationIdentifier.Identify(
@@ -228,14 +238,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                     return new AccessorStatement
                     {
                         Name = name,
-                        Type = type,
+                        Type = NormalizeLiteralTypeStatement(type),
                         IsStatic = isStatic,
                         IsInterfaceResponse = StringTypeInterfaceIdentifier.Identify(
                             ast,
                             type
                         ),
                         HasSetter = IsSetterRule.Check(accessor),
-                        IsArrayResponse = IsArrayResposneTypeRule.Check(accessor),
+                        //IsArrayResponse = IsArrayResposneTypeRule.Check(accessor),
                         UsedClassNames = UsedClassNamesIdentifier.Identify(type),
                     };
                 }
@@ -284,11 +294,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             return (child.Kind == SyntaxKind.PropertyDeclaration || child.Kind == SyntaxKind.PropertySignature)
                 && TypeIdentifier
                     .Identify(
-                        child,
-                        classMetadata,
-                        TypeParameterIdentifier.Identify(child)
+                        child.Last,
+                        classMetadata
                     ) != GenerationIdentifiedTypes.Action
-                && !IsClassBasedMethodRule.Check(child);
+                && !IsClassBasedMethodRule.Check(child.Last);
         }
 
         private static bool IsMethodType(
@@ -300,15 +309,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                 && ((child.Kind == SyntaxKind.MethodDeclaration || child.Kind == SyntaxKind.MethodSignature)
                 || TypeIdentifier
                     .Identify(
-                        child,
-                        classMetadata,
-                        TypeParameterIdentifier.Identify(child)
+                        child.Last,
+                        classMetadata
                     ) == GenerationIdentifiedTypes.Action
                 || TypeIdentifier
                     .Identify(
-                        child,
-                        classMetadata,
-                        TypeParameterIdentifier.Identify(child)
+                        child.Last,
+                        classMetadata
                     ) == GenerationIdentifiedTypes.Void
                 || IsClassBasedMethodRule.Check(child));
         }

@@ -25,7 +25,7 @@ namespace Static.Class
         public static Vector3 FromArray(decimal[] array, System.Nullable<decimal> offset = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "Static", "Class", "ExampleClass", "FromArray" }, array, offset

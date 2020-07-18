@@ -50,7 +50,7 @@ namespace Static.Class
         public Style nullableClassStyle()
         {
             return EventHorizonBlazorInteropt.FuncClass<Style>(
-                entity => new Style(entity),
+                entity => new Style() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "nullableClassStyle" }
@@ -68,7 +68,7 @@ namespace Static.Class
             );
         }
 
-        public void orderNullArguments(Animatable[] animatables, Scene scene = null, Node targetConverter = null)
+        public void orderNullArguments(Animatable[] animatables, Scene scene = null, CachedEntity targetConverter = null)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

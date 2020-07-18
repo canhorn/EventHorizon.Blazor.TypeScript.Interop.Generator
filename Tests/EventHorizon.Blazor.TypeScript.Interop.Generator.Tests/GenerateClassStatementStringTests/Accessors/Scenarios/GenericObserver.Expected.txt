@@ -27,34 +27,34 @@ namespace Static.Primitive
 
         #region Accessors
         
-        public Observer[] observers
+        public Observer<T>[] observers
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Observer>(
+            return EventHorizonBlazorInteropt.GetArrayClass<Observer<T>>(
                     this.___guid,
                     "observers",
                     (entity) =>
                     {
-                        return new Observer(entity);
+                        return new Observer<T>(entity);
                     }
                 );
             }
         }
 
-        private Observer __observer;
-        public Observer observer
+        private Observer<T> __observer;
+        public Observer<T> observer
         {
             get
             {
             if(__observer == null)
             {
-                __observer = EventHorizonBlazorInteropt.GetClass<Observer>(
+                __observer = EventHorizonBlazorInteropt.GetClass<Observer<T>>(
                     this.___guid,
                     "observer",
                     (entity) =>
                     {
-                        return new Observer(entity);
+                        return new Observer<T>(entity);
                     }
                 );
             }

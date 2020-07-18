@@ -23,7 +23,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     method.Arguments.Aggregate(
                         new List<string>(),
                         (argAcc, arg) => argAcc.Concat(
-                            new List<string> { arg.Type }
+                            new List<string> { arg.Type.Name }
                         ).ToList()
                     )
                 ).ToList()
@@ -31,7 +31,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             var constructorUsedClasses = classStatement.ConstructorStatement.Arguments.Aggregate(
                 new List<string>(),
                 (argAcc, arg) => argAcc.Concat(
-                    new List<string> { arg.Type }
+                    new List<string> { arg.Type.Name }
                 ).ToList()
             );
             var argumentUsedClasses = methodArgumentUsedClasses.Concat(

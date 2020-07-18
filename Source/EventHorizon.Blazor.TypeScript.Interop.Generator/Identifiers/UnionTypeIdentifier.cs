@@ -8,7 +8,7 @@ using Sdcb.TypeScript.TsTypes;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
-    class UnionTypeIdentifier
+    public class UnionTypeIdentifier
     {
         private static IRule IsUnionTypeRule = new IsUnionType();
         internal static bool Identify(
@@ -18,7 +18,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             out string type
         )
         {
-            type = GenerationIdentifiedTypes.Literal;
+            type = GenerationIdentifiedTypes.Object;
             if (IsUnionTypeRule.Check(parameter))
             {
                 var children = parameter.OfKind(
@@ -40,8 +40,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                             {
                                 Children = new List<Node> { a }
                             },
-                            classMetadata,
-                            usedTypeParamterList
+                            classMetadata
                         )
                     ).FirstOrDefault();
                     if (identifiedChild != null)

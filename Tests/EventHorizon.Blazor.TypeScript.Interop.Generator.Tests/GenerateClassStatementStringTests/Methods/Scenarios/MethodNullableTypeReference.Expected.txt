@@ -47,9 +47,10 @@ namespace Static.Class
         #endregion
 
         #region Methods
-        public CachedEntity getExternalData(string key)
+        public T getExternalData<T>(string key) where T : CachedEntity, new()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getExternalData" }, key

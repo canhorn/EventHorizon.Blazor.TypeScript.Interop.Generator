@@ -16,7 +16,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             jsProvidedApiType = typeAsString;
             if (typeAsString == JavaScriptTypes.Promise)
             {
-                jsProvidedApiType = GenerationIdentifiedTypes.Task;
+                jsProvidedApiType = GenerationIdentifiedTypes.Void;
                 return true;
             }
             else if (typeAsString == JavaScriptTypes.Function)
@@ -24,8 +24,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 jsProvidedApiType = GenerationIdentifiedTypes.Void;
                 return true;
             }
-            else if (typeAsString == JavaScriptTypes.Int
-                || typeAsString == JavaScriptTypes.Float)
+            else if (typeAsString == JavaScriptTypes.Int)
+            {
+                jsProvidedApiType = GenerationIdentifiedTypes.Int;
+                return true;
+            }
+            else if (typeAsString == JavaScriptTypes.Float)
             {
                 jsProvidedApiType = GenerationIdentifiedTypes.Number;
                 return true;
@@ -42,16 +46,16 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             }
             else if (typeAsString == JavaScriptTypes.HTMLElement)
             {
-                jsProvidedApiType = GenerationIdentifiedTypes.Object;
+                jsProvidedApiType = GenerationIdentifiedTypes.CachedEntity;
                 return true;
             }
-            //else if (Types.NumberArrayTypes.Any(
-            //    a => a == typeAsString
-            //))
-            //{
-            //    jsProvidedApiType = GenerationIdentifiedTypes.Number;
-            //    return true;
-            //}
+            else if (JavaScriptTypes.NumberArrayTypes.Any(
+                a => a == typeAsString
+            ))
+            {
+                jsProvidedApiType = GenerationIdentifiedTypes.Array;
+                return true;
+            }
             return false;
         }
     }

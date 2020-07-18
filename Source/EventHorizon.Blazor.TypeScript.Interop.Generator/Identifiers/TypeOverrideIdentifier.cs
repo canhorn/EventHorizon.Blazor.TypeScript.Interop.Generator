@@ -1,16 +1,15 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
-    class TypeOverrideIdentifier
+    public class TypeOverrideIdentifier
     {
         public static bool Identify(
             string typeDeclaration,
             IDictionary<string, string> typeOverrideMap,
-            string currentType,
-            out string type
+            TypeStatement currentType,
+            out TypeStatement type
         )
         {
             type = currentType;
@@ -19,7 +18,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 out var overrideType
             ))
             {
-                type = overrideType;
+                type.Name = overrideType;
                 return true;
             }
             return false;

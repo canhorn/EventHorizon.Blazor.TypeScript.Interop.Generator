@@ -22,7 +22,7 @@ namespace Static.Class
         #endregion
 
         #region Static Methods
-        public static void makeObserverTopPriority(Observer observer)
+        public static void makeObserverTopPriority(Observer<T> observer)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

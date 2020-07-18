@@ -13,7 +13,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
     public static class ArgumentIdentifier
     {
-        private static readonly IRule IsArrayResponseTypeRule = new IsArrayResponseType();
         private static readonly IRule IsOptionalRule = new IsOptional();
 
         internal static IList<ArgumentStatement> Identify(
@@ -29,24 +28,31 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 .Cast<ParameterDeclaration>()
                 .Select(parameter =>
                 {
-                    var type = GenerationIdentifiedTypes.Literal;
-                    if (!UnionTypeIdentifier.Identify(
+                    var type = GenericTypeIdentifier.Identify(
+                        parameter.Last,
+                        classMetadata
+                    );
+                    if (UnionTypeIdentifier.Identify(
                         parameter,
                         classMetadata,
                         methodTypeParameters,
-                        out type
+                        out var typeName
                     ))
                     {
-                        type = TypeIdentifier.Identify(
-                            parameter,
-                            classMetadata,
-                            methodTypeParameters
-                        );
+                        type = new TypeStatement
+                        {
+                            Name = typeName,
+                        };
                     }
-                    if (type == GenerationIdentifiedTypes.Object)
+                    if (type.Name == GenerationIdentifiedTypes.CachedEntity)
                     {
-                        type = GenerationIdentifiedTypes.Literal;
+                        type.Name = GenerationIdentifiedTypes.Object;
                     }
+
+                    ConvertIdentifiedActionTypes(
+                        type
+                    );
+
                     var name = parameter.IdentifierStr;
                     var methodOrConstructorName = node.IdentifierStr;
                     if (node.Kind == SyntaxKind.Constructor)
@@ -72,9 +78,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     {
                         Name = parameter.IdentifierStr,
                         Type = type,
-                        IsArrayResponse = IsArrayResponseTypeRule.Check(
-                            parameter
-                        ),
                         IsOptional = IsOptionalRule.Check(
                             parameter
                         ),
@@ -85,6 +88,22 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 }).ToList();
 
             return parameters;
+        }
+
+        private static void ConvertIdentifiedActionTypes(
+            TypeStatement type
+        )
+        {
+            if (type.Name == GenerationIdentifiedTypes.Action)
+            {
+                // TODO: [ACTION] : Callback action implementation
+            }
+            foreach (var genericType in type.GenericTypes)
+            {
+                ConvertIdentifiedActionTypes(
+                    genericType
+                );
+            }
         }
     }
 }

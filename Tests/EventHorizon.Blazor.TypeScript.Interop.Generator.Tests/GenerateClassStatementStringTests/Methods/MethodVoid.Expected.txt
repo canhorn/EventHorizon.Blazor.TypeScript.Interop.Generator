@@ -67,7 +67,7 @@ namespace Static.Class
             );
         }
 
-        public void makeObserverTopPriority(Observer observer)
+        public void makeObserverTopPriority(Observer<T> observer)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

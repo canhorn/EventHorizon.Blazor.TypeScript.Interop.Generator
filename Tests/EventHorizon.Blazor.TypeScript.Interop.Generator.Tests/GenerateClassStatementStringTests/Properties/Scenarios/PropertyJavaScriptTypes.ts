@@ -3,6 +3,6 @@ declare module Static.Primitive {
         stringType: String;
         booleanType: Boolean;
         htmlElementType: HTMLElement;
-        intType: int;
+        intType: int; // Int is a provided platform type
     }
 }

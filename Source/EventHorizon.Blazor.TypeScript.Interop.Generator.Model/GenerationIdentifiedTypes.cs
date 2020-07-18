@@ -13,12 +13,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model
         public const string Void = "void";
         public const string Setter = "setter";
         public const string Getter = "getter";
-        public const string Literal = "object";
-        public const string Object = "CachedEntity";
+        public const string Literal = "object-literal";
+        public const string CachedEntity = "CachedEntity";
+        public const string Object = "object";
         public const string String = "string";
         public const string Bool = "bool";
         public const string Number = "decimal";
         public const string Int = "int";
         public const string Float = "float";
+        public const string Array = "Array";
     }
 }

@@ -14,21 +14,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Rules
             Node node
         )
         {
-            if (node.Last == null)
-            {
-                return false;
-            }
-            if (node.Last.Kind == SyntaxKind.ArrayType
+            if (node.Kind == SyntaxKind.ArrayType
                 || JavaScriptTypes.AllArrayTypes.Any(
-                    a => a == node.Last.IdentifierStr
+                    a => a == node.IdentifierStr
                 )
             )
             {
                 return true;
-            }
-            if (node.Last.Kind == SyntaxKind.TypeReference)
-            {
-                return Check(node.Last);
             }
 
             return false;

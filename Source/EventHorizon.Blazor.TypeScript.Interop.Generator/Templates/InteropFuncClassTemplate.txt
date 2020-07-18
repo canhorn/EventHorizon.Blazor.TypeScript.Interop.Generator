@@ -1,5 +1,5 @@
-EventHorizonBlazorInteropt.FuncClass<[[TYPE]]>(
-                entity => new [[TYPE]][[INTERFACE_POSTFIX]](entity),
+EventHorizonBlazorInteropt.FuncClass<[[ARRAY_TYPE]]>(
+                entity => new [[ARRAY_TYPE]][[INTERFACE_POSTFIX]]() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { [[PROPERTY_IDENTIFIER]], "[[PROPERTY]]" }[[PROPERTY_ARGUMENTS]]

@@ -10,38 +10,22 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
     public static class TypeIdentifier
     {
-        static readonly IRule IsObservablePropertyRule = new IsObservableProperty();
-        static readonly IRule IsTypeLiteralRule = new IsTypeLiteral();
-        static readonly IRule IsArrayResponseTypeRule = new IsArrayResponseType();
-
         public static string Identify(
             Node node,
-            ClassMetadata classMetadata,
-            IList<string> usedTypeParamterList
+            ClassMetadata classMetadata
         )
         {
             var type = GetFromNode(
                 node,
-                node.Last.Kind,
-                classMetadata,
-                usedTypeParamterList
+                node.Kind,
+                classMetadata
             );
             if (JavaScriptProvidedApiIdentifier.Identify(
-                type, 
+                type,
                 out var jsType
             ))
             {
                 type = jsType;
-            }
-            if (NullableTypeIdentifier.Identify(
-                type,
-                node.Last,
-                classMetadata,
-                usedTypeParamterList,
-                out var nullableType
-            ))
-            {
-                type = nullableType;
             }
             if (VoidTypeParameterIdentifier.Identify(
                 node,
@@ -59,173 +43,129 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         public static string GetFromNode(
             Node node,
             SyntaxKind kind,
-            ClassMetadata classMetadata,
-            IList<string> usedTypeParamterList
+            ClassMetadata classMetadata
         )
         {
             return kind switch
             {
                 SyntaxKind.UnionType => UnionTypeCheck(
                     node,
-                    classMetadata,
-                    usedTypeParamterList
+                    classMetadata
                 ),
                 SyntaxKind.ParenthesizedType => ParenthesizedTypeCheck(
                     node,
-                    classMetadata,
-                    usedTypeParamterList
+                    classMetadata
                 ),
                 SyntaxKind.FunctionType => GenerationIdentifiedTypes.Action,
                 SyntaxKind.VoidKeyword => GenerationIdentifiedTypes.Void,
                 SyntaxKind.StringKeyword => GenerationIdentifiedTypes.String,
                 SyntaxKind.BooleanKeyword => GenerationIdentifiedTypes.Bool,
                 SyntaxKind.NumberKeyword => GenerationIdentifiedTypes.Number,
-                SyntaxKind.ObjectKeyword => GenerationIdentifiedTypes.Object,
+                SyntaxKind.ObjectKeyword => GenerationIdentifiedTypes.CachedEntity,
+                SyntaxKind.LiteralType => GenerationIdentifiedTypes.Literal,
+                SyntaxKind.TypeLiteral => GenerationIdentifiedTypes.Literal,
+                SyntaxKind.ArrayType => GenerationIdentifiedTypes.Array,
                 // All Other Types
                 _ => AllOtherTypeChecks(
                     node,
-                    classMetadata,
-                    usedTypeParamterList
+                    classMetadata
                 ),
             };
         }
 
         private static string UnionTypeCheck(
             Node node,
-            ClassMetadata classMetadata,
-            IList<string> usedTypeParamterList
+            ClassMetadata classMetadata
         )
         {
+            var firstNode = node.Children.FirstOrDefault(
+                childNode => childNode.Kind != SyntaxKind.NullKeyword
+                    && childNode.Kind != SyntaxKind.UndefinedKeyword
+            );
+            if (firstNode == null)
+            {
+                return GenerationIdentifiedTypes.Unknown;
+            }
             return GetFromNode(
-                node,
-                node.Last.First.Kind,
-                classMetadata,
-                usedTypeParamterList
+                firstNode,
+                firstNode.Kind,
+                classMetadata
             );
         }
 
         private static string ParenthesizedTypeCheck(
             Node node,
-            ClassMetadata classMetadata,
-            IList<string> usedTypeParamterList
+            ClassMetadata classMetadata
         )
         {
-            if (node.Last.First.Kind == SyntaxKind.FunctionType)
+            if (node is ParenthesizedTypeNode typedNode)
+            {
+                return GetFromNode(
+                    node.First,
+                    node.First.Kind,
+                    classMetadata
+                );
+            }
+            if (node.Kind == SyntaxKind.FunctionType)
             {
                 return GetFromNode(
                     node,
-                    node.Last.First.Kind,
-                    classMetadata,
-                    usedTypeParamterList
+                    node.First.Kind,
+                    classMetadata
                 );
             }
             return GetFromNode(
                 node,
-                node.Last.First.First.Kind,
-                classMetadata,
-                usedTypeParamterList
+                node.First.First.Kind,
+                classMetadata
             );
         }
 
         private static string AllOtherTypeChecks(
             Node node,
-            ClassMetadata classMetadata,
-            IList<string> usedTypeParamterList
+            ClassMetadata classMetadata
         )
         {
-            if (IsObservablePropertyRule.Check(node))
+            if (node.Kind == SyntaxKind.AnyKeyword)
             {
-                return JavaScriptTypes.Observable;
+                return GenerationIdentifiedTypes.CachedEntity;
             }
-            if (IsTypeLiteralRule.Check(node.Last))
-            {
-                return GenerationIdentifiedTypes.Object;
-            }
-            if (IsArrayResponseTypeRule.Check(node))
-            {
-                return ArrayTypeIdentifier.Identify(
-                    node,
-                    classMetadata
-                );
-            }
-            if (node.Last.Kind == SyntaxKind.AnyKeyword)
-            {
-                return GenerationIdentifiedTypes.Object;
-            }
-            if (node.Last.Kind == SyntaxKind.ThisType)
+            else if (node.Kind == SyntaxKind.ThisType)
             {
                 return classMetadata.Name;
             }
-            if (node.Kind == SyntaxKind.GetAccessor)
+            else if (node.IdentifierStr != null)
             {
-                return GetClassName(
-                    node,
-                    classMetadata,
-                    usedTypeParamterList
-                );
+                return node.IdentifierStr;
             }
-
-            // Check if generic
-            if (node.OfKind(SyntaxKind.TypeReference)
-                .LastOrDefault() is TypeReferenceNode typed
-                && typed.TypeArguments != null && typed.TypeArguments.Any()
-            )
+            else if (IsNamespace(node))
             {
-                return GetFromNode(
-                    node,
-                    typed.TypeArguments.Last().Kind,
-                    classMetadata,
-                    usedTypeParamterList
-                );
-            }
-
-            return GetClassName(
-                node,
-                classMetadata,
-                usedTypeParamterList
-            );
-        }
-
-        private static string GetClassName(
-            Node node,
-            ClassMetadata classMetadata,
-            IList<string> usedTypeParamterList
-        )
-        {
-            var reference = node.OfKind(SyntaxKind.TypeReference)
-                .LastOrDefault()
-                ?.OfKind(SyntaxKind.Identifier)
-                .LastOrDefault();
-            if (reference == null)
-            {
-                // Check the TypeQuery
-                reference = node.OfKind(SyntaxKind.TypeQuery)
-                    .LastOrDefault()
-                    ?.OfKind(SyntaxKind.Identifier)
-                    .LastOrDefault();
-                if (reference == null)
-                {
-                    return GenerationIdentifiedTypes.Unknown;
-                }
-            }
-            if (classMetadata.TypeIdentifier.Any(a => a == reference.IdentifierStr)
-                || usedTypeParamterList.Any(a => a == reference.IdentifierStr)
-            )
-            {
-                if (reference.Parent.Kind == SyntaxKind.TypeReference
-                    && reference.Parent.Parent.Kind == SyntaxKind.TypeReference
-                    && reference.Parent.Parent is Node parentReference
-                )
-                {
-                    return parentReference.IdentifierStr;
-                }
-                return GenerationIdentifiedTypes.Object;
-            }
-            if (reference.IdentifierStr != null)
-            {
-                return reference.IdentifierStr;
+                return GetNamespacesType(node);
             }
             return GenerationIdentifiedTypes.Unknown;
+        }
+
+        private static bool IsNamespace(
+            Node node
+        )
+        {
+            return node is TypeReferenceNode typedNode
+                && typedNode.TypeName != null;
+        }
+
+        private static string GetNamespacesType(
+            Node node
+        )
+        {
+            if (node is TypeReferenceNode typedNode)
+            {
+                if (typedNode.TypeArguments != null
+                    && typedNode.TypeArguments.Any())
+                {
+                    return typedNode.First.Last.IdentifierStr;
+                }
+            }
+            return node.Last.Last.IdentifierStr;
         }
     }
 }

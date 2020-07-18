@@ -45,7 +45,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                         new ArgumentStatement
                         {
                             Name = "name",
-                            Type = "string",
+                            Type = new TypeStatement { Name = "string" },
                             IsOptional = true,
                         }
                     }
@@ -55,20 +55,44 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                     new AccessorStatement
                     {
                         Name = "image",
-                        Type = "Image",
+                        Type = new TypeStatement
+                        {
+                            Name = "Nullable",
+                            IsNullable = true,
+                            GenericTypes = new List<TypeStatement>
+                            {
+                                new TypeStatement
+                                {
+                                    Name = "Image"
+                                }
+                            }
+                        },
                         UsedClassNames = new List<string>
                         {
                             //GenerationIdentifiedTypes.CachedEntityObject,
+                            "Nullable",
                             "Image",
                         }
                     },
                     new AccessorStatement
                     {
                         Name = "textBlock",
-                        Type = "TextBlock",
+                        Type = new TypeStatement
+                        {
+                            Name = "Nullable",
+                            IsNullable = true,
+                            GenericTypes = new List<TypeStatement>
+                            {
+                                new TypeStatement
+                                {
+                                    Name = "TextBlock"
+                                }
+                            }
+                        },
                         UsedClassNames = new List<string>
                         {
                             //GenerationIdentifiedTypes.CachedEntityObject,
+                            "Nullable",
                             "TextBlock",
                         }
                     }
@@ -80,27 +104,43 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                         new PublicMethodStatement
                         {
                             Name = "pointerEnterAnimation",
-                            Type = "action",
+                            Type = new TypeStatement
+                            {
+                                Name = "action",
+                                IsAction = true,
+                            },
                         },
                         new PublicMethodStatement
                         {
                             Name = "pointerOutAnimation",
-                            Type = "action",
+                            Type = new TypeStatement
+                            {
+                                Name = "action",
+                                IsAction = true,
+                            },
                         },
                         new PublicMethodStatement
                         {
                             Name = "pointerDownAnimation",
-                            Type = "action",
+                            Type = new TypeStatement
+                            {
+                                Name = "action",
+                                IsAction = true,
+                            },
                         },
                         new PublicMethodStatement
                         {
                             Name = "pointerUpAnimation",
-                            Type = "action",
+                            Type = new TypeStatement
+                            {
+                                Name = "action",
+                                IsAction = true,
+                            },
                         },
                         new PublicMethodStatement
                         {
                             Name = "CreateImageButton",
-                            Type = "Button",
+                            Type = new TypeStatement { Name = "Button" },
                             IsStatic = true,
                             UsedClassNames = new List<string>
                             {
@@ -112,24 +152,24 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 new ArgumentStatement
                                 {
                                     Name = "name",
-                                    Type = "string",
+                                    Type = new TypeStatement { Name = "string" },
                                 },
                                 new ArgumentStatement
                                 {
                                     Name = "text",
-                                    Type = "string",
+                                    Type = new TypeStatement { Name = "string" },
                                 },
                                 new ArgumentStatement
                                 {
                                     Name = "imageUrl",
-                                    Type = "string",
+                                    Type = new TypeStatement { Name = "string" },
                                 },
                             },
                         },
                         new PublicMethodStatement
                         {
                             Name = "CreateImageOnlyButton",
-                            Type = "Button",
+                            Type = new TypeStatement { Name = "Button" },
                             IsStatic = true,
                             UsedClassNames = new List<string>
                             {
@@ -141,19 +181,19 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 new ArgumentStatement
                                 {
                                     Name = "name",
-                                    Type = "string",
+                                    Type = new TypeStatement { Name = "string" },
                                 },
                                 new ArgumentStatement
                                 {
                                     Name = "imageUrl",
-                                    Type = "string",
+                                    Type = new TypeStatement { Name = "string" },
                                 },
                             },
                         },
                         new PublicMethodStatement
                         {
                             Name = "CreateSimpleButton",
-                            Type = "Button",
+                            Type = new TypeStatement { Name = "Button" },
                             IsStatic = true,
                             UsedClassNames = new List<string>
                             {
@@ -165,19 +205,19 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 new ArgumentStatement
                                 {
                                     Name = "name",
-                                    Type = "string",
+                                    Type = new TypeStatement { Name = "string" },
                                 },
                                 new ArgumentStatement
                                 {
                                     Name = "text",
-                                    Type = "string",
+                                    Type = new TypeStatement { Name = "string" },
                                 },
                             }
                         },
                         new PublicMethodStatement
                         {
                             Name = "CreateImageWithCenterTextButton",
-                            Type = "Button",
+                            Type = new TypeStatement { Name = "Button" },
                             IsStatic = true,
                             UsedClassNames = new List<string>
                             {
@@ -189,17 +229,17 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 new ArgumentStatement
                                 {
                                     Name = "name",
-                                    Type = "string",
+                                    Type = new TypeStatement { Name = "string" },
                                 },
                                 new ArgumentStatement
                                 {
                                     Name = "text",
-                                    Type = "string",
+                                    Type = new TypeStatement { Name = "string" },
                                 },
                                 new ArgumentStatement
                                 {
                                     Name = "imageUrl",
-                                    Type = "string",
+                                    Type = new TypeStatement { Name = "string" },
                                 },
                             },
                         },
@@ -210,12 +250,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                     new PublicPropertyStatement
                     {
                         Name = "name",
-                        Type = "string",
+                        Type = new TypeStatement { Name = "string" },
                     },
                     new PublicPropertyStatement
                     {
                         Name = "delegatePickingToChildren",
-                        Type = "bool",
+                        Type = "bool".MakeTypeStatement(),
                     }
                 );
         }

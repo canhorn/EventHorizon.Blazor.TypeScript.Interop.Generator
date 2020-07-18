@@ -1,5 +1,5 @@
         [[CACHE_SECTION]]
-        public [[STATIC]][[TYPE]][[ARRAY]] [[NAME]]
+        public [[STATIC]][[TYPE]] [[NAME]]
         {
             get
             {

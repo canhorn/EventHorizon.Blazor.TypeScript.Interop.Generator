@@ -94,11 +94,11 @@ namespace Static.Primitive
         }
 
         
-        public decimal intType
+        public int intType
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInteropt.Get<int>(
                     this.___guid,
                     "intType"
                 );

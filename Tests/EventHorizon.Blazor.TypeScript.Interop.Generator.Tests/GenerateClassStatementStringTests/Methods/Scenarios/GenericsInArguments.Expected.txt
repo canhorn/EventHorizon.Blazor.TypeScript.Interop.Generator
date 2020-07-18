@@ -47,10 +47,10 @@ namespace Static.Class
         #endregion
 
         #region Methods
-        public Vector2 theOtherMatrix(object methodData, object classData)
+        public Vector2 theOtherMatrix<D>(D methodData, T classData)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector2>(
-                entity => new Vector2(entity),
+                entity => new Vector2() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "theOtherMatrix" }, methodData, classData

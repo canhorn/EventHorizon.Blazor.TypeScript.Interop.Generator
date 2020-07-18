@@ -25,7 +25,7 @@ namespace Static.Class
         public static Matrix2D[] Identitys()
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<Matrix2D>(
-                entity => new Matrix2D(entity),
+                entity => new Matrix2D() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "Static", "Class", "ExampleClass", "Identitys" }

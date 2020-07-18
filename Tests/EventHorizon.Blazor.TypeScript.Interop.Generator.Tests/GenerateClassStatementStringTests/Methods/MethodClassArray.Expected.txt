@@ -50,7 +50,7 @@ namespace Static.Class
         public Matrix[] theMatrixArray()
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "theMatrixArray" }
