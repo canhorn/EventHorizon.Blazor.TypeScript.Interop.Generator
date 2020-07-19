@@ -39,5 +39,5 @@ jobs:
         # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
         app_location: "/Sample" # App source code path
         app_build_command: "dotnet publish --configuration Release ./EventHorizon.Blazor.BabylonJS"
-        app_artifact_location: "/Sample/EventHorizon.Blazor.BabylonJS/bin/Release/netstandard2.1/publish/wwwroot" # Built app content directory - optional
+        app_artifact_location: "EventHorizon.Blazor.BabylonJS/bin/Release/netstandard2.1/publish/wwwroot" # Built app content directory - optional
         ###### End of Repository/Build Configurations ######
