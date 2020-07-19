@@ -1,4 +1,3 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30204.135
@@ -23,21 +22,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.TypeScr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Writers", "Writers", "{66BA240A-9512-4874-A05A-FE86C72DAA5B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{F40B53F2-E384-4DE7-95D5-8CC5924C09CD}"
-	ProjectSection(SolutionItems) = preProject
-		Sample\README.md = Sample\README.md
-	EndProjectSection
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.Interop", "Sample\EventHorizon.Blazor.Interop\EventHorizon.Blazor.Interop.csproj", "{2D4F13D7-9E25-42F7-9440-D23766724CD1}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.BabylonJS", "Sample\EventHorizon.Blazor.BabylonJS\EventHorizon.Blazor.BabylonJS.csproj", "{51468F62-B8CA-419E-964B-2E1B3F3E8A8C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.BabylonJS.Interop.Generator.ConsoleApp", "Sample\EventHorizon.BabylonJS.Interop.Generator.ConsoleApp\EventHorizon.BabylonJS.Interop.Generator.ConsoleApp.csproj", "{85219EAB-9352-4503-93C8-30E6904E2046}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_generated", "_generated", "{814FBBAC-9509-4BE5-BA55-515D3884676D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.BabylonJS.WASM", "Sample\_generated\EventHorizon.Blazor.BabylonJS.WASM\EventHorizon.Blazor.BabylonJS.WASM.csproj", "{E4E07011-BE05-4984-8F6A-3141131F0AB2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,22 +44,6 @@ Global
 		{2D1BE986-B7C9-457F-8F09-E7D71EEA0D8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D1BE986-B7C9-457F-8F09-E7D71EEA0D8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D1BE986-B7C9-457F-8F09-E7D71EEA0D8F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2D4F13D7-9E25-42F7-9440-D23766724CD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D4F13D7-9E25-42F7-9440-D23766724CD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2D4F13D7-9E25-42F7-9440-D23766724CD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2D4F13D7-9E25-42F7-9440-D23766724CD1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{51468F62-B8CA-419E-964B-2E1B3F3E8A8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{51468F62-B8CA-419E-964B-2E1B3F3E8A8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{51468F62-B8CA-419E-964B-2E1B3F3E8A8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{51468F62-B8CA-419E-964B-2E1B3F3E8A8C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{85219EAB-9352-4503-93C8-30E6904E2046}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{85219EAB-9352-4503-93C8-30E6904E2046}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{85219EAB-9352-4503-93C8-30E6904E2046}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{85219EAB-9352-4503-93C8-30E6904E2046}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E4E07011-BE05-4984-8F6A-3141131F0AB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E4E07011-BE05-4984-8F6A-3141131F0AB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E4E07011-BE05-4984-8F6A-3141131F0AB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E4E07011-BE05-4984-8F6A-3141131F0AB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,11 +51,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{CAEED771-5D2A-48F8-9DF5-8E60FA569FA0} = {932AD335-24DD-419D-9F45-93720F37D7DE}
 		{2D1BE986-B7C9-457F-8F09-E7D71EEA0D8F} = {66BA240A-9512-4874-A05A-FE86C72DAA5B}
-		{2D4F13D7-9E25-42F7-9440-D23766724CD1} = {F40B53F2-E384-4DE7-95D5-8CC5924C09CD}
-		{51468F62-B8CA-419E-964B-2E1B3F3E8A8C} = {F40B53F2-E384-4DE7-95D5-8CC5924C09CD}
-		{85219EAB-9352-4503-93C8-30E6904E2046} = {F40B53F2-E384-4DE7-95D5-8CC5924C09CD}
-		{814FBBAC-9509-4BE5-BA55-515D3884676D} = {F40B53F2-E384-4DE7-95D5-8CC5924C09CD}
-		{E4E07011-BE05-4984-8F6A-3141131F0AB2} = {814FBBAC-9509-4BE5-BA55-515D3884676D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DB1241E0-8802-4F96-9FD7-B938FE890192}

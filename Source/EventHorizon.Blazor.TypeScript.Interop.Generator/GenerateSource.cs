@@ -140,14 +140,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                 {
                     continue;
                 }
-                if (JavaScriptProvidedApiIdentifier.Identify(classIdentifier, out _))
-                {
-                    if (!notGeneratedClassNames.Contains(classIdentifier))
-                    {
-                        notGeneratedClassNames.Contains(classIdentifier);
-                    }
-                    continue;
-                }
                 stopwatch.Restart();
                 var generated = GenerateInteropClassStatement.Generate(
                     projectAssembly,
