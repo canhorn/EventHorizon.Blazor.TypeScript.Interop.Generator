@@ -42,7 +42,7 @@ namespace Static.Primitive
                     "height",
                     (entity) =>
                     {
-                        return new Vector2(entity);
+                        return new Vector2() { ___guid = entity.___guid };
                     }
                 );
             }

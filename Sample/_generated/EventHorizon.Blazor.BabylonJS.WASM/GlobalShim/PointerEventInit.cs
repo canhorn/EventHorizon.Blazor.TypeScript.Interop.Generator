@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class PointerEventInit : CachedEntity
 {
+    public PointerEventInit()
+    {
+    }
+
     public PointerEventInit(
         ICachedEntity entity
     )

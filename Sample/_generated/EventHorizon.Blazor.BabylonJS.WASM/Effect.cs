@@ -105,19 +105,19 @@ namespace BabylonJS
         #endregion
 
         #region Accessors
-        private Observable __onBindObservable;
-        public Observable onBindObservable
+        private Observable<Effect> __onBindObservable;
+        public Observable<Effect> onBindObservable
         {
             get
             {
             if(__onBindObservable == null)
             {
-                __onBindObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onBindObservable = EventHorizonBlazorInteropt.GetClass<Observable<Effect>>(
                     this.___guid,
                     "onBindObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Effect>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -193,27 +193,19 @@ namespace BabylonJS
             }
         }
 
-        private Effect __onCompiled;
-        public Effect onCompiled
+        
+        public CachedEntity onCompiled
         {
             get
             {
-            if(__onCompiled == null)
-            {
-                __onCompiled = EventHorizonBlazorInteropt.GetClass<Effect>(
+            return EventHorizonBlazorInteropt.Get<CachedEntity>(
                     this.___guid,
-                    "onCompiled",
-                    (entity) =>
-                    {
-                        return new Effect(entity);
-                    }
+                    "onCompiled"
                 );
-            }
-            return __onCompiled;
             }
             set
             {
-__onCompiled = null;
+
                 EventHorizonBlazorInteropt.Set(
                     this.___guid,
                     "onCompiled",
@@ -222,27 +214,19 @@ __onCompiled = null;
             }
         }
 
-        private Effect __onError;
-        public Effect onError
+        
+        public CachedEntity onError
         {
             get
             {
-            if(__onError == null)
-            {
-                __onError = EventHorizonBlazorInteropt.GetClass<Effect>(
+            return EventHorizonBlazorInteropt.Get<CachedEntity>(
                     this.___guid,
-                    "onError",
-                    (entity) =>
-                    {
-                        return new Effect(entity);
-                    }
+                    "onError"
                 );
-            }
-            return __onError;
             }
             set
             {
-__onError = null;
+
                 EventHorizonBlazorInteropt.Set(
                     this.___guid,
                     "onError",
@@ -251,27 +235,19 @@ __onError = null;
             }
         }
 
-        private Effect __onBind;
-        public Effect onBind
+        
+        public CachedEntity onBind
         {
             get
             {
-            if(__onBind == null)
-            {
-                __onBind = EventHorizonBlazorInteropt.GetClass<Effect>(
+            return EventHorizonBlazorInteropt.Get<CachedEntity>(
                     this.___guid,
-                    "onBind",
-                    (entity) =>
-                    {
-                        return new Effect(entity);
-                    }
+                    "onBind"
                 );
-            }
-            return __onBind;
             }
             set
             {
-__onBind = null;
+
                 EventHorizonBlazorInteropt.Set(
                     this.___guid,
                     "onBind",
@@ -301,19 +277,19 @@ __onBind = null;
             }
         }
 
-        private Observable __onCompileObservable;
-        public Observable onCompileObservable
+        private Observable<Effect> __onCompileObservable;
+        public Observable<Effect> onCompileObservable
         {
             get
             {
             if(__onCompileObservable == null)
             {
-                __onCompileObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onCompileObservable = EventHorizonBlazorInteropt.GetClass<Observable<Effect>>(
                     this.___guid,
                     "onCompileObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Effect>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -330,19 +306,19 @@ __onCompileObservable = null;
             }
         }
 
-        private Observable __onErrorObservable;
-        public Observable onErrorObservable
+        private Observable<Effect> __onErrorObservable;
+        public Observable<Effect> onErrorObservable
         {
             get
             {
             if(__onErrorObservable == null)
             {
-                __onErrorObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onErrorObservable = EventHorizonBlazorInteropt.GetClass<Observable<Effect>>(
                     this.___guid,
                     "onErrorObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Effect>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -370,7 +346,7 @@ __onErrorObservable = null;
         }
 
         public Effect(
-            object baseName, string attributesNamesOrOptions, string uniformsNamesOrEngine, string[] samplers = null, ThinEngine engine = null, string defines = null, IEffectFallbacks fallbacks = null, Effect onCompiled = null, Effect onError = null, object indexParameters = null
+            object baseName, string[] attributesNamesOrOptions, string[] uniformsNamesOrEngine, string[] samplers = null, ThinEngine engine = null, string defines = null, IEffectFallbacksCachedEntity fallbacks = null, CachedEntity onCompiled = null, CachedEntity onError = null, object indexParameters = null
         ) : base()
         {
             var entity = EventHorizonBlazorInteropt.New(
@@ -395,7 +371,7 @@ __onErrorObservable = null;
         public Engine getEngine()
         {
             return EventHorizonBlazorInteropt.FuncClass<Engine>(
-                entity => new Engine(entity),
+                entity => new Engine() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getEngine" }
@@ -403,10 +379,10 @@ __onErrorObservable = null;
             );
         }
 
-        public IPipelineContext getPipelineContext()
+        public IPipelineContextCachedEntity getPipelineContext()
         {
-            return EventHorizonBlazorInteropt.FuncClass<IPipelineContext>(
-                entity => new IPipelineContextCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncClass<IPipelineContextCachedEntity>(
+                entity => new IPipelineContextCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getPipelineContext" }
@@ -464,10 +440,10 @@ __onErrorObservable = null;
             );
         }
 
-        public WebGLUniformLocation getUniform(string uniformName)
+        public WebGLUniformLocationCachedEntity getUniform(string uniformName)
         {
-            return EventHorizonBlazorInteropt.FuncClass<WebGLUniformLocation>(
-                entity => new WebGLUniformLocationCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncClass<WebGLUniformLocationCachedEntity>(
+                entity => new WebGLUniformLocationCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getUniform" }, uniformName
@@ -622,7 +598,7 @@ __onErrorObservable = null;
         public Effect setInt(string uniformName, decimal value)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setInt" }, uniformName, value
@@ -633,7 +609,7 @@ __onErrorObservable = null;
         public Effect setIntArray(string uniformName, Int32Array array)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setIntArray" }, uniformName, array
@@ -644,7 +620,7 @@ __onErrorObservable = null;
         public Effect setIntArray2(string uniformName, Int32Array array)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setIntArray2" }, uniformName, array
@@ -655,7 +631,7 @@ __onErrorObservable = null;
         public Effect setIntArray3(string uniformName, Int32Array array)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setIntArray3" }, uniformName, array
@@ -666,7 +642,7 @@ __onErrorObservable = null;
         public Effect setIntArray4(string uniformName, Int32Array array)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setIntArray4" }, uniformName, array
@@ -677,7 +653,7 @@ __onErrorObservable = null;
         public Effect setFloatArray(string uniformName, decimal[] array)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setFloatArray" }, uniformName, array
@@ -688,7 +664,7 @@ __onErrorObservable = null;
         public Effect setFloatArray2(string uniformName, decimal[] array)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setFloatArray2" }, uniformName, array
@@ -699,7 +675,7 @@ __onErrorObservable = null;
         public Effect setFloatArray3(string uniformName, decimal[] array)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setFloatArray3" }, uniformName, array
@@ -710,7 +686,7 @@ __onErrorObservable = null;
         public Effect setFloatArray4(string uniformName, decimal[] array)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setFloatArray4" }, uniformName, array
@@ -721,7 +697,7 @@ __onErrorObservable = null;
         public Effect setArray(string uniformName, decimal[] array)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setArray" }, uniformName, array
@@ -732,7 +708,7 @@ __onErrorObservable = null;
         public Effect setArray2(string uniformName, decimal[] array)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setArray2" }, uniformName, array
@@ -743,7 +719,7 @@ __onErrorObservable = null;
         public Effect setArray3(string uniformName, decimal[] array)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setArray3" }, uniformName, array
@@ -754,7 +730,7 @@ __onErrorObservable = null;
         public Effect setArray4(string uniformName, decimal[] array)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setArray4" }, uniformName, array
@@ -765,7 +741,7 @@ __onErrorObservable = null;
         public Effect setMatrices(string uniformName, decimal[] matrices)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setMatrices" }, uniformName, matrices
@@ -773,10 +749,10 @@ __onErrorObservable = null;
             );
         }
 
-        public Effect setMatrix(string uniformName, IMatrixLike matrix)
+        public Effect setMatrix(string uniformName, IMatrixLikeCachedEntity matrix)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setMatrix" }, uniformName, matrix
@@ -787,7 +763,7 @@ __onErrorObservable = null;
         public Effect setMatrix3x3(string uniformName, decimal[] matrix)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setMatrix3x3" }, uniformName, matrix
@@ -798,7 +774,7 @@ __onErrorObservable = null;
         public Effect setMatrix2x2(string uniformName, decimal[] matrix)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setMatrix2x2" }, uniformName, matrix
@@ -809,7 +785,7 @@ __onErrorObservable = null;
         public Effect setFloat(string uniformName, decimal value)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setFloat" }, uniformName, value
@@ -820,7 +796,7 @@ __onErrorObservable = null;
         public Effect setBool(string uniformName, bool @bool)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setBool" }, uniformName, @bool
@@ -828,10 +804,10 @@ __onErrorObservable = null;
             );
         }
 
-        public Effect setVector2(string uniformName, IVector2Like vector2)
+        public Effect setVector2(string uniformName, IVector2LikeCachedEntity vector2)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setVector2" }, uniformName, vector2
@@ -842,7 +818,7 @@ __onErrorObservable = null;
         public Effect setFloat2(string uniformName, decimal x, decimal y)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setFloat2" }, uniformName, x, y
@@ -850,10 +826,10 @@ __onErrorObservable = null;
             );
         }
 
-        public Effect setVector3(string uniformName, IVector3Like vector3)
+        public Effect setVector3(string uniformName, IVector3LikeCachedEntity vector3)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setVector3" }, uniformName, vector3
@@ -864,7 +840,7 @@ __onErrorObservable = null;
         public Effect setFloat3(string uniformName, decimal x, decimal y, decimal z)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setFloat3" }, uniformName, x, y, z
@@ -872,10 +848,10 @@ __onErrorObservable = null;
             );
         }
 
-        public Effect setVector4(string uniformName, IVector4Like vector4)
+        public Effect setVector4(string uniformName, IVector4LikeCachedEntity vector4)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setVector4" }, uniformName, vector4
@@ -886,7 +862,7 @@ __onErrorObservable = null;
         public Effect setFloat4(string uniformName, decimal x, decimal y, decimal z, decimal w)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setFloat4" }, uniformName, x, y, z, w
@@ -894,10 +870,10 @@ __onErrorObservable = null;
             );
         }
 
-        public Effect setColor3(string uniformName, IColor3Like color3)
+        public Effect setColor3(string uniformName, IColor3LikeCachedEntity color3)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setColor3" }, uniformName, color3
@@ -905,10 +881,10 @@ __onErrorObservable = null;
             );
         }
 
-        public Effect setColor4(string uniformName, IColor3Like color3, decimal alpha)
+        public Effect setColor4(string uniformName, IColor3LikeCachedEntity color3, decimal alpha)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setColor4" }, uniformName, color3, alpha
@@ -916,10 +892,10 @@ __onErrorObservable = null;
             );
         }
 
-        public Effect setDirectColor4(string uniformName, IColor4Like color4)
+        public Effect setDirectColor4(string uniformName, IColor4LikeCachedEntity color4)
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setDirectColor4" }, uniformName, color4

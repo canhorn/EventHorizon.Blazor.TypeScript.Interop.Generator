@@ -4,9 +4,13 @@
 
 using EventHorizon.Blazor.Interop;
 
-public class SubEmitterType : CachedEntity
+public class AudioNode : CachedEntity
 {
-    public SubEmitterType(
+    public AudioNode()
+    {
+    }
+
+    public AudioNode(
         ICachedEntity entity
     )
     {

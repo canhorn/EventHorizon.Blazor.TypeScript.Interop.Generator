@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface ISize { }
+    public interface ISize : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class ISizeCachedEntity : CachedEntityObject, ISize

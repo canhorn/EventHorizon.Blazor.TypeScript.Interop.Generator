@@ -8,7 +8,7 @@ namespace BabylonJS.GUI
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IFocusableControl { }
+    public interface IFocusableControl : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class IFocusableControlCachedEntity : CachedEntityObject, IFocusableControl
@@ -79,7 +79,7 @@ namespace BabylonJS.GUI
         public Control[] keepsFocusWith()
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<Control>(
-                entity => new Control(entity),
+                entity => new Control() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "keepsFocusWith" }

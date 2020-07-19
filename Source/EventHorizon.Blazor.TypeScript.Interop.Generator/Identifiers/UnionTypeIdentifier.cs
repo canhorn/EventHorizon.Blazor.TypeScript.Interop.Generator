@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
+using Sdcb.TypeScript;
 using Sdcb.TypeScript.TsTypes;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
@@ -14,55 +16,34 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         internal static bool Identify(
             ParameterDeclaration parameter,
             ClassMetadata classMetadata,
-            IList<string> usedTypeParamterList,
-            out string type
+            TypeScriptAST ast,
+            out TypeStatement type
         )
         {
-            type = GenerationIdentifiedTypes.Object;
+            type = new TypeStatement
+            {
+                Name = GenerationIdentifiedTypes.Object,
+            };
             if (IsUnionTypeRule.Check(parameter))
             {
-                var children = parameter.OfKind(
+                var unionNode = parameter.OfKind(
                     SyntaxKind.UnionType
                 ).FirstOrDefault()
                 .Children.Where(
                     // Make sure does not contain undefined
                     a => a.Kind != SyntaxKind.UndefinedKeyword
                         && a.Kind != SyntaxKind.NullKeyword
-                ).ToList();
-                // Find type of nonObject when contains class
-                if (!children.All(a => a.Kind == SyntaxKind.TypeReference))
+                        && a.Kind != SyntaxKind.TypeLiteral
+                        && a.Kind != SyntaxKind.LiteralType
+                ).ToList().FirstOrDefault();
+
+                if (unionNode != null)
                 {
-                    var identifiedChild = children.Where(
-                        a => a.Kind != SyntaxKind.TypeReference
-                    ).Select(
-                        a => TypeIdentifier.Identify(
-                            a.Last != null ? a : new Node()
-                            {
-                                Children = new List<Node> { a }
-                            },
-                            classMetadata
-                        )
-                    ).FirstOrDefault();
-                    if (identifiedChild != null)
-                    {
-                        type = identifiedChild;
-                    }
-                }
-                else if (children.Count(a => a.Kind == SyntaxKind.TypeReference) == 1)
-                {
-                    var identifiedChild = children.Where(
-                        a => a.Kind == SyntaxKind.TypeReference
-                    ).Select(
-                        a => a.IdentifierStr
-                    ).FirstOrDefault();
-                    if (identifiedChild != null)
-                    {
-                        type = identifiedChild;
-                    }
-                }
-                if (type == GenerationIdentifiedTypes.Unknown)
-                {
-                    return false;
+                    type = GenericTypeIdentifier.Identify(
+                        unionNode,
+                        classMetadata,
+                        ast
+                    );
                 }
 
                 return true;

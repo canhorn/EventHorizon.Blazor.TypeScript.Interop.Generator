@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IEffectFallbacks { }
+    public interface IEffectFallbacks : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class IEffectFallbacksCachedEntity : CachedEntityObject, IEffectFallbacks

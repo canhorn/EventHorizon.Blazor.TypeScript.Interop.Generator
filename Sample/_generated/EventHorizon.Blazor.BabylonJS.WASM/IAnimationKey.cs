@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IAnimationKey { }
+    public interface IAnimationKey : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class IAnimationKeyCachedEntity : CachedEntityObject, IAnimationKey
@@ -126,7 +126,7 @@ namespace BabylonJS
                     "interpolation",
                     (entity) =>
                     {
-                        return new AnimationKeyInterpolation(entity);
+                        return new AnimationKeyInterpolation() { ___guid = entity.___guid };
                     }
                 );
             }

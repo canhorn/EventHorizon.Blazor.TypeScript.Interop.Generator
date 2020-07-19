@@ -32,9 +32,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                 .Should().Be("Button");
             actual.Namespace
                 .Should().Be("BABYLON.GUI");
-            actual.ExtendedClassNames
+            actual.ExtendedType
                 .Should().BeEquivalentTo(
-                    new List<string> { "Rectangle" }
+                    new TypeStatement
+                    {
+                        Name = "Rectangle"
+                    }
                 );
             actual.ConstructorStatement
                 .Should().BeEquivalentTo(new ConstructorStatement
@@ -69,8 +72,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                         },
                         UsedClassNames = new List<string>
                         {
-                            //GenerationIdentifiedTypes.CachedEntityObject,
-                            "Nullable",
                             "Image",
                         }
                     },
@@ -91,8 +92,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                         },
                         UsedClassNames = new List<string>
                         {
-                            //GenerationIdentifiedTypes.CachedEntityObject,
-                            "Nullable",
                             "TextBlock",
                         }
                     }

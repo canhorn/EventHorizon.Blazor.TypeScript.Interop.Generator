@@ -10,17 +10,25 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
     public class InterfaceSectionWriter
     {
         public static string Write(
-            ClassStatement classStatement, 
+            ClassStatement classStatement,
             ClassGenerationTemplates classGenerationTemplates
         )
         {
             // TODO: Check if class is an interface
-            if(classStatement.IsInterface)
+            if (classStatement.IsInterface)
             {
                 GlobalLogger.Info($"Generating Interface: {classStatement}");
+                var className = TypeStatementWriter.Write(new TypeStatement
+                {
+                    Name = classStatement.Name,
+                    GenericTypes = classStatement.GenericTypes,
+                });
                 // Get Interface Section Template
-                var template = "public interface [[CLASS_NAME]] { }";
-                return template;
+                var template = "public interface [[CLASS_NAME]] : ICachedEntity { }";
+                return template.Replace(
+                    "[[CLASS_NAME]]",
+                    className
+                );
             }
             return string.Empty;
         }

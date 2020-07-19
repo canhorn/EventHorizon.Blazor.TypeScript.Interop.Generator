@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class RegExp : CachedEntity
 {
+    public RegExp()
+    {
+    }
+
     public RegExp(
         ICachedEntity entity
     )

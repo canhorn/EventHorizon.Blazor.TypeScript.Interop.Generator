@@ -40,7 +40,7 @@ namespace BabylonJS
                     "rootNodes",
                     (entity) =>
                     {
-                        return new TransformNode(entity);
+                        return new TransformNode() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -65,7 +65,7 @@ namespace BabylonJS
                     "skeletons",
                     (entity) =>
                     {
-                        return new Skeleton(entity);
+                        return new Skeleton() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -90,7 +90,7 @@ namespace BabylonJS
                     "animationGroups",
                     (entity) =>
                     {
-                        return new AnimationGroup(entity);
+                        return new AnimationGroup() { ___guid = entity.___guid };
                     }
                 );
             }

@@ -1,0 +1,121 @@
+/// Generated - Do Not Edit
+namespace Static.Primitive
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter))]
+    public class ExampleClass : CachedEntityObject
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { } 
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+
+        #endregion
+
+        #region Methods
+        public string[] arrayExample()
+        {
+            return EventHorizonBlazorInteropt.FuncArray<string>(
+                new object[]
+                {
+                    new string[] { this.___guid, "arrayExample" }
+                }
+            );
+        }
+
+        public string[] arrayLikeExample()
+        {
+            return EventHorizonBlazorInteropt.FuncArray<string>(
+                new object[]
+                {
+                    new string[] { this.___guid, "arrayLikeExample" }
+                }
+            );
+        }
+
+        public decimal[] floatArrayExample()
+        {
+            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+                new object[]
+                {
+                    new string[] { this.___guid, "floatArrayExample" }
+                }
+            );
+        }
+
+        public decimal[] float32ArrayExample()
+        {
+            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+                new object[]
+                {
+                    new string[] { this.___guid, "float32ArrayExample" }
+                }
+            );
+        }
+
+        public decimal[] indicesArrayExample()
+        {
+            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+                new object[]
+                {
+                    new string[] { this.___guid, "indicesArrayExample" }
+                }
+            );
+        }
+
+        public decimal[] uint8ArrayExample()
+        {
+            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+                new object[]
+                {
+                    new string[] { this.___guid, "uint8ArrayExample" }
+                }
+            );
+        }
+
+        public decimal[] deepImmutableArray()
+        {
+            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+                new object[]
+                {
+                    new string[] { this.___guid, "deepImmutableArray" }
+                }
+            );
+        }
+        #endregion
+    }
+}

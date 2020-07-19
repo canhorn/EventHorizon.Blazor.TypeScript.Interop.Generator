@@ -77,6 +77,28 @@ namespace Static.Class
                 }
             );
         }
+
+        public ExampleClass undefinedStringArgument(string name = null)
+        {
+            return EventHorizonBlazorInteropt.FuncClass<ExampleClass>(
+                entity => new ExampleClass() { ___guid = entity.___guid },
+                new object[] 
+                {
+                    new string[] { this.___guid, "undefinedStringArgument" }, name
+                }
+            );
+        }
+
+        public LinesMesh mixedUndefinedAndOptional(string name, Vector3[] points, Scene scene = null, System.Nullable<bool> updatable = null, LinesMesh instance = null)
+        {
+            return EventHorizonBlazorInteropt.FuncClass<LinesMesh>(
+                entity => new LinesMesh() { ___guid = entity.___guid },
+                new object[] 
+                {
+                    new string[] { this.___guid, "mixedUndefinedAndOptional" }, name, points, scene, updatable, instance
+                }
+            );
+        }
         #endregion
     }
 }

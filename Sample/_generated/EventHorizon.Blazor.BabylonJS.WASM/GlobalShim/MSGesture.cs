@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class MSGesture : CachedEntity
 {
+    public MSGesture()
+    {
+    }
+
     public MSGesture(
         ICachedEntity entity
     )

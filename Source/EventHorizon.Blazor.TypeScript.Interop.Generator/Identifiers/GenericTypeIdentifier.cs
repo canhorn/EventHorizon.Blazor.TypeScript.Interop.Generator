@@ -5,6 +5,7 @@ using System.Text;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
+using Sdcb.TypeScript;
 using Sdcb.TypeScript.TsTypes;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
@@ -18,7 +19,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 
         public static TypeStatement Identify(
             Node node,
-            ClassMetadata classMetadata
+            ClassMetadata classMetadata,
+            TypeScriptAST ast
         )
         {
             // Observer<SomeTypeData>
@@ -44,7 +46,26 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                         genericTypes.Add(
                             Identify(
                                 typeArgumentNode,
-                                classMetadata
+                                classMetadata,
+                                ast
+                            )
+                        );
+                    }
+                }
+            }
+            else if (node is ExpressionWithTypeArguments expressNode
+                && expressNode.TypeArguments != null
+                && expressNode.TypeArguments.Any())
+            {
+                foreach (var typeArgument in expressNode.TypeArguments)
+                {
+                    if (typeArgument is Node typeArgumentNode)
+                    {
+                        genericTypes.Add(
+                            Identify(
+                                typeArgumentNode,
+                                classMetadata,
+                                ast
                             )
                         );
                     }
@@ -64,7 +85,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 genericTypes.Add(
                     Identify(
                         node.First,
-                        classMetadata
+                        classMetadata,
+                        ast
                     )
                 );
             }
@@ -102,6 +124,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 IsLiteral = isLiteral,
                 IsModifier = ModifierTypeIdentifier.Identify(
                     typeIdentifier
+                ),
+                IsInterface = InterfaceResponseTypeIdentifier.Identify(
+                    typeIdentifier,
+                    ast
                 ),
                 GenericTypes = genericTypes,
             };

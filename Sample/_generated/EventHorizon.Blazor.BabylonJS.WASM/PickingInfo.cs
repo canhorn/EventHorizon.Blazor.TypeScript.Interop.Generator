@@ -84,7 +84,7 @@ namespace BabylonJS
                     "pickedPoint",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -113,7 +113,7 @@ __pickedPoint = null;
                     "pickedMesh",
                     (entity) =>
                     {
-                        return new AbstractMesh(entity);
+                        return new AbstractMesh() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -226,7 +226,7 @@ __pickedMesh = null;
                     "pickedSprite",
                     (entity) =>
                     {
-                        return new Sprite(entity);
+                        return new Sprite() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -255,7 +255,7 @@ __pickedSprite = null;
                     "originMesh",
                     (entity) =>
                     {
-                        return new AbstractMesh(entity);
+                        return new AbstractMesh() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -284,7 +284,7 @@ __originMesh = null;
                     "ray",
                     (entity) =>
                     {
-                        return new Ray(entity);
+                        return new Ray() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -319,7 +319,7 @@ __ray = null;
         public Vector3 getNormal(System.Nullable<bool> useWorldCoordinates = null, System.Nullable<bool> useVerticesNormals = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getNormal" }, useWorldCoordinates, useVerticesNormals
@@ -330,7 +330,7 @@ __ray = null;
         public Vector2 getTextureCoordinates()
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector2>(
-                entity => new Vector2(entity),
+                entity => new Vector2() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getTextureCoordinates" }

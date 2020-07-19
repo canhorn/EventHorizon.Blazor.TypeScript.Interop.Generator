@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IPipelineContext { }
+    public interface IPipelineContext : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class IPipelineContextCachedEntity : CachedEntityObject, IPipelineContext

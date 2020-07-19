@@ -401,7 +401,7 @@ namespace BabylonJS
         public static BaseTexture Parse(object parsedTexture, Scene scene, string rootUrl)
         {
             return EventHorizonBlazorInteropt.FuncClass<BaseTexture>(
-                entity => new BaseTexture(entity),
+                entity => new BaseTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Texture", "Parse" }, parsedTexture, scene, rootUrl
@@ -409,91 +409,27 @@ namespace BabylonJS
             );
         }
 
-        #region CreateFromBase64String TODO: Get Comments as metadata identification
-        private static bool IsCreateFromBase64StringEnabled = false;
-        private static readonly IDictionary<string, Func<Task>> CreateFromBase64StringActionMap = new Dictionary<string, Func<Task>>();
-
-        public static string CreateFromBase64String(
-            Func<Task> callback
-        )
+        public static Texture CreateFromBase64String(string data, string name, Scene scene, System.Nullable<bool> noMipmap = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, CachedEntity onLoad = null, CachedEntity onError = null, System.Nullable<decimal> format = null)
         {
-            SetupCreateFromBase64StringStaticLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            CreateFromBase64StringActionMap.Add(
-                handle,
-                callback
+            return EventHorizonBlazorInteropt.FuncClass<Texture>(
+                entity => new Texture() { ___guid = entity.___guid },
+                new object[] 
+                {
+                    new string[] { "BABYLON", "Texture", "CreateFromBase64String" }, data, name, scene, noMipmap, invertY, samplingMode, onLoad, onError, format
+                }
             );
-
-            return handle;
         }
 
-        private static void SetupCreateFromBase64StringStaticLoop()
+        public static Texture LoadFromDataString(string name, object buffer, Scene scene, System.Nullable<bool> deleteBuffer = null, System.Nullable<bool> noMipmap = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, CachedEntity onLoad = null, CachedEntity onError = null, System.Nullable<decimal> format = null)
         {
-            if (IsCreateFromBase64StringEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.AssemblyFuncCallback(
-                "EventHorizon.Blazor.BabylonJS.WASM",
-                "BABYLON.Texture.CreateFromBase64String",
-                "CallCreateFromBase64StringStaticActions"
+            return EventHorizonBlazorInteropt.FuncClass<Texture>(
+                entity => new Texture() { ___guid = entity.___guid },
+                new object[] 
+                {
+                    new string[] { "BABYLON", "Texture", "LoadFromDataString" }, name, buffer, scene, deleteBuffer, noMipmap, invertY, samplingMode, onLoad, onError, format
+                }
             );
-            IsCreateFromBase64StringEnabled = true;
         }
-
-        [JSInvokable]
-        public static async Task CallCreateFromBase64StringStaticActions()
-        {
-            foreach (var action in CreateFromBase64StringActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region LoadFromDataString TODO: Get Comments as metadata identification
-        private static bool IsLoadFromDataStringEnabled = false;
-        private static readonly IDictionary<string, Func<Task>> LoadFromDataStringActionMap = new Dictionary<string, Func<Task>>();
-
-        public static string LoadFromDataString(
-            Func<Task> callback
-        )
-        {
-            SetupLoadFromDataStringStaticLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            LoadFromDataStringActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private static void SetupLoadFromDataStringStaticLoop()
-        {
-            if (IsLoadFromDataStringEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.AssemblyFuncCallback(
-                "EventHorizon.Blazor.BabylonJS.WASM",
-                "BABYLON.Texture.LoadFromDataString",
-                "CallLoadFromDataStringStaticActions"
-            );
-            IsLoadFromDataStringEnabled = true;
-        }
-
-        [JSInvokable]
-        public static async Task CallLoadFromDataStringStaticActions()
-        {
-            foreach (var action in LoadFromDataStringActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
         #endregion
 
         #region Accessors
@@ -788,16 +724,16 @@ namespace BabylonJS
         }
 
         
-        public IInspectable[] inspectableCustomProperties
+        public IInspectableCachedEntity[] inspectableCustomProperties
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<IInspectable>(
+            return EventHorizonBlazorInteropt.GetArrayClass<IInspectableCachedEntity>(
                     this.___guid,
                     "inspectableCustomProperties",
                     (entity) =>
                     {
-                        return new IInspectableCachedEntity(entity);
+                        return new IInspectableCachedEntity() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -812,19 +748,19 @@ namespace BabylonJS
             }
         }
 
-        private Observable __onLoadObservable;
-        public Observable onLoadObservable
+        private Observable<Texture> __onLoadObservable;
+        public Observable<Texture> onLoadObservable
         {
             get
             {
             if(__onLoadObservable == null)
             {
-                __onLoadObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onLoadObservable = EventHorizonBlazorInteropt.GetClass<Observable<Texture>>(
                     this.___guid,
                     "onLoadObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Texture>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -852,7 +788,7 @@ __onLoadObservable = null;
         }
 
         public Texture(
-            object sceneOrEngine, string url = null, System.Nullable<bool> noMipmap = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, CachedEntity onLoad = null, CachedEntity onError = null, string buffer = null, System.Nullable<bool> deleteBuffer = null, System.Nullable<decimal> format = null, string mimeType = null
+            Scene sceneOrEngine, string url = null, System.Nullable<bool> noMipmap = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, CachedEntity onLoad = null, CachedEntity onError = null, string buffer = null, System.Nullable<bool> deleteBuffer = null, System.Nullable<decimal> format = null, string mimeType = null
         ) : base()
         {
             var entity = EventHorizonBlazorInteropt.New(
@@ -921,7 +857,7 @@ __onLoadObservable = null;
         public Matrix getTextureMatrix(System.Nullable<decimal> uBase = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getTextureMatrix" }, uBase
@@ -932,7 +868,7 @@ __onLoadObservable = null;
         public Matrix getReflectionTextureMatrix()
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getReflectionTextureMatrix" }
@@ -943,7 +879,7 @@ __onLoadObservable = null;
         public Texture clone()
         {
             return EventHorizonBlazorInteropt.FuncClass<Texture>(
-                entity => new Texture(entity),
+                entity => new Texture() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }

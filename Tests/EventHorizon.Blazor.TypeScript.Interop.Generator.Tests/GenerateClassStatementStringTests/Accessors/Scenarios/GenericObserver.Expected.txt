@@ -11,7 +11,7 @@ namespace Static.Primitive
     
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class ExampleClass : CachedEntityObject
+    public class ExampleClass<T> : CachedEntityObject where T : CachedEntity, new()
     {
         #region Static Accessors
 
@@ -36,7 +36,7 @@ namespace Static.Primitive
                     "observers",
                     (entity) =>
                     {
-                        return new Observer<T>(entity);
+                        return new Observer<T>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -54,11 +54,31 @@ namespace Static.Primitive
                     "observer",
                     (entity) =>
                     {
-                        return new Observer<T>(entity);
+                        return new Observer<T>() { ___guid = entity.___guid };
                     }
                 );
             }
             return __observer;
+            }
+        }
+
+        private BehaviorCachedEntity<T> __getBehaviorByName;
+        public BehaviorCachedEntity<T> getBehaviorByName
+        {
+            get
+            {
+            if(__getBehaviorByName == null)
+            {
+                __getBehaviorByName = EventHorizonBlazorInteropt.GetClass<BehaviorCachedEntity<T>>(
+                    this.___guid,
+                    "getBehaviorByName",
+                    (entity) =>
+                    {
+                        return new BehaviorCachedEntity<T>() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __getBehaviorByName;
             }
         }
         #endregion

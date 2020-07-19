@@ -25,7 +25,7 @@ namespace BabylonJS
         public static MorphTarget Parse(object serializationObject)
         {
             return EventHorizonBlazorInteropt.FuncClass<MorphTarget>(
-                entity => new MorphTarget(entity),
+                entity => new MorphTarget() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "MorphTarget", "Parse" }, serializationObject
@@ -36,7 +36,7 @@ namespace BabylonJS
         public static MorphTarget FromMesh(AbstractMesh mesh, string name = null, System.Nullable<decimal> influence = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<MorphTarget>(
-                entity => new MorphTarget(entity),
+                entity => new MorphTarget() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "MorphTarget", "FromMesh" }, mesh, name, influence
@@ -79,7 +79,7 @@ namespace BabylonJS
                     "animationPropertiesOverride",
                     (entity) =>
                     {
-                        return new AnimationPropertiesOverride(entity);
+                        return new AnimationPropertiesOverride() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -189,7 +189,7 @@ __animationPropertiesOverride = null;
                     "animations",
                     (entity) =>
                     {
-                        return new Animation(entity);
+                        return new Animation() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -204,34 +204,7 @@ __animationPropertiesOverride = null;
             }
         }
 
-        private Observable __onInfluenceChanged;
-        public Observable onInfluenceChanged
-        {
-            get
-            {
-            if(__onInfluenceChanged == null)
-            {
-                __onInfluenceChanged = EventHorizonBlazorInteropt.GetClass<Observable>(
-                    this.___guid,
-                    "onInfluenceChanged",
-                    (entity) =>
-                    {
-                        return new Observable(entity);
-                    }
-                );
-            }
-            return __onInfluenceChanged;
-            }
-            set
-            {
-__onInfluenceChanged = null;
-                EventHorizonBlazorInteropt.Set(
-                    this.___guid,
-                    "onInfluenceChanged",
-                    value
-                );
-            }
-        }
+// onInfluenceChanged is not supported by the platform yet
 
         
         public string id
@@ -360,7 +333,7 @@ __onInfluenceChanged = null;
         public MorphTarget clone()
         {
             return EventHorizonBlazorInteropt.FuncClass<MorphTarget>(
-                entity => new MorphTarget(entity),
+                entity => new MorphTarget() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }

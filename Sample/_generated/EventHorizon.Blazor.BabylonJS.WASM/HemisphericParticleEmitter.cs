@@ -139,7 +139,7 @@ namespace BabylonJS
         public HemisphericParticleEmitter clone()
         {
             return EventHorizonBlazorInteropt.FuncClass<HemisphericParticleEmitter>(
-                entity => new HemisphericParticleEmitter(entity),
+                entity => new HemisphericParticleEmitter() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }

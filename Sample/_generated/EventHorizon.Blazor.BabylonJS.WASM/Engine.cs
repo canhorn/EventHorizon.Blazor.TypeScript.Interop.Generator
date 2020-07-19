@@ -48,7 +48,7 @@ namespace BabylonJS
                     "Engine.Instances",
                     (entity) =>
                     {
-                        return new Engine(entity);
+                        return new Engine() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -66,7 +66,7 @@ namespace BabylonJS
                     "Engine.LastCreatedEngine",
                     (entity) =>
                     {
-                        return new Engine(entity);
+                        return new Engine() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -86,7 +86,7 @@ namespace BabylonJS
                     "Engine.LastCreatedScene",
                     (entity) =>
                     {
-                        return new Scene(entity);
+                        return new Scene() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1188,19 +1188,19 @@ namespace BabylonJS
             }
         }
 
-        private static IAudioEngine __audioEngine;
-        public static IAudioEngine audioEngine
+        private static IAudioEngineCachedEntity __audioEngine;
+        public static IAudioEngineCachedEntity audioEngine
         {
             get
             {
             if(__audioEngine == null)
             {
-                __audioEngine = EventHorizonBlazorInteropt.GetClass<IAudioEngine>(
+                __audioEngine = EventHorizonBlazorInteropt.GetClass<IAudioEngineCachedEntity>(
                     "BABYLON",
                     "Engine.audioEngine",
                     (entity) =>
                     {
-                        return new IAudioEngineCachedEntity(entity);
+                        return new IAudioEngineCachedEntity() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1262,10 +1262,10 @@ __audioEngine = null;
         }
         #endregion
 
-        public static ILoadingScreen DefaultLoadingScreenFactory(HTMLCanvasElement canvas)
+        public static ILoadingScreenCachedEntity DefaultLoadingScreenFactory(HTMLCanvasElementCachedEntity canvas)
         {
-            return EventHorizonBlazorInteropt.FuncClass<ILoadingScreen>(
-                entity => new ILoadingScreenCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncClass<ILoadingScreenCachedEntity>(
+                entity => new ILoadingScreenCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Engine", "DefaultLoadingScreenFactory" }, canvas
@@ -1373,7 +1373,7 @@ __audioEngine = null;
                     "performanceMonitor",
                     (entity) =>
                     {
-                        return new PerformanceMonitor(entity);
+                        return new PerformanceMonitor() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1381,19 +1381,19 @@ __audioEngine = null;
             }
         }
 
-        private ILoadingScreen __loadingScreen;
-        public ILoadingScreen loadingScreen
+        private ILoadingScreenCachedEntity __loadingScreen;
+        public ILoadingScreenCachedEntity loadingScreen
         {
             get
             {
             if(__loadingScreen == null)
             {
-                __loadingScreen = EventHorizonBlazorInteropt.GetClass<ILoadingScreen>(
+                __loadingScreen = EventHorizonBlazorInteropt.GetClass<ILoadingScreenCachedEntity>(
                     this.___guid,
                     "loadingScreen",
                     (entity) =>
                     {
-                        return new ILoadingScreenCachedEntity(entity);
+                        return new ILoadingScreenCachedEntity() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1464,7 +1464,7 @@ __loadingScreen = null;
                     "scenes",
                     (entity) =>
                     {
-                        return new Scene(entity);
+                        return new Scene() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1479,19 +1479,19 @@ __loadingScreen = null;
             }
         }
 
-        private Observable __onNewSceneAddedObservable;
-        public Observable onNewSceneAddedObservable
+        private Observable<Scene> __onNewSceneAddedObservable;
+        public Observable<Scene> onNewSceneAddedObservable
         {
             get
             {
             if(__onNewSceneAddedObservable == null)
             {
-                __onNewSceneAddedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onNewSceneAddedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Scene>>(
                     this.___guid,
                     "onNewSceneAddedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Scene>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1518,7 +1518,7 @@ __onNewSceneAddedObservable = null;
                     "postProcesses",
                     (entity) =>
                     {
-                        return new PostProcess(entity);
+                        return new PostProcess() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1554,19 +1554,19 @@ __onNewSceneAddedObservable = null;
             }
         }
 
-        private Observable __onResizeObservable;
-        public Observable onResizeObservable
+        private Observable<Engine> __onResizeObservable;
+        public Observable<Engine> onResizeObservable
         {
             get
             {
             if(__onResizeObservable == null)
             {
-                __onResizeObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onResizeObservable = EventHorizonBlazorInteropt.GetClass<Observable<Engine>>(
                     this.___guid,
                     "onResizeObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Engine>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1583,19 +1583,19 @@ __onResizeObservable = null;
             }
         }
 
-        private Observable __onCanvasBlurObservable;
-        public Observable onCanvasBlurObservable
+        private Observable<Engine> __onCanvasBlurObservable;
+        public Observable<Engine> onCanvasBlurObservable
         {
             get
             {
             if(__onCanvasBlurObservable == null)
             {
-                __onCanvasBlurObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onCanvasBlurObservable = EventHorizonBlazorInteropt.GetClass<Observable<Engine>>(
                     this.___guid,
                     "onCanvasBlurObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Engine>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1612,19 +1612,19 @@ __onCanvasBlurObservable = null;
             }
         }
 
-        private Observable __onCanvasFocusObservable;
-        public Observable onCanvasFocusObservable
+        private Observable<Engine> __onCanvasFocusObservable;
+        public Observable<Engine> onCanvasFocusObservable
         {
             get
             {
             if(__onCanvasFocusObservable == null)
             {
-                __onCanvasFocusObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onCanvasFocusObservable = EventHorizonBlazorInteropt.GetClass<Observable<Engine>>(
                     this.___guid,
                     "onCanvasFocusObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Engine>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1641,19 +1641,19 @@ __onCanvasFocusObservable = null;
             }
         }
 
-        private Observable __onCanvasPointerOutObservable;
-        public Observable onCanvasPointerOutObservable
+        private Observable<PointerEvent> __onCanvasPointerOutObservable;
+        public Observable<PointerEvent> onCanvasPointerOutObservable
         {
             get
             {
             if(__onCanvasPointerOutObservable == null)
             {
-                __onCanvasPointerOutObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onCanvasPointerOutObservable = EventHorizonBlazorInteropt.GetClass<Observable<PointerEvent>>(
                     this.___guid,
                     "onCanvasPointerOutObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<PointerEvent>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1670,19 +1670,19 @@ __onCanvasPointerOutObservable = null;
             }
         }
 
-        private Observable __onBeginFrameObservable;
-        public Observable onBeginFrameObservable
+        private Observable<Engine> __onBeginFrameObservable;
+        public Observable<Engine> onBeginFrameObservable
         {
             get
             {
             if(__onBeginFrameObservable == null)
             {
-                __onBeginFrameObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onBeginFrameObservable = EventHorizonBlazorInteropt.GetClass<Observable<Engine>>(
                     this.___guid,
                     "onBeginFrameObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Engine>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1699,19 +1699,19 @@ __onBeginFrameObservable = null;
             }
         }
 
-        private ICustomAnimationFrameRequester __customAnimationFrameRequester;
-        public ICustomAnimationFrameRequester customAnimationFrameRequester
+        private ICustomAnimationFrameRequesterCachedEntity __customAnimationFrameRequester;
+        public ICustomAnimationFrameRequesterCachedEntity customAnimationFrameRequester
         {
             get
             {
             if(__customAnimationFrameRequester == null)
             {
-                __customAnimationFrameRequester = EventHorizonBlazorInteropt.GetClass<ICustomAnimationFrameRequester>(
+                __customAnimationFrameRequester = EventHorizonBlazorInteropt.GetClass<ICustomAnimationFrameRequesterCachedEntity>(
                     this.___guid,
                     "customAnimationFrameRequester",
                     (entity) =>
                     {
-                        return new ICustomAnimationFrameRequesterCachedEntity(entity);
+                        return new ICustomAnimationFrameRequesterCachedEntity() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1728,19 +1728,19 @@ __customAnimationFrameRequester = null;
             }
         }
 
-        private Observable __onEndFrameObservable;
-        public Observable onEndFrameObservable
+        private Observable<Engine> __onEndFrameObservable;
+        public Observable<Engine> onEndFrameObservable
         {
             get
             {
             if(__onEndFrameObservable == null)
             {
-                __onEndFrameObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onEndFrameObservable = EventHorizonBlazorInteropt.GetClass<Observable<Engine>>(
                     this.___guid,
                     "onEndFrameObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Engine>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1757,19 +1757,19 @@ __onEndFrameObservable = null;
             }
         }
 
-        private Observable __onBeforeShaderCompilationObservable;
-        public Observable onBeforeShaderCompilationObservable
+        private Observable<Engine> __onBeforeShaderCompilationObservable;
+        public Observable<Engine> onBeforeShaderCompilationObservable
         {
             get
             {
             if(__onBeforeShaderCompilationObservable == null)
             {
-                __onBeforeShaderCompilationObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onBeforeShaderCompilationObservable = EventHorizonBlazorInteropt.GetClass<Observable<Engine>>(
                     this.___guid,
                     "onBeforeShaderCompilationObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Engine>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1786,19 +1786,19 @@ __onBeforeShaderCompilationObservable = null;
             }
         }
 
-        private Observable __onAfterShaderCompilationObservable;
-        public Observable onAfterShaderCompilationObservable
+        private Observable<Engine> __onAfterShaderCompilationObservable;
+        public Observable<Engine> onAfterShaderCompilationObservable
         {
             get
             {
             if(__onAfterShaderCompilationObservable == null)
             {
-                __onAfterShaderCompilationObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onAfterShaderCompilationObservable = EventHorizonBlazorInteropt.GetClass<Observable<Engine>>(
                     this.___guid,
                     "onAfterShaderCompilationObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Engine>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1868,7 +1868,7 @@ __onAfterShaderCompilationObservable = null;
         }
 
         public Engine(
-            object canvasOrContext, System.Nullable<bool> antialias = null, EngineOptions options = null, System.Nullable<bool> adaptToDeviceRatio = null
+            HTMLCanvasElementCachedEntity canvasOrContext, System.Nullable<bool> antialias = null, EngineOptionsCachedEntity options = null, System.Nullable<bool> adaptToDeviceRatio = null
         ) : base()
         {
             var entity = EventHorizonBlazorInteropt.New(
@@ -1890,7 +1890,7 @@ __onAfterShaderCompilationObservable = null;
             );
         }
 
-        public decimal getAspectRatio(IViewportOwnerLike viewportOwner, System.Nullable<bool> useScreen = null)
+        public decimal getAspectRatio(IViewportOwnerLikeCachedEntity viewportOwner, System.Nullable<bool> useScreen = null)
         {
             return EventHorizonBlazorInteropt.Func<decimal>(
                 new object[] 
@@ -1913,7 +1913,7 @@ __onAfterShaderCompilationObservable = null;
         public ClientRect getRenderingCanvasClientRect()
         {
             return EventHorizonBlazorInteropt.FuncClass<ClientRect>(
-                entity => new ClientRect(entity),
+                entity => new ClientRect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getRenderingCanvasClientRect" }
@@ -1924,7 +1924,7 @@ __onAfterShaderCompilationObservable = null;
         public ClientRect getInputElementClientRect()
         {
             return EventHorizonBlazorInteropt.FuncClass<ClientRect>(
-                entity => new ClientRect(entity),
+                entity => new ClientRect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getInputElementClientRect" }
@@ -2292,10 +2292,10 @@ __onAfterShaderCompilationObservable = null;
             );
         }
 
-        public IViewportLike setDirectViewport(decimal x, decimal y, decimal width, decimal height)
+        public IViewportLikeCachedEntity setDirectViewport(decimal x, decimal y, decimal width, decimal height)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IViewportLike>(
-                entity => new IViewportLikeCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncClass<IViewportLikeCachedEntity>(
+                entity => new IViewportLikeCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setDirectViewport" }, x, y, width, height
@@ -2303,7 +2303,7 @@ __onAfterShaderCompilationObservable = null;
             );
         }
 
-        public void scissorClear(decimal x, decimal y, decimal width, decimal height, IColor4Like clearColor)
+        public void scissorClear(decimal x, decimal y, decimal width, decimal height, IColor4LikeCachedEntity clearColor)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -2333,10 +2333,10 @@ __onAfterShaderCompilationObservable = null;
             );
         }
 
-        public Observable initWebVR()
+        public Observable<IDisplayChangedEventArgsCachedEntity> initWebVR()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Observable>(
-                entity => new Observable(entity),
+            return EventHorizonBlazorInteropt.FuncClass<Observable<IDisplayChangedEventArgsCachedEntity>>(
+                entity => new Observable<IDisplayChangedEventArgsCachedEntity>() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "initWebVR" }
@@ -2364,7 +2364,7 @@ __onAfterShaderCompilationObservable = null;
             );
         }
 
-        public string getVertexShaderSource(WebGLProgram program)
+        public string getVertexShaderSource(WebGLProgramCachedEntity program)
         {
             return EventHorizonBlazorInteropt.Func<string>(
                 new object[] 
@@ -2374,7 +2374,7 @@ __onAfterShaderCompilationObservable = null;
             );
         }
 
-        public string getFragmentShaderSource(WebGLProgram program)
+        public string getFragmentShaderSource(WebGLProgramCachedEntity program)
         {
             return EventHorizonBlazorInteropt.Func<string>(
                 new object[] 
@@ -2384,7 +2384,7 @@ __onAfterShaderCompilationObservable = null;
             );
         }
 
-        public void setDepthStencilTexture(decimal channel, WebGLUniformLocation uniform, RenderTargetTexture texture)
+        public void setDepthStencilTexture(decimal channel, WebGLUniformLocationCachedEntity uniform, RenderTargetTexture texture)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -2514,10 +2514,10 @@ __onAfterShaderCompilationObservable = null;
             );
         }
 
-        public WebGLProgram createShaderProgram(IPipelineContext pipelineContext, string vertexCode, string fragmentCode, string defines = null, WebGLRenderingContext context = null, string[] transformFeedbackVaryings = null)
+        public WebGLProgramCachedEntity createShaderProgram(IPipelineContextCachedEntity pipelineContext, string vertexCode, string fragmentCode, string defines = null, WebGLRenderingContextCachedEntity context = null, string[] transformFeedbackVaryings = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<WebGLProgram>(
-                entity => new WebGLProgramCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncClass<WebGLProgramCachedEntity>(
+                entity => new WebGLProgramCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "createShaderProgram" }, pipelineContext, vertexCode, fragmentCode, defines, context, transformFeedbackVaryings
@@ -2578,7 +2578,7 @@ __onAfterShaderCompilationObservable = null;
         public DataBuffer createInstancesBuffer(decimal capacity)
         {
             return EventHorizonBlazorInteropt.FuncClass<DataBuffer>(
-                entity => new DataBuffer(entity),
+                entity => new DataBuffer() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "createInstancesBuffer" }, capacity

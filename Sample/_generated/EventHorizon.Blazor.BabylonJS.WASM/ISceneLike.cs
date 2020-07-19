@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface ISceneLike { }
+    public interface ISceneLike : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class ISceneLikeCachedEntity : CachedEntityObject, ISceneLike
@@ -30,19 +30,19 @@ namespace BabylonJS
         #endregion
 
         #region Properties
-        private IOfflineProvider __offlineProvider;
-        public IOfflineProvider offlineProvider
+        private IOfflineProviderCachedEntity __offlineProvider;
+        public IOfflineProviderCachedEntity offlineProvider
         {
             get
             {
             if(__offlineProvider == null)
             {
-                __offlineProvider = EventHorizonBlazorInteropt.GetClass<IOfflineProvider>(
+                __offlineProvider = EventHorizonBlazorInteropt.GetClass<IOfflineProviderCachedEntity>(
                     this.___guid,
                     "offlineProvider",
                     (entity) =>
                     {
-                        return new IOfflineProviderCachedEntity(entity);
+                        return new IOfflineProviderCachedEntity() { ___guid = entity.___guid };
                     }
                 );
             }

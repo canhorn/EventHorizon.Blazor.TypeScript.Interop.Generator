@@ -51,19 +51,19 @@ namespace BabylonJS
             }
         }
 
-        private MouseWheelEvent __event;
-        public MouseWheelEvent @event
+        private PointerEvent __event;
+        public PointerEvent @event
         {
             get
             {
             if(__event == null)
             {
-                __event = EventHorizonBlazorInteropt.GetClass<MouseWheelEvent>(
+                __event = EventHorizonBlazorInteropt.GetClass<PointerEvent>(
                     this.___guid,
                     "event",
                     (entity) =>
                     {
-                        return new MouseWheelEvent(entity);
+                        return new PointerEvent() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -92,7 +92,7 @@ __event = null;
         }
 
         public PointerInfoBase(
-            decimal type, object @event
+            decimal type, PointerEvent @event
         )
         {
             var entity = EventHorizonBlazorInteropt.New(

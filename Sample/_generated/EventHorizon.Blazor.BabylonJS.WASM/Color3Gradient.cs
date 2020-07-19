@@ -63,7 +63,7 @@ namespace BabylonJS
                     "color",
                     (entity) =>
                     {
-                        return new Color3(entity);
+                        return new Color3() { ___guid = entity.___guid };
                     }
                 );
             }

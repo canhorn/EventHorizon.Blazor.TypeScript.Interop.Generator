@@ -197,7 +197,7 @@ namespace BabylonJS
         public static Animation CreateAnimation(string property, decimal animationType, decimal framePerSecond, EasingFunction easingFunction)
         {
             return EventHorizonBlazorInteropt.FuncClass<Animation>(
-                entity => new Animation(entity),
+                entity => new Animation() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Animation", "CreateAnimation" }, property, animationType, framePerSecond, easingFunction
@@ -334,53 +334,21 @@ namespace BabylonJS
         }
         #endregion
 
-        #region TransitionTo TODO: Get Comments as metadata identification
-        private static bool IsTransitionToEnabled = false;
-        private static readonly IDictionary<string, Func<Task>> TransitionToActionMap = new Dictionary<string, Func<Task>>();
-
-        public static string TransitionTo(
-            Func<Task> callback
-        )
+        public static Animatable TransitionTo(string property, object targetValue, object host, Scene scene, decimal frameRate, Animation transition, decimal duration, CachedEntity onAnimationEnd = null)
         {
-            SetupTransitionToStaticLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            TransitionToActionMap.Add(
-                handle,
-                callback
+            return EventHorizonBlazorInteropt.FuncClass<Animatable>(
+                entity => new Animatable() { ___guid = entity.___guid },
+                new object[] 
+                {
+                    new string[] { "BABYLON", "Animation", "TransitionTo" }, property, targetValue, host, scene, frameRate, transition, duration, onAnimationEnd
+                }
             );
-
-            return handle;
         }
-
-        private static void SetupTransitionToStaticLoop()
-        {
-            if (IsTransitionToEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.AssemblyFuncCallback(
-                "EventHorizon.Blazor.BabylonJS.WASM",
-                "BABYLON.Animation.TransitionTo",
-                "CallTransitionToStaticActions"
-            );
-            IsTransitionToEnabled = true;
-        }
-
-        [JSInvokable]
-        public static async Task CallTransitionToStaticActions()
-        {
-            foreach (var action in TransitionToActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
 
         public static Animation Parse(object parsedAnimation)
         {
             return EventHorizonBlazorInteropt.FuncClass<Animation>(
-                entity => new Animation(entity),
+                entity => new Animation() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Animation", "Parse" }, parsedAnimation
@@ -388,7 +356,7 @@ namespace BabylonJS
             );
         }
 
-        public static void AppendSerializedAnimations(IAnimatable source, object destination)
+        public static void AppendSerializedAnimations(IAnimatableCachedEntity source, object destination)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -410,7 +378,7 @@ namespace BabylonJS
                     "runtimeAnimations",
                     (entity) =>
                     {
-                        return new RuntimeAnimation(entity);
+                        return new RuntimeAnimation() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -655,7 +623,7 @@ namespace BabylonJS
         public AnimationEvent[] getEvents()
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<AnimationEvent>(
-                entity => new AnimationEvent(entity),
+                entity => new AnimationEvent() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getEvents" }
@@ -686,7 +654,7 @@ namespace BabylonJS
         public AnimationRange getRange(string name)
         {
             return EventHorizonBlazorInteropt.FuncClass<AnimationRange>(
-                entity => new AnimationRange(entity),
+                entity => new AnimationRange() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getRange" }, name
@@ -694,10 +662,10 @@ namespace BabylonJS
             );
         }
 
-        public IAnimationKey[] getKeys()
+        public IAnimationKeyCachedEntity[] getKeys()
         {
-            return EventHorizonBlazorInteropt.FuncArrayClass<IAnimationKey>(
-                entity => new IAnimationKeyCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncArrayClass<IAnimationKeyCachedEntity>(
+                entity => new IAnimationKeyCachedEntity() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getKeys" }
@@ -715,10 +683,10 @@ namespace BabylonJS
             );
         }
 
-        public IEasingFunction getEasingFunction()
+        public IEasingFunctionCachedEntity getEasingFunction()
         {
-            return EventHorizonBlazorInteropt.FuncClass<IEasingFunction>(
-                entity => new IEasingFunctionCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncClass<IEasingFunctionCachedEntity>(
+                entity => new IEasingFunctionCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getEasingFunction" }
@@ -759,7 +727,7 @@ namespace BabylonJS
         public Quaternion quaternionInterpolateFunction(Quaternion startValue, Quaternion endValue, decimal gradient)
         {
             return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
-                entity => new Quaternion(entity),
+                entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "quaternionInterpolateFunction" }, startValue, endValue, gradient
@@ -770,7 +738,7 @@ namespace BabylonJS
         public Quaternion quaternionInterpolateFunctionWithTangents(Quaternion startValue, Quaternion outTangent, Quaternion endValue, Quaternion inTangent, decimal gradient)
         {
             return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
-                entity => new Quaternion(entity),
+                entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "quaternionInterpolateFunctionWithTangents" }, startValue, outTangent, endValue, inTangent, gradient
@@ -781,7 +749,7 @@ namespace BabylonJS
         public Vector3 vector3InterpolateFunction(Vector3 startValue, Vector3 endValue, decimal gradient)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "vector3InterpolateFunction" }, startValue, endValue, gradient
@@ -792,7 +760,7 @@ namespace BabylonJS
         public Vector3 vector3InterpolateFunctionWithTangents(Vector3 startValue, Vector3 outTangent, Vector3 endValue, Vector3 inTangent, decimal gradient)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "vector3InterpolateFunctionWithTangents" }, startValue, outTangent, endValue, inTangent, gradient
@@ -803,7 +771,7 @@ namespace BabylonJS
         public Vector2 vector2InterpolateFunction(Vector2 startValue, Vector2 endValue, decimal gradient)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector2>(
-                entity => new Vector2(entity),
+                entity => new Vector2() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "vector2InterpolateFunction" }, startValue, endValue, gradient
@@ -814,7 +782,7 @@ namespace BabylonJS
         public Vector2 vector2InterpolateFunctionWithTangents(Vector2 startValue, Vector2 outTangent, Vector2 endValue, Vector2 inTangent, decimal gradient)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector2>(
-                entity => new Vector2(entity),
+                entity => new Vector2() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "vector2InterpolateFunctionWithTangents" }, startValue, outTangent, endValue, inTangent, gradient
@@ -825,7 +793,7 @@ namespace BabylonJS
         public Size sizeInterpolateFunction(Size startValue, Size endValue, decimal gradient)
         {
             return EventHorizonBlazorInteropt.FuncClass<Size>(
-                entity => new Size(entity),
+                entity => new Size() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "sizeInterpolateFunction" }, startValue, endValue, gradient
@@ -836,7 +804,7 @@ namespace BabylonJS
         public Color3 color3InterpolateFunction(Color3 startValue, Color3 endValue, decimal gradient)
         {
             return EventHorizonBlazorInteropt.FuncClass<Color3>(
-                entity => new Color3(entity),
+                entity => new Color3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "color3InterpolateFunction" }, startValue, endValue, gradient
@@ -847,7 +815,7 @@ namespace BabylonJS
         public Color4 color4InterpolateFunction(Color4 startValue, Color4 endValue, decimal gradient)
         {
             return EventHorizonBlazorInteropt.FuncClass<Color4>(
-                entity => new Color4(entity),
+                entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "color4InterpolateFunction" }, startValue, endValue, gradient
@@ -858,7 +826,7 @@ namespace BabylonJS
         public Matrix matrixInterpolateFunction(Matrix startValue, Matrix endValue, decimal gradient, Matrix result = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "matrixInterpolateFunction" }, startValue, endValue, gradient, result
@@ -869,7 +837,7 @@ namespace BabylonJS
         public Animation clone()
         {
             return EventHorizonBlazorInteropt.FuncClass<Animation>(
-                entity => new Animation(entity),
+                entity => new Animation() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }
@@ -877,7 +845,7 @@ namespace BabylonJS
             );
         }
 
-        public void setKeys(IAnimationKey[] values)
+        public void setKeys(IAnimationKeyCachedEntity[] values)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

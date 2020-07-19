@@ -10,6 +10,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
         [Theory(DisplayName = "Constructor")]
         [Trait("Category", "StringGeneration.Constructors")]
         [InlineData("DotNetNormalizedArguments.ts", "Constructors", "DotNetNormalizedArguments.Expected.txt")]
+        [InlineData("MixedArguments.ts", "Constructors", "MixedArguments.Expected.txt")]
         [InlineData("NoConstructor.ts", "Constructors", "NoConstructor.Expected.txt")]
         [InlineData("WithNullArguments.ts", "Constructors", "WithNullArguments.Expected.txt")]
         [InlineData("WithActionArgument.ts", "Constructors", "WithActionArgument.Expected.txt")]
@@ -144,7 +145,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
 
         [Theory(DisplayName = "Property.Scenarios")]
         [Trait("Category", "StringGeneration.Property.Scenarios")]
+        [InlineData("ArrayInterfaceResponse.ts", "Properties", "Scenarios", "ArrayInterfaceResponse.Expected.txt")]
         [InlineData("DotNetNormalized.ts", "Properties", "Scenarios", "DotNetNormalized.Expected.txt")]
+        [InlineData("PropertyGenericTypes.ts", "Properties", "Scenarios", "PropertyGenericTypes.Expected.txt")]
         [InlineData("PropertyJavaScriptTypes.ts", "Properties", "Scenarios", "PropertyJavaScriptTypes.Expected.txt")]
         [InlineData("PropertyParenthesized.ts", "Properties", "Scenarios", "PropertyParenthesized.Expected.txt")]
         [InlineData("TypeofResponse.ts", "Properties", "Scenarios", "TypeofResponse.Expected.txt")]
@@ -161,7 +164,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
         );
 
         [Theory(DisplayName = "ArrayTypes")]
-        [Trait("Category", "StringGeneration.Properties.ArrayTypes")]
+        [Trait("Category", "StringGeneration.ArrayTypes")]
+        [InlineData("MethodArrayTypes.ts", "Methods", "MethodArrayTypes.Expected.txt")]
         [InlineData("PropertyArrayTypes.ts", "Properties", "PropertyArrayTypes.Expected.txt")]
         public void ShouldGenerateArrayTypeStrings(
             string sourceFile,
@@ -194,8 +198,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
         [Trait("Category", "StringGeneration.Method.Scenarios")]
         [InlineData("ActionWithArguments.ts", "Methods", "Scenarios", "ActionWithArguments.Expected.txt")]
         [InlineData("GenericsInArguments.ts", "Methods", "Scenarios", "GenericsInArguments.Expected.txt")]
-        [InlineData("MethodThisAsResult.ts", "Methods", "Scenarios", "MethodThisAsResult.Expected.txt")]
+        [InlineData("MethodGenericTypes.ts", "Methods", "Scenarios", "MethodGenericTypes.Expected.txt")]
         [InlineData("MethodNullableTypeReference.ts", "Methods", "Scenarios", "MethodNullableTypeReference.Expected.txt")]
+        [InlineData("MethodThisAsResult.ts", "Methods", "Scenarios", "MethodThisAsResult.Expected.txt")]
         [InlineData("NullableTyping.ts", "Methods", "Scenarios", "NullableTyping.Expected.txt")]
         [InlineData("PromiseResponse.ts", "Methods", "Scenarios", "PromiseResponse.Expected.txt")]
         public void ShouldGenerateMethodScenarioStrings(

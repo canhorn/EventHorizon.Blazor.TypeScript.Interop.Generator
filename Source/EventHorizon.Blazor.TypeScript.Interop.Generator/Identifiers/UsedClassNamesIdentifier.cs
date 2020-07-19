@@ -19,26 +19,35 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             {
                 list = new List<string>();
             }
-            // Using The Type get
-            switch (type.Name)
+            if (!type.IsAction
+                && !type.IsArray
+                && !type.IsLiteral
+                && !type.IsModifier
+                && !type.IsNullable
+            )
             {
-                case GenerationIdentifiedTypes.Unknown:
-                case GenerationIdentifiedTypes.Action:
-                case GenerationIdentifiedTypes.Void:
-                case GenerationIdentifiedTypes.Task:
-                case GenerationIdentifiedTypes.Setter:
-                case GenerationIdentifiedTypes.Getter:
-                case GenerationIdentifiedTypes.String:
-                case GenerationIdentifiedTypes.Bool:
-                case GenerationIdentifiedTypes.Number:
-                case GenerationIdentifiedTypes.Literal:
-                case GenerationIdentifiedTypes.Int:
-                case GenerationIdentifiedTypes.Float:
-                case GenerationIdentifiedTypes.CachedEntity:
-                    break;
-                default:
-                    list.Add(type.Name);
-                    break;
+                // Using The Type get
+                switch (type.Name)
+                {
+                    case GenerationIdentifiedTypes.Unknown:
+                    case GenerationIdentifiedTypes.Action:
+                    case GenerationIdentifiedTypes.Void:
+                    case GenerationIdentifiedTypes.Task:
+                    case GenerationIdentifiedTypes.Setter:
+                    case GenerationIdentifiedTypes.Getter:
+                    case GenerationIdentifiedTypes.String:
+                    case GenerationIdentifiedTypes.Bool:
+                    case GenerationIdentifiedTypes.Number:
+                    case GenerationIdentifiedTypes.Literal:
+                    case GenerationIdentifiedTypes.Int:
+                    case GenerationIdentifiedTypes.Float:
+                    case GenerationIdentifiedTypes.CachedEntity:
+                    case GenerationIdentifiedTypes.Object:
+                        break;
+                    default:
+                        list.Add(type.Name);
+                        break;
+                }
             }
             foreach (var genericType in type.GenericTypes)
             {

@@ -6,5 +6,8 @@ declare module Static.Class {
         static ObjectLiteralLastUnionResult(): string | {
             value1?: number;
         };
+        getVertexBuffers(): Nullable<{
+            [key: string]: VertexBuffer;
+        }>;
     }
 }

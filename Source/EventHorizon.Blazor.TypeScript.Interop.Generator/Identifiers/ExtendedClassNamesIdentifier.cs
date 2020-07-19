@@ -2,33 +2,45 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 using Sdcb.TypeScript;
 using Sdcb.TypeScript.TsTypes;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
-    public class ExtendedClassNamesIdentifier
+    public class ExtendedClassTypesIdentifier
     {
-        public static IList<string> Identify(
+        public static TypeStatement Identify(
             Node node,
-            ITypeScriptAST ast
+            TypeScriptAST ast,
+            ClassMetadata classMetadata
         )
         {
-            var heritedList = node.Children.Where(
-                child => child.Kind == SyntaxKind.HeritageClause
-            ).Select(
-                a => a.First.IdentifierStr
-            ).ToList();
-            // Check if interface
-            var classes = ast.RootNode.OfKind(
+            // Check if Class
+            var classesCache = ast.RootNode.OfKind(
                 SyntaxKind.ClassDeclaration
-            ).Where(
-                a => heritedList.Any(b => b == a.IdentifierStr)
-            ).Select(
-                a => a.IdentifierStr
-            ).Distinct().ToList();
+            );
+            if (node is ClassDeclaration classDeclaration
+                && classDeclaration.HeritageClauses != null
+                && classDeclaration.HeritageClauses.Any())
+            {
+                var herited = classDeclaration.HeritageClauses.First();
+                if (herited != null)
+                {
+                    var identifiedClass = GenericTypeIdentifier.Identify(
+                        herited.First,
+                        classMetadata,
+                        ast
+                    );
+                    if (classesCache.Any(a => a.IdentifierStr == identifiedClass.Name))
+                    {
+                        return identifiedClass;
+                    }
+                }
+            }
 
-            return classes;
+            return null;
         }
     }
 }

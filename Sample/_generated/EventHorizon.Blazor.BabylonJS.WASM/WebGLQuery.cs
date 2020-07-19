@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface WebGLQuery { }
+    public interface WebGLQuery : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class WebGLQueryCachedEntity : CachedEntityObject, WebGLQuery

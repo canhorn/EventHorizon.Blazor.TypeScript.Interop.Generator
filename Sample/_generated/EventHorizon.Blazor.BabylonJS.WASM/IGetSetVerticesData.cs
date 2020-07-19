@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IGetSetVerticesData { }
+    public interface IGetSetVerticesData : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class IGetSetVerticesDataCachedEntity : CachedEntityObject, IGetSetVerticesData

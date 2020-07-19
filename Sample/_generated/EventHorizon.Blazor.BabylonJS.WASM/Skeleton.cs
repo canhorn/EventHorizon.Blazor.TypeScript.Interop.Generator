@@ -25,7 +25,7 @@ namespace BabylonJS
         public static Skeleton Parse(object parsedSkeleton, Scene scene)
         {
             return EventHorizonBlazorInteropt.FuncClass<Skeleton>(
-                entity => new Skeleton(entity),
+                entity => new Skeleton() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Skeleton", "Parse" }, parsedSkeleton, scene
@@ -68,7 +68,7 @@ namespace BabylonJS
                     "animationPropertiesOverride",
                     (entity) =>
                     {
-                        return new AnimationPropertiesOverride(entity);
+                        return new AnimationPropertiesOverride() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -163,7 +163,7 @@ __animationPropertiesOverride = null;
                     "bones",
                     (entity) =>
                     {
-                        return new Bone(entity);
+                        return new Bone() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -190,7 +190,7 @@ __animationPropertiesOverride = null;
                     "dimensionsAtRest",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -240,7 +240,7 @@ __dimensionsAtRest = null;
                     "overrideMesh",
                     (entity) =>
                     {
-                        return new AbstractMesh(entity);
+                        return new AbstractMesh() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -267,7 +267,7 @@ __overrideMesh = null;
                     "animations",
                     (entity) =>
                     {
-                        return new Animation(entity);
+                        return new Animation() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -304,16 +304,16 @@ __overrideMesh = null;
         }
 
         
-        public IInspectable[] inspectableCustomProperties
+        public IInspectableCachedEntity[] inspectableCustomProperties
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<IInspectable>(
+            return EventHorizonBlazorInteropt.GetArrayClass<IInspectableCachedEntity>(
                     this.___guid,
                     "inspectableCustomProperties",
                     (entity) =>
                     {
-                        return new IInspectableCachedEntity(entity);
+                        return new IInspectableCachedEntity() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -328,19 +328,19 @@ __overrideMesh = null;
             }
         }
 
-        private Observable __onBeforeComputeObservable;
-        public Observable onBeforeComputeObservable
+        private Observable<Skeleton> __onBeforeComputeObservable;
+        public Observable<Skeleton> onBeforeComputeObservable
         {
             get
             {
             if(__onBeforeComputeObservable == null)
             {
-                __onBeforeComputeObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onBeforeComputeObservable = EventHorizonBlazorInteropt.GetClass<Observable<Skeleton>>(
                     this.___guid,
                     "onBeforeComputeObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Skeleton>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -393,7 +393,7 @@ __onBeforeComputeObservable = null;
         public Bone[] getChildren()
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<Bone>(
-                entity => new Bone(entity),
+                entity => new Bone() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getChildren" }
@@ -414,7 +414,7 @@ __onBeforeComputeObservable = null;
         public RawTexture getTransformMatrixTexture(AbstractMesh mesh)
         {
             return EventHorizonBlazorInteropt.FuncClass<RawTexture>(
-                entity => new RawTexture(entity),
+                entity => new RawTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getTransformMatrixTexture" }, mesh
@@ -425,7 +425,7 @@ __onBeforeComputeObservable = null;
         public Scene getScene()
         {
             return EventHorizonBlazorInteropt.FuncClass<Scene>(
-                entity => new Scene(entity),
+                entity => new Scene() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getScene" }
@@ -476,7 +476,7 @@ __onBeforeComputeObservable = null;
         public AnimationRange getAnimationRange(string name)
         {
             return EventHorizonBlazorInteropt.FuncClass<AnimationRange>(
-                entity => new AnimationRange(entity),
+                entity => new AnimationRange() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getAnimationRange" }, name
@@ -487,7 +487,7 @@ __onBeforeComputeObservable = null;
         public AnimationRange[] getAnimationRanges()
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<AnimationRange>(
-                entity => new AnimationRange(entity),
+                entity => new AnimationRange() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getAnimationRanges" }
@@ -569,10 +569,10 @@ __onBeforeComputeObservable = null;
             );
         }
 
-        public IAnimatable[] getAnimatables()
+        public IAnimatableCachedEntity[] getAnimatables()
         {
-            return EventHorizonBlazorInteropt.FuncArrayClass<IAnimatable>(
-                entity => new IAnimatableCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncArrayClass<IAnimatableCachedEntity>(
+                entity => new IAnimatableCachedEntity() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getAnimatables" }
@@ -583,7 +583,7 @@ __onBeforeComputeObservable = null;
         public Skeleton clone(string name, string id = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Skeleton>(
-                entity => new Skeleton(entity),
+                entity => new Skeleton() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }, name, id
@@ -634,7 +634,7 @@ __onBeforeComputeObservable = null;
         public Matrix getPoseMatrix()
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getPoseMatrix" }

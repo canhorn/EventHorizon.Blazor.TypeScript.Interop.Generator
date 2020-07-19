@@ -4,9 +4,13 @@
 
 using EventHorizon.Blazor.Interop;
 
-public class MouseWheelEvent : CachedEntity
+public class TCamera : CachedEntity
 {
-    public MouseWheelEvent(
+    public TCamera()
+    {
+    }
+
+    public TCamera(
         ICachedEntity entity
     )
     {

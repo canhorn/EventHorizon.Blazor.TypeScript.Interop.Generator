@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class WebGLBuffer : CachedEntity
 {
+    public WebGLBuffer()
+    {
+    }
+
     public WebGLBuffer(
         ICachedEntity entity
     )

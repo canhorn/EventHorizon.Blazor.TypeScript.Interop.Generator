@@ -16,6 +16,21 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements
         //public bool IsArrayResponse { get; set; }
         public IList<string> UsedClassNames { get; set; } = new List<string>();
 
+        public override bool Equals(object obj)
+        {
+            return obj is PublicMethodStatement statement &&
+                   Name == statement.Name &&
+                   IsStatic == statement.IsStatic;
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 2030980769;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
+            hashCode = hashCode * -1521134295 + IsStatic.GetHashCode();
+            return hashCode;
+        }
+
         public override string ToString()
         {
             var type = Type.ToString();
@@ -25,6 +40,16 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements
                 return $"public static {type} {Name}({args});";
             }
             return $"public {type} {Name}({args});";
+        }
+
+        public static bool operator ==(PublicMethodStatement left, PublicMethodStatement right)
+        {
+            return EqualityComparer<PublicMethodStatement>.Default.Equals(left, right);
+        }
+
+        public static bool operator !=(PublicMethodStatement left, PublicMethodStatement right)
+        {
+            return !(left == right);
         }
     }
 }

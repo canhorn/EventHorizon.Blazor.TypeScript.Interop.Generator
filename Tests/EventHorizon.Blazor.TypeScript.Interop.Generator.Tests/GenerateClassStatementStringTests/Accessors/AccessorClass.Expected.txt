@@ -38,7 +38,7 @@ namespace Static.Primitive
                     "Up",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }

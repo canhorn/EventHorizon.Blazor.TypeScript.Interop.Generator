@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface ICollisionCoordinator { }
+    public interface ICollisionCoordinator : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class ICollisionCoordinatorCachedEntity : CachedEntityObject, ICollisionCoordinator
@@ -49,7 +49,7 @@ namespace BabylonJS
         public Collider createCollider()
         {
             return EventHorizonBlazorInteropt.FuncClass<Collider>(
-                entity => new Collider(entity),
+                entity => new Collider() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "createCollider" }

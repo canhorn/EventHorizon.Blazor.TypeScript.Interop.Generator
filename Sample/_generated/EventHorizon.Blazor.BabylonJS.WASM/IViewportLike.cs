@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IViewportLike { }
+    public interface IViewportLike : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class IViewportLikeCachedEntity : CachedEntityObject, IViewportLike

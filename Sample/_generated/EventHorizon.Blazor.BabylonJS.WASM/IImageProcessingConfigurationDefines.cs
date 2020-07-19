@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IImageProcessingConfigurationDefines { }
+    public interface IImageProcessingConfigurationDefines : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class IImageProcessingConfigurationDefinesCachedEntity : CachedEntityObject, IImageProcessingConfigurationDefines

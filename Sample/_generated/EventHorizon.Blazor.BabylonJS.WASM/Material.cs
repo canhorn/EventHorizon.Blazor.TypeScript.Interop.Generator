@@ -227,7 +227,7 @@ namespace BabylonJS
         public static Material Parse(object parsedMaterial, Scene scene, string rootUrl)
         {
             return EventHorizonBlazorInteropt.FuncClass<Material>(
-                entity => new Material(entity),
+                entity => new Material() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Material", "Parse" }, parsedMaterial, scene, rootUrl
@@ -291,19 +291,19 @@ namespace BabylonJS
             }
         }
 
-        private Observable __onBindObservable;
-        public Observable onBindObservable
+        private Observable<AbstractMesh> __onBindObservable;
+        public Observable<AbstractMesh> onBindObservable
         {
             get
             {
             if(__onBindObservable == null)
             {
-                __onBindObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onBindObservable = EventHorizonBlazorInteropt.GetClass<Observable<AbstractMesh>>(
                     this.___guid,
                     "onBindObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<AbstractMesh>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -311,19 +311,19 @@ namespace BabylonJS
             }
         }
 
-        private Observable __onUnBindObservable;
-        public Observable onUnBindObservable
+        private Observable<Material> __onUnBindObservable;
+        public Observable<Material> onUnBindObservable
         {
             get
             {
             if(__onUnBindObservable == null)
             {
-                __onUnBindObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onUnBindObservable = EventHorizonBlazorInteropt.GetClass<Observable<Material>>(
                     this.___guid,
                     "onUnBindObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Material>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -640,16 +640,16 @@ namespace BabylonJS
         }
 
         
-        public IInspectable[] inspectableCustomProperties
+        public IInspectableCachedEntity[] inspectableCustomProperties
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<IInspectable>(
+            return EventHorizonBlazorInteropt.GetArrayClass<IInspectableCachedEntity>(
                     this.___guid,
                     "inspectableCustomProperties",
                     (entity) =>
                     {
-                        return new IInspectableCachedEntity(entity);
+                        return new IInspectableCachedEntity() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -685,27 +685,19 @@ namespace BabylonJS
             }
         }
 
-        private Effect __onCompiled;
-        public Effect onCompiled
+        
+        public CachedEntity onCompiled
         {
             get
             {
-            if(__onCompiled == null)
-            {
-                __onCompiled = EventHorizonBlazorInteropt.GetClass<Effect>(
+            return EventHorizonBlazorInteropt.Get<CachedEntity>(
                     this.___guid,
-                    "onCompiled",
-                    (entity) =>
-                    {
-                        return new Effect(entity);
-                    }
+                    "onCompiled"
                 );
-            }
-            return __onCompiled;
             }
             set
             {
-__onCompiled = null;
+
                 EventHorizonBlazorInteropt.Set(
                     this.___guid,
                     "onCompiled",
@@ -714,27 +706,19 @@ __onCompiled = null;
             }
         }
 
-        private Effect __onError;
-        public Effect onError
+        
+        public CachedEntity onError
         {
             get
             {
-            if(__onError == null)
-            {
-                __onError = EventHorizonBlazorInteropt.GetClass<Effect>(
+            return EventHorizonBlazorInteropt.Get<CachedEntity>(
                     this.___guid,
-                    "onError",
-                    (entity) =>
-                    {
-                        return new Effect(entity);
-                    }
+                    "onError"
                 );
-            }
-            return __onError;
             }
             set
             {
-__onError = null;
+
                 EventHorizonBlazorInteropt.Set(
                     this.___guid,
                     "onError",
@@ -743,27 +727,19 @@ __onError = null;
             }
         }
 
-        private RenderTargetTexture __getRenderTargetTextures;
-        public RenderTargetTexture getRenderTargetTextures
+        
+        public CachedEntity getRenderTargetTextures
         {
             get
             {
-            if(__getRenderTargetTextures == null)
-            {
-                __getRenderTargetTextures = EventHorizonBlazorInteropt.GetClass<RenderTargetTexture>(
+            return EventHorizonBlazorInteropt.Get<CachedEntity>(
                     this.___guid,
-                    "getRenderTargetTextures",
-                    (entity) =>
-                    {
-                        return new RenderTargetTexture(entity);
-                    }
+                    "getRenderTargetTextures"
                 );
-            }
-            return __getRenderTargetTextures;
             }
             set
             {
-__getRenderTargetTextures = null;
+
                 EventHorizonBlazorInteropt.Set(
                     this.___guid,
                     "getRenderTargetTextures",
@@ -803,7 +779,7 @@ __getRenderTargetTextures = null;
                     "animations",
                     (entity) =>
                     {
-                        return new Animation(entity);
+                        return new Animation() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -818,19 +794,19 @@ __getRenderTargetTextures = null;
             }
         }
 
-        private Observable __onDisposeObservable;
-        public Observable onDisposeObservable
+        private Observable<Material> __onDisposeObservable;
+        public Observable<Material> onDisposeObservable
         {
             get
             {
             if(__onDisposeObservable == null)
             {
-                __onDisposeObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onDisposeObservable = EventHorizonBlazorInteropt.GetClass<Observable<Material>>(
                     this.___guid,
                     "onDisposeObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Material>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1080,7 +1056,7 @@ __onDisposeObservable = null;
         public Effect getEffect()
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getEffect" }
@@ -1091,7 +1067,7 @@ __onDisposeObservable = null;
         public Scene getScene()
         {
             return EventHorizonBlazorInteropt.FuncClass<Scene>(
-                entity => new Scene(entity),
+                entity => new Scene() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getScene" }
@@ -1132,7 +1108,7 @@ __onDisposeObservable = null;
         public BaseTexture getAlphaTestTexture()
         {
             return EventHorizonBlazorInteropt.FuncClass<BaseTexture>(
-                entity => new BaseTexture(entity),
+                entity => new BaseTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getAlphaTestTexture" }
@@ -1223,7 +1199,7 @@ __onDisposeObservable = null;
         public BaseTexture[] getActiveTextures()
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<BaseTexture>(
-                entity => new BaseTexture(entity),
+                entity => new BaseTexture() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getActiveTextures" }
@@ -1244,7 +1220,7 @@ __onDisposeObservable = null;
         public Material clone(string name)
         {
             return EventHorizonBlazorInteropt.FuncClass<Material>(
-                entity => new Material(entity),
+                entity => new Material() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }, name
@@ -1255,7 +1231,7 @@ __onDisposeObservable = null;
         public AbstractMesh[] getBindedMeshes()
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getBindedMeshes" }
@@ -1307,7 +1283,7 @@ __onDisposeObservable = null;
         }
         #endregion
 
-        public void forceCompilationAsync(AbstractMesh mesh, IMaterialCompilationOptions options = null)
+        public void forceCompilationAsync(AbstractMesh mesh, IMaterialCompilationOptionsCachedEntity options = null)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

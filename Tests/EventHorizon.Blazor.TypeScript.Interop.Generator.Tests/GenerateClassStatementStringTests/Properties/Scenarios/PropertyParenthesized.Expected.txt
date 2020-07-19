@@ -42,7 +42,7 @@ namespace Static.Primitive
                     "wrappedHeight",
                     (entity) =>
                     {
-                        return new Vector2(entity);
+                        return new Vector2() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -71,7 +71,7 @@ __wrappedHeight = null;
                     "height",
                     (entity) =>
                     {
-                        return new Vector2(entity);
+                        return new Vector2() { ___guid = entity.___guid };
                     }
                 );
             }

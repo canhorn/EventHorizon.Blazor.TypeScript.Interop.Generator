@@ -1,0 +1,76 @@
+/// Generated - Do Not Edit
+namespace Static
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter))]
+    public class ExampleClass : CachedEntityObject
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+        
+        public IInterfaceResponseTypeCachedEntity[] InterfaceResponseType
+        {
+            get
+            {
+            return EventHorizonBlazorInteropt.GetArrayClass<IInterfaceResponseTypeCachedEntity>(
+                    this.___guid,
+                    "InterfaceResponseType",
+                    (entity) =>
+                    {
+                        return new IInterfaceResponseTypeCachedEntity() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInteropt.Set(
+                    this.___guid,
+                    "InterfaceResponseType",
+                    value
+                );
+            }
+        }
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { } 
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+
+        #endregion
+
+        #region Methods
+
+        #endregion
+    }
+}

@@ -32,6 +32,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     accessor.Type,
                     accessor.UsedClassNames
                 );
+                var isArray = ArrayResponseIdentifier.Identify(
+                    accessor.Type
+                );
                 var template = templates.Accessor;
                 var propertyGetterResultType = templates.InteropGet;
                 var root = "this.___guid";
@@ -69,7 +72,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     }
                 }
 
-                if (isClassResponse && accessor.Type.IsArray)
+                if (isClassResponse && isArray)
                 {
                     propertyGetterResultType = templates.InteropGetArrayClass;
                 }
@@ -80,11 +83,23 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     cacheSection = "private [[STATIC]][[TYPE]] __[[CACHE_NAME]];";
                     cacheSetterSection = "__[[CACHE_NAME]] = null;";
                 }
-                else if (accessor.Type.IsArray)
+                else if (isArray)
                 {
                     propertyGetterResultType = templates.InteropGetArray;
                 }
+                var propType = TypeStatementWriter.Write(
+                    accessor.Type
+                );
+                var arrayType = TypeStatementWriter.Write(
+                    accessor.Type,
+                    true
+                );
+                var newType = TypeStatementWriter.Write(
+                    accessor.Type,
+                    true
+                );
 
+                Console.WriteLine("STOP");
                 template = template
                     .Replace(
                         "[[PROPERTY_GETTER]]",
@@ -132,6 +147,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         )
                     ).Replace(
                         "[[ARRAY_TYPE]]",
+                        // TODO: [TypeStatementWriter]: Use Writer Here
+                        TypeStatementWriter.Write(
+                            accessor.Type,
+                            true
+                        )
+                    ).Replace(
+                        "[[NEW_TYPE]]",
                         // TODO: [TypeStatementWriter]: Use Writer Here
                         TypeStatementWriter.Write(
                             accessor.Type,

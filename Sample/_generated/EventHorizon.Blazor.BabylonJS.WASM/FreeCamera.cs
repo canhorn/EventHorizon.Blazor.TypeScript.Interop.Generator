@@ -166,7 +166,7 @@ namespace BabylonJS
                     "ellipsoid",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -195,7 +195,7 @@ __ellipsoid = null;
                     "ellipsoidOffset",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -266,7 +266,7 @@ __ellipsoidOffset = null;
                     "inputs",
                     (entity) =>
                     {
-                        return new FreeCameraInputsManager(entity);
+                        return new FreeCameraInputsManager() { ___guid = entity.___guid };
                     }
                 );
             }

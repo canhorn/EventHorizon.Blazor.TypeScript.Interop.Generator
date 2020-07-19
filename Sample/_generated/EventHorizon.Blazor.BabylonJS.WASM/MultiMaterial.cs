@@ -25,7 +25,7 @@ namespace BabylonJS
         public static MultiMaterial ParseMultiMaterial(object parsedMultiMaterial, Scene scene)
         {
             return EventHorizonBlazorInteropt.FuncClass<MultiMaterial>(
-                entity => new MultiMaterial(entity),
+                entity => new MultiMaterial() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "MultiMaterial", "ParseMultiMaterial" }, parsedMultiMaterial, scene
@@ -45,7 +45,7 @@ namespace BabylonJS
                     "subMaterials",
                     (entity) =>
                     {
-                        return new Material(entity);
+                        return new Material() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -90,7 +90,7 @@ namespace BabylonJS
         public Material[] getChildren()
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<Material>(
-                entity => new Material(entity),
+                entity => new Material() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getChildren" }
@@ -101,7 +101,7 @@ namespace BabylonJS
         public Material getSubMaterial(decimal index)
         {
             return EventHorizonBlazorInteropt.FuncClass<Material>(
-                entity => new Material(entity),
+                entity => new Material() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getSubMaterial" }, index
@@ -112,7 +112,7 @@ namespace BabylonJS
         public BaseTexture[] getActiveTextures()
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<BaseTexture>(
-                entity => new BaseTexture(entity),
+                entity => new BaseTexture() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getActiveTextures" }
@@ -143,7 +143,7 @@ namespace BabylonJS
         public MultiMaterial clone(string name, System.Nullable<bool> cloneChildren = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<MultiMaterial>(
-                entity => new MultiMaterial(entity),
+                entity => new MultiMaterial() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }, name, cloneChildren

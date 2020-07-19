@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IViewportOwnerLike { }
+    public interface IViewportOwnerLike : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class IViewportOwnerLikeCachedEntity : CachedEntityObject, IViewportOwnerLike
@@ -30,19 +30,19 @@ namespace BabylonJS
         #endregion
 
         #region Properties
-        private IViewportLike __viewport;
-        public IViewportLike viewport
+        private IViewportLikeCachedEntity __viewport;
+        public IViewportLikeCachedEntity viewport
         {
             get
             {
             if(__viewport == null)
             {
-                __viewport = EventHorizonBlazorInteropt.GetClass<IViewportLike>(
+                __viewport = EventHorizonBlazorInteropt.GetClass<IViewportLikeCachedEntity>(
                     this.___guid,
                     "viewport",
                     (entity) =>
                     {
-                        return new IViewportLikeCachedEntity(entity);
+                        return new IViewportLikeCachedEntity() { ___guid = entity.___guid };
                     }
                 );
             }

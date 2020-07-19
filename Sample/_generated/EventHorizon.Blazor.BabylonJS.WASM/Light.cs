@@ -222,10 +222,9 @@ namespace BabylonJS
             );
         }
 
-        public static Light GetConstructorFromName(decimal type, string name, Scene scene)
+        public static CachedEntity GetConstructorFromName(decimal type, string name, Scene scene)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Light>(
-                entity => new Light(entity),
+            return EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "Light", "GetConstructorFromName" }, type, name, scene
@@ -236,7 +235,7 @@ namespace BabylonJS
         public static Light Parse(object parsedLight, Scene scene)
         {
             return EventHorizonBlazorInteropt.FuncClass<Light>(
-                entity => new Light(entity),
+                entity => new Light() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Light", "Parse" }, parsedLight, scene
@@ -340,7 +339,7 @@ namespace BabylonJS
                     "includedOnlyMeshes",
                     (entity) =>
                     {
-                        return new AbstractMesh(entity);
+                        return new AbstractMesh() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -365,7 +364,7 @@ namespace BabylonJS
                     "excludedMeshes",
                     (entity) =>
                     {
-                        return new AbstractMesh(entity);
+                        return new AbstractMesh() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -457,7 +456,7 @@ namespace BabylonJS
                     "diffuse",
                     (entity) =>
                     {
-                        return new Color3(entity);
+                        return new Color3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -486,7 +485,7 @@ __diffuse = null;
                     "specular",
                     (entity) =>
                     {
-                        return new Color3(entity);
+                        return new Color3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -592,7 +591,7 @@ __specular = null;
         public Light transferToEffect(Effect effect, string lightIndex)
         {
             return EventHorizonBlazorInteropt.FuncClass<Light>(
-                entity => new Light(entity),
+                entity => new Light() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "transferToEffect" }, effect, lightIndex
@@ -603,7 +602,7 @@ __specular = null;
         public Light transferTexturesToEffect(Effect effect, string lightIndex)
         {
             return EventHorizonBlazorInteropt.FuncClass<Light>(
-                entity => new Light(entity),
+                entity => new Light() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "transferTexturesToEffect" }, effect, lightIndex
@@ -614,7 +613,7 @@ __specular = null;
         public Light transferToNodeMaterialEffect(Effect effect, string lightDataUniformName)
         {
             return EventHorizonBlazorInteropt.FuncClass<Light>(
-                entity => new Light(entity),
+                entity => new Light() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "transferToNodeMaterialEffect" }, effect, lightDataUniformName
@@ -652,10 +651,10 @@ __specular = null;
             );
         }
 
-        public IShadowGenerator getShadowGenerator()
+        public IShadowGeneratorCachedEntity getShadowGenerator()
         {
-            return EventHorizonBlazorInteropt.FuncClass<IShadowGenerator>(
-                entity => new IShadowGeneratorCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncClass<IShadowGeneratorCachedEntity>(
+                entity => new IShadowGeneratorCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getShadowGenerator" }
@@ -666,7 +665,7 @@ __specular = null;
         public Vector3 getAbsolutePosition()
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getAbsolutePosition" }
@@ -717,7 +716,7 @@ __specular = null;
         public Light clone(string name)
         {
             return EventHorizonBlazorInteropt.FuncClass<Light>(
-                entity => new Light(entity),
+                entity => new Light() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }, name

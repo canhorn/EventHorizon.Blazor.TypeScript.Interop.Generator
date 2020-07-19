@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface WebGLRenderingContext { }
+    public interface WebGLRenderingContext : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class WebGLRenderingContextCachedEntity : CachedEntityObject, WebGLRenderingContext
@@ -678,7 +678,7 @@ namespace BabylonJS
             );
         }
 
-        public void bindVertexArray(WebGLVertexArrayObject vao = null)
+        public void bindVertexArray(WebGLVertexArrayObjectCachedEntity vao = null)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -688,7 +688,7 @@ namespace BabylonJS
             );
         }
 
-        public void deleteVertexArray(WebGLVertexArrayObject vao)
+        public void deleteVertexArray(WebGLVertexArrayObjectCachedEntity vao)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -728,7 +728,7 @@ namespace BabylonJS
             );
         }
 
-        public decimal getUniformBlockIndex(WebGLProgram program, string uniformBlockName)
+        public decimal getUniformBlockIndex(WebGLProgramCachedEntity program, string uniformBlockName)
         {
             return EventHorizonBlazorInteropt.Func<decimal>(
                 new object[] 
@@ -738,7 +738,7 @@ namespace BabylonJS
             );
         }
 
-        public void uniformBlockBinding(WebGLProgram program, decimal uniformBlockIndex, decimal uniformBlockBinding)
+        public void uniformBlockBinding(WebGLProgramCachedEntity program, decimal uniformBlockIndex, decimal uniformBlockBinding)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -748,10 +748,10 @@ namespace BabylonJS
             );
         }
 
-        public WebGLQuery createQuery()
+        public WebGLQueryCachedEntity createQuery()
         {
-            return EventHorizonBlazorInteropt.FuncClass<WebGLQuery>(
-                entity => new WebGLQueryCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncClass<WebGLQueryCachedEntity>(
+                entity => new WebGLQueryCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "createQuery" }
@@ -759,7 +759,7 @@ namespace BabylonJS
             );
         }
 
-        public void deleteQuery(WebGLQuery query)
+        public void deleteQuery(WebGLQueryCachedEntity query)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -769,7 +769,7 @@ namespace BabylonJS
             );
         }
 
-        public void beginQuery(decimal target, WebGLQuery query)
+        public void beginQuery(decimal target, WebGLQueryCachedEntity query)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -789,7 +789,7 @@ namespace BabylonJS
             );
         }
 
-        public CachedEntity getQueryParameter(WebGLQuery query, decimal pname)
+        public CachedEntity getQueryParameter(WebGLQueryCachedEntity query, decimal pname)
         {
             return EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

@@ -14,6 +14,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
 
     public class GenerateSource
     {
+        public static void DisableCache()
+        {
+            InterfaceResponseTypeIdentifier.DisableCache();
+        }
+
         public bool Run(
             string projectAssembly,
             string sourceDirectory,
@@ -134,6 +139,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             }
             foreach (var classIdentifier in generationList)
             {
+                if (classIdentifier == "object")
+                {
+                    Debugger.Break();
+                }
                 if (generatedStatements.Any(a => a.Name == classIdentifier)
                     || notGeneratedClassNames.Contains(classIdentifier))
                 {
@@ -205,18 +214,41 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
         private static IEnumerable<string> GetAllUsedClasses(ClassStatement generated)
         {
             var list = new List<string>();
-            foreach (var className in generated.ExtendedClassNames)
+            if (generated.ExtendedType != null)
             {
-                if (!list.Contains(className))
+                var usedClassNames = UsedClassNamesIdentifier.Identify(
+                    generated.ExtendedType
+                );
+                foreach (var usedClassName in usedClassNames)
                 {
-                    list.Add(className);
+                    if (!list.Contains(usedClassName))
+                    {
+                        list.Add(usedClassName);
+                    }
                 }
             }
-            foreach (var className in generated.ImplementedInterfaceNames)
+            foreach (var extendedType in generated.GenericTypes)
             {
-                if (!list.Contains(className))
+                var usedClassNames = UsedClassNamesIdentifier.Identify(extendedType);
+                foreach (var usedClassName in usedClassNames)
                 {
-                    list.Add(className);
+                    if (!list.Contains(usedClassName))
+                    {
+                        list.Add(usedClassName);
+                    }
+                }
+            }
+            foreach (var interfaceType in generated.ImplementedInterfaces)
+            {
+                var usedClassNames = UsedClassNamesIdentifier.Identify(
+                    interfaceType
+                );
+                foreach (var usedClassName in usedClassNames)
+                {
+                    if (!list.Contains(usedClassName))
+                    {
+                        list.Add(usedClassName);
+                    }
                 }
             }
             foreach (var argument in generated.ConstructorStatement.Arguments)

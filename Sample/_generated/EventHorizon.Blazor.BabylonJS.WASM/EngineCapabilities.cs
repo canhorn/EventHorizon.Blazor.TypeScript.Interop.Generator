@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface EngineCapabilities { }
+    public interface EngineCapabilities : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class EngineCapabilitiesCachedEntity : CachedEntityObject, EngineCapabilities
@@ -294,7 +294,7 @@ namespace BabylonJS
                     "s3tc",
                     (entity) =>
                     {
-                        return new WEBGL_compressed_texture_s3tc(entity);
+                        return new WEBGL_compressed_texture_s3tc() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -449,7 +449,7 @@ __s3tc = null;
                     "textureAnisotropicFilterExtension",
                     (entity) =>
                     {
-                        return new EXT_texture_filter_anisotropic(entity);
+                        return new EXT_texture_filter_anisotropic() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -760,19 +760,19 @@ __textureAnisotropicFilterExtension = null;
             }
         }
 
-        private EXT_disjoint_timer_query __timerQuery;
-        public EXT_disjoint_timer_query timerQuery
+        private EXT_disjoint_timer_queryCachedEntity __timerQuery;
+        public EXT_disjoint_timer_queryCachedEntity timerQuery
         {
             get
             {
             if(__timerQuery == null)
             {
-                __timerQuery = EventHorizonBlazorInteropt.GetClass<EXT_disjoint_timer_query>(
+                __timerQuery = EventHorizonBlazorInteropt.GetClass<EXT_disjoint_timer_queryCachedEntity>(
                     this.___guid,
                     "timerQuery",
                     (entity) =>
                     {
-                        return new EXT_disjoint_timer_queryCachedEntity(entity);
+                        return new EXT_disjoint_timer_queryCachedEntity() { ___guid = entity.___guid };
                     }
                 );
             }

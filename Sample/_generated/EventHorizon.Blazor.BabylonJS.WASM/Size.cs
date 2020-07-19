@@ -25,7 +25,7 @@ namespace BabylonJS
         public static Size Zero()
         {
             return EventHorizonBlazorInteropt.FuncClass<Size>(
-                entity => new Size(entity),
+                entity => new Size() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Size", "Zero" }
@@ -36,7 +36,7 @@ namespace BabylonJS
         public static Size Lerp(Size start, Size end, decimal amount)
         {
             return EventHorizonBlazorInteropt.FuncClass<Size>(
-                entity => new Size(entity),
+                entity => new Size() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Size", "Lerp" }, start, end, amount
@@ -168,7 +168,7 @@ namespace BabylonJS
         public Size copyFromFloats(decimal width, decimal height)
         {
             return EventHorizonBlazorInteropt.FuncClass<Size>(
-                entity => new Size(entity),
+                entity => new Size() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "copyFromFloats" }, width, height
@@ -179,7 +179,7 @@ namespace BabylonJS
         public Size set(decimal width, decimal height)
         {
             return EventHorizonBlazorInteropt.FuncClass<Size>(
-                entity => new Size(entity),
+                entity => new Size() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "set" }, width, height
@@ -190,7 +190,7 @@ namespace BabylonJS
         public Size multiplyByFloats(decimal w, decimal h)
         {
             return EventHorizonBlazorInteropt.FuncClass<Size>(
-                entity => new Size(entity),
+                entity => new Size() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "multiplyByFloats" }, w, h
@@ -201,7 +201,7 @@ namespace BabylonJS
         public Size clone()
         {
             return EventHorizonBlazorInteropt.FuncClass<Size>(
-                entity => new Size(entity),
+                entity => new Size() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }
@@ -222,7 +222,7 @@ namespace BabylonJS
         public Size add(Size otherSize)
         {
             return EventHorizonBlazorInteropt.FuncClass<Size>(
-                entity => new Size(entity),
+                entity => new Size() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "add" }, otherSize
@@ -233,7 +233,7 @@ namespace BabylonJS
         public Size subtract(Size otherSize)
         {
             return EventHorizonBlazorInteropt.FuncClass<Size>(
-                entity => new Size(entity),
+                entity => new Size() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "subtract" }, otherSize

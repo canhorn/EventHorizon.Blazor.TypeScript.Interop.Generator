@@ -123,16 +123,16 @@ namespace BabylonJS
         }
 
         
-        public IAction[] actions
+        public IActionCachedEntity[] actions
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<IAction>(
+            return EventHorizonBlazorInteropt.GetArrayClass<IActionCachedEntity>(
                     this.___guid,
                     "actions",
                     (entity) =>
                     {
-                        return new IActionCachedEntity(entity);
+                        return new IActionCachedEntity() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -192,7 +192,7 @@ namespace BabylonJS
             );
         }
 
-        public void processTrigger(decimal trigger, IActionEvent evt = null)
+        public void processTrigger(decimal trigger, IActionEventCachedEntity evt = null)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -276,10 +276,10 @@ namespace BabylonJS
             );
         }
 
-        public IAction registerAction(IAction action)
+        public IActionCachedEntity registerAction(IActionCachedEntity action)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IAction>(
-                entity => new IActionCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncClass<IActionCachedEntity>(
+                entity => new IActionCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "registerAction" }, action
@@ -287,7 +287,7 @@ namespace BabylonJS
             );
         }
 
-        public bool unregisterAction(IAction action)
+        public bool unregisterAction(IActionCachedEntity action)
         {
             return EventHorizonBlazorInteropt.Func<bool>(
                 new object[] 

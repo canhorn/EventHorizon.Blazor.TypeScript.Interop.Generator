@@ -44,7 +44,7 @@ namespace Examples
         }
 
         public ExampleClass(
-            string arg1, object arg2, System.Nullable<decimal> arg3 = null, System.Nullable<decimal> arg4 = null, Class3 arg5 = null, object arg6 = null
+            string arg1, Class1 arg2, System.Nullable<decimal> arg3 = null, System.Nullable<decimal> arg4 = null, Class3 arg5 = null, object arg6 = null
         )
         {
             var entity = EventHorizonBlazorInteropt.New(

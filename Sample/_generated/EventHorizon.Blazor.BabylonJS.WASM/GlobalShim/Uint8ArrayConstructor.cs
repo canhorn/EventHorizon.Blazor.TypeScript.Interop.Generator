@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class Uint8ArrayConstructor : CachedEntity
 {
+    public Uint8ArrayConstructor()
+    {
+    }
+
     public Uint8ArrayConstructor(
         ICachedEntity entity
     )

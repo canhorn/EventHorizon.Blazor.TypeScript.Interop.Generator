@@ -66,7 +66,7 @@ namespace BabylonJS
         #endregion
 
         #region Static Methods
-        public static void PrepareUniforms(string[] uniforms, IImageProcessingConfigurationDefines defines)
+        public static void PrepareUniforms(string[] uniforms, IImageProcessingConfigurationDefinesCachedEntity defines)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -76,7 +76,7 @@ namespace BabylonJS
             );
         }
 
-        public static void PrepareSamplers(string[] samplersList, IImageProcessingConfigurationDefines defines)
+        public static void PrepareSamplers(string[] samplersList, IImageProcessingConfigurationDefinesCachedEntity defines)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -89,7 +89,7 @@ namespace BabylonJS
         public static ImageProcessingConfiguration Parse(object source)
         {
             return EventHorizonBlazorInteropt.FuncClass<ImageProcessingConfiguration>(
-                entity => new ImageProcessingConfiguration(entity),
+                entity => new ImageProcessingConfiguration() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "ImageProcessingConfiguration", "Parse" }, source
@@ -132,7 +132,7 @@ namespace BabylonJS
                     "colorGradingTexture",
                     (entity) =>
                     {
-                        return new BaseTexture(entity);
+                        return new BaseTexture() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -394,7 +394,7 @@ __colorGradingTexture = null;
                     "colorCurves",
                     (entity) =>
                     {
-                        return new ColorCurves(entity);
+                        return new ColorCurves() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -507,7 +507,7 @@ __colorCurves = null;
                     "vignetteColor",
                     (entity) =>
                     {
-                        return new Color4(entity);
+                        return new Color4() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -545,19 +545,19 @@ __vignetteColor = null;
             }
         }
 
-        private Observable __onUpdateParameters;
-        public Observable onUpdateParameters
+        private Observable<ImageProcessingConfiguration> __onUpdateParameters;
+        public Observable<ImageProcessingConfiguration> onUpdateParameters
         {
             get
             {
             if(__onUpdateParameters == null)
             {
-                __onUpdateParameters = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onUpdateParameters = EventHorizonBlazorInteropt.GetClass<Observable<ImageProcessingConfiguration>>(
                     this.___guid,
                     "onUpdateParameters",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<ImageProcessingConfiguration>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -599,7 +599,7 @@ __onUpdateParameters = null;
             );
         }
 
-        public void prepareDefines(IImageProcessingConfigurationDefines defines, System.Nullable<bool> forPostProcess = null)
+        public void prepareDefines(IImageProcessingConfigurationDefinesCachedEntity defines, System.Nullable<bool> forPostProcess = null)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -632,7 +632,7 @@ __onUpdateParameters = null;
         public ImageProcessingConfiguration clone()
         {
             return EventHorizonBlazorInteropt.FuncClass<ImageProcessingConfiguration>(
-                entity => new ImageProcessingConfiguration(entity),
+                entity => new ImageProcessingConfiguration() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }

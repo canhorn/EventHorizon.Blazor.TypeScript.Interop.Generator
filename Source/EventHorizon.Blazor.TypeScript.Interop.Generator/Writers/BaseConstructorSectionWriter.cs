@@ -18,7 +18,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
         {
             GlobalLogger.Info($"Generating Base Constructor: {constructorDetails}");
             var template = templates.Constructor;
-            var extendsClass = classStatement.ExtendedClassNames.Any();
+            var extendsClass = classStatement.ExtendedType != null;
 
             if (extendsClass)
             {

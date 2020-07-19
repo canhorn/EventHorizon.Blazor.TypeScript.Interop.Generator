@@ -38,7 +38,7 @@ namespace BabylonJS
                     "materialDefines",
                     (entity) =>
                     {
-                        return new MaterialDefines(entity);
+                        return new MaterialDefines() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -67,7 +67,7 @@ __materialDefines = null;
                     "effect",
                     (entity) =>
                     {
-                        return new Effect(entity);
+                        return new Effect() { ___guid = entity.___guid };
                     }
                 );
             }

@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IAnimatable { }
+    public interface IAnimatable : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class IAnimatableCachedEntity : CachedEntityObject, IAnimatable
@@ -40,7 +40,7 @@ namespace BabylonJS
                     "animations",
                     (entity) =>
                     {
-                        return new Animation(entity);
+                        return new Animation() { ___guid = entity.___guid };
                     }
                 );
             }

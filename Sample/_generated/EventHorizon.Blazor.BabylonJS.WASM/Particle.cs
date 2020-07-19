@@ -42,7 +42,7 @@ namespace BabylonJS
                     "particleSystem",
                     (entity) =>
                     {
-                        return new ParticleSystem(entity);
+                        return new ParticleSystem() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -92,7 +92,7 @@ __particleSystem = null;
                     "position",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -121,7 +121,7 @@ __position = null;
                     "direction",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -150,7 +150,7 @@ __direction = null;
                     "color",
                     (entity) =>
                     {
-                        return new Color4(entity);
+                        return new Color4() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -179,7 +179,7 @@ __color = null;
                     "colorStep",
                     (entity) =>
                     {
-                        return new Color4(entity);
+                        return new Color4() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -271,7 +271,7 @@ __colorStep = null;
                     "scale",
                     (entity) =>
                     {
-                        return new Vector2(entity);
+                        return new Vector2() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -363,7 +363,7 @@ __scale = null;
                     "remapData",
                     (entity) =>
                     {
-                        return new Vector4(entity);
+                        return new Vector4() { ___guid = entity.___guid };
                     }
                 );
             }

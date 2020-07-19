@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IOfflineProvider { }
+    public interface IOfflineProvider : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class IOfflineProviderCachedEntity : CachedEntityObject, IOfflineProvider

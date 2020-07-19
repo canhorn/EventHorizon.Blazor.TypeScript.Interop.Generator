@@ -42,6 +42,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model
         public static string Observer => "Observer";
         public static string Observable => "Observable";
         public static string DeepImmutable => "DeepImmutable";
+        public static string Partial => "Partial";
         public static string Int => "int";
         public static string Float => "float";
         #endregion

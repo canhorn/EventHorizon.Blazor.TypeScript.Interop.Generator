@@ -19,6 +19,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             Node node,
             ClassMetadata classMetadata,
             IDictionary<string, string> typeOverrideMap,
+            TypeScriptAST ast,
             bool isStatic = false
         )
         {
@@ -30,19 +31,17 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 {
                     var type = GenericTypeIdentifier.Identify(
                         parameter.Last,
-                        classMetadata
+                        classMetadata,
+                        ast
                     );
                     if (UnionTypeIdentifier.Identify(
                         parameter,
                         classMetadata,
-                        methodTypeParameters,
-                        out var typeName
+                        ast,
+                        out var unionType
                     ))
                     {
-                        type = new TypeStatement
-                        {
-                            Name = typeName,
-                        };
+                        type = unionType;
                     }
                     if (type.Name == GenerationIdentifiedTypes.CachedEntity)
                     {

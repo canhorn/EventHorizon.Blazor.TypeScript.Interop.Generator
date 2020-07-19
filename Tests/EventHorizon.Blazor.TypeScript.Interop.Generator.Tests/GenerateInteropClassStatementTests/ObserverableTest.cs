@@ -54,8 +54,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                 .Should().Be("BABYLON");
             actual.Name
                 .Should().Be("Observable");
-            actual.ExtendedClassNames
-                .Should().BeEmpty();
+            actual.ExtendedType
+                .Should().BeNull();
             actual.AccessorStatements
                 .Should().BeEquivalentTo(
                     new AccessorStatement
@@ -82,7 +82,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                         },
                         UsedClassNames = new List<string>
                         {
-                            "Array",
                             "Observer",
                             "T",
                         },
@@ -125,20 +124,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                     Name = "target",
                                     Type = "object".MakeTypeStatement(),
                                     IsOptional = true,
-                                    UsedClassNames = new List<string>
-                                    {
-                                        "object",
-                                    },
                                 },
                                 new ArgumentStatement
                                 {
                                     Name = "currentTarget",
                                     Type = "object".MakeTypeStatement(),
                                     IsOptional = true,
-                                    UsedClassNames = new List<string>
-                                    {
-                                        "object",
-                                    },
                                 },
                             },
                         },
@@ -166,7 +157,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                             },
                             UsedClassNames = new List<string>
                             {
-                                "Nullable",
                                 "Observer",
                                 "T",
                             },
@@ -198,10 +188,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                     Name = "scope",
                                     Type = "object".MakeTypeStatement(),
                                     IsOptional = true,
-                                    UsedClassNames = new List<string>
-                                    {
-                                        "object",
-                                    }
                                 },
                                 new ArgumentStatement
                                 {
@@ -235,7 +221,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                             },
                             UsedClassNames = new List<string>
                             {
-                                "Nullable",
                                 "Observer",
                                 "T",
                             },
@@ -282,7 +267,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                     },
                                     UsedClassNames = new List<string>
                                     {
-                                        "Nullable",
                                         "Observer",
                                         "T",
                                     },
@@ -309,10 +293,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                     Name = "scope",
                                     Type = "object".MakeTypeStatement(),
                                     IsOptional = true,
-                                    UsedClassNames = new List<string>
-                                    {
-                                        "object",
-                                    },
                                 },
                             },
                         },
@@ -401,20 +381,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                     Name = "target",
                                     Type = "object".MakeTypeStatement(),
                                     IsOptional = true,
-                                    UsedClassNames = new List<string>
-                                    {
-                                        "object",
-                                    },
                                 },
                                 new ArgumentStatement
                                 {
                                     Name = "currentTarget",
                                     Type = "object".MakeTypeStatement(),
                                     IsOptional = true,
-                                    UsedClassNames = new List<string>
-                                    {
-                                        "object",
-                                    },
                                 },
                             },
                         },

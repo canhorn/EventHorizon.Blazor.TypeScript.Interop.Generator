@@ -113,6 +113,27 @@ namespace Static.Primitive
                 );
             }
         }
+
+        
+        public CachedEntity partialObject
+        {
+            get
+            {
+            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+                    this.___guid,
+                    "partialObject"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInteropt.Set(
+                    this.___guid,
+                    "partialObject",
+                    value
+                );
+            }
+        }
         #endregion
         
         #region Constructor

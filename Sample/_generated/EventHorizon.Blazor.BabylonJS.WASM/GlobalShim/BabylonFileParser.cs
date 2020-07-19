@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class BabylonFileParser : CachedEntity
 {
+    public BabylonFileParser()
+    {
+    }
+
     public BabylonFileParser(
         ICachedEntity entity
     )

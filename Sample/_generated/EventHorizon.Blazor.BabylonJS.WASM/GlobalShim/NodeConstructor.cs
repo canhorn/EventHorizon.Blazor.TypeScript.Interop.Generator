@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class NodeConstructor : CachedEntity
 {
+    public NodeConstructor()
+    {
+    }
+
     public NodeConstructor(
         ICachedEntity entity
     )

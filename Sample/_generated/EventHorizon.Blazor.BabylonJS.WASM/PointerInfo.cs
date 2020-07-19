@@ -42,7 +42,7 @@ namespace BabylonJS
                     "pickInfo",
                     (entity) =>
                     {
-                        return new PickingInfo(entity);
+                        return new PickingInfo() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -70,7 +70,7 @@ __pickInfo = null;
         }
 
         public PointerInfo(
-            decimal type, object @event, PickingInfo pickInfo
+            decimal type, PointerEvent @event, PickingInfo pickInfo
         ) : base()
         {
             var entity = EventHorizonBlazorInteropt.New(

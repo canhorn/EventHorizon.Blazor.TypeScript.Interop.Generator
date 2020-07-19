@@ -30,7 +30,7 @@ namespace Static.Primitive
                     "Primitive.ExampleClass.Vector3LogLevel",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }

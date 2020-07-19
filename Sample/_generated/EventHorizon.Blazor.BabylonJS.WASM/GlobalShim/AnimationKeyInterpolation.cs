@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class AnimationKeyInterpolation : CachedEntity
 {
+    public AnimationKeyInterpolation()
+    {
+    }
+
     public AnimationKeyInterpolation(
         ICachedEntity entity
     )

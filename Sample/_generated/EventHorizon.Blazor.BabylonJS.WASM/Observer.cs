@@ -11,7 +11,7 @@ namespace BabylonJS
     
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class Observer : CachedEntityObject
+    public class Observer<T> : CachedEntityObject where T : CachedEntity, new()
     {
         #region Static Accessors
 

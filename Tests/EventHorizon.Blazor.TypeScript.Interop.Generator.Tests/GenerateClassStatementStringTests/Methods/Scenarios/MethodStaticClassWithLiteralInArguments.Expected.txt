@@ -52,6 +52,17 @@ namespace Static.Class
                 }
             );
         }
+
+        public static Vector3 ObjectLiteralFirst(AbstractMesh[] meshesOrMinMaxVector)
+        {
+            return EventHorizonBlazorInteropt.FuncClass<Vector3>(
+                entity => new Vector3() { ___guid = entity.___guid },
+                new object[] 
+                {
+                    new string[] { "Static", "Class", "ExampleClass", "ObjectLiteralFirst" }, meshesOrMinMaxVector
+                }
+            );
+        }
         #endregion
 
         #region Accessors

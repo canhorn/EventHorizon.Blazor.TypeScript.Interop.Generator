@@ -25,7 +25,7 @@ namespace BabylonJS
         public static RawTexture CreateLuminanceTexture(ArrayBufferView data, decimal width, decimal height, Scene scene, System.Nullable<bool> generateMipMaps = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<RawTexture>(
-                entity => new RawTexture(entity),
+                entity => new RawTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "RawTexture", "CreateLuminanceTexture" }, data, width, height, scene, generateMipMaps, invertY, samplingMode
@@ -36,7 +36,7 @@ namespace BabylonJS
         public static RawTexture CreateLuminanceAlphaTexture(ArrayBufferView data, decimal width, decimal height, Scene scene, System.Nullable<bool> generateMipMaps = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<RawTexture>(
-                entity => new RawTexture(entity),
+                entity => new RawTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "RawTexture", "CreateLuminanceAlphaTexture" }, data, width, height, scene, generateMipMaps, invertY, samplingMode
@@ -47,7 +47,7 @@ namespace BabylonJS
         public static RawTexture CreateAlphaTexture(ArrayBufferView data, decimal width, decimal height, Scene scene, System.Nullable<bool> generateMipMaps = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<RawTexture>(
-                entity => new RawTexture(entity),
+                entity => new RawTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "RawTexture", "CreateAlphaTexture" }, data, width, height, scene, generateMipMaps, invertY, samplingMode
@@ -58,7 +58,7 @@ namespace BabylonJS
         public static RawTexture CreateRGBTexture(ArrayBufferView data, decimal width, decimal height, Scene scene, System.Nullable<bool> generateMipMaps = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, System.Nullable<decimal> type = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<RawTexture>(
-                entity => new RawTexture(entity),
+                entity => new RawTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "RawTexture", "CreateRGBTexture" }, data, width, height, scene, generateMipMaps, invertY, samplingMode, type
@@ -69,7 +69,7 @@ namespace BabylonJS
         public static RawTexture CreateRGBATexture(ArrayBufferView data, decimal width, decimal height, Scene scene, System.Nullable<bool> generateMipMaps = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, System.Nullable<decimal> type = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<RawTexture>(
-                entity => new RawTexture(entity),
+                entity => new RawTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "RawTexture", "CreateRGBATexture" }, data, width, height, scene, generateMipMaps, invertY, samplingMode, type
@@ -80,7 +80,7 @@ namespace BabylonJS
         public static RawTexture CreateRTexture(ArrayBufferView data, decimal width, decimal height, Scene scene, System.Nullable<bool> generateMipMaps = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, System.Nullable<decimal> type = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<RawTexture>(
-                entity => new RawTexture(entity),
+                entity => new RawTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "RawTexture", "CreateRTexture" }, data, width, height, scene, generateMipMaps, invertY, samplingMode, type

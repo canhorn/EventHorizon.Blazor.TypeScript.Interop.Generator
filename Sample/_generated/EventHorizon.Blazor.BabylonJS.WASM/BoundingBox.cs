@@ -78,7 +78,7 @@ namespace BabylonJS
                     "vectors",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -96,7 +96,7 @@ namespace BabylonJS
                     "center",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -116,7 +116,7 @@ namespace BabylonJS
                     "centerWorld",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -136,7 +136,7 @@ namespace BabylonJS
                     "extendSize",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -156,7 +156,7 @@ namespace BabylonJS
                     "extendSizeWorld",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -174,7 +174,7 @@ namespace BabylonJS
                     "directions",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -190,7 +190,7 @@ namespace BabylonJS
                     "vectorsWorld",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -208,7 +208,7 @@ namespace BabylonJS
                     "minimumWorld",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -228,7 +228,7 @@ namespace BabylonJS
                     "maximumWorld",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -248,7 +248,7 @@ namespace BabylonJS
                     "minimum",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -268,7 +268,7 @@ namespace BabylonJS
                     "maximum",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -312,7 +312,7 @@ namespace BabylonJS
         public BoundingBox scale(decimal factor)
         {
             return EventHorizonBlazorInteropt.FuncClass<BoundingBox>(
-                entity => new BoundingBox(entity),
+                entity => new BoundingBox() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "scale" }, factor
@@ -323,7 +323,7 @@ namespace BabylonJS
         public Matrix getWorldMatrix()
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getWorldMatrix" }

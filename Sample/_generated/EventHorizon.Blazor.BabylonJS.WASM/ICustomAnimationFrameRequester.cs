@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface ICustomAnimationFrameRequester { }
+    public interface ICustomAnimationFrameRequester : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class ICustomAnimationFrameRequesterCachedEntity : CachedEntityObject, ICustomAnimationFrameRequester

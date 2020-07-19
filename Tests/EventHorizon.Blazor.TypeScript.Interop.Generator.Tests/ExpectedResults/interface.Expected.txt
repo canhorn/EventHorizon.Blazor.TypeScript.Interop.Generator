@@ -8,10 +8,10 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface ExampleInterface { }
+    public interface ExampleInterface<T> : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class ExampleInterfaceCachedEntity : CachedEntityObject, ExampleInterface
+    public class ExampleInterfaceCachedEntity<T> : CachedEntityObject, ExampleInterface<T> where T : CachedEntity, new()
     {
         #region Static Accessors
 

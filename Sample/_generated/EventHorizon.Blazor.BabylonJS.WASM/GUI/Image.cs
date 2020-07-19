@@ -384,7 +384,7 @@ namespace BabylonJS.GUI
                     "domImage",
                     (entity) =>
                     {
-                        return new HTMLImageElement(entity);
+                        return new HTMLImageElement() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -487,19 +487,19 @@ __domImage = null;
             }
         }
 
-        private Observable __onImageLoadedObservable;
-        public Observable onImageLoadedObservable
+        private Observable<Image> __onImageLoadedObservable;
+        public Observable<Image> onImageLoadedObservable
         {
             get
             {
             if(__onImageLoadedObservable == null)
             {
-                __onImageLoadedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onImageLoadedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Image>>(
                     this.___guid,
                     "onImageLoadedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Image>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -516,19 +516,19 @@ __onImageLoadedObservable = null;
             }
         }
 
-        private Observable __onSVGAttributesComputedObservable;
-        public Observable onSVGAttributesComputedObservable
+        private Observable<Image> __onSVGAttributesComputedObservable;
+        public Observable<Image> onSVGAttributesComputedObservable
         {
             get
             {
             if(__onSVGAttributesComputedObservable == null)
             {
-                __onSVGAttributesComputedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onSVGAttributesComputedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Image>>(
                     this.___guid,
                     "onSVGAttributesComputedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Image>() { ___guid = entity.___guid };
                     }
                 );
             }

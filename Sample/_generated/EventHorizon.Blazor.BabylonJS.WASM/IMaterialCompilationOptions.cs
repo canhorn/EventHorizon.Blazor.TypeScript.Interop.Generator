@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IMaterialCompilationOptions { }
+    public interface IMaterialCompilationOptions : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class IMaterialCompilationOptionsCachedEntity : CachedEntityObject, IMaterialCompilationOptions

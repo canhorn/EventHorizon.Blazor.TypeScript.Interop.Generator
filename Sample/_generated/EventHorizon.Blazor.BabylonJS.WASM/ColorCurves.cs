@@ -45,7 +45,7 @@ namespace BabylonJS
         public static ColorCurves Parse(object source)
         {
             return EventHorizonBlazorInteropt.FuncClass<ColorCurves>(
-                entity => new ColorCurves(entity),
+                entity => new ColorCurves() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "ColorCurves", "Parse" }, source
@@ -423,7 +423,7 @@ namespace BabylonJS
         public ColorCurves clone()
         {
             return EventHorizonBlazorInteropt.FuncClass<ColorCurves>(
-                entity => new ColorCurves(entity),
+                entity => new ColorCurves() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }

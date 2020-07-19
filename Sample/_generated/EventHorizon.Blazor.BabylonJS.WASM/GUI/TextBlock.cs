@@ -71,7 +71,7 @@ namespace BabylonJS.GUI
                     "textWrapping",
                     (entity) =>
                     {
-                        return new TextWrapping(entity);
+                        return new TextWrapping() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -237,19 +237,19 @@ __textWrapping = null;
             }
         }
 
-        private Observable __onTextChangedObservable;
-        public Observable onTextChangedObservable
+        private Observable<TextBlock> __onTextChangedObservable;
+        public Observable<TextBlock> onTextChangedObservable
         {
             get
             {
             if(__onTextChangedObservable == null)
             {
-                __onTextChangedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onTextChangedObservable = EventHorizonBlazorInteropt.GetClass<Observable<TextBlock>>(
                     this.___guid,
                     "onTextChangedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<TextBlock>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -266,19 +266,19 @@ __onTextChangedObservable = null;
             }
         }
 
-        private Observable __onLinesReadyObservable;
-        public Observable onLinesReadyObservable
+        private Observable<TextBlock> __onLinesReadyObservable;
+        public Observable<TextBlock> onLinesReadyObservable
         {
             get
             {
             if(__onLinesReadyObservable == null)
             {
-                __onLinesReadyObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onLinesReadyObservable = EventHorizonBlazorInteropt.GetClass<Observable<TextBlock>>(
                     this.___guid,
                     "onLinesReadyObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<TextBlock>() { ___guid = entity.___guid };
                     }
                 );
             }

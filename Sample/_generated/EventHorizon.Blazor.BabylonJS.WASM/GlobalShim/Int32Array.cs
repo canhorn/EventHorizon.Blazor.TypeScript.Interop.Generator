@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class Int32Array : CachedEntity
 {
+    public Int32Array()
+    {
+    }
+
     public Int32Array(
         ICachedEntity entity
     )

@@ -585,7 +585,7 @@ namespace BabylonJS
         public DataBuffer getBuffer()
         {
             return EventHorizonBlazorInteropt.FuncClass<DataBuffer>(
-                entity => new DataBuffer(entity),
+                entity => new DataBuffer() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getBuffer" }

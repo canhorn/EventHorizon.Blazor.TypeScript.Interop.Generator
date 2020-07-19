@@ -42,7 +42,7 @@ namespace BabylonJS
                     "animation",
                     (entity) =>
                     {
-                        return new Animation(entity);
+                        return new Animation() { ___guid = entity.___guid };
                     }
                 );
             }

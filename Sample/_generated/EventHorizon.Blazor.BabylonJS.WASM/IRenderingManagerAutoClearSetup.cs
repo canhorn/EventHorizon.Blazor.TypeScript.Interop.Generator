@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IRenderingManagerAutoClearSetup { }
+    public interface IRenderingManagerAutoClearSetup : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class IRenderingManagerAutoClearSetupCachedEntity : CachedEntityObject, IRenderingManagerAutoClearSetup

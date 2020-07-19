@@ -65,7 +65,15 @@ namespace Static.Class
         #endregion
 
         #region Methods
-
+        public CachedEntity getVertexBuffers()
+        {
+            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "getVertexBuffers" }
+                }
+            );
+        }
         #endregion
     }
 }

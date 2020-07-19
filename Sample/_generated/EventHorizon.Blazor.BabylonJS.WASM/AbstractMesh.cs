@@ -334,7 +334,7 @@ namespace BabylonJS
                     "facetDepthSortFrom",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -396,7 +396,7 @@ __facetDepthSortFrom = null;
                     "material",
                     (entity) =>
                     {
-                        return new Material(entity);
+                        return new Material() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -612,7 +612,7 @@ __material = null;
                     "lightSources",
                     (entity) =>
                     {
-                        return new Light(entity);
+                        return new Light() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -630,7 +630,7 @@ __material = null;
                     "skeleton",
                     (entity) =>
                     {
-                        return new Skeleton(entity);
+                        return new Skeleton() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -659,7 +659,7 @@ __skeleton = null;
                     "scaling",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -757,7 +757,7 @@ __scaling = null;
                     "collider",
                     (entity) =>
                     {
-                        return new Collider(entity);
+                        return new Collider() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -788,19 +788,19 @@ __scaling = null;
             }
         }
 
-        private Observable __onCollideObservable;
-        public Observable onCollideObservable
+        private Observable<AbstractMesh> __onCollideObservable;
+        public Observable<AbstractMesh> onCollideObservable
         {
             get
             {
             if(__onCollideObservable == null)
             {
-                __onCollideObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onCollideObservable = EventHorizonBlazorInteropt.GetClass<Observable<AbstractMesh>>(
                     this.___guid,
                     "onCollideObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<AbstractMesh>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -817,19 +817,19 @@ __onCollideObservable = null;
             }
         }
 
-        private Observable __onCollisionPositionChangeObservable;
-        public Observable onCollisionPositionChangeObservable
+        private Observable<Vector3> __onCollisionPositionChangeObservable;
+        public Observable<Vector3> onCollisionPositionChangeObservable
         {
             get
             {
             if(__onCollisionPositionChangeObservable == null)
             {
-                __onCollisionPositionChangeObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onCollisionPositionChangeObservable = EventHorizonBlazorInteropt.GetClass<Observable<Vector3>>(
                     this.___guid,
                     "onCollisionPositionChangeObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Vector3>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -846,19 +846,19 @@ __onCollisionPositionChangeObservable = null;
             }
         }
 
-        private Observable __onMaterialChangedObservable;
-        public Observable onMaterialChangedObservable
+        private Observable<AbstractMesh> __onMaterialChangedObservable;
+        public Observable<AbstractMesh> onMaterialChangedObservable
         {
             get
             {
             if(__onMaterialChangedObservable == null)
             {
-                __onMaterialChangedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onMaterialChangedObservable = EventHorizonBlazorInteropt.GetClass<Observable<AbstractMesh>>(
                     this.___guid,
                     "onMaterialChangedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<AbstractMesh>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1055,7 +1055,7 @@ __onMaterialChangedObservable = null;
                     "outlineColor",
                     (entity) =>
                     {
-                        return new Color3(entity);
+                        return new Color3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1105,7 +1105,7 @@ __outlineColor = null;
                     "overlayColor",
                     (entity) =>
                     {
-                        return new Color3(entity);
+                        return new Color3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1260,7 +1260,7 @@ __overlayColor = null;
                     "actionManager",
                     (entity) =>
                     {
-                        return new AbstractActionManager(entity);
+                        return new AbstractActionManager() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1289,7 +1289,7 @@ __actionManager = null;
                     "ellipsoid",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1318,7 +1318,7 @@ __ellipsoid = null;
                     "ellipsoidOffset",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1368,7 +1368,7 @@ __ellipsoidOffset = null;
                     "edgesColor",
                     (entity) =>
                     {
-                        return new Color4(entity);
+                        return new Color4() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1395,7 +1395,7 @@ __edgesColor = null;
                     "subMeshes",
                     (entity) =>
                     {
-                        return new SubMesh(entity);
+                        return new SubMesh() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1410,19 +1410,19 @@ __edgesColor = null;
             }
         }
 
-        private Observable __onRebuildObservable;
-        public Observable onRebuildObservable
+        private Observable<AbstractMesh> __onRebuildObservable;
+        public Observable<AbstractMesh> onRebuildObservable
         {
             get
             {
             if(__onRebuildObservable == null)
             {
-                __onRebuildObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onRebuildObservable = EventHorizonBlazorInteropt.GetClass<Observable<AbstractMesh>>(
                     this.___guid,
                     "onRebuildObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<AbstractMesh>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1485,7 +1485,7 @@ __onRebuildObservable = null;
         public AbstractMesh getLOD(Camera camera)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getLOD" }, camera
@@ -1536,7 +1536,7 @@ __onRebuildObservable = null;
         public AbstractMesh setVerticesData(string kind, decimal[] data, System.Nullable<bool> updatable = null, System.Nullable<decimal> stride = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setVerticesData" }, kind, data, updatable, stride
@@ -1547,7 +1547,7 @@ __onRebuildObservable = null;
         public AbstractMesh updateVerticesData(string kind, decimal[] data, System.Nullable<bool> updateExtends = null, System.Nullable<bool> makeItUnique = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "updateVerticesData" }, kind, data, updateExtends, makeItUnique
@@ -1558,7 +1558,7 @@ __onRebuildObservable = null;
         public AbstractMesh setIndices(decimal[] indices, System.Nullable<decimal> totalVertices = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setIndices" }, indices, totalVertices
@@ -1579,7 +1579,7 @@ __onRebuildObservable = null;
         public BoundingInfo getBoundingInfo()
         {
             return EventHorizonBlazorInteropt.FuncClass<BoundingInfo>(
-                entity => new BoundingInfo(entity),
+                entity => new BoundingInfo() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getBoundingInfo" }
@@ -1587,10 +1587,10 @@ __onRebuildObservable = null;
             );
         }
 
-        public AbstractMesh normalizeToUnitCube(System.Nullable<bool> includeDescendants = null, System.Nullable<bool> ignoreRotation = null, AbstractMesh predicate = null)
+        public AbstractMesh normalizeToUnitCube(System.Nullable<bool> includeDescendants = null, System.Nullable<bool> ignoreRotation = null, CachedEntity predicate = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "normalizeToUnitCube" }, includeDescendants, ignoreRotation, predicate
@@ -1601,7 +1601,7 @@ __onRebuildObservable = null;
         public AbstractMesh setBoundingInfo(BoundingInfo boundingInfo)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setBoundingInfo" }, boundingInfo
@@ -1612,7 +1612,7 @@ __onRebuildObservable = null;
         public Matrix getWorldMatrix()
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getWorldMatrix" }
@@ -1623,7 +1623,7 @@ __onRebuildObservable = null;
         public AbstractMesh movePOV(decimal amountRight, decimal amountUp, decimal amountForward)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "movePOV" }, amountRight, amountUp, amountForward
@@ -1634,7 +1634,7 @@ __onRebuildObservable = null;
         public Vector3 calcMovePOV(decimal amountRight, decimal amountUp, decimal amountForward)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "calcMovePOV" }, amountRight, amountUp, amountForward
@@ -1645,7 +1645,7 @@ __onRebuildObservable = null;
         public AbstractMesh rotatePOV(decimal flipBack, decimal twirlClockwise, decimal tiltRight)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "rotatePOV" }, flipBack, twirlClockwise, tiltRight
@@ -1656,7 +1656,7 @@ __onRebuildObservable = null;
         public Vector3 calcRotatePOV(decimal flipBack, decimal twirlClockwise, decimal tiltRight)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "calcRotatePOV" }, flipBack, twirlClockwise, tiltRight
@@ -1667,7 +1667,7 @@ __onRebuildObservable = null;
         public AbstractMesh refreshBoundingInfo(System.Nullable<bool> applySkeleton = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "refreshBoundingInfo" }, applySkeleton
@@ -1695,7 +1695,7 @@ __onRebuildObservable = null;
             );
         }
 
-        public bool intersectsMesh(object mesh, System.Nullable<bool> precise = null, System.Nullable<bool> includeDescendants = null)
+        public bool intersectsMesh(AbstractMesh mesh, System.Nullable<bool> precise = null, System.Nullable<bool> includeDescendants = null)
         {
             return EventHorizonBlazorInteropt.Func<bool>(
                 new object[] 
@@ -1718,7 +1718,7 @@ __onRebuildObservable = null;
         public AbstractMesh moveWithCollisions(Vector3 displacement)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "moveWithCollisions" }, displacement
@@ -1729,7 +1729,7 @@ __onRebuildObservable = null;
         public PickingInfo intersects(Ray ray, System.Nullable<bool> fastCheck = null, TrianglePickingPredicate trianglePredicate = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<PickingInfo>(
-                entity => new PickingInfo(entity),
+                entity => new PickingInfo() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "intersects" }, ray, fastCheck, trianglePredicate
@@ -1740,7 +1740,7 @@ __onRebuildObservable = null;
         public AbstractMesh clone(string name, Node newParent, System.Nullable<bool> doNotCloneChildren = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }, name, newParent, doNotCloneChildren
@@ -1751,7 +1751,7 @@ __onRebuildObservable = null;
         public AbstractMesh releaseSubMeshes()
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "releaseSubMeshes" }
@@ -1772,7 +1772,7 @@ __onRebuildObservable = null;
         public AbstractMesh addChild(AbstractMesh mesh)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "addChild" }, mesh
@@ -1783,7 +1783,7 @@ __onRebuildObservable = null;
         public AbstractMesh removeChild(AbstractMesh mesh)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "removeChild" }, mesh
@@ -1794,7 +1794,7 @@ __onRebuildObservable = null;
         public AbstractMesh updateFacetData()
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "updateFacetData" }
@@ -1805,7 +1805,7 @@ __onRebuildObservable = null;
         public Vector3[] getFacetLocalNormals()
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getFacetLocalNormals" }
@@ -1816,7 +1816,7 @@ __onRebuildObservable = null;
         public Vector3[] getFacetLocalPositions()
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getFacetLocalPositions" }
@@ -1824,9 +1824,9 @@ __onRebuildObservable = null;
             );
         }
 
-        public decimal[] getFacetLocalPartitioning()
+        public decimal[][] getFacetLocalPartitioning()
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInteropt.FuncArray<decimal[]>(
                 new object[]
                 {
                     new string[] { this.___guid, "getFacetLocalPartitioning" }
@@ -1837,7 +1837,7 @@ __onRebuildObservable = null;
         public Vector3 getFacetPosition(decimal i)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getFacetPosition" }, i
@@ -1848,7 +1848,7 @@ __onRebuildObservable = null;
         public AbstractMesh getFacetPositionToRef(decimal i, Vector3 @ref)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getFacetPositionToRef" }, i, @ref
@@ -1859,7 +1859,7 @@ __onRebuildObservable = null;
         public Vector3 getFacetNormal(decimal i)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getFacetNormal" }, i
@@ -1870,7 +1870,7 @@ __onRebuildObservable = null;
         public AbstractMesh getFacetNormalToRef(decimal i, Vector3 @ref)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getFacetNormalToRef" }, i, @ref
@@ -1921,7 +1921,7 @@ __onRebuildObservable = null;
         public AbstractMesh disableFacetData()
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "disableFacetData" }
@@ -1932,7 +1932,7 @@ __onRebuildObservable = null;
         public AbstractMesh updateIndices(decimal[] indices, System.Nullable<decimal> offset = null, System.Nullable<bool> gpuMemoryOnly = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "updateIndices" }, indices, offset, gpuMemoryOnly
@@ -1943,7 +1943,7 @@ __onRebuildObservable = null;
         public AbstractMesh createNormals(bool updatable)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "createNormals" }, updatable
@@ -1954,7 +1954,7 @@ __onRebuildObservable = null;
         public AbstractMesh alignWithNormal(Vector3 normal, Vector3 upDirection = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "alignWithNormal" }, normal, upDirection
@@ -1965,7 +1965,7 @@ __onRebuildObservable = null;
         public AbstractMesh disableEdgesRendering()
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "disableEdgesRendering" }
@@ -1976,7 +1976,7 @@ __onRebuildObservable = null;
         public AbstractMesh enableEdgesRendering(System.Nullable<decimal> epsilon = null, System.Nullable<bool> checkVerticesInsteadOfIndices = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "enableEdgesRendering" }, epsilon, checkVerticesInsteadOfIndices

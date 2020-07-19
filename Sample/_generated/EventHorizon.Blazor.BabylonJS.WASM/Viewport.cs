@@ -141,7 +141,7 @@ namespace BabylonJS
         public Viewport toGlobal(decimal renderWidth, decimal renderHeight)
         {
             return EventHorizonBlazorInteropt.FuncClass<Viewport>(
-                entity => new Viewport(entity),
+                entity => new Viewport() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "toGlobal" }, renderWidth, renderHeight
@@ -152,7 +152,7 @@ namespace BabylonJS
         public Viewport toGlobalToRef(decimal renderWidth, decimal renderHeight, Viewport @ref)
         {
             return EventHorizonBlazorInteropt.FuncClass<Viewport>(
-                entity => new Viewport(entity),
+                entity => new Viewport() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "toGlobalToRef" }, renderWidth, renderHeight, @ref
@@ -163,7 +163,7 @@ namespace BabylonJS
         public Viewport clone()
         {
             return EventHorizonBlazorInteropt.FuncClass<Viewport>(
-                entity => new Viewport(entity),
+                entity => new Viewport() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }

@@ -38,7 +38,7 @@ namespace BabylonJS
                     "source",
                     (entity) =>
                     {
-                        return new InternalTextureSource(entity);
+                        return new InternalTextureSource() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -279,19 +279,19 @@ namespace BabylonJS
             }
         }
 
-        private Observable __onLoadedObservable;
-        public Observable onLoadedObservable
+        private Observable<InternalTexture> __onLoadedObservable;
+        public Observable<InternalTexture> onLoadedObservable
         {
             get
             {
             if(__onLoadedObservable == null)
             {
-                __onLoadedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onLoadedObservable = EventHorizonBlazorInteropt.GetClass<Observable<InternalTexture>>(
                     this.___guid,
                     "onLoadedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<InternalTexture>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -482,7 +482,7 @@ __onLoadedObservable = null;
         public ThinEngine getEngine()
         {
             return EventHorizonBlazorInteropt.FuncClass<ThinEngine>(
-                entity => new ThinEngine(entity),
+                entity => new ThinEngine() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getEngine" }
@@ -500,7 +500,7 @@ __onLoadedObservable = null;
             );
         }
 
-        public void updateSize(decimal width, decimal height, System.Nullable<decimal> depth = null)
+        public void updateSize(int width, int height, System.Nullable<int> depth = null)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

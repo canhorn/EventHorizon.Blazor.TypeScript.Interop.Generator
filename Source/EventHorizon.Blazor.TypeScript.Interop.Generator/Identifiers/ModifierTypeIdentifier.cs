@@ -13,6 +13,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         {
             return JavaScriptTypes.DeepImmutable.Equals(
                 type
+            ) || JavaScriptTypes.Partial.Equals(
+                type
             );
         }
     }

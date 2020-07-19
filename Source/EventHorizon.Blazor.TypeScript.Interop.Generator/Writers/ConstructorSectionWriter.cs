@@ -23,7 +23,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             {
                 GlobalLogger.Info($"Generating Argument Constructor: {constructorDetails}");
                 var template = templates.ConstructorWithArgumentsTemplate;
-                var extendsClass = classStatement.ExtendedClassNames.Any();
+                var extendsClass = classStatement.ExtendedType != null;
 
                 // Argument String Generation
                 var argumentStrings = new List<string>();
@@ -35,11 +35,16 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         argumentsTemplate = "System.Nullable<[[TYPE]][[IS_ARRAY]]> [[NAME]] = null";
                         if (argument.Type.IsNullable)
                         {
-                            var typeIdentifier = argument.Type.GenericTypes.First().Name;
+                            var genericType = argument.Type.GenericTypes.First();
                             if (ClassIdentifier.Identify(
                                 argument.UsedClassNames,
-                                typeIdentifier
-                            ) || typeIdentifier == GenerationIdentifiedTypes.Action)
+                                genericType.Name
+                            ) || genericType.IsNullable
+                                || genericType.IsArray
+                                || genericType.IsModifier
+                                || genericType.Name == GenerationIdentifiedTypes.Action
+                                || genericType.Name == GenerationIdentifiedTypes.String
+                                || genericType.Name == GenerationIdentifiedTypes.CachedEntity)
                             {
                                 argumentsTemplate = "[[TYPE]][[IS_ARRAY]] [[NAME]] = null";
                             }
@@ -47,7 +52,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         else if (ClassIdentifier.Identify(
                             argument.UsedClassNames,
                             argument.Type.Name
-                        ))
+                        ) || argument.Type.IsNullable
+                            || argument.Type.IsArray
+                            || argument.Type.IsModifier
+                            || argument.Type.Name == GenerationIdentifiedTypes.Action
+                            || argument.Type.Name == GenerationIdentifiedTypes.String
+                            || argument.Type.Name == GenerationIdentifiedTypes.CachedEntity)
                         {
                             argumentsTemplate = "[[TYPE]][[IS_ARRAY]] [[NAME]] = null";
                         }
@@ -57,11 +67,20 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         DotNetNormailzer.Normailze(argument.Name)
                     ).Replace(
                         "[[TYPE]]",
+                        // TODO: [TypeStatementWriter]: Use Writer Here
                         TypeStatementWriter.Write(
                             argument.Type
                         )
                     ).Replace(
                         "[[ARRAY_TYPE]]",
+                        // TODO: [TypeStatementWriter]: Use Writer Here
+                        TypeStatementWriter.Write(
+                            argument.Type,
+                            true
+                        )
+                    ).Replace(
+                        "[[NEW_TYPE]]",
+                        // TODO: [TypeStatementWriter]: Use Writer Here
                         TypeStatementWriter.Write(
                             argument.Type,
                             true

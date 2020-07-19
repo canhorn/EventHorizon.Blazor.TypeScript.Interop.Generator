@@ -38,7 +38,7 @@ namespace BabylonJS
                     "material",
                     (entity) =>
                     {
-                        return new Material(entity);
+                        return new Material() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -105,7 +105,7 @@ __material = null;
                     "color",
                     (entity) =>
                     {
-                        return new Color3(entity);
+                        return new Color3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -220,7 +220,7 @@ __color = null;
         public LinesMesh clone(string name, Node newParent = null, System.Nullable<bool> doNotCloneChildren = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<LinesMesh>(
-                entity => new LinesMesh(entity),
+                entity => new LinesMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }, name, newParent, doNotCloneChildren
@@ -231,7 +231,7 @@ __color = null;
         public InstancedLinesMesh createInstance(string name)
         {
             return EventHorizonBlazorInteropt.FuncClass<InstancedLinesMesh>(
-                entity => new InstancedLinesMesh(entity),
+                entity => new InstancedLinesMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "createInstance" }, name

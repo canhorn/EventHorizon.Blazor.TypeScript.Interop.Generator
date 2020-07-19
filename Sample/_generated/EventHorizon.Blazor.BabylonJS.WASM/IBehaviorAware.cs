@@ -8,10 +8,10 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IBehaviorAware { }
+    public interface IBehaviorAware<T> : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class IBehaviorAwareCachedEntity : CachedEntityObject, IBehaviorAware
+    public class IBehaviorAwareCachedEntity<T> : CachedEntityObject, IBehaviorAware<T> where T : CachedEntity, new()
     {
         #region Static Accessors
 
@@ -46,9 +46,10 @@ namespace BabylonJS
         #endregion
 
         #region Methods
-        public CachedEntity addBehavior(Behavior behavior)
+        public T addBehavior(BehaviorCachedEntity<T> behavior)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "addBehavior" }, behavior
@@ -56,9 +57,10 @@ namespace BabylonJS
             );
         }
 
-        public CachedEntity removeBehavior(Behavior behavior)
+        public T removeBehavior(BehaviorCachedEntity<T> behavior)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "removeBehavior" }, behavior
@@ -66,10 +68,10 @@ namespace BabylonJS
             );
         }
 
-        public Behavior getBehaviorByName(string name)
+        public BehaviorCachedEntity<T> getBehaviorByName(string name)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Behavior>(
-                entity => new BehaviorCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncClass<BehaviorCachedEntity<T>>(
+                entity => new BehaviorCachedEntity<T>() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getBehaviorByName" }, name

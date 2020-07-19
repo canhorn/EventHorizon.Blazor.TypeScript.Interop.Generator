@@ -11,7 +11,7 @@ namespace [[NAMESPACE]]
     [[INTERFACE_SECTION]]
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class [[CLASS_NAME]][[INTERFACE_POSTFIX]][[EXTENDED_CLASSES_SECTION]]
+    public class [[CLASS_NAME]][[INTERFACE_POSTFIX]][[CLASS_GENERICS]][[EXTENDED_CLASSES_SECTION]][[WHERE_CONSTRAINT]]
     {
         #region Static Accessors
 [[STATIC_ACCESSORS]]

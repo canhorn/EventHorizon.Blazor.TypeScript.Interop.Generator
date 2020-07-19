@@ -200,7 +200,7 @@ namespace BabylonJS
         public ConeParticleEmitter clone()
         {
             return EventHorizonBlazorInteropt.FuncClass<ConeParticleEmitter>(
-                entity => new ConeParticleEmitter(entity),
+                entity => new ConeParticleEmitter() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }

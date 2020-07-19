@@ -3,6 +3,6 @@ EventHorizonBlazorInteropt.GetArrayClass<[[ARRAY_TYPE]]>(
                     "[[PROPERTY]]",
                     (entity) =>
                     {
-                        return new [[ARRAY_TYPE]][[INTERFACE_POSTFIX]](entity);
+                        return new [[NEW_TYPE]]() { ___guid = entity.___guid };
                     }
                 )

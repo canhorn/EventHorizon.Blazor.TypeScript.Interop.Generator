@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class InspectableType : CachedEntity
 {
+    public InspectableType()
+    {
+    }
+
     public InspectableType(
         ICachedEntity entity
     )

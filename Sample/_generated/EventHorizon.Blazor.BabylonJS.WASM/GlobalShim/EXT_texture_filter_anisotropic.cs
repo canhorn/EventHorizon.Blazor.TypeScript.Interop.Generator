@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class EXT_texture_filter_anisotropic : CachedEntity
 {
+    public EXT_texture_filter_anisotropic()
+    {
+    }
+
     public EXT_texture_filter_anisotropic(
         ICachedEntity entity
     )

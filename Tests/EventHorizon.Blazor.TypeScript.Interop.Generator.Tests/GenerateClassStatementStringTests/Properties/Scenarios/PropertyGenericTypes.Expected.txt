@@ -1,0 +1,109 @@
+/// Generated - Do Not Edit
+namespace Generic.Properties
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter))]
+    public class ExampleClass<TCamera> : CachedEntityObject where TCamera : CachedEntity, new()
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+        private CameraInputsMapCachedEntity<TCamera> __attached;
+        public CameraInputsMapCachedEntity<TCamera> attached
+        {
+            get
+            {
+            if(__attached == null)
+            {
+                __attached = EventHorizonBlazorInteropt.GetClass<CameraInputsMapCachedEntity<TCamera>>(
+                    this.___guid,
+                    "attached",
+                    (entity) =>
+                    {
+                        return new CameraInputsMapCachedEntity<TCamera>() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __attached;
+            }
+            set
+            {
+__attached = null;
+                EventHorizonBlazorInteropt.Set(
+                    this.___guid,
+                    "attached",
+                    value
+                );
+            }
+        }
+
+        private Observable<CameraInputsMapCachedEntity> __initWebVR;
+        public Observable<CameraInputsMapCachedEntity> initWebVR
+        {
+            get
+            {
+            if(__initWebVR == null)
+            {
+                __initWebVR = EventHorizonBlazorInteropt.GetClass<Observable<CameraInputsMapCachedEntity>>(
+                    this.___guid,
+                    "initWebVR",
+                    (entity) =>
+                    {
+                        return new Observable<CameraInputsMapCachedEntity>() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __initWebVR;
+            }
+            set
+            {
+__initWebVR = null;
+                EventHorizonBlazorInteropt.Set(
+                    this.___guid,
+                    "initWebVR",
+                    value
+                );
+            }
+        }
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { } 
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+
+        #endregion
+
+        #region Methods
+
+        #endregion
+    }
+}

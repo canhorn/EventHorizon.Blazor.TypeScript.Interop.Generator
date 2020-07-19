@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface Window { }
+    public interface Window : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class WindowCachedEntity : CachedEntityObject, Window
@@ -42,7 +42,7 @@ namespace BabylonJS
                     "mozIndexedDB",
                     (entity) =>
                     {
-                        return new IDBFactory(entity);
+                        return new IDBFactory() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -71,7 +71,7 @@ __mozIndexedDB = null;
                     "webkitIndexedDB",
                     (entity) =>
                     {
-                        return new IDBFactory(entity);
+                        return new IDBFactory() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -100,7 +100,7 @@ __webkitIndexedDB = null;
                     "msIndexedDB",
                     (entity) =>
                     {
-                        return new IDBFactory(entity);
+                        return new IDBFactory() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -129,7 +129,7 @@ __msIndexedDB = null;
                     "webkitURL",
                     (entity) =>
                     {
-                        return new URL(entity);
+                        return new URL() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -146,19 +146,19 @@ __webkitURL = null;
             }
         }
 
-        private WebGLRenderingContext __WebGLRenderingContext;
-        public WebGLRenderingContext WebGLRenderingContext
+        private WebGLRenderingContextCachedEntity __WebGLRenderingContext;
+        public WebGLRenderingContextCachedEntity WebGLRenderingContext
         {
             get
             {
             if(__WebGLRenderingContext == null)
             {
-                __WebGLRenderingContext = EventHorizonBlazorInteropt.GetClass<WebGLRenderingContext>(
+                __WebGLRenderingContext = EventHorizonBlazorInteropt.GetClass<WebGLRenderingContextCachedEntity>(
                     this.___guid,
                     "WebGLRenderingContext",
                     (entity) =>
                     {
-                        return new WebGLRenderingContextCachedEntity(entity);
+                        return new WebGLRenderingContextCachedEntity() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -187,7 +187,7 @@ __WebGLRenderingContext = null;
                     "MSGesture",
                     (entity) =>
                     {
-                        return new MSGesture(entity);
+                        return new MSGesture() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -237,7 +237,7 @@ __MSGesture = null;
                     "AudioContext",
                     (entity) =>
                     {
-                        return new AudioContext(entity);
+                        return new AudioContext() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -266,7 +266,7 @@ __AudioContext = null;
                     "webkitAudioContext",
                     (entity) =>
                     {
-                        return new AudioContext(entity);
+                        return new AudioContext() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -304,19 +304,19 @@ __webkitAudioContext = null;
             }
         }
 
-        private Math __Math;
-        public Math Math
+        private MathCachedEntity __Math;
+        public MathCachedEntity Math
         {
             get
             {
             if(__Math == null)
             {
-                __Math = EventHorizonBlazorInteropt.GetClass<Math>(
+                __Math = EventHorizonBlazorInteropt.GetClass<MathCachedEntity>(
                     this.___guid,
                     "Math",
                     (entity) =>
                     {
-                        return new MathCachedEntity(entity);
+                        return new MathCachedEntity() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -345,7 +345,7 @@ __Math = null;
                     "Uint8Array",
                     (entity) =>
                     {
-                        return new Uint8ArrayConstructor(entity);
+                        return new Uint8ArrayConstructor() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -374,7 +374,7 @@ __Uint8Array = null;
                     "Float32Array",
                     (entity) =>
                     {
-                        return new Float32ArrayConstructor(entity);
+                        return new Float32ArrayConstructor() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -403,7 +403,7 @@ __Float32Array = null;
                     "mozURL",
                     (entity) =>
                     {
-                        return new URL(entity);
+                        return new URL() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -432,7 +432,7 @@ __mozURL = null;
                     "msURL",
                     (entity) =>
                     {
-                        return new URL(entity);
+                        return new URL() { ___guid = entity.___guid };
                     }
                 );
             }

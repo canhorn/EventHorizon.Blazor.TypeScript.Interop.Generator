@@ -112,19 +112,19 @@ namespace BabylonJS.GUI
         #endregion
 
         #region Properties
-        private Observable __onChangedObservable;
-        public Observable onChangedObservable
+        private Observable<Style> __onChangedObservable;
+        public Observable<Style> onChangedObservable
         {
             get
             {
             if(__onChangedObservable == null)
             {
-                __onChangedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onChangedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Style>>(
                     this.___guid,
                     "onChangedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Style>() { ___guid = entity.___guid };
                     }
                 );
             }

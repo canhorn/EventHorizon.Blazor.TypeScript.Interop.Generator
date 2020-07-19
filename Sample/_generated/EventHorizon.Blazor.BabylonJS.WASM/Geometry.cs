@@ -25,7 +25,7 @@ namespace BabylonJS
         public static Geometry CreateGeometryForMesh(Mesh mesh)
         {
             return EventHorizonBlazorInteropt.FuncClass<Geometry>(
-                entity => new Geometry(entity),
+                entity => new Geometry() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Geometry", "CreateGeometryForMesh" }, mesh
@@ -36,7 +36,7 @@ namespace BabylonJS
         public static Geometry ExtractFromMesh(Mesh mesh, string id)
         {
             return EventHorizonBlazorInteropt.FuncClass<Geometry>(
-                entity => new Geometry(entity),
+                entity => new Geometry() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Geometry", "ExtractFromMesh" }, mesh, id
@@ -57,7 +57,7 @@ namespace BabylonJS
         public static Geometry Parse(object parsedVertexData, Scene scene, string rootUrl)
         {
             return EventHorizonBlazorInteropt.FuncClass<Geometry>(
-                entity => new Geometry(entity),
+                entity => new Geometry() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Geometry", "Parse" }, parsedVertexData, scene, rootUrl
@@ -79,7 +79,7 @@ namespace BabylonJS
                     "boundingBias",
                     (entity) =>
                     {
-                        return new Vector2(entity);
+                        return new Vector2() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -276,7 +276,7 @@ __boundingBias = null;
         public Scene getScene()
         {
             return EventHorizonBlazorInteropt.FuncClass<Scene>(
-                entity => new Scene(entity),
+                entity => new Scene() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getScene" }
@@ -287,7 +287,7 @@ __boundingBias = null;
         public Engine getEngine()
         {
             return EventHorizonBlazorInteropt.FuncClass<Engine>(
-                entity => new Engine(entity),
+                entity => new Engine() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getEngine" }
@@ -398,7 +398,7 @@ __boundingBias = null;
         public VertexBuffer getVertexBuffer(string kind)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexBuffer>(
-                entity => new VertexBuffer(entity),
+                entity => new VertexBuffer() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getVertexBuffer" }, kind
@@ -479,7 +479,7 @@ __boundingBias = null;
         public DataBuffer getIndexBuffer()
         {
             return EventHorizonBlazorInteropt.FuncClass<DataBuffer>(
-                entity => new DataBuffer(entity),
+                entity => new DataBuffer() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getIndexBuffer" }
@@ -584,7 +584,7 @@ __boundingBias = null;
         public Geometry copy(string id)
         {
             return EventHorizonBlazorInteropt.FuncClass<Geometry>(
-                entity => new Geometry(entity),
+                entity => new Geometry() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "copy" }, id

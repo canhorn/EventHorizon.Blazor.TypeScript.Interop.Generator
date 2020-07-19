@@ -8,10 +8,10 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IShadowLight { }
+    public interface IShadowLight : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class IShadowLightCachedEntity : Light, IShadowLight
+    public class IShadowLightCachedEntity : CachedEntityObject, IShadowLight
     {
         #region Static Accessors
 
@@ -63,7 +63,7 @@ namespace BabylonJS
                     "position",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -92,7 +92,7 @@ __position = null;
                     "direction",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -121,7 +121,7 @@ __direction = null;
                     "transformedPosition",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -150,7 +150,7 @@ __transformedPosition = null;
                     "transformedDirection",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -257,7 +257,7 @@ __transformedDirection = null;
         public Scene getScene()
         {
             return EventHorizonBlazorInteropt.FuncClass<Scene>(
-                entity => new Scene(entity),
+                entity => new Scene() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getScene" }
@@ -309,10 +309,10 @@ __transformedDirection = null;
         }
         #endregion
 
-        public IShadowLight setShadowProjectionMatrix(Matrix matrix, Matrix viewMatrix, AbstractMesh[] renderList)
+        public IShadowLightCachedEntity setShadowProjectionMatrix(Matrix matrix, Matrix viewMatrix, AbstractMesh[] renderList)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IShadowLight>(
-                entity => new IShadowLightCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncClass<IShadowLightCachedEntity>(
+                entity => new IShadowLightCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setShadowProjectionMatrix" }, matrix, viewMatrix, renderList
@@ -363,7 +363,7 @@ __transformedDirection = null;
         public Vector3 getShadowDirection(System.Nullable<decimal> faceIndex = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getShadowDirection" }, faceIndex

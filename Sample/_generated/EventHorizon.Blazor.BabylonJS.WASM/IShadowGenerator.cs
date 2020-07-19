@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IShadowGenerator { }
+    public interface IShadowGenerator : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class IShadowGeneratorCachedEntity : CachedEntityObject, IShadowGenerator
@@ -49,7 +49,7 @@ namespace BabylonJS
         public RenderTargetTexture getShadowMap()
         {
             return EventHorizonBlazorInteropt.FuncClass<RenderTargetTexture>(
-                entity => new RenderTargetTexture(entity),
+                entity => new RenderTargetTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getShadowMap" }
@@ -90,7 +90,7 @@ namespace BabylonJS
         public Matrix getTransformMatrix()
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getTransformMatrix" }

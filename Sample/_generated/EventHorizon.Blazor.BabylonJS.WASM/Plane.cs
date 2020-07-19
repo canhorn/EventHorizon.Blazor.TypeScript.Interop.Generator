@@ -25,7 +25,7 @@ namespace BabylonJS
         public static Plane FromArray(decimal[] array)
         {
             return EventHorizonBlazorInteropt.FuncClass<Plane>(
-                entity => new Plane(entity),
+                entity => new Plane() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Plane", "FromArray" }, array
@@ -36,7 +36,7 @@ namespace BabylonJS
         public static Plane FromPoints(Vector3 point1, Vector3 point2, Vector3 point3)
         {
             return EventHorizonBlazorInteropt.FuncClass<Plane>(
-                entity => new Plane(entity),
+                entity => new Plane() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Plane", "FromPoints" }, point1, point2, point3
@@ -47,7 +47,7 @@ namespace BabylonJS
         public static Plane FromPositionAndNormal(Vector3 origin, Vector3 normal)
         {
             return EventHorizonBlazorInteropt.FuncClass<Plane>(
-                entity => new Plane(entity),
+                entity => new Plane() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Plane", "FromPositionAndNormal" }, origin, normal
@@ -83,7 +83,7 @@ namespace BabylonJS
                     "normal",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -158,7 +158,7 @@ __normal = null;
         public Plane clone()
         {
             return EventHorizonBlazorInteropt.FuncClass<Plane>(
-                entity => new Plane(entity),
+                entity => new Plane() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }
@@ -189,7 +189,7 @@ __normal = null;
         public Plane normalize()
         {
             return EventHorizonBlazorInteropt.FuncClass<Plane>(
-                entity => new Plane(entity),
+                entity => new Plane() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "normalize" }
@@ -200,7 +200,7 @@ __normal = null;
         public Plane transform(Matrix transformation)
         {
             return EventHorizonBlazorInteropt.FuncClass<Plane>(
-                entity => new Plane(entity),
+                entity => new Plane() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "transform" }, transformation
@@ -221,7 +221,7 @@ __normal = null;
         public Plane copyFromPoints(Vector3 point1, Vector3 point2, Vector3 point3)
         {
             return EventHorizonBlazorInteropt.FuncClass<Plane>(
-                entity => new Plane(entity),
+                entity => new Plane() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "copyFromPoints" }, point1, point2, point3

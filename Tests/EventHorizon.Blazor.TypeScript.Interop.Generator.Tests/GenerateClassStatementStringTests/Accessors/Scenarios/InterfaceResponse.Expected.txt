@@ -26,19 +26,19 @@ namespace Static.Class
         #endregion
 
         #region Accessors
-        private IInterfaceResponseType __InterfaceResponseType;
-        public IInterfaceResponseType InterfaceResponseType
+        private IInterfaceResponseTypeCachedEntity __InterfaceResponseType;
+        public IInterfaceResponseTypeCachedEntity InterfaceResponseType
         {
             get
             {
             if(__InterfaceResponseType == null)
             {
-                __InterfaceResponseType = EventHorizonBlazorInteropt.GetClass<IInterfaceResponseType>(
+                __InterfaceResponseType = EventHorizonBlazorInteropt.GetClass<IInterfaceResponseTypeCachedEntity>(
                     this.___guid,
                     "InterfaceResponseType",
                     (entity) =>
                     {
-                        return new IInterfaceResponseTypeCachedEntity(entity);
+                        return new IInterfaceResponseTypeCachedEntity() { ___guid = entity.___guid };
                     }
                 );
             }

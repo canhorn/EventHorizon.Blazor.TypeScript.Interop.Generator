@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class TrianglePickingPredicate : CachedEntity
 {
+    public TrianglePickingPredicate()
+    {
+    }
+
     public TrianglePickingPredicate(
         ICachedEntity entity
     )

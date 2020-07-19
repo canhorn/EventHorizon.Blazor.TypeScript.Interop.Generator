@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IActionEvent { }
+    public interface IActionEvent : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class IActionEventCachedEntity : CachedEntityObject, IActionEvent
@@ -105,7 +105,7 @@ namespace BabylonJS
                     "meshUnderPointer",
                     (entity) =>
                     {
-                        return new AbstractMesh(entity);
+                        return new AbstractMesh() { ___guid = entity.___guid };
                     }
                 );
             }

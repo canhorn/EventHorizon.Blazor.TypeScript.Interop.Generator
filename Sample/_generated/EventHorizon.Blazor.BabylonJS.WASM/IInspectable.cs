@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IInspectable { }
+    public interface IInspectable : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class IInspectableCachedEntity : CachedEntityObject, IInspectable
@@ -84,7 +84,7 @@ namespace BabylonJS
                     "type",
                     (entity) =>
                     {
-                        return new InspectableType(entity);
+                        return new InspectableType() { ___guid = entity.___guid };
                     }
                 );
             }

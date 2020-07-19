@@ -38,7 +38,7 @@ namespace Static.Primitive
                     "linkedMesh",
                     (entity) =>
                     {
-                        return new AbstractMesh(entity);
+                        return new AbstractMesh() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -58,7 +58,7 @@ namespace Static.Primitive
                     "style",
                     (entity) =>
                     {
-                        return new Style(entity);
+                        return new Style() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -70,6 +70,31 @@ __style = null;
                 EventHorizonBlazorInteropt.Set(
                     this.___guid,
                     "style",
+                    value
+                );
+            }
+        }
+
+        
+        public AbstractMesh[] renderList
+        {
+            get
+            {
+            return EventHorizonBlazorInteropt.GetArrayClass<AbstractMesh>(
+                    this.___guid,
+                    "renderList",
+                    (entity) =>
+                    {
+                        return new AbstractMesh() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInteropt.Set(
+                    this.___guid,
+                    "renderList",
                     value
                 );
             }

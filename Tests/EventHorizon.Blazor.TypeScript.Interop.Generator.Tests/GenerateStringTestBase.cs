@@ -14,6 +14,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
         )
         {
             // Given
+            GenerateSource.DisableCache();
             var sourcePath = Path.Combine(
                 ".",
                 "GenerateClassStatementStringTests",
@@ -58,6 +59,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
         )
         {
             // Given
+            GenerateSource.DisableCache();
             var sourcePath = Path.Combine(
                 ".",
                 "GenerateClassStatementStringTests",

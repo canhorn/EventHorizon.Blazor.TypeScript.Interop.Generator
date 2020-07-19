@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class AudioContext : CachedEntity
 {
+    public AudioContext()
+    {
+    }
+
     public AudioContext(
         ICachedEntity entity
     )

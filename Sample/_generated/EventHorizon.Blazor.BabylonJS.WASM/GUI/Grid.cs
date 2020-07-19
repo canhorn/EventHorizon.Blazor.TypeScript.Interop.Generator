@@ -60,7 +60,7 @@ namespace BabylonJS.GUI
                     "children",
                     (entity) =>
                     {
-                        return new Control(entity);
+                        return new Control() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -127,7 +127,7 @@ namespace BabylonJS.GUI
         public ValueAndUnit getRowDefinition(decimal index)
         {
             return EventHorizonBlazorInteropt.FuncClass<ValueAndUnit>(
-                entity => new ValueAndUnit(entity),
+                entity => new ValueAndUnit() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getRowDefinition" }, index
@@ -138,7 +138,7 @@ namespace BabylonJS.GUI
         public ValueAndUnit getColumnDefinition(decimal index)
         {
             return EventHorizonBlazorInteropt.FuncClass<ValueAndUnit>(
-                entity => new ValueAndUnit(entity),
+                entity => new ValueAndUnit() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getColumnDefinition" }, index
@@ -149,7 +149,7 @@ namespace BabylonJS.GUI
         public Grid addRowDefinition(decimal height, System.Nullable<bool> isPixel = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Grid>(
-                entity => new Grid(entity),
+                entity => new Grid() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "addRowDefinition" }, height, isPixel
@@ -160,7 +160,7 @@ namespace BabylonJS.GUI
         public Grid addColumnDefinition(decimal width, System.Nullable<bool> isPixel = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Grid>(
-                entity => new Grid(entity),
+                entity => new Grid() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "addColumnDefinition" }, width, isPixel
@@ -171,7 +171,7 @@ namespace BabylonJS.GUI
         public Grid setRowDefinition(decimal index, decimal height, System.Nullable<bool> isPixel = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Grid>(
-                entity => new Grid(entity),
+                entity => new Grid() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setRowDefinition" }, index, height, isPixel
@@ -182,7 +182,7 @@ namespace BabylonJS.GUI
         public Grid setColumnDefinition(decimal index, decimal width, System.Nullable<bool> isPixel = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Grid>(
-                entity => new Grid(entity),
+                entity => new Grid() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setColumnDefinition" }, index, width, isPixel
@@ -193,7 +193,7 @@ namespace BabylonJS.GUI
         public Control[] getChildrenAt(decimal row, decimal column)
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<Control>(
-                entity => new Control(entity),
+                entity => new Control() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getChildrenAt" }, row, column
@@ -214,7 +214,7 @@ namespace BabylonJS.GUI
         public Grid removeColumnDefinition(decimal index)
         {
             return EventHorizonBlazorInteropt.FuncClass<Grid>(
-                entity => new Grid(entity),
+                entity => new Grid() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "removeColumnDefinition" }, index
@@ -225,7 +225,7 @@ namespace BabylonJS.GUI
         public Grid removeRowDefinition(decimal index)
         {
             return EventHorizonBlazorInteropt.FuncClass<Grid>(
-                entity => new Grid(entity),
+                entity => new Grid() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "removeRowDefinition" }, index
@@ -236,7 +236,7 @@ namespace BabylonJS.GUI
         public Grid addControl(Control control, System.Nullable<decimal> row = null, System.Nullable<decimal> column = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Grid>(
-                entity => new Grid(entity),
+                entity => new Grid() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "addControl" }, control, row, column
@@ -247,7 +247,7 @@ namespace BabylonJS.GUI
         public Container removeControl(Control control)
         {
             return EventHorizonBlazorInteropt.FuncClass<Container>(
-                entity => new Container(entity),
+                entity => new Container() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "removeControl" }, control

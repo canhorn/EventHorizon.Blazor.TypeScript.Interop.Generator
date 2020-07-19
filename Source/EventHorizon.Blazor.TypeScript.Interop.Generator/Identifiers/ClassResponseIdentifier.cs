@@ -13,11 +13,15 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         {
             var name = typeStatement.Name;
             if (typeStatement.IsArray
+                || typeStatement.IsModifier
                 || typeStatement.IsNullable)
             {
                 if (typeStatement.GenericTypes.Any())
                 {
-                    name = typeStatement.GenericTypes.First().Name;
+                    return Identify(
+                        typeStatement.GenericTypes.First(),
+                        classNameList
+                    );
                 }
             }
             return ClassIdentifier.Identify(

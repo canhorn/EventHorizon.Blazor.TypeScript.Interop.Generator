@@ -162,7 +162,7 @@ namespace BabylonJS
         public EventState initalize(decimal mask, System.Nullable<bool> skipNextObservers = null, object target = null, object currentTarget = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<EventState>(
-                entity => new EventState(entity),
+                entity => new EventState() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "initalize" }, mask, skipNextObservers, target, currentTarget

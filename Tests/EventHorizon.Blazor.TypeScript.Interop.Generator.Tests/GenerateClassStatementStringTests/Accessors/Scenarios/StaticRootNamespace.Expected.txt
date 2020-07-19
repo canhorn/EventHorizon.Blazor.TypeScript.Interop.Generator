@@ -14,19 +14,19 @@ namespace Static
     public class ExampleClass : CachedEntityObject
     {
         #region Static Accessors
-        private static IInterfaceResponseType __InterfaceResponseType;
-        public static IInterfaceResponseType InterfaceResponseType
+        private static IInterfaceResponseTypeCachedEntity __InterfaceResponseType;
+        public static IInterfaceResponseTypeCachedEntity InterfaceResponseType
         {
             get
             {
             if(__InterfaceResponseType == null)
             {
-                __InterfaceResponseType = EventHorizonBlazorInteropt.GetClass<IInterfaceResponseType>(
+                __InterfaceResponseType = EventHorizonBlazorInteropt.GetClass<IInterfaceResponseTypeCachedEntity>(
                     "Static",
                     "ExampleClass.InterfaceResponseType",
                     (entity) =>
                     {
-                        return new IInterfaceResponseTypeCachedEntity(entity);
+                        return new IInterfaceResponseTypeCachedEntity() { ___guid = entity.___guid };
                     }
                 );
             }

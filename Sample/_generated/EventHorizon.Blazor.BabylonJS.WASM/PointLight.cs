@@ -59,7 +59,7 @@ namespace BabylonJS
                     "direction",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -136,7 +136,7 @@ __direction = null;
         public Vector3 getShadowDirection(System.Nullable<decimal> faceIndex = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getShadowDirection" }, faceIndex
@@ -147,7 +147,7 @@ __direction = null;
         public PointLight transferToEffect(Effect effect, string lightIndex)
         {
             return EventHorizonBlazorInteropt.FuncClass<PointLight>(
-                entity => new PointLight(entity),
+                entity => new PointLight() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "transferToEffect" }, effect, lightIndex
@@ -158,7 +158,7 @@ __direction = null;
         public PointLight transferToNodeMaterialEffect(Effect effect, string lightDataUniformName)
         {
             return EventHorizonBlazorInteropt.FuncClass<PointLight>(
-                entity => new PointLight(entity),
+                entity => new PointLight() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "transferToNodeMaterialEffect" }, effect, lightDataUniformName

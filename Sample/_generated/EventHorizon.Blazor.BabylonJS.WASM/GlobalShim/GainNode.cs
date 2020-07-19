@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class GainNode : CachedEntity
 {
+    public GainNode()
+    {
+    }
+
     public GainNode(
         ICachedEntity entity
     )

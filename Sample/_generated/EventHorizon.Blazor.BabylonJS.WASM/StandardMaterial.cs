@@ -254,7 +254,7 @@ namespace BabylonJS
         public static StandardMaterial Parse(object source, Scene scene, string rootUrl)
         {
             return EventHorizonBlazorInteropt.FuncClass<StandardMaterial>(
-                entity => new StandardMaterial(entity),
+                entity => new StandardMaterial() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "StandardMaterial", "Parse" }, source, scene, rootUrl
@@ -276,7 +276,7 @@ namespace BabylonJS
                     "imageProcessingConfiguration",
                     (entity) =>
                     {
-                        return new ImageProcessingConfiguration(entity);
+                        return new ImageProcessingConfiguration() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -410,7 +410,7 @@ __imageProcessingConfiguration = null;
                     "cameraColorGradingTexture",
                     (entity) =>
                     {
-                        return new BaseTexture(entity);
+                        return new BaseTexture() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -439,7 +439,7 @@ __cameraColorGradingTexture = null;
                     "cameraColorCurves",
                     (entity) =>
                     {
-                        return new ColorCurves(entity);
+                        return new ColorCurves() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -503,7 +503,7 @@ __cameraColorCurves = null;
                     "diffuseTexture",
                     (entity) =>
                     {
-                        return new BaseTexture(entity);
+                        return new BaseTexture() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -532,7 +532,7 @@ __diffuseTexture = null;
                     "ambientTexture",
                     (entity) =>
                     {
-                        return new BaseTexture(entity);
+                        return new BaseTexture() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -561,7 +561,7 @@ __ambientTexture = null;
                     "opacityTexture",
                     (entity) =>
                     {
-                        return new BaseTexture(entity);
+                        return new BaseTexture() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -590,7 +590,7 @@ __opacityTexture = null;
                     "reflectionTexture",
                     (entity) =>
                     {
-                        return new BaseTexture(entity);
+                        return new BaseTexture() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -619,7 +619,7 @@ __reflectionTexture = null;
                     "emissiveTexture",
                     (entity) =>
                     {
-                        return new BaseTexture(entity);
+                        return new BaseTexture() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -648,7 +648,7 @@ __emissiveTexture = null;
                     "specularTexture",
                     (entity) =>
                     {
-                        return new BaseTexture(entity);
+                        return new BaseTexture() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -677,7 +677,7 @@ __specularTexture = null;
                     "bumpTexture",
                     (entity) =>
                     {
-                        return new BaseTexture(entity);
+                        return new BaseTexture() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -706,7 +706,7 @@ __bumpTexture = null;
                     "lightmapTexture",
                     (entity) =>
                     {
-                        return new BaseTexture(entity);
+                        return new BaseTexture() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -735,7 +735,7 @@ __lightmapTexture = null;
                     "refractionTexture",
                     (entity) =>
                     {
-                        return new BaseTexture(entity);
+                        return new BaseTexture() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -764,7 +764,7 @@ __refractionTexture = null;
                     "ambientColor",
                     (entity) =>
                     {
-                        return new Color3(entity);
+                        return new Color3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -793,7 +793,7 @@ __ambientColor = null;
                     "diffuseColor",
                     (entity) =>
                     {
-                        return new Color3(entity);
+                        return new Color3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -822,7 +822,7 @@ __diffuseColor = null;
                     "specularColor",
                     (entity) =>
                     {
-                        return new Color3(entity);
+                        return new Color3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -851,7 +851,7 @@ __specularColor = null;
                     "emissiveColor",
                     (entity) =>
                     {
-                        return new Color3(entity);
+                        return new Color3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1216,7 +1216,7 @@ __emissiveColor = null;
                     "diffuseFresnelParameters",
                     (entity) =>
                     {
-                        return new FresnelParameters(entity);
+                        return new FresnelParameters() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1245,7 +1245,7 @@ __diffuseFresnelParameters = null;
                     "opacityFresnelParameters",
                     (entity) =>
                     {
-                        return new FresnelParameters(entity);
+                        return new FresnelParameters() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1274,7 +1274,7 @@ __opacityFresnelParameters = null;
                     "reflectionFresnelParameters",
                     (entity) =>
                     {
-                        return new FresnelParameters(entity);
+                        return new FresnelParameters() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1303,7 +1303,7 @@ __reflectionFresnelParameters = null;
                     "refractionFresnelParameters",
                     (entity) =>
                     {
-                        return new FresnelParameters(entity);
+                        return new FresnelParameters() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1332,7 +1332,7 @@ __refractionFresnelParameters = null;
                     "emissiveFresnelParameters",
                     (entity) =>
                     {
-                        return new FresnelParameters(entity);
+                        return new FresnelParameters() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1575,7 +1575,7 @@ __emissiveFresnelParameters = null;
         public BaseTexture getAlphaTestTexture()
         {
             return EventHorizonBlazorInteropt.FuncClass<BaseTexture>(
-                entity => new BaseTexture(entity),
+                entity => new BaseTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getAlphaTestTexture" }
@@ -1623,10 +1623,10 @@ __emissiveFresnelParameters = null;
             );
         }
 
-        public IAnimatable[] getAnimatables()
+        public IAnimatableCachedEntity[] getAnimatables()
         {
-            return EventHorizonBlazorInteropt.FuncArrayClass<IAnimatable>(
-                entity => new IAnimatableCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncArrayClass<IAnimatableCachedEntity>(
+                entity => new IAnimatableCachedEntity() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getAnimatables" }
@@ -1637,7 +1637,7 @@ __emissiveFresnelParameters = null;
         public BaseTexture[] getActiveTextures()
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<BaseTexture>(
-                entity => new BaseTexture(entity),
+                entity => new BaseTexture() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getActiveTextures" }
@@ -1668,7 +1668,7 @@ __emissiveFresnelParameters = null;
         public StandardMaterial clone(string name)
         {
             return EventHorizonBlazorInteropt.FuncClass<StandardMaterial>(
-                entity => new StandardMaterial(entity),
+                entity => new StandardMaterial() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }, name

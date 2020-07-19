@@ -1,8 +1,8 @@
-EventHorizonBlazorInteropt.GetClass<[[TYPE]]>(
+EventHorizonBlazorInteropt.GetClass<[[ARRAY_TYPE]]>(
                     [[ROOT]],
                     "[[PROPERTY]]",
                     (entity) =>
                     {
-                        return new [[TYPE]][[INTERFACE_POSTFIX]](entity);
+                        return new [[NEW_TYPE]]() { ___guid = entity.___guid };
                     }
                 )

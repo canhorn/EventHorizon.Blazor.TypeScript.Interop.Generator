@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class HTMLImageElement : CachedEntity
 {
+    public HTMLImageElement()
+    {
+    }
+
     public HTMLImageElement(
         ICachedEntity entity
     )

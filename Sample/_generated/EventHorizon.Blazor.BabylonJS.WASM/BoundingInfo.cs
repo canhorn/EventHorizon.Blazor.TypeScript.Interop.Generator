@@ -38,7 +38,7 @@ namespace BabylonJS
                     "minimum",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -58,7 +58,7 @@ namespace BabylonJS
                     "maximum",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -113,7 +113,7 @@ namespace BabylonJS
                     "boundingBox",
                     (entity) =>
                     {
-                        return new BoundingBox(entity);
+                        return new BoundingBox() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -133,7 +133,7 @@ namespace BabylonJS
                     "boundingSphere",
                     (entity) =>
                     {
-                        return new BoundingSphere(entity);
+                        return new BoundingSphere() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -187,7 +187,7 @@ namespace BabylonJS
         public BoundingInfo centerOn(Vector3 center, Vector3 extend)
         {
             return EventHorizonBlazorInteropt.FuncClass<BoundingInfo>(
-                entity => new BoundingInfo(entity),
+                entity => new BoundingInfo() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "centerOn" }, center, extend
@@ -198,7 +198,7 @@ namespace BabylonJS
         public BoundingInfo scale(decimal factor)
         {
             return EventHorizonBlazorInteropt.FuncClass<BoundingInfo>(
-                entity => new BoundingInfo(entity),
+                entity => new BoundingInfo() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "scale" }, factor

@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IColor4Like { }
+    public interface IColor4Like : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class IColor4LikeCachedEntity : CachedEntityObject, IColor4Like

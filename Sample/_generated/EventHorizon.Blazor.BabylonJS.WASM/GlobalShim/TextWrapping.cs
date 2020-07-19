@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class TextWrapping : CachedEntity
 {
+    public TextWrapping()
+    {
+    }
+
     public TextWrapping(
         ICachedEntity entity
     )

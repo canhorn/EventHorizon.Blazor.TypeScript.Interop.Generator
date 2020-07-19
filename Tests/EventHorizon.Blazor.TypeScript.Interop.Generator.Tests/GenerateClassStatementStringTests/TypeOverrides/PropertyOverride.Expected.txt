@@ -30,7 +30,7 @@ namespace Examples
                     "ExampleClass.vectorStaticCheck",
                     (entity) =>
                     {
-                        return new OverrideVector4(entity);
+                        return new OverrideVector4() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -81,7 +81,7 @@ __vectorStaticCheck = null;
                     "vectorCheck",
                     (entity) =>
                     {
-                        return new OverrideVector4(entity);
+                        return new OverrideVector4() { ___guid = entity.___guid };
                     }
                 );
             }

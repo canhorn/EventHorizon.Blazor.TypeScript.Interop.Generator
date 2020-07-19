@@ -120,7 +120,7 @@ namespace BabylonJS
         public AnimationRange clone()
         {
             return EventHorizonBlazorInteropt.FuncClass<AnimationRange>(
-                entity => new AnimationRange(entity),
+                entity => new AnimationRange() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }

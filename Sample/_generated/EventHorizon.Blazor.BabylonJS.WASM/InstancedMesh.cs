@@ -36,7 +36,7 @@ namespace BabylonJS
                     "lightSources",
                     (entity) =>
                     {
-                        return new Light(entity);
+                        return new Light() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -66,7 +66,7 @@ namespace BabylonJS
                     "material",
                     (entity) =>
                     {
-                        return new Material(entity);
+                        return new Material() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -98,7 +98,7 @@ namespace BabylonJS
                     "skeleton",
                     (entity) =>
                     {
-                        return new Skeleton(entity);
+                        return new Skeleton() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -139,7 +139,7 @@ namespace BabylonJS
                     "sourceMesh",
                     (entity) =>
                     {
-                        return new Mesh(entity);
+                        return new Mesh() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -239,7 +239,7 @@ namespace BabylonJS
         public AbstractMesh setVerticesData(string kind, decimal[] data, System.Nullable<bool> updatable = null, System.Nullable<decimal> stride = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setVerticesData" }, kind, data, updatable, stride
@@ -250,7 +250,7 @@ namespace BabylonJS
         public Mesh updateVerticesData(string kind, decimal[] data, System.Nullable<bool> updateExtends = null, System.Nullable<bool> makeItUnique = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "updateVerticesData" }, kind, data, updateExtends, makeItUnique
@@ -261,7 +261,7 @@ namespace BabylonJS
         public Mesh setIndices(decimal[] indices, System.Nullable<decimal> totalVertices = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setIndices" }, indices, totalVertices
@@ -292,7 +292,7 @@ namespace BabylonJS
         public InstancedMesh refreshBoundingInfo(System.Nullable<bool> applySkeleton = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<InstancedMesh>(
-                entity => new InstancedMesh(entity),
+                entity => new InstancedMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "refreshBoundingInfo" }, applySkeleton
@@ -303,7 +303,7 @@ namespace BabylonJS
         public Matrix getWorldMatrix()
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getWorldMatrix" }
@@ -314,7 +314,7 @@ namespace BabylonJS
         public AbstractMesh getLOD(Camera camera)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getLOD" }, camera
@@ -325,7 +325,7 @@ namespace BabylonJS
         public InstancedMesh clone(string name, Node newParent = null, System.Nullable<bool> doNotCloneChildren = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<InstancedMesh>(
-                entity => new InstancedMesh(entity),
+                entity => new InstancedMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }, name, newParent, doNotCloneChildren

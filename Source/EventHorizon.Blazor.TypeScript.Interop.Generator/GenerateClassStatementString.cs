@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Templates;
@@ -20,6 +21,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             {
                 { "[[INTERFACE_SECTION]]", string.Empty },
                 { "[[EXTENDED_CLASSES_SECTION]]", string.Empty },
+                { "[[WHERE_CONSTRAINT]]", string.Empty },
+                { "[[CLASS_GENERICS]]", string.Empty },
                 { "[[STATIC_ACCESSORS]]", string.Empty },
                 { "[[STATIC_PROPERTIES]]", string.Empty },
                 { "[[STATIC_METHODS]]", string.Empty },
@@ -60,9 +63,20 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                 classGenerationTemplates
             );
             classTokenMap["[[INTERFACE_POSTFIX]]"] = classStatement.IsInterface ? Constants.INTERFACE_POSTFIX : string.Empty;
+            classTokenMap["[[CLASS_GENERICS]]"] = BuildClassGenerics(
+                classStatement
+            );
             classTokenMap["[[EXTENDED_CLASSES_SECTION]]"] = BuildExtendedClassesSection(
                 classStatement
             );
+            classTokenMap["[[WHERE_CONSTRAINT]]"] = classStatement.GenericTypes.Any()
+                ? string.Join(
+                    "", 
+                    classStatement.GenericTypes.Select(
+                        genericType => $" where {genericType.Name} : CachedEntity, new()"
+                    )
+                )
+                : string.Empty;
             classTokenMap["[[STATIC_ACCESSORS]]"] = AccessorsSectionWriter.Write(
                 classStatement,
                 staticAccessors,
@@ -118,6 +132,30 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             return classStringBuilder.ToString();
         }
 
+        private static string BuildClassGenerics(
+            ClassStatement classStatement
+        )
+        {
+            var template = "<[[TYPE]]>";
+
+            if (!classStatement.GenericTypes.Any())
+            {
+                return string.Empty;
+            }
+
+            return template.Replace(
+                "[[TYPE]]",
+                string.Join(
+                    ", ",
+                    classStatement.GenericTypes.Select(
+                        genericType => TypeStatementWriter.Write(
+                            genericType
+                        )
+                    )
+                )
+            );
+        }
+
         /// <summary>
         /// : classStatement.ExtendedClassNames
         /// </summary>
@@ -129,30 +167,49 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
         {
             // Check if extendedClassName is interface
             // If all are interfaces, add ClientEntity
-            var interfaceNames = classStatement.ImplementedInterfaceNames;
+            var interfaceTypes = classStatement.ImplementedInterfaces;
             if (classStatement.IsInterface)
             {
                 // The classStatament if for an interface, so the class will postfixed with an identifier.
                 // And will need to be inherited from its created interface.
-                interfaceNames.Add(classStatement.Name);
+                interfaceTypes.Add(
+                    new TypeStatement
+                    {
+                        Name = classStatement.Name,
+                        GenericTypes = classStatement.GenericTypes,
+                    }
+                );
             }
 
-            if (!classStatement.ExtendedClassNames.Any()
-                && !interfaceNames.Any())
+            if (classStatement.ExtendedType == null
+                && !interfaceTypes.Any())
             {
                 return " : CachedEntityObject";
             }
-            if (!classStatement.ExtendedClassNames.Any())
+            if (classStatement.ExtendedType == null)
             {
-                classStatement.ExtendedClassNames.Add(
-                    "CachedEntityObject"
-                );
+                classStatement.ExtendedType = new TypeStatement
+                {
+                    Name = "CachedEntityObject",
+                };
             }
 
             return " : " + string.Join(
                 ", ",
-                classStatement.ExtendedClassNames.Concat(
-                    interfaceNames
+                new List<string>
+                {
+                    TypeStatementWriter.Write(
+                        classStatement.ExtendedType,
+                        true
+                    )
+                }.Concat(
+                    interfaceTypes.Select(
+                        interfaceType => TypeStatementWriter.Write(
+                            interfaceType,
+                            true,
+                            true
+                        )
+                    )
                 ).Distinct()
             );
         }

@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class ClientRect : CachedEntity
 {
+    public ClientRect()
+    {
+    }
+
     public ClientRect(
         ICachedEntity entity
     )

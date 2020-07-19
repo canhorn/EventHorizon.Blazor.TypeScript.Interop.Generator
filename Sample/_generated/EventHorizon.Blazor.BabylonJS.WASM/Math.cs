@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface Math { }
+    public interface Math : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class MathCachedEntity : CachedEntityObject, Math

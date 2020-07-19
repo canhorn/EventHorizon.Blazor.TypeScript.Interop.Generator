@@ -71,7 +71,7 @@ namespace BabylonJS
         public static VertexData ExtractFromMesh(Mesh mesh, System.Nullable<bool> copyWhenShared = null, System.Nullable<bool> forceCopy = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "ExtractFromMesh" }, mesh, copyWhenShared, forceCopy
@@ -82,7 +82,7 @@ namespace BabylonJS
         public static VertexData ExtractFromGeometry(Geometry geometry, System.Nullable<bool> copyWhenShared = null, System.Nullable<bool> forceCopy = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "ExtractFromGeometry" }, geometry, copyWhenShared, forceCopy
@@ -93,7 +93,7 @@ namespace BabylonJS
         public static VertexData CreateRibbon(object options)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateRibbon" }, options
@@ -104,7 +104,7 @@ namespace BabylonJS
         public static VertexData CreateBox(object options)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateBox" }, options
@@ -115,7 +115,7 @@ namespace BabylonJS
         public static VertexData CreateTiledBox(object options)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateTiledBox" }, options
@@ -126,7 +126,7 @@ namespace BabylonJS
         public static VertexData CreateTiledPlane(object options)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateTiledPlane" }, options
@@ -137,7 +137,7 @@ namespace BabylonJS
         public static VertexData CreateSphere(object options)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateSphere" }, options
@@ -148,7 +148,7 @@ namespace BabylonJS
         public static VertexData CreateCylinder(object options)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateCylinder" }, options
@@ -159,7 +159,7 @@ namespace BabylonJS
         public static VertexData CreateTorus(object options)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateTorus" }, options
@@ -170,7 +170,7 @@ namespace BabylonJS
         public static VertexData CreateLineSystem(object options)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateLineSystem" }, options
@@ -181,7 +181,7 @@ namespace BabylonJS
         public static VertexData CreateDashedLines(object options)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateDashedLines" }, options
@@ -192,7 +192,7 @@ namespace BabylonJS
         public static VertexData CreateGround(object options)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateGround" }, options
@@ -203,7 +203,7 @@ namespace BabylonJS
         public static VertexData CreateTiledGround(object options)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateTiledGround" }, options
@@ -214,7 +214,7 @@ namespace BabylonJS
         public static VertexData CreateGroundFromHeightMap(object options)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateGroundFromHeightMap" }, options
@@ -225,7 +225,7 @@ namespace BabylonJS
         public static VertexData CreatePlane(object options)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreatePlane" }, options
@@ -236,7 +236,7 @@ namespace BabylonJS
         public static VertexData CreateDisc(object options)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateDisc" }, options
@@ -247,7 +247,7 @@ namespace BabylonJS
         public static VertexData CreatePolygon(Mesh polygon, decimal sideOrientation, Vector4[] fUV = null, Color4[] fColors = null, Vector4 frontUVs = null, Vector4 backUVs = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreatePolygon" }, polygon, sideOrientation, fUV, fColors, frontUVs, backUVs
@@ -258,7 +258,7 @@ namespace BabylonJS
         public static VertexData CreateIcoSphere(object options)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateIcoSphere" }, options
@@ -269,7 +269,7 @@ namespace BabylonJS
         public static VertexData CreatePolyhedron(object options)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreatePolyhedron" }, options
@@ -280,7 +280,7 @@ namespace BabylonJS
         public static VertexData CreateTorusKnot(object options)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "CreateTorusKnot" }, options
@@ -657,7 +657,7 @@ namespace BabylonJS
         public VertexData applyToMesh(Mesh mesh, System.Nullable<bool> updatable = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "applyToMesh" }, mesh, updatable
@@ -668,7 +668,7 @@ namespace BabylonJS
         public VertexData applyToGeometry(Geometry geometry, System.Nullable<bool> updatable = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "applyToGeometry" }, geometry, updatable
@@ -679,7 +679,7 @@ namespace BabylonJS
         public VertexData updateMesh(Mesh mesh)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "updateMesh" }, mesh
@@ -690,7 +690,7 @@ namespace BabylonJS
         public VertexData updateGeometry(Geometry geometry)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "updateGeometry" }, geometry
@@ -701,7 +701,7 @@ namespace BabylonJS
         public VertexData transform(Matrix matrix)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "transform" }, matrix
@@ -712,7 +712,7 @@ namespace BabylonJS
         public VertexData merge(VertexData other, System.Nullable<bool> use32BitsIndices = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexData>(
-                entity => new VertexData(entity),
+                entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "merge" }, other, use32BitsIndices

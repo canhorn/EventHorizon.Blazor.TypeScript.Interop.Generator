@@ -42,7 +42,7 @@ namespace BabylonJS
                     "groundColor",
                     (entity) =>
                     {
-                        return new Color3(entity);
+                        return new Color3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -71,7 +71,7 @@ __groundColor = null;
                     "direction",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -124,7 +124,7 @@ __direction = null;
         public Vector3 setDirectionToTarget(Vector3 target)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setDirectionToTarget" }, target
@@ -132,10 +132,10 @@ __direction = null;
             );
         }
 
-        public IShadowGenerator getShadowGenerator()
+        public IShadowGeneratorCachedEntity getShadowGenerator()
         {
-            return EventHorizonBlazorInteropt.FuncClass<IShadowGenerator>(
-                entity => new IShadowGeneratorCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncClass<IShadowGeneratorCachedEntity>(
+                entity => new IShadowGeneratorCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getShadowGenerator" }
@@ -146,7 +146,7 @@ __direction = null;
         public HemisphericLight transferToEffect(Effect effect, string lightIndex)
         {
             return EventHorizonBlazorInteropt.FuncClass<HemisphericLight>(
-                entity => new HemisphericLight(entity),
+                entity => new HemisphericLight() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "transferToEffect" }, effect, lightIndex
@@ -157,7 +157,7 @@ __direction = null;
         public HemisphericLight transferToNodeMaterialEffect(Effect effect, string lightDataUniformName)
         {
             return EventHorizonBlazorInteropt.FuncClass<HemisphericLight>(
-                entity => new HemisphericLight(entity),
+                entity => new HemisphericLight() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "transferToNodeMaterialEffect" }, effect, lightDataUniformName
@@ -168,7 +168,7 @@ __direction = null;
         public Matrix computeWorldMatrix()
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "computeWorldMatrix" }

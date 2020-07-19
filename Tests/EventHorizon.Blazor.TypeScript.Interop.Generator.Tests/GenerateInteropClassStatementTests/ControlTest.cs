@@ -363,7 +363,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                         HasSetter = true,
                         UsedClassNames = new List<string>
                         {
-                            "Nullable",
                             "Style",
                         },
                     },
@@ -384,7 +383,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                         },
                         UsedClassNames = new List<string>
                         {
-                            "Nullable",
                             "AbstractMesh",
                         },
                     },
@@ -425,8 +423,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                         IsStatic = true,
                     }
                 );
-            actual.ExtendedClassNames
-                .Should().BeEmpty();
+            actual.ExtendedType
+                .Should().BeNull();
             actual.PublicMethodStatements
                 .Should().BeEquivalentTo(
                     new List<PublicMethodStatement>
@@ -481,7 +479,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                             },
                             UsedClassNames = new List<string>
                             {
-                                "Nullable",
                                 "Control",
                             },
                             Arguments = new List<ArgumentStatement>
@@ -613,7 +610,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                     },
                                     UsedClassNames = new List<string>
                                     {
-                                        "Nullable",
                                         "AbstractMesh",
                                     },
                                 },
@@ -665,7 +661,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                     },
                                     UsedClassNames = new List<string>
                                     {
-                                        "Array",
                                         "Control",
                                     },
                                 },
@@ -704,7 +699,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                             },
                             UsedClassNames = new List<string>
                             {
-                                "Array",
                                 "Control",
                             },
                             Arguments = new List<ArgumentStatement>
@@ -1014,7 +1008,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                         },
                         UsedClassNames = new List<string>
                         {
-                            "Nullable",
                             "Container",
                         },
                     }

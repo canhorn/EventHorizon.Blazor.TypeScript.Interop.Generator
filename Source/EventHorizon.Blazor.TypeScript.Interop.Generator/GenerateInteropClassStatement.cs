@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
@@ -52,14 +51,16 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
 
 
             // Get ExtendedClassNames
-            var extendedClassNames = ExtendedClassNamesIdentifier.Identify(
+            var extendedClassType = ExtendedClassTypesIdentifier.Identify(
                 toGenerateNode,
-                ast
+                ast,
+                classMetadata
             );
-            // Get ImplementedInterfaceNames
-            var implementedInterfaceNames = ImplementedInterfaceNamesIdentifier.Identify(
+            // Get ImplementedInterfaces
+            var implementedInterfaces = ImplementedInterfacesIdentifier.Identify(
                 toGenerateNode,
-                ast
+                ast,
+                classMetadata
             );
 
             // Public Properties
@@ -90,15 +91,23 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                 ProjectAssembly = projectAssembly,
                 Namespace = namespaceIdentifier,
                 Name = className,
-                IsInterface = IsInterfaceRule.Check(toGenerateNode),
-                ExtendedClassNames = extendedClassNames,
-                ImplementedInterfaceNames = implementedInterfaceNames,
+                IsInterface = IsInterfaceRule.Check(
+                    toGenerateNode
+                ),
+                GenericTypes = GetGenericTypes(
+                    toGenerateNode,
+                    classMetadata,
+                    ast
+                ),
+                ExtendedType = extendedClassType,
+                ImplementedInterfaces = implementedInterfaces,
                 ConstructorStatement = new ConstructorStatement
                 {
                     Arguments = ConstructorArgumentIdentifier.Identify(
                         toGenerateNode,
                         classMetadata,
-                        typeOverrideMap
+                        typeOverrideMap,
+                        ast
                     ),
                 },
                 PublicPropertyStatements = publicProperties.ToList().Select(
@@ -108,7 +117,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                         var isStatic = IsStaticRule.Check(a);
                         var type = GenericTypeIdentifier.Identify(
                             a.Last,
-                            classMetadata
+                            classMetadata,
+                            ast
                         );
                         if (TypeOverrideIdentifier.Identify(
                             TypeOverrideDeclarationIdentifier.Identify(
@@ -128,9 +138,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                             Name = name,
                             Type = NormalizeLiteralTypeStatement(type),
                             IsStatic = isStatic,
-                            IsInterfaceResponse = StringTypeInterfaceIdentifier.Identify(
-                                ast,
-                                type
+                            IsInterfaceResponse = InterfaceResponseTypeIdentifier.Identify(
+                                type,
+                                ast
                             ),
                             //IsArrayResponse = IsArrayResposneTypeRule.Check(a),
                             IsReadonly = IsReadonlyRule.Check(a),
@@ -145,7 +155,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                         var isStatic = IsStaticRule.Check(a);
                         var type = GenericTypeIdentifier.Identify(
                             a.Last,
-                            classMetadata
+                            classMetadata,
+                            ast
                         );
                         if (TypeOverrideIdentifier.Identify(
                             TypeOverrideDeclarationIdentifier.Identify(
@@ -171,17 +182,18 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                                 a,
                                 classMetadata,
                                 typeOverrideMap,
+                                ast,
                                 isStatic
                             ),
                             IsStatic = isStatic,
-                            IsInterfaceResponse = StringTypeInterfaceIdentifier.Identify(
-                                ast,
-                                type
+                            IsInterfaceResponse = InterfaceResponseTypeIdentifier.Identify(
+                                type,
+                                ast
                             ),
                             UsedClassNames = UsedClassNamesIdentifier.Identify(type),
                         };
                     }
-                ).ToList(),
+                ).Distinct().ToList(),
                 AccessorStatements = accessorMethods.FlattenAccessorStatements(
                     ast,
                     classMetadata,
@@ -195,6 +207,39 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             return classStatement;
         }
 
+        private static IList<TypeStatement> GetGenericTypes(
+            Node node,
+            ClassMetadata classMetadata,
+            TypeScriptAST ast
+        )
+        {
+            if (node is ClassDeclaration classDeclaration
+                && classDeclaration.TypeParameters != null
+            )
+            {
+                return classDeclaration.TypeParameters.Select(
+                    typeParam => GenericTypeIdentifier.Identify(
+                       typeParam,
+                       classMetadata,
+                        ast
+                   )
+                ).ToList();
+            }
+            else if (node is InterfaceDeclaration interfaceDeclaration
+                && interfaceDeclaration.TypeParameters != null
+            )
+            {
+                return interfaceDeclaration.TypeParameters.Select(
+                    typeParam => GenericTypeIdentifier.Identify(
+                       typeParam,
+                       classMetadata,
+                        ast
+                   )
+                ).ToList();
+            }
+            return new List<TypeStatement>();
+        }
+
         private static TypeStatement NormalizeLiteralTypeStatement(
             TypeStatement type
         )
@@ -202,6 +247,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             if (type.IsLiteral)
             {
                 type.Name = GenerationIdentifiedTypes.CachedEntity;
+            }
+            var literalGenericTypes = type.GenericTypes.Where(
+                a => a.IsLiteral
+            );
+            foreach (var genericType in literalGenericTypes)
+            {
+                genericType.Name = GenerationIdentifiedTypes.CachedEntity;
             }
             return type;
         }
@@ -220,7 +272,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                     var isStatic = IsStaticRule.Check(accessor);
                     var type = GenericTypeIdentifier.Identify(
                         accessor.Last,
-                        classMetadata
+                        classMetadata,
+                        ast
                     );
                     if (TypeOverrideIdentifier.Identify(
                         TypeOverrideDeclarationIdentifier.Identify(
@@ -240,9 +293,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                         Name = name,
                         Type = NormalizeLiteralTypeStatement(type),
                         IsStatic = isStatic,
-                        IsInterfaceResponse = StringTypeInterfaceIdentifier.Identify(
-                            ast,
-                            type
+                        IsInterfaceResponse = InterfaceResponseTypeIdentifier.Identify(
+                            type,
+                            ast
                         ),
                         HasSetter = IsSetterRule.Check(accessor),
                         //IsArrayResponse = IsArrayResposneTypeRule.Check(accessor),

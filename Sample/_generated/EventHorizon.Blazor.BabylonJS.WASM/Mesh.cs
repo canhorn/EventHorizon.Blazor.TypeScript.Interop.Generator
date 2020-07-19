@@ -263,7 +263,7 @@ namespace BabylonJS
         public static Mesh Parse(object parsedMesh, Scene scene, string rootUrl)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "Parse" }, parsedMesh, scene, rootUrl
@@ -271,10 +271,10 @@ namespace BabylonJS
             );
         }
 
-        public static Mesh CreateRibbon(string name, Vector3[] pathArray, bool closeArray, bool closePath, decimal offset, Scene scene = null, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null, Mesh instance = null)
+        public static Mesh CreateRibbon(string name, Vector3[][] pathArray, bool closeArray, bool closePath, decimal offset, Scene scene = null, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null, Mesh instance = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreateRibbon" }, name, pathArray, closeArray, closePath, offset, scene, updatable, sideOrientation, instance
@@ -285,7 +285,7 @@ namespace BabylonJS
         public static Mesh CreateDisc(string name, decimal radius, decimal tessellation, Scene scene = null, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreateDisc" }, name, radius, tessellation, scene, updatable, sideOrientation
@@ -296,7 +296,7 @@ namespace BabylonJS
         public static Mesh CreateBox(string name, decimal size, Scene scene = null, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreateBox" }, name, size, scene, updatable, sideOrientation
@@ -307,7 +307,7 @@ namespace BabylonJS
         public static Mesh CreateSphere(string name, decimal segments, decimal diameter, Scene scene = null, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreateSphere" }, name, segments, diameter, scene, updatable, sideOrientation
@@ -318,7 +318,7 @@ namespace BabylonJS
         public static Mesh CreateHemisphere(string name, decimal segments, decimal diameter, Scene scene = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreateHemisphere" }, name, segments, diameter, scene
@@ -329,7 +329,7 @@ namespace BabylonJS
         public static Mesh CreateCylinder(string name, decimal height, decimal diameterTop, decimal diameterBottom, decimal tessellation, object subdivisions, Scene scene = null, object updatable = null, System.Nullable<decimal> sideOrientation = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreateCylinder" }, name, height, diameterTop, diameterBottom, tessellation, subdivisions, scene, updatable, sideOrientation
@@ -340,7 +340,7 @@ namespace BabylonJS
         public static Mesh CreateTorus(string name, decimal diameter, decimal thickness, decimal tessellation, Scene scene = null, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreateTorus" }, name, diameter, thickness, tessellation, scene, updatable, sideOrientation
@@ -351,7 +351,7 @@ namespace BabylonJS
         public static Mesh CreateTorusKnot(string name, decimal radius, decimal tube, decimal radialSegments, decimal tubularSegments, decimal p, decimal q, Scene scene = null, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreateTorusKnot" }, name, radius, tube, radialSegments, tubularSegments, p, q, scene, updatable, sideOrientation
@@ -362,7 +362,7 @@ namespace BabylonJS
         public static LinesMesh CreateLines(string name, Vector3[] points, Scene scene = null, System.Nullable<bool> updatable = null, LinesMesh instance = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<LinesMesh>(
-                entity => new LinesMesh(entity),
+                entity => new LinesMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreateLines" }, name, points, scene, updatable, instance
@@ -373,7 +373,7 @@ namespace BabylonJS
         public static LinesMesh CreateDashedLines(string name, Vector3[] points, decimal dashSize, decimal gapSize, decimal dashNb, Scene scene = null, System.Nullable<bool> updatable = null, LinesMesh instance = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<LinesMesh>(
-                entity => new LinesMesh(entity),
+                entity => new LinesMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreateDashedLines" }, name, points, dashSize, gapSize, dashNb, scene, updatable, instance
@@ -381,10 +381,10 @@ namespace BabylonJS
             );
         }
 
-        public static Mesh CreatePolygon(string name, Vector3[] shape, Scene scene, Vector3[] holes = null, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null, object earcutInjection = null)
+        public static Mesh CreatePolygon(string name, Vector3[] shape, Scene scene, Vector3[][] holes = null, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null, object earcutInjection = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreatePolygon" }, name, shape, scene, holes, updatable, sideOrientation, earcutInjection
@@ -392,10 +392,10 @@ namespace BabylonJS
             );
         }
 
-        public static Mesh ExtrudePolygon(string name, Vector3[] shape, decimal depth, Scene scene, Vector3[] holes = null, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null, object earcutInjection = null)
+        public static Mesh ExtrudePolygon(string name, Vector3[] shape, decimal depth, Scene scene, Vector3[][] holes = null, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null, object earcutInjection = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "ExtrudePolygon" }, name, shape, depth, scene, holes, updatable, sideOrientation, earcutInjection
@@ -406,7 +406,7 @@ namespace BabylonJS
         public static Mesh ExtrudeShape(string name, Vector3[] shape, Vector3[] path, decimal scale, decimal rotation, decimal cap, Scene scene = null, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null, Mesh instance = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "ExtrudeShape" }, name, shape, path, scale, rotation, cap, scene, updatable, sideOrientation, instance
@@ -417,7 +417,7 @@ namespace BabylonJS
         public static Mesh CreateLathe(string name, Vector3[] shape, decimal radius, decimal tessellation, Scene scene, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreateLathe" }, name, shape, radius, tessellation, scene, updatable, sideOrientation
@@ -428,7 +428,7 @@ namespace BabylonJS
         public static Mesh CreatePlane(string name, decimal size, Scene scene, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreatePlane" }, name, size, scene, updatable, sideOrientation
@@ -439,7 +439,7 @@ namespace BabylonJS
         public static Mesh CreateGround(string name, decimal width, decimal height, decimal subdivisions, Scene scene = null, System.Nullable<bool> updatable = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreateGround" }, name, width, height, subdivisions, scene, updatable
@@ -450,7 +450,7 @@ namespace BabylonJS
         public static Mesh CreateTiledGround(string name, decimal xmin, decimal zmin, decimal xmax, decimal zmax, object subdivisions, object precision, Scene scene, System.Nullable<bool> updatable = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreateTiledGround" }, name, xmin, zmin, xmax, zmax, subdivisions, precision, scene, updatable
@@ -504,7 +504,7 @@ namespace BabylonJS
         public static Mesh CreateTube(string name, Vector3[] path, decimal radius, decimal tessellation, object radiusFunction, decimal cap, Scene scene, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null, Mesh instance = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreateTube" }, name, path, radius, tessellation, radiusFunction, cap, scene, updatable, sideOrientation, instance
@@ -515,7 +515,7 @@ namespace BabylonJS
         public static Mesh CreatePolyhedron(string name, object options, Scene scene)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreatePolyhedron" }, name, options, scene
@@ -526,7 +526,7 @@ namespace BabylonJS
         public static Mesh CreateIcoSphere(string name, object options, Scene scene)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreateIcoSphere" }, name, options, scene
@@ -537,7 +537,7 @@ namespace BabylonJS
         public static Mesh CreateDecal(string name, AbstractMesh sourceMesh, Vector3 position, Vector3 normal, Vector3 size, decimal angle)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "CreateDecal" }, name, sourceMesh, position, normal, size, angle
@@ -555,10 +555,10 @@ namespace BabylonJS
             );
         }
 
-        public static Vector3 Center(Vector3 meshesOrMinMaxVector)
+        public static Vector3 Center(AbstractMesh[] meshesOrMinMaxVector)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "Center" }, meshesOrMinMaxVector
@@ -569,7 +569,7 @@ namespace BabylonJS
         public static Mesh MergeMeshes(Mesh[] meshes, System.Nullable<bool> disposeSource = null, System.Nullable<bool> allow32BitsIndices = null, Mesh meshSubclass = null, System.Nullable<bool> subdivideWithSubMeshes = null, System.Nullable<bool> multiMultiMaterials = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Mesh", "MergeMeshes" }, meshes, disposeSource, allow32BitsIndices, meshSubclass, subdivideWithSubMeshes, multiMultiMaterials
@@ -581,19 +581,19 @@ namespace BabylonJS
         #endregion
 
         #region Accessors
-        private Observable __onBeforeRenderObservable;
-        public Observable onBeforeRenderObservable
+        private Observable<Mesh> __onBeforeRenderObservable;
+        public Observable<Mesh> onBeforeRenderObservable
         {
             get
             {
             if(__onBeforeRenderObservable == null)
             {
-                __onBeforeRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onBeforeRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable<Mesh>>(
                     this.___guid,
                     "onBeforeRenderObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Mesh>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -601,19 +601,19 @@ namespace BabylonJS
             }
         }
 
-        private Observable __onBeforeBindObservable;
-        public Observable onBeforeBindObservable
+        private Observable<Mesh> __onBeforeBindObservable;
+        public Observable<Mesh> onBeforeBindObservable
         {
             get
             {
             if(__onBeforeBindObservable == null)
             {
-                __onBeforeBindObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onBeforeBindObservable = EventHorizonBlazorInteropt.GetClass<Observable<Mesh>>(
                     this.___guid,
                     "onBeforeBindObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Mesh>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -621,19 +621,19 @@ namespace BabylonJS
             }
         }
 
-        private Observable __onAfterRenderObservable;
-        public Observable onAfterRenderObservable
+        private Observable<Mesh> __onAfterRenderObservable;
+        public Observable<Mesh> onAfterRenderObservable
         {
             get
             {
             if(__onAfterRenderObservable == null)
             {
-                __onAfterRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onAfterRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable<Mesh>>(
                     this.___guid,
                     "onAfterRenderObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Mesh>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -641,19 +641,19 @@ namespace BabylonJS
             }
         }
 
-        private Observable __onBeforeDrawObservable;
-        public Observable onBeforeDrawObservable
+        private Observable<Mesh> __onBeforeDrawObservable;
+        public Observable<Mesh> onBeforeDrawObservable
         {
             get
             {
             if(__onBeforeDrawObservable == null)
             {
-                __onBeforeDrawObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onBeforeDrawObservable = EventHorizonBlazorInteropt.GetClass<Observable<Mesh>>(
                     this.___guid,
                     "onBeforeDrawObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Mesh>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -685,7 +685,7 @@ namespace BabylonJS
                     "morphTargetManager",
                     (entity) =>
                     {
-                        return new MorphTargetManager(entity);
+                        return new MorphTargetManager() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -714,7 +714,7 @@ __morphTargetManager = null;
                     "source",
                     (entity) =>
                     {
-                        return new Mesh(entity);
+                        return new Mesh() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -800,7 +800,7 @@ __morphTargetManager = null;
                     "geometry",
                     (entity) =>
                     {
-                        return new Geometry(entity);
+                        return new Geometry() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -865,7 +865,7 @@ __morphTargetManager = null;
                     "instances",
                     (entity) =>
                     {
-                        return new InstancedMesh(entity);
+                        return new InstancedMesh() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1056,7 +1056,7 @@ __morphTargetManager = null;
         public MeshLODLevel[] getLODLevels()
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<MeshLODLevel>(
-                entity => new MeshLODLevel(entity),
+                entity => new MeshLODLevel() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getLODLevels" }
@@ -1067,7 +1067,7 @@ __morphTargetManager = null;
         public Mesh addLODLevel(decimal distance, Mesh mesh)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "addLODLevel" }, distance, mesh
@@ -1078,7 +1078,7 @@ __morphTargetManager = null;
         public Mesh getLODLevelAtDistance(decimal distance)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getLODLevelAtDistance" }, distance
@@ -1089,7 +1089,7 @@ __morphTargetManager = null;
         public Mesh removeLODLevel(Mesh mesh)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "removeLODLevel" }, mesh
@@ -1100,7 +1100,7 @@ __morphTargetManager = null;
         public AbstractMesh getLOD(Camera camera, BoundingSphere boundingSphere = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getLOD" }, camera, boundingSphere
@@ -1131,7 +1131,7 @@ __morphTargetManager = null;
         public VertexBuffer getVertexBuffer(string kind)
         {
             return EventHorizonBlazorInteropt.FuncClass<VertexBuffer>(
-                entity => new VertexBuffer(entity),
+                entity => new VertexBuffer() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getVertexBuffer" }, kind
@@ -1202,7 +1202,7 @@ __morphTargetManager = null;
         public Mesh freezeNormals()
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "freezeNormals" }
@@ -1213,7 +1213,7 @@ __morphTargetManager = null;
         public Mesh unfreezeNormals()
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "unfreezeNormals" }
@@ -1224,7 +1224,7 @@ __morphTargetManager = null;
         public Mesh refreshBoundingInfo(System.Nullable<bool> applySkeleton = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "refreshBoundingInfo" }, applySkeleton
@@ -1245,7 +1245,7 @@ __morphTargetManager = null;
         public AbstractMesh setVerticesData(string kind, decimal[] data, System.Nullable<bool> updatable = null, System.Nullable<decimal> stride = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setVerticesData" }, kind, data, updatable, stride
@@ -1276,7 +1276,7 @@ __morphTargetManager = null;
         public Mesh setVerticesBuffer(VertexBuffer buffer)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setVerticesBuffer" }, buffer
@@ -1287,7 +1287,7 @@ __morphTargetManager = null;
         public AbstractMesh updateVerticesData(string kind, decimal[] data, System.Nullable<bool> updateExtends = null, System.Nullable<bool> makeItUnique = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "updateVerticesData" }, kind, data, updateExtends, makeItUnique
@@ -1342,7 +1342,7 @@ __morphTargetManager = null;
         public Mesh makeGeometryUnique()
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "makeGeometryUnique" }
@@ -1353,7 +1353,7 @@ __morphTargetManager = null;
         public AbstractMesh setIndices(decimal[] indices, System.Nullable<decimal> totalVertices = null, System.Nullable<bool> updatable = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setIndices" }, indices, totalVertices, updatable
@@ -1364,7 +1364,7 @@ __morphTargetManager = null;
         public AbstractMesh updateIndices(decimal[] indices, System.Nullable<decimal> offset = null, System.Nullable<bool> gpuMemoryOnly = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "updateIndices" }, indices, offset, gpuMemoryOnly
@@ -1375,7 +1375,7 @@ __morphTargetManager = null;
         public Mesh toLeftHanded()
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "toLeftHanded" }
@@ -1562,7 +1562,7 @@ __morphTargetManager = null;
         public Mesh render(SubMesh subMesh, bool enableAlphaMode, AbstractMesh effectiveMeshReplacement = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "render" }, subMesh, enableAlphaMode, effectiveMeshReplacement
@@ -1603,7 +1603,7 @@ __morphTargetManager = null;
         public Mesh setMaterialByID(string id)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setMaterialByID" }, id
@@ -1611,10 +1611,10 @@ __morphTargetManager = null;
             );
         }
 
-        public IAnimatable[] getAnimatables()
+        public IAnimatableCachedEntity[] getAnimatables()
         {
-            return EventHorizonBlazorInteropt.FuncArrayClass<IAnimatable>(
-                entity => new IAnimatableCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncArrayClass<IAnimatableCachedEntity>(
+                entity => new IAnimatableCachedEntity() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getAnimatables" }
@@ -1625,7 +1625,7 @@ __morphTargetManager = null;
         public Mesh bakeTransformIntoVertices(Matrix transform)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "bakeTransformIntoVertices" }, transform
@@ -1636,7 +1636,7 @@ __morphTargetManager = null;
         public Mesh bakeCurrentTransformIntoVertices(System.Nullable<bool> bakeIndependenlyOfChildren = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "bakeCurrentTransformIntoVertices" }, bakeIndependenlyOfChildren
@@ -1647,7 +1647,7 @@ __morphTargetManager = null;
         public Mesh clone(string name = null, Node newParent = null, System.Nullable<bool> doNotCloneChildren = null, System.Nullable<bool> clonePhysicsImpostor = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }, name, newParent, doNotCloneChildren, clonePhysicsImpostor
@@ -1712,7 +1712,7 @@ __morphTargetManager = null;
         public Mesh applyDisplacementMapFromBuffer(decimal[] buffer, decimal heightMapWidth, decimal heightMapHeight, decimal minHeight, decimal maxHeight, Vector2 uvOffset = null, Vector2 uvScale = null, System.Nullable<bool> forceUpdate = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "applyDisplacementMapFromBuffer" }, buffer, heightMapWidth, heightMapHeight, minHeight, maxHeight, uvOffset, uvScale, forceUpdate
@@ -1723,7 +1723,7 @@ __morphTargetManager = null;
         public Mesh convertToFlatShadedMesh()
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "convertToFlatShadedMesh" }
@@ -1734,7 +1734,7 @@ __morphTargetManager = null;
         public Mesh convertToUnIndexedMesh()
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "convertToUnIndexedMesh" }
@@ -1745,7 +1745,7 @@ __morphTargetManager = null;
         public Mesh flipFaces(System.Nullable<bool> flipNormals = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "flipFaces" }, flipNormals
@@ -1776,7 +1776,7 @@ __morphTargetManager = null;
         public InstancedMesh createInstance(string name)
         {
             return EventHorizonBlazorInteropt.FuncClass<InstancedMesh>(
-                entity => new InstancedMesh(entity),
+                entity => new InstancedMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "createInstance" }, name
@@ -1787,7 +1787,7 @@ __morphTargetManager = null;
         public Mesh synchronizeInstances()
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "synchronizeInstances" }
@@ -1872,7 +1872,7 @@ __morphTargetManager = null;
         public Mesh applySkeleton(Skeleton skeleton)
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "applySkeleton" }, skeleton

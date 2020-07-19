@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface InstancingAttributeInfo { }
+    public interface InstancingAttributeInfo : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class InstancingAttributeInfoCachedEntity : CachedEntityObject, InstancingAttributeInfo

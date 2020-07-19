@@ -310,7 +310,7 @@ namespace BabylonJS
         public Scene getScene()
         {
             return EventHorizonBlazorInteropt.FuncClass<Scene>(
-                entity => new Scene(entity),
+                entity => new Scene() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getScene" }
@@ -382,10 +382,10 @@ namespace BabylonJS
         }
         #endregion
 
-        public IAction registerAction(IAction action)
+        public IActionCachedEntity registerAction(IActionCachedEntity action)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IAction>(
-                entity => new IActionCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncClass<IActionCachedEntity>(
+                entity => new IActionCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "registerAction" }, action
@@ -393,7 +393,7 @@ namespace BabylonJS
             );
         }
 
-        public bool unregisterAction(IAction action)
+        public bool unregisterAction(IActionCachedEntity action)
         {
             return EventHorizonBlazorInteropt.Func<bool>(
                 new object[] 
@@ -403,7 +403,7 @@ namespace BabylonJS
             );
         }
 
-        public void processTrigger(decimal trigger, IActionEvent evt = null)
+        public void processTrigger(decimal trigger, IActionEventCachedEntity evt = null)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

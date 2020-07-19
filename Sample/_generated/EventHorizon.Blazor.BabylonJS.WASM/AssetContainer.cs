@@ -42,7 +42,7 @@ namespace BabylonJS
                     "scene",
                     (entity) =>
                     {
-                        return new Scene(entity);
+                        return new Scene() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -169,7 +169,7 @@ __scene = null;
         public Mesh createRootMesh()
         {
             return EventHorizonBlazorInteropt.FuncClass<Mesh>(
-                entity => new Mesh(entity),
+                entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "createRootMesh" }
@@ -177,7 +177,7 @@ __scene = null;
             );
         }
 
-        public void mergeAnimationsTo(Animatable[] animatables, Scene scene = null, Node targetConverter = null)
+        public void mergeAnimationsTo(Animatable[] animatables, Scene scene = null, CachedEntity targetConverter = null)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

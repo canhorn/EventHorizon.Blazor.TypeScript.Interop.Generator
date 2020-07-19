@@ -33,13 +33,18 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     method.Type,
                     method.UsedClassNames
                 );
+                var isArray = ArrayResponseIdentifier.Identify(
+                    method.Type
+                );
                 var template = templates.Method;
                 var methodType = method.Type;
-                // TODO: [TypeStatementWriter]: Use Writer Here
                 var type = TypeStatementWriter.Write(
                     methodType
                 );
                 var propertyArguments = string.Empty;
+                var isNotSupported = NotSupportedIdentifier.Identify(
+                    method
+                );
 
                 var bodyTemplate = templates.ReturnTypePrimitiveTemplate;
                 var returnTypeContent = templates.InteropFunc;
@@ -64,11 +69,16 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         argumentsTemplate = "System.Nullable<[[TYPE]][[IS_ARRAY]]> [[NAME]] = null";
                         if (argument.Type.IsNullable)
                         {
-                            var typeIdentifier = argument.Type.GenericTypes.First().Name;
+                            var genericType = argument.Type.GenericTypes.First();
                             if (ClassIdentifier.Identify(
                                 argument.UsedClassNames,
-                                typeIdentifier
-                            ) || typeIdentifier == GenerationIdentifiedTypes.Action)
+                                genericType.Name
+                            ) || genericType.IsNullable
+                                || genericType.IsArray
+                                || genericType.IsModifier
+                                || genericType.Name == GenerationIdentifiedTypes.Action
+                                || genericType.Name == GenerationIdentifiedTypes.String
+                                || genericType.Name == GenerationIdentifiedTypes.CachedEntity)
                             {
                                 argumentsTemplate = "[[TYPE]][[IS_ARRAY]] [[NAME]] = null";
                             }
@@ -76,7 +86,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         else if (ClassIdentifier.Identify(
                             argument.UsedClassNames,
                             argument.Type.Name
-                        ))
+                        ) || argument.Type.IsNullable
+                            || argument.Type.IsArray
+                            || argument.Type.IsModifier
+                            || argument.Type.Name == GenerationIdentifiedTypes.Action
+                            || argument.Type.Name == GenerationIdentifiedTypes.String
+                            || argument.Type.Name == GenerationIdentifiedTypes.CachedEntity)
                         {
                             argumentsTemplate = "[[TYPE]][[IS_ARRAY]] [[NAME]] = null";
                         }
@@ -92,6 +107,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         )
                     ).Replace(
                         "[[ARRAY_TYPE]]",
+                        // TODO: [TypeStatementWriter]: Use Writer Here
+                        TypeStatementWriter.Write(
+                            argument.Type,
+                            true
+                        )
+                    ).Replace(
+                        "[[NEW_TYPE]]",
                         // TODO: [TypeStatementWriter]: Use Writer Here
                         TypeStatementWriter.Write(
                             argument.Type,
@@ -142,7 +164,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     }
                 }
 
-                if (isClassResponse && method.Type.IsArray)
+                if (isClassResponse && isArray)
                 {
                     returnTypeContent = templates.InteropFuncArrayClass;
                 }
@@ -150,7 +172,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 {
                     returnTypeContent = templates.InteropFuncClass;
                 }
-                else if (method.Type.IsArray)
+                else if (isArray)
                 {
                     returnTypeContent = templates.InteropFuncArray;
                 }
@@ -176,6 +198,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     returnTypeContent = returnTypeContent.Replace(
                         "[[ARRAY_TYPE]]",
                         GenerationIdentifiedTypes.CachedEntity
+                    ).Replace(
+                        "[[NEW_TYPE]]",
+                        GenerationIdentifiedTypes.CachedEntity
                     );
                 }
 
@@ -195,12 +220,32 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     )
                     {
                         // TODO: [Template] : Move to templates
-                        whereConstraint = $" where {type} : CachedEntity, new()";
-                        //newEntityFunc = $"entity => new {method.Type.Name}() {{ ___guid = entity.___guid }}";
+                        whereConstraint = string.Join(
+                            "",
+                            method.GenericTypes.Select(
+                                genericType => $" where {genericType} : CachedEntity, new()"
+                            )
+                        );
                     }
                 }
+                var propType = TypeStatementWriter.Write(
+                    method.Type
+                );
+                var arrayType = TypeStatementWriter.Write(
+                    method.Type,
+                    true
+                );
+                var newType = TypeStatementWriter.Write(
+                    method.Type,
+                    true
+                );
 
+                if (isNotSupported)
+                {
+                    template = "// [[NAME]] is not supported by the platform yet";
+                }
 
+                Console.WriteLine("STOP");
                 template = template.Replace(
                     "[[BODY]]",
                     bodyTemplate
@@ -237,13 +282,17 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     classStatement.Name
                 ).Replace(
                     "[[TYPE]]",
-                    // TODO: [TypeStatementWriter]: Use Writer Here
                     TypeStatementWriter.Write(
                         methodType
                     )
                 ).Replace(
                     "[[ARRAY_TYPE]]",
-                    // TODO: [TypeStatementWriter]: Use Writer Here
+                    TypeStatementWriter.Write(
+                        methodType,
+                        true
+                    )
+                ).Replace(
+                    "[[NEW_TYPE]]",
                     TypeStatementWriter.Write(
                         methodType,
                         true

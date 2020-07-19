@@ -8,10 +8,10 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface ISpriteManager { }
+    public interface ISpriteManager : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class ISpriteManagerCachedEntity : CachedEntityObject, IDisposable, ISpriteManager
+    public class ISpriteManagerCachedEntity : CachedEntityObject, ISpriteManager
     {
         #region Static Accessors
 
@@ -103,7 +103,7 @@ namespace BabylonJS
                     "sprites",
                     (entity) =>
                     {
-                        return new Sprite(entity);
+                        return new Sprite() { ___guid = entity.___guid };
                     }
                 );
             }

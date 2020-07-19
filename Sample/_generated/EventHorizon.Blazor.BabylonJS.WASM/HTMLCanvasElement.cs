@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface HTMLCanvasElement { }
+    public interface HTMLCanvasElement : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class HTMLCanvasElementCachedEntity : CachedEntityObject, HTMLCanvasElement
@@ -108,7 +108,7 @@ namespace BabylonJS
         public MediaStream captureStream(System.Nullable<decimal> fps = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<MediaStream>(
-                entity => new MediaStream(entity),
+                entity => new MediaStream() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "captureStream" }, fps

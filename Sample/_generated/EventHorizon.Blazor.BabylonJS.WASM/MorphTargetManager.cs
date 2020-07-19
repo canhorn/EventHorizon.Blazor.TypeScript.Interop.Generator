@@ -25,7 +25,7 @@ namespace BabylonJS
         public static MorphTargetManager Parse(object serializationObject, Scene scene)
         {
             return EventHorizonBlazorInteropt.FuncClass<MorphTargetManager>(
-                entity => new MorphTargetManager(entity),
+                entity => new MorphTargetManager() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "MorphTargetManager", "Parse" }, serializationObject, scene
@@ -223,7 +223,7 @@ namespace BabylonJS
         public MorphTarget getActiveTarget(decimal index)
         {
             return EventHorizonBlazorInteropt.FuncClass<MorphTarget>(
-                entity => new MorphTarget(entity),
+                entity => new MorphTarget() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getActiveTarget" }, index
@@ -234,7 +234,7 @@ namespace BabylonJS
         public MorphTarget getTarget(decimal index)
         {
             return EventHorizonBlazorInteropt.FuncClass<MorphTarget>(
-                entity => new MorphTarget(entity),
+                entity => new MorphTarget() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getTarget" }, index
@@ -265,7 +265,7 @@ namespace BabylonJS
         public MorphTargetManager clone()
         {
             return EventHorizonBlazorInteropt.FuncClass<MorphTargetManager>(
-                entity => new MorphTargetManager(entity),
+                entity => new MorphTargetManager() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }

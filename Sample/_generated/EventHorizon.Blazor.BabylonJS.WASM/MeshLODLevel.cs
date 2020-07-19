@@ -63,7 +63,7 @@ namespace BabylonJS
                     "mesh",
                     (entity) =>
                     {
-                        return new Mesh(entity);
+                        return new Mesh() { ___guid = entity.___guid };
                     }
                 );
             }

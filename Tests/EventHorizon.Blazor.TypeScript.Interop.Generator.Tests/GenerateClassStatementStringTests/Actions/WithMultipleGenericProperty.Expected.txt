@@ -42,7 +42,7 @@ namespace Examples
                     "onPointerObservable",
                     (entity) =>
                     {
-                        return new Observable<PointerInfo>(entity);
+                        return new Observable<PointerInfo>() { ___guid = entity.___guid };
                     }
                 );
             }

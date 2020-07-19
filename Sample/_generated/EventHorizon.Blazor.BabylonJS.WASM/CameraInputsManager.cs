@@ -11,7 +11,7 @@ namespace BabylonJS
     
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class CameraInputsManager : CachedEntityObject
+    public class CameraInputsManager<TCamera> : CachedEntityObject where TCamera : CachedEntity, new()
     {
         #region Static Accessors
 
@@ -30,19 +30,19 @@ namespace BabylonJS
         #endregion
 
         #region Properties
-        private CameraInputsMap __attached;
-        public CameraInputsMap attached
+        private CameraInputsMapCachedEntity<TCamera> __attached;
+        public CameraInputsMapCachedEntity<TCamera> attached
         {
             get
             {
             if(__attached == null)
             {
-                __attached = EventHorizonBlazorInteropt.GetClass<CameraInputsMap>(
+                __attached = EventHorizonBlazorInteropt.GetClass<CameraInputsMapCachedEntity<TCamera>>(
                     this.___guid,
                     "attached",
                     (entity) =>
                     {
-                        return new CameraInputsMapCachedEntity(entity);
+                        return new CameraInputsMapCachedEntity<TCamera>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -101,19 +101,27 @@ __attached = null;
             }
         }
 
-        
-        public CachedEntity camera
+        private TCamera __camera;
+        public TCamera camera
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            if(__camera == null)
+            {
+                __camera = EventHorizonBlazorInteropt.GetClass<TCamera>(
                     this.___guid,
-                    "camera"
+                    "camera",
+                    (entity) =>
+                    {
+                        return new TCamera() { ___guid = entity.___guid };
+                    }
                 );
+            }
+            return __camera;
             }
             set
             {
-
+__camera = null;
                 EventHorizonBlazorInteropt.Set(
                     this.___guid,
                     "camera",
@@ -134,7 +142,7 @@ __attached = null;
         }
 
         public CameraInputsManager(
-            object camera
+            TCamera camera
         )
         {
             var entity = EventHorizonBlazorInteropt.New(
@@ -190,7 +198,7 @@ __attached = null;
         }
         #endregion
 
-        public void add(ICameraInput input)
+        public void add(ICameraInputCachedEntity<TCamera> input)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -200,7 +208,7 @@ __attached = null;
             );
         }
 
-        public void remove(ICameraInput inputToRemove)
+        public void remove(ICameraInputCachedEntity<TCamera> inputToRemove)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -220,7 +228,7 @@ __attached = null;
             );
         }
 
-        public void attachInput(ICameraInput input)
+        public void attachInput(ICameraInputCachedEntity<TCamera> input)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

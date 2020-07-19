@@ -63,7 +63,7 @@ namespace BabylonJS
                     "texture",
                     (entity) =>
                     {
-                        return new Texture(entity);
+                        return new Texture() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -113,7 +113,7 @@ __texture = null;
                     "color",
                     (entity) =>
                     {
-                        return new Color4(entity);
+                        return new Color4() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -142,7 +142,7 @@ __color = null;
                     "scale",
                     (entity) =>
                     {
-                        return new Vector2(entity);
+                        return new Vector2() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -171,7 +171,7 @@ __scale = null;
                     "offset",
                     (entity) =>
                     {
-                        return new Vector2(entity);
+                        return new Vector2() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -261,7 +261,7 @@ __offset = null;
                     "renderTargetTextures",
                     (entity) =>
                     {
-                        return new RenderTargetTexture(entity);
+                        return new RenderTargetTexture() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -297,19 +297,19 @@ __offset = null;
             }
         }
 
-        private Observable __onDisposeObservable;
-        public Observable onDisposeObservable
+        private Observable<Layer> __onDisposeObservable;
+        public Observable<Layer> onDisposeObservable
         {
             get
             {
             if(__onDisposeObservable == null)
             {
-                __onDisposeObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onDisposeObservable = EventHorizonBlazorInteropt.GetClass<Observable<Layer>>(
                     this.___guid,
                     "onDisposeObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Layer>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -326,19 +326,19 @@ __onDisposeObservable = null;
             }
         }
 
-        private Observable __onBeforeRenderObservable;
-        public Observable onBeforeRenderObservable
+        private Observable<Layer> __onBeforeRenderObservable;
+        public Observable<Layer> onBeforeRenderObservable
         {
             get
             {
             if(__onBeforeRenderObservable == null)
             {
-                __onBeforeRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onBeforeRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable<Layer>>(
                     this.___guid,
                     "onBeforeRenderObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Layer>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -355,19 +355,19 @@ __onBeforeRenderObservable = null;
             }
         }
 
-        private Observable __onAfterRenderObservable;
-        public Observable onAfterRenderObservable
+        private Observable<Layer> __onAfterRenderObservable;
+        public Observable<Layer> onAfterRenderObservable
         {
             get
             {
             if(__onAfterRenderObservable == null)
             {
-                __onAfterRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onAfterRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable<Layer>>(
                     this.___guid,
                     "onAfterRenderObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Layer>() { ___guid = entity.___guid };
                     }
                 );
             }

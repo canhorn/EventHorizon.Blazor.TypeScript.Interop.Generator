@@ -11,7 +11,7 @@ namespace BabylonJS
     
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class Observable : CachedEntityObject
+    public class Observable<T> : CachedEntityObject where T : CachedEntity, new()
     {
         #region Static Accessors
 
@@ -27,16 +27,16 @@ namespace BabylonJS
 
         #region Accessors
         
-        public Observer[] observers
+        public Observer<T>[] observers
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Observer>(
+            return EventHorizonBlazorInteropt.GetArrayClass<Observer<T>>(
                     this.___guid,
                     "observers",
                     (entity) =>
                     {
-                        return new Observer(entity);
+                        return new Observer<T>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -158,7 +158,7 @@ namespace BabylonJS
         }
         #endregion
 
-        public bool remove(Observer observer)
+        public bool remove(Observer<T> observer)
         {
             return EventHorizonBlazorInteropt.Func<bool>(
                 new object[] 
@@ -212,7 +212,7 @@ namespace BabylonJS
         }
         #endregion
 
-        public void makeObserverTopPriority(Observer observer)
+        public void makeObserverTopPriority(Observer<T> observer)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -222,7 +222,7 @@ namespace BabylonJS
             );
         }
 
-        public void makeObserverBottomPriority(Observer observer)
+        public void makeObserverBottomPriority(Observer<T> observer)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -232,7 +232,7 @@ namespace BabylonJS
             );
         }
 
-        public bool notifyObservers(object eventData, System.Nullable<decimal> mask = null, object target = null, object currentTarget = null)
+        public bool notifyObservers(T eventData, System.Nullable<decimal> mask = null, object target = null, object currentTarget = null)
         {
             return EventHorizonBlazorInteropt.Func<bool>(
                 new object[] 
@@ -242,9 +242,9 @@ namespace BabylonJS
             );
         }
 
-        public Task notifyObserversWithPromise(object eventData, System.Nullable<decimal> mask = null, object target = null, object currentTarget = null)
+        public void notifyObserversWithPromise(T eventData, System.Nullable<decimal> mask = null, object target = null, object currentTarget = null)
         {
-            return EventHorizonBlazorInteropt.Func<Task>(
+            EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "notifyObserversWithPromise" }, eventData, mask, target, currentTarget
@@ -252,7 +252,7 @@ namespace BabylonJS
             );
         }
 
-        public void notifyObserver(Observer observer, object eventData, System.Nullable<decimal> mask = null)
+        public void notifyObserver(Observer<T> observer, T eventData, System.Nullable<decimal> mask = null)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -282,10 +282,10 @@ namespace BabylonJS
             );
         }
 
-        public Observable clone()
+        public Observable<T> clone()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Observable>(
-                entity => new Observable(entity),
+            return EventHorizonBlazorInteropt.FuncClass<Observable<T>>(
+                entity => new Observable<T>() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }

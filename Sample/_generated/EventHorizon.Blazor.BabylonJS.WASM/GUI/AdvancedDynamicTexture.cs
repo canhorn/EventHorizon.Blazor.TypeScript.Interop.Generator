@@ -25,7 +25,7 @@ namespace BabylonJS.GUI
         public static AdvancedDynamicTexture CreateForMesh(AbstractMesh mesh, System.Nullable<decimal> width = null, System.Nullable<decimal> height = null, System.Nullable<bool> supportPointerMove = null, System.Nullable<bool> onlyAlphaTesting = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<AdvancedDynamicTexture>(
-                entity => new AdvancedDynamicTexture(entity),
+                entity => new AdvancedDynamicTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "GUI", "AdvancedDynamicTexture", "CreateForMesh" }, mesh, width, height, supportPointerMove, onlyAlphaTesting
@@ -36,7 +36,7 @@ namespace BabylonJS.GUI
         public static AdvancedDynamicTexture CreateFullscreenUI(string name, System.Nullable<bool> foreground = null, Scene scene = null, System.Nullable<decimal> sampling = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<AdvancedDynamicTexture>(
-                entity => new AdvancedDynamicTexture(entity),
+                entity => new AdvancedDynamicTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "GUI", "AdvancedDynamicTexture", "CreateFullscreenUI" }, name, foreground, scene, sampling
@@ -220,7 +220,7 @@ namespace BabylonJS.GUI
                     "layer",
                     (entity) =>
                     {
-                        return new Layer(entity);
+                        return new Layer() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -240,7 +240,7 @@ namespace BabylonJS.GUI
                     "rootContainer",
                     (entity) =>
                     {
-                        return new Container(entity);
+                        return new Container() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -248,19 +248,19 @@ namespace BabylonJS.GUI
             }
         }
 
-        private IFocusableControl __focusedControl;
-        public IFocusableControl focusedControl
+        private IFocusableControlCachedEntity __focusedControl;
+        public IFocusableControlCachedEntity focusedControl
         {
             get
             {
             if(__focusedControl == null)
             {
-                __focusedControl = EventHorizonBlazorInteropt.GetClass<IFocusableControl>(
+                __focusedControl = EventHorizonBlazorInteropt.GetClass<IFocusableControlCachedEntity>(
                     this.___guid,
                     "focusedControl",
                     (entity) =>
                     {
-                        return new IFocusableControlCachedEntity(entity);
+                        return new IFocusableControlCachedEntity() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -342,19 +342,19 @@ __focusedControl = null;
         #endregion
 
         #region Properties
-        private Observable __onClipboardObservable;
-        public Observable onClipboardObservable
+        private Observable<ClipboardInfo> __onClipboardObservable;
+        public Observable<ClipboardInfo> onClipboardObservable
         {
             get
             {
             if(__onClipboardObservable == null)
             {
-                __onClipboardObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onClipboardObservable = EventHorizonBlazorInteropt.GetClass<Observable<ClipboardInfo>>(
                     this.___guid,
                     "onClipboardObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<ClipboardInfo>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -371,19 +371,19 @@ __onClipboardObservable = null;
             }
         }
 
-        private Observable __onControlPickedObservable;
-        public Observable onControlPickedObservable
+        private Observable<Control> __onControlPickedObservable;
+        public Observable<Control> onControlPickedObservable
         {
             get
             {
             if(__onControlPickedObservable == null)
             {
-                __onControlPickedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onControlPickedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Control>>(
                     this.___guid,
                     "onControlPickedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Control>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -400,19 +400,19 @@ __onControlPickedObservable = null;
             }
         }
 
-        private Observable __onBeginLayoutObservable;
-        public Observable onBeginLayoutObservable
+        private Observable<AdvancedDynamicTexture> __onBeginLayoutObservable;
+        public Observable<AdvancedDynamicTexture> onBeginLayoutObservable
         {
             get
             {
             if(__onBeginLayoutObservable == null)
             {
-                __onBeginLayoutObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onBeginLayoutObservable = EventHorizonBlazorInteropt.GetClass<Observable<AdvancedDynamicTexture>>(
                     this.___guid,
                     "onBeginLayoutObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<AdvancedDynamicTexture>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -429,19 +429,19 @@ __onBeginLayoutObservable = null;
             }
         }
 
-        private Observable __onEndLayoutObservable;
-        public Observable onEndLayoutObservable
+        private Observable<AdvancedDynamicTexture> __onEndLayoutObservable;
+        public Observable<AdvancedDynamicTexture> onEndLayoutObservable
         {
             get
             {
             if(__onEndLayoutObservable == null)
             {
-                __onEndLayoutObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onEndLayoutObservable = EventHorizonBlazorInteropt.GetClass<Observable<AdvancedDynamicTexture>>(
                     this.___guid,
                     "onEndLayoutObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<AdvancedDynamicTexture>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -458,19 +458,19 @@ __onEndLayoutObservable = null;
             }
         }
 
-        private Observable __onBeginRenderObservable;
-        public Observable onBeginRenderObservable
+        private Observable<AdvancedDynamicTexture> __onBeginRenderObservable;
+        public Observable<AdvancedDynamicTexture> onBeginRenderObservable
         {
             get
             {
             if(__onBeginRenderObservable == null)
             {
-                __onBeginRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onBeginRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable<AdvancedDynamicTexture>>(
                     this.___guid,
                     "onBeginRenderObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<AdvancedDynamicTexture>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -487,19 +487,19 @@ __onBeginRenderObservable = null;
             }
         }
 
-        private Observable __onEndRenderObservable;
-        public Observable onEndRenderObservable
+        private Observable<AdvancedDynamicTexture> __onEndRenderObservable;
+        public Observable<AdvancedDynamicTexture> onEndRenderObservable
         {
             get
             {
             if(__onEndRenderObservable == null)
             {
-                __onEndRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onEndRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable<AdvancedDynamicTexture>>(
                     this.___guid,
                     "onEndRenderObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<AdvancedDynamicTexture>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -564,7 +564,7 @@ __onEndRenderObservable = null;
         public Container[] getChildren()
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<Container>(
-                entity => new Container(entity),
+                entity => new Container() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getChildren" }
@@ -693,7 +693,7 @@ __onEndRenderObservable = null;
         public Style createStyle()
         {
             return EventHorizonBlazorInteropt.FuncClass<Style>(
-                entity => new Style(entity),
+                entity => new Style() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "createStyle" }
@@ -704,7 +704,7 @@ __onEndRenderObservable = null;
         public AdvancedDynamicTexture addControl(Control control)
         {
             return EventHorizonBlazorInteropt.FuncClass<AdvancedDynamicTexture>(
-                entity => new AdvancedDynamicTexture(entity),
+                entity => new AdvancedDynamicTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "addControl" }, control
@@ -715,7 +715,7 @@ __onEndRenderObservable = null;
         public AdvancedDynamicTexture removeControl(Control control)
         {
             return EventHorizonBlazorInteropt.FuncClass<AdvancedDynamicTexture>(
-                entity => new AdvancedDynamicTexture(entity),
+                entity => new AdvancedDynamicTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "removeControl" }, control
@@ -736,7 +736,7 @@ __onEndRenderObservable = null;
         public Vector2 getProjectedPosition(Vector3 position, Matrix worldMatrix)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector2>(
-                entity => new Vector2(entity),
+                entity => new Vector2() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getProjectedPosition" }, position, worldMatrix
@@ -784,7 +784,7 @@ __onEndRenderObservable = null;
             );
         }
 
-        public void moveFocusToControl(IFocusableControl control)
+        public void moveFocusToControl(IFocusableControlCachedEntity control)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

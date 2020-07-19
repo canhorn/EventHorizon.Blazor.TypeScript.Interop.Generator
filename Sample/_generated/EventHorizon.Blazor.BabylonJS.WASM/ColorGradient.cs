@@ -63,7 +63,7 @@ namespace BabylonJS
                     "color1",
                     (entity) =>
                     {
-                        return new Color4(entity);
+                        return new Color4() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -92,7 +92,7 @@ __color1 = null;
                     "color2",
                     (entity) =>
                     {
-                        return new Color4(entity);
+                        return new Color4() { ___guid = entity.___guid };
                     }
                 );
             }

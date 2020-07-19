@@ -38,7 +38,7 @@ namespace BabylonJS
                     "syncRoot",
                     (entity) =>
                     {
-                        return new Animatable(entity);
+                        return new Animatable() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -228,19 +228,19 @@ namespace BabylonJS
             }
         }
 
-        private Observable __onAnimationEndObservable;
-        public Observable onAnimationEndObservable
+        private Observable<Animatable> __onAnimationEndObservable;
+        public Observable<Animatable> onAnimationEndObservable
         {
             get
             {
             if(__onAnimationEndObservable == null)
             {
-                __onAnimationEndObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onAnimationEndObservable = EventHorizonBlazorInteropt.GetClass<Observable<Animatable>>(
                     this.___guid,
                     "onAnimationEndObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Animatable>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -257,19 +257,19 @@ __onAnimationEndObservable = null;
             }
         }
 
-        private Observable __onAnimationLoopObservable;
-        public Observable onAnimationLoopObservable
+        private Observable<Animatable> __onAnimationLoopObservable;
+        public Observable<Animatable> onAnimationLoopObservable
         {
             get
             {
             if(__onAnimationLoopObservable == null)
             {
-                __onAnimationLoopObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onAnimationLoopObservable = EventHorizonBlazorInteropt.GetClass<Observable<Animatable>>(
                     this.___guid,
                     "onAnimationLoopObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Animatable>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -401,7 +401,7 @@ __onAnimationLoopObservable = null;
         public Animatable syncWith(Animatable root)
         {
             return EventHorizonBlazorInteropt.FuncClass<Animatable>(
-                entity => new Animatable(entity),
+                entity => new Animatable() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "syncWith" }, root
@@ -412,7 +412,7 @@ __onAnimationLoopObservable = null;
         public RuntimeAnimation[] getAnimations()
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<RuntimeAnimation>(
-                entity => new RuntimeAnimation(entity),
+                entity => new RuntimeAnimation() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getAnimations" }
@@ -433,7 +433,7 @@ __onAnimationLoopObservable = null;
         public Animation getAnimationByTargetProperty(string property)
         {
             return EventHorizonBlazorInteropt.FuncClass<Animation>(
-                entity => new Animation(entity),
+                entity => new Animation() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getAnimationByTargetProperty" }, property
@@ -444,7 +444,7 @@ __onAnimationLoopObservable = null;
         public RuntimeAnimation getRuntimeAnimationByTargetProperty(string property)
         {
             return EventHorizonBlazorInteropt.FuncClass<RuntimeAnimation>(
-                entity => new RuntimeAnimation(entity),
+                entity => new RuntimeAnimation() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getRuntimeAnimationByTargetProperty" }, property
@@ -556,10 +556,9 @@ __onAnimationLoopObservable = null;
         }
         #endregion
 
-        public Animatable waitAsync()
+        public void waitAsync()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Animatable>(
-                entity => new Animatable(entity),
+            EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "waitAsync" }

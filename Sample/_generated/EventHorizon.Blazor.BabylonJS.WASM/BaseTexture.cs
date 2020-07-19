@@ -299,7 +299,7 @@ namespace BabylonJS
                     "irradianceTexture",
                     (entity) =>
                     {
-                        return new BaseTexture(entity);
+                        return new BaseTexture() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -703,7 +703,7 @@ __irradianceTexture = null;
                     "animations",
                     (entity) =>
                     {
-                        return new Animation(entity);
+                        return new Animation() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -718,19 +718,19 @@ __irradianceTexture = null;
             }
         }
 
-        private Observable __onDisposeObservable;
-        public Observable onDisposeObservable
+        private Observable<BaseTexture> __onDisposeObservable;
+        public Observable<BaseTexture> onDisposeObservable
         {
             get
             {
             if(__onDisposeObservable == null)
             {
-                __onDisposeObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onDisposeObservable = EventHorizonBlazorInteropt.GetClass<Observable<BaseTexture>>(
                     this.___guid,
                     "onDisposeObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<BaseTexture>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -814,7 +814,7 @@ __onDisposeObservable = null;
         public Scene getScene()
         {
             return EventHorizonBlazorInteropt.FuncClass<Scene>(
-                entity => new Scene(entity),
+                entity => new Scene() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getScene" }
@@ -825,7 +825,7 @@ __onDisposeObservable = null;
         public Matrix getTextureMatrix()
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getTextureMatrix" }
@@ -836,7 +836,7 @@ __onDisposeObservable = null;
         public Matrix getReflectionTextureMatrix()
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getReflectionTextureMatrix" }
@@ -847,7 +847,7 @@ __onDisposeObservable = null;
         public InternalTexture getInternalTexture()
         {
             return EventHorizonBlazorInteropt.FuncClass<InternalTexture>(
-                entity => new InternalTexture(entity),
+                entity => new InternalTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getInternalTexture" }
@@ -875,10 +875,10 @@ __onDisposeObservable = null;
             );
         }
 
-        public ISize getSize()
+        public ISizeCachedEntity getSize()
         {
-            return EventHorizonBlazorInteropt.FuncClass<ISize>(
-                entity => new ISizeCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncClass<ISizeCachedEntity>(
+                entity => new ISizeCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getSize" }
@@ -886,10 +886,10 @@ __onDisposeObservable = null;
             );
         }
 
-        public ISize getBaseSize()
+        public ISizeCachedEntity getBaseSize()
         {
-            return EventHorizonBlazorInteropt.FuncClass<ISize>(
-                entity => new ISizeCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncClass<ISizeCachedEntity>(
+                entity => new ISizeCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getBaseSize" }
@@ -930,7 +930,7 @@ __onDisposeObservable = null;
         public BaseTexture clone()
         {
             return EventHorizonBlazorInteropt.FuncClass<BaseTexture>(
-                entity => new BaseTexture(entity),
+                entity => new BaseTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }
@@ -941,7 +941,7 @@ __onDisposeObservable = null;
         public ArrayBufferView readPixels(System.Nullable<decimal> faceIndex = null, System.Nullable<decimal> level = null, ArrayBufferView buffer = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<ArrayBufferView>(
-                entity => new ArrayBufferView(entity),
+                entity => new ArrayBufferView() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "readPixels" }, faceIndex, level, buffer

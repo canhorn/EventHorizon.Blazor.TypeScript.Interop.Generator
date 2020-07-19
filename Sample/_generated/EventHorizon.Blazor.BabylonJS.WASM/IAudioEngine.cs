@@ -8,10 +8,10 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IAudioEngine { }
+    public interface IAudioEngine : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class IAudioEngineCachedEntity : CachedEntityObject, IDisposable, IAudioEngine
+    public class IAudioEngineCachedEntity : CachedEntityObject, IAudioEngine
     {
         #region Static Accessors
 
@@ -54,7 +54,7 @@ namespace BabylonJS
                     "audioContext",
                     (entity) =>
                     {
-                        return new AudioContext(entity);
+                        return new AudioContext() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -74,7 +74,7 @@ namespace BabylonJS
                     "masterGain",
                     (entity) =>
                     {
-                        return new GainNode(entity);
+                        return new GainNode() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -160,19 +160,19 @@ namespace BabylonJS
             }
         }
 
-        private Observable __onAudioUnlockedObservable;
-        public Observable onAudioUnlockedObservable
+        private Observable<AudioEngine> __onAudioUnlockedObservable;
+        public Observable<AudioEngine> onAudioUnlockedObservable
         {
             get
             {
             if(__onAudioUnlockedObservable == null)
             {
-                __onAudioUnlockedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onAudioUnlockedObservable = EventHorizonBlazorInteropt.GetClass<Observable<AudioEngine>>(
                     this.___guid,
                     "onAudioUnlockedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<AudioEngine>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -189,19 +189,19 @@ __onAudioUnlockedObservable = null;
             }
         }
 
-        private Observable __onAudioLockedObservable;
-        public Observable onAudioLockedObservable
+        private Observable<AudioEngine> __onAudioLockedObservable;
+        public Observable<AudioEngine> onAudioLockedObservable
         {
             get
             {
             if(__onAudioLockedObservable == null)
             {
-                __onAudioLockedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onAudioLockedObservable = EventHorizonBlazorInteropt.GetClass<Observable<AudioEngine>>(
                     this.___guid,
                     "onAudioLockedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<AudioEngine>() { ___guid = entity.___guid };
                     }
                 );
             }

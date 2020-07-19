@@ -11,7 +11,7 @@ namespace BabylonJS
     
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class FreeCameraInputsManager : CameraInputsManager
+    public class FreeCameraInputsManager : CameraInputsManager<FreeCamera>
     {
         #region Static Accessors
 
@@ -58,7 +58,7 @@ namespace BabylonJS
         public FreeCameraInputsManager addKeyboard()
         {
             return EventHorizonBlazorInteropt.FuncClass<FreeCameraInputsManager>(
-                entity => new FreeCameraInputsManager(entity),
+                entity => new FreeCameraInputsManager() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "addKeyboard" }
@@ -69,7 +69,7 @@ namespace BabylonJS
         public FreeCameraInputsManager addMouse(System.Nullable<bool> touchEnabled = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<FreeCameraInputsManager>(
-                entity => new FreeCameraInputsManager(entity),
+                entity => new FreeCameraInputsManager() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "addMouse" }, touchEnabled
@@ -80,7 +80,7 @@ namespace BabylonJS
         public FreeCameraInputsManager removeMouse()
         {
             return EventHorizonBlazorInteropt.FuncClass<FreeCameraInputsManager>(
-                entity => new FreeCameraInputsManager(entity),
+                entity => new FreeCameraInputsManager() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "removeMouse" }
@@ -91,7 +91,7 @@ namespace BabylonJS
         public FreeCameraInputsManager addTouch()
         {
             return EventHorizonBlazorInteropt.FuncClass<FreeCameraInputsManager>(
-                entity => new FreeCameraInputsManager(entity),
+                entity => new FreeCameraInputsManager() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "addTouch" }

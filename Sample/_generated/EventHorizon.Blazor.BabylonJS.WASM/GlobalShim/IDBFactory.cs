@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class IDBFactory : CachedEntity
 {
+    public IDBFactory()
+    {
+    }
+
     public IDBFactory(
         ICachedEntity entity
     )

@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class ArrayBufferView : CachedEntity
 {
+    public ArrayBufferView()
+    {
+    }
+
     public ArrayBufferView(
         ICachedEntity entity
     )

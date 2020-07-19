@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IAction { }
+    public interface IAction : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class IActionCachedEntity : CachedEntityObject, IAction
@@ -106,10 +106,10 @@ namespace BabylonJS
             );
         }
 
-        public IAction then(IAction action)
+        public IActionCachedEntity then(IActionCachedEntity action)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IAction>(
-                entity => new IActionCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncClass<IActionCachedEntity>(
+                entity => new IActionCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "then" }, action

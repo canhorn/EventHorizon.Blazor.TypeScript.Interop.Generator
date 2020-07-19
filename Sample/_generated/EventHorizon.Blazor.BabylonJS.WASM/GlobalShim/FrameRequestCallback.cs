@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class FrameRequestCallback : CachedEntity
 {
+    public FrameRequestCallback()
+    {
+    }
+
     public FrameRequestCallback(
         ICachedEntity entity
     )

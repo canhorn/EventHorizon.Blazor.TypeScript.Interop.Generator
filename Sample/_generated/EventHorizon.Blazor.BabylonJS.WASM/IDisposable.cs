@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IDisposable { }
+    public interface IDisposable : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class IDisposableCachedEntity : CachedEntityObject, IDisposable

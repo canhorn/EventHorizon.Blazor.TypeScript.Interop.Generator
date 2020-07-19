@@ -99,7 +99,7 @@ namespace BabylonJS.GUI
                     "children",
                     (entity) =>
                     {
-                        return new Control(entity);
+                        return new Control() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -196,7 +196,7 @@ namespace BabylonJS.GUI
         public Control getChildByName(string name)
         {
             return EventHorizonBlazorInteropt.FuncClass<Control>(
-                entity => new Control(entity),
+                entity => new Control() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getChildByName" }, name
@@ -207,7 +207,7 @@ namespace BabylonJS.GUI
         public Control getChildByType(string name, string type)
         {
             return EventHorizonBlazorInteropt.FuncClass<Control>(
-                entity => new Control(entity),
+                entity => new Control() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getChildByType" }, name, type
@@ -228,7 +228,7 @@ namespace BabylonJS.GUI
         public Container addControl(Control control)
         {
             return EventHorizonBlazorInteropt.FuncClass<Container>(
-                entity => new Container(entity),
+                entity => new Container() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "addControl" }, control
@@ -239,7 +239,7 @@ namespace BabylonJS.GUI
         public Container clearControls()
         {
             return EventHorizonBlazorInteropt.FuncClass<Container>(
-                entity => new Container(entity),
+                entity => new Container() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clearControls" }
@@ -250,7 +250,7 @@ namespace BabylonJS.GUI
         public Container removeControl(Control control)
         {
             return EventHorizonBlazorInteropt.FuncClass<Container>(
-                entity => new Container(entity),
+                entity => new Container() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "removeControl" }, control

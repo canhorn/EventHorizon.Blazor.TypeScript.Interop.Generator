@@ -8,10 +8,10 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface CameraInputsMap { }
+    public interface CameraInputsMap<TCamera> : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class CameraInputsMapCachedEntity : CachedEntityObject, CameraInputsMap
+    public class CameraInputsMapCachedEntity<TCamera> : CachedEntityObject, CameraInputsMap<TCamera> where TCamera : CachedEntity, new()
     {
         #region Static Accessors
 

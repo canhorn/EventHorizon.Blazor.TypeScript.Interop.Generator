@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class MediaStream : CachedEntity
 {
+    public MediaStream()
+    {
+    }
+
     public MediaStream(
         ICachedEntity entity
     )

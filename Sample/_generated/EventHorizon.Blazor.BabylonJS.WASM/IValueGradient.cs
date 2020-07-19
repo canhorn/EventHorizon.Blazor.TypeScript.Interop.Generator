@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IValueGradient { }
+    public interface IValueGradient : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class IValueGradientCachedEntity : CachedEntityObject, IValueGradient

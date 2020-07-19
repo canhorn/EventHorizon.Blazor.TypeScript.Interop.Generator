@@ -32,6 +32,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     property.Type,
                     property.UsedClassNames
                 );
+                var isArray = ArrayResponseIdentifier.Identify(
+                    property.Type
+                );
+                var isNotSupported = NotSupportedIdentifier.Identify(
+                    property
+                );
+
                 var template = templates.AccessorWithSetter;
                 var propertyGetterResultType = templates.InteropGet;
                 var root = "this.___guid";
@@ -70,7 +77,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     }
                 }
 
-                if (isClassResponse && property.Type.IsArray)
+                if (isClassResponse && isArray)
                 {
                     propertyGetterResultType = templates.InteropGetArrayClass;
                 }
@@ -81,11 +88,28 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     cacheSection = "private [[STATIC]][[TYPE]] __[[CACHE_NAME]];";
                     cacheSetterSection = "__[[CACHE_NAME]] = null;";
                 }
-                else if (property.Type.IsArray)
+                else if (isArray)
                 {
                     propertyGetterResultType = templates.InteropGetArray;
                 }
+                var propType = TypeStatementWriter.Write(
+                    property.Type
+                );
+                var arrayType = TypeStatementWriter.Write(
+                    property.Type,
+                    true
+                );
+                var newType = TypeStatementWriter.Write(
+                    property.Type,
+                    true
+                );
 
+                if (isNotSupported)
+                {
+                    template = "// [[NAME]] is not supported by the platform yet";
+                }
+
+                Console.WriteLine("STOP");
                 template = template
                     .Replace(
                         "[[PROPERTY_GETTER]]",
@@ -130,6 +154,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         )
                     ).Replace(
                         "[[ARRAY_TYPE]]",
+                        // TODO: [TypeStatementWriter]: Use Writer Here
+                        TypeStatementWriter.Write(
+                            property.Type,
+                            true
+                        )
+                    ).Replace(
+                        "[[NEW_TYPE]]",
                         // TODO: [TypeStatementWriter]: Use Writer Here
                         TypeStatementWriter.Write(
                             property.Type,

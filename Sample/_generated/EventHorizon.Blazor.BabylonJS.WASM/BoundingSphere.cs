@@ -50,7 +50,7 @@ namespace BabylonJS
                     "center",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -91,7 +91,7 @@ namespace BabylonJS
                     "centerWorld",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -132,7 +132,7 @@ namespace BabylonJS
                     "minimum",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -152,7 +152,7 @@ namespace BabylonJS
                     "maximum",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -197,7 +197,7 @@ namespace BabylonJS
         public BoundingSphere scale(decimal factor)
         {
             return EventHorizonBlazorInteropt.FuncClass<BoundingSphere>(
-                entity => new BoundingSphere(entity),
+                entity => new BoundingSphere() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "scale" }, factor
@@ -208,7 +208,7 @@ namespace BabylonJS
         public Matrix getWorldMatrix()
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getWorldMatrix" }

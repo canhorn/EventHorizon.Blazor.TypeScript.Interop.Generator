@@ -70,7 +70,7 @@ namespace BabylonJS
                     "renderList",
                     (entity) =>
                     {
-                        return new AbstractMesh(entity);
+                        return new AbstractMesh() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -97,7 +97,7 @@ namespace BabylonJS
                     "renderTargetOptions",
                     (entity) =>
                     {
-                        return new RenderTargetCreationOptions(entity);
+                        return new RenderTargetCreationOptions() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -117,7 +117,7 @@ namespace BabylonJS
                     "boundingBoxSize",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -146,7 +146,7 @@ __boundingBoxSize = null;
                     "depthStencilTexture",
                     (entity) =>
                     {
-                        return new InternalTexture(entity);
+                        return new InternalTexture() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -306,7 +306,7 @@ __boundingBoxSize = null;
                     "activeCamera",
                     (entity) =>
                     {
-                        return new Camera(entity);
+                        return new Camera() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -365,19 +365,19 @@ __activeCamera = null;
             }
         }
 
-        private Observable __onBeforeBindObservable;
-        public Observable onBeforeBindObservable
+        private Observable<RenderTargetTexture> __onBeforeBindObservable;
+        public Observable<RenderTargetTexture> onBeforeBindObservable
         {
             get
             {
             if(__onBeforeBindObservable == null)
             {
-                __onBeforeBindObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onBeforeBindObservable = EventHorizonBlazorInteropt.GetClass<Observable<RenderTargetTexture>>(
                     this.___guid,
                     "onBeforeBindObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<RenderTargetTexture>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -394,19 +394,19 @@ __onBeforeBindObservable = null;
             }
         }
 
-        private Observable __onAfterUnbindObservable;
-        public Observable onAfterUnbindObservable
+        private Observable<RenderTargetTexture> __onAfterUnbindObservable;
+        public Observable<RenderTargetTexture> onAfterUnbindObservable
         {
             get
             {
             if(__onAfterUnbindObservable == null)
             {
-                __onAfterUnbindObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onAfterUnbindObservable = EventHorizonBlazorInteropt.GetClass<Observable<RenderTargetTexture>>(
                     this.___guid,
                     "onAfterUnbindObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<RenderTargetTexture>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -423,77 +423,23 @@ __onAfterUnbindObservable = null;
             }
         }
 
-        private Observable __onBeforeRenderObservable;
-        public Observable onBeforeRenderObservable
-        {
-            get
-            {
-            if(__onBeforeRenderObservable == null)
-            {
-                __onBeforeRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
-                    this.___guid,
-                    "onBeforeRenderObservable",
-                    (entity) =>
-                    {
-                        return new Observable(entity);
-                    }
-                );
-            }
-            return __onBeforeRenderObservable;
-            }
-            set
-            {
-__onBeforeRenderObservable = null;
-                EventHorizonBlazorInteropt.Set(
-                    this.___guid,
-                    "onBeforeRenderObservable",
-                    value
-                );
-            }
-        }
+// onBeforeRenderObservable is not supported by the platform yet
 
-        private Observable __onAfterRenderObservable;
-        public Observable onAfterRenderObservable
-        {
-            get
-            {
-            if(__onAfterRenderObservable == null)
-            {
-                __onAfterRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
-                    this.___guid,
-                    "onAfterRenderObservable",
-                    (entity) =>
-                    {
-                        return new Observable(entity);
-                    }
-                );
-            }
-            return __onAfterRenderObservable;
-            }
-            set
-            {
-__onAfterRenderObservable = null;
-                EventHorizonBlazorInteropt.Set(
-                    this.___guid,
-                    "onAfterRenderObservable",
-                    value
-                );
-            }
-        }
+// onAfterRenderObservable is not supported by the platform yet
 
-        private Observable __onClearObservable;
-        public Observable onClearObservable
+        private Observable<Engine> __onClearObservable;
+        public Observable<Engine> onClearObservable
         {
             get
             {
             if(__onClearObservable == null)
             {
-                __onClearObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onClearObservable = EventHorizonBlazorInteropt.GetClass<Observable<Engine>>(
                     this.___guid,
                     "onClearObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Engine>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -510,19 +456,19 @@ __onClearObservable = null;
             }
         }
 
-        private Observable __onResizeObservable;
-        public Observable onResizeObservable
+        private Observable<RenderTargetTexture> __onResizeObservable;
+        public Observable<RenderTargetTexture> onResizeObservable
         {
             get
             {
             if(__onResizeObservable == null)
             {
-                __onResizeObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onResizeObservable = EventHorizonBlazorInteropt.GetClass<Observable<RenderTargetTexture>>(
                     this.___guid,
                     "onResizeObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<RenderTargetTexture>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -551,7 +497,7 @@ __onResizeObservable = null;
                     "clearColor",
                     (entity) =>
                     {
-                        return new Color4(entity);
+                        return new Color4() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -580,7 +526,7 @@ __clearColor = null;
                     "boundingBoxPosition",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -855,7 +801,7 @@ __boundingBoxPosition = null;
         public Matrix getReflectionTextureMatrix()
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getReflectionTextureMatrix" }
@@ -883,7 +829,7 @@ __boundingBoxPosition = null;
             );
         }
 
-        public void setRenderingOrder(decimal renderingGroupId, SubMesh opaqueSortCompareFn = null, SubMesh alphaTestSortCompareFn = null, SubMesh transparentSortCompareFn = null)
+        public void setRenderingOrder(decimal renderingGroupId, CachedEntity opaqueSortCompareFn = null, CachedEntity alphaTestSortCompareFn = null, CachedEntity transparentSortCompareFn = null)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -906,7 +852,7 @@ __boundingBoxPosition = null;
         public RenderTargetTexture clone()
         {
             return EventHorizonBlazorInteropt.FuncClass<RenderTargetTexture>(
-                entity => new RenderTargetTexture(entity),
+                entity => new RenderTargetTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }

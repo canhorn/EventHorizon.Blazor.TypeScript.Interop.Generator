@@ -8,10 +8,10 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface ICameraInput { }
+    public interface ICameraInput<TCamera> : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class ICameraInputCachedEntity : CachedEntityObject, ICameraInput
+    public class ICameraInputCachedEntity<TCamera> : CachedEntityObject, ICameraInput<TCamera> where TCamera : CachedEntity, new()
     {
         #region Static Accessors
 
@@ -30,19 +30,27 @@ namespace BabylonJS
         #endregion
 
         #region Properties
-        
-        public CachedEntity camera
+        private TCamera __camera;
+        public TCamera camera
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            if(__camera == null)
+            {
+                __camera = EventHorizonBlazorInteropt.GetClass<TCamera>(
                     this.___guid,
-                    "camera"
+                    "camera",
+                    (entity) =>
+                    {
+                        return new TCamera() { ___guid = entity.___guid };
+                    }
                 );
+            }
+            return __camera;
             }
             set
             {
-
+__camera = null;
                 EventHorizonBlazorInteropt.Set(
                     this.___guid,
                     "camera",
@@ -95,7 +103,7 @@ namespace BabylonJS
             );
         }
 
-        public void detachControl(object element)
+        public void detachControl(CachedEntity element)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 

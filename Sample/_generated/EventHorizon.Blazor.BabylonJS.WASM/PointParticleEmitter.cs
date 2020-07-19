@@ -42,7 +42,7 @@ namespace BabylonJS
                     "direction1",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -71,7 +71,7 @@ __direction1 = null;
                     "direction2",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -125,7 +125,7 @@ __direction2 = null;
         public PointParticleEmitter clone()
         {
             return EventHorizonBlazorInteropt.FuncClass<PointParticleEmitter>(
-                entity => new PointParticleEmitter(entity),
+                entity => new PointParticleEmitter() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }

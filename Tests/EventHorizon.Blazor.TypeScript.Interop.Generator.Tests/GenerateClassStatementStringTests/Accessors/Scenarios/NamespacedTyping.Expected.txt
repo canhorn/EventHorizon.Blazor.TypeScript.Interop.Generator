@@ -38,7 +38,7 @@ namespace Accessors.Scenarios
                     "namespacedTyping",
                     (entity) =>
                     {
-                        return new AbstractMesh(entity);
+                        return new AbstractMesh() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -58,7 +58,7 @@ namespace Accessors.Scenarios
                     "notNamespacedTyping",
                     (entity) =>
                     {
-                        return new AbstractMesh(entity);
+                        return new AbstractMesh() { ___guid = entity.___guid };
                     }
                 );
             }

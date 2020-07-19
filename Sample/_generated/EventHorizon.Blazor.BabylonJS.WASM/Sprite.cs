@@ -82,7 +82,7 @@ namespace BabylonJS
                     "position",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -111,7 +111,7 @@ __position = null;
                     "color",
                     (entity) =>
                     {
-                        return new Color4(entity);
+                        return new Color4() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -306,7 +306,7 @@ __color = null;
                     "animations",
                     (entity) =>
                     {
-                        return new Animation(entity);
+                        return new Animation() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -354,7 +354,7 @@ __color = null;
                     "actionManager",
                     (entity) =>
                     {
-                        return new ActionManager(entity);
+                        return new ActionManager() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -404,7 +404,7 @@ __actionManager = null;
         }
 
         public Sprite(
-            string name, ISpriteManager manager
+            string name, ISpriteManagerCachedEntity manager
         )
         {
             var entity = EventHorizonBlazorInteropt.New(

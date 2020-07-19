@@ -77,7 +77,7 @@ namespace BabylonJS
         public Effect getEffect()
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getEffect" }

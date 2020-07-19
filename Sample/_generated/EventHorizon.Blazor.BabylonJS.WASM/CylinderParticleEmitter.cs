@@ -160,7 +160,7 @@ namespace BabylonJS
         public CylinderParticleEmitter clone()
         {
             return EventHorizonBlazorInteropt.FuncClass<CylinderParticleEmitter>(
-                entity => new CylinderParticleEmitter(entity),
+                entity => new CylinderParticleEmitter() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }

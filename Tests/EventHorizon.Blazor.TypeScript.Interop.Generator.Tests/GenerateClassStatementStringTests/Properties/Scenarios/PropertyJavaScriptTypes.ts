@@ -4,5 +4,6 @@ declare module Static.Primitive {
         booleanType: Boolean;
         htmlElementType: HTMLElement;
         intType: int; // Int is a provided platform type
+        partialObject: Partial<object>;
     }
 }

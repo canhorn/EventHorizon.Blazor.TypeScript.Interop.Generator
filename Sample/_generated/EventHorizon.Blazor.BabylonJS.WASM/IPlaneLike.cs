@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IPlaneLike { }
+    public interface IPlaneLike : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class IPlaneLikeCachedEntity : CachedEntityObject, IPlaneLike
@@ -30,19 +30,19 @@ namespace BabylonJS
         #endregion
 
         #region Properties
-        private IVector3Like __normal;
-        public IVector3Like normal
+        private IVector3LikeCachedEntity __normal;
+        public IVector3LikeCachedEntity normal
         {
             get
             {
             if(__normal == null)
             {
-                __normal = EventHorizonBlazorInteropt.GetClass<IVector3Like>(
+                __normal = EventHorizonBlazorInteropt.GetClass<IVector3LikeCachedEntity>(
                     this.___guid,
                     "normal",
                     (entity) =>
                     {
-                        return new IVector3LikeCachedEntity(entity);
+                        return new IVector3LikeCachedEntity() { ___guid = entity.___guid };
                     }
                 );
             }

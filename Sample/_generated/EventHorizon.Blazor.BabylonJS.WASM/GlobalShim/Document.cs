@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class Document : CachedEntity
 {
+    public Document()
+    {
+    }
+
     public Document(
         ICachedEntity entity
     )

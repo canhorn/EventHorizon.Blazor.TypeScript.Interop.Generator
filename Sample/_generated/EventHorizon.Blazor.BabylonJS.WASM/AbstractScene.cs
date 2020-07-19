@@ -35,7 +35,7 @@ namespace BabylonJS
         public static BabylonFileParser GetParser(string name)
         {
             return EventHorizonBlazorInteropt.FuncClass<BabylonFileParser>(
-                entity => new BabylonFileParser(entity),
+                entity => new BabylonFileParser() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "AbstractScene", "GetParser" }, name
@@ -56,7 +56,7 @@ namespace BabylonJS
         public static IndividualBabylonFileParser GetIndividualParser(string name)
         {
             return EventHorizonBlazorInteropt.FuncClass<IndividualBabylonFileParser>(
-                entity => new IndividualBabylonFileParser(entity),
+                entity => new IndividualBabylonFileParser() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "AbstractScene", "GetIndividualParser" }, name
@@ -90,7 +90,7 @@ namespace BabylonJS
                     "rootNodes",
                     (entity) =>
                     {
-                        return new Node(entity);
+                        return new Node() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -115,7 +115,7 @@ namespace BabylonJS
                     "cameras",
                     (entity) =>
                     {
-                        return new Camera(entity);
+                        return new Camera() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -140,7 +140,7 @@ namespace BabylonJS
                     "lights",
                     (entity) =>
                     {
-                        return new Light(entity);
+                        return new Light() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -165,7 +165,7 @@ namespace BabylonJS
                     "meshes",
                     (entity) =>
                     {
-                        return new AbstractMesh(entity);
+                        return new AbstractMesh() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -190,7 +190,7 @@ namespace BabylonJS
                     "skeletons",
                     (entity) =>
                     {
-                        return new Skeleton(entity);
+                        return new Skeleton() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -206,16 +206,16 @@ namespace BabylonJS
         }
 
         
-        public IParticleSystem[] particleSystems
+        public IParticleSystemCachedEntity[] particleSystems
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<IParticleSystem>(
+            return EventHorizonBlazorInteropt.GetArrayClass<IParticleSystemCachedEntity>(
                     this.___guid,
                     "particleSystems",
                     (entity) =>
                     {
-                        return new IParticleSystemCachedEntity(entity);
+                        return new IParticleSystemCachedEntity() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -240,7 +240,7 @@ namespace BabylonJS
                     "animations",
                     (entity) =>
                     {
-                        return new Animation(entity);
+                        return new Animation() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -265,7 +265,7 @@ namespace BabylonJS
                     "animationGroups",
                     (entity) =>
                     {
-                        return new AnimationGroup(entity);
+                        return new AnimationGroup() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -290,7 +290,7 @@ namespace BabylonJS
                     "multiMaterials",
                     (entity) =>
                     {
-                        return new MultiMaterial(entity);
+                        return new MultiMaterial() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -315,7 +315,7 @@ namespace BabylonJS
                     "materials",
                     (entity) =>
                     {
-                        return new Material(entity);
+                        return new Material() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -340,7 +340,7 @@ namespace BabylonJS
                     "morphTargetManagers",
                     (entity) =>
                     {
-                        return new MorphTargetManager(entity);
+                        return new MorphTargetManager() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -365,7 +365,7 @@ namespace BabylonJS
                     "geometries",
                     (entity) =>
                     {
-                        return new Geometry(entity);
+                        return new Geometry() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -390,7 +390,7 @@ namespace BabylonJS
                     "transformNodes",
                     (entity) =>
                     {
-                        return new TransformNode(entity);
+                        return new TransformNode() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -415,7 +415,7 @@ namespace BabylonJS
                     "actionManagers",
                     (entity) =>
                     {
-                        return new AbstractActionManager(entity);
+                        return new AbstractActionManager() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -440,7 +440,7 @@ namespace BabylonJS
                     "textures",
                     (entity) =>
                     {
-                        return new BaseTexture(entity);
+                        return new BaseTexture() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -467,7 +467,7 @@ namespace BabylonJS
                     "environmentTexture",
                     (entity) =>
                     {
-                        return new BaseTexture(entity);
+                        return new BaseTexture() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -502,7 +502,7 @@ __environmentTexture = null;
         public Node[] getNodes()
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<Node>(
-                entity => new Node(entity),
+                entity => new Node() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getNodes" }

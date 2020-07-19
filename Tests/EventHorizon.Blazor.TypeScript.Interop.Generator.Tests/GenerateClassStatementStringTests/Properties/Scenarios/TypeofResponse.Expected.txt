@@ -42,7 +42,7 @@ namespace Static.Primitive
                     "webkitURL",
                     (entity) =>
                     {
-                        return new URL(entity);
+                        return new URL() { ___guid = entity.___guid };
                     }
                 );
             }

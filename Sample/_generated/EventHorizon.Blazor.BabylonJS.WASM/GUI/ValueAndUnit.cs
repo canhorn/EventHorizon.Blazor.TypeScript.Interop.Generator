@@ -186,7 +186,7 @@ namespace BabylonJS.GUI
         public ValueAndUnit updateInPlace(decimal value, System.Nullable<decimal> unit = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<ValueAndUnit>(
-                entity => new ValueAndUnit(entity),
+                entity => new ValueAndUnit() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "updateInPlace" }, value, unit

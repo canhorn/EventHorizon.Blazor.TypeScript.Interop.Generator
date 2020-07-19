@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface SceneOptions { }
+    public interface SceneOptions : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class SceneOptionsCachedEntity : CachedEntityObject, SceneOptions

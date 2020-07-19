@@ -25,7 +25,7 @@ namespace BabylonJS
         public static Vector4 FromArray(decimal[] array, System.Nullable<decimal> offset = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Vector4", "FromArray" }, array, offset
@@ -66,7 +66,7 @@ namespace BabylonJS
         public static Vector4 Zero()
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Vector4", "Zero" }
@@ -77,7 +77,7 @@ namespace BabylonJS
         public static Vector4 One()
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Vector4", "One" }
@@ -88,7 +88,7 @@ namespace BabylonJS
         public static Vector4 Normalize(Vector4 vector)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Vector4", "Normalize" }, vector
@@ -109,7 +109,7 @@ namespace BabylonJS
         public static Vector4 Minimize(Vector4 left, Vector4 right)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Vector4", "Minimize" }, left, right
@@ -120,7 +120,7 @@ namespace BabylonJS
         public static Vector4 Maximize(Vector4 left, Vector4 right)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Vector4", "Maximize" }, left, right
@@ -151,7 +151,7 @@ namespace BabylonJS
         public static Vector4 Center(Vector4 value1, Vector4 value2)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Vector4", "Center" }, value1, value2
@@ -162,7 +162,7 @@ namespace BabylonJS
         public static Vector4 TransformNormal(Vector4 vector, Matrix transformation)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Vector4", "TransformNormal" }, vector, transformation
@@ -193,7 +193,7 @@ namespace BabylonJS
         public static Vector4 FromVector3(Vector3 source, System.Nullable<decimal> w = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Vector4", "FromVector3" }, source, w
@@ -358,7 +358,7 @@ namespace BabylonJS
         public Vector4 toArray(decimal[] array, System.Nullable<decimal> index = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "toArray" }, array, index
@@ -369,7 +369,7 @@ namespace BabylonJS
         public Vector4 addInPlace(Vector4 otherVector)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "addInPlace" }, otherVector
@@ -380,7 +380,7 @@ namespace BabylonJS
         public Vector4 add(Vector4 otherVector)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "add" }, otherVector
@@ -391,7 +391,7 @@ namespace BabylonJS
         public Vector4 addToRef(Vector4 otherVector, Vector4 result)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "addToRef" }, otherVector, result
@@ -402,7 +402,7 @@ namespace BabylonJS
         public Vector4 subtractInPlace(Vector4 otherVector)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "subtractInPlace" }, otherVector
@@ -413,7 +413,7 @@ namespace BabylonJS
         public Vector4 subtract(Vector4 otherVector)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "subtract" }, otherVector
@@ -424,7 +424,7 @@ namespace BabylonJS
         public Vector4 subtractToRef(Vector4 otherVector, Vector4 result)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "subtractToRef" }, otherVector, result
@@ -435,7 +435,7 @@ namespace BabylonJS
         public Vector4 subtractFromFloats(decimal x, decimal y, decimal z, decimal w)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "subtractFromFloats" }, x, y, z, w
@@ -446,7 +446,7 @@ namespace BabylonJS
         public Vector4 subtractFromFloatsToRef(decimal x, decimal y, decimal z, decimal w, Vector4 result)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "subtractFromFloatsToRef" }, x, y, z, w, result
@@ -457,7 +457,7 @@ namespace BabylonJS
         public Vector4 negate()
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "negate" }
@@ -468,7 +468,7 @@ namespace BabylonJS
         public Vector4 negateInPlace()
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "negateInPlace" }
@@ -479,7 +479,7 @@ namespace BabylonJS
         public Vector4 negateToRef(Vector4 result)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "negateToRef" }, result
@@ -490,7 +490,7 @@ namespace BabylonJS
         public Vector4 scaleInPlace(decimal scale)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "scaleInPlace" }, scale
@@ -501,7 +501,7 @@ namespace BabylonJS
         public Vector4 scale(decimal scale)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "scale" }, scale
@@ -512,7 +512,7 @@ namespace BabylonJS
         public Vector4 scaleToRef(decimal scale, Vector4 result)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "scaleToRef" }, scale, result
@@ -523,7 +523,7 @@ namespace BabylonJS
         public Vector4 scaleAndAddToRef(decimal scale, Vector4 result)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "scaleAndAddToRef" }, scale, result
@@ -564,7 +564,7 @@ namespace BabylonJS
         public Vector4 multiplyInPlace(Vector4 otherVector)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "multiplyInPlace" }, otherVector
@@ -575,7 +575,7 @@ namespace BabylonJS
         public Vector4 multiply(Vector4 otherVector)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "multiply" }, otherVector
@@ -586,7 +586,7 @@ namespace BabylonJS
         public Vector4 multiplyToRef(Vector4 otherVector, Vector4 result)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "multiplyToRef" }, otherVector, result
@@ -597,7 +597,7 @@ namespace BabylonJS
         public Vector4 multiplyByFloats(decimal x, decimal y, decimal z, decimal w)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "multiplyByFloats" }, x, y, z, w
@@ -608,7 +608,7 @@ namespace BabylonJS
         public Vector4 divide(Vector4 otherVector)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "divide" }, otherVector
@@ -619,7 +619,7 @@ namespace BabylonJS
         public Vector4 divideToRef(Vector4 otherVector, Vector4 result)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "divideToRef" }, otherVector, result
@@ -630,7 +630,7 @@ namespace BabylonJS
         public Vector4 divideInPlace(Vector4 otherVector)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "divideInPlace" }, otherVector
@@ -641,7 +641,7 @@ namespace BabylonJS
         public Vector4 minimizeInPlace(Vector4 other)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "minimizeInPlace" }, other
@@ -652,7 +652,7 @@ namespace BabylonJS
         public Vector4 maximizeInPlace(Vector4 other)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "maximizeInPlace" }, other
@@ -663,7 +663,7 @@ namespace BabylonJS
         public Vector4 floor()
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "floor" }
@@ -674,7 +674,7 @@ namespace BabylonJS
         public Vector4 fract()
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "fract" }
@@ -705,7 +705,7 @@ namespace BabylonJS
         public Vector4 normalize()
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "normalize" }
@@ -716,7 +716,7 @@ namespace BabylonJS
         public Vector3 toVector3()
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "toVector3" }
@@ -727,7 +727,7 @@ namespace BabylonJS
         public Vector4 clone()
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }
@@ -738,7 +738,7 @@ namespace BabylonJS
         public Vector4 copyFrom(Vector4 source)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "copyFrom" }, source
@@ -749,7 +749,7 @@ namespace BabylonJS
         public Vector4 copyFromFloats(decimal x, decimal y, decimal z, decimal w)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "copyFromFloats" }, x, y, z, w
@@ -760,7 +760,7 @@ namespace BabylonJS
         public Vector4 set(decimal x, decimal y, decimal z, decimal w)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "set" }, x, y, z, w
@@ -771,7 +771,7 @@ namespace BabylonJS
         public Vector4 setAll(decimal v)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector4>(
-                entity => new Vector4(entity),
+                entity => new Vector4() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setAll" }, v

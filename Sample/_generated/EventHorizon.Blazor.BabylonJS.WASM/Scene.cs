@@ -195,7 +195,7 @@ namespace BabylonJS
         public static Material DefaultMaterialFactory(Scene scene)
         {
             return EventHorizonBlazorInteropt.FuncClass<Material>(
-                entity => new Material(entity),
+                entity => new Material() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Scene", "DefaultMaterialFactory" }, scene
@@ -203,10 +203,10 @@ namespace BabylonJS
             );
         }
 
-        public static ICollisionCoordinator CollisionCoordinatorFactory()
+        public static ICollisionCoordinatorCachedEntity CollisionCoordinatorFactory()
         {
-            return EventHorizonBlazorInteropt.FuncClass<ICollisionCoordinator>(
-                entity => new ICollisionCoordinatorCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncClass<ICollisionCoordinatorCachedEntity>(
+                entity => new ICollisionCoordinatorCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Scene", "CollisionCoordinatorFactory" }
@@ -228,7 +228,7 @@ namespace BabylonJS
                     "environmentTexture",
                     (entity) =>
                     {
-                        return new BaseTexture(entity);
+                        return new BaseTexture() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -278,7 +278,7 @@ __environmentTexture = null;
                     "imageProcessingConfiguration",
                     (entity) =>
                     {
-                        return new ImageProcessingConfiguration(entity);
+                        return new ImageProcessingConfiguration() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -361,7 +361,7 @@ __environmentTexture = null;
                     "animationPropertiesOverride",
                     (entity) =>
                     {
-                        return new AnimationPropertiesOverride(entity);
+                        return new AnimationPropertiesOverride() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -390,7 +390,7 @@ __animationPropertiesOverride = null;
                     "unTranslatedPointer",
                     (entity) =>
                     {
-                        return new Vector2(entity);
+                        return new Vector2() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -515,7 +515,7 @@ __animationPropertiesOverride = null;
                     "activeCamera",
                     (entity) =>
                     {
-                        return new Camera(entity);
+                        return new Camera() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -544,7 +544,7 @@ __activeCamera = null;
                     "defaultMaterial",
                     (entity) =>
                     {
-                        return new Material(entity);
+                        return new Material() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -603,19 +603,19 @@ __defaultMaterial = null;
             }
         }
 
-        private ICollisionCoordinator __collisionCoordinator;
-        public ICollisionCoordinator collisionCoordinator
+        private ICollisionCoordinatorCachedEntity __collisionCoordinator;
+        public ICollisionCoordinatorCachedEntity collisionCoordinator
         {
             get
             {
             if(__collisionCoordinator == null)
             {
-                __collisionCoordinator = EventHorizonBlazorInteropt.GetClass<ICollisionCoordinator>(
+                __collisionCoordinator = EventHorizonBlazorInteropt.GetClass<ICollisionCoordinatorCachedEntity>(
                     this.___guid,
                     "collisionCoordinator",
                     (entity) =>
                     {
-                        return new ICollisionCoordinatorCachedEntity(entity);
+                        return new ICollisionCoordinatorCachedEntity() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -633,7 +633,7 @@ __defaultMaterial = null;
                     "frustumPlanes",
                     (entity) =>
                     {
-                        return new Plane(entity);
+                        return new Plane() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -651,7 +651,7 @@ __defaultMaterial = null;
                     "meshUnderPointer",
                     (entity) =>
                     {
-                        return new AbstractMesh(entity);
+                        return new AbstractMesh() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -713,7 +713,7 @@ __defaultMaterial = null;
                     "totalVerticesPerfCounter",
                     (entity) =>
                     {
-                        return new PerfCounter(entity);
+                        return new PerfCounter() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -733,7 +733,7 @@ __defaultMaterial = null;
                     "totalActiveIndicesPerfCounter",
                     (entity) =>
                     {
-                        return new PerfCounter(entity);
+                        return new PerfCounter() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -753,7 +753,7 @@ __defaultMaterial = null;
                     "activeParticlesPerfCounter",
                     (entity) =>
                     {
-                        return new PerfCounter(entity);
+                        return new PerfCounter() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -773,7 +773,7 @@ __defaultMaterial = null;
                     "activeBonesPerfCounter",
                     (entity) =>
                     {
-                        return new PerfCounter(entity);
+                        return new PerfCounter() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -803,7 +803,7 @@ __defaultMaterial = null;
                     "animatables",
                     (entity) =>
                     {
-                        return new Animatable(entity);
+                        return new Animatable() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -889,7 +889,7 @@ __defaultMaterial = null;
                     "cameraToUseForPointers",
                     (entity) =>
                     {
-                        return new Camera(entity);
+                        return new Camera() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -960,7 +960,7 @@ __cameraToUseForPointers = null;
                     "clearColor",
                     (entity) =>
                     {
-                        return new Color4(entity);
+                        return new Color4() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -989,7 +989,7 @@ __clearColor = null;
                     "ambientColor",
                     (entity) =>
                     {
-                        return new Color3(entity);
+                        return new Color3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1018,7 +1018,7 @@ __ambientColor = null;
                     "environmentBRDFTexture",
                     (entity) =>
                     {
-                        return new BaseTexture(entity);
+                        return new BaseTexture() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1047,7 +1047,7 @@ __environmentBRDFTexture = null;
                     "clipPlane",
                     (entity) =>
                     {
-                        return new Plane(entity);
+                        return new Plane() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1076,7 +1076,7 @@ __clipPlane = null;
                     "clipPlane2",
                     (entity) =>
                     {
-                        return new Plane(entity);
+                        return new Plane() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1105,7 +1105,7 @@ __clipPlane2 = null;
                     "clipPlane3",
                     (entity) =>
                     {
-                        return new Plane(entity);
+                        return new Plane() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1134,7 +1134,7 @@ __clipPlane3 = null;
                     "clipPlane4",
                     (entity) =>
                     {
-                        return new Plane(entity);
+                        return new Plane() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1163,7 +1163,7 @@ __clipPlane4 = null;
                     "clipPlane5",
                     (entity) =>
                     {
-                        return new Plane(entity);
+                        return new Plane() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1192,7 +1192,7 @@ __clipPlane5 = null;
                     "clipPlane6",
                     (entity) =>
                     {
-                        return new Plane(entity);
+                        return new Plane() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1450,7 +1450,7 @@ __clipPlane6 = null;
                     "disableOfflineSupportExceptionRules",
                     (entity) =>
                     {
-                        return new RegExp(entity);
+                        return new RegExp() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1465,19 +1465,19 @@ __clipPlane6 = null;
             }
         }
 
-        private Observable __onDisposeObservable;
-        public Observable onDisposeObservable
+        private Observable<Scene> __onDisposeObservable;
+        public Observable<Scene> onDisposeObservable
         {
             get
             {
             if(__onDisposeObservable == null)
             {
-                __onDisposeObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onDisposeObservable = EventHorizonBlazorInteropt.GetClass<Observable<Scene>>(
                     this.___guid,
                     "onDisposeObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Scene>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1494,19 +1494,19 @@ __onDisposeObservable = null;
             }
         }
 
-        private Observable __onBeforeRenderObservable;
-        public Observable onBeforeRenderObservable
+        private Observable<Scene> __onBeforeRenderObservable;
+        public Observable<Scene> onBeforeRenderObservable
         {
             get
             {
             if(__onBeforeRenderObservable == null)
             {
-                __onBeforeRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onBeforeRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable<Scene>>(
                     this.___guid,
                     "onBeforeRenderObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Scene>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1523,19 +1523,19 @@ __onBeforeRenderObservable = null;
             }
         }
 
-        private Observable __onAfterRenderObservable;
-        public Observable onAfterRenderObservable
+        private Observable<Scene> __onAfterRenderObservable;
+        public Observable<Scene> onAfterRenderObservable
         {
             get
             {
             if(__onAfterRenderObservable == null)
             {
-                __onAfterRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onAfterRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable<Scene>>(
                     this.___guid,
                     "onAfterRenderObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Scene>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1552,19 +1552,19 @@ __onAfterRenderObservable = null;
             }
         }
 
-        private Observable __onAfterRenderCameraObservable;
-        public Observable onAfterRenderCameraObservable
+        private Observable<Camera> __onAfterRenderCameraObservable;
+        public Observable<Camera> onAfterRenderCameraObservable
         {
             get
             {
             if(__onAfterRenderCameraObservable == null)
             {
-                __onAfterRenderCameraObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onAfterRenderCameraObservable = EventHorizonBlazorInteropt.GetClass<Observable<Camera>>(
                     this.___guid,
                     "onAfterRenderCameraObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Camera>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1581,19 +1581,19 @@ __onAfterRenderCameraObservable = null;
             }
         }
 
-        private Observable __onBeforeAnimationsObservable;
-        public Observable onBeforeAnimationsObservable
+        private Observable<Scene> __onBeforeAnimationsObservable;
+        public Observable<Scene> onBeforeAnimationsObservable
         {
             get
             {
             if(__onBeforeAnimationsObservable == null)
             {
-                __onBeforeAnimationsObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onBeforeAnimationsObservable = EventHorizonBlazorInteropt.GetClass<Observable<Scene>>(
                     this.___guid,
                     "onBeforeAnimationsObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Scene>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1610,19 +1610,19 @@ __onBeforeAnimationsObservable = null;
             }
         }
 
-        private Observable __onAfterAnimationsObservable;
-        public Observable onAfterAnimationsObservable
+        private Observable<Scene> __onAfterAnimationsObservable;
+        public Observable<Scene> onAfterAnimationsObservable
         {
             get
             {
             if(__onAfterAnimationsObservable == null)
             {
-                __onAfterAnimationsObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onAfterAnimationsObservable = EventHorizonBlazorInteropt.GetClass<Observable<Scene>>(
                     this.___guid,
                     "onAfterAnimationsObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Scene>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1639,19 +1639,19 @@ __onAfterAnimationsObservable = null;
             }
         }
 
-        private Observable __onBeforeDrawPhaseObservable;
-        public Observable onBeforeDrawPhaseObservable
+        private Observable<Scene> __onBeforeDrawPhaseObservable;
+        public Observable<Scene> onBeforeDrawPhaseObservable
         {
             get
             {
             if(__onBeforeDrawPhaseObservable == null)
             {
-                __onBeforeDrawPhaseObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onBeforeDrawPhaseObservable = EventHorizonBlazorInteropt.GetClass<Observable<Scene>>(
                     this.___guid,
                     "onBeforeDrawPhaseObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Scene>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1668,19 +1668,19 @@ __onBeforeDrawPhaseObservable = null;
             }
         }
 
-        private Observable __onAfterDrawPhaseObservable;
-        public Observable onAfterDrawPhaseObservable
+        private Observable<Scene> __onAfterDrawPhaseObservable;
+        public Observable<Scene> onAfterDrawPhaseObservable
         {
             get
             {
             if(__onAfterDrawPhaseObservable == null)
             {
-                __onAfterDrawPhaseObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onAfterDrawPhaseObservable = EventHorizonBlazorInteropt.GetClass<Observable<Scene>>(
                     this.___guid,
                     "onAfterDrawPhaseObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Scene>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1697,19 +1697,19 @@ __onAfterDrawPhaseObservable = null;
             }
         }
 
-        private Observable __onReadyObservable;
-        public Observable onReadyObservable
+        private Observable<Scene> __onReadyObservable;
+        public Observable<Scene> onReadyObservable
         {
             get
             {
             if(__onReadyObservable == null)
             {
-                __onReadyObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onReadyObservable = EventHorizonBlazorInteropt.GetClass<Observable<Scene>>(
                     this.___guid,
                     "onReadyObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Scene>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1726,19 +1726,19 @@ __onReadyObservable = null;
             }
         }
 
-        private Observable __onBeforeCameraRenderObservable;
-        public Observable onBeforeCameraRenderObservable
+        private Observable<Camera> __onBeforeCameraRenderObservable;
+        public Observable<Camera> onBeforeCameraRenderObservable
         {
             get
             {
             if(__onBeforeCameraRenderObservable == null)
             {
-                __onBeforeCameraRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onBeforeCameraRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable<Camera>>(
                     this.___guid,
                     "onBeforeCameraRenderObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Camera>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1755,19 +1755,19 @@ __onBeforeCameraRenderObservable = null;
             }
         }
 
-        private Observable __onAfterCameraRenderObservable;
-        public Observable onAfterCameraRenderObservable
+        private Observable<Camera> __onAfterCameraRenderObservable;
+        public Observable<Camera> onAfterCameraRenderObservable
         {
             get
             {
             if(__onAfterCameraRenderObservable == null)
             {
-                __onAfterCameraRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onAfterCameraRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable<Camera>>(
                     this.___guid,
                     "onAfterCameraRenderObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Camera>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1784,19 +1784,19 @@ __onAfterCameraRenderObservable = null;
             }
         }
 
-        private Observable __onBeforeActiveMeshesEvaluationObservable;
-        public Observable onBeforeActiveMeshesEvaluationObservable
+        private Observable<Scene> __onBeforeActiveMeshesEvaluationObservable;
+        public Observable<Scene> onBeforeActiveMeshesEvaluationObservable
         {
             get
             {
             if(__onBeforeActiveMeshesEvaluationObservable == null)
             {
-                __onBeforeActiveMeshesEvaluationObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onBeforeActiveMeshesEvaluationObservable = EventHorizonBlazorInteropt.GetClass<Observable<Scene>>(
                     this.___guid,
                     "onBeforeActiveMeshesEvaluationObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Scene>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1813,19 +1813,19 @@ __onBeforeActiveMeshesEvaluationObservable = null;
             }
         }
 
-        private Observable __onAfterActiveMeshesEvaluationObservable;
-        public Observable onAfterActiveMeshesEvaluationObservable
+        private Observable<Scene> __onAfterActiveMeshesEvaluationObservable;
+        public Observable<Scene> onAfterActiveMeshesEvaluationObservable
         {
             get
             {
             if(__onAfterActiveMeshesEvaluationObservable == null)
             {
-                __onAfterActiveMeshesEvaluationObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onAfterActiveMeshesEvaluationObservable = EventHorizonBlazorInteropt.GetClass<Observable<Scene>>(
                     this.___guid,
                     "onAfterActiveMeshesEvaluationObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Scene>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1842,19 +1842,19 @@ __onAfterActiveMeshesEvaluationObservable = null;
             }
         }
 
-        private Observable __onBeforeParticlesRenderingObservable;
-        public Observable onBeforeParticlesRenderingObservable
+        private Observable<Scene> __onBeforeParticlesRenderingObservable;
+        public Observable<Scene> onBeforeParticlesRenderingObservable
         {
             get
             {
             if(__onBeforeParticlesRenderingObservable == null)
             {
-                __onBeforeParticlesRenderingObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onBeforeParticlesRenderingObservable = EventHorizonBlazorInteropt.GetClass<Observable<Scene>>(
                     this.___guid,
                     "onBeforeParticlesRenderingObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Scene>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1871,19 +1871,19 @@ __onBeforeParticlesRenderingObservable = null;
             }
         }
 
-        private Observable __onAfterParticlesRenderingObservable;
-        public Observable onAfterParticlesRenderingObservable
+        private Observable<Scene> __onAfterParticlesRenderingObservable;
+        public Observable<Scene> onAfterParticlesRenderingObservable
         {
             get
             {
             if(__onAfterParticlesRenderingObservable == null)
             {
-                __onAfterParticlesRenderingObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onAfterParticlesRenderingObservable = EventHorizonBlazorInteropt.GetClass<Observable<Scene>>(
                     this.___guid,
                     "onAfterParticlesRenderingObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Scene>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1900,19 +1900,19 @@ __onAfterParticlesRenderingObservable = null;
             }
         }
 
-        private Observable __onDataLoadedObservable;
-        public Observable onDataLoadedObservable
+        private Observable<Scene> __onDataLoadedObservable;
+        public Observable<Scene> onDataLoadedObservable
         {
             get
             {
             if(__onDataLoadedObservable == null)
             {
-                __onDataLoadedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onDataLoadedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Scene>>(
                     this.___guid,
                     "onDataLoadedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Scene>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1929,19 +1929,19 @@ __onDataLoadedObservable = null;
             }
         }
 
-        private Observable __onNewCameraAddedObservable;
-        public Observable onNewCameraAddedObservable
+        private Observable<Camera> __onNewCameraAddedObservable;
+        public Observable<Camera> onNewCameraAddedObservable
         {
             get
             {
             if(__onNewCameraAddedObservable == null)
             {
-                __onNewCameraAddedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onNewCameraAddedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Camera>>(
                     this.___guid,
                     "onNewCameraAddedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Camera>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1958,19 +1958,19 @@ __onNewCameraAddedObservable = null;
             }
         }
 
-        private Observable __onCameraRemovedObservable;
-        public Observable onCameraRemovedObservable
+        private Observable<Camera> __onCameraRemovedObservable;
+        public Observable<Camera> onCameraRemovedObservable
         {
             get
             {
             if(__onCameraRemovedObservable == null)
             {
-                __onCameraRemovedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onCameraRemovedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Camera>>(
                     this.___guid,
                     "onCameraRemovedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Camera>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -1987,19 +1987,19 @@ __onCameraRemovedObservable = null;
             }
         }
 
-        private Observable __onNewLightAddedObservable;
-        public Observable onNewLightAddedObservable
+        private Observable<Light> __onNewLightAddedObservable;
+        public Observable<Light> onNewLightAddedObservable
         {
             get
             {
             if(__onNewLightAddedObservable == null)
             {
-                __onNewLightAddedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onNewLightAddedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Light>>(
                     this.___guid,
                     "onNewLightAddedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Light>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2016,19 +2016,19 @@ __onNewLightAddedObservable = null;
             }
         }
 
-        private Observable __onLightRemovedObservable;
-        public Observable onLightRemovedObservable
+        private Observable<Light> __onLightRemovedObservable;
+        public Observable<Light> onLightRemovedObservable
         {
             get
             {
             if(__onLightRemovedObservable == null)
             {
-                __onLightRemovedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onLightRemovedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Light>>(
                     this.___guid,
                     "onLightRemovedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Light>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2045,19 +2045,19 @@ __onLightRemovedObservable = null;
             }
         }
 
-        private Observable __onNewGeometryAddedObservable;
-        public Observable onNewGeometryAddedObservable
+        private Observable<Geometry> __onNewGeometryAddedObservable;
+        public Observable<Geometry> onNewGeometryAddedObservable
         {
             get
             {
             if(__onNewGeometryAddedObservable == null)
             {
-                __onNewGeometryAddedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onNewGeometryAddedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Geometry>>(
                     this.___guid,
                     "onNewGeometryAddedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Geometry>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2074,19 +2074,19 @@ __onNewGeometryAddedObservable = null;
             }
         }
 
-        private Observable __onGeometryRemovedObservable;
-        public Observable onGeometryRemovedObservable
+        private Observable<Geometry> __onGeometryRemovedObservable;
+        public Observable<Geometry> onGeometryRemovedObservable
         {
             get
             {
             if(__onGeometryRemovedObservable == null)
             {
-                __onGeometryRemovedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onGeometryRemovedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Geometry>>(
                     this.___guid,
                     "onGeometryRemovedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Geometry>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2103,19 +2103,19 @@ __onGeometryRemovedObservable = null;
             }
         }
 
-        private Observable __onNewTransformNodeAddedObservable;
-        public Observable onNewTransformNodeAddedObservable
+        private Observable<TransformNode> __onNewTransformNodeAddedObservable;
+        public Observable<TransformNode> onNewTransformNodeAddedObservable
         {
             get
             {
             if(__onNewTransformNodeAddedObservable == null)
             {
-                __onNewTransformNodeAddedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onNewTransformNodeAddedObservable = EventHorizonBlazorInteropt.GetClass<Observable<TransformNode>>(
                     this.___guid,
                     "onNewTransformNodeAddedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<TransformNode>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2132,19 +2132,19 @@ __onNewTransformNodeAddedObservable = null;
             }
         }
 
-        private Observable __onTransformNodeRemovedObservable;
-        public Observable onTransformNodeRemovedObservable
+        private Observable<TransformNode> __onTransformNodeRemovedObservable;
+        public Observable<TransformNode> onTransformNodeRemovedObservable
         {
             get
             {
             if(__onTransformNodeRemovedObservable == null)
             {
-                __onTransformNodeRemovedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onTransformNodeRemovedObservable = EventHorizonBlazorInteropt.GetClass<Observable<TransformNode>>(
                     this.___guid,
                     "onTransformNodeRemovedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<TransformNode>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2161,19 +2161,19 @@ __onTransformNodeRemovedObservable = null;
             }
         }
 
-        private Observable __onNewMeshAddedObservable;
-        public Observable onNewMeshAddedObservable
+        private Observable<AbstractMesh> __onNewMeshAddedObservable;
+        public Observable<AbstractMesh> onNewMeshAddedObservable
         {
             get
             {
             if(__onNewMeshAddedObservable == null)
             {
-                __onNewMeshAddedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onNewMeshAddedObservable = EventHorizonBlazorInteropt.GetClass<Observable<AbstractMesh>>(
                     this.___guid,
                     "onNewMeshAddedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<AbstractMesh>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2190,19 +2190,19 @@ __onNewMeshAddedObservable = null;
             }
         }
 
-        private Observable __onMeshRemovedObservable;
-        public Observable onMeshRemovedObservable
+        private Observable<AbstractMesh> __onMeshRemovedObservable;
+        public Observable<AbstractMesh> onMeshRemovedObservable
         {
             get
             {
             if(__onMeshRemovedObservable == null)
             {
-                __onMeshRemovedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onMeshRemovedObservable = EventHorizonBlazorInteropt.GetClass<Observable<AbstractMesh>>(
                     this.___guid,
                     "onMeshRemovedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<AbstractMesh>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2219,19 +2219,19 @@ __onMeshRemovedObservable = null;
             }
         }
 
-        private Observable __onNewSkeletonAddedObservable;
-        public Observable onNewSkeletonAddedObservable
+        private Observable<Skeleton> __onNewSkeletonAddedObservable;
+        public Observable<Skeleton> onNewSkeletonAddedObservable
         {
             get
             {
             if(__onNewSkeletonAddedObservable == null)
             {
-                __onNewSkeletonAddedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onNewSkeletonAddedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Skeleton>>(
                     this.___guid,
                     "onNewSkeletonAddedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Skeleton>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2248,19 +2248,19 @@ __onNewSkeletonAddedObservable = null;
             }
         }
 
-        private Observable __onSkeletonRemovedObservable;
-        public Observable onSkeletonRemovedObservable
+        private Observable<Skeleton> __onSkeletonRemovedObservable;
+        public Observable<Skeleton> onSkeletonRemovedObservable
         {
             get
             {
             if(__onSkeletonRemovedObservable == null)
             {
-                __onSkeletonRemovedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onSkeletonRemovedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Skeleton>>(
                     this.___guid,
                     "onSkeletonRemovedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Skeleton>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2277,19 +2277,19 @@ __onSkeletonRemovedObservable = null;
             }
         }
 
-        private Observable __onNewMaterialAddedObservable;
-        public Observable onNewMaterialAddedObservable
+        private Observable<Material> __onNewMaterialAddedObservable;
+        public Observable<Material> onNewMaterialAddedObservable
         {
             get
             {
             if(__onNewMaterialAddedObservable == null)
             {
-                __onNewMaterialAddedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onNewMaterialAddedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Material>>(
                     this.___guid,
                     "onNewMaterialAddedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Material>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2306,19 +2306,19 @@ __onNewMaterialAddedObservable = null;
             }
         }
 
-        private Observable __onMaterialRemovedObservable;
-        public Observable onMaterialRemovedObservable
+        private Observable<Material> __onMaterialRemovedObservable;
+        public Observable<Material> onMaterialRemovedObservable
         {
             get
             {
             if(__onMaterialRemovedObservable == null)
             {
-                __onMaterialRemovedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onMaterialRemovedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Material>>(
                     this.___guid,
                     "onMaterialRemovedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Material>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2335,19 +2335,19 @@ __onMaterialRemovedObservable = null;
             }
         }
 
-        private Observable __onNewTextureAddedObservable;
-        public Observable onNewTextureAddedObservable
+        private Observable<BaseTexture> __onNewTextureAddedObservable;
+        public Observable<BaseTexture> onNewTextureAddedObservable
         {
             get
             {
             if(__onNewTextureAddedObservable == null)
             {
-                __onNewTextureAddedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onNewTextureAddedObservable = EventHorizonBlazorInteropt.GetClass<Observable<BaseTexture>>(
                     this.___guid,
                     "onNewTextureAddedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<BaseTexture>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2364,19 +2364,19 @@ __onNewTextureAddedObservable = null;
             }
         }
 
-        private Observable __onTextureRemovedObservable;
-        public Observable onTextureRemovedObservable
+        private Observable<BaseTexture> __onTextureRemovedObservable;
+        public Observable<BaseTexture> onTextureRemovedObservable
         {
             get
             {
             if(__onTextureRemovedObservable == null)
             {
-                __onTextureRemovedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onTextureRemovedObservable = EventHorizonBlazorInteropt.GetClass<Observable<BaseTexture>>(
                     this.___guid,
                     "onTextureRemovedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<BaseTexture>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2393,19 +2393,19 @@ __onTextureRemovedObservable = null;
             }
         }
 
-        private Observable __onBeforeRenderTargetsRenderObservable;
-        public Observable onBeforeRenderTargetsRenderObservable
+        private Observable<Scene> __onBeforeRenderTargetsRenderObservable;
+        public Observable<Scene> onBeforeRenderTargetsRenderObservable
         {
             get
             {
             if(__onBeforeRenderTargetsRenderObservable == null)
             {
-                __onBeforeRenderTargetsRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onBeforeRenderTargetsRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable<Scene>>(
                     this.___guid,
                     "onBeforeRenderTargetsRenderObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Scene>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2422,19 +2422,19 @@ __onBeforeRenderTargetsRenderObservable = null;
             }
         }
 
-        private Observable __onAfterRenderTargetsRenderObservable;
-        public Observable onAfterRenderTargetsRenderObservable
+        private Observable<Scene> __onAfterRenderTargetsRenderObservable;
+        public Observable<Scene> onAfterRenderTargetsRenderObservable
         {
             get
             {
             if(__onAfterRenderTargetsRenderObservable == null)
             {
-                __onAfterRenderTargetsRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onAfterRenderTargetsRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable<Scene>>(
                     this.___guid,
                     "onAfterRenderTargetsRenderObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Scene>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2451,19 +2451,19 @@ __onAfterRenderTargetsRenderObservable = null;
             }
         }
 
-        private Observable __onBeforeStepObservable;
-        public Observable onBeforeStepObservable
+        private Observable<Scene> __onBeforeStepObservable;
+        public Observable<Scene> onBeforeStepObservable
         {
             get
             {
             if(__onBeforeStepObservable == null)
             {
-                __onBeforeStepObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onBeforeStepObservable = EventHorizonBlazorInteropt.GetClass<Observable<Scene>>(
                     this.___guid,
                     "onBeforeStepObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Scene>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2480,19 +2480,19 @@ __onBeforeStepObservable = null;
             }
         }
 
-        private Observable __onAfterStepObservable;
-        public Observable onAfterStepObservable
+        private Observable<Scene> __onAfterStepObservable;
+        public Observable<Scene> onAfterStepObservable
         {
             get
             {
             if(__onAfterStepObservable == null)
             {
-                __onAfterStepObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onAfterStepObservable = EventHorizonBlazorInteropt.GetClass<Observable<Scene>>(
                     this.___guid,
                     "onAfterStepObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Scene>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2509,19 +2509,19 @@ __onAfterStepObservable = null;
             }
         }
 
-        private Observable __onActiveCameraChanged;
-        public Observable onActiveCameraChanged
+        private Observable<Scene> __onActiveCameraChanged;
+        public Observable<Scene> onActiveCameraChanged
         {
             get
             {
             if(__onActiveCameraChanged == null)
             {
-                __onActiveCameraChanged = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onActiveCameraChanged = EventHorizonBlazorInteropt.GetClass<Observable<Scene>>(
                     this.___guid,
                     "onActiveCameraChanged",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Scene>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2538,19 +2538,19 @@ __onActiveCameraChanged = null;
             }
         }
 
-        private Observable __onBeforeRenderingGroupObservable;
-        public Observable onBeforeRenderingGroupObservable
+        private Observable<RenderingGroupInfo> __onBeforeRenderingGroupObservable;
+        public Observable<RenderingGroupInfo> onBeforeRenderingGroupObservable
         {
             get
             {
             if(__onBeforeRenderingGroupObservable == null)
             {
-                __onBeforeRenderingGroupObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onBeforeRenderingGroupObservable = EventHorizonBlazorInteropt.GetClass<Observable<RenderingGroupInfo>>(
                     this.___guid,
                     "onBeforeRenderingGroupObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<RenderingGroupInfo>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2567,19 +2567,19 @@ __onBeforeRenderingGroupObservable = null;
             }
         }
 
-        private Observable __onAfterRenderingGroupObservable;
-        public Observable onAfterRenderingGroupObservable
+        private Observable<RenderingGroupInfo> __onAfterRenderingGroupObservable;
+        public Observable<RenderingGroupInfo> onAfterRenderingGroupObservable
         {
             get
             {
             if(__onAfterRenderingGroupObservable == null)
             {
-                __onAfterRenderingGroupObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onAfterRenderingGroupObservable = EventHorizonBlazorInteropt.GetClass<Observable<RenderingGroupInfo>>(
                     this.___guid,
                     "onAfterRenderingGroupObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<RenderingGroupInfo>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2596,19 +2596,19 @@ __onAfterRenderingGroupObservable = null;
             }
         }
 
-        private Observable __onMeshImportedObservable;
-        public Observable onMeshImportedObservable
+        private Observable<AbstractMesh> __onMeshImportedObservable;
+        public Observable<AbstractMesh> onMeshImportedObservable
         {
             get
             {
             if(__onMeshImportedObservable == null)
             {
-                __onMeshImportedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onMeshImportedObservable = EventHorizonBlazorInteropt.GetClass<Observable<AbstractMesh>>(
                     this.___guid,
                     "onMeshImportedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<AbstractMesh>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2625,19 +2625,19 @@ __onMeshImportedObservable = null;
             }
         }
 
-        private Observable __onAnimationFileImportedObservable;
-        public Observable onAnimationFileImportedObservable
+        private Observable<Scene> __onAnimationFileImportedObservable;
+        public Observable<Scene> onAnimationFileImportedObservable
         {
             get
             {
             if(__onAnimationFileImportedObservable == null)
             {
-                __onAnimationFileImportedObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onAnimationFileImportedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Scene>>(
                     this.___guid,
                     "onAnimationFileImportedObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<Scene>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2654,19 +2654,19 @@ __onAnimationFileImportedObservable = null;
             }
         }
 
-        private Observable __onPrePointerObservable;
-        public Observable onPrePointerObservable
+        private Observable<PointerInfoPre> __onPrePointerObservable;
+        public Observable<PointerInfoPre> onPrePointerObservable
         {
             get
             {
             if(__onPrePointerObservable == null)
             {
-                __onPrePointerObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onPrePointerObservable = EventHorizonBlazorInteropt.GetClass<Observable<PointerInfoPre>>(
                     this.___guid,
                     "onPrePointerObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<PointerInfoPre>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2683,19 +2683,19 @@ __onPrePointerObservable = null;
             }
         }
 
-        private Observable __onPointerObservable;
-        public Observable onPointerObservable
+        private Observable<PointerInfo> __onPointerObservable;
+        public Observable<PointerInfo> onPointerObservable
         {
             get
             {
             if(__onPointerObservable == null)
             {
-                __onPointerObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onPointerObservable = EventHorizonBlazorInteropt.GetClass<Observable<PointerInfo>>(
                     this.___guid,
                     "onPointerObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<PointerInfo>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2712,19 +2712,19 @@ __onPointerObservable = null;
             }
         }
 
-        private Observable __onPreKeyboardObservable;
-        public Observable onPreKeyboardObservable
+        private Observable<KeyboardInfoPre> __onPreKeyboardObservable;
+        public Observable<KeyboardInfoPre> onPreKeyboardObservable
         {
             get
             {
             if(__onPreKeyboardObservable == null)
             {
-                __onPreKeyboardObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onPreKeyboardObservable = EventHorizonBlazorInteropt.GetClass<Observable<KeyboardInfoPre>>(
                     this.___guid,
                     "onPreKeyboardObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<KeyboardInfoPre>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2741,19 +2741,19 @@ __onPreKeyboardObservable = null;
             }
         }
 
-        private Observable __onKeyboardObservable;
-        public Observable onKeyboardObservable
+        private Observable<KeyboardInfo> __onKeyboardObservable;
+        public Observable<KeyboardInfo> onKeyboardObservable
         {
             get
             {
             if(__onKeyboardObservable == null)
             {
-                __onKeyboardObservable = EventHorizonBlazorInteropt.GetClass<Observable>(
+                __onKeyboardObservable = EventHorizonBlazorInteropt.GetClass<Observable<KeyboardInfo>>(
                     this.___guid,
                     "onKeyboardObservable",
                     (entity) =>
                     {
-                        return new Observable(entity);
+                        return new Observable<KeyboardInfo>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2782,7 +2782,7 @@ __onKeyboardObservable = null;
                     "fogColor",
                     (entity) =>
                     {
-                        return new Color3(entity);
+                        return new Color3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2872,7 +2872,7 @@ __fogColor = null;
                     "activeCameras",
                     (entity) =>
                     {
-                        return new Camera(entity);
+                        return new Camera() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -2983,7 +2983,7 @@ __fogColor = null;
                     "gravity",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -3031,7 +3031,7 @@ __gravity = null;
                     "postProcesses",
                     (entity) =>
                     {
-                        return new PostProcess(entity);
+                        return new PostProcess() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -3058,7 +3058,7 @@ __gravity = null;
                     "postProcessManager",
                     (entity) =>
                     {
-                        return new PostProcessManager(entity);
+                        return new PostProcessManager() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -3127,7 +3127,7 @@ __postProcessManager = null;
                     "customRenderTargets",
                     (entity) =>
                     {
-                        return new RenderTargetTexture(entity);
+                        return new RenderTargetTexture() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -3205,19 +3205,19 @@ __postProcessManager = null;
             }
         }
 
-        private IOfflineProvider __offlineProvider;
-        public IOfflineProvider offlineProvider
+        private IOfflineProviderCachedEntity __offlineProvider;
+        public IOfflineProviderCachedEntity offlineProvider
         {
             get
             {
             if(__offlineProvider == null)
             {
-                __offlineProvider = EventHorizonBlazorInteropt.GetClass<IOfflineProvider>(
+                __offlineProvider = EventHorizonBlazorInteropt.GetClass<IOfflineProviderCachedEntity>(
                     this.___guid,
                     "offlineProvider",
                     (entity) =>
                     {
-                        return new IOfflineProviderCachedEntity(entity);
+                        return new IOfflineProviderCachedEntity() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -3246,7 +3246,7 @@ __offlineProvider = null;
                     "actionManager",
                     (entity) =>
                     {
-                        return new AbstractActionManager(entity);
+                        return new AbstractActionManager() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -3382,7 +3382,7 @@ __actionManager = null;
         }
 
         public Scene(
-            Engine engine, SceneOptions options = null
+            Engine engine, SceneOptionsCachedEntity options = null
         ) : base()
         {
             var entity = EventHorizonBlazorInteropt.New(
@@ -3799,7 +3799,7 @@ __actionManager = null;
         public Material getCachedMaterial()
         {
             return EventHorizonBlazorInteropt.FuncClass<Material>(
-                entity => new Material(entity),
+                entity => new Material() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getCachedMaterial" }
@@ -3810,7 +3810,7 @@ __actionManager = null;
         public Effect getCachedEffect()
         {
             return EventHorizonBlazorInteropt.FuncClass<Effect>(
-                entity => new Effect(entity),
+                entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getCachedEffect" }
@@ -3841,7 +3841,7 @@ __actionManager = null;
         public Engine getEngine()
         {
             return EventHorizonBlazorInteropt.FuncClass<Engine>(
-                entity => new Engine(entity),
+                entity => new Engine() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getEngine" }
@@ -3889,10 +3889,10 @@ __actionManager = null;
             );
         }
 
-        public AbstractMesh getActiveMeshes()
+        public SmartArray<AbstractMesh> getActiveMeshes()
         {
-            return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+            return EventHorizonBlazorInteropt.FuncClass<SmartArray<AbstractMesh>>(
+                entity => new SmartArray<AbstractMesh>() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getActiveMeshes" }
@@ -3943,7 +3943,7 @@ __actionManager = null;
         public Scene simulatePointerMove(PickingInfo pickResult, PointerEventInit pointerEventInit = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Scene>(
-                entity => new Scene(entity),
+                entity => new Scene() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "simulatePointerMove" }, pickResult, pointerEventInit
@@ -3954,7 +3954,7 @@ __actionManager = null;
         public Scene simulatePointerDown(PickingInfo pickResult, PointerEventInit pointerEventInit = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Scene>(
-                entity => new Scene(entity),
+                entity => new Scene() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "simulatePointerDown" }, pickResult, pointerEventInit
@@ -3965,7 +3965,7 @@ __actionManager = null;
         public Scene simulatePointerUp(PickingInfo pickResult, PointerEventInit pointerEventInit = null, System.Nullable<bool> doubleTap = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Scene>(
-                entity => new Scene(entity),
+                entity => new Scene() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "simulatePointerUp" }, pickResult, pointerEventInit, doubleTap
@@ -4320,7 +4320,7 @@ __actionManager = null;
         public Matrix getViewMatrix()
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getViewMatrix" }
@@ -4331,7 +4331,7 @@ __actionManager = null;
         public Matrix getProjectionMatrix()
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getProjectionMatrix" }
@@ -4342,7 +4342,7 @@ __actionManager = null;
         public Matrix getTransformMatrix()
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getTransformMatrix" }
@@ -4363,7 +4363,7 @@ __actionManager = null;
         public UniformBuffer getSceneUniformBuffer()
         {
             return EventHorizonBlazorInteropt.FuncClass<UniformBuffer>(
-                entity => new UniformBuffer(entity),
+                entity => new UniformBuffer() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getSceneUniformBuffer" }
@@ -4461,7 +4461,7 @@ __actionManager = null;
             );
         }
 
-        public decimal removeParticleSystem(IParticleSystem toRemove)
+        public decimal removeParticleSystem(IParticleSystemCachedEntity toRemove)
         {
             return EventHorizonBlazorInteropt.Func<decimal>(
                 new object[] 
@@ -4615,7 +4615,7 @@ __actionManager = null;
             );
         }
 
-        public void addParticleSystem(IParticleSystem newParticleSystem)
+        public void addParticleSystem(IParticleSystemCachedEntity newParticleSystem)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -4718,7 +4718,7 @@ __actionManager = null;
         public Camera setActiveCameraByID(string id)
         {
             return EventHorizonBlazorInteropt.FuncClass<Camera>(
-                entity => new Camera(entity),
+                entity => new Camera() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setActiveCameraByID" }, id
@@ -4729,7 +4729,7 @@ __actionManager = null;
         public Camera setActiveCameraByName(string name)
         {
             return EventHorizonBlazorInteropt.FuncClass<Camera>(
-                entity => new Camera(entity),
+                entity => new Camera() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setActiveCameraByName" }, name
@@ -4740,7 +4740,7 @@ __actionManager = null;
         public AnimationGroup getAnimationGroupByName(string name)
         {
             return EventHorizonBlazorInteropt.FuncClass<AnimationGroup>(
-                entity => new AnimationGroup(entity),
+                entity => new AnimationGroup() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getAnimationGroupByName" }, name
@@ -4751,7 +4751,7 @@ __actionManager = null;
         public Material getMaterialByUniqueID(decimal uniqueId)
         {
             return EventHorizonBlazorInteropt.FuncClass<Material>(
-                entity => new Material(entity),
+                entity => new Material() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getMaterialByUniqueID" }, uniqueId
@@ -4762,7 +4762,7 @@ __actionManager = null;
         public Material getMaterialByID(string id)
         {
             return EventHorizonBlazorInteropt.FuncClass<Material>(
-                entity => new Material(entity),
+                entity => new Material() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getMaterialByID" }, id
@@ -4773,7 +4773,7 @@ __actionManager = null;
         public Material getLastMaterialByID(string id)
         {
             return EventHorizonBlazorInteropt.FuncClass<Material>(
-                entity => new Material(entity),
+                entity => new Material() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getLastMaterialByID" }, id
@@ -4784,7 +4784,7 @@ __actionManager = null;
         public Material getMaterialByName(string name)
         {
             return EventHorizonBlazorInteropt.FuncClass<Material>(
-                entity => new Material(entity),
+                entity => new Material() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getMaterialByName" }, name
@@ -4795,7 +4795,7 @@ __actionManager = null;
         public BaseTexture getTextureByUniqueID(decimal uniqueId)
         {
             return EventHorizonBlazorInteropt.FuncClass<BaseTexture>(
-                entity => new BaseTexture(entity),
+                entity => new BaseTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getTextureByUniqueID" }, uniqueId
@@ -4806,7 +4806,7 @@ __actionManager = null;
         public Camera getCameraByID(string id)
         {
             return EventHorizonBlazorInteropt.FuncClass<Camera>(
-                entity => new Camera(entity),
+                entity => new Camera() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getCameraByID" }, id
@@ -4817,7 +4817,7 @@ __actionManager = null;
         public Camera getCameraByUniqueID(decimal uniqueId)
         {
             return EventHorizonBlazorInteropt.FuncClass<Camera>(
-                entity => new Camera(entity),
+                entity => new Camera() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getCameraByUniqueID" }, uniqueId
@@ -4828,7 +4828,7 @@ __actionManager = null;
         public Camera getCameraByName(string name)
         {
             return EventHorizonBlazorInteropt.FuncClass<Camera>(
-                entity => new Camera(entity),
+                entity => new Camera() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getCameraByName" }, name
@@ -4839,7 +4839,7 @@ __actionManager = null;
         public Bone getBoneByID(string id)
         {
             return EventHorizonBlazorInteropt.FuncClass<Bone>(
-                entity => new Bone(entity),
+                entity => new Bone() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getBoneByID" }, id
@@ -4850,7 +4850,7 @@ __actionManager = null;
         public Bone getBoneByName(string name)
         {
             return EventHorizonBlazorInteropt.FuncClass<Bone>(
-                entity => new Bone(entity),
+                entity => new Bone() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getBoneByName" }, name
@@ -4861,7 +4861,7 @@ __actionManager = null;
         public Light getLightByName(string name)
         {
             return EventHorizonBlazorInteropt.FuncClass<Light>(
-                entity => new Light(entity),
+                entity => new Light() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getLightByName" }, name
@@ -4872,7 +4872,7 @@ __actionManager = null;
         public Light getLightByID(string id)
         {
             return EventHorizonBlazorInteropt.FuncClass<Light>(
-                entity => new Light(entity),
+                entity => new Light() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getLightByID" }, id
@@ -4883,7 +4883,7 @@ __actionManager = null;
         public Light getLightByUniqueID(decimal uniqueId)
         {
             return EventHorizonBlazorInteropt.FuncClass<Light>(
-                entity => new Light(entity),
+                entity => new Light() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getLightByUniqueID" }, uniqueId
@@ -4891,10 +4891,10 @@ __actionManager = null;
             );
         }
 
-        public IParticleSystem getParticleSystemByID(string id)
+        public IParticleSystemCachedEntity getParticleSystemByID(string id)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystem>(
-                entity => new IParticleSystemCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+                entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getParticleSystemByID" }, id
@@ -4905,7 +4905,7 @@ __actionManager = null;
         public Geometry getGeometryByID(string id)
         {
             return EventHorizonBlazorInteropt.FuncClass<Geometry>(
-                entity => new Geometry(entity),
+                entity => new Geometry() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getGeometryByID" }, id
@@ -4936,7 +4936,7 @@ __actionManager = null;
         public Geometry[] getGeometries()
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<Geometry>(
-                entity => new Geometry(entity),
+                entity => new Geometry() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getGeometries" }
@@ -4947,7 +4947,7 @@ __actionManager = null;
         public AbstractMesh getMeshByID(string id)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getMeshByID" }, id
@@ -4958,7 +4958,7 @@ __actionManager = null;
         public AbstractMesh[] getMeshesByID(string id)
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getMeshesByID" }, id
@@ -4969,7 +4969,7 @@ __actionManager = null;
         public TransformNode getTransformNodeByID(string id)
         {
             return EventHorizonBlazorInteropt.FuncClass<TransformNode>(
-                entity => new TransformNode(entity),
+                entity => new TransformNode() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getTransformNodeByID" }, id
@@ -4980,7 +4980,7 @@ __actionManager = null;
         public TransformNode getTransformNodeByUniqueID(decimal uniqueId)
         {
             return EventHorizonBlazorInteropt.FuncClass<TransformNode>(
-                entity => new TransformNode(entity),
+                entity => new TransformNode() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getTransformNodeByUniqueID" }, uniqueId
@@ -4991,7 +4991,7 @@ __actionManager = null;
         public TransformNode[] getTransformNodesByID(string id)
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<TransformNode>(
-                entity => new TransformNode(entity),
+                entity => new TransformNode() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getTransformNodesByID" }, id
@@ -5002,7 +5002,7 @@ __actionManager = null;
         public AbstractMesh getMeshByUniqueID(decimal uniqueId)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getMeshByUniqueID" }, uniqueId
@@ -5013,7 +5013,7 @@ __actionManager = null;
         public AbstractMesh getLastMeshByID(string id)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getLastMeshByID" }, id
@@ -5024,7 +5024,7 @@ __actionManager = null;
         public Node getLastEntryByID(string id)
         {
             return EventHorizonBlazorInteropt.FuncClass<Node>(
-                entity => new Node(entity),
+                entity => new Node() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getLastEntryByID" }, id
@@ -5035,7 +5035,7 @@ __actionManager = null;
         public Node getNodeByID(string id)
         {
             return EventHorizonBlazorInteropt.FuncClass<Node>(
-                entity => new Node(entity),
+                entity => new Node() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getNodeByID" }, id
@@ -5046,7 +5046,7 @@ __actionManager = null;
         public Node getNodeByName(string name)
         {
             return EventHorizonBlazorInteropt.FuncClass<Node>(
-                entity => new Node(entity),
+                entity => new Node() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getNodeByName" }, name
@@ -5057,7 +5057,7 @@ __actionManager = null;
         public AbstractMesh getMeshByName(string name)
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getMeshByName" }, name
@@ -5068,7 +5068,7 @@ __actionManager = null;
         public TransformNode getTransformNodeByName(string name)
         {
             return EventHorizonBlazorInteropt.FuncClass<TransformNode>(
-                entity => new TransformNode(entity),
+                entity => new TransformNode() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getTransformNodeByName" }, name
@@ -5079,7 +5079,7 @@ __actionManager = null;
         public Skeleton getLastSkeletonByID(string id)
         {
             return EventHorizonBlazorInteropt.FuncClass<Skeleton>(
-                entity => new Skeleton(entity),
+                entity => new Skeleton() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getLastSkeletonByID" }, id
@@ -5090,7 +5090,7 @@ __actionManager = null;
         public Skeleton getSkeletonByUniqueId(decimal uniqueId)
         {
             return EventHorizonBlazorInteropt.FuncClass<Skeleton>(
-                entity => new Skeleton(entity),
+                entity => new Skeleton() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getSkeletonByUniqueId" }, uniqueId
@@ -5101,7 +5101,7 @@ __actionManager = null;
         public Skeleton getSkeletonById(string id)
         {
             return EventHorizonBlazorInteropt.FuncClass<Skeleton>(
-                entity => new Skeleton(entity),
+                entity => new Skeleton() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getSkeletonById" }, id
@@ -5112,7 +5112,7 @@ __actionManager = null;
         public Skeleton getSkeletonByName(string name)
         {
             return EventHorizonBlazorInteropt.FuncClass<Skeleton>(
-                entity => new Skeleton(entity),
+                entity => new Skeleton() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getSkeletonByName" }, name
@@ -5123,7 +5123,7 @@ __actionManager = null;
         public MorphTargetManager getMorphTargetManagerById(decimal id)
         {
             return EventHorizonBlazorInteropt.FuncClass<MorphTargetManager>(
-                entity => new MorphTargetManager(entity),
+                entity => new MorphTargetManager() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getMorphTargetManagerById" }, id
@@ -5134,7 +5134,7 @@ __actionManager = null;
         public MorphTarget getMorphTargetById(string id)
         {
             return EventHorizonBlazorInteropt.FuncClass<MorphTarget>(
-                entity => new MorphTarget(entity),
+                entity => new MorphTarget() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getMorphTargetById" }, id
@@ -5152,7 +5152,7 @@ __actionManager = null;
             );
         }
 
-        public bool addExternalData(string key, object data)
+        public bool addExternalData<T>(string key, T data)
         {
             return EventHorizonBlazorInteropt.Func<bool>(
                 new object[] 
@@ -5162,9 +5162,10 @@ __actionManager = null;
             );
         }
 
-        public CachedEntity getExternalData(string key)
+        public T getExternalData<T>(string key) where T : CachedEntity, new()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInteropt.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getExternalData" }, key
@@ -5435,7 +5436,7 @@ __actionManager = null;
         public Scene freezeActiveMeshes(System.Nullable<bool> skipEvaluateActiveMeshes = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Scene>(
-                entity => new Scene(entity),
+                entity => new Scene() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "freezeActiveMeshes" }, skipEvaluateActiveMeshes
@@ -5446,7 +5447,7 @@ __actionManager = null;
         public Scene unfreezeActiveMeshes()
         {
             return EventHorizonBlazorInteropt.FuncClass<Scene>(
-                entity => new Scene(entity),
+                entity => new Scene() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "unfreezeActiveMeshes" }
@@ -5625,7 +5626,7 @@ __actionManager = null;
         public Ray createPickingRay(decimal x, decimal y, Matrix world, Camera camera, System.Nullable<bool> cameraViewSpace = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Ray>(
-                entity => new Ray(entity),
+                entity => new Ray() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "createPickingRay" }, x, y, world, camera, cameraViewSpace
@@ -5636,7 +5637,7 @@ __actionManager = null;
         public Scene createPickingRayToRef(decimal x, decimal y, Matrix world, Ray result, Camera camera, System.Nullable<bool> cameraViewSpace = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Scene>(
-                entity => new Scene(entity),
+                entity => new Scene() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "createPickingRayToRef" }, x, y, world, result, camera, cameraViewSpace
@@ -5647,7 +5648,7 @@ __actionManager = null;
         public Ray createPickingRayInCameraSpace(decimal x, decimal y, Camera camera = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Ray>(
-                entity => new Ray(entity),
+                entity => new Ray() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "createPickingRayInCameraSpace" }, x, y, camera
@@ -5658,7 +5659,7 @@ __actionManager = null;
         public Scene createPickingRayInCameraSpaceToRef(decimal x, decimal y, Ray result, Camera camera = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Scene>(
-                entity => new Scene(entity),
+                entity => new Scene() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "createPickingRayInCameraSpaceToRef" }, x, y, result, camera
@@ -5855,7 +5856,7 @@ __actionManager = null;
         public AbstractMesh getPointerOverMesh()
         {
             return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh(entity),
+                entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getPointerOverMesh" }
@@ -6039,7 +6040,7 @@ __actionManager = null;
         }
         #endregion
 
-        public void setRenderingOrder(decimal renderingGroupId, SubMesh opaqueSortCompareFn = null, SubMesh alphaTestSortCompareFn = null, SubMesh transparentSortCompareFn = null)
+        public void setRenderingOrder(decimal renderingGroupId, CachedEntity opaqueSortCompareFn = null, CachedEntity alphaTestSortCompareFn = null, CachedEntity transparentSortCompareFn = null)
         {
             EventHorizonBlazorInteropt.Func<CachedEntity>(
                 new object[] 
@@ -6059,10 +6060,10 @@ __actionManager = null;
             );
         }
 
-        public IRenderingManagerAutoClearSetup getAutoClearDepthStencilSetup(decimal index)
+        public IRenderingManagerAutoClearSetupCachedEntity getAutoClearDepthStencilSetup(decimal index)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IRenderingManagerAutoClearSetup>(
-                entity => new IRenderingManagerAutoClearSetupCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncClass<IRenderingManagerAutoClearSetupCachedEntity>(
+                entity => new IRenderingManagerAutoClearSetupCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getAutoClearDepthStencilSetup" }, index

@@ -25,7 +25,7 @@ namespace BabylonJS.GUI
         public static Button CreateImageButton(string name, string text, string imageUrl)
         {
             return EventHorizonBlazorInteropt.FuncClass<Button>(
-                entity => new Button(entity),
+                entity => new Button() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "GUI", "Button", "CreateImageButton" }, name, text, imageUrl
@@ -36,7 +36,7 @@ namespace BabylonJS.GUI
         public static Button CreateImageOnlyButton(string name, string imageUrl)
         {
             return EventHorizonBlazorInteropt.FuncClass<Button>(
-                entity => new Button(entity),
+                entity => new Button() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "GUI", "Button", "CreateImageOnlyButton" }, name, imageUrl
@@ -47,7 +47,7 @@ namespace BabylonJS.GUI
         public static Button CreateSimpleButton(string name, string text)
         {
             return EventHorizonBlazorInteropt.FuncClass<Button>(
-                entity => new Button(entity),
+                entity => new Button() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "GUI", "Button", "CreateSimpleButton" }, name, text
@@ -58,7 +58,7 @@ namespace BabylonJS.GUI
         public static Button CreateImageWithCenterTextButton(string name, string text, string imageUrl)
         {
             return EventHorizonBlazorInteropt.FuncClass<Button>(
-                entity => new Button(entity),
+                entity => new Button() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "GUI", "Button", "CreateImageWithCenterTextButton" }, name, text, imageUrl
@@ -80,7 +80,7 @@ namespace BabylonJS.GUI
                     "image",
                     (entity) =>
                     {
-                        return new Image(entity);
+                        return new Image() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -100,7 +100,7 @@ namespace BabylonJS.GUI
                     "textBlock",
                     (entity) =>
                     {
-                        return new TextBlock(entity);
+                        return new TextBlock() { ___guid = entity.___guid };
                     }
                 );
             }

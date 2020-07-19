@@ -59,7 +59,7 @@ namespace BabylonJS
                     "slidePlaneNormal",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -102,7 +102,7 @@ namespace BabylonJS
                     "intersectionPoint",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -131,7 +131,7 @@ __intersectionPoint = null;
                     "collidedMesh",
                     (entity) =>
                     {
-                        return new AbstractMesh(entity);
+                        return new AbstractMesh() { ___guid = entity.___guid };
                     }
                 );
             }

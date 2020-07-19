@@ -38,7 +38,7 @@ namespace BabylonJS
                     "position",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -67,7 +67,7 @@ __position = null;
                     "direction",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -140,7 +140,7 @@ __direction = null;
                     "transformedPosition",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -169,7 +169,7 @@ __transformedPosition = null;
                     "transformedDirection",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -267,7 +267,7 @@ __transformedDirection = null;
         public Vector3 getShadowDirection(System.Nullable<decimal> faceIndex = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getShadowDirection" }, faceIndex
@@ -278,7 +278,7 @@ __transformedDirection = null;
         public Vector3 getAbsolutePosition()
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getAbsolutePosition" }
@@ -289,7 +289,7 @@ __transformedDirection = null;
         public Vector3 setDirectionToTarget(Vector3 target)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setDirectionToTarget" }, target
@@ -300,7 +300,7 @@ __transformedDirection = null;
         public Vector3 getRotation()
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getRotation" }
@@ -341,7 +341,7 @@ __transformedDirection = null;
         public Matrix computeWorldMatrix(System.Nullable<bool> force = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "computeWorldMatrix" }, force
@@ -369,10 +369,10 @@ __transformedDirection = null;
             );
         }
 
-        public IShadowLight setShadowProjectionMatrix(Matrix matrix, Matrix viewMatrix, AbstractMesh[] renderList)
+        public IShadowLightCachedEntity setShadowProjectionMatrix(Matrix matrix, Matrix viewMatrix, AbstractMesh[] renderList)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IShadowLight>(
-                entity => new IShadowLightCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncClass<IShadowLightCachedEntity>(
+                entity => new IShadowLightCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "setShadowProjectionMatrix" }, matrix, viewMatrix, renderList

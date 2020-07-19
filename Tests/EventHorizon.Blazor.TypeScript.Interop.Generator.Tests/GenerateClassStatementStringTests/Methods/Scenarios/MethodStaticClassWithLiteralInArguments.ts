@@ -15,5 +15,9 @@ declare module Static.Class {
             value1?: number;
         }): void;
         static ObjectLiteral(options: object): void;
+        static ObjectLiteralFirst(meshesOrMinMaxVector: {
+            min: Vector3;
+            max: Vector3;
+        } | AbstractMesh[]): Vector3;
     }
 }

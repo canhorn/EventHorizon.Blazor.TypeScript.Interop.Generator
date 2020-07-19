@@ -38,7 +38,7 @@ namespace BabylonJS
                     "position",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -67,7 +67,7 @@ __position = null;
                     "rotation",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -96,7 +96,7 @@ __rotation = null;
                     "rotationQuaternion",
                     (entity) =>
                     {
-                        return new Quaternion(entity);
+                        return new Quaternion() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -125,7 +125,7 @@ __rotationQuaternion = null;
                     "scaling",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -154,7 +154,7 @@ __scaling = null;
                     "animationPropertiesOverride",
                     (entity) =>
                     {
-                        return new AnimationPropertiesOverride(entity);
+                        return new AnimationPropertiesOverride() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -195,7 +195,7 @@ __scaling = null;
                     "children",
                     (entity) =>
                     {
-                        return new Bone(entity);
+                        return new Bone() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -220,7 +220,7 @@ __scaling = null;
                     "animations",
                     (entity) =>
                     {
-                        return new Animation(entity);
+                        return new Animation() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -292,7 +292,7 @@ __scaling = null;
         public Skeleton getSkeleton()
         {
             return EventHorizonBlazorInteropt.FuncClass<Skeleton>(
-                entity => new Skeleton(entity),
+                entity => new Skeleton() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getSkeleton" }
@@ -303,7 +303,7 @@ __scaling = null;
         public Bone getParent()
         {
             return EventHorizonBlazorInteropt.FuncClass<Bone>(
-                entity => new Bone(entity),
+                entity => new Bone() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getParent" }
@@ -314,7 +314,7 @@ __scaling = null;
         public Bone[] getChildren()
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<Bone>(
-                entity => new Bone(entity),
+                entity => new Bone() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getChildren" }
@@ -345,7 +345,7 @@ __scaling = null;
         public Matrix getLocalMatrix()
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getLocalMatrix" }
@@ -356,7 +356,7 @@ __scaling = null;
         public Matrix getBaseMatrix()
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getBaseMatrix" }
@@ -367,7 +367,7 @@ __scaling = null;
         public Matrix getRestPose()
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getRestPose" }
@@ -378,7 +378,7 @@ __scaling = null;
         public Matrix getWorldMatrix()
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getWorldMatrix" }
@@ -399,7 +399,7 @@ __scaling = null;
         public Matrix getInvertedAbsoluteTransform()
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getInvertedAbsoluteTransform" }
@@ -410,7 +410,7 @@ __scaling = null;
         public Matrix getAbsoluteTransform()
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getAbsoluteTransform" }
@@ -431,7 +431,7 @@ __scaling = null;
         public TransformNode getTransformNode()
         {
             return EventHorizonBlazorInteropt.FuncClass<TransformNode>(
-                entity => new TransformNode(entity),
+                entity => new TransformNode() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getTransformNode" }
@@ -512,7 +512,7 @@ __scaling = null;
         public Vector3 getScale()
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getScale" }
@@ -593,7 +593,7 @@ __scaling = null;
         public Vector3 getPosition(Space space = null, AbstractMesh mesh = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getPosition" }, space, mesh
@@ -614,7 +614,7 @@ __scaling = null;
         public Vector3 getAbsolutePosition(AbstractMesh mesh = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getAbsolutePosition" }, mesh
@@ -645,7 +645,7 @@ __scaling = null;
         public Vector3 getDirection(Vector3 localAxis, AbstractMesh mesh = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getDirection" }, localAxis, mesh
@@ -666,7 +666,7 @@ __scaling = null;
         public Vector3 getRotation(Space space = null, AbstractMesh mesh = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getRotation" }, space, mesh
@@ -687,7 +687,7 @@ __scaling = null;
         public Quaternion getRotationQuaternion(Space space = null, AbstractMesh mesh = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
-                entity => new Quaternion(entity),
+                entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getRotationQuaternion" }, space, mesh
@@ -708,7 +708,7 @@ __scaling = null;
         public Matrix getRotationMatrix(AbstractMesh mesh, Space space = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Matrix>(
-                entity => new Matrix(entity),
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getRotationMatrix" }, space, mesh
@@ -729,7 +729,7 @@ __scaling = null;
         public Vector3 getAbsolutePositionFromLocal(Vector3 position, AbstractMesh mesh = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getAbsolutePositionFromLocal" }, position, mesh
@@ -750,7 +750,7 @@ __scaling = null;
         public Vector3 getLocalPositionFromAbsolute(Vector3 position, AbstractMesh mesh = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getLocalPositionFromAbsolute" }, position, mesh

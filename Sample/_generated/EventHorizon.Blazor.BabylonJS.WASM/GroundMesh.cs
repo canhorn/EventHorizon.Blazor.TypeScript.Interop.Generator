@@ -25,7 +25,7 @@ namespace BabylonJS
         public static GroundMesh Parse(object parsedMesh, Scene scene)
         {
             return EventHorizonBlazorInteropt.FuncClass<GroundMesh>(
-                entity => new GroundMesh(entity),
+                entity => new GroundMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "GroundMesh", "Parse" }, parsedMesh, scene
@@ -150,7 +150,7 @@ namespace BabylonJS
         public Vector3 getNormalAtCoordinates(decimal x, decimal z)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getNormalAtCoordinates" }, x, z
@@ -161,7 +161,7 @@ namespace BabylonJS
         public GroundMesh getNormalAtCoordinatesToRef(decimal x, decimal z, Vector3 @ref)
         {
             return EventHorizonBlazorInteropt.FuncClass<GroundMesh>(
-                entity => new GroundMesh(entity),
+                entity => new GroundMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "getNormalAtCoordinatesToRef" }, x, z, @ref
@@ -172,7 +172,7 @@ namespace BabylonJS
         public GroundMesh updateCoordinateHeights()
         {
             return EventHorizonBlazorInteropt.FuncClass<GroundMesh>(
-                entity => new GroundMesh(entity),
+                entity => new GroundMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "updateCoordinateHeights" }

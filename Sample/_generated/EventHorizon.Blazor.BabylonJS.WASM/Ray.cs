@@ -25,7 +25,7 @@ namespace BabylonJS
         public static Ray Zero()
         {
             return EventHorizonBlazorInteropt.FuncClass<Ray>(
-                entity => new Ray(entity),
+                entity => new Ray() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Ray", "Zero" }
@@ -36,7 +36,7 @@ namespace BabylonJS
         public static Ray CreateNew(decimal x, decimal y, decimal viewportWidth, decimal viewportHeight, Matrix world, Matrix view, Matrix projection)
         {
             return EventHorizonBlazorInteropt.FuncClass<Ray>(
-                entity => new Ray(entity),
+                entity => new Ray() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Ray", "CreateNew" }, x, y, viewportWidth, viewportHeight, world, view, projection
@@ -47,7 +47,7 @@ namespace BabylonJS
         public static Ray CreateNewFromTo(Vector3 origin, Vector3 end, Matrix world = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Ray>(
-                entity => new Ray(entity),
+                entity => new Ray() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Ray", "CreateNewFromTo" }, origin, end, world
@@ -58,7 +58,7 @@ namespace BabylonJS
         public static Ray Transform(Ray ray, Matrix matrix)
         {
             return EventHorizonBlazorInteropt.FuncClass<Ray>(
-                entity => new Ray(entity),
+                entity => new Ray() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "Ray", "Transform" }, ray, matrix
@@ -94,7 +94,7 @@ namespace BabylonJS
                     "origin",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -123,7 +123,7 @@ __origin = null;
                     "direction",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -218,7 +218,7 @@ __direction = null;
         public IntersectionInfo intersectsTriangle(Vector3 vertex0, Vector3 vertex1, Vector3 vertex2)
         {
             return EventHorizonBlazorInteropt.FuncClass<IntersectionInfo>(
-                entity => new IntersectionInfo(entity),
+                entity => new IntersectionInfo() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "intersectsTriangle" }, vertex0, vertex1, vertex2
@@ -239,7 +239,7 @@ __direction = null;
         public Vector3 intersectsAxis(string axis, System.Nullable<decimal> offset = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<Vector3>(
-                entity => new Vector3(entity),
+                entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "intersectsAxis" }, axis, offset
@@ -250,7 +250,7 @@ __direction = null;
         public PickingInfo intersectsMesh(AbstractMesh mesh, System.Nullable<bool> fastCheck = null)
         {
             return EventHorizonBlazorInteropt.FuncClass<PickingInfo>(
-                entity => new PickingInfo(entity),
+                entity => new PickingInfo() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "intersectsMesh" }, mesh, fastCheck
@@ -261,7 +261,7 @@ __direction = null;
         public PickingInfo[] intersectsMeshes(AbstractMesh[] meshes, System.Nullable<bool> fastCheck = null, PickingInfo[] results = null)
         {
             return EventHorizonBlazorInteropt.FuncArrayClass<PickingInfo>(
-                entity => new PickingInfo(entity),
+                entity => new PickingInfo() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "intersectsMeshes" }, meshes, fastCheck, results
@@ -282,7 +282,7 @@ __direction = null;
         public Ray update(decimal x, decimal y, decimal viewportWidth, decimal viewportHeight, Matrix world, Matrix view, Matrix projection)
         {
             return EventHorizonBlazorInteropt.FuncClass<Ray>(
-                entity => new Ray(entity),
+                entity => new Ray() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "update" }, x, y, viewportWidth, viewportHeight, world, view, projection

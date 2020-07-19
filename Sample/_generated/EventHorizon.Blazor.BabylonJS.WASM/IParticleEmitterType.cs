@@ -8,7 +8,7 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IParticleEmitterType { }
+    public interface IParticleEmitterType : ICachedEntity { }
     
     [JsonConverter(typeof(CachedEntityConverter))]
     public class IParticleEmitterTypeCachedEntity : CachedEntityObject, IParticleEmitterType
@@ -66,10 +66,10 @@ namespace BabylonJS
             );
         }
 
-        public IParticleEmitterType clone()
+        public IParticleEmitterTypeCachedEntity clone()
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleEmitterType>(
-                entity => new IParticleEmitterTypeCachedEntity(entity),
+            return EventHorizonBlazorInteropt.FuncClass<IParticleEmitterTypeCachedEntity>(
+                entity => new IParticleEmitterTypeCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }

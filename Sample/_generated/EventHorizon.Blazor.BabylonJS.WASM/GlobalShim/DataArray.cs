@@ -6,6 +6,10 @@ using EventHorizon.Blazor.Interop;
 
 public class DataArray : CachedEntity
 {
+    public DataArray()
+    {
+    }
+
     public DataArray(
         ICachedEntity entity
     )

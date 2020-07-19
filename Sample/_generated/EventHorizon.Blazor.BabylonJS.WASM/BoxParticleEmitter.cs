@@ -42,7 +42,7 @@ namespace BabylonJS
                     "direction1",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -71,7 +71,7 @@ __direction1 = null;
                     "direction2",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -100,7 +100,7 @@ __direction2 = null;
                     "minEmitBox",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -129,7 +129,7 @@ __minEmitBox = null;
                     "maxEmitBox",
                     (entity) =>
                     {
-                        return new Vector3(entity);
+                        return new Vector3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -183,7 +183,7 @@ __maxEmitBox = null;
         public BoxParticleEmitter clone()
         {
             return EventHorizonBlazorInteropt.FuncClass<BoxParticleEmitter>(
-                entity => new BoxParticleEmitter(entity),
+                entity => new BoxParticleEmitter() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }

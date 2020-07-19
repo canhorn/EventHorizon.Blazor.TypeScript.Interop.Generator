@@ -1,10 +1,11 @@
 using System.Text.Json.Serialization;
+using BabylonJS;
 using EventHorizon.Blazor.Interop;
 
 namespace EventHorizon.Blazor.BabylonJS.Model
 {
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class Canvas : CachedEntity
+    public class Canvas : HTMLCanvasElementCachedEntity
     {
         public static Canvas GetElementById(
             string elementId

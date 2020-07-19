@@ -25,7 +25,7 @@ namespace BabylonJS
         public static FresnelParameters Parse(object parsedFresnelParameters)
         {
             return EventHorizonBlazorInteropt.FuncClass<FresnelParameters>(
-                entity => new FresnelParameters(entity),
+                entity => new FresnelParameters() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { "BABYLON", "FresnelParameters", "Parse" }, parsedFresnelParameters
@@ -70,7 +70,7 @@ namespace BabylonJS
                     "leftColor",
                     (entity) =>
                     {
-                        return new Color3(entity);
+                        return new Color3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -99,7 +99,7 @@ __leftColor = null;
                     "rightColor",
                     (entity) =>
                     {
-                        return new Color3(entity);
+                        return new Color3() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -176,7 +176,7 @@ __rightColor = null;
         public FresnelParameters clone()
         {
             return EventHorizonBlazorInteropt.FuncClass<FresnelParameters>(
-                entity => new FresnelParameters(entity),
+                entity => new FresnelParameters() { ___guid = entity.___guid },
                 new object[] 
                 {
                     new string[] { this.___guid, "clone" }
