@@ -23,7 +23,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             var genericPostfixTemplate = "[[NAME]][[INTERFACE_POSTFIX]]<[[GENERIC_TYPES]]>";
             var arrayTemplate = "[[GENERIC_TYPES]][]";
             var rootArrayTemplate = "[[GENERIC_TYPES]]";
-            var includePostfixGenericArrayTemplate = "[[GENERIC_TYPES]][[INTERFACE_POSTFIX]]";
             var template = standardTemplate;
             if (type.IsInterface)
             {
@@ -59,17 +58,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             )
             {
                 template = rootArrayTemplate;
-                if (!type.IsNullable
-                    && !type.IsModifier
-                    && !type.IsArray
-                )
-                {
-                    template = includePostfixGenericArrayTemplate;
-                }
-                if (type.IsInterface)
-                {
-                    template = includePostfixGenericArrayTemplate;
-                }
             }
             if (type.IsAction)
             {

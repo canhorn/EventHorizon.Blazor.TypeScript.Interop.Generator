@@ -133,16 +133,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
         )
         {
             var stopwatch = Stopwatch.StartNew();
-            if (generatedStatements == null)
-            {
-                generatedStatements = new List<ClassStatement>();
-            }
             foreach (var classIdentifier in generationList)
             {
-                if (classIdentifier == "object")
-                {
-                    Debugger.Break();
-                }
                 if (generatedStatements.Any(a => a.Name == classIdentifier)
                     || notGeneratedClassNames.Contains(classIdentifier))
                 {
@@ -154,13 +146,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                     {
                         notGeneratedClassNames.Contains(classIdentifier);
                     }
-                    continue;
-                }
-                if (classIdentifier == null)
-                {
-                    GlobalLogger.Error(
-                        $"Was 'null' classIdentifier."
-                    );
                     continue;
                 }
                 stopwatch.Restart();

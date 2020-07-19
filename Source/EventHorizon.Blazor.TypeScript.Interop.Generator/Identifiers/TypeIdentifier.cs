@@ -27,14 +27,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             {
                 type = jsType;
             }
-            if (VoidTypeParameterIdentifier.Identify(
-                node,
-                type,
-                out var voidType
-            ))
-            {
-                type = voidType;
-            }
 
             return type;
         }
@@ -82,10 +74,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 childNode => childNode.Kind != SyntaxKind.NullKeyword
                     && childNode.Kind != SyntaxKind.UndefinedKeyword
             );
-            if (firstNode == null)
-            {
-                return GenerationIdentifiedTypes.Unknown;
-            }
             return GetFromNode(
                 firstNode,
                 firstNode.Kind,
@@ -98,25 +86,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             ClassMetadata classMetadata
         )
         {
-            if (node is ParenthesizedTypeNode typedNode)
-            {
-                return GetFromNode(
-                    node.First,
-                    node.First.Kind,
-                    classMetadata
-                );
-            }
-            if (node.Kind == SyntaxKind.FunctionType)
-            {
-                return GetFromNode(
-                    node,
-                    node.First.Kind,
-                    classMetadata
-                );
-            }
             return GetFromNode(
-                node,
-                node.First.First.Kind,
+                node.First,
+                node.First.Kind,
                 classMetadata
             );
         }

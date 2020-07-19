@@ -13,20 +13,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         )
         {
             var list = default(IList<string>);
-            if (node is ClassDeclaration classDeclaration)
-            {
-                list = classDeclaration.TypeParameters
-                    ?.Select(
-                        a => a.IdentifierStr
-                    ).ToList();
-            }
-            if (node is InterfaceDeclaration interfaceDeclaration)
-            {
-                list = interfaceDeclaration.TypeParameters
-                    ?.Select(
-                        a => a.IdentifierStr
-                    ).ToList();
-            }
             if (node is MethodDeclaration methodDeclaration)
             {
                 list = methodDeclaration.TypeParameters

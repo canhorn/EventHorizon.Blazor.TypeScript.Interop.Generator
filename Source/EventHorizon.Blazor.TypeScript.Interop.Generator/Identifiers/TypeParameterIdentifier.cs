@@ -38,16 +38,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                         typeParam => typeParam.IdentifierStr
                     ).ToList();
             }
-            if (node is TypeReferenceNode typeReference)
-            {
-                list = typeReference
-                    .TypeArguments
-                    ?.Where(a => a is TypeReferenceNode)
-                    .Cast<TypeReferenceNode>()
-                    .Select(
-                        typeParam => typeParam.IdentifierStr
-                    ).ToList();
-            }
             if (list == null)
             {
                 return new List<string>();
