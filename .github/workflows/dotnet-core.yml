@@ -29,7 +29,7 @@ jobs:
         token: ${{ secrets.CODECOV_TOKEN }}
         file: ./Tests/EventHorizon.Blazor.TypeScript.Interop.Generator.Tests/coverage.opencover.xml
     - name: Publish
-      run: dotnet publish --configuration Release --no-restore ./Sample/EventHorizon.Blazor.BabylonJS
+      run: dotnet publish --configuration Release ./Sample/EventHorizon.Blazor.BabylonJS
     - name: Build And Deploy
       id: builddeploy
       uses: Azure/static-web-apps-deploy@v0.0.1-preview
