@@ -28,3 +28,18 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         file: ./Tests/EventHorizon.Blazor.TypeScript.Interop.Generator.Tests/coverage.opencover.xml
+    - name: Publish
+      run: dotnet publish --configuration Release --no-restore ./Sample/EventHorizon.Blazor.BabylonJS
+    - name: Build And Deploy
+      id: builddeploy
+      uses: Azure/static-web-apps-deploy@v0.0.1-preview
+      with:
+        azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WONDERFUL_POND_05F7B3B10 }}
+        repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+        action: "upload"
+        ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
+        # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+        app_location: "/Sample/EventHorizon.Blazor.BabylonJS" # App source code path
+        api_location: "" # Api source code path - optional
+        app_artifact_location: "/Sample/EventHorizon.Blazor.BabylonJS/bin/Release/netstandard2.1/publish/wwwroot" # Built app content directory - optional
+        ###### End of Repository/Build Configurations ######
