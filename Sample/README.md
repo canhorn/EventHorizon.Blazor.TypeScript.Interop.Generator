@@ -1,9 +1,22 @@
 # EventHorizon TypeScript Interop Generator - Sample
 
-This Sample is an example of using the Generator to create a Blazor Application using BabylonJS to create a simple scene.
+This solution includes a few projects that display the usage of the Generator functionality. 
 
-## Usage
+## API Generation
 
-To use run this sample you will need to generate the EventHorizon.BabylonJS.Interop.Generator.ConsoleApp project. 
+The EventHorizon.BabylonJS.Interop.Generator.ConsoleApp console project can generate the C# proxy project. It uses the BabylonJS TypeScript deinition for the API generation. 
 
-A dotnet run from the root of EventHorizon.BabylonJS.Interop.Generator.ConsoleApp should be all that is needed to generate the WASM project.
+Update the generationList variable in the Project.cs file to generate more Class/Interface API's.
+
+~~~ bash
+# Run this from the EventHorizon.BabylonJS.Interop.Generator.ConsoleApp project root
+dotnet run
+~~~
+
+## Blazor Interop
+
+The EventHorizon.Blazor.Interop project includes a common set of JSRuntime interop patterns, these patterns help with common functionality that is needed by the generated project to access the JavaScript .
+
+## Website Example
+
+The EventHorizon.Blazor.BabylonJS project is a ASP.NET Core Blazor WASM (client side) project, the website uses the generated BabylonJS project to show of creating a BabylonJS Scene using just C# on a Razor page.
