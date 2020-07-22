@@ -1,12 +1,13 @@
 using System.Collections.Generic;
 using System.IO;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
 using FluentAssertions;
 using Sdcb.TypeScript;
 using Xunit;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassStatementStringTests
 {
-    public class InterfaceTest
+    public class InterfaceTests
     {
         [Fact]
         public void ShouldGenerateInterfaceString()
@@ -26,7 +27,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
                 typeOverrideMap
             );
             var actual = GenerateClassStatementString.Generate(
-                generated
+                generated,
+                new NoFormattingTextFormatter()
             );
 
             // Then

@@ -107,12 +107,72 @@ namespace Static.Primitive
             );
         }
 
-        public decimal[] deepImmutableArray()
+        public string[] nullableArrayExample()
+        {
+            return EventHorizonBlazorInteropt.FuncArray<string>(
+                new object[]
+                {
+                    new string[] { this.___guid, "nullableArrayExample" }
+                }
+            );
+        }
+
+        public string[] nullableArrayLikeExample()
+        {
+            return EventHorizonBlazorInteropt.FuncArray<string>(
+                new object[]
+                {
+                    new string[] { this.___guid, "nullableArrayLikeExample" }
+                }
+            );
+        }
+
+        public decimal[] nullableFloatArrayExample()
         {
             return EventHorizonBlazorInteropt.FuncArray<decimal>(
                 new object[]
                 {
-                    new string[] { this.___guid, "deepImmutableArray" }
+                    new string[] { this.___guid, "nullableFloatArrayExample" }
+                }
+            );
+        }
+
+        public decimal[] nullableFloat32ArrayExample()
+        {
+            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+                new object[]
+                {
+                    new string[] { this.___guid, "nullableFloat32ArrayExample" }
+                }
+            );
+        }
+
+        public decimal[] nullableIndicesArrayExample()
+        {
+            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+                new object[]
+                {
+                    new string[] { this.___guid, "nullableIndicesArrayExample" }
+                }
+            );
+        }
+
+        public decimal[] nullableUint8ArrayExample()
+        {
+            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+                new object[]
+                {
+                    new string[] { this.___guid, "nullableUint8ArrayExample" }
+                }
+            );
+        }
+
+        public decimal[] nullableDeepImmutableArray()
+        {
+            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+                new object[]
+                {
+                    new string[] { this.___guid, "nullableDeepImmutableArray" }
                 }
             );
         }

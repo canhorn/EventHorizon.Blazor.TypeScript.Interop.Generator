@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
@@ -17,6 +18,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         {
             return Identify(
                 statement.Type
+            )
+            // Check for not supported Action Arguments
+            || (statement.Arguments.Any(a => a.Type.IsAction)
+                && !(statement.Arguments.Take(1).Any(a => a.Type.IsAction))
             );
         }
 
@@ -36,6 +41,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             // Check for supported Response Type
             if (!typeStatement.IsArray
                 && !typeStatement.IsNullable
+                && !typeStatement.IsAction
                 && typeStatement.GenericTypes.Any()
                 && PrimitiveTypeIdentifier.Identify(
                     typeStatement.GenericTypes.First().Name

@@ -109,7 +109,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     template = "// [[NAME]] is not supported by the platform yet";
                 }
 
-                Console.WriteLine("STOP");
                 template = template
                     .Replace(
                         "[[PROPERTY_GETTER]]",
@@ -137,7 +136,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         string.Empty
                     ).Replace(
                         "[[NAME]]",
-                        DotNetNormailzer.Normailze(
+                        DotNetNormalizer.Normalize(
                             property.Name
                         )
                     ).Replace(
@@ -148,20 +147,17 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         property.Name.Captialize()
                     ).Replace(
                         "[[TYPE]]",
-                        // TODO: [TypeStatementWriter]: Use Writer Here
                         TypeStatementWriter.Write(
                             property.Type
                         )
                     ).Replace(
                         "[[ARRAY_TYPE]]",
-                        // TODO: [TypeStatementWriter]: Use Writer Here
                         TypeStatementWriter.Write(
                             property.Type,
                             true
                         )
                     ).Replace(
                         "[[NEW_TYPE]]",
-                        // TODO: [TypeStatementWriter]: Use Writer Here
                         TypeStatementWriter.Write(
                             property.Type,
                             true

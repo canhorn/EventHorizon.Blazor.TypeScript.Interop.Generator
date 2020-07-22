@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Writer;
 using FluentAssertions;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
-using Microsoft.CodeAnalysis.Text;
 using Moq;
-using Sdcb.TypeScript;
 using Xunit;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
@@ -47,7 +44,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
                 sourceDirectory,
                 sourceFiles,
                 generationList,
-                writerMock.Object, 
+                writerMock.Object,
+                new NoFormattingTextFormatter(),
                 typeOverrideMap
             );
 

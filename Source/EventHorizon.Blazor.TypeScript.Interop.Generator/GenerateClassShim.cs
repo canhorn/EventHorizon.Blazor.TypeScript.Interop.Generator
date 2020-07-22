@@ -1,13 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 using Sdcb.TypeScript;
 using Sdcb.TypeScript.TsTypes;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Templates;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator
 {
@@ -20,7 +17,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             return new ClassStatement
             {
                 Namespace = "global.GlobalShim",
-                Name = classIdentifier,
+                Name = DotNetClassNormalizer.Normalize(
+                    classIdentifier
+                ),
             };
         }
 

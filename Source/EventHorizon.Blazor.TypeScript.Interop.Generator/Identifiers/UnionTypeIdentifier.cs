@@ -13,10 +13,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
     public class UnionTypeIdentifier
     {
         private static IRule IsUnionTypeRule = new IsUnionType();
+
         internal static bool Identify(
             ParameterDeclaration parameter,
             ClassMetadata classMetadata,
             TypeScriptAST ast,
+            TypeOverrideDetails typeOverrideDetails,
             out TypeStatement type
         )
         {
@@ -42,7 +44,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     type = GenericTypeIdentifier.Identify(
                         unionNode,
                         classMetadata,
-                        ast
+                        ast,
+                        typeOverrideDetails
                     );
                 }
 

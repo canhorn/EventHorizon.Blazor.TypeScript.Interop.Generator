@@ -1868,93 +1868,9 @@ __onAfterDrawObservable = null;
             );
         }
 
-        #region getDescendantsToRef TODO: Get Comments as metadata identification
-        private bool _isGetDescendantsToRefEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _getDescendantsToRefActionMap = new Dictionary<string, Func<Task>>();
+// getDescendantsToRef is not supported by the platform yet
 
-        public string getDescendantsToRef(
-            Func<Task> callback
-        )
-        {
-            SetupGetDescendantsToRefLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _getDescendantsToRefActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupGetDescendantsToRefLoop()
-        {
-            if (_isGetDescendantsToRefEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "getDescendantsToRef",
-                "CallGetDescendantsToRefActions",
-                _invokableReference
-            );
-            _isGetDescendantsToRefEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallGetDescendantsToRefActions()
-        {
-            foreach (var action in _getDescendantsToRefActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region getDescendants TODO: Get Comments as metadata identification
-        private bool _isGetDescendantsEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _getDescendantsActionMap = new Dictionary<string, Func<Task>>();
-
-        public string getDescendants(
-            Func<Task> callback
-        )
-        {
-            SetupGetDescendantsLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _getDescendantsActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupGetDescendantsLoop()
-        {
-            if (_isGetDescendantsEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "getDescendants",
-                "CallGetDescendantsActions",
-                _invokableReference
-            );
-            _isGetDescendantsEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallGetDescendantsActions()
-        {
-            foreach (var action in _getDescendantsActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// getDescendants is not supported by the platform yet
 
         public void linkWithMesh(AbstractMesh mesh)
         {

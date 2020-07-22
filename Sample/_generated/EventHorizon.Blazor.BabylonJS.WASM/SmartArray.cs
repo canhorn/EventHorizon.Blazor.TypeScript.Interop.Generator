@@ -111,10 +111,10 @@ namespace BabylonJS
 
         #region forEach TODO: Get Comments as metadata identification
         private bool _isForEachEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _forEachActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<T, Task>> _forEachActionMap = new Dictionary<string, Func<T, Task>>();
 
         public string forEach(
-            Func<Task> callback
+            Func<T, Task> callback
         )
         {
             SetupForEachLoop();
@@ -144,21 +144,21 @@ namespace BabylonJS
         }
 
         [JSInvokable]
-        public async Task CallForEachActions()
+        public async Task CallForEachActions(T content)
         {
             foreach (var action in _forEachActionMap.Values)
             {
-                await action();
+                await action(content);
             }
         }
         #endregion
 
         #region sort TODO: Get Comments as metadata identification
         private bool _isSortEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _sortActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<T, T, Task>> _sortActionMap = new Dictionary<string, Func<T, T, Task>>();
 
         public string sort(
-            Func<Task> callback
+            Func<T, T, Task> callback
         )
         {
             SetupSortLoop();
@@ -188,11 +188,11 @@ namespace BabylonJS
         }
 
         [JSInvokable]
-        public async Task CallSortActions()
+        public async Task CallSortActions(T a, T b)
         {
             foreach (var action in _sortActionMap.Values)
             {
-                await action();
+                await action(a, b);
             }
         }
         #endregion

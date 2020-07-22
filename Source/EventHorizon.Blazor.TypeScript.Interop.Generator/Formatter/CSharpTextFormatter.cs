@@ -1,13 +1,14 @@
 using System.Text;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Formatter;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Text;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter
 {
-    public static class FormatCSharpText
+    public class CSharpTextFormatter : TextFormatter
     {
-        public static string Format(
+        public string Format(
             string text
         )
         {

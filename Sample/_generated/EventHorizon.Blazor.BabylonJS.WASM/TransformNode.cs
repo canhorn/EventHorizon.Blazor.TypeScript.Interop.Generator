@@ -675,49 +675,7 @@ __onAfterWorldMatrixUpdateObservable = null;
             );
         }
 
-        #region instantiateHierarchy TODO: Get Comments as metadata identification
-        private bool _isInstantiateHierarchyEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _instantiateHierarchyActionMap = new Dictionary<string, Func<Task>>();
-
-        public string instantiateHierarchy(
-            Func<Task> callback
-        )
-        {
-            SetupInstantiateHierarchyLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _instantiateHierarchyActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupInstantiateHierarchyLoop()
-        {
-            if (_isInstantiateHierarchyEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "instantiateHierarchy",
-                "CallInstantiateHierarchyActions",
-                _invokableReference
-            );
-            _isInstantiateHierarchyEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallInstantiateHierarchyActions()
-        {
-            foreach (var action in _instantiateHierarchyActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// instantiateHierarchy is not supported by the platform yet
 
         public TransformNode freezeWorldMatrix(Matrix newWorldMatrix = null)
         {
@@ -995,10 +953,10 @@ __onAfterWorldMatrixUpdateObservable = null;
 
         #region registerAfterWorldMatrixUpdate TODO: Get Comments as metadata identification
         private bool _isRegisterAfterWorldMatrixUpdateEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _registerAfterWorldMatrixUpdateActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<TransformNode, Task>> _registerAfterWorldMatrixUpdateActionMap = new Dictionary<string, Func<TransformNode, Task>>();
 
         public string registerAfterWorldMatrixUpdate(
-            Func<Task> callback
+            Func<TransformNode, Task> callback
         )
         {
             SetupRegisterAfterWorldMatrixUpdateLoop();
@@ -1028,21 +986,21 @@ __onAfterWorldMatrixUpdateObservable = null;
         }
 
         [JSInvokable]
-        public async Task CallRegisterAfterWorldMatrixUpdateActions()
+        public async Task CallRegisterAfterWorldMatrixUpdateActions(TransformNode mesh)
         {
             foreach (var action in _registerAfterWorldMatrixUpdateActionMap.Values)
             {
-                await action();
+                await action(mesh);
             }
         }
         #endregion
 
         #region unregisterAfterWorldMatrixUpdate TODO: Get Comments as metadata identification
         private bool _isUnregisterAfterWorldMatrixUpdateEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _unregisterAfterWorldMatrixUpdateActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<TransformNode, Task>> _unregisterAfterWorldMatrixUpdateActionMap = new Dictionary<string, Func<TransformNode, Task>>();
 
         public string unregisterAfterWorldMatrixUpdate(
-            Func<Task> callback
+            Func<TransformNode, Task> callback
         )
         {
             SetupUnregisterAfterWorldMatrixUpdateLoop();
@@ -1072,11 +1030,11 @@ __onAfterWorldMatrixUpdateObservable = null;
         }
 
         [JSInvokable]
-        public async Task CallUnregisterAfterWorldMatrixUpdateActions()
+        public async Task CallUnregisterAfterWorldMatrixUpdateActions(TransformNode mesh)
         {
             foreach (var action in _unregisterAfterWorldMatrixUpdateActionMap.Values)
             {
-                await action();
+                await action(mesh);
             }
         }
         #endregion
@@ -1123,49 +1081,7 @@ __onAfterWorldMatrixUpdateObservable = null;
             );
         }
 
-        #region getChildTransformNodes TODO: Get Comments as metadata identification
-        private bool _isGetChildTransformNodesEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _getChildTransformNodesActionMap = new Dictionary<string, Func<Task>>();
-
-        public string getChildTransformNodes(
-            Func<Task> callback
-        )
-        {
-            SetupGetChildTransformNodesLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _getChildTransformNodesActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupGetChildTransformNodesLoop()
-        {
-            if (_isGetChildTransformNodesEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "getChildTransformNodes",
-                "CallGetChildTransformNodesActions",
-                _invokableReference
-            );
-            _isGetChildTransformNodesEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallGetChildTransformNodesActions()
-        {
-            foreach (var action in _getChildTransformNodesActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// getChildTransformNodes is not supported by the platform yet
 
         public void dispose(System.Nullable<bool> doNotRecurse = null, System.Nullable<bool> disposeMaterialAndTextures = null)
         {

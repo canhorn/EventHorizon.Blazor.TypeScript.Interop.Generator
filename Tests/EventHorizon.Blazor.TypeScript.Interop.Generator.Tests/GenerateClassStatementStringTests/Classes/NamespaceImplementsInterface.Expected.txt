@@ -1,5 +1,5 @@
 /// Generated - Do Not Edit
-namespace BabylonJS
+namespace Examples
 {
     using System;
     using System.Collections.Generic;
@@ -8,10 +8,10 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop;
     using Microsoft.JSInterop;
 
-    public interface IDisposable : ICachedEntity { }
+    
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class IDisposableCachedEntity : CachedEntityObject, IDisposable
+    public class ExampleClass : CachedEntityObject, IEffectFallbacks
     {
         #region Static Accessors
 
@@ -34,9 +34,9 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public IDisposableCachedEntity() : base() { }
+        public ExampleClass() : base() { }
 
-        public IDisposableCachedEntity(
+        public ExampleClass(
             ICachedEntity entity
         ) : base(entity)
         {
@@ -46,15 +46,7 @@ namespace BabylonJS
         #endregion
 
         #region Methods
-        public void dispose()
-        {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
-            );
-        }
+
         #endregion
     }
 }

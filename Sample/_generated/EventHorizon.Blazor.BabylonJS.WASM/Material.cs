@@ -1239,49 +1239,7 @@ __onDisposeObservable = null;
             );
         }
 
-        #region forceCompilation TODO: Get Comments as metadata identification
-        private bool _isForceCompilationEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _forceCompilationActionMap = new Dictionary<string, Func<Task>>();
-
-        public string forceCompilation(
-            Func<Task> callback
-        )
-        {
-            SetupForceCompilationLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _forceCompilationActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupForceCompilationLoop()
-        {
-            if (_isForceCompilationEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "forceCompilation",
-                "CallForceCompilationActions",
-                _invokableReference
-            );
-            _isForceCompilationEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallForceCompilationActions()
-        {
-            foreach (var action in _forceCompilationActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// forceCompilation is not supported by the platform yet
 
         public void forceCompilationAsync(AbstractMesh mesh, IMaterialCompilationOptionsCachedEntity options = null)
         {

@@ -1082,49 +1082,7 @@ __onBeforeTextureInitObservable = null;
             );
         }
 
-        #region unBindFramebuffer TODO: Get Comments as metadata identification
-        private bool _isUnBindFramebufferEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _unBindFramebufferActionMap = new Dictionary<string, Func<Task>>();
-
-        public string unBindFramebuffer(
-            Func<Task> callback
-        )
-        {
-            SetupUnBindFramebufferLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _unBindFramebufferActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupUnBindFramebufferLoop()
-        {
-            if (_isUnBindFramebufferEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "unBindFramebuffer",
-                "CallUnBindFramebufferActions",
-                _invokableReference
-            );
-            _isUnBindFramebufferEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallUnBindFramebufferActions()
-        {
-            foreach (var action in _unBindFramebufferActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// unBindFramebuffer is not supported by the platform yet
 
         public void flushFramebuffer()
         {

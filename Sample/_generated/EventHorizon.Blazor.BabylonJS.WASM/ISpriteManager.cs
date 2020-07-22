@@ -132,93 +132,9 @@ namespace BabylonJS
         #endregion
 
         #region Methods
-        #region intersects TODO: Get Comments as metadata identification
-        private bool _isIntersectsEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _intersectsActionMap = new Dictionary<string, Func<Task>>();
+// intersects is not supported by the platform yet
 
-        public string intersects(
-            Func<Task> callback
-        )
-        {
-            SetupIntersectsLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _intersectsActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupIntersectsLoop()
-        {
-            if (_isIntersectsEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "intersects",
-                "CallIntersectsActions",
-                _invokableReference
-            );
-            _isIntersectsEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallIntersectsActions()
-        {
-            foreach (var action in _intersectsActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region multiIntersects TODO: Get Comments as metadata identification
-        private bool _isMultiIntersectsEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _multiIntersectsActionMap = new Dictionary<string, Func<Task>>();
-
-        public string multiIntersects(
-            Func<Task> callback
-        )
-        {
-            SetupMultiIntersectsLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _multiIntersectsActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupMultiIntersectsLoop()
-        {
-            if (_isMultiIntersectsEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "multiIntersects",
-                "CallMultiIntersectsActions",
-                _invokableReference
-            );
-            _isMultiIntersectsEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallMultiIntersectsActions()
-        {
-            foreach (var action in _multiIntersectsActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// multiIntersects is not supported by the platform yet
 
         public void render()
         {

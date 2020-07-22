@@ -11,7 +11,7 @@ namespace BabylonJS.GUI
     
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class Vector2WithInfo : CachedEntityObject
+    public class Vector2WithInfo : Vector2
     {
         #region Static Accessors
 
@@ -53,18 +53,17 @@ namespace BabylonJS.GUI
         #endregion
         
         #region Constructor
-        public Vector2WithInfo() : base() { } 
+        public Vector2WithInfo() : base() { }
 
         public Vector2WithInfo(
             ICachedEntity entity
         ) : base(entity)
         {
-            ___guid = entity.___guid;
         }
 
         public Vector2WithInfo(
             Vector2 source, System.Nullable<decimal> buttonIndex = null
-        )
+        ) : base()
         {
             var entity = EventHorizonBlazorInteropt.New(
                 new string[] { "BABYLON", "GUI", "Vector2WithInfo" },

@@ -576,100 +576,16 @@ __onDisposeObservable = null;
             );
         }
 
-        #region getDescendants TODO: Get Comments as metadata identification
-        private bool _isGetDescendantsEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _getDescendantsActionMap = new Dictionary<string, Func<Task>>();
+// getDescendants is not supported by the platform yet
 
-        public string getDescendants(
-            Func<Task> callback
-        )
-        {
-            SetupGetDescendantsLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _getDescendantsActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupGetDescendantsLoop()
-        {
-            if (_isGetDescendantsEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "getDescendants",
-                "CallGetDescendantsActions",
-                _invokableReference
-            );
-            _isGetDescendantsEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallGetDescendantsActions()
-        {
-            foreach (var action in _getDescendantsActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region getChildMeshes TODO: Get Comments as metadata identification
-        private bool _isGetChildMeshesEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _getChildMeshesActionMap = new Dictionary<string, Func<Task>>();
-
-        public string getChildMeshes(
-            Func<Task> callback
-        )
-        {
-            SetupGetChildMeshesLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _getChildMeshesActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupGetChildMeshesLoop()
-        {
-            if (_isGetChildMeshesEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "getChildMeshes",
-                "CallGetChildMeshesActions",
-                _invokableReference
-            );
-            _isGetChildMeshesEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallGetChildMeshesActions()
-        {
-            foreach (var action in _getChildMeshesActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// getChildMeshes is not supported by the platform yet
 
         #region getChildren TODO: Get Comments as metadata identification
         private bool _isGetChildrenEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _getChildrenActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Node, Task>> _getChildrenActionMap = new Dictionary<string, Func<Node, Task>>();
 
         public string getChildren(
-            Func<Task> callback
+            Func<Node, Task> callback
         )
         {
             SetupGetChildrenLoop();
@@ -699,11 +615,11 @@ __onDisposeObservable = null;
         }
 
         [JSInvokable]
-        public async Task CallGetChildrenActions()
+        public async Task CallGetChildrenActions(Node node)
         {
             foreach (var action in _getChildrenActionMap.Values)
             {
-                await action();
+                await action(node);
             }
         }
         #endregion
@@ -761,49 +677,7 @@ __onDisposeObservable = null;
             );
         }
 
-        #region beginAnimation TODO: Get Comments as metadata identification
-        private bool _isBeginAnimationEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _beginAnimationActionMap = new Dictionary<string, Func<Task>>();
-
-        public string beginAnimation(
-            Func<Task> callback
-        )
-        {
-            SetupBeginAnimationLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _beginAnimationActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupBeginAnimationLoop()
-        {
-            if (_isBeginAnimationEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "beginAnimation",
-                "CallBeginAnimationActions",
-                _invokableReference
-            );
-            _isBeginAnimationEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallBeginAnimationActions()
-        {
-            foreach (var action in _beginAnimationActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// beginAnimation is not supported by the platform yet
 
         public CachedEntity serializeAnimationRanges()
         {

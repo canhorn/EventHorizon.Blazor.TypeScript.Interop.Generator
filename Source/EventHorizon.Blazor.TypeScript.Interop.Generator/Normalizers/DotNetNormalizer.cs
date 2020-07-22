@@ -4,9 +4,9 @@ using System.Text;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers
 {
-    public static class DotNetNormailzer
+    public static class DotNetNormalizer
     {
-        public static string Normailze(
+        public static string Normalize(
             string text
         )
         {

@@ -45,6 +45,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 var isNotSupported = NotSupportedIdentifier.Identify(
                     method
                 );
+                var isAction = method.Type.Name == GenerationIdentifiedTypes.Action
+                    || (method.Arguments.Take(1).Any(a => a.Type.IsAction));
 
                 var bodyTemplate = templates.ReturnTypePrimitiveTemplate;
                 var returnTypeContent = templates.InteropFunc;
@@ -57,103 +59,97 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     method.Name
                 );
                 var propertyIdentifier = "this.___guid";
+                // [[FUNCTION_GENERICS]] = functionGenerics = T, EventState, Task
+                var functionGenerics = string.Empty;
                 var genericSection = string.Empty;
                 var whereConstraint = string.Empty;
 
                 // Argument Generation
-                foreach (var argument in method.Arguments.OrderBy(a => a.IsOptional))
+                if (isAction)
                 {
-                    var argumentsTemplate = "[[TYPE]][[IS_ARRAY]] [[NAME]]";
-                    if (argument.IsOptional)
-                    {
-                        argumentsTemplate = "System.Nullable<[[TYPE]][[IS_ARRAY]]> [[NAME]] = null";
-                        if (argument.Type.IsNullable)
-                        {
-                            var genericType = argument.Type.GenericTypes.First();
-                            if (ClassIdentifier.Identify(
-                                argument.UsedClassNames,
-                                genericType.Name
-                            ) || genericType.IsNullable
-                                || genericType.IsArray
-                                || genericType.IsModifier
-                                || genericType.Name == GenerationIdentifiedTypes.Action
-                                || genericType.Name == GenerationIdentifiedTypes.String
-                                || genericType.Name == GenerationIdentifiedTypes.CachedEntity)
-                            {
-                                argumentsTemplate = "[[TYPE]][[IS_ARRAY]] [[NAME]] = null";
-                            }
-                        }
-                        else if (ClassIdentifier.Identify(
-                            argument.UsedClassNames,
-                            argument.Type.Name
-                        ) || argument.Type.IsNullable
-                            || argument.Type.IsArray
-                            || argument.Type.IsModifier
-                            || argument.Type.Name == GenerationIdentifiedTypes.Action
-                            || argument.Type.Name == GenerationIdentifiedTypes.String
-                            || argument.Type.Name == GenerationIdentifiedTypes.CachedEntity)
-                        {
-                            argumentsTemplate = "[[TYPE]][[IS_ARRAY]] [[NAME]] = null";
-                        }
-                    }
-                    var argumentString = argumentsTemplate.Replace(
-                        "[[NAME]]",
-                        DotNetNormailzer.Normailze(argument.Name)
-                    ).Replace(
-                        "[[TYPE]]",
-                        // TODO: [TypeStatementWriter]: Use Writer Here
-                        TypeStatementWriter.Write(
-                            argument.Type
-                        )
-                    ).Replace(
-                        "[[ARRAY_TYPE]]",
-                        // TODO: [TypeStatementWriter]: Use Writer Here
-                        TypeStatementWriter.Write(
-                            argument.Type,
-                            true
-                        )
-                    ).Replace(
-                        "[[NEW_TYPE]]",
-                        // TODO: [TypeStatementWriter]: Use Writer Here
-                        TypeStatementWriter.Write(
-                            argument.Type,
-                            true
-                        )
-                    ).Replace(
-                        "[[IS_ARRAY]]",
-                        string.Empty
+                    var functionGenericsStrings = new List<string>();
+                    var actionArgument = method.Arguments.FirstOrDefault(
+                        argument => argument.Type.Name == GenerationIdentifiedTypes.Action
                     );
-                    argumentStrings.Add(
-                        argumentString
+                    if (actionArgument != null)
+                    {
+                        foreach (var genericType in actionArgument.Type.GenericTypes)
+                        {
+                            functionGenericsStrings.Add(
+                                TypeStatementWriter.Write(
+                                    genericType
+                                )
+                            );
+                        }
+
+                        // [[ARGUMENTS]] = arguments = T eventData, EventState eventState
+                        foreach (var argument in actionArgument.Type.Arguments.OrderBy(a => a.IsOptional))
+                        {
+                            argumentStrings.Add(
+                                ArgumentWriter(
+                                    argument,
+                                    true,
+                                    string.Empty
+                                )
+                            );
+                        }
+                        // [[PROPERTY_ARGUMENTS]] = propertyArguments = eventData, eventState
+                        propertyArguments = string.Join(
+                            ", ",
+                            actionArgument.Type.Arguments.Select(
+                                argument => DotNetNormalizer.Normalize(argument.Name)
+                            )
+                        );
+                    }
+
+                    functionGenericsStrings.Add(
+                        "Task"
+                    );
+                    functionGenerics = string.Join(
+                        ", ",
+                        functionGenericsStrings
                     );
                 }
-
-                if (VoidArgumentIdenfifier.Identify(method.Arguments))
+                else
                 {
-                    GlobalLogger.Error(
-                        $"Found void argument in method: {method.Name}"
-                    );
-                    continue;
+                    // TODO: [Re-factor] : Move to Writer
+                    foreach (var argument in method.Arguments.OrderBy(a => a.IsOptional))
+                    {
+                        argumentStrings.Add(
+                            ArgumentWriter(
+                                argument,
+                                true,
+                                " = null"
+                            )
+                        );
+                    }
+                    propertyArguments = method.Arguments.Any()
+                        ? ", " +
+                            string.Join(
+                                ", ",
+                                method.Arguments.Select(
+                                    argument => DotNetNormalizer.Normalize(argument.Name)
+                                )
+                            )
+                        : string.Empty;
+
+                    if (VoidArgumentIdenfifier.Identify(method.Arguments))
+                    {
+                        GlobalLogger.Error(
+                            $"Found void argument in method: {method.Name}"
+                        );
+                        continue;
+                    }
                 }
 
                 arguments = string.Join(
                     ", ",
                     argumentStrings
                 );
-                propertyArguments = method.Arguments.Any()
-                    ? ", " +
-                        string.Join(
-                            ", ",
-                            method.Arguments.Select(
-                                argument => DotNetNormailzer.Normailze(argument.Name)
-                            )
-                        )
-                    : string.Empty;
 
 
                 // Template/ReturnTypeContent Dictation
-                if (method.Type.Name == GenerationIdentifiedTypes.Action
-                    || method.Arguments.Any(a => a.Type.Name == GenerationIdentifiedTypes.Action))
+                if (isAction)
                 {
                     template = templates.MethodActionTemplate;
                     bodyTemplate = templates.ReturnTypeVoidTemplate;
@@ -245,7 +241,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     template = "// [[NAME]] is not supported by the platform yet";
                 }
 
-                Console.WriteLine("STOP");
                 template = template.Replace(
                     "[[BODY]]",
                     bodyTemplate
@@ -271,7 +266,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     method.IsStatic ? "static " : string.Empty
                 ).Replace(
                     "[[NAME]]",
-                    DotNetNormailzer.Normailze(
+                    DotNetNormalizer.Normalize(
                         method.Name
                     )
                 ).Replace(
@@ -311,7 +306,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     propertyIdentifier
                 ).Replace(
                     "[[PROPERTY]]",
-                    DotNetNormailzer.Normailze(
+                    DotNetNormalizer.Normalize(
                         method.Name
                     )
                 ).Replace(
@@ -320,6 +315,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 ).Replace(
                     "[[INTERFACE_POSTFIX]]",
                     method.IsInterfaceResponse ? Constants.INTERFACE_POSTFIX : string.Empty
+                ).Replace(
+                    "[[FUNCTION_GENERICS]]",
+                    functionGenerics
                 );
 
                 section.Append(
@@ -337,6 +335,92 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 current++;
             }
             return section.ToString();
+        }
+
+        private static string ArgumentWriter(
+            ArgumentStatement argument,
+            bool includeName,
+            string defaultValue
+        )
+        {
+            var argumentsTemplate = "[[TYPE]][[IS_ARRAY]] [[NAME]]";
+            if (argument.IsOptional)
+            {
+                argumentsTemplate = GenericTypeWriter(
+                    argument.Type,
+                    argument.UsedClassNames,
+                    includeName
+                ).Replace(
+                    "[[DEFAULT_VALUE]]",
+                    defaultValue
+                );
+            }
+            return argumentsTemplate.Replace(
+                "[[NAME]]",
+                DotNetNormalizer.Normalize(argument.Name)
+            ).Replace(
+                "[[TYPE]]",
+                TypeStatementWriter.Write(
+                    argument.Type
+                )
+            ).Replace(
+                "[[ARRAY_TYPE]]",
+                TypeStatementWriter.Write(
+                    argument.Type,
+                    true
+                )
+            ).Replace(
+                "[[NEW_TYPE]]",
+                TypeStatementWriter.Write(
+                    argument.Type,
+                    true
+                )
+            ).Replace(
+                "[[IS_ARRAY]]",
+                string.Empty
+            );
+        }
+
+        private static string GenericTypeWriter(
+            TypeStatement typeStatement,
+            IList<string> usedClassNames,
+            bool includeName
+        )
+        {
+            var argumentsTemplate = "System.Nullable<[[TYPE]][[IS_ARRAY]]>[[NAME]][[DEFAULT_VALUE]]";
+            if (typeStatement.IsNullable)
+            {
+                var genericType = typeStatement.GenericTypes.First();
+                if (ClassIdentifier.Identify(
+                    usedClassNames,
+                    genericType.Name
+                ) || genericType.IsNullable
+                    || genericType.IsArray
+                    || genericType.IsModifier
+                    || genericType.Name == GenerationIdentifiedTypes.Action
+                    || genericType.Name == GenerationIdentifiedTypes.String
+                    || genericType.Name == GenerationIdentifiedTypes.CachedEntity)
+                {
+                    argumentsTemplate = "[[TYPE]][[IS_ARRAY]][[NAME]][[DEFAULT_VALUE]]";
+                }
+            }
+            else if (ClassIdentifier.Identify(
+                usedClassNames,
+                typeStatement.Name
+            ) || typeStatement.IsNullable
+                || typeStatement.IsArray
+                || typeStatement.IsModifier
+                || typeStatement.Name == GenerationIdentifiedTypes.Action
+                || typeStatement.Name == GenerationIdentifiedTypes.String
+                || typeStatement.Name == GenerationIdentifiedTypes.CachedEntity)
+            {
+                argumentsTemplate = "[[TYPE]][[IS_ARRAY]][[NAME]][[DEFAULT_VALUE]]";
+            }
+
+            return argumentsTemplate.Replace(
+                "[[NAME]]",
+                includeName ? " [[NAME]]" : string.Empty
+            );
         }
     }
 }

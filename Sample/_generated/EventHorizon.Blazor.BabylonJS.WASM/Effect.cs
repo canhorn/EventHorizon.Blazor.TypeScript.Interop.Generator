@@ -11,7 +11,7 @@ namespace BabylonJS
     
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class Effect : CachedEntityObject, IDisposable
+    public class Effect : CachedEntityObject
     {
         #region Static Accessors
 
@@ -337,17 +337,18 @@ __onErrorObservable = null;
         #endregion
         
         #region Constructor
-        public Effect() : base() { }
+        public Effect() : base() { } 
 
         public Effect(
             ICachedEntity entity
         ) : base(entity)
         {
+            ___guid = entity.___guid;
         }
 
         public Effect(
             object baseName, string[] attributesNamesOrOptions, string[] uniformsNamesOrEngine, string[] samplers = null, ThinEngine engine = null, string defines = null, IEffectFallbacksCachedEntity fallbacks = null, CachedEntity onCompiled = null, CachedEntity onError = null, object indexParameters = null
-        ) : base()
+        )
         {
             var entity = EventHorizonBlazorInteropt.New(
                 new string[] { "BABYLON", "Effect" },
@@ -483,10 +484,10 @@ __onErrorObservable = null;
 
         #region executeWhenCompiled TODO: Get Comments as metadata identification
         private bool _isExecuteWhenCompiledEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _executeWhenCompiledActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Effect, Task>> _executeWhenCompiledActionMap = new Dictionary<string, Func<Effect, Task>>();
 
         public string executeWhenCompiled(
-            Func<Task> callback
+            Func<Effect, Task> callback
         )
         {
             SetupExecuteWhenCompiledLoop();
@@ -516,11 +517,11 @@ __onErrorObservable = null;
         }
 
         [JSInvokable]
-        public async Task CallExecuteWhenCompiledActions()
+        public async Task CallExecuteWhenCompiledActions(Effect effect)
         {
             foreach (var action in _executeWhenCompiledActionMap.Values)
             {
-                await action();
+                await action(effect);
             }
         }
         #endregion

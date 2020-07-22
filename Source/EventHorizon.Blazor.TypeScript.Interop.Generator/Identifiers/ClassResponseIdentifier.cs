@@ -16,13 +16,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 || typeStatement.IsModifier
                 || typeStatement.IsNullable)
             {
-                if (typeStatement.GenericTypes.Any())
-                {
-                    return Identify(
-                        typeStatement.GenericTypes.First(),
-                        classNameList
-                    );
-                }
+                return Identify(
+                    typeStatement.GenericTypes.First(),
+                    classNameList
+                );
             }
             return ClassIdentifier.Identify(
                 classNameList,

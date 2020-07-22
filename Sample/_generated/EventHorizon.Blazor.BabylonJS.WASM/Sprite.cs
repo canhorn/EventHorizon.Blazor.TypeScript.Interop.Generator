@@ -416,49 +416,7 @@ __actionManager = null;
         #endregion
 
         #region Methods
-        #region playAnimation TODO: Get Comments as metadata identification
-        private bool _isPlayAnimationEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _playAnimationActionMap = new Dictionary<string, Func<Task>>();
-
-        public string playAnimation(
-            Func<Task> callback
-        )
-        {
-            SetupPlayAnimationLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _playAnimationActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupPlayAnimationLoop()
-        {
-            if (_isPlayAnimationEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "playAnimation",
-                "CallPlayAnimationActions",
-                _invokableReference
-            );
-            _isPlayAnimationEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallPlayAnimationActions()
-        {
-            foreach (var action in _playAnimationActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// playAnimation is not supported by the platform yet
 
         public void stopAnimation()
         {

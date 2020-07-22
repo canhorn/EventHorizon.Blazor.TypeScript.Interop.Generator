@@ -29,6 +29,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 // Using The Type get
                 switch (type.Name)
                 {
+                    case GenerationIdentifiedTypes.Array:
                     case GenerationIdentifiedTypes.Unknown:
                     case GenerationIdentifiedTypes.Action:
                     case GenerationIdentifiedTypes.Void:
@@ -51,17 +52,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             }
             foreach (var genericType in type.GenericTypes)
             {
-                var genericTypeList = Identify(
+                Identify(
                     genericType,
                     list
                 );
-                foreach (var genericTypeItem in genericTypeList)
-                {
-                    if (!list.Contains(genericTypeItem))
-                    {
-                        list.Add(genericTypeItem);
-                    }
-                }
             }
 
             return list;

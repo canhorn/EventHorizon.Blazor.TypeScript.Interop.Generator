@@ -7,6 +7,7 @@ using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 using Sdcb.TypeScript;
 using Sdcb.TypeScript.TsTypes;
 using System;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator
 {
@@ -46,21 +47,27 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             {
                 Namespace = namespaceIdentifier,
                 Name = classIdentifier,
-                TypeIdentifier = TypeParameterIdentifier.Identify(toGenerateNode),
             };
 
 
+            var typeOverrideDetails = new TypeOverrideDetails
+            {
+                IsStatic = false,
+                TypeOverrideMap = typeOverrideMap,
+            };
             // Get ExtendedClassNames
             var extendedClassType = ExtendedClassTypesIdentifier.Identify(
                 toGenerateNode,
                 ast,
-                classMetadata
+                classMetadata,
+                typeOverrideDetails
             );
             // Get ImplementedInterfaces
             var implementedInterfaces = ImplementedInterfacesIdentifier.Identify(
                 toGenerateNode,
                 ast,
-                classMetadata
+                classMetadata,
+                typeOverrideDetails
             );
 
             // Public Properties
@@ -90,14 +97,21 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             {
                 ProjectAssembly = projectAssembly,
                 Namespace = namespaceIdentifier,
-                Name = className,
+                Name = DotNetClassNormalizer.Normalize(
+                    className
+                ),
                 IsInterface = IsInterfaceRule.Check(
                     toGenerateNode
                 ),
                 GenericTypes = GetGenericTypes(
                     toGenerateNode,
                     classMetadata,
-                    ast
+                    ast,
+                    new TypeOverrideDetails
+                    {
+                        IsStatic = false,
+                        TypeOverrideMap = typeOverrideMap,
+                    }
                 ),
                 ExtendedType = extendedClassType,
                 ImplementedInterfaces = implementedInterfaces,
@@ -106,8 +120,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                     Arguments = ConstructorArgumentIdentifier.Identify(
                         toGenerateNode,
                         classMetadata,
-                        typeOverrideMap,
-                        ast
+                        ast,
+                        new TypeOverrideDetails
+                        {
+                            IsStatic = false,
+                            TypeOverrideMap = typeOverrideMap,
+                        }
                     ),
                 },
                 PublicPropertyStatements = publicProperties.ToList().Select(
@@ -115,18 +133,24 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                     {
                         var name = a.IdentifierStr;
                         var isStatic = IsStaticRule.Check(a);
+                        var typeOverrideDetails = new TypeOverrideDetails
+                        {
+                            IsStatic = isStatic,
+                            TypeOverrideMap = typeOverrideMap,
+                        };
                         var type = GenericTypeIdentifier.Identify(
                             a.Last,
                             classMetadata,
-                            ast
+                            ast,
+                            typeOverrideDetails
                         );
                         if (TypeOverrideIdentifier.Identify(
                             TypeOverrideDeclarationIdentifier.Identify(
                                 classMetadata,
-                                isStatic,
+                                typeOverrideDetails.IsStatic,
                                 name
                             ),
-                            typeOverrideMap,
+                            typeOverrideDetails.TypeOverrideMap,
                             type,
                             out var overrideType
                         ))
@@ -153,18 +177,24 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                     {
                         var name = a.IdentifierStr;
                         var isStatic = IsStaticRule.Check(a);
+                        var typeOverrideDetails = new TypeOverrideDetails
+                        {
+                            IsStatic = isStatic,
+                            TypeOverrideMap = typeOverrideMap,
+                        };
                         var type = GenericTypeIdentifier.Identify(
                             a.Last,
                             classMetadata,
-                            ast
+                            ast,
+                            typeOverrideDetails
                         );
                         if (TypeOverrideIdentifier.Identify(
                             TypeOverrideDeclarationIdentifier.Identify(
                                 classMetadata,
-                                isStatic,
+                                typeOverrideDetails.IsStatic,
                                 name
                             ),
-                            typeOverrideMap,
+                            typeOverrideDetails.TypeOverrideMap,
                             type,
                             out var overrideType
                         ))
@@ -181,9 +211,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                             Arguments = ArgumentIdentifier.Identify(
                                 a,
                                 classMetadata,
-                                typeOverrideMap,
                                 ast,
-                                isStatic
+                                typeOverrideDetails
                             ),
                             IsStatic = isStatic,
                             IsInterfaceResponse = InterfaceResponseTypeIdentifier.Identify(
@@ -210,7 +239,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
         private static IList<TypeStatement> GetGenericTypes(
             Node node,
             ClassMetadata classMetadata,
-            TypeScriptAST ast
+            TypeScriptAST ast,
+            TypeOverrideDetails typeOverrideDetails
         )
         {
             if (node is ClassDeclaration classDeclaration
@@ -219,9 +249,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             {
                 return classDeclaration.TypeParameters.Select(
                     typeParam => GenericTypeIdentifier.Identify(
-                       typeParam,
-                       classMetadata,
-                        ast
+                        typeParam,
+                        classMetadata,
+                        ast,
+                        typeOverrideDetails
                    )
                 ).ToList();
             }
@@ -231,9 +262,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             {
                 return interfaceDeclaration.TypeParameters.Select(
                     typeParam => GenericTypeIdentifier.Identify(
-                       typeParam,
-                       classMetadata,
-                        ast
+                        typeParam,
+                        classMetadata,
+                        ast,
+                        typeOverrideDetails
                    )
                 ).ToList();
             }
@@ -270,10 +302,16 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                 {
                     var name = accessor.IdentifierStr;
                     var isStatic = IsStaticRule.Check(accessor);
+                    var typeOverrideDetails = new TypeOverrideDetails
+                    {
+                        IsStatic = isStatic,
+                        TypeOverrideMap = typeOverrideMap,
+                    };
                     var type = GenericTypeIdentifier.Identify(
                         accessor.Last,
                         classMetadata,
-                        ast
+                        ast,
+                        typeOverrideDetails
                     );
                     if (TypeOverrideIdentifier.Identify(
                         TypeOverrideDeclarationIdentifier.Identify(
@@ -329,8 +367,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             }
             if (classDeclaration.Kind == SyntaxKind.ModuleDeclaration)
             {
-                var delc = (ModuleDeclaration)classDeclaration;
-                namespaceText.Insert(0, delc.IdentifierStr);
+                var classDeclarationTyped = (ModuleDeclaration)classDeclaration;
+                namespaceText.Insert(
+                    0, 
+                    classDeclarationTyped.IdentifierStr
+                );
             }
             if (classDeclaration.Parent == null)
             {

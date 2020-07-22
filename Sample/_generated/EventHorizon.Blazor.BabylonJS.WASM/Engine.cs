@@ -1219,48 +1219,7 @@ __audioEngine = null;
         #endregion
 
         #region Static Methods
-        #region MarkAllMaterialsAsDirty TODO: Get Comments as metadata identification
-        private static bool IsMarkAllMaterialsAsDirtyEnabled = false;
-        private static readonly IDictionary<string, Func<Task>> MarkAllMaterialsAsDirtyActionMap = new Dictionary<string, Func<Task>>();
-
-        public static string MarkAllMaterialsAsDirty(
-            Func<Task> callback
-        )
-        {
-            SetupMarkAllMaterialsAsDirtyStaticLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            MarkAllMaterialsAsDirtyActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private static void SetupMarkAllMaterialsAsDirtyStaticLoop()
-        {
-            if (IsMarkAllMaterialsAsDirtyEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.AssemblyFuncCallback(
-                "EventHorizon.Blazor.BabylonJS.WASM",
-                "BABYLON.Engine.MarkAllMaterialsAsDirty",
-                "CallMarkAllMaterialsAsDirtyStaticActions"
-            );
-            IsMarkAllMaterialsAsDirtyEnabled = true;
-        }
-
-        [JSInvokable]
-        public static async Task CallMarkAllMaterialsAsDirtyStaticActions()
-        {
-            foreach (var action in MarkAllMaterialsAsDirtyActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// MarkAllMaterialsAsDirty is not supported by the platform yet
 
         public static ILoadingScreenCachedEntity DefaultLoadingScreenFactory(HTMLCanvasElementCachedEntity canvas)
         {

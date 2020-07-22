@@ -140,49 +140,7 @@ namespace BabylonJS
             );
         }
 
-        #region loadFile TODO: Get Comments as metadata identification
-        private bool _isLoadFileEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _loadFileActionMap = new Dictionary<string, Func<Task>>();
-
-        public string loadFile(
-            Func<Task> callback
-        )
-        {
-            SetupLoadFileLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _loadFileActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupLoadFileLoop()
-        {
-            if (_isLoadFileEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "loadFile",
-                "CallLoadFileActions",
-                _invokableReference
-            );
-            _isLoadFileEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallLoadFileActions()
-        {
-            foreach (var action in _loadFileActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// loadFile is not supported by the platform yet
         #endregion
     }
 }

@@ -14,7 +14,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         public static TypeStatement Identify(
             Node node,
             TypeScriptAST ast,
-            ClassMetadata classMetadata
+            ClassMetadata classMetadata,
+            TypeOverrideDetails typeOverrideDetails
         )
         {
             // Check if Class
@@ -31,7 +32,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     var identifiedClass = GenericTypeIdentifier.Identify(
                         herited.First,
                         classMetadata,
-                        ast
+                        ast,
+                        typeOverrideDetails
                     );
                     if (classesCache.Any(a => a.IdentifierStr == identifiedClass.Name))
                     {

@@ -17,8 +17,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model
         public string ReturnTypeClass { get; set; }
         public string ReturnTypeVoidTemplate { get; set; }
 
-        public string InteropCacheClassEntity { get; set; }
-        public string InteropCall { get; set; }
         public string InteropFunc { get; set; }
         public string InteropFuncClass { get; set; }
         public string InteropFuncArray { get; set; }
@@ -28,6 +26,5 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model
         public string InteropGetClass { get; set; }
         public string InteropGet { get; set; }
         public string InteropSet { get; set; }
-        public string InteropStaticCacheClassEntity { get; set; }
     }
 }

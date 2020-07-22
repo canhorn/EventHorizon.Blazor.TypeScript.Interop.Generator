@@ -18,6 +18,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             // Observer -> PickerInfo -> PickerData
             // Observer<PickerInfo<PickerData>>   [[INTERFACE_POSTFIX]]
             var standardTemplate = "[[NAME]]";
+            var standardArrayTemplate = "[[NAME]][]";
             var standardPostfixTemplate = "[[NAME]][[INTERFACE_POSTFIX]]";
             var genericTemplate = "[[NAME]]<[[GENERIC_TYPES]]>";
             var genericPostfixTemplate = "[[NAME]][[INTERFACE_POSTFIX]]<[[GENERIC_TYPES]]>";
@@ -27,6 +28,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             if (type.IsInterface)
             {
                 template = standardPostfixTemplate;
+            }
+            if (type.IsArray)
+            {
+                template = standardArrayTemplate;
             }
 
             if (type.GenericTypes.Any())

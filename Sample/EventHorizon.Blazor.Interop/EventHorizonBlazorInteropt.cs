@@ -95,12 +95,20 @@ namespace EventHorizon.Blazor.Interop
             string prop
         )
         {
-            return RUNTIME.InvokeUnmarshalled<ValueTuple<string, string>, T>(
+            var result = RUNTIME.InvokeUnmarshalled<ValueTuple<string, string>, string>(
                 "blazorInterop.get",
                 ValueTuple.Create(
                     root,
                     prop
                 )
+            );
+            if (result == null)
+            {
+                return default;
+            }
+            return (T)Convert.ChangeType(
+                result,
+                typeof(T)
             );
         }
 

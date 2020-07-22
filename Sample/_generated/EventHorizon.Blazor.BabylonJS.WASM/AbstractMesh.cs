@@ -11,7 +11,7 @@ namespace BabylonJS
     
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class AbstractMesh : TransformNode, IDisposable
+    public class AbstractMesh : TransformNode
     {
         #region Static Accessors
         

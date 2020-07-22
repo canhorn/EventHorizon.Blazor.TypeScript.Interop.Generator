@@ -6,7 +6,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model
 {
     public class GenerationIdentifiedTypes
     {
-        //public const string CachedEntityObject = "CachedEntityObject";
+        public const string CachedEntityObject = "CachedEntityObject";
         public const string Unknown = "unknown";
         public const string Action = "action";
         public const string Task = "Task";

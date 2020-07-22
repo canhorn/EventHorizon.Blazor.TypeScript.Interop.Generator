@@ -53,11 +53,7 @@
                 }
 
                 if (typeof (value) === "number") {
-                    //if (parseInt(value) === value) {
-                        console.log({ value })
-                    //    value = parseFloat(`${value}.1`);
-                    //}
-                    //return value;
+                    value = value.toString();
                 }
                 return BINDING.js_to_mono_obj(value);
             } catch (ex) {

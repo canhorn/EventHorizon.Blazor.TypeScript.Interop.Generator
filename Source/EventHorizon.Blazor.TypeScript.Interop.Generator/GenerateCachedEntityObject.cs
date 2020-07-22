@@ -18,7 +18,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             return new ClassStatement
             {
                 Namespace = "global.Provided",
-                //Name = GenerationIdentifiedTypes.CachedEntityObject,
+                Name = GenerationIdentifiedTypes.CachedEntityObject,
             };
         }
 

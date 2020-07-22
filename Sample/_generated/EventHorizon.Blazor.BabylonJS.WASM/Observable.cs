@@ -72,10 +72,10 @@ namespace BabylonJS
         #region Methods
         #region add TODO: Get Comments as metadata identification
         private bool _isAddEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _addActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<T, EventState, Task>> _addActionMap = new Dictionary<string, Func<T, EventState, Task>>();
 
         public string add(
-            Func<Task> callback
+            Func<T, EventState, Task> callback
         )
         {
             SetupAddLoop();
@@ -105,21 +105,21 @@ namespace BabylonJS
         }
 
         [JSInvokable]
-        public async Task CallAddActions()
+        public async Task CallAddActions(T eventData, EventState eventState)
         {
             foreach (var action in _addActionMap.Values)
             {
-                await action();
+                await action(eventData, eventState);
             }
         }
         #endregion
 
         #region addOnce TODO: Get Comments as metadata identification
         private bool _isAddOnceEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _addOnceActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<T, EventState, Task>> _addOnceActionMap = new Dictionary<string, Func<T, EventState, Task>>();
 
         public string addOnce(
-            Func<Task> callback
+            Func<T, EventState, Task> callback
         )
         {
             SetupAddOnceLoop();
@@ -149,11 +149,11 @@ namespace BabylonJS
         }
 
         [JSInvokable]
-        public async Task CallAddOnceActions()
+        public async Task CallAddOnceActions(T eventData, EventState eventState)
         {
             foreach (var action in _addOnceActionMap.Values)
             {
-                await action();
+                await action(eventData, eventState);
             }
         }
         #endregion
@@ -170,10 +170,10 @@ namespace BabylonJS
 
         #region removeCallback TODO: Get Comments as metadata identification
         private bool _isRemoveCallbackEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _removeCallbackActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<T, EventState, Task>> _removeCallbackActionMap = new Dictionary<string, Func<T, EventState, Task>>();
 
         public string removeCallback(
-            Func<Task> callback
+            Func<T, EventState, Task> callback
         )
         {
             SetupRemoveCallbackLoop();
@@ -203,11 +203,11 @@ namespace BabylonJS
         }
 
         [JSInvokable]
-        public async Task CallRemoveCallbackActions()
+        public async Task CallRemoveCallbackActions(T eventData, EventState eventState)
         {
             foreach (var action in _removeCallbackActionMap.Values)
             {
-                await action();
+                await action(eventData, eventState);
             }
         }
         #endregion

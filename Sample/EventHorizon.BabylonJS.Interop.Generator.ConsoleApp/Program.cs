@@ -3,6 +3,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.IO;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project;
 
@@ -22,6 +23,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
                 ".",
                 "SourceFiles"
             );
+            var textFormatter = new NoFormattingTextFormatter();
             var writer = new ProjectWriter(
                 projectGenerationLocation,
                 projectAssembly,
@@ -82,6 +84,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
                 sourceFiles,
                 generationList,
                 writer,
+                textFormatter,
                 new Dictionary<string, string>
                 {
                     { "BABYLON.PointerInfoBase | type", "int" }

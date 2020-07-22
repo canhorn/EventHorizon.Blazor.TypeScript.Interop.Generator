@@ -1,0 +1,141 @@
+/// Generated - Do Not Edit
+namespace Examples
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter))]
+    public class ExampleClass<T> : CachedEntityObject where T : CachedEntity, new()
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { } 
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+
+        #endregion
+
+        #region Methods
+        #region add TODO: Get Comments as metadata identification
+        private bool _isAddEnabled = false;
+        private readonly IDictionary<string, Func<T, EventState, Task>> _addActionMap = new Dictionary<string, Func<T, EventState, Task>>();
+
+        public string add(
+            Func<T, EventState, Task> callback
+        )
+        {
+            SetupAddLoop();
+
+            var handle = Guid.NewGuid().ToString();
+            _addActionMap.Add(
+                handle,
+                callback
+            );
+
+            return handle;
+        }
+
+        private void SetupAddLoop()
+        {
+            if (_isAddEnabled)
+            {
+                return;
+            }
+            EventHorizonBlazorInteropt.FuncCallback(
+                this,
+                "add",
+                "CallAddActions",
+                _invokableReference
+            );
+            _isAddEnabled = true;
+        }
+
+        [JSInvokable]
+        public async Task CallAddActions(T eventData, EventState eventState)
+        {
+            foreach (var action in _addActionMap.Values)
+            {
+                await action(eventData, eventState);
+            }
+        }
+        #endregion
+
+// getNewPosition is not supported by the platform yet
+
+        #region setImmediate TODO: Get Comments as metadata identification
+        private bool _isSetImmediateEnabled = false;
+        private readonly IDictionary<string, Func<CachedEntity[], Task>> _setImmediateActionMap = new Dictionary<string, Func<CachedEntity[], Task>>();
+
+        public string setImmediate(
+            Func<CachedEntity[], Task> callback
+        )
+        {
+            SetupSetImmediateLoop();
+
+            var handle = Guid.NewGuid().ToString();
+            _setImmediateActionMap.Add(
+                handle,
+                callback
+            );
+
+            return handle;
+        }
+
+        private void SetupSetImmediateLoop()
+        {
+            if (_isSetImmediateEnabled)
+            {
+                return;
+            }
+            EventHorizonBlazorInteropt.FuncCallback(
+                this,
+                "setImmediate",
+                "CallSetImmediateActions",
+                _invokableReference
+            );
+            _isSetImmediateEnabled = true;
+        }
+
+        [JSInvokable]
+        public async Task CallSetImmediateActions(CachedEntity[] args)
+        {
+            foreach (var action in _setImmediateActionMap.Values)
+            {
+                await action(args);
+            }
+        }
+        #endregion
+        #endregion
+    }
+}

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
 using Sdcb.TypeScript;
 using Sdcb.TypeScript.TsTypes;
@@ -20,7 +21,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         public static TypeStatement Identify(
             Node node,
             ClassMetadata classMetadata,
-            TypeScriptAST ast
+            TypeScriptAST ast,
+            TypeOverrideDetails typeOverrideDetails
         )
         {
             // Observer<SomeTypeData>
@@ -47,7 +49,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                             Identify(
                                 typeArgumentNode,
                                 classMetadata,
-                                ast
+                                ast,
+                                typeOverrideDetails
                             )
                         );
                     }
@@ -65,11 +68,46 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                             Identify(
                                 typeArgumentNode,
                                 classMetadata,
-                                ast
+                                ast,
+                                typeOverrideDetails
                             )
                         );
                     }
                 }
+            }
+            else if (node is FunctionTypeNode functionTypeNode
+               && functionTypeNode.Parameters != null
+               && functionTypeNode.Parameters.Any())
+            {
+                foreach (var functionParamerter in functionTypeNode.Parameters)
+                {
+                    if (functionParamerter is Node typeArgumentNode)
+                    {
+                        genericTypes.Add(
+                            Identify(
+                                typeArgumentNode,
+                                classMetadata,
+                                ast,
+                                typeOverrideDetails
+                            )
+                        );
+                    }
+                }
+            }
+            else if (typeIdentifier == GenerationIdentifiedTypes.Array
+                && node is ParameterDeclaration parameterDeclaration
+                && parameterDeclaration.Type != null
+                && parameterDeclaration.Type is ArrayTypeNode arrayNode)
+            {
+                // This Type is an Array, so we will take the ElementType and use that as the result.
+                var resultType = Identify(
+                    arrayNode.ElementType as Node,
+                    classMetadata,
+                    ast,
+                    typeOverrideDetails
+                );
+                resultType.IsArray = true;
+                return resultType;
             }
             else if (IsNumericArrayRule.Check(node))
             {
@@ -86,7 +124,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     Identify(
                         node.First,
                         classMetadata,
-                        ast
+                        ast,
+                        typeOverrideDetails
                     )
                 );
             }
@@ -111,7 +150,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 
             return new TypeStatement
             {
-                Name = typeIdentifier,
+                Name = DotNetClassNormalizer.Normalize(
+                    typeIdentifier
+                ),
                 IsArray = IsArrayResposneTypeRule.Check(
                     node
                 ),
@@ -130,6 +171,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     ast
                 ),
                 GenericTypes = genericTypes,
+                Arguments = ArgumentIdentifier.Identify(
+                    node,
+                    classMetadata,
+                    ast,
+                    typeOverrideDetails
+                ),
             };
         }
     }

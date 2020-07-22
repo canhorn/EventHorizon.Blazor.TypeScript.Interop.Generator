@@ -30,19 +30,19 @@ namespace Examples
         #endregion
 
         #region Properties
-        private Observable<PointerInfo> __onPointerObservable;
-        public Observable<PointerInfo> onPointerObservable
+        private Observable<PointerInfo, string> __onPointerObservable;
+        public Observable<PointerInfo, string> onPointerObservable
         {
             get
             {
             if(__onPointerObservable == null)
             {
-                __onPointerObservable = EventHorizonBlazorInteropt.GetClass<Observable<PointerInfo>>(
+                __onPointerObservable = EventHorizonBlazorInteropt.GetClass<Observable<PointerInfo, string>>(
                     this.___guid,
                     "onPointerObservable",
                     (entity) =>
                     {
-                        return new Observable<PointerInfo>() { ___guid = entity.___guid };
+                        return new Observable<PointerInfo, string>() { ___guid = entity.___guid };
                     }
                 );
             }

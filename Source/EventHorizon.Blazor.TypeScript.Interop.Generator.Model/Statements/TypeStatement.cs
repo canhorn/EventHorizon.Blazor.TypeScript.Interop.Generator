@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements
 {
@@ -11,6 +9,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements
         public string Name { get; set; }
         public bool IsArray { get; set; } = false;
         public IEnumerable<TypeStatement> GenericTypes { get; set; } = new List<TypeStatement>();
+        public IEnumerable<ArgumentStatement> Arguments { get; set; } = new List<ArgumentStatement>();
         public bool IsNullable { get; set; }
         public bool IsAction { get; set; }
         public bool IsLiteral { get; set; }
@@ -19,15 +18,22 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements
 
         public override string ToString()
         {
-            // TODO: Prettify this
-            Func<TypeStatement, IEnumerable<TypeStatement>> selector = a => a.GenericTypes;
-            var something = string.Join(
+            var array = IsArray ? "[]" : string.Empty;
+            var nullable = IsNullable ? "?" : string.Empty;
+            var modifier = IsModifier ? "(M)" : string.Empty;
+            var interfaceString = IsInterface ? "(I)" : string.Empty;
+            var arguments = string.Join(
                 ", ",
-                GenericTypes.SelectMany(
-                    selector
-                ).Select(a => a.ToString()))
-            ;
-            return $"{Name}";
+                Arguments.Select(generic => generic.ToString())
+            );
+            var action = IsAction ? $"({arguments}) => " : string.Empty;
+            var genericsJoined = string.Join(
+                ", ",
+                GenericTypes.Select(generic => generic.ToString())
+            );
+            var generics = GenericTypes.Any() ? $"<{genericsJoined}>" : string.Empty;
+
+            return $"{action} {modifier}{interfaceString}{Name}{generics}{array}{nullable}";
         }
     }
 }

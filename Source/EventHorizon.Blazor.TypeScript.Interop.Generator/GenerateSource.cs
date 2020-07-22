@@ -5,9 +5,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
     using System.IO;
     using System.Linq;
     using System.Text;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Formatter;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Writer;
     using Sdcb.TypeScript;
@@ -25,6 +27,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             IList<string> sourceFiles,
             IList<string> generationList,
             IWriter writer,
+            TextFormatter textFormatter,
             IDictionary<string, string> typeOverrideMap
         )
         {
@@ -66,7 +69,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                     new GeneratedStatement(
                         generatedStatement,
                         GenerateClassStatementString.Generate(
-                            generatedStatement
+                            generatedStatement,
+                            textFormatter
                         )
                     )
                 );
@@ -83,8 +87,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                     generatedStatements.Add(
                         new GeneratedStatement(
                             classShim,
-                            GenerateClassShim.GenerateString(
-                                classShim
+                            textFormatter.Format(
+                                GenerateClassShim.GenerateString(
+                                    classShim
+                                )
                             )
                         )
                     );

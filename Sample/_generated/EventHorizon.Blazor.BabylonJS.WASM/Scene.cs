@@ -4481,49 +4481,7 @@ __actionManager = null;
             );
         }
 
-        #region stopAnimation TODO: Get Comments as metadata identification
-        private bool _isStopAnimationEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _stopAnimationActionMap = new Dictionary<string, Func<Task>>();
-
-        public string stopAnimation(
-            Func<Task> callback
-        )
-        {
-            SetupStopAnimationLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _stopAnimationActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupStopAnimationLoop()
-        {
-            if (_isStopAnimationEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "stopAnimation",
-                "CallStopAnimationActions",
-                _invokableReference
-            );
-            _isStopAnimationEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallStopAnimationActions()
-        {
-            foreach (var action in _stopAnimationActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// stopAnimation is not supported by the platform yet
 
         public decimal removeAnimationGroup(AnimationGroup toRemove)
         {
@@ -5173,49 +5131,7 @@ __actionManager = null;
             );
         }
 
-        #region getOrAddExternalDataWithFactory TODO: Get Comments as metadata identification
-        private bool _isGetOrAddExternalDataWithFactoryEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _getOrAddExternalDataWithFactoryActionMap = new Dictionary<string, Func<Task>>();
-
-        public string getOrAddExternalDataWithFactory(
-            Func<Task> callback
-        )
-        {
-            SetupGetOrAddExternalDataWithFactoryLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _getOrAddExternalDataWithFactoryActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupGetOrAddExternalDataWithFactoryLoop()
-        {
-            if (_isGetOrAddExternalDataWithFactoryEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "getOrAddExternalDataWithFactory",
-                "CallGetOrAddExternalDataWithFactoryActions",
-                _invokableReference
-            );
-            _isGetOrAddExternalDataWithFactoryEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallGetOrAddExternalDataWithFactoryActions()
-        {
-            foreach (var action in _getOrAddExternalDataWithFactoryActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// getOrAddExternalDataWithFactory is not supported by the platform yet
 
         public bool removeExternalData(string key)
         {
@@ -5581,10 +5497,10 @@ __actionManager = null;
 
         #region getWorldExtends TODO: Get Comments as metadata identification
         private bool _isGetWorldExtendsEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _getWorldExtendsActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<AbstractMesh, Task>> _getWorldExtendsActionMap = new Dictionary<string, Func<AbstractMesh, Task>>();
 
         public string getWorldExtends(
-            Func<Task> callback
+            Func<AbstractMesh, Task> callback
         )
         {
             SetupGetWorldExtendsLoop();
@@ -5614,11 +5530,11 @@ __actionManager = null;
         }
 
         [JSInvokable]
-        public async Task CallGetWorldExtendsActions()
+        public async Task CallGetWorldExtendsActions(AbstractMesh mesh)
         {
             foreach (var action in _getWorldExtendsActionMap.Values)
             {
-                await action();
+                await action(mesh);
             }
         }
         #endregion
@@ -5667,181 +5583,13 @@ __actionManager = null;
             );
         }
 
-        #region pick TODO: Get Comments as metadata identification
-        private bool _isPickEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _pickActionMap = new Dictionary<string, Func<Task>>();
+// pick is not supported by the platform yet
 
-        public string pick(
-            Func<Task> callback
-        )
-        {
-            SetupPickLoop();
+// pickWithRay is not supported by the platform yet
 
-            var handle = Guid.NewGuid().ToString();
-            _pickActionMap.Add(
-                handle,
-                callback
-            );
+// multiPick is not supported by the platform yet
 
-            return handle;
-        }
-
-        private void SetupPickLoop()
-        {
-            if (_isPickEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "pick",
-                "CallPickActions",
-                _invokableReference
-            );
-            _isPickEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallPickActions()
-        {
-            foreach (var action in _pickActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region pickWithRay TODO: Get Comments as metadata identification
-        private bool _isPickWithRayEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _pickWithRayActionMap = new Dictionary<string, Func<Task>>();
-
-        public string pickWithRay(
-            Func<Task> callback
-        )
-        {
-            SetupPickWithRayLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _pickWithRayActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupPickWithRayLoop()
-        {
-            if (_isPickWithRayEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "pickWithRay",
-                "CallPickWithRayActions",
-                _invokableReference
-            );
-            _isPickWithRayEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallPickWithRayActions()
-        {
-            foreach (var action in _pickWithRayActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region multiPick TODO: Get Comments as metadata identification
-        private bool _isMultiPickEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _multiPickActionMap = new Dictionary<string, Func<Task>>();
-
-        public string multiPick(
-            Func<Task> callback
-        )
-        {
-            SetupMultiPickLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _multiPickActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupMultiPickLoop()
-        {
-            if (_isMultiPickEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "multiPick",
-                "CallMultiPickActions",
-                _invokableReference
-            );
-            _isMultiPickEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallMultiPickActions()
-        {
-            foreach (var action in _multiPickActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region multiPickWithRay TODO: Get Comments as metadata identification
-        private bool _isMultiPickWithRayEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _multiPickWithRayActionMap = new Dictionary<string, Func<Task>>();
-
-        public string multiPickWithRay(
-            Func<Task> callback
-        )
-        {
-            SetupMultiPickWithRayLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _multiPickWithRayActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupMultiPickWithRayLoop()
-        {
-            if (_isMultiPickWithRayEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "multiPickWithRay",
-                "CallMultiPickWithRayActions",
-                _invokableReference
-            );
-            _isMultiPickWithRayEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallMultiPickWithRayActions()
-        {
-            foreach (var action in _multiPickWithRayActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// multiPickWithRay is not supported by the platform yet
 
         public void setPointerOverMesh(AbstractMesh mesh)
         {
@@ -5864,181 +5612,13 @@ __actionManager = null;
             );
         }
 
-        #region getMeshesByTags TODO: Get Comments as metadata identification
-        private bool _isGetMeshesByTagsEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _getMeshesByTagsActionMap = new Dictionary<string, Func<Task>>();
+// getMeshesByTags is not supported by the platform yet
 
-        public string getMeshesByTags(
-            Func<Task> callback
-        )
-        {
-            SetupGetMeshesByTagsLoop();
+// getCamerasByTags is not supported by the platform yet
 
-            var handle = Guid.NewGuid().ToString();
-            _getMeshesByTagsActionMap.Add(
-                handle,
-                callback
-            );
+// getLightsByTags is not supported by the platform yet
 
-            return handle;
-        }
-
-        private void SetupGetMeshesByTagsLoop()
-        {
-            if (_isGetMeshesByTagsEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "getMeshesByTags",
-                "CallGetMeshesByTagsActions",
-                _invokableReference
-            );
-            _isGetMeshesByTagsEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallGetMeshesByTagsActions()
-        {
-            foreach (var action in _getMeshesByTagsActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region getCamerasByTags TODO: Get Comments as metadata identification
-        private bool _isGetCamerasByTagsEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _getCamerasByTagsActionMap = new Dictionary<string, Func<Task>>();
-
-        public string getCamerasByTags(
-            Func<Task> callback
-        )
-        {
-            SetupGetCamerasByTagsLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _getCamerasByTagsActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupGetCamerasByTagsLoop()
-        {
-            if (_isGetCamerasByTagsEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "getCamerasByTags",
-                "CallGetCamerasByTagsActions",
-                _invokableReference
-            );
-            _isGetCamerasByTagsEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallGetCamerasByTagsActions()
-        {
-            foreach (var action in _getCamerasByTagsActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region getLightsByTags TODO: Get Comments as metadata identification
-        private bool _isGetLightsByTagsEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _getLightsByTagsActionMap = new Dictionary<string, Func<Task>>();
-
-        public string getLightsByTags(
-            Func<Task> callback
-        )
-        {
-            SetupGetLightsByTagsLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _getLightsByTagsActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupGetLightsByTagsLoop()
-        {
-            if (_isGetLightsByTagsEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "getLightsByTags",
-                "CallGetLightsByTagsActions",
-                _invokableReference
-            );
-            _isGetLightsByTagsEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallGetLightsByTagsActions()
-        {
-            foreach (var action in _getLightsByTagsActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region getMaterialByTags TODO: Get Comments as metadata identification
-        private bool _isGetMaterialByTagsEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _getMaterialByTagsActionMap = new Dictionary<string, Func<Task>>();
-
-        public string getMaterialByTags(
-            Func<Task> callback
-        )
-        {
-            SetupGetMaterialByTagsLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _getMaterialByTagsActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupGetMaterialByTagsLoop()
-        {
-            if (_isGetMaterialByTagsEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "getMaterialByTags",
-                "CallGetMaterialByTagsActions",
-                _invokableReference
-            );
-            _isGetMaterialByTagsEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallGetMaterialByTagsActions()
-        {
-            foreach (var action in _getMaterialByTagsActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// getMaterialByTags is not supported by the platform yet
 
         public void setRenderingOrder(decimal renderingGroupId, CachedEntity opaqueSortCompareFn = null, CachedEntity alphaTestSortCompareFn = null, CachedEntity transparentSortCompareFn = null)
         {
@@ -6071,49 +5651,7 @@ __actionManager = null;
             );
         }
 
-        #region markAllMaterialsAsDirty TODO: Get Comments as metadata identification
-        private bool _isMarkAllMaterialsAsDirtyEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _markAllMaterialsAsDirtyActionMap = new Dictionary<string, Func<Task>>();
-
-        public string markAllMaterialsAsDirty(
-            Func<Task> callback
-        )
-        {
-            SetupMarkAllMaterialsAsDirtyLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _markAllMaterialsAsDirtyActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupMarkAllMaterialsAsDirtyLoop()
-        {
-            if (_isMarkAllMaterialsAsDirtyEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "markAllMaterialsAsDirty",
-                "CallMarkAllMaterialsAsDirtyActions",
-                _invokableReference
-            );
-            _isMarkAllMaterialsAsDirtyEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallMarkAllMaterialsAsDirtyActions()
-        {
-            foreach (var action in _markAllMaterialsAsDirtyActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// markAllMaterialsAsDirty is not supported by the platform yet
         #endregion
     }
 }

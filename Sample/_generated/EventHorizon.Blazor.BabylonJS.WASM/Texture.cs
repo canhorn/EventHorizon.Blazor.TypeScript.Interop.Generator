@@ -800,49 +800,7 @@ __onLoadObservable = null;
         #endregion
 
         #region Methods
-        #region updateURL TODO: Get Comments as metadata identification
-        private bool _isUpdateURLEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _updateURLActionMap = new Dictionary<string, Func<Task>>();
-
-        public string updateURL(
-            Func<Task> callback
-        )
-        {
-            SetupUpdateURLLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _updateURLActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupUpdateURLLoop()
-        {
-            if (_isUpdateURLEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "updateURL",
-                "CallUpdateURLActions",
-                _invokableReference
-            );
-            _isUpdateURLEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallUpdateURLActions()
-        {
-            foreach (var action in _updateURLActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// updateURL is not supported by the platform yet
 
         public void delayLoad()
         {

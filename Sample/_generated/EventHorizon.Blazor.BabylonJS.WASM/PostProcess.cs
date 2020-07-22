@@ -725,49 +725,7 @@ __onAfterRenderObservable = null;
             );
         }
 
-        #region updateEffect TODO: Get Comments as metadata identification
-        private bool _isUpdateEffectEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _updateEffectActionMap = new Dictionary<string, Func<Task>>();
-
-        public string updateEffect(
-            Func<Task> callback
-        )
-        {
-            SetupUpdateEffectLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _updateEffectActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupUpdateEffectLoop()
-        {
-            if (_isUpdateEffectEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "updateEffect",
-                "CallUpdateEffectActions",
-                _invokableReference
-            );
-            _isUpdateEffectEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallUpdateEffectActions()
-        {
-            foreach (var action in _updateEffectActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// updateEffect is not supported by the platform yet
 
         public bool isReusable()
         {

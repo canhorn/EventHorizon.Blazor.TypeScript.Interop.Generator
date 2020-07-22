@@ -57,49 +57,7 @@ namespace BabylonJS
             );
         }
 
-        #region getNewPosition TODO: Get Comments as metadata identification
-        private bool _isGetNewPositionEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _getNewPositionActionMap = new Dictionary<string, Func<Task>>();
-
-        public string getNewPosition(
-            Func<Task> callback
-        )
-        {
-            SetupGetNewPositionLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _getNewPositionActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupGetNewPositionLoop()
-        {
-            if (_isGetNewPositionEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "getNewPosition",
-                "CallGetNewPositionActions",
-                _invokableReference
-            );
-            _isGetNewPositionEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallGetNewPositionActions()
-        {
-            foreach (var action in _getNewPositionActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// getNewPosition is not supported by the platform yet
 
         public void init(Scene scene)
         {

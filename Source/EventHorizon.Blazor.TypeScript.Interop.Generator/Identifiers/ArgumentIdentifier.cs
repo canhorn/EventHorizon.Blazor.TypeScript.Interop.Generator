@@ -18,9 +18,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         internal static IList<ArgumentStatement> Identify(
             Node node,
             ClassMetadata classMetadata,
-            IDictionary<string, string> typeOverrideMap,
             TypeScriptAST ast,
-            bool isStatic = false
+            TypeOverrideDetails typeOverrideDetails
         )
         {
             var methodTypeParameters = TypeParameterIdentifier.Identify(node);
@@ -32,12 +31,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     var type = GenericTypeIdentifier.Identify(
                         parameter.Last,
                         classMetadata,
-                        ast
+                        ast,
+                        typeOverrideDetails
                     );
                     if (UnionTypeIdentifier.Identify(
                         parameter,
                         classMetadata,
                         ast,
+                        typeOverrideDetails,
                         out var unionType
                     ))
                     {
@@ -61,11 +62,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     if (TypeOverrideIdentifier.Identify(
                         TypeOverrideDeclarationIdentifier.IdentifyArgument(
                             classMetadata,
-                            isStatic,
+                            typeOverrideDetails.IsStatic,
                             methodOrConstructorName,
                             name
                         ),
-                        typeOverrideMap,
+                        typeOverrideDetails.TypeOverrideMap,
                         type,
                         out var overrideType
                     ))

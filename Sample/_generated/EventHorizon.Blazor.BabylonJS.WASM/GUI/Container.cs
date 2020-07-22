@@ -258,49 +258,7 @@ namespace BabylonJS.GUI
             );
         }
 
-        #region getDescendantsToRef TODO: Get Comments as metadata identification
-        private bool _isGetDescendantsToRefEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _getDescendantsToRefActionMap = new Dictionary<string, Func<Task>>();
-
-        public string getDescendantsToRef(
-            Func<Task> callback
-        )
-        {
-            SetupGetDescendantsToRefLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _getDescendantsToRefActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupGetDescendantsToRefLoop()
-        {
-            if (_isGetDescendantsToRefEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "getDescendantsToRef",
-                "CallGetDescendantsToRefActions",
-                _invokableReference
-            );
-            _isGetDescendantsToRefEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallGetDescendantsToRefActions()
-        {
-            foreach (var action in _getDescendantsToRefActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// getDescendantsToRef is not supported by the platform yet
 
         public void dispose()
         {

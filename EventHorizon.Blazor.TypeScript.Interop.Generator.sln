@@ -22,6 +22,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.TypeScr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Writers", "Writers", "{66BA240A-9512-4874-A05A-FE86C72DAA5B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.BabylonJS.Interop.Generator.ConsoleApp", "Sample\EventHorizon.BabylonJS.Interop.Generator.ConsoleApp\EventHorizon.BabylonJS.Interop.Generator.ConsoleApp.csproj", "{7D920C0A-87E0-42CF-9501-DB26B0E2D807}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{2D1BE986-B7C9-457F-8F09-E7D71EEA0D8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D1BE986-B7C9-457F-8F09-E7D71EEA0D8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D1BE986-B7C9-457F-8F09-E7D71EEA0D8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D920C0A-87E0-42CF-9501-DB26B0E2D807}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D920C0A-87E0-42CF-9501-DB26B0E2D807}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D920C0A-87E0-42CF-9501-DB26B0E2D807}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D920C0A-87E0-42CF-9501-DB26B0E2D807}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

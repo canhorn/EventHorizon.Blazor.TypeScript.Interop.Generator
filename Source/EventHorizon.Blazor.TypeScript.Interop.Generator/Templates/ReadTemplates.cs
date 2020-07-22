@@ -71,20 +71,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Templates
             );
 
             // Interop Templates
-            var interopCacheClassEntityTemplate = ReadAllText(
-                $"{templatesPath}.InteropCacheClassEntityTemplate.txt"
-            );
-            var interopStaticCacheClassEntityTemplate = ReadAllText(
-                $"{templatesPath}.InteropStaticCacheClassEntityTemplate.txt"
-            );
             var interopGetTemplate = ReadAllText(
                 $"{templatesPath}.InteropGetTemplate.txt"
             );
             var interopSetTemplate = ReadAllText(
                 $"{templatesPath}.InteropSetTemplate.txt"
-            );
-            var interopCallTemplate = ReadAllText(
-                $"{templatesPath}.InteropCallTemplate.txt"
             );
             var interopFuncTemplate = ReadAllText(
                 $"{templatesPath}.InteropFuncTemplate.txt"
@@ -125,8 +116,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Templates
                 ReturnTypeClass = returnTypeClassTemplate,
                 ReturnTypeVoidTemplate = returnTypeVoidTemplate,
 
-                InteropCacheClassEntity = interopCacheClassEntityTemplate,
-                InteropCall = interopCallTemplate,
                 InteropFunc = interopFuncTemplate,
                 InteropFuncClass = interopFuncClassTemplate,
                 InteropFuncArray = interopFuncArrayTemplate,
@@ -136,7 +125,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Templates
                 InteropGetClass = interopGetClassTemplate,
                 InteropGet = interopGetTemplate,
                 InteropSet = interopSetTemplate,
-                InteropStaticCacheClassEntity = interopStaticCacheClassEntityTemplate,
             };
 
             return GeneratedTemplates;

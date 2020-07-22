@@ -185,7 +185,6 @@
 //            );
 
 //            // Then
-//            Console.WriteLine("stop");
 //            actual.AccessorStatements
 //                .Should().BeEquivalentTo(
 //                    new AccessorStatement

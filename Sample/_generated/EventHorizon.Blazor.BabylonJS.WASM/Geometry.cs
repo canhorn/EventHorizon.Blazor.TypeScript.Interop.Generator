@@ -507,49 +507,7 @@ __boundingBias = null;
             );
         }
 
-        #region load TODO: Get Comments as metadata identification
-        private bool _isLoadEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _loadActionMap = new Dictionary<string, Func<Task>>();
-
-        public string load(
-            Func<Task> callback
-        )
-        {
-            SetupLoadLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _loadActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupLoadLoop()
-        {
-            if (_isLoadEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "load",
-                "CallLoadActions",
-                _invokableReference
-            );
-            _isLoadEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallLoadActions()
-        {
-            foreach (var action in _loadActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// load is not supported by the platform yet
 
         public void toLeftHanded()
         {

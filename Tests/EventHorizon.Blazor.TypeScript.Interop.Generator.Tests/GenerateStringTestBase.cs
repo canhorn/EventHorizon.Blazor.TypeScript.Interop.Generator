@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
 using FluentAssertions;
 using Sdcb.TypeScript;
 
@@ -10,7 +11,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
         public void ValidateGenerateStrings(
             string path,
             string sourceFile,
-            string expectedFile
+            string expectedFile,
+            string classIdentifier = "ExampleClass"
         )
         {
             // Given
@@ -37,12 +39,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
             // When
             var generated = GenerateInteropClassStatement.Generate(
                 "ProjectAssembly",
-                "ExampleClass",
+                classIdentifier,
                 ast,
                 typeOverrideMap
             );
             var actual = GenerateClassStatementString.Generate(
-                generated
+                generated,
+                new NoFormattingTextFormatter()
             );
 
             // Then
@@ -86,7 +89,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
                 typeOverrideMap
             );
             var actual = GenerateClassStatementString.Generate(
-                generated
+                generated,
+                new NoFormattingTextFormatter()
             );
 
             // Then

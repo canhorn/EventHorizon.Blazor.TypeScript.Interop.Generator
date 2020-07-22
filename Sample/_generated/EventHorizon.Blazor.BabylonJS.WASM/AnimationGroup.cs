@@ -11,7 +11,7 @@ namespace BabylonJS
     
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class AnimationGroup : CachedEntityObject, IDisposable
+    public class AnimationGroup : CachedEntityObject
     {
         #region Static Accessors
 
@@ -377,17 +377,18 @@ __onAnimationGroupPlayObservable = null;
         #endregion
         
         #region Constructor
-        public AnimationGroup() : base() { }
+        public AnimationGroup() : base() { } 
 
         public AnimationGroup(
             ICachedEntity entity
         ) : base(entity)
         {
+            ___guid = entity.___guid;
         }
 
         public AnimationGroup(
             string name, Scene scene = null
-        ) : base()
+        )
         {
             var entity = EventHorizonBlazorInteropt.New(
                 new string[] { "BABYLON", "AnimationGroup" },
@@ -529,49 +530,7 @@ __onAnimationGroupPlayObservable = null;
             );
         }
 
-        #region clone TODO: Get Comments as metadata identification
-        private bool _isCloneEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _cloneActionMap = new Dictionary<string, Func<Task>>();
-
-        public string clone(
-            Func<Task> callback
-        )
-        {
-            SetupCloneLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _cloneActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupCloneLoop()
-        {
-            if (_isCloneEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "clone",
-                "CallCloneActions",
-                _invokableReference
-            );
-            _isCloneEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallCloneActions()
-        {
-            foreach (var action in _cloneActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// clone is not supported by the platform yet
 
         public CachedEntity serialize()
         {

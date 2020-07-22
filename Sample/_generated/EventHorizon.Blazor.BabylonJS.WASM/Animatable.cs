@@ -512,49 +512,7 @@ __onAnimationLoopObservable = null;
             );
         }
 
-        #region stop TODO: Get Comments as metadata identification
-        private bool _isStopEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _stopActionMap = new Dictionary<string, Func<Task>>();
-
-        public string stop(
-            Func<Task> callback
-        )
-        {
-            SetupStopLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _stopActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupStopLoop()
-        {
-            if (_isStopEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "stop",
-                "CallStopActions",
-                _invokableReference
-            );
-            _isStopEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallStopActions()
-        {
-            foreach (var action in _stopActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// stop is not supported by the platform yet
 
         public void waitAsync()
         {

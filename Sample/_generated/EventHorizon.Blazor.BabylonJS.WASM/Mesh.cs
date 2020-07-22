@@ -458,48 +458,7 @@ namespace BabylonJS
             );
         }
 
-        #region CreateGroundFromHeightMap TODO: Get Comments as metadata identification
-        private static bool IsCreateGroundFromHeightMapEnabled = false;
-        private static readonly IDictionary<string, Func<Task>> CreateGroundFromHeightMapActionMap = new Dictionary<string, Func<Task>>();
-
-        public static string CreateGroundFromHeightMap(
-            Func<Task> callback
-        )
-        {
-            SetupCreateGroundFromHeightMapStaticLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            CreateGroundFromHeightMapActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private static void SetupCreateGroundFromHeightMapStaticLoop()
-        {
-            if (IsCreateGroundFromHeightMapEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.AssemblyFuncCallback(
-                "EventHorizon.Blazor.BabylonJS.WASM",
-                "BABYLON.Mesh.CreateGroundFromHeightMap",
-                "CallCreateGroundFromHeightMapStaticActions"
-            );
-            IsCreateGroundFromHeightMapEnabled = true;
-        }
-
-        [JSInvokable]
-        public static async Task CallCreateGroundFromHeightMapStaticActions()
-        {
-            foreach (var action in CreateGroundFromHeightMapActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// CreateGroundFromHeightMap is not supported by the platform yet
 
         public static Mesh CreateTube(string name, Vector3[] path, decimal radius, decimal tessellation, object radiusFunction, decimal cap, Scene scene, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null, Mesh instance = null)
         {
@@ -989,49 +948,7 @@ __morphTargetManager = null;
         }
         #endregion
 
-        #region instantiateHierarchy TODO: Get Comments as metadata identification
-        private bool _isInstantiateHierarchyEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _instantiateHierarchyActionMap = new Dictionary<string, Func<Task>>();
-
-        public string instantiateHierarchy(
-            Func<Task> callback
-        )
-        {
-            SetupInstantiateHierarchyLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _instantiateHierarchyActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupInstantiateHierarchyLoop()
-        {
-            if (_isInstantiateHierarchyEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "instantiateHierarchy",
-                "CallInstantiateHierarchyActions",
-                _invokableReference
-            );
-            _isInstantiateHierarchyEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallInstantiateHierarchyActions()
-        {
-            foreach (var action in _instantiateHierarchyActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// instantiateHierarchy is not supported by the platform yet
 
         public string getClassName()
         {
@@ -1297,10 +1214,10 @@ __morphTargetManager = null;
 
         #region updateMeshPositions TODO: Get Comments as metadata identification
         private bool _isUpdateMeshPositionsEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _updateMeshPositionsActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Array, Task>> _updateMeshPositionsActionMap = new Dictionary<string, Func<Array, Task>>();
 
         public string updateMeshPositions(
-            Func<Task> callback
+            Func<Array, Task> callback
         )
         {
             SetupUpdateMeshPositionsLoop();
@@ -1330,11 +1247,11 @@ __morphTargetManager = null;
         }
 
         [JSInvokable]
-        public async Task CallUpdateMeshPositionsActions()
+        public async Task CallUpdateMeshPositionsActions(decimal[] data)
         {
             foreach (var action in _updateMeshPositionsActionMap.Values)
             {
-                await action();
+                await action(data);
             }
         }
         #endregion
@@ -1385,10 +1302,10 @@ __morphTargetManager = null;
 
         #region registerBeforeRender TODO: Get Comments as metadata identification
         private bool _isRegisterBeforeRenderEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _registerBeforeRenderActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<AbstractMesh, Task>> _registerBeforeRenderActionMap = new Dictionary<string, Func<AbstractMesh, Task>>();
 
         public string registerBeforeRender(
-            Func<Task> callback
+            Func<AbstractMesh, Task> callback
         )
         {
             SetupRegisterBeforeRenderLoop();
@@ -1418,21 +1335,21 @@ __morphTargetManager = null;
         }
 
         [JSInvokable]
-        public async Task CallRegisterBeforeRenderActions()
+        public async Task CallRegisterBeforeRenderActions(AbstractMesh mesh)
         {
             foreach (var action in _registerBeforeRenderActionMap.Values)
             {
-                await action();
+                await action(mesh);
             }
         }
         #endregion
 
         #region unregisterBeforeRender TODO: Get Comments as metadata identification
         private bool _isUnregisterBeforeRenderEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _unregisterBeforeRenderActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<AbstractMesh, Task>> _unregisterBeforeRenderActionMap = new Dictionary<string, Func<AbstractMesh, Task>>();
 
         public string unregisterBeforeRender(
-            Func<Task> callback
+            Func<AbstractMesh, Task> callback
         )
         {
             SetupUnregisterBeforeRenderLoop();
@@ -1462,21 +1379,21 @@ __morphTargetManager = null;
         }
 
         [JSInvokable]
-        public async Task CallUnregisterBeforeRenderActions()
+        public async Task CallUnregisterBeforeRenderActions(AbstractMesh mesh)
         {
             foreach (var action in _unregisterBeforeRenderActionMap.Values)
             {
-                await action();
+                await action(mesh);
             }
         }
         #endregion
 
         #region registerAfterRender TODO: Get Comments as metadata identification
         private bool _isRegisterAfterRenderEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _registerAfterRenderActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<AbstractMesh, Task>> _registerAfterRenderActionMap = new Dictionary<string, Func<AbstractMesh, Task>>();
 
         public string registerAfterRender(
-            Func<Task> callback
+            Func<AbstractMesh, Task> callback
         )
         {
             SetupRegisterAfterRenderLoop();
@@ -1506,21 +1423,21 @@ __morphTargetManager = null;
         }
 
         [JSInvokable]
-        public async Task CallRegisterAfterRenderActions()
+        public async Task CallRegisterAfterRenderActions(AbstractMesh mesh)
         {
             foreach (var action in _registerAfterRenderActionMap.Values)
             {
-                await action();
+                await action(mesh);
             }
         }
         #endregion
 
         #region unregisterAfterRender TODO: Get Comments as metadata identification
         private bool _isUnregisterAfterRenderEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _unregisterAfterRenderActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<AbstractMesh, Task>> _unregisterAfterRenderActionMap = new Dictionary<string, Func<AbstractMesh, Task>>();
 
         public string unregisterAfterRender(
-            Func<Task> callback
+            Func<AbstractMesh, Task> callback
         )
         {
             SetupUnregisterAfterRenderLoop();
@@ -1550,11 +1467,11 @@ __morphTargetManager = null;
         }
 
         [JSInvokable]
-        public async Task CallUnregisterAfterRenderActions()
+        public async Task CallUnregisterAfterRenderActions(AbstractMesh mesh)
         {
             foreach (var action in _unregisterAfterRenderActionMap.Values)
             {
-                await action();
+                await action(mesh);
             }
         }
         #endregion
@@ -1665,49 +1582,7 @@ __morphTargetManager = null;
             );
         }
 
-        #region applyDisplacementMap TODO: Get Comments as metadata identification
-        private bool _isApplyDisplacementMapEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _applyDisplacementMapActionMap = new Dictionary<string, Func<Task>>();
-
-        public string applyDisplacementMap(
-            Func<Task> callback
-        )
-        {
-            SetupApplyDisplacementMapLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _applyDisplacementMapActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupApplyDisplacementMapLoop()
-        {
-            if (_isApplyDisplacementMapEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "applyDisplacementMap",
-                "CallApplyDisplacementMapActions",
-                _invokableReference
-            );
-            _isApplyDisplacementMapEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallApplyDisplacementMapActions()
-        {
-            foreach (var action in _applyDisplacementMapActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// applyDisplacementMap is not supported by the platform yet
 
         public Mesh applyDisplacementMapFromBuffer(decimal[] buffer, decimal heightMapWidth, decimal heightMapHeight, decimal minHeight, decimal maxHeight, Vector2 uvOffset = null, Vector2 uvScale = null, System.Nullable<bool> forceUpdate = null)
         {
@@ -1797,10 +1672,10 @@ __morphTargetManager = null;
 
         #region optimizeIndices TODO: Get Comments as metadata identification
         private bool _isOptimizeIndicesEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _optimizeIndicesActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Mesh, Task>> _optimizeIndicesActionMap = new Dictionary<string, Func<Mesh, Task>>();
 
         public string optimizeIndices(
-            Func<Task> callback
+            Func<Mesh, Task> callback
         )
         {
             SetupOptimizeIndicesLoop();
@@ -1830,11 +1705,11 @@ __morphTargetManager = null;
         }
 
         [JSInvokable]
-        public async Task CallOptimizeIndicesActions()
+        public async Task CallOptimizeIndicesActions(Mesh mesh)
         {
             foreach (var action in _optimizeIndicesActionMap.Values)
             {
-                await action();
+                await action(mesh);
             }
         }
         #endregion

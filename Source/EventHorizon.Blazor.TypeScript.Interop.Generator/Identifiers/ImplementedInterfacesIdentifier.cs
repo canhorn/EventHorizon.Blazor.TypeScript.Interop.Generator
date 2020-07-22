@@ -14,7 +14,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         public static IList<TypeStatement> Identify(
             Node node,
             TypeScriptAST ast,
-            ClassMetadata classMetadata
+            ClassMetadata classMetadata,
+            TypeOverrideDetails typeOverrideDetails
         )
         {
             var interfaces = new List<TypeStatement>();
@@ -31,7 +32,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     var identifiedInterface = GenericTypeIdentifier.Identify(
                         herited.First,
                         classMetadata,
-                        ast
+                        ast,
+                        typeOverrideDetails
                     );
                     if (interfaceCache.Any(a => a.IdentifierStr == identifiedInterface.Name))
                     {

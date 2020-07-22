@@ -515,49 +515,7 @@ __onBeforeComputeObservable = null;
             );
         }
 
-        #region beginAnimation TODO: Get Comments as metadata identification
-        private bool _isBeginAnimationEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _beginAnimationActionMap = new Dictionary<string, Func<Task>>();
-
-        public string beginAnimation(
-            Func<Task> callback
-        )
-        {
-            SetupBeginAnimationLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _beginAnimationActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupBeginAnimationLoop()
-        {
-            if (_isBeginAnimationEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "beginAnimation",
-                "CallBeginAnimationActions",
-                _invokableReference
-            );
-            _isBeginAnimationEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallBeginAnimationActions()
-        {
-            foreach (var action in _beginAnimationActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// beginAnimation is not supported by the platform yet
 
         public void prepare()
         {

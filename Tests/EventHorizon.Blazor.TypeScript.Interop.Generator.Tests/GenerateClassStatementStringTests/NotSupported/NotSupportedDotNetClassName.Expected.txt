@@ -1,0 +1,89 @@
+/// Generated - Do Not Edit
+namespace Examples
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter))]
+    public class _IDisposable : CachedEntityObject
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+        private _IDisposable __disposeProperty;
+        public _IDisposable disposeProperty
+        {
+            get
+            {
+            if(__disposeProperty == null)
+            {
+                __disposeProperty = EventHorizonBlazorInteropt.GetClass<_IDisposable>(
+                    this.___guid,
+                    "disposeProperty",
+                    (entity) =>
+                    {
+                        return new _IDisposable() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __disposeProperty;
+            }
+            set
+            {
+__disposeProperty = null;
+                EventHorizonBlazorInteropt.Set(
+                    this.___guid,
+                    "disposeProperty",
+                    value
+                );
+            }
+        }
+        #endregion
+        
+        #region Constructor
+        public _IDisposable() : base() { } 
+
+        public _IDisposable(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+
+        #endregion
+
+        #region Methods
+        public _IDisposable disposeMethod(_IDisposable arg1)
+        {
+            return EventHorizonBlazorInteropt.FuncClass<_IDisposable>(
+                entity => new _IDisposable() { ___guid = entity.___guid },
+                new object[] 
+                {
+                    new string[] { this.___guid, "disposeMethod" }, arg1
+                }
+            );
+        }
+        #endregion
+    }
+}

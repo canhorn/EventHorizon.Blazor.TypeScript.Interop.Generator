@@ -106,23 +106,24 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             {
                 return classMetadata.Name;
             }
+            else if (node.Kind == SyntaxKind.Parameter)
+            {
+                if (node is ParameterDeclaration parameterDeclaration)
+                {
+                    return GetFromNode(
+                        parameterDeclaration.Type as Node,
+                        parameterDeclaration.Type.Kind,
+                        classMetadata
+                    );
+                }
+                return classMetadata.Name;
+            }
             else if (node.IdentifierStr != null)
             {
                 return node.IdentifierStr;
             }
-            else if (IsNamespace(node))
-            {
-                return GetNamespacesType(node);
-            }
-            return GenerationIdentifiedTypes.Unknown;
-        }
-
-        private static bool IsNamespace(
-            Node node
-        )
-        {
-            return node is TypeReferenceNode typedNode
-                && typedNode.TypeName != null;
+            // Is Probably a Namespace
+            return GetNamespacesType(node);
         }
 
         private static string GetNamespacesType(
@@ -137,7 +138,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     return typedNode.First.Last.IdentifierStr;
                 }
             }
-            return node.Last.Last.IdentifierStr;
+            return node.OfKind(
+                SyntaxKind.Identifier
+            ).LastOrDefault()?.IdentifierStr ?? GenerationIdentifiedTypes.Unknown;
         }
     }
 }

@@ -527,10 +527,10 @@ __msURL = null;
 
         #region setImmediate TODO: Get Comments as metadata identification
         private bool _isSetImmediateEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _setImmediateActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<CachedEntity[], Task>> _setImmediateActionMap = new Dictionary<string, Func<CachedEntity[], Task>>();
 
         public string setImmediate(
-            Func<Task> callback
+            Func<CachedEntity[], Task> callback
         )
         {
             SetupSetImmediateLoop();
@@ -560,11 +560,11 @@ __msURL = null;
         }
 
         [JSInvokable]
-        public async Task CallSetImmediateActions()
+        public async Task CallSetImmediateActions(CachedEntity[] args)
         {
             foreach (var action in _setImmediateActionMap.Values)
             {
-                await action();
+                await action(args);
             }
         }
         #endregion

@@ -99,7 +99,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     true
                 );
 
-                Console.WriteLine("STOP");
                 template = template
                     .Replace(
                         "[[PROPERTY_GETTER]]",
@@ -133,7 +132,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         string.Empty
                     ).Replace(
                         "[[NAME]]",
-                        DotNetNormailzer.Normailze(
+                        DotNetNormalizer.Normalize(
                             accessor.Name
                         )
                     ).Replace(
@@ -141,20 +140,17 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         accessor.Name.Captialize()
                     ).Replace(
                         "[[TYPE]]",
-                        // TODO: [TypeStatementWriter]: Use Writer Here
                         TypeStatementWriter.Write(
                             accessor.Type
                         )
                     ).Replace(
                         "[[ARRAY_TYPE]]",
-                        // TODO: [TypeStatementWriter]: Use Writer Here
                         TypeStatementWriter.Write(
                             accessor.Type,
                             true
                         )
                     ).Replace(
                         "[[NEW_TYPE]]",
-                        // TODO: [TypeStatementWriter]: Use Writer Here
                         TypeStatementWriter.Write(
                             accessor.Type,
                             true

@@ -292,48 +292,7 @@ namespace BabylonJS
             );
         }
 
-        #region ForEach TODO: Get Comments as metadata identification
-        private static bool IsForEachEnabled = false;
-        private static readonly IDictionary<string, Func<Task>> ForEachActionMap = new Dictionary<string, Func<Task>>();
-
-        public static string ForEach(
-            Func<Task> callback
-        )
-        {
-            SetupForEachStaticLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            ForEachActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private static void SetupForEachStaticLoop()
-        {
-            if (IsForEachEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.AssemblyFuncCallback(
-                "EventHorizon.Blazor.BabylonJS.WASM",
-                "BABYLON.VertexBuffer.ForEach",
-                "CallForEachStaticActions"
-            );
-            IsForEachEnabled = true;
-        }
-
-        [JSInvokable]
-        public static async Task CallForEachStaticActions()
-        {
-            foreach (var action in ForEachActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// ForEach is not supported by the platform yet
         #endregion
 
         #region Accessors
@@ -564,49 +523,7 @@ namespace BabylonJS
             );
         }
 
-        #region forEach TODO: Get Comments as metadata identification
-        private bool _isForEachEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _forEachActionMap = new Dictionary<string, Func<Task>>();
-
-        public string forEach(
-            Func<Task> callback
-        )
-        {
-            SetupForEachLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _forEachActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupForEachLoop()
-        {
-            if (_isForEachEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "forEach",
-                "CallForEachActions",
-                _invokableReference
-            );
-            _isForEachEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallForEachActions()
-        {
-            foreach (var action in _forEachActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// forEach is not supported by the platform yet
         #endregion
     }
 }

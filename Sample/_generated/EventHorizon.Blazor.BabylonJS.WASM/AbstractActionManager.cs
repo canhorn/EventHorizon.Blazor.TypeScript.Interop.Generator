@@ -11,7 +11,7 @@ namespace BabylonJS
     
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class AbstractActionManager : CachedEntityObject, IDisposable
+    public class AbstractActionManager : CachedEntityObject
     {
         #region Static Accessors
         
@@ -170,12 +170,13 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public AbstractActionManager() : base() { }
+        public AbstractActionManager() : base() { } 
 
         public AbstractActionManager(
             ICachedEntity entity
         ) : base(entity)
         {
+            ___guid = entity.___guid;
         }
 
 
@@ -222,49 +223,7 @@ namespace BabylonJS
             );
         }
 
-        #region hasSpecificTrigger TODO: Get Comments as metadata identification
-        private bool _isHasSpecificTriggerEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _hasSpecificTriggerActionMap = new Dictionary<string, Func<Task>>();
-
-        public string hasSpecificTrigger(
-            Func<Task> callback
-        )
-        {
-            SetupHasSpecificTriggerLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _hasSpecificTriggerActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupHasSpecificTriggerLoop()
-        {
-            if (_isHasSpecificTriggerEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "hasSpecificTrigger",
-                "CallHasSpecificTriggerActions",
-                _invokableReference
-            );
-            _isHasSpecificTriggerEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallHasSpecificTriggerActions()
-        {
-            foreach (var action in _hasSpecificTriggerActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// hasSpecificTrigger is not supported by the platform yet
 
         public CachedEntity serialize(string name)
         {

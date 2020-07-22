@@ -41,48 +41,7 @@ namespace BabylonJS
         #endregion
 
         #region Static Methods
-        #region WhenAllReady TODO: Get Comments as metadata identification
-        private static bool IsWhenAllReadyEnabled = false;
-        private static readonly IDictionary<string, Func<Task>> WhenAllReadyActionMap = new Dictionary<string, Func<Task>>();
-
-        public static string WhenAllReady(
-            Func<Task> callback
-        )
-        {
-            SetupWhenAllReadyStaticLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            WhenAllReadyActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private static void SetupWhenAllReadyStaticLoop()
-        {
-            if (IsWhenAllReadyEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.AssemblyFuncCallback(
-                "EventHorizon.Blazor.BabylonJS.WASM",
-                "BABYLON.BaseTexture.WhenAllReady",
-                "CallWhenAllReadyStaticActions"
-            );
-            IsWhenAllReadyEnabled = true;
-        }
-
-        [JSInvokable]
-        public static async Task CallWhenAllReadyStaticActions()
-        {
-            foreach (var action in WhenAllReadyActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// WhenAllReady is not supported by the platform yet
         #endregion
 
         #region Accessors

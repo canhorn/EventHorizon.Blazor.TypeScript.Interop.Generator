@@ -64,23 +64,20 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     }
                     var argumentString = argumentsTemplate.Replace(
                         "[[NAME]]",
-                        DotNetNormailzer.Normailze(argument.Name)
+                        DotNetNormalizer.Normalize(argument.Name)
                     ).Replace(
                         "[[TYPE]]",
-                        // TODO: [TypeStatementWriter]: Use Writer Here
                         TypeStatementWriter.Write(
                             argument.Type
                         )
                     ).Replace(
                         "[[ARRAY_TYPE]]",
-                        // TODO: [TypeStatementWriter]: Use Writer Here
                         TypeStatementWriter.Write(
                             argument.Type,
                             true
                         )
                     ).Replace(
                         "[[NEW_TYPE]]",
-                        // TODO: [TypeStatementWriter]: Use Writer Here
                         TypeStatementWriter.Write(
                             argument.Type,
                             true
@@ -100,7 +97,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 var propertyArguments = string.Join(
                     ", ",
                     arguments.Select(
-                        argument => DotNetNormailzer.Normailze(
+                        argument => DotNetNormalizer.Normalize(
                             argument.Name
                         )
                     )

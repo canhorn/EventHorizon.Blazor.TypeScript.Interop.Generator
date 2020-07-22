@@ -11,7 +11,7 @@ namespace BabylonJS.GUI
     
     
     [JsonConverter(typeof(CachedEntityConverter))]
-    public class AdvancedDynamicTexture : CachedEntityObject
+    public class AdvancedDynamicTexture : DynamicTexture
     {
         #region Static Accessors
 
@@ -539,18 +539,17 @@ __onEndRenderObservable = null;
         #endregion
         
         #region Constructor
-        public AdvancedDynamicTexture() : base() { } 
+        public AdvancedDynamicTexture() : base() { }
 
         public AdvancedDynamicTexture(
             ICachedEntity entity
         ) : base(entity)
         {
-            ___guid = entity.___guid;
         }
 
         public AdvancedDynamicTexture(
             string name, Scene scene, System.Nullable<decimal> width = null, System.Nullable<decimal> height = null, System.Nullable<bool> generateMipMaps = null, System.Nullable<decimal> samplingMode = null
-        )
+        ) : base()
         {
             var entity = EventHorizonBlazorInteropt.New(
                 new string[] { "BABYLON", "GUI", "AdvancedDynamicTexture" },
@@ -572,49 +571,7 @@ __onEndRenderObservable = null;
             );
         }
 
-        #region getDescendants TODO: Get Comments as metadata identification
-        private bool _isGetDescendantsEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _getDescendantsActionMap = new Dictionary<string, Func<Task>>();
-
-        public string getDescendants(
-            Func<Task> callback
-        )
-        {
-            SetupGetDescendantsLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _getDescendantsActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        private void SetupGetDescendantsLoop()
-        {
-            if (_isGetDescendantsEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInteropt.FuncCallback(
-                this,
-                "getDescendants",
-                "CallGetDescendantsActions",
-                _invokableReference
-            );
-            _isGetDescendantsEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallGetDescendantsActions()
-        {
-            foreach (var action in _getDescendantsActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
+// getDescendants is not supported by the platform yet
 
         public string getClassName()
         {
@@ -628,10 +585,10 @@ __onEndRenderObservable = null;
 
         #region executeOnAllControls TODO: Get Comments as metadata identification
         private bool _isExecuteOnAllControlsEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _executeOnAllControlsActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Control, Task>> _executeOnAllControlsActionMap = new Dictionary<string, Func<Control, Task>>();
 
         public string executeOnAllControls(
-            Func<Task> callback
+            Func<Control, Task> callback
         )
         {
             SetupExecuteOnAllControlsLoop();
@@ -661,11 +618,11 @@ __onEndRenderObservable = null;
         }
 
         [JSInvokable]
-        public async Task CallExecuteOnAllControlsActions()
+        public async Task CallExecuteOnAllControlsActions(Control control)
         {
             foreach (var action in _executeOnAllControlsActionMap.Values)
             {
-                await action();
+                await action(control);
             }
         }
         #endregion

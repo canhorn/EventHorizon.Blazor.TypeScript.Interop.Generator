@@ -8,7 +8,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
     {
         [Theory(DisplayName = "Action")]
         [Trait("Category", "StringGeneration.Actions")]
+        [InlineData("TypedActionCallback.ts", "Actions", "TypedActionCallback.Expected.txt")]
         [InlineData("WithGenericProperty.ts", "Actions", "WithGenericProperty.Expected.txt")]
+        [InlineData("WithMultipleGenericProperty.ts", "Actions", "WithMultipleGenericProperty.Expected.txt")]
         public void ShouldGenerateConstructorStrings(
             string sourceFile,
             string path,

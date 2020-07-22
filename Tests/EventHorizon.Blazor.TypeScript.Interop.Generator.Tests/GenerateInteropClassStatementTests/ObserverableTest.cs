@@ -27,7 +27,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                 ast,
                 typeOverrideMap
             );
-            Console.WriteLine("stop");
         }
 
         [Fact]
@@ -49,7 +48,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
             );
 
             // Then
-            Console.WriteLine("stop");
             actual.Namespace
                 .Should().Be("BABYLON");
             actual.Name

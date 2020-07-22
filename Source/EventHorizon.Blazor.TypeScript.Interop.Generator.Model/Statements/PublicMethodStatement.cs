@@ -41,15 +41,5 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements
             }
             return $"public {type} {Name}({args});";
         }
-
-        public static bool operator ==(PublicMethodStatement left, PublicMethodStatement right)
-        {
-            return EqualityComparer<PublicMethodStatement>.Default.Equals(left, right);
-        }
-
-        public static bool operator !=(PublicMethodStatement left, PublicMethodStatement right)
-        {
-            return !(left == right);
-        }
     }
 }

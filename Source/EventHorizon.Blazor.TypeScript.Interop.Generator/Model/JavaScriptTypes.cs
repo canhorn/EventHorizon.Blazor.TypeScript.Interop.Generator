@@ -39,7 +39,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model
 
         #region Special BabylonJS Types - We want to track these because they have special cases for performance
         public static string Nullable => "Nullable";
-        public static string Observer => "Observer";
         public static string Observable => "Observable";
         public static string DeepImmutable => "DeepImmutable";
         public static string Partial => "Partial";

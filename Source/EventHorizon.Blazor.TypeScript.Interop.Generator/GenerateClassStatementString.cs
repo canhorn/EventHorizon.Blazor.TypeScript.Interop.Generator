@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Formatter;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Templates;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Writers;
 
@@ -14,7 +17,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
     public static class GenerateClassStatementString
     {
         public static string Generate(
-            ClassStatement classStatement
+            ClassStatement classStatement,
+            TextFormatter textFormatter
         )
         {
             var classTokenMap = new Dictionary<string, string>
@@ -71,7 +75,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             );
             classTokenMap["[[WHERE_CONSTRAINT]]"] = classStatement.GenericTypes.Any()
                 ? string.Join(
-                    "", 
+                    "",
                     classStatement.GenericTypes.Select(
                         genericType => $" where {genericType.Name} : CachedEntity, new()"
                     )
@@ -129,7 +133,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                 )
             );
 
-            return classStringBuilder.ToString();
+            return textFormatter.Format(
+                classStringBuilder.ToString()
+            );
         }
 
         private static string BuildClassGenerics(

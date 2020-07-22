@@ -84,10 +84,10 @@ __scene = null;
         #region Methods
         #region instantiateModelsToScene TODO: Get Comments as metadata identification
         private bool _isInstantiateModelsToSceneEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _instantiateModelsToSceneActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<string, Task>> _instantiateModelsToSceneActionMap = new Dictionary<string, Func<string, Task>>();
 
         public string instantiateModelsToScene(
-            Func<Task> callback
+            Func<string, Task> callback
         )
         {
             SetupInstantiateModelsToSceneLoop();
@@ -117,11 +117,11 @@ __scene = null;
         }
 
         [JSInvokable]
-        public async Task CallInstantiateModelsToSceneActions()
+        public async Task CallInstantiateModelsToSceneActions(string sourceName)
         {
             foreach (var action in _instantiateModelsToSceneActionMap.Values)
             {
-                await action();
+                await action(sourceName);
             }
         }
         #endregion

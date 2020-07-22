@@ -15,8 +15,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         internal static IList<ArgumentStatement> Identify(
             Node classDeclaration,
             ClassMetadata classMetadata,
-            IDictionary<string, string> typeOverrideMap,
-            TypeScriptAST ast
+            TypeScriptAST ast,
+            TypeOverrideDetails typeOverrideDetails
         )
         {
             var constructor = classDeclaration
@@ -27,8 +27,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 var list = ArgumentIdentifier.Identify(
                     constructor,
                     classMetadata,
-                    typeOverrideMap,
-                    ast
+                    ast,
+                    typeOverrideDetails
                 );
                 return ConvertActionToObject(
                     list
