@@ -10,6 +10,8 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
 {
     public partial class ButtonExample
     {
+        public Vector2 ClickPosition { get; set; }
+
         protected override void OnAfterRender(bool firstRender)
         {
             if (firstRender)
@@ -52,11 +54,11 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
             var button = Button.CreateSimpleButton(
                 "button", "Click Me"
             );
-            button.width = "130px";
-            button.height = "35px";
+            button.width = "90%";
+            button.height = "90%";
             button.color = "white";
             button.background = "green";
-            button.onPointerClickObservable.add((Vector2WithInfo arg1, EventState state) =>
+            button.onPointerClickObservable.add(async (Vector2WithInfo arg1, EventState state) =>
             {
                 var x = arg1.x.ToString();
                 var fds = arg1.buttonIndex;
@@ -65,7 +67,8 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
                     $"Clicked: {arg1.x}, {arg1.y}"
                 );
                 var xx = vector.getClassName();
-                return Task.CompletedTask;
+                ClickPosition = arg1;
+                await InvokeAsync(StateHasChanged);
             });
             advancedTexture.addControl(
                 button

@@ -3,5 +3,13 @@
 <h1>Game! With! Generator!</h1>
 
 <div>
+    @if (ClickPosition != null)
+    {
+        @($"[{ClickPosition.x}, {ClickPosition.y}]")
+    }
+    else
+    {
+        @("[click button]")
+    }
     <canvas id="game-window" style="width:100%"></canvas>
 </div>
