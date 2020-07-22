@@ -1,3 +1,4 @@
+using System;
 using System.Text;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Formatter;
 using Microsoft.CodeAnalysis;
@@ -17,7 +18,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter
                     text,
                     Encoding.UTF8
                 )
-            ).GetRoot().NormalizeWhitespace().ToFullString();
+            ).GetRoot().NormalizeWhitespace(
+                "    ",
+                Environment.NewLine
+            ).ToFullString();
         }
     }
 }
