@@ -31,7 +31,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "fontSize"
                 );
@@ -39,7 +39,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "fontSize",
                     value
@@ -52,7 +52,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "fontFamily"
                 );
@@ -60,7 +60,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "fontFamily",
                     value
@@ -73,7 +73,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "fontStyle"
                 );
@@ -81,7 +81,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "fontStyle",
                     value
@@ -94,7 +94,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "fontWeight"
                 );
@@ -102,7 +102,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "fontWeight",
                     value
@@ -119,7 +119,7 @@ namespace BabylonJS.GUI
             {
             if(__onChangedObservable == null)
             {
-                __onChangedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Style>>(
+                __onChangedObservable = EventHorizonBlazorInterop.GetClass<Observable<Style>>(
                     this.___guid,
                     "onChangedObservable",
                     (entity) =>
@@ -133,7 +133,7 @@ namespace BabylonJS.GUI
             set
             {
 __onChangedObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onChangedObservable",
                     value
@@ -156,7 +156,7 @@ __onChangedObservable = null;
             AdvancedDynamicTexture host
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GUI", "Style" },
                 host
             );
@@ -167,7 +167,7 @@ __onChangedObservable = null;
         #region Methods
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }

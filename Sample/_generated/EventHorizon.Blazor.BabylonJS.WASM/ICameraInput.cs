@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             if(__camera == null)
             {
-                __camera = EventHorizonBlazorInteropt.GetClass<TCamera>(
+                __camera = EventHorizonBlazorInterop.GetClass<TCamera>(
                     this.___guid,
                     "camera",
                     (entity) =>
@@ -51,7 +51,7 @@ namespace BabylonJS
             set
             {
 __camera = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "camera",
                     value
@@ -75,7 +75,7 @@ __camera = null;
         #region Methods
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -85,7 +85,7 @@ __camera = null;
 
         public string getSimpleName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getSimpleName" }
@@ -95,7 +95,7 @@ __camera = null;
 
         public void attachControl(object element, System.Nullable<bool> noPreventDefault = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "attachControl" }, element, noPreventDefault
@@ -105,7 +105,7 @@ __camera = null;
 
         public void detachControl(CachedEntity element)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "detachControl" }, element
@@ -138,7 +138,7 @@ __camera = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "checkInputs",
                 "CallCheckInputsActions",

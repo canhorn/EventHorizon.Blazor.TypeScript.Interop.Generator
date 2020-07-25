@@ -24,7 +24,7 @@ namespace BabylonJS
         #region Static Methods
         public static GroundMesh Parse(object parsedMesh, Scene scene)
         {
-            return EventHorizonBlazorInteropt.FuncClass<GroundMesh>(
+            return EventHorizonBlazorInterop.FuncClass<GroundMesh>(
                 entity => new GroundMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -40,7 +40,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "subdivisions"
                 );
@@ -52,7 +52,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "subdivisionsX"
                 );
@@ -64,7 +64,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "subdivisionsY"
                 );
@@ -78,7 +78,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "generateOctree"
                 );
@@ -86,7 +86,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "generateOctree",
                     value
@@ -108,7 +108,7 @@ namespace BabylonJS
             string name, Scene scene
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GroundMesh" },
                 name, scene
             );
@@ -119,7 +119,7 @@ namespace BabylonJS
         #region Methods
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -129,7 +129,7 @@ namespace BabylonJS
 
         public void optimize(decimal chunksCount, System.Nullable<decimal> octreeBlocksSize = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "optimize" }, chunksCount, octreeBlocksSize
@@ -139,7 +139,7 @@ namespace BabylonJS
 
         public decimal getHeightAtCoordinates(decimal x, decimal z)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getHeightAtCoordinates" }, x, z
@@ -149,7 +149,7 @@ namespace BabylonJS
 
         public Vector3 getNormalAtCoordinates(decimal x, decimal z)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Vector3>(
+            return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -160,7 +160,7 @@ namespace BabylonJS
 
         public GroundMesh getNormalAtCoordinatesToRef(decimal x, decimal z, Vector3 @ref)
         {
-            return EventHorizonBlazorInteropt.FuncClass<GroundMesh>(
+            return EventHorizonBlazorInterop.FuncClass<GroundMesh>(
                 entity => new GroundMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -171,7 +171,7 @@ namespace BabylonJS
 
         public GroundMesh updateCoordinateHeights()
         {
-            return EventHorizonBlazorInteropt.FuncClass<GroundMesh>(
+            return EventHorizonBlazorInterop.FuncClass<GroundMesh>(
                 entity => new GroundMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -182,7 +182,7 @@ namespace BabylonJS
 
         public void serialize(object serializationObject)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }, serializationObject

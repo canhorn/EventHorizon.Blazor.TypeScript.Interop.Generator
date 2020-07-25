@@ -19,7 +19,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "GUI.ValueAndUnit.UNITMODE_PERCENTAGE"
                 );
@@ -31,7 +31,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "GUI.ValueAndUnit.UNITMODE_PIXEL"
                 );
@@ -53,7 +53,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isPercentage"
                 );
@@ -65,7 +65,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isPixel"
                 );
@@ -77,7 +77,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "internalValue"
                 );
@@ -91,7 +91,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "unit"
                 );
@@ -99,7 +99,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "unit",
                     value
@@ -112,7 +112,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "negativeValueAllowed"
                 );
@@ -120,7 +120,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "negativeValueAllowed",
                     value
@@ -133,7 +133,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "ignoreAdaptiveScaling"
                 );
@@ -141,7 +141,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "ignoreAdaptiveScaling",
                     value
@@ -164,7 +164,7 @@ namespace BabylonJS.GUI
             decimal value, System.Nullable<decimal> unit = null, System.Nullable<bool> negativeValueAllowed = null
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GUI", "ValueAndUnit" },
                 value, unit, negativeValueAllowed
             );
@@ -175,7 +175,7 @@ namespace BabylonJS.GUI
         #region Methods
         public decimal getValueInPixel(AdvancedDynamicTexture host, decimal refValue)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getValueInPixel" }, host, refValue
@@ -185,7 +185,7 @@ namespace BabylonJS.GUI
 
         public ValueAndUnit updateInPlace(decimal value, System.Nullable<decimal> unit = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<ValueAndUnit>(
+            return EventHorizonBlazorInterop.FuncClass<ValueAndUnit>(
                 entity => new ValueAndUnit() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -196,7 +196,7 @@ namespace BabylonJS.GUI
 
         public decimal getValue(AdvancedDynamicTexture host)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getValue" }, host
@@ -206,7 +206,7 @@ namespace BabylonJS.GUI
 
         public string toString(AdvancedDynamicTexture host, System.Nullable<decimal> decimals = null)
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "toString" }, host, decimals
@@ -216,7 +216,7 @@ namespace BabylonJS.GUI
 
         public bool fromString(string source)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "fromString" }, source

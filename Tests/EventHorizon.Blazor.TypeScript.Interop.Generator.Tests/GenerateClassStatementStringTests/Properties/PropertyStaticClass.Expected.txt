@@ -25,7 +25,7 @@ namespace Static.Primitive
             {
             if(__Vector3LogLevel == null)
             {
-                __Vector3LogLevel = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __Vector3LogLevel = EventHorizonBlazorInterop.GetClass<Vector3>(
                     "Static",
                     "Primitive.ExampleClass.Vector3LogLevel",
                     (entity) =>

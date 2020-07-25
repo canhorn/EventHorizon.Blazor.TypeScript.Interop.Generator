@@ -24,7 +24,7 @@ namespace BabylonJS
         #region Static Methods
         public static bool Intersects(BoundingBox box0, BoundingBox box1)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "BoundingBox", "Intersects" }, box0, box1
@@ -34,7 +34,7 @@ namespace BabylonJS
 
         public static bool IntersectsSphere(Vector3 minPoint, Vector3 maxPoint, Vector3 sphereCenter, decimal sphereRadius)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "BoundingBox", "IntersectsSphere" }, minPoint, maxPoint, sphereCenter, sphereRadius
@@ -44,7 +44,7 @@ namespace BabylonJS
 
         public static bool IsCompletelyInFrustum(Vector3[] boundingVectors, Plane[] frustumPlanes)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "BoundingBox", "IsCompletelyInFrustum" }, boundingVectors, frustumPlanes
@@ -54,7 +54,7 @@ namespace BabylonJS
 
         public static bool IsInFrustum(Vector3[] boundingVectors, Plane[] frustumPlanes)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "BoundingBox", "IsInFrustum" }, boundingVectors, frustumPlanes
@@ -73,7 +73,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Vector3>(
+            return EventHorizonBlazorInterop.GetArrayClass<Vector3>(
                     this.___guid,
                     "vectors",
                     (entity) =>
@@ -91,7 +91,7 @@ namespace BabylonJS
             {
             if(__center == null)
             {
-                __center = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __center = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "center",
                     (entity) =>
@@ -111,7 +111,7 @@ namespace BabylonJS
             {
             if(__centerWorld == null)
             {
-                __centerWorld = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __centerWorld = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "centerWorld",
                     (entity) =>
@@ -131,7 +131,7 @@ namespace BabylonJS
             {
             if(__extendSize == null)
             {
-                __extendSize = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __extendSize = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "extendSize",
                     (entity) =>
@@ -151,7 +151,7 @@ namespace BabylonJS
             {
             if(__extendSizeWorld == null)
             {
-                __extendSizeWorld = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __extendSizeWorld = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "extendSizeWorld",
                     (entity) =>
@@ -169,7 +169,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Vector3>(
+            return EventHorizonBlazorInterop.GetArrayClass<Vector3>(
                     this.___guid,
                     "directions",
                     (entity) =>
@@ -185,7 +185,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Vector3>(
+            return EventHorizonBlazorInterop.GetArrayClass<Vector3>(
                     this.___guid,
                     "vectorsWorld",
                     (entity) =>
@@ -203,7 +203,7 @@ namespace BabylonJS
             {
             if(__minimumWorld == null)
             {
-                __minimumWorld = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __minimumWorld = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "minimumWorld",
                     (entity) =>
@@ -223,7 +223,7 @@ namespace BabylonJS
             {
             if(__maximumWorld == null)
             {
-                __maximumWorld = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __maximumWorld = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "maximumWorld",
                     (entity) =>
@@ -243,7 +243,7 @@ namespace BabylonJS
             {
             if(__minimum == null)
             {
-                __minimum = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __minimum = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "minimum",
                     (entity) =>
@@ -263,7 +263,7 @@ namespace BabylonJS
             {
             if(__maximum == null)
             {
-                __maximum = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __maximum = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "maximum",
                     (entity) =>
@@ -290,7 +290,7 @@ namespace BabylonJS
             Vector3 min, Vector3 max, Matrix worldMatrix = null
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "BoundingBox" },
                 min, max, worldMatrix
             );
@@ -301,7 +301,7 @@ namespace BabylonJS
         #region Methods
         public void reConstruct(Vector3 min, Vector3 max, Matrix worldMatrix = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "reConstruct" }, min, max, worldMatrix
@@ -311,7 +311,7 @@ namespace BabylonJS
 
         public BoundingBox scale(decimal factor)
         {
-            return EventHorizonBlazorInteropt.FuncClass<BoundingBox>(
+            return EventHorizonBlazorInterop.FuncClass<BoundingBox>(
                 entity => new BoundingBox() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -322,7 +322,7 @@ namespace BabylonJS
 
         public Matrix getWorldMatrix()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Matrix>(
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -333,7 +333,7 @@ namespace BabylonJS
 
         public bool isInFrustum(Plane[] frustumPlanes)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isInFrustum" }, frustumPlanes
@@ -343,7 +343,7 @@ namespace BabylonJS
 
         public bool isCompletelyInFrustum(Plane[] frustumPlanes)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isCompletelyInFrustum" }, frustumPlanes
@@ -353,7 +353,7 @@ namespace BabylonJS
 
         public bool intersectsPoint(Vector3 point)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "intersectsPoint" }, point
@@ -363,7 +363,7 @@ namespace BabylonJS
 
         public bool intersectsSphere(BoundingSphere sphere)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "intersectsSphere" }, sphere
@@ -373,7 +373,7 @@ namespace BabylonJS
 
         public bool intersectsMinMax(Vector3 min, Vector3 max)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "intersectsMinMax" }, min, max

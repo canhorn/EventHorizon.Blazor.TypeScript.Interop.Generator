@@ -33,7 +33,7 @@ namespace Static.Primitive
             {
             if(__linkedMesh == null)
             {
-                __linkedMesh = EventHorizonBlazorInteropt.GetClass<AbstractMesh>(
+                __linkedMesh = EventHorizonBlazorInterop.GetClass<AbstractMesh>(
                     this.___guid,
                     "linkedMesh",
                     (entity) =>
@@ -53,7 +53,7 @@ namespace Static.Primitive
             {
             if(__style == null)
             {
-                __style = EventHorizonBlazorInteropt.GetClass<Style>(
+                __style = EventHorizonBlazorInterop.GetClass<Style>(
                     this.___guid,
                     "style",
                     (entity) =>
@@ -67,7 +67,7 @@ namespace Static.Primitive
             set
             {
 __style = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "style",
                     value
@@ -80,7 +80,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<AbstractMesh>(
+            return EventHorizonBlazorInterop.GetArrayClass<AbstractMesh>(
                     this.___guid,
                     "renderList",
                     (entity) =>
@@ -92,7 +92,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "renderList",
                     value

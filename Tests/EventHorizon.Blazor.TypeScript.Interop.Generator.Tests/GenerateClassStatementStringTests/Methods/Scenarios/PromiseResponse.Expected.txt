@@ -49,7 +49,7 @@ namespace Static.Class
         #region Methods
         public void promiseVoid()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "promiseVoid" }

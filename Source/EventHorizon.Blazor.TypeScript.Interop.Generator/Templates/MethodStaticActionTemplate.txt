@@ -23,7 +23,7 @@
             {
                 return;
             }
-            EventHorizonBlazorInteropt.AssemblyFuncCallback(
+            EventHorizonBlazorInterop.AssemblyFuncCallback(
                 "[[ASSEMBLY]]",
                 "[[NAMESPACED_METHOD]]",
                 "Call[[NAME_CAPTIALIZED]]StaticActions"

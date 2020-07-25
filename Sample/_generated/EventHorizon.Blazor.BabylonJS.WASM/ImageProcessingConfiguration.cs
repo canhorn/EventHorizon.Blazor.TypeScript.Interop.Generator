@@ -19,7 +19,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ImageProcessingConfiguration.VIGNETTEMODE_MULTIPLY"
                 );
@@ -31,7 +31,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ImageProcessingConfiguration.VIGNETTEMODE_OPAQUE"
                 );
@@ -45,7 +45,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ImageProcessingConfiguration.TONEMAPPING_STANDARD"
                 );
@@ -57,7 +57,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ImageProcessingConfiguration.TONEMAPPING_ACES"
                 );
@@ -68,7 +68,7 @@ namespace BabylonJS
         #region Static Methods
         public static void PrepareUniforms(string[] uniforms, IImageProcessingConfigurationDefinesCachedEntity defines)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "ImageProcessingConfiguration", "PrepareUniforms" }, uniforms, defines
@@ -78,7 +78,7 @@ namespace BabylonJS
 
         public static void PrepareSamplers(string[] samplersList, IImageProcessingConfigurationDefinesCachedEntity defines)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "ImageProcessingConfiguration", "PrepareSamplers" }, samplersList, defines
@@ -88,7 +88,7 @@ namespace BabylonJS
 
         public static ImageProcessingConfiguration Parse(object source)
         {
-            return EventHorizonBlazorInteropt.FuncClass<ImageProcessingConfiguration>(
+            return EventHorizonBlazorInterop.FuncClass<ImageProcessingConfiguration>(
                 entity => new ImageProcessingConfiguration() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -104,7 +104,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "colorCurvesEnabled"
                 );
@@ -112,7 +112,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "colorCurvesEnabled",
                     value
@@ -127,7 +127,7 @@ namespace BabylonJS
             {
             if(__colorGradingTexture == null)
             {
-                __colorGradingTexture = EventHorizonBlazorInteropt.GetClass<BaseTexture>(
+                __colorGradingTexture = EventHorizonBlazorInterop.GetClass<BaseTexture>(
                     this.___guid,
                     "colorGradingTexture",
                     (entity) =>
@@ -141,7 +141,7 @@ namespace BabylonJS
             set
             {
 __colorGradingTexture = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "colorGradingTexture",
                     value
@@ -154,7 +154,7 @@ __colorGradingTexture = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "colorGradingEnabled"
                 );
@@ -162,7 +162,7 @@ __colorGradingTexture = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "colorGradingEnabled",
                     value
@@ -175,7 +175,7 @@ __colorGradingTexture = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "colorGradingWithGreenDepth"
                 );
@@ -183,7 +183,7 @@ __colorGradingTexture = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "colorGradingWithGreenDepth",
                     value
@@ -196,7 +196,7 @@ __colorGradingTexture = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "colorGradingBGR"
                 );
@@ -204,7 +204,7 @@ __colorGradingTexture = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "colorGradingBGR",
                     value
@@ -217,7 +217,7 @@ __colorGradingTexture = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "exposure"
                 );
@@ -225,7 +225,7 @@ __colorGradingTexture = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "exposure",
                     value
@@ -238,7 +238,7 @@ __colorGradingTexture = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "toneMappingEnabled"
                 );
@@ -246,7 +246,7 @@ __colorGradingTexture = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "toneMappingEnabled",
                     value
@@ -259,7 +259,7 @@ __colorGradingTexture = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "toneMappingType"
                 );
@@ -267,7 +267,7 @@ __colorGradingTexture = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "toneMappingType",
                     value
@@ -280,7 +280,7 @@ __colorGradingTexture = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "contrast"
                 );
@@ -288,7 +288,7 @@ __colorGradingTexture = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "contrast",
                     value
@@ -301,7 +301,7 @@ __colorGradingTexture = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "vignetteBlendMode"
                 );
@@ -309,7 +309,7 @@ __colorGradingTexture = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "vignetteBlendMode",
                     value
@@ -322,7 +322,7 @@ __colorGradingTexture = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "vignetteEnabled"
                 );
@@ -330,7 +330,7 @@ __colorGradingTexture = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "vignetteEnabled",
                     value
@@ -343,7 +343,7 @@ __colorGradingTexture = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "applyByPostProcess"
                 );
@@ -351,7 +351,7 @@ __colorGradingTexture = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "applyByPostProcess",
                     value
@@ -364,7 +364,7 @@ __colorGradingTexture = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isEnabled"
                 );
@@ -372,7 +372,7 @@ __colorGradingTexture = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isEnabled",
                     value
@@ -389,7 +389,7 @@ __colorGradingTexture = null;
             {
             if(__colorCurves == null)
             {
-                __colorCurves = EventHorizonBlazorInteropt.GetClass<ColorCurves>(
+                __colorCurves = EventHorizonBlazorInterop.GetClass<ColorCurves>(
                     this.___guid,
                     "colorCurves",
                     (entity) =>
@@ -403,7 +403,7 @@ __colorGradingTexture = null;
             set
             {
 __colorCurves = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "colorCurves",
                     value
@@ -416,7 +416,7 @@ __colorCurves = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "vignetteStretch"
                 );
@@ -424,7 +424,7 @@ __colorCurves = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "vignetteStretch",
                     value
@@ -437,7 +437,7 @@ __colorCurves = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "vignetteCentreX"
                 );
@@ -445,7 +445,7 @@ __colorCurves = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "vignetteCentreX",
                     value
@@ -458,7 +458,7 @@ __colorCurves = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "vignetteCentreY"
                 );
@@ -466,7 +466,7 @@ __colorCurves = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "vignetteCentreY",
                     value
@@ -479,7 +479,7 @@ __colorCurves = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "vignetteWeight"
                 );
@@ -487,7 +487,7 @@ __colorCurves = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "vignetteWeight",
                     value
@@ -502,7 +502,7 @@ __colorCurves = null;
             {
             if(__vignetteColor == null)
             {
-                __vignetteColor = EventHorizonBlazorInteropt.GetClass<Color4>(
+                __vignetteColor = EventHorizonBlazorInterop.GetClass<Color4>(
                     this.___guid,
                     "vignetteColor",
                     (entity) =>
@@ -516,7 +516,7 @@ __colorCurves = null;
             set
             {
 __vignetteColor = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "vignetteColor",
                     value
@@ -529,7 +529,7 @@ __vignetteColor = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "vignetteCameraFov"
                 );
@@ -537,7 +537,7 @@ __vignetteColor = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "vignetteCameraFov",
                     value
@@ -552,7 +552,7 @@ __vignetteColor = null;
             {
             if(__onUpdateParameters == null)
             {
-                __onUpdateParameters = EventHorizonBlazorInteropt.GetClass<Observable<ImageProcessingConfiguration>>(
+                __onUpdateParameters = EventHorizonBlazorInterop.GetClass<Observable<ImageProcessingConfiguration>>(
                     this.___guid,
                     "onUpdateParameters",
                     (entity) =>
@@ -566,7 +566,7 @@ __vignetteColor = null;
             set
             {
 __onUpdateParameters = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onUpdateParameters",
                     value
@@ -591,7 +591,7 @@ __onUpdateParameters = null;
         #region Methods
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -601,7 +601,7 @@ __onUpdateParameters = null;
 
         public void prepareDefines(IImageProcessingConfigurationDefinesCachedEntity defines, System.Nullable<bool> forPostProcess = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "prepareDefines" }, defines, forPostProcess
@@ -611,7 +611,7 @@ __onUpdateParameters = null;
 
         public bool isReady()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isReady" }
@@ -621,7 +621,7 @@ __onUpdateParameters = null;
 
         public void bind(Effect effect, System.Nullable<decimal> overrideAspectRatio = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "bind" }, effect, overrideAspectRatio
@@ -631,7 +631,7 @@ __onUpdateParameters = null;
 
         public ImageProcessingConfiguration clone()
         {
-            return EventHorizonBlazorInteropt.FuncClass<ImageProcessingConfiguration>(
+            return EventHorizonBlazorInterop.FuncClass<ImageProcessingConfiguration>(
                 entity => new ImageProcessingConfiguration() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -642,7 +642,7 @@ __onUpdateParameters = null;
 
         public CachedEntity serialize()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }

@@ -37,7 +37,7 @@ namespace Examples
             {
             if(__ref == null)
             {
-                __ref = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __ref = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "ref",
                     (entity) =>
@@ -51,7 +51,7 @@ namespace Examples
             set
             {
 __ref = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "ref",
                     value
@@ -66,7 +66,7 @@ __ref = null;
             {
             if(__lock == null)
             {
-                __lock = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __lock = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "lock",
                     (entity) =>
@@ -80,7 +80,7 @@ __ref = null;
             set
             {
 __lock = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "lock",
                     value
@@ -95,7 +95,7 @@ __lock = null;
             {
             if(__unlock == null)
             {
-                __unlock = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __unlock = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "unlock",
                     (entity) =>
@@ -109,7 +109,7 @@ __lock = null;
             set
             {
 __unlock = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "unlock",
                     value
@@ -124,7 +124,7 @@ __unlock = null;
             {
             if(__object == null)
             {
-                __object = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __object = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "object",
                     (entity) =>
@@ -138,7 +138,7 @@ __unlock = null;
             set
             {
 __object = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "object",
                     value
@@ -153,7 +153,7 @@ __object = null;
             {
             if(__event == null)
             {
-                __event = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __event = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "event",
                     (entity) =>
@@ -167,7 +167,7 @@ __object = null;
             set
             {
 __event = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "event",
                     value
@@ -182,7 +182,7 @@ __event = null;
             {
             if(__bool == null)
             {
-                __bool = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __bool = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "bool",
                     (entity) =>
@@ -196,7 +196,7 @@ __event = null;
             set
             {
 __bool = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "bool",
                     value
@@ -211,7 +211,7 @@ __bool = null;
             {
             if(__virtual == null)
             {
-                __virtual = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __virtual = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "virtual",
                     (entity) =>
@@ -225,7 +225,7 @@ __bool = null;
             set
             {
 __virtual = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "virtual",
                     value

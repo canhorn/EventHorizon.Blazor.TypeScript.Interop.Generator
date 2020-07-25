@@ -23,7 +23,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "VertexData.FRONTSIDE"
                 );
@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "VertexData.BACKSIDE"
                 );
@@ -47,7 +47,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "VertexData.DOUBLESIDE"
                 );
@@ -59,7 +59,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "VertexData.DEFAULTSIDE"
                 );
@@ -70,7 +70,7 @@ namespace BabylonJS
         #region Static Methods
         public static VertexData ExtractFromMesh(Mesh mesh, System.Nullable<bool> copyWhenShared = null, System.Nullable<bool> forceCopy = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -81,7 +81,7 @@ namespace BabylonJS
 
         public static VertexData ExtractFromGeometry(Geometry geometry, System.Nullable<bool> copyWhenShared = null, System.Nullable<bool> forceCopy = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -92,7 +92,7 @@ namespace BabylonJS
 
         public static VertexData CreateRibbon(object options)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -103,7 +103,7 @@ namespace BabylonJS
 
         public static VertexData CreateBox(object options)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -114,7 +114,7 @@ namespace BabylonJS
 
         public static VertexData CreateTiledBox(object options)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -125,7 +125,7 @@ namespace BabylonJS
 
         public static VertexData CreateTiledPlane(object options)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -136,7 +136,7 @@ namespace BabylonJS
 
         public static VertexData CreateSphere(object options)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -147,7 +147,7 @@ namespace BabylonJS
 
         public static VertexData CreateCylinder(object options)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -158,7 +158,7 @@ namespace BabylonJS
 
         public static VertexData CreateTorus(object options)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -169,7 +169,7 @@ namespace BabylonJS
 
         public static VertexData CreateLineSystem(object options)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -180,7 +180,7 @@ namespace BabylonJS
 
         public static VertexData CreateDashedLines(object options)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -191,7 +191,7 @@ namespace BabylonJS
 
         public static VertexData CreateGround(object options)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -202,7 +202,7 @@ namespace BabylonJS
 
         public static VertexData CreateTiledGround(object options)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -213,7 +213,7 @@ namespace BabylonJS
 
         public static VertexData CreateGroundFromHeightMap(object options)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -224,7 +224,7 @@ namespace BabylonJS
 
         public static VertexData CreatePlane(object options)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -235,7 +235,7 @@ namespace BabylonJS
 
         public static VertexData CreateDisc(object options)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -246,7 +246,7 @@ namespace BabylonJS
 
         public static VertexData CreatePolygon(Mesh polygon, decimal sideOrientation, Vector4[] fUV = null, Color4[] fColors = null, Vector4 frontUVs = null, Vector4 backUVs = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -257,7 +257,7 @@ namespace BabylonJS
 
         public static VertexData CreateIcoSphere(object options)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -268,7 +268,7 @@ namespace BabylonJS
 
         public static VertexData CreatePolyhedron(object options)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -279,7 +279,7 @@ namespace BabylonJS
 
         public static VertexData CreateTorusKnot(object options)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -290,7 +290,7 @@ namespace BabylonJS
 
         public static void ComputeNormals(object positions, object indices, object normals, object options = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "ComputeNormals" }, positions, indices, normals, options
@@ -300,7 +300,7 @@ namespace BabylonJS
 
         public static void ImportVertexData(object parsedVertexData, Geometry geometry)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexData", "ImportVertexData" }, parsedVertexData, geometry
@@ -319,7 +319,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<decimal>(
+            return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "positions"
                 );
@@ -327,7 +327,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "positions",
                     value
@@ -340,7 +340,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<decimal>(
+            return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "normals"
                 );
@@ -348,7 +348,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "normals",
                     value
@@ -361,7 +361,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<decimal>(
+            return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "tangents"
                 );
@@ -369,7 +369,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "tangents",
                     value
@@ -382,7 +382,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<decimal>(
+            return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "uvs"
                 );
@@ -390,7 +390,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "uvs",
                     value
@@ -403,7 +403,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<decimal>(
+            return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "uvs2"
                 );
@@ -411,7 +411,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "uvs2",
                     value
@@ -424,7 +424,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<decimal>(
+            return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "uvs3"
                 );
@@ -432,7 +432,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "uvs3",
                     value
@@ -445,7 +445,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<decimal>(
+            return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "uvs4"
                 );
@@ -453,7 +453,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "uvs4",
                     value
@@ -466,7 +466,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<decimal>(
+            return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "uvs5"
                 );
@@ -474,7 +474,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "uvs5",
                     value
@@ -487,7 +487,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<decimal>(
+            return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "uvs6"
                 );
@@ -495,7 +495,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "uvs6",
                     value
@@ -508,7 +508,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<decimal>(
+            return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "colors"
                 );
@@ -516,7 +516,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "colors",
                     value
@@ -529,7 +529,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<decimal>(
+            return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "matricesIndices"
                 );
@@ -537,7 +537,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "matricesIndices",
                     value
@@ -550,7 +550,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<decimal>(
+            return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "matricesWeights"
                 );
@@ -558,7 +558,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "matricesWeights",
                     value
@@ -571,7 +571,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<decimal>(
+            return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "matricesIndicesExtra"
                 );
@@ -579,7 +579,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "matricesIndicesExtra",
                     value
@@ -592,7 +592,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<decimal>(
+            return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "matricesWeightsExtra"
                 );
@@ -600,7 +600,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "matricesWeightsExtra",
                     value
@@ -613,7 +613,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<decimal>(
+            return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "indices"
                 );
@@ -621,7 +621,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "indices",
                     value
@@ -646,7 +646,7 @@ namespace BabylonJS
         #region Methods
         public void set(decimal[] data, string kind)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "set" }, data, kind
@@ -656,7 +656,7 @@ namespace BabylonJS
 
         public VertexData applyToMesh(Mesh mesh, System.Nullable<bool> updatable = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -667,7 +667,7 @@ namespace BabylonJS
 
         public VertexData applyToGeometry(Geometry geometry, System.Nullable<bool> updatable = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -678,7 +678,7 @@ namespace BabylonJS
 
         public VertexData updateMesh(Mesh mesh)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -689,7 +689,7 @@ namespace BabylonJS
 
         public VertexData updateGeometry(Geometry geometry)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -700,7 +700,7 @@ namespace BabylonJS
 
         public VertexData transform(Matrix matrix)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -711,7 +711,7 @@ namespace BabylonJS
 
         public VertexData merge(VertexData other, System.Nullable<bool> use32BitsIndices = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexData>(
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -722,7 +722,7 @@ namespace BabylonJS
 
         public CachedEntity serialize()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }

@@ -1,4 +1,4 @@
-EventHorizonBlazorInteropt.FuncClass<[[ARRAY_TYPE]]>(
+EventHorizonBlazorInterop.FuncClass<[[ARRAY_TYPE]]>(
                 entity => new [[NEW_TYPE]]() { ___guid = entity.___guid },
                 new object[] 
                 {

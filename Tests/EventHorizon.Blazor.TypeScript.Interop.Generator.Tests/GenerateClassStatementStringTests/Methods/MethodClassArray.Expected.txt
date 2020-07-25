@@ -49,7 +49,7 @@ namespace Static.Class
         #region Methods
         public Matrix[] theMatrixArray()
         {
-            return EventHorizonBlazorInteropt.FuncArrayClass<Matrix>(
+            return EventHorizonBlazorInterop.FuncArrayClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
                 new object[]
                 {

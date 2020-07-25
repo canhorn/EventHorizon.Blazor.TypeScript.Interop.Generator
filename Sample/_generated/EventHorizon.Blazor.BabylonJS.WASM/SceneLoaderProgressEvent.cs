@@ -24,7 +24,7 @@ namespace BabylonJS
         #region Static Methods
         public static SceneLoaderProgressEvent FromProgressEvent(ProgressEvent @event)
         {
-            return EventHorizonBlazorInteropt.FuncClass<SceneLoaderProgressEvent>(
+            return EventHorizonBlazorInterop.FuncClass<SceneLoaderProgressEvent>(
                 entity => new SceneLoaderProgressEvent() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -44,7 +44,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "lengthComputable"
                 );
@@ -56,7 +56,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "loaded"
                 );
@@ -68,7 +68,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "total"
                 );
@@ -90,7 +90,7 @@ namespace BabylonJS
             bool lengthComputable, decimal loaded, decimal total
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "SceneLoaderProgressEvent" },
                 lengthComputable, loaded, total
             );

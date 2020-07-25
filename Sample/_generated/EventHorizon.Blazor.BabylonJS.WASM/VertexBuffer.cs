@@ -23,7 +23,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "VertexBuffer.BYTE"
                 );
@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "VertexBuffer.UNSIGNED_BYTE"
                 );
@@ -47,7 +47,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "VertexBuffer.SHORT"
                 );
@@ -59,7 +59,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "VertexBuffer.UNSIGNED_SHORT"
                 );
@@ -71,7 +71,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "VertexBuffer.INT"
                 );
@@ -83,7 +83,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "VertexBuffer.UNSIGNED_INT"
                 );
@@ -95,7 +95,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "VertexBuffer.FLOAT"
                 );
@@ -107,7 +107,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     "BABYLON",
                     "VertexBuffer.PositionKind"
                 );
@@ -119,7 +119,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     "BABYLON",
                     "VertexBuffer.NormalKind"
                 );
@@ -131,7 +131,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     "BABYLON",
                     "VertexBuffer.TangentKind"
                 );
@@ -143,7 +143,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     "BABYLON",
                     "VertexBuffer.UVKind"
                 );
@@ -155,7 +155,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     "BABYLON",
                     "VertexBuffer.UV2Kind"
                 );
@@ -167,7 +167,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     "BABYLON",
                     "VertexBuffer.UV3Kind"
                 );
@@ -179,7 +179,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     "BABYLON",
                     "VertexBuffer.UV4Kind"
                 );
@@ -191,7 +191,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     "BABYLON",
                     "VertexBuffer.UV5Kind"
                 );
@@ -203,7 +203,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     "BABYLON",
                     "VertexBuffer.UV6Kind"
                 );
@@ -215,7 +215,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     "BABYLON",
                     "VertexBuffer.ColorKind"
                 );
@@ -227,7 +227,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     "BABYLON",
                     "VertexBuffer.MatricesIndicesKind"
                 );
@@ -239,7 +239,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     "BABYLON",
                     "VertexBuffer.MatricesWeightsKind"
                 );
@@ -251,7 +251,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     "BABYLON",
                     "VertexBuffer.MatricesIndicesExtraKind"
                 );
@@ -263,7 +263,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     "BABYLON",
                     "VertexBuffer.MatricesWeightsExtraKind"
                 );
@@ -274,7 +274,7 @@ namespace BabylonJS
         #region Static Methods
         public static decimal DeduceStride(string kind)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexBuffer", "DeduceStride" }, kind
@@ -284,7 +284,7 @@ namespace BabylonJS
 
         public static decimal GetTypeByteLength(decimal type)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "VertexBuffer", "GetTypeByteLength" }, type
@@ -301,7 +301,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "instanceDivisor"
                 );
@@ -309,7 +309,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "instanceDivisor",
                     value
@@ -324,7 +324,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "byteStride"
                 );
@@ -336,7 +336,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "byteOffset"
                 );
@@ -348,7 +348,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "normalized"
                 );
@@ -360,7 +360,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "type"
                 );
@@ -382,7 +382,7 @@ namespace BabylonJS
             object engine, DataArray data, string kind, bool updatable, System.Nullable<bool> postponeInternalCreation = null, System.Nullable<decimal> stride = null, System.Nullable<bool> instanced = null, System.Nullable<decimal> offset = null, System.Nullable<decimal> size = null, System.Nullable<decimal> type = null, System.Nullable<bool> normalized = null, System.Nullable<bool> useBytes = null, System.Nullable<decimal> divisor = null
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "VertexBuffer" },
                 engine, data, kind, updatable, postponeInternalCreation, stride, instanced, offset, size, type, normalized, useBytes, divisor
             );
@@ -393,7 +393,7 @@ namespace BabylonJS
         #region Methods
         public string getKind()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getKind" }
@@ -403,7 +403,7 @@ namespace BabylonJS
 
         public bool isUpdatable()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isUpdatable" }
@@ -413,7 +413,7 @@ namespace BabylonJS
 
         public DataArray getData()
         {
-            return EventHorizonBlazorInteropt.FuncClass<DataArray>(
+            return EventHorizonBlazorInterop.FuncClass<DataArray>(
                 entity => new DataArray() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -424,7 +424,7 @@ namespace BabylonJS
 
         public DataBuffer getBuffer()
         {
-            return EventHorizonBlazorInteropt.FuncClass<DataBuffer>(
+            return EventHorizonBlazorInterop.FuncClass<DataBuffer>(
                 entity => new DataBuffer() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -435,7 +435,7 @@ namespace BabylonJS
 
         public decimal getStrideSize()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getStrideSize" }
@@ -445,7 +445,7 @@ namespace BabylonJS
 
         public decimal getOffset()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getOffset" }
@@ -455,7 +455,7 @@ namespace BabylonJS
 
         public decimal getSize()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getSize" }
@@ -465,7 +465,7 @@ namespace BabylonJS
 
         public bool getIsInstanced()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getIsInstanced" }
@@ -475,7 +475,7 @@ namespace BabylonJS
 
         public decimal getInstanceDivisor()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getInstanceDivisor" }
@@ -485,7 +485,7 @@ namespace BabylonJS
 
         public void create(DataArray data = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "create" }, data
@@ -495,7 +495,7 @@ namespace BabylonJS
 
         public void update(DataArray data)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "update" }, data
@@ -505,7 +505,7 @@ namespace BabylonJS
 
         public void updateDirectly(DataArray data, decimal offset, System.Nullable<bool> useBytes = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "updateDirectly" }, data, offset, useBytes
@@ -515,7 +515,7 @@ namespace BabylonJS
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }

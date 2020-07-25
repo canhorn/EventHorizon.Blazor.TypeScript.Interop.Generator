@@ -24,7 +24,7 @@ namespace BabylonJS
         #region Static Methods
         public static Mesh CreateBox(string name, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -35,7 +35,7 @@ namespace BabylonJS
 
         public static Mesh CreateTiledBox(string name, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -46,7 +46,7 @@ namespace BabylonJS
 
         public static Mesh CreateSphere(string name, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -57,7 +57,7 @@ namespace BabylonJS
 
         public static Mesh CreateDisc(string name, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -68,7 +68,7 @@ namespace BabylonJS
 
         public static Mesh CreateIcoSphere(string name, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -79,7 +79,7 @@ namespace BabylonJS
 
         public static Mesh CreateRibbon(string name, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -90,7 +90,7 @@ namespace BabylonJS
 
         public static Mesh CreateCylinder(string name, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -101,7 +101,7 @@ namespace BabylonJS
 
         public static Mesh CreateTorus(string name, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -112,7 +112,7 @@ namespace BabylonJS
 
         public static Mesh CreateTorusKnot(string name, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -123,7 +123,7 @@ namespace BabylonJS
 
         public static LinesMesh CreateLineSystem(string name, object options, Scene scene)
         {
-            return EventHorizonBlazorInteropt.FuncClass<LinesMesh>(
+            return EventHorizonBlazorInterop.FuncClass<LinesMesh>(
                 entity => new LinesMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -134,7 +134,7 @@ namespace BabylonJS
 
         public static LinesMesh CreateLines(string name, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<LinesMesh>(
+            return EventHorizonBlazorInterop.FuncClass<LinesMesh>(
                 entity => new LinesMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -145,7 +145,7 @@ namespace BabylonJS
 
         public static LinesMesh CreateDashedLines(string name, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<LinesMesh>(
+            return EventHorizonBlazorInterop.FuncClass<LinesMesh>(
                 entity => new LinesMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -156,7 +156,7 @@ namespace BabylonJS
 
         public static Mesh ExtrudeShape(string name, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -167,7 +167,7 @@ namespace BabylonJS
 
         public static Mesh ExtrudeShapeCustom(string name, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -178,7 +178,7 @@ namespace BabylonJS
 
         public static Mesh CreateLathe(string name, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -189,7 +189,7 @@ namespace BabylonJS
 
         public static Mesh CreateTiledPlane(string name, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -200,7 +200,7 @@ namespace BabylonJS
 
         public static Mesh CreatePlane(string name, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -211,7 +211,7 @@ namespace BabylonJS
 
         public static Mesh CreateGround(string name, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -222,7 +222,7 @@ namespace BabylonJS
 
         public static Mesh CreateTiledGround(string name, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -233,7 +233,7 @@ namespace BabylonJS
 
         public static GroundMesh CreateGroundFromHeightMap(string name, string url, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<GroundMesh>(
+            return EventHorizonBlazorInterop.FuncClass<GroundMesh>(
                 entity => new GroundMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -244,7 +244,7 @@ namespace BabylonJS
 
         public static Mesh CreatePolygon(string name, object options, Scene scene = null, object earcutInjection = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -255,7 +255,7 @@ namespace BabylonJS
 
         public static Mesh ExtrudePolygon(string name, object options, Scene scene = null, object earcutInjection = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -266,7 +266,7 @@ namespace BabylonJS
 
         public static Mesh CreateTube(string name, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -277,7 +277,7 @@ namespace BabylonJS
 
         public static Mesh CreatePolyhedron(string name, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -288,7 +288,7 @@ namespace BabylonJS
 
         public static Mesh CreateDecal(string name, AbstractMesh sourceMesh, object options)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {

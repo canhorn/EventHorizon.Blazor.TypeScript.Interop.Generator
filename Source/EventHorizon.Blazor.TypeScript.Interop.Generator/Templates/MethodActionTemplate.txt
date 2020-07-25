@@ -23,7 +23,7 @@
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "[[NAME]]",
                 "Call[[NAME_CAPTIALIZED]]Actions",

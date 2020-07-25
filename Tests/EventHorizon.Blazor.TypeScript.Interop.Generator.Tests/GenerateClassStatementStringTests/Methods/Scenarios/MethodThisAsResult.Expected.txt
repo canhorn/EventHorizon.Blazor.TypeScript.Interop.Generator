@@ -49,7 +49,7 @@ namespace Static.Class
         #region Methods
         public ExampleClass methodWithThis()
         {
-            return EventHorizonBlazorInteropt.FuncClass<ExampleClass>(
+            return EventHorizonBlazorInterop.FuncClass<ExampleClass>(
                 entity => new ExampleClass() { ___guid = entity.___guid },
                 new object[] 
                 {

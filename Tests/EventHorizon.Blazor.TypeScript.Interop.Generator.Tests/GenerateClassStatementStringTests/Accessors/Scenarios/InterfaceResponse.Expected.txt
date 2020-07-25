@@ -33,7 +33,7 @@ namespace Static.Class
             {
             if(__InterfaceResponseType == null)
             {
-                __InterfaceResponseType = EventHorizonBlazorInteropt.GetClass<IInterfaceResponseTypeCachedEntity>(
+                __InterfaceResponseType = EventHorizonBlazorInterop.GetClass<IInterfaceResponseTypeCachedEntity>(
                     this.___guid,
                     "InterfaceResponseType",
                     (entity) =>

@@ -31,7 +31,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isDirty"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "alphaBlend"
                 );
@@ -51,7 +51,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "alphaBlend",
                     value
@@ -80,7 +80,7 @@ namespace BabylonJS
         #region Methods
         public void setAlphaBlendConstants(decimal r, decimal g, decimal b, decimal a)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setAlphaBlendConstants" }, r, g, b, a
@@ -90,7 +90,7 @@ namespace BabylonJS
 
         public void setAlphaBlendFunctionParameters(decimal value0, decimal value1, decimal value2, decimal value3)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setAlphaBlendFunctionParameters" }, value0, value1, value2, value3
@@ -100,7 +100,7 @@ namespace BabylonJS
 
         public void setAlphaEquationParameters(decimal rgb, decimal alpha)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setAlphaEquationParameters" }, rgb, alpha
@@ -110,7 +110,7 @@ namespace BabylonJS
 
         public void reset()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "reset" }
@@ -120,7 +120,7 @@ namespace BabylonJS
 
         public void apply(WebGLRenderingContextCachedEntity gl)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "apply" }, gl

@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "x"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "x",
                     value
@@ -56,7 +56,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "y"
                 );
@@ -64,7 +64,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "y",
                     value
@@ -77,7 +77,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "width"
                 );
@@ -85,7 +85,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "width",
                     value
@@ -98,7 +98,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "height"
                 );
@@ -106,7 +106,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "height",
                     value
@@ -129,7 +129,7 @@ namespace BabylonJS
             decimal x, decimal y, decimal width, decimal height
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Viewport" },
                 x, y, width, height
             );
@@ -140,7 +140,7 @@ namespace BabylonJS
         #region Methods
         public Viewport toGlobal(decimal renderWidth, decimal renderHeight)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Viewport>(
+            return EventHorizonBlazorInterop.FuncClass<Viewport>(
                 entity => new Viewport() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -151,7 +151,7 @@ namespace BabylonJS
 
         public Viewport toGlobalToRef(decimal renderWidth, decimal renderHeight, Viewport @ref)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Viewport>(
+            return EventHorizonBlazorInterop.FuncClass<Viewport>(
                 entity => new Viewport() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -162,7 +162,7 @@ namespace BabylonJS
 
         public Viewport clone()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Viewport>(
+            return EventHorizonBlazorInterop.FuncClass<Viewport>(
                 entity => new Viewport() { ___guid = entity.___guid },
                 new object[] 
                 {

@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "hit"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "hit",
                     value
@@ -56,7 +56,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "distance"
                 );
@@ -64,7 +64,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "distance",
                     value
@@ -79,7 +79,7 @@ namespace BabylonJS
             {
             if(__pickedPoint == null)
             {
-                __pickedPoint = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __pickedPoint = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "pickedPoint",
                     (entity) =>
@@ -93,7 +93,7 @@ namespace BabylonJS
             set
             {
 __pickedPoint = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "pickedPoint",
                     value
@@ -108,7 +108,7 @@ __pickedPoint = null;
             {
             if(__pickedMesh == null)
             {
-                __pickedMesh = EventHorizonBlazorInteropt.GetClass<AbstractMesh>(
+                __pickedMesh = EventHorizonBlazorInterop.GetClass<AbstractMesh>(
                     this.___guid,
                     "pickedMesh",
                     (entity) =>
@@ -122,7 +122,7 @@ __pickedPoint = null;
             set
             {
 __pickedMesh = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "pickedMesh",
                     value
@@ -135,7 +135,7 @@ __pickedMesh = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "bu"
                 );
@@ -143,7 +143,7 @@ __pickedMesh = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "bu",
                     value
@@ -156,7 +156,7 @@ __pickedMesh = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "bv"
                 );
@@ -164,7 +164,7 @@ __pickedMesh = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "bv",
                     value
@@ -177,7 +177,7 @@ __pickedMesh = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "faceId"
                 );
@@ -185,7 +185,7 @@ __pickedMesh = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "faceId",
                     value
@@ -198,7 +198,7 @@ __pickedMesh = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "subMeshId"
                 );
@@ -206,7 +206,7 @@ __pickedMesh = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "subMeshId",
                     value
@@ -221,7 +221,7 @@ __pickedMesh = null;
             {
             if(__pickedSprite == null)
             {
-                __pickedSprite = EventHorizonBlazorInteropt.GetClass<Sprite>(
+                __pickedSprite = EventHorizonBlazorInterop.GetClass<Sprite>(
                     this.___guid,
                     "pickedSprite",
                     (entity) =>
@@ -235,7 +235,7 @@ __pickedMesh = null;
             set
             {
 __pickedSprite = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "pickedSprite",
                     value
@@ -250,7 +250,7 @@ __pickedSprite = null;
             {
             if(__originMesh == null)
             {
-                __originMesh = EventHorizonBlazorInteropt.GetClass<AbstractMesh>(
+                __originMesh = EventHorizonBlazorInterop.GetClass<AbstractMesh>(
                     this.___guid,
                     "originMesh",
                     (entity) =>
@@ -264,7 +264,7 @@ __pickedSprite = null;
             set
             {
 __originMesh = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "originMesh",
                     value
@@ -279,7 +279,7 @@ __originMesh = null;
             {
             if(__ray == null)
             {
-                __ray = EventHorizonBlazorInteropt.GetClass<Ray>(
+                __ray = EventHorizonBlazorInterop.GetClass<Ray>(
                     this.___guid,
                     "ray",
                     (entity) =>
@@ -293,7 +293,7 @@ __originMesh = null;
             set
             {
 __ray = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "ray",
                     value
@@ -318,7 +318,7 @@ __ray = null;
         #region Methods
         public Vector3 getNormal(System.Nullable<bool> useWorldCoordinates = null, System.Nullable<bool> useVerticesNormals = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Vector3>(
+            return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -329,7 +329,7 @@ __ray = null;
 
         public Vector2 getTextureCoordinates()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Vector2>(
+            return EventHorizonBlazorInterop.FuncClass<Vector2>(
                 entity => new Vector2() { ___guid = entity.___guid },
                 new object[] 
                 {

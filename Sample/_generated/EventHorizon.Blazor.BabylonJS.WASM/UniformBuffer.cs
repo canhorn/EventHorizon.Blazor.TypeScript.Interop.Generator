@@ -31,7 +31,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useUbo"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isSync"
                 );
@@ -69,7 +69,7 @@ namespace BabylonJS
             Engine engine, decimal[] data = null, System.Nullable<bool> dynamic = null
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "UniformBuffer" },
                 engine, data, dynamic
             );
@@ -103,7 +103,7 @@ namespace BabylonJS
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "updateMatrix3x3",
                 "CallUpdateMatrix3x3Actions",
@@ -147,7 +147,7 @@ namespace BabylonJS
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "updateMatrix2x2",
                 "CallUpdateMatrix2x2Actions",
@@ -191,7 +191,7 @@ namespace BabylonJS
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "updateFloat",
                 "CallUpdateFloatActions",
@@ -235,7 +235,7 @@ namespace BabylonJS
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "updateFloat2",
                 "CallUpdateFloat2Actions",
@@ -279,7 +279,7 @@ namespace BabylonJS
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "updateFloat3",
                 "CallUpdateFloat3Actions",
@@ -323,7 +323,7 @@ namespace BabylonJS
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "updateFloat4",
                 "CallUpdateFloat4Actions",
@@ -367,7 +367,7 @@ namespace BabylonJS
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "updateMatrix",
                 "CallUpdateMatrixActions",
@@ -411,7 +411,7 @@ namespace BabylonJS
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "updateVector3",
                 "CallUpdateVector3Actions",
@@ -455,7 +455,7 @@ namespace BabylonJS
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "updateVector4",
                 "CallUpdateVector4Actions",
@@ -499,7 +499,7 @@ namespace BabylonJS
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "updateColor3",
                 "CallUpdateColor3Actions",
@@ -543,7 +543,7 @@ namespace BabylonJS
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "updateColor4",
                 "CallUpdateColor4Actions",
@@ -564,7 +564,7 @@ namespace BabylonJS
 
         public bool isDynamic()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isDynamic" }
@@ -574,7 +574,7 @@ namespace BabylonJS
 
         public decimal[] getData()
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "getData" }
@@ -584,7 +584,7 @@ namespace BabylonJS
 
         public DataBuffer getBuffer()
         {
-            return EventHorizonBlazorInteropt.FuncClass<DataBuffer>(
+            return EventHorizonBlazorInterop.FuncClass<DataBuffer>(
                 entity => new DataBuffer() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -595,7 +595,7 @@ namespace BabylonJS
 
         public void addUniform(string name, decimal size)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "addUniform" }, name, size
@@ -605,7 +605,7 @@ namespace BabylonJS
 
         public void addMatrix(string name, Matrix mat)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "addMatrix" }, name, mat
@@ -615,7 +615,7 @@ namespace BabylonJS
 
         public void addFloat2(string name, decimal x, decimal y)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "addFloat2" }, name, x, y
@@ -625,7 +625,7 @@ namespace BabylonJS
 
         public void addFloat3(string name, decimal x, decimal y, decimal z)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "addFloat3" }, name, x, y, z
@@ -635,7 +635,7 @@ namespace BabylonJS
 
         public void addColor3(string name, Color3 color)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "addColor3" }, name, color
@@ -645,7 +645,7 @@ namespace BabylonJS
 
         public void addColor4(string name, Color3 color, decimal alpha)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "addColor4" }, name, color, alpha
@@ -655,7 +655,7 @@ namespace BabylonJS
 
         public void addVector3(string name, Vector3 vector)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "addVector3" }, name, vector
@@ -665,7 +665,7 @@ namespace BabylonJS
 
         public void addMatrix3x3(string name)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "addMatrix3x3" }, name
@@ -675,7 +675,7 @@ namespace BabylonJS
 
         public void addMatrix2x2(string name)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "addMatrix2x2" }, name
@@ -685,7 +685,7 @@ namespace BabylonJS
 
         public void create()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "create" }
@@ -695,7 +695,7 @@ namespace BabylonJS
 
         public void update()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "update" }
@@ -705,7 +705,7 @@ namespace BabylonJS
 
         public void updateUniform(string uniformName, decimal[] data, decimal size)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "updateUniform" }, uniformName, data, size
@@ -715,7 +715,7 @@ namespace BabylonJS
 
         public void setTexture(string name, BaseTexture texture)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setTexture" }, name, texture
@@ -725,7 +725,7 @@ namespace BabylonJS
 
         public void updateUniformDirectly(string uniformName, decimal[] data)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "updateUniformDirectly" }, uniformName, data
@@ -735,7 +735,7 @@ namespace BabylonJS
 
         public void bindToEffect(Effect effect, string name)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "bindToEffect" }, effect, name
@@ -745,7 +745,7 @@ namespace BabylonJS
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }

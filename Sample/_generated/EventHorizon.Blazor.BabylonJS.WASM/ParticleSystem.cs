@@ -23,7 +23,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ParticleSystem.BILLBOARDMODE_Y"
                 );
@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ParticleSystem.BILLBOARDMODE_ALL"
                 );
@@ -47,7 +47,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ParticleSystem.BILLBOARDMODE_STRETCHED"
                 );
@@ -58,7 +58,7 @@ namespace BabylonJS
         #region Static Methods
         public static ParticleSystem Parse(object parsedParticleSystem, Scene scene, string rootUrl, System.Nullable<bool> doNotStart = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<ParticleSystem>(
+            return EventHorizonBlazorInterop.FuncClass<ParticleSystem>(
                 entity => new ParticleSystem() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -74,7 +74,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useRampGradients"
                 );
@@ -82,7 +82,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "useRampGradients",
                     value
@@ -95,7 +95,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Particle>(
+            return EventHorizonBlazorInterop.GetArrayClass<Particle>(
                     this.___guid,
                     "particles",
                     (entity) =>
@@ -115,7 +115,7 @@ namespace BabylonJS
             {
             if(__onDisposeObservable == null)
             {
-                __onDisposeObservable = EventHorizonBlazorInteropt.GetClass<Observable<ParticleSystem>>(
+                __onDisposeObservable = EventHorizonBlazorInterop.GetClass<Observable<ParticleSystem>>(
                     this.___guid,
                     "onDisposeObservable",
                     (entity) =>
@@ -129,7 +129,7 @@ namespace BabylonJS
             set
             {
 __onDisposeObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onDisposeObservable",
                     value
@@ -142,7 +142,7 @@ __onDisposeObservable = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<ParticleSystem>(
+            return EventHorizonBlazorInterop.GetArrayClass<ParticleSystem>(
                     this.___guid,
                     "subEmitters",
                     (entity) =>
@@ -154,7 +154,7 @@ __onDisposeObservable = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "subEmitters",
                     value
@@ -167,7 +167,7 @@ __onDisposeObservable = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<ParticleSystem>(
+            return EventHorizonBlazorInterop.GetArrayClass<ParticleSystem>(
                     this.___guid,
                     "activeSubSystems",
                     (entity) =>
@@ -179,7 +179,7 @@ __onDisposeObservable = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "activeSubSystems",
                     value
@@ -192,7 +192,7 @@ __onDisposeObservable = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isLocal"
                 );
@@ -200,7 +200,7 @@ __onDisposeObservable = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isLocal",
                     value
@@ -222,7 +222,7 @@ __onDisposeObservable = null;
             string name, decimal capacity, Scene scene, Effect customEffect = null, System.Nullable<bool> isAnimationSheetEnabled = null, System.Nullable<decimal> epsilon = null
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "ParticleSystem" },
                 name, capacity, scene, customEffect, isAnimationSheetEnabled, epsilon
             );
@@ -256,7 +256,7 @@ __onDisposeObservable = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "updateFunction",
                 "CallUpdateFunctionActions",
@@ -300,7 +300,7 @@ __onDisposeObservable = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "startDirectionFunction",
                 "CallStartDirectionFunctionActions",
@@ -344,7 +344,7 @@ __onDisposeObservable = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "startPositionFunction",
                 "CallStartPositionFunctionActions",
@@ -365,7 +365,7 @@ __onDisposeObservable = null;
 
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -375,7 +375,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity addLifeTimeGradient(decimal gradient, decimal factor, System.Nullable<decimal> factor2 = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -386,7 +386,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity removeLifeTimeGradient(decimal gradient)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -397,7 +397,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity addSizeGradient(decimal gradient, decimal factor, System.Nullable<decimal> factor2 = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -408,7 +408,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity removeSizeGradient(decimal gradient)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -419,7 +419,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity addColorRemapGradient(decimal gradient, decimal min, decimal max)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -430,7 +430,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity removeColorRemapGradient(decimal gradient)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -441,7 +441,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity addAlphaRemapGradient(decimal gradient, decimal min, decimal max)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -452,7 +452,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity removeAlphaRemapGradient(decimal gradient)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -463,7 +463,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity addAngularSpeedGradient(decimal gradient, decimal factor, System.Nullable<decimal> factor2 = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -474,7 +474,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity removeAngularSpeedGradient(decimal gradient)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -485,7 +485,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity addVelocityGradient(decimal gradient, decimal factor, System.Nullable<decimal> factor2 = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -496,7 +496,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity removeVelocityGradient(decimal gradient)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -507,7 +507,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity addLimitVelocityGradient(decimal gradient, decimal factor, System.Nullable<decimal> factor2 = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -518,7 +518,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity removeLimitVelocityGradient(decimal gradient)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -529,7 +529,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity addDragGradient(decimal gradient, decimal factor, System.Nullable<decimal> factor2 = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -540,7 +540,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity removeDragGradient(decimal gradient)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -551,7 +551,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity addEmitRateGradient(decimal gradient, decimal factor, System.Nullable<decimal> factor2 = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -562,7 +562,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity removeEmitRateGradient(decimal gradient)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -573,7 +573,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity addStartSizeGradient(decimal gradient, decimal factor, System.Nullable<decimal> factor2 = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -584,7 +584,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity removeStartSizeGradient(decimal gradient)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -595,7 +595,7 @@ __onDisposeObservable = null;
 
         public Color3Gradient[] getRampGradients()
         {
-            return EventHorizonBlazorInteropt.FuncArrayClass<Color3Gradient>(
+            return EventHorizonBlazorInterop.FuncArrayClass<Color3Gradient>(
                 entity => new Color3Gradient() { ___guid = entity.___guid },
                 new object[]
                 {
@@ -606,7 +606,7 @@ __onDisposeObservable = null;
 
         public ParticleSystem addRampGradient(decimal gradient, Color3 color)
         {
-            return EventHorizonBlazorInteropt.FuncClass<ParticleSystem>(
+            return EventHorizonBlazorInterop.FuncClass<ParticleSystem>(
                 entity => new ParticleSystem() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -617,7 +617,7 @@ __onDisposeObservable = null;
 
         public ParticleSystem removeRampGradient(decimal gradient)
         {
-            return EventHorizonBlazorInteropt.FuncClass<ParticleSystem>(
+            return EventHorizonBlazorInterop.FuncClass<ParticleSystem>(
                 entity => new ParticleSystem() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -628,7 +628,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity addColorGradient(decimal gradient, Color4 color1, Color4 color2 = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -639,7 +639,7 @@ __onDisposeObservable = null;
 
         public IParticleSystemCachedEntity removeColorGradient(decimal gradient)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -650,7 +650,7 @@ __onDisposeObservable = null;
 
         public decimal getCapacity()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getCapacity" }
@@ -660,7 +660,7 @@ __onDisposeObservable = null;
 
         public bool isAlive()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isAlive" }
@@ -670,7 +670,7 @@ __onDisposeObservable = null;
 
         public bool isStarted()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isStarted" }
@@ -680,7 +680,7 @@ __onDisposeObservable = null;
 
         public void start(System.Nullable<decimal> delay = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "start" }, delay
@@ -690,7 +690,7 @@ __onDisposeObservable = null;
 
         public void stop(System.Nullable<bool> stopSubEmitters = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "stop" }, stopSubEmitters
@@ -700,7 +700,7 @@ __onDisposeObservable = null;
 
         public void reset()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "reset" }
@@ -733,7 +733,7 @@ __onDisposeObservable = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "recycleParticle",
                 "CallRecycleParticleActions",
@@ -754,7 +754,7 @@ __onDisposeObservable = null;
 
         public void animate(System.Nullable<bool> preWarmOnly = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "animate" }, preWarmOnly
@@ -764,7 +764,7 @@ __onDisposeObservable = null;
 
         public void rebuild()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "rebuild" }
@@ -774,7 +774,7 @@ __onDisposeObservable = null;
 
         public bool isReady()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isReady" }
@@ -784,7 +784,7 @@ __onDisposeObservable = null;
 
         public decimal render()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "render" }
@@ -794,7 +794,7 @@ __onDisposeObservable = null;
 
         public void dispose(System.Nullable<bool> disposeTexture = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }, disposeTexture
@@ -804,7 +804,7 @@ __onDisposeObservable = null;
 
         public ParticleSystem clone(string name, object newEmitter)
         {
-            return EventHorizonBlazorInteropt.FuncClass<ParticleSystem>(
+            return EventHorizonBlazorInterop.FuncClass<ParticleSystem>(
                 entity => new ParticleSystem() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -815,7 +815,7 @@ __onDisposeObservable = null;
 
         public CachedEntity serialize()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }

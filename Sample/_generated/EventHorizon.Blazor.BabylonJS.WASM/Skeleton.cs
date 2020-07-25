@@ -24,7 +24,7 @@ namespace BabylonJS
         #region Static Methods
         public static Skeleton Parse(object parsedSkeleton, Scene scene)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Skeleton>(
+            return EventHorizonBlazorInterop.FuncClass<Skeleton>(
                 entity => new Skeleton() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -40,7 +40,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useTextureToStoreBoneMatrices"
                 );
@@ -48,7 +48,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "useTextureToStoreBoneMatrices",
                     value
@@ -63,7 +63,7 @@ namespace BabylonJS
             {
             if(__animationPropertiesOverride == null)
             {
-                __animationPropertiesOverride = EventHorizonBlazorInteropt.GetClass<AnimationPropertiesOverride>(
+                __animationPropertiesOverride = EventHorizonBlazorInterop.GetClass<AnimationPropertiesOverride>(
                     this.___guid,
                     "animationPropertiesOverride",
                     (entity) =>
@@ -77,7 +77,7 @@ namespace BabylonJS
             set
             {
 __animationPropertiesOverride = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "animationPropertiesOverride",
                     value
@@ -90,7 +90,7 @@ __animationPropertiesOverride = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isUsingTextureForMatrices"
                 );
@@ -102,7 +102,7 @@ __animationPropertiesOverride = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "uniqueId"
                 );
@@ -116,7 +116,7 @@ __animationPropertiesOverride = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "name"
                 );
@@ -124,7 +124,7 @@ __animationPropertiesOverride = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "name",
                     value
@@ -137,7 +137,7 @@ __animationPropertiesOverride = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "id"
                 );
@@ -145,7 +145,7 @@ __animationPropertiesOverride = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "id",
                     value
@@ -158,7 +158,7 @@ __animationPropertiesOverride = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Bone>(
+            return EventHorizonBlazorInterop.GetArrayClass<Bone>(
                     this.___guid,
                     "bones",
                     (entity) =>
@@ -170,7 +170,7 @@ __animationPropertiesOverride = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "bones",
                     value
@@ -185,7 +185,7 @@ __animationPropertiesOverride = null;
             {
             if(__dimensionsAtRest == null)
             {
-                __dimensionsAtRest = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __dimensionsAtRest = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "dimensionsAtRest",
                     (entity) =>
@@ -199,7 +199,7 @@ __animationPropertiesOverride = null;
             set
             {
 __dimensionsAtRest = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "dimensionsAtRest",
                     value
@@ -212,7 +212,7 @@ __dimensionsAtRest = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "needInitialSkinMatrix"
                 );
@@ -220,7 +220,7 @@ __dimensionsAtRest = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "needInitialSkinMatrix",
                     value
@@ -235,7 +235,7 @@ __dimensionsAtRest = null;
             {
             if(__overrideMesh == null)
             {
-                __overrideMesh = EventHorizonBlazorInteropt.GetClass<AbstractMesh>(
+                __overrideMesh = EventHorizonBlazorInterop.GetClass<AbstractMesh>(
                     this.___guid,
                     "overrideMesh",
                     (entity) =>
@@ -249,7 +249,7 @@ __dimensionsAtRest = null;
             set
             {
 __overrideMesh = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "overrideMesh",
                     value
@@ -262,7 +262,7 @@ __overrideMesh = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Animation>(
+            return EventHorizonBlazorInterop.GetArrayClass<Animation>(
                     this.___guid,
                     "animations",
                     (entity) =>
@@ -274,7 +274,7 @@ __overrideMesh = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "animations",
                     value
@@ -287,7 +287,7 @@ __overrideMesh = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "doNotSerialize"
                 );
@@ -295,7 +295,7 @@ __overrideMesh = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "doNotSerialize",
                     value
@@ -308,7 +308,7 @@ __overrideMesh = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<IInspectableCachedEntity>(
+            return EventHorizonBlazorInterop.GetArrayClass<IInspectableCachedEntity>(
                     this.___guid,
                     "inspectableCustomProperties",
                     (entity) =>
@@ -320,7 +320,7 @@ __overrideMesh = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "inspectableCustomProperties",
                     value
@@ -335,7 +335,7 @@ __overrideMesh = null;
             {
             if(__onBeforeComputeObservable == null)
             {
-                __onBeforeComputeObservable = EventHorizonBlazorInteropt.GetClass<Observable<Skeleton>>(
+                __onBeforeComputeObservable = EventHorizonBlazorInterop.GetClass<Observable<Skeleton>>(
                     this.___guid,
                     "onBeforeComputeObservable",
                     (entity) =>
@@ -349,7 +349,7 @@ __overrideMesh = null;
             set
             {
 __onBeforeComputeObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onBeforeComputeObservable",
                     value
@@ -371,7 +371,7 @@ __onBeforeComputeObservable = null;
             string name, string id, Scene scene
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Skeleton" },
                 name, id, scene
             );
@@ -382,7 +382,7 @@ __onBeforeComputeObservable = null;
         #region Methods
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -392,7 +392,7 @@ __onBeforeComputeObservable = null;
 
         public Bone[] getChildren()
         {
-            return EventHorizonBlazorInteropt.FuncArrayClass<Bone>(
+            return EventHorizonBlazorInterop.FuncArrayClass<Bone>(
                 entity => new Bone() { ___guid = entity.___guid },
                 new object[]
                 {
@@ -403,7 +403,7 @@ __onBeforeComputeObservable = null;
 
         public decimal[] getTransformMatrices(AbstractMesh mesh)
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "getTransformMatrices" }, mesh
@@ -413,7 +413,7 @@ __onBeforeComputeObservable = null;
 
         public RawTexture getTransformMatrixTexture(AbstractMesh mesh)
         {
-            return EventHorizonBlazorInteropt.FuncClass<RawTexture>(
+            return EventHorizonBlazorInterop.FuncClass<RawTexture>(
                 entity => new RawTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -424,7 +424,7 @@ __onBeforeComputeObservable = null;
 
         public Scene getScene()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Scene>(
+            return EventHorizonBlazorInterop.FuncClass<Scene>(
                 entity => new Scene() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -435,7 +435,7 @@ __onBeforeComputeObservable = null;
 
         public string toString(System.Nullable<bool> fullDetails = null)
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "toString" }, fullDetails
@@ -445,7 +445,7 @@ __onBeforeComputeObservable = null;
 
         public decimal getBoneIndexByName(string name)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getBoneIndexByName" }, name
@@ -455,7 +455,7 @@ __onBeforeComputeObservable = null;
 
         public void createAnimationRange(string name, decimal from, decimal to)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "createAnimationRange" }, name, from, to
@@ -465,7 +465,7 @@ __onBeforeComputeObservable = null;
 
         public void deleteAnimationRange(string name, System.Nullable<bool> deleteFrames = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "deleteAnimationRange" }, name, deleteFrames
@@ -475,7 +475,7 @@ __onBeforeComputeObservable = null;
 
         public AnimationRange getAnimationRange(string name)
         {
-            return EventHorizonBlazorInteropt.FuncClass<AnimationRange>(
+            return EventHorizonBlazorInterop.FuncClass<AnimationRange>(
                 entity => new AnimationRange() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -486,7 +486,7 @@ __onBeforeComputeObservable = null;
 
         public AnimationRange[] getAnimationRanges()
         {
-            return EventHorizonBlazorInteropt.FuncArrayClass<AnimationRange>(
+            return EventHorizonBlazorInterop.FuncArrayClass<AnimationRange>(
                 entity => new AnimationRange() { ___guid = entity.___guid },
                 new object[]
                 {
@@ -497,7 +497,7 @@ __onBeforeComputeObservable = null;
 
         public bool copyAnimationRange(Skeleton source, string name, System.Nullable<bool> rescaleAsRequired = null)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "copyAnimationRange" }, source, name, rescaleAsRequired
@@ -507,7 +507,7 @@ __onBeforeComputeObservable = null;
 
         public void returnToRest()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "returnToRest" }
@@ -519,7 +519,7 @@ __onBeforeComputeObservable = null;
 
         public void prepare()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "prepare" }
@@ -529,7 +529,7 @@ __onBeforeComputeObservable = null;
 
         public IAnimatableCachedEntity[] getAnimatables()
         {
-            return EventHorizonBlazorInteropt.FuncArrayClass<IAnimatableCachedEntity>(
+            return EventHorizonBlazorInterop.FuncArrayClass<IAnimatableCachedEntity>(
                 entity => new IAnimatableCachedEntity() { ___guid = entity.___guid },
                 new object[]
                 {
@@ -540,7 +540,7 @@ __onBeforeComputeObservable = null;
 
         public Skeleton clone(string name, string id = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Skeleton>(
+            return EventHorizonBlazorInterop.FuncClass<Skeleton>(
                 entity => new Skeleton() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -551,7 +551,7 @@ __onBeforeComputeObservable = null;
 
         public void enableBlending(System.Nullable<decimal> blendingSpeed = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "enableBlending" }, blendingSpeed
@@ -561,7 +561,7 @@ __onBeforeComputeObservable = null;
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }
@@ -571,7 +571,7 @@ __onBeforeComputeObservable = null;
 
         public CachedEntity serialize()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }
@@ -581,7 +581,7 @@ __onBeforeComputeObservable = null;
 
         public void computeAbsoluteTransforms(System.Nullable<bool> forceUpdate = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "computeAbsoluteTransforms" }, forceUpdate
@@ -591,7 +591,7 @@ __onBeforeComputeObservable = null;
 
         public Matrix getPoseMatrix()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Matrix>(
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -602,7 +602,7 @@ __onBeforeComputeObservable = null;
 
         public void sortBones()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "sortBones" }

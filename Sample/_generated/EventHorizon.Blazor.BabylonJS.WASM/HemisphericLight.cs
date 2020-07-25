@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             if(__groundColor == null)
             {
-                __groundColor = EventHorizonBlazorInteropt.GetClass<Color3>(
+                __groundColor = EventHorizonBlazorInterop.GetClass<Color3>(
                     this.___guid,
                     "groundColor",
                     (entity) =>
@@ -51,7 +51,7 @@ namespace BabylonJS
             set
             {
 __groundColor = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "groundColor",
                     value
@@ -66,7 +66,7 @@ __groundColor = null;
             {
             if(__direction == null)
             {
-                __direction = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __direction = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "direction",
                     (entity) =>
@@ -80,7 +80,7 @@ __groundColor = null;
             set
             {
 __direction = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "direction",
                     value
@@ -102,7 +102,7 @@ __direction = null;
             string name, Vector3 direction, Scene scene
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "HemisphericLight" },
                 name, direction, scene
             );
@@ -113,7 +113,7 @@ __direction = null;
         #region Methods
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -123,7 +123,7 @@ __direction = null;
 
         public Vector3 setDirectionToTarget(Vector3 target)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Vector3>(
+            return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -134,7 +134,7 @@ __direction = null;
 
         public IShadowGeneratorCachedEntity getShadowGenerator()
         {
-            return EventHorizonBlazorInteropt.FuncClass<IShadowGeneratorCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IShadowGeneratorCachedEntity>(
                 entity => new IShadowGeneratorCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -145,7 +145,7 @@ __direction = null;
 
         public HemisphericLight transferToEffect(Effect effect, string lightIndex)
         {
-            return EventHorizonBlazorInteropt.FuncClass<HemisphericLight>(
+            return EventHorizonBlazorInterop.FuncClass<HemisphericLight>(
                 entity => new HemisphericLight() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -156,7 +156,7 @@ __direction = null;
 
         public HemisphericLight transferToNodeMaterialEffect(Effect effect, string lightDataUniformName)
         {
-            return EventHorizonBlazorInteropt.FuncClass<HemisphericLight>(
+            return EventHorizonBlazorInterop.FuncClass<HemisphericLight>(
                 entity => new HemisphericLight() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -167,7 +167,7 @@ __direction = null;
 
         public Matrix computeWorldMatrix()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Matrix>(
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -178,7 +178,7 @@ __direction = null;
 
         public decimal getTypeID()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getTypeID" }
@@ -188,7 +188,7 @@ __direction = null;
 
         public void prepareLightSpecificDefines(object defines, decimal lightIndex)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "prepareLightSpecificDefines" }, defines, lightIndex

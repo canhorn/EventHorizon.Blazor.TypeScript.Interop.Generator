@@ -24,12 +24,12 @@ namespace BabylonJS
         {
             get
             {
-                return EventHorizonBlazorInteropt.Get<bool>(this.___guid, "skipNextObservers");
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "skipNextObservers");
             }
 
             set
             {
-                EventHorizonBlazorInteropt.Set(this.___guid, "skipNextObservers", value);
+                EventHorizonBlazorInterop.Set(this.___guid, "skipNextObservers", value);
             }
         }
 
@@ -37,12 +37,12 @@ namespace BabylonJS
         {
             get
             {
-                return EventHorizonBlazorInteropt.Get<decimal>(this.___guid, "mask");
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "mask");
             }
 
             set
             {
-                EventHorizonBlazorInteropt.Set(this.___guid, "mask", value);
+                EventHorizonBlazorInterop.Set(this.___guid, "mask", value);
             }
         }
 
@@ -53,7 +53,7 @@ namespace BabylonJS
             {
                 if (__target == null)
                 {
-                    __target = EventHorizonBlazorInteropt.GetClass<CSharpTextClass>(this.___guid, "target", (entity) =>
+                    __target = EventHorizonBlazorInterop.GetClass<CSharpTextClass>(this.___guid, "target", (entity) =>
                     {
                         return new CSharpTextClass()
                         {___guid = entity.___guid};
@@ -68,7 +68,7 @@ namespace BabylonJS
             set
             {
                 __target = null;
-                EventHorizonBlazorInteropt.Set(this.___guid, "target", value);
+                EventHorizonBlazorInterop.Set(this.___guid, "target", value);
             }
         }
 
@@ -76,12 +76,12 @@ namespace BabylonJS
         {
             get
             {
-                return EventHorizonBlazorInteropt.GetArray<string>(this.___guid, "currentTarget");
+                return EventHorizonBlazorInterop.GetArray<string>(this.___guid, "currentTarget");
             }
 
             set
             {
-                EventHorizonBlazorInteropt.Set(this.___guid, "currentTarget", value);
+                EventHorizonBlazorInterop.Set(this.___guid, "currentTarget", value);
             }
         }
 
@@ -89,12 +89,12 @@ namespace BabylonJS
         {
             get
             {
-                return EventHorizonBlazorInteropt.Get<decimal>(this.___guid, "lastReturnValue");
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "lastReturnValue");
             }
 
             set
             {
-                EventHorizonBlazorInteropt.Set(this.___guid, "lastReturnValue", value);
+                EventHorizonBlazorInterop.Set(this.___guid, "lastReturnValue", value);
             }
         }
 
@@ -111,7 +111,7 @@ namespace BabylonJS
 
         public CSharpTextClass(object target = null)
         {
-            var entity = EventHorizonBlazorInteropt.New(new string[]{"", "CSharpTextClass"}, target);
+            var entity = EventHorizonBlazorInterop.New(new string[]{"", "CSharpTextClass"}, target);
             ___guid = entity.___guid;
         }
 
@@ -119,7 +119,7 @@ namespace BabylonJS
 #region Methods
         public CSharpTextClass initalize()
         {
-            return EventHorizonBlazorInteropt.FuncClass<CSharpTextClass>(entity => new CSharpTextClass()
+            return EventHorizonBlazorInterop.FuncClass<CSharpTextClass>(entity => new CSharpTextClass()
             {___guid = entity.___guid}, new object[]{new string[]{this.___guid, "initalize"}});
         }
 #endregion

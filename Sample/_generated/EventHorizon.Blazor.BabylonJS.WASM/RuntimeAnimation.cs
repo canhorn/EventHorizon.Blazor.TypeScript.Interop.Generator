@@ -31,7 +31,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "currentFrame"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "weight"
                 );
@@ -55,7 +55,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "currentValue"
                 );
@@ -67,7 +67,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "targetPath"
                 );
@@ -79,7 +79,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "target"
                 );
@@ -93,7 +93,7 @@ namespace BabylonJS
             {
             if(__animation == null)
             {
-                __animation = EventHorizonBlazorInteropt.GetClass<Animation>(
+                __animation = EventHorizonBlazorInterop.GetClass<Animation>(
                     this.___guid,
                     "animation",
                     (entity) =>
@@ -125,7 +125,7 @@ namespace BabylonJS
             object target, Animation animation, Scene scene, Animatable host
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "RuntimeAnimation" },
                 target, animation, scene, host
             );
@@ -136,7 +136,7 @@ namespace BabylonJS
         #region Methods
         public void reset(System.Nullable<bool> restoreOriginal = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "reset" }, restoreOriginal
@@ -146,7 +146,7 @@ namespace BabylonJS
 
         public bool isStopped()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isStopped" }
@@ -156,7 +156,7 @@ namespace BabylonJS
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }
@@ -166,7 +166,7 @@ namespace BabylonJS
 
         public void setValue(object currentValue, decimal weight)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setValue" }, currentValue, weight
@@ -176,7 +176,7 @@ namespace BabylonJS
 
         public void goToFrame(decimal frame)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "goToFrame" }, frame
@@ -186,7 +186,7 @@ namespace BabylonJS
 
         public bool animate(decimal delay, decimal from, decimal to, bool loop, decimal speedRatio, System.Nullable<decimal> weight = null)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "animate" }, delay, from, to, loop, speedRatio, weight

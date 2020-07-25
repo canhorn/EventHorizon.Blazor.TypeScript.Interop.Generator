@@ -37,7 +37,7 @@ namespace Examples
             {
             if(__onPointerObservable == null)
             {
-                __onPointerObservable = EventHorizonBlazorInteropt.GetClass<Observable<PointerInfo>>(
+                __onPointerObservable = EventHorizonBlazorInterop.GetClass<Observable<PointerInfo>>(
                     this.___guid,
                     "onPointerObservable",
                     (entity) =>
@@ -51,7 +51,7 @@ namespace Examples
             set
             {
 __onPointerObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onPointerObservable",
                     value

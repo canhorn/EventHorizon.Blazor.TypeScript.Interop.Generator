@@ -23,7 +23,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     "BABYLON",
                     "Effect.ShadersRepository"
                 );
@@ -31,7 +31,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "Effect.ShadersRepository",
                     value
@@ -44,7 +44,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     "BABYLON",
                     "Effect.ShadersStore"
                 );
@@ -52,7 +52,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "Effect.ShadersStore",
                     value
@@ -65,7 +65,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     "BABYLON",
                     "Effect.IncludesShadersStore"
                 );
@@ -73,7 +73,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "Effect.IncludesShadersStore",
                     value
@@ -85,7 +85,7 @@ namespace BabylonJS
         #region Static Methods
         public static void RegisterShader(string name, string pixelShader = null, string vertexShader = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "Effect", "RegisterShader" }, name, pixelShader, vertexShader
@@ -95,7 +95,7 @@ namespace BabylonJS
 
         public static void ResetCache()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "Effect", "ResetCache" }
@@ -112,7 +112,7 @@ namespace BabylonJS
             {
             if(__onBindObservable == null)
             {
-                __onBindObservable = EventHorizonBlazorInteropt.GetClass<Observable<Effect>>(
+                __onBindObservable = EventHorizonBlazorInterop.GetClass<Observable<Effect>>(
                     this.___guid,
                     "onBindObservable",
                     (entity) =>
@@ -130,7 +130,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "key"
                 );
@@ -142,7 +142,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isSupported"
                 );
@@ -156,7 +156,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "name"
                 );
@@ -164,7 +164,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "name",
                     value
@@ -177,7 +177,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "defines"
                 );
@@ -185,7 +185,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "defines",
                     value
@@ -198,7 +198,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "onCompiled"
                 );
@@ -206,7 +206,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onCompiled",
                     value
@@ -219,7 +219,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "onError"
                 );
@@ -227,7 +227,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onError",
                     value
@@ -240,7 +240,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "onBind"
                 );
@@ -248,7 +248,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onBind",
                     value
@@ -261,7 +261,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "uniqueId"
                 );
@@ -269,7 +269,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "uniqueId",
                     value
@@ -284,7 +284,7 @@ namespace BabylonJS
             {
             if(__onCompileObservable == null)
             {
-                __onCompileObservable = EventHorizonBlazorInteropt.GetClass<Observable<Effect>>(
+                __onCompileObservable = EventHorizonBlazorInterop.GetClass<Observable<Effect>>(
                     this.___guid,
                     "onCompileObservable",
                     (entity) =>
@@ -298,7 +298,7 @@ namespace BabylonJS
             set
             {
 __onCompileObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onCompileObservable",
                     value
@@ -313,7 +313,7 @@ __onCompileObservable = null;
             {
             if(__onErrorObservable == null)
             {
-                __onErrorObservable = EventHorizonBlazorInteropt.GetClass<Observable<Effect>>(
+                __onErrorObservable = EventHorizonBlazorInterop.GetClass<Observable<Effect>>(
                     this.___guid,
                     "onErrorObservable",
                     (entity) =>
@@ -327,7 +327,7 @@ __onCompileObservable = null;
             set
             {
 __onErrorObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onErrorObservable",
                     value
@@ -350,7 +350,7 @@ __onErrorObservable = null;
             object baseName, string[] attributesNamesOrOptions, string[] uniformsNamesOrEngine, string[] samplers = null, ThinEngine engine = null, string defines = null, IEffectFallbacksCachedEntity fallbacks = null, CachedEntity onCompiled = null, CachedEntity onError = null, object indexParameters = null
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Effect" },
                 baseName, attributesNamesOrOptions, uniformsNamesOrEngine, samplers, engine, defines, fallbacks, onCompiled, onError, indexParameters
             );
@@ -361,7 +361,7 @@ __onErrorObservable = null;
         #region Methods
         public bool isReady()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isReady" }
@@ -371,7 +371,7 @@ __onErrorObservable = null;
 
         public Engine getEngine()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Engine>(
+            return EventHorizonBlazorInterop.FuncClass<Engine>(
                 entity => new Engine() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -382,7 +382,7 @@ __onErrorObservable = null;
 
         public IPipelineContextCachedEntity getPipelineContext()
         {
-            return EventHorizonBlazorInteropt.FuncClass<IPipelineContextCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IPipelineContextCachedEntity>(
                 entity => new IPipelineContextCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -393,7 +393,7 @@ __onErrorObservable = null;
 
         public string[] getAttributesNames()
         {
-            return EventHorizonBlazorInteropt.FuncArray<string>(
+            return EventHorizonBlazorInterop.FuncArray<string>(
                 new object[]
                 {
                     new string[] { this.___guid, "getAttributesNames" }
@@ -403,7 +403,7 @@ __onErrorObservable = null;
 
         public decimal getAttributeLocation(decimal index)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getAttributeLocation" }, index
@@ -413,7 +413,7 @@ __onErrorObservable = null;
 
         public decimal getAttributeLocationByName(string name)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getAttributeLocationByName" }, name
@@ -423,7 +423,7 @@ __onErrorObservable = null;
 
         public decimal getAttributesCount()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getAttributesCount" }
@@ -433,7 +433,7 @@ __onErrorObservable = null;
 
         public decimal getUniformIndex(string uniformName)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getUniformIndex" }, uniformName
@@ -443,7 +443,7 @@ __onErrorObservable = null;
 
         public WebGLUniformLocationCachedEntity getUniform(string uniformName)
         {
-            return EventHorizonBlazorInteropt.FuncClass<WebGLUniformLocationCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<WebGLUniformLocationCachedEntity>(
                 entity => new WebGLUniformLocationCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -454,7 +454,7 @@ __onErrorObservable = null;
 
         public string[] getSamplers()
         {
-            return EventHorizonBlazorInteropt.FuncArray<string>(
+            return EventHorizonBlazorInterop.FuncArray<string>(
                 new object[]
                 {
                     new string[] { this.___guid, "getSamplers" }
@@ -464,7 +464,7 @@ __onErrorObservable = null;
 
         public string getCompilationError()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getCompilationError" }
@@ -474,7 +474,7 @@ __onErrorObservable = null;
 
         public bool allFallbacksProcessed()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "allFallbacksProcessed" }
@@ -507,7 +507,7 @@ __onErrorObservable = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "executeWhenCompiled",
                 "CallExecuteWhenCompiledActions",
@@ -528,7 +528,7 @@ __onErrorObservable = null;
 
         public void setTexture(string channel, BaseTexture texture)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setTexture" }, channel, texture
@@ -538,7 +538,7 @@ __onErrorObservable = null;
 
         public void setDepthStencilTexture(string channel, RenderTargetTexture texture)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setDepthStencilTexture" }, channel, texture
@@ -548,7 +548,7 @@ __onErrorObservable = null;
 
         public void setTextureArray(string channel, BaseTexture[] textures)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setTextureArray" }, channel, textures
@@ -558,7 +558,7 @@ __onErrorObservable = null;
 
         public void setTextureFromPostProcess(string channel, PostProcess postProcess)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setTextureFromPostProcess" }, channel, postProcess
@@ -568,7 +568,7 @@ __onErrorObservable = null;
 
         public void setTextureFromPostProcessOutput(string channel, PostProcess postProcess)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setTextureFromPostProcessOutput" }, channel, postProcess
@@ -578,7 +578,7 @@ __onErrorObservable = null;
 
         public void bindUniformBuffer(DataBuffer buffer, string name)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "bindUniformBuffer" }, buffer, name
@@ -588,7 +588,7 @@ __onErrorObservable = null;
 
         public void bindUniformBlock(string blockName, decimal index)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "bindUniformBlock" }, blockName, index
@@ -598,7 +598,7 @@ __onErrorObservable = null;
 
         public Effect setInt(string uniformName, decimal value)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -609,7 +609,7 @@ __onErrorObservable = null;
 
         public Effect setIntArray(string uniformName, Int32Array array)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -620,7 +620,7 @@ __onErrorObservable = null;
 
         public Effect setIntArray2(string uniformName, Int32Array array)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -631,7 +631,7 @@ __onErrorObservable = null;
 
         public Effect setIntArray3(string uniformName, Int32Array array)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -642,7 +642,7 @@ __onErrorObservable = null;
 
         public Effect setIntArray4(string uniformName, Int32Array array)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -653,7 +653,7 @@ __onErrorObservable = null;
 
         public Effect setFloatArray(string uniformName, decimal[] array)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -664,7 +664,7 @@ __onErrorObservable = null;
 
         public Effect setFloatArray2(string uniformName, decimal[] array)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -675,7 +675,7 @@ __onErrorObservable = null;
 
         public Effect setFloatArray3(string uniformName, decimal[] array)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -686,7 +686,7 @@ __onErrorObservable = null;
 
         public Effect setFloatArray4(string uniformName, decimal[] array)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -697,7 +697,7 @@ __onErrorObservable = null;
 
         public Effect setArray(string uniformName, decimal[] array)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -708,7 +708,7 @@ __onErrorObservable = null;
 
         public Effect setArray2(string uniformName, decimal[] array)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -719,7 +719,7 @@ __onErrorObservable = null;
 
         public Effect setArray3(string uniformName, decimal[] array)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -730,7 +730,7 @@ __onErrorObservable = null;
 
         public Effect setArray4(string uniformName, decimal[] array)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -741,7 +741,7 @@ __onErrorObservable = null;
 
         public Effect setMatrices(string uniformName, decimal[] matrices)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -752,7 +752,7 @@ __onErrorObservable = null;
 
         public Effect setMatrix(string uniformName, IMatrixLikeCachedEntity matrix)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -763,7 +763,7 @@ __onErrorObservable = null;
 
         public Effect setMatrix3x3(string uniformName, decimal[] matrix)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -774,7 +774,7 @@ __onErrorObservable = null;
 
         public Effect setMatrix2x2(string uniformName, decimal[] matrix)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -785,7 +785,7 @@ __onErrorObservable = null;
 
         public Effect setFloat(string uniformName, decimal value)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -796,7 +796,7 @@ __onErrorObservable = null;
 
         public Effect setBool(string uniformName, bool @bool)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -807,7 +807,7 @@ __onErrorObservable = null;
 
         public Effect setVector2(string uniformName, IVector2LikeCachedEntity vector2)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -818,7 +818,7 @@ __onErrorObservable = null;
 
         public Effect setFloat2(string uniformName, decimal x, decimal y)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -829,7 +829,7 @@ __onErrorObservable = null;
 
         public Effect setVector3(string uniformName, IVector3LikeCachedEntity vector3)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -840,7 +840,7 @@ __onErrorObservable = null;
 
         public Effect setFloat3(string uniformName, decimal x, decimal y, decimal z)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -851,7 +851,7 @@ __onErrorObservable = null;
 
         public Effect setVector4(string uniformName, IVector4LikeCachedEntity vector4)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -862,7 +862,7 @@ __onErrorObservable = null;
 
         public Effect setFloat4(string uniformName, decimal x, decimal y, decimal z, decimal w)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -873,7 +873,7 @@ __onErrorObservable = null;
 
         public Effect setColor3(string uniformName, IColor3LikeCachedEntity color3)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -884,7 +884,7 @@ __onErrorObservable = null;
 
         public Effect setColor4(string uniformName, IColor3LikeCachedEntity color3, decimal alpha)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -895,7 +895,7 @@ __onErrorObservable = null;
 
         public Effect setDirectColor4(string uniformName, IColor4LikeCachedEntity color4)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -906,7 +906,7 @@ __onErrorObservable = null;
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }

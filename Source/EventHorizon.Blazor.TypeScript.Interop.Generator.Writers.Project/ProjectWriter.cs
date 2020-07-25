@@ -14,12 +14,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project
         private readonly string _projectPath;
         private readonly string _projectName;
         private readonly string _projectDirectory;
-        private readonly string _interopPackageReference;
 
         public ProjectWriter(
             string path,
-            string name,
-            string interopPackageReference
+            string name
         )
         {
             _projectPath = path;
@@ -28,7 +26,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project
                 _projectPath,
                 _projectName
             );
-            _interopPackageReference = interopPackageReference;
         }
 
         public void Write(
@@ -39,9 +36,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project
             GenerateProjectDirectory();
 
             // Create Project File, with ProjectName
-            GenerateProjectFile(
-                _interopPackageReference
-            );
+            GenerateProjectFile();
 
             // Create Files from GeneratedStatementList
             foreach (var generatedStatement in generatedStatementList)
@@ -84,16 +79,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project
             );
         }
 
-        private void GenerateProjectFile(
-            string packageReference
-        )
+        private void GenerateProjectFile()
         {
             var templatesPath = "EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project.Templates";
             var template = ReadAllText(
                 $"{templatesPath}.ProjectFileTemplate.txt"
-            ).Replace(
-                "[[INTEROP_PACKAGE_REFERENCE]]",
-                packageReference ?? string.Empty
             );
             File.WriteAllText(Path.Combine(
                 _projectDirectory,

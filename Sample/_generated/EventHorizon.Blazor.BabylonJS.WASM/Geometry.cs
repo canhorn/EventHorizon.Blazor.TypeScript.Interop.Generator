@@ -24,7 +24,7 @@ namespace BabylonJS
         #region Static Methods
         public static Geometry CreateGeometryForMesh(Mesh mesh)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Geometry>(
+            return EventHorizonBlazorInterop.FuncClass<Geometry>(
                 entity => new Geometry() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -35,7 +35,7 @@ namespace BabylonJS
 
         public static Geometry ExtractFromMesh(Mesh mesh, string id)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Geometry>(
+            return EventHorizonBlazorInterop.FuncClass<Geometry>(
                 entity => new Geometry() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -46,7 +46,7 @@ namespace BabylonJS
 
         public static string RandomId()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "Geometry", "RandomId" }
@@ -56,7 +56,7 @@ namespace BabylonJS
 
         public static Geometry Parse(object parsedVertexData, Scene scene, string rootUrl)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Geometry>(
+            return EventHorizonBlazorInterop.FuncClass<Geometry>(
                 entity => new Geometry() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -74,7 +74,7 @@ namespace BabylonJS
             {
             if(__boundingBias == null)
             {
-                __boundingBias = EventHorizonBlazorInteropt.GetClass<Vector2>(
+                __boundingBias = EventHorizonBlazorInterop.GetClass<Vector2>(
                     this.___guid,
                     "boundingBias",
                     (entity) =>
@@ -88,7 +88,7 @@ namespace BabylonJS
             set
             {
 __boundingBias = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "boundingBias",
                     value
@@ -101,7 +101,7 @@ __boundingBias = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "extend"
                 );
@@ -113,7 +113,7 @@ __boundingBias = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "doNotSerialize"
                 );
@@ -127,7 +127,7 @@ __boundingBias = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "id"
                 );
@@ -135,7 +135,7 @@ __boundingBias = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "id",
                     value
@@ -148,7 +148,7 @@ __boundingBias = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "uniqueId"
                 );
@@ -156,7 +156,7 @@ __boundingBias = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "uniqueId",
                     value
@@ -169,7 +169,7 @@ __boundingBias = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "delayLoadState"
                 );
@@ -177,7 +177,7 @@ __boundingBias = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "delayLoadState",
                     value
@@ -190,7 +190,7 @@ __boundingBias = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "delayLoadingFile"
                 );
@@ -198,7 +198,7 @@ __boundingBias = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "delayLoadingFile",
                     value
@@ -220,7 +220,7 @@ __boundingBias = null;
             string id, Scene scene, VertexData vertexData = null, System.Nullable<bool> updatable = null, Mesh mesh = null
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Geometry" },
                 id, scene, vertexData, updatable, mesh
             );
@@ -254,7 +254,7 @@ __boundingBias = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "onGeometryUpdated",
                 "CallOnGeometryUpdatedActions",
@@ -275,7 +275,7 @@ __boundingBias = null;
 
         public Scene getScene()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Scene>(
+            return EventHorizonBlazorInterop.FuncClass<Scene>(
                 entity => new Scene() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -286,7 +286,7 @@ __boundingBias = null;
 
         public Engine getEngine()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Engine>(
+            return EventHorizonBlazorInterop.FuncClass<Engine>(
                 entity => new Engine() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -297,7 +297,7 @@ __boundingBias = null;
 
         public bool isReady()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isReady" }
@@ -307,7 +307,7 @@ __boundingBias = null;
 
         public void setAllVerticesData(VertexData vertexData, System.Nullable<bool> updatable = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setAllVerticesData" }, vertexData, updatable
@@ -317,7 +317,7 @@ __boundingBias = null;
 
         public void setVerticesData(string kind, decimal[] data, System.Nullable<bool> updatable = null, System.Nullable<decimal> stride = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setVerticesData" }, kind, data, updatable, stride
@@ -327,7 +327,7 @@ __boundingBias = null;
 
         public void removeVerticesData(string kind)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "removeVerticesData" }, kind
@@ -337,7 +337,7 @@ __boundingBias = null;
 
         public void setVerticesBuffer(VertexBuffer buffer, System.Nullable<decimal> totalVertices = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setVerticesBuffer" }, buffer, totalVertices
@@ -347,7 +347,7 @@ __boundingBias = null;
 
         public void updateVerticesDataDirectly(string kind, DataArray data, decimal offset, System.Nullable<bool> useBytes = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "updateVerticesDataDirectly" }, kind, data, offset, useBytes
@@ -357,7 +357,7 @@ __boundingBias = null;
 
         public void updateVerticesData(string kind, decimal[] data, System.Nullable<bool> updateExtends = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "updateVerticesData" }, kind, data, updateExtends
@@ -367,7 +367,7 @@ __boundingBias = null;
 
         public decimal getTotalVertices()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getTotalVertices" }
@@ -377,7 +377,7 @@ __boundingBias = null;
 
         public decimal[] getVerticesData(string kind, System.Nullable<bool> copyWhenShared = null, System.Nullable<bool> forceCopy = null)
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "getVerticesData" }, kind, copyWhenShared, forceCopy
@@ -387,7 +387,7 @@ __boundingBias = null;
 
         public bool isVertexBufferUpdatable(string kind)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isVertexBufferUpdatable" }, kind
@@ -397,7 +397,7 @@ __boundingBias = null;
 
         public VertexBuffer getVertexBuffer(string kind)
         {
-            return EventHorizonBlazorInteropt.FuncClass<VertexBuffer>(
+            return EventHorizonBlazorInterop.FuncClass<VertexBuffer>(
                 entity => new VertexBuffer() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -408,7 +408,7 @@ __boundingBias = null;
 
         public CachedEntity getVertexBuffers()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getVertexBuffers" }
@@ -418,7 +418,7 @@ __boundingBias = null;
 
         public bool isVerticesDataPresent(string kind)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isVerticesDataPresent" }, kind
@@ -428,7 +428,7 @@ __boundingBias = null;
 
         public string[] getVerticesDataKinds()
         {
-            return EventHorizonBlazorInteropt.FuncArray<string>(
+            return EventHorizonBlazorInterop.FuncArray<string>(
                 new object[]
                 {
                     new string[] { this.___guid, "getVerticesDataKinds" }
@@ -438,7 +438,7 @@ __boundingBias = null;
 
         public void updateIndices(decimal[] indices, System.Nullable<decimal> offset = null, System.Nullable<bool> gpuMemoryOnly = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "updateIndices" }, indices, offset, gpuMemoryOnly
@@ -448,7 +448,7 @@ __boundingBias = null;
 
         public void setIndices(decimal[] indices, System.Nullable<decimal> totalVertices = null, System.Nullable<bool> updatable = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setIndices" }, indices, totalVertices, updatable
@@ -458,7 +458,7 @@ __boundingBias = null;
 
         public decimal getTotalIndices()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getTotalIndices" }
@@ -468,7 +468,7 @@ __boundingBias = null;
 
         public decimal[] getIndices(System.Nullable<bool> copyWhenShared = null, System.Nullable<bool> forceCopy = null)
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "getIndices" }, copyWhenShared, forceCopy
@@ -478,7 +478,7 @@ __boundingBias = null;
 
         public DataBuffer getIndexBuffer()
         {
-            return EventHorizonBlazorInteropt.FuncClass<DataBuffer>(
+            return EventHorizonBlazorInterop.FuncClass<DataBuffer>(
                 entity => new DataBuffer() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -489,7 +489,7 @@ __boundingBias = null;
 
         public void releaseForMesh(Mesh mesh, System.Nullable<bool> shouldDispose = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "releaseForMesh" }, mesh, shouldDispose
@@ -499,7 +499,7 @@ __boundingBias = null;
 
         public void applyToMesh(Mesh mesh)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "applyToMesh" }, mesh
@@ -511,7 +511,7 @@ __boundingBias = null;
 
         public void toLeftHanded()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "toLeftHanded" }
@@ -521,7 +521,7 @@ __boundingBias = null;
 
         public bool isDisposed()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isDisposed" }
@@ -531,7 +531,7 @@ __boundingBias = null;
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }
@@ -541,7 +541,7 @@ __boundingBias = null;
 
         public Geometry copy(string id)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Geometry>(
+            return EventHorizonBlazorInterop.FuncClass<Geometry>(
                 entity => new Geometry() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -552,7 +552,7 @@ __boundingBias = null;
 
         public CachedEntity serialize()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }
@@ -562,7 +562,7 @@ __boundingBias = null;
 
         public CachedEntity serializeVerticeData()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serializeVerticeData" }

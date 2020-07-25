@@ -47,7 +47,7 @@ namespace Static.Class
             {
                 return;
             }
-            EventHorizonBlazorInteropt.AssemblyFuncCallback(
+            EventHorizonBlazorInterop.AssemblyFuncCallback(
                 "ProjectAssembly",
                 "Static.Class.ExampleClass.OnNewCacheEntry",
                 "CallOnNewCacheEntryStaticActions"

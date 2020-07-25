@@ -31,7 +31,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Observer<T>>(
+            return EventHorizonBlazorInterop.GetArrayClass<Observer<T>>(
                     this.___guid,
                     "observers",
                     (entity) =>
@@ -61,7 +61,7 @@ namespace BabylonJS
             CachedEntity onObserverAdded = null
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Observable" },
                 onObserverAdded
             );
@@ -95,7 +95,7 @@ namespace BabylonJS
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "add",
                 "CallAddActions",
@@ -139,7 +139,7 @@ namespace BabylonJS
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "addOnce",
                 "CallAddOnceActions",
@@ -160,7 +160,7 @@ namespace BabylonJS
 
         public bool remove(Observer<T> observer)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "remove" }, observer
@@ -193,7 +193,7 @@ namespace BabylonJS
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "removeCallback",
                 "CallRemoveCallbackActions",
@@ -214,7 +214,7 @@ namespace BabylonJS
 
         public void makeObserverTopPriority(Observer<T> observer)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "makeObserverTopPriority" }, observer
@@ -224,7 +224,7 @@ namespace BabylonJS
 
         public void makeObserverBottomPriority(Observer<T> observer)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "makeObserverBottomPriority" }, observer
@@ -234,7 +234,7 @@ namespace BabylonJS
 
         public bool notifyObservers(T eventData, System.Nullable<decimal> mask = null, object target = null, object currentTarget = null)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "notifyObservers" }, eventData, mask, target, currentTarget
@@ -244,7 +244,7 @@ namespace BabylonJS
 
         public void notifyObserversWithPromise(T eventData, System.Nullable<decimal> mask = null, object target = null, object currentTarget = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "notifyObserversWithPromise" }, eventData, mask, target, currentTarget
@@ -254,7 +254,7 @@ namespace BabylonJS
 
         public void notifyObserver(Observer<T> observer, T eventData, System.Nullable<decimal> mask = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "notifyObserver" }, observer, eventData, mask
@@ -264,7 +264,7 @@ namespace BabylonJS
 
         public bool hasObservers()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "hasObservers" }
@@ -274,7 +274,7 @@ namespace BabylonJS
 
         public void clear()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "clear" }
@@ -284,7 +284,7 @@ namespace BabylonJS
 
         public Observable<T> clone()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Observable<T>>(
+            return EventHorizonBlazorInterop.FuncClass<Observable<T>>(
                 entity => new Observable<T>() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -295,7 +295,7 @@ namespace BabylonJS
 
         public bool hasSpecificMask(System.Nullable<decimal> mask = null)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "hasSpecificMask" }, mask

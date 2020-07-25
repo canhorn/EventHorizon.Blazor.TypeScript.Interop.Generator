@@ -24,7 +24,7 @@ namespace BabylonJS
         #region Static Methods
         public static Plane FromArray(decimal[] array)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Plane>(
+            return EventHorizonBlazorInterop.FuncClass<Plane>(
                 entity => new Plane() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -35,7 +35,7 @@ namespace BabylonJS
 
         public static Plane FromPoints(Vector3 point1, Vector3 point2, Vector3 point3)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Plane>(
+            return EventHorizonBlazorInterop.FuncClass<Plane>(
                 entity => new Plane() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -46,7 +46,7 @@ namespace BabylonJS
 
         public static Plane FromPositionAndNormal(Vector3 origin, Vector3 normal)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Plane>(
+            return EventHorizonBlazorInterop.FuncClass<Plane>(
                 entity => new Plane() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -57,7 +57,7 @@ namespace BabylonJS
 
         public static decimal SignedDistanceToPlaneFromPositionAndNormal(Vector3 origin, Vector3 normal, Vector3 point)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "Plane", "SignedDistanceToPlaneFromPositionAndNormal" }, origin, normal, point
@@ -78,7 +78,7 @@ namespace BabylonJS
             {
             if(__normal == null)
             {
-                __normal = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __normal = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "normal",
                     (entity) =>
@@ -92,7 +92,7 @@ namespace BabylonJS
             set
             {
 __normal = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "normal",
                     value
@@ -105,7 +105,7 @@ __normal = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "d"
                 );
@@ -113,7 +113,7 @@ __normal = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "d",
                     value
@@ -136,7 +136,7 @@ __normal = null;
             decimal a, decimal b, decimal c, decimal d
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Plane" },
                 a, b, c, d
             );
@@ -147,7 +147,7 @@ __normal = null;
         #region Methods
         public decimal[] asArray()
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "asArray" }
@@ -157,7 +157,7 @@ __normal = null;
 
         public Plane clone()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Plane>(
+            return EventHorizonBlazorInterop.FuncClass<Plane>(
                 entity => new Plane() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -168,7 +168,7 @@ __normal = null;
 
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -178,7 +178,7 @@ __normal = null;
 
         public decimal getHashCode()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getHashCode" }
@@ -188,7 +188,7 @@ __normal = null;
 
         public Plane normalize()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Plane>(
+            return EventHorizonBlazorInterop.FuncClass<Plane>(
                 entity => new Plane() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -199,7 +199,7 @@ __normal = null;
 
         public Plane transform(Matrix transformation)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Plane>(
+            return EventHorizonBlazorInterop.FuncClass<Plane>(
                 entity => new Plane() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -210,7 +210,7 @@ __normal = null;
 
         public decimal dotCoordinate(Vector3 point)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dotCoordinate" }, point
@@ -220,7 +220,7 @@ __normal = null;
 
         public Plane copyFromPoints(Vector3 point1, Vector3 point2, Vector3 point3)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Plane>(
+            return EventHorizonBlazorInterop.FuncClass<Plane>(
                 entity => new Plane() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -231,7 +231,7 @@ __normal = null;
 
         public bool isFrontFacingTo(Vector3 direction, decimal epsilon)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isFrontFacingTo" }, direction, epsilon
@@ -241,7 +241,7 @@ __normal = null;
 
         public decimal signedDistanceTo(Vector3 point)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "signedDistanceTo" }, point

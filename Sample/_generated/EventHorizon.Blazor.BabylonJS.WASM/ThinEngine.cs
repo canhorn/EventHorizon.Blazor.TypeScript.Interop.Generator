@@ -19,7 +19,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     "BABYLON",
                     "ThinEngine.NpmPackage"
                 );
@@ -31,7 +31,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     "BABYLON",
                     "ThinEngine.Version"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     "BABYLON",
                     "ThinEngine.ShadersRepository"
                 );
@@ -51,7 +51,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "ThinEngine.ShadersRepository",
                     value
@@ -66,7 +66,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<CachedEntity>(
+            return EventHorizonBlazorInterop.GetArray<CachedEntity>(
                     "BABYLON",
                     "ThinEngine.ExceptionList"
                 );
@@ -74,7 +74,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "ThinEngine.ExceptionList",
                     value
@@ -87,7 +87,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ThinEngine.CollisionsEpsilon"
                 );
@@ -95,7 +95,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "ThinEngine.CollisionsEpsilon",
                     value
@@ -107,7 +107,7 @@ namespace BabylonJS
         #region Static Methods
         public static bool isSupported()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "ThinEngine", "isSupported" }
@@ -117,7 +117,7 @@ namespace BabylonJS
 
         public static decimal CeilingPOT(decimal x)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "ThinEngine", "CeilingPOT" }, x
@@ -127,7 +127,7 @@ namespace BabylonJS
 
         public static decimal FloorPOT(decimal x)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "ThinEngine", "FloorPOT" }, x
@@ -137,7 +137,7 @@ namespace BabylonJS
 
         public static decimal NearestPOT(decimal x)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "ThinEngine", "NearestPOT" }, x
@@ -147,7 +147,7 @@ namespace BabylonJS
 
         public static decimal GetExponentOfTwo(decimal value, decimal max, System.Nullable<decimal> mode = null)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "ThinEngine", "GetExponentOfTwo" }, value, max, mode
@@ -180,7 +180,7 @@ namespace BabylonJS
             {
                 return;
             }
-            EventHorizonBlazorInteropt.AssemblyFuncCallback(
+            EventHorizonBlazorInterop.AssemblyFuncCallback(
                 "EventHorizon.Blazor.BabylonJS.WASM",
                 "BABYLON.ThinEngine.QueueNewFrame",
                 "CallQueueNewFrameStaticActions"
@@ -205,7 +205,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "description"
                 );
@@ -217,7 +217,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "supportsUniformBuffers"
                 );
@@ -229,7 +229,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "needPOTTextures"
                 );
@@ -241,7 +241,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "doNotHandleContextLost"
                 );
@@ -249,7 +249,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "doNotHandleContextLost",
                     value
@@ -262,7 +262,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<string>(
+            return EventHorizonBlazorInterop.GetArray<string>(
                     this.___guid,
                     "texturesSupported"
                 );
@@ -274,7 +274,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "textureFormatInUse"
                 );
@@ -288,7 +288,7 @@ namespace BabylonJS
             {
             if(__currentViewport == null)
             {
-                __currentViewport = EventHorizonBlazorInteropt.GetClass<IViewportLikeCachedEntity>(
+                __currentViewport = EventHorizonBlazorInterop.GetClass<IViewportLikeCachedEntity>(
                     this.___guid,
                     "currentViewport",
                     (entity) =>
@@ -308,7 +308,7 @@ namespace BabylonJS
             {
             if(__emptyTexture == null)
             {
-                __emptyTexture = EventHorizonBlazorInteropt.GetClass<InternalTexture>(
+                __emptyTexture = EventHorizonBlazorInterop.GetClass<InternalTexture>(
                     this.___guid,
                     "emptyTexture",
                     (entity) =>
@@ -328,7 +328,7 @@ namespace BabylonJS
             {
             if(__emptyTexture3D == null)
             {
-                __emptyTexture3D = EventHorizonBlazorInteropt.GetClass<InternalTexture>(
+                __emptyTexture3D = EventHorizonBlazorInterop.GetClass<InternalTexture>(
                     this.___guid,
                     "emptyTexture3D",
                     (entity) =>
@@ -348,7 +348,7 @@ namespace BabylonJS
             {
             if(__emptyTexture2DArray == null)
             {
-                __emptyTexture2DArray = EventHorizonBlazorInteropt.GetClass<InternalTexture>(
+                __emptyTexture2DArray = EventHorizonBlazorInterop.GetClass<InternalTexture>(
                     this.___guid,
                     "emptyTexture2DArray",
                     (entity) =>
@@ -368,7 +368,7 @@ namespace BabylonJS
             {
             if(__emptyCubeTexture == null)
             {
-                __emptyCubeTexture = EventHorizonBlazorInteropt.GetClass<InternalTexture>(
+                __emptyCubeTexture = EventHorizonBlazorInterop.GetClass<InternalTexture>(
                     this.___guid,
                     "emptyCubeTexture",
                     (entity) =>
@@ -386,7 +386,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "webGLVersion"
                 );
@@ -398,7 +398,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isStencilEnable"
                 );
@@ -412,7 +412,7 @@ namespace BabylonJS
             {
             if(__depthCullingState == null)
             {
-                __depthCullingState = EventHorizonBlazorInteropt.GetClass<DepthCullingState>(
+                __depthCullingState = EventHorizonBlazorInterop.GetClass<DepthCullingState>(
                     this.___guid,
                     "depthCullingState",
                     (entity) =>
@@ -432,7 +432,7 @@ namespace BabylonJS
             {
             if(__alphaState == null)
             {
-                __alphaState = EventHorizonBlazorInteropt.GetClass<AlphaState>(
+                __alphaState = EventHorizonBlazorInterop.GetClass<AlphaState>(
                     this.___guid,
                     "alphaState",
                     (entity) =>
@@ -452,7 +452,7 @@ namespace BabylonJS
             {
             if(__stencilState == null)
             {
-                __stencilState = EventHorizonBlazorInteropt.GetClass<StencilState>(
+                __stencilState = EventHorizonBlazorInterop.GetClass<StencilState>(
                     this.___guid,
                     "stencilState",
                     (entity) =>
@@ -472,7 +472,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "forcePOTTextures"
                 );
@@ -480,7 +480,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "forcePOTTextures",
                     value
@@ -493,7 +493,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isFullscreen"
                 );
@@ -501,7 +501,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isFullscreen",
                     value
@@ -514,7 +514,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "cullBackFaces"
                 );
@@ -522,7 +522,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "cullBackFaces",
                     value
@@ -535,7 +535,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "renderEvenInBackground"
                 );
@@ -543,7 +543,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "renderEvenInBackground",
                     value
@@ -556,7 +556,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "preventCacheWipeBetweenFrames"
                 );
@@ -564,7 +564,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "preventCacheWipeBetweenFrames",
                     value
@@ -577,7 +577,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "validateShaderPrograms"
                 );
@@ -585,7 +585,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "validateShaderPrograms",
                     value
@@ -598,7 +598,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useReverseDepthBuffer"
                 );
@@ -606,7 +606,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "useReverseDepthBuffer",
                     value
@@ -619,7 +619,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "disableUniformBuffers"
                 );
@@ -627,7 +627,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "disableUniformBuffers",
                     value
@@ -642,7 +642,7 @@ namespace BabylonJS
             {
             if(__onContextLostObservable == null)
             {
-                __onContextLostObservable = EventHorizonBlazorInteropt.GetClass<Observable<ThinEngine>>(
+                __onContextLostObservable = EventHorizonBlazorInterop.GetClass<Observable<ThinEngine>>(
                     this.___guid,
                     "onContextLostObservable",
                     (entity) =>
@@ -656,7 +656,7 @@ namespace BabylonJS
             set
             {
 __onContextLostObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onContextLostObservable",
                     value
@@ -671,7 +671,7 @@ __onContextLostObservable = null;
             {
             if(__onContextRestoredObservable == null)
             {
-                __onContextRestoredObservable = EventHorizonBlazorInteropt.GetClass<Observable<ThinEngine>>(
+                __onContextRestoredObservable = EventHorizonBlazorInterop.GetClass<Observable<ThinEngine>>(
                     this.___guid,
                     "onContextRestoredObservable",
                     (entity) =>
@@ -685,7 +685,7 @@ __onContextLostObservable = null;
             set
             {
 __onContextRestoredObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onContextRestoredObservable",
                     value
@@ -698,7 +698,7 @@ __onContextRestoredObservable = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "disableVertexArrayObjects"
                 );
@@ -706,7 +706,7 @@ __onContextRestoredObservable = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "disableVertexArrayObjects",
                     value
@@ -719,7 +719,7 @@ __onContextRestoredObservable = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "premultipliedAlpha"
                 );
@@ -733,7 +733,7 @@ __onContextRestoredObservable = null;
             {
             if(__onBeforeTextureInitObservable == null)
             {
-                __onBeforeTextureInitObservable = EventHorizonBlazorInteropt.GetClass<Observable<Texture>>(
+                __onBeforeTextureInitObservable = EventHorizonBlazorInterop.GetClass<Observable<Texture>>(
                     this.___guid,
                     "onBeforeTextureInitObservable",
                     (entity) =>
@@ -747,7 +747,7 @@ __onContextRestoredObservable = null;
             set
             {
 __onBeforeTextureInitObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onBeforeTextureInitObservable",
                     value
@@ -760,7 +760,7 @@ __onBeforeTextureInitObservable = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "enableUnpackFlipYCached"
                 );
@@ -768,7 +768,7 @@ __onBeforeTextureInitObservable = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "enableUnpackFlipYCached",
                     value
@@ -791,7 +791,7 @@ __onBeforeTextureInitObservable = null;
             HTMLCanvasElementCachedEntity canvasOrContext, System.Nullable<bool> antialias = null, EngineOptionsCachedEntity options = null, System.Nullable<bool> adaptToDeviceRatio = null
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "ThinEngine" },
                 canvasOrContext, antialias, options, adaptToDeviceRatio
             );
@@ -802,7 +802,7 @@ __onBeforeTextureInitObservable = null;
         #region Methods
         public bool areAllEffectsReady()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "areAllEffectsReady" }
@@ -812,7 +812,7 @@ __onBeforeTextureInitObservable = null;
 
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -822,7 +822,7 @@ __onBeforeTextureInitObservable = null;
 
         public void resetTextureCache()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "resetTextureCache" }
@@ -832,7 +832,7 @@ __onBeforeTextureInitObservable = null;
 
         public CachedEntity getGlInfo()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getGlInfo" }
@@ -842,7 +842,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setHardwareScalingLevel(decimal level)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setHardwareScalingLevel" }, level
@@ -852,7 +852,7 @@ __onBeforeTextureInitObservable = null;
 
         public decimal getHardwareScalingLevel()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getHardwareScalingLevel" }
@@ -862,7 +862,7 @@ __onBeforeTextureInitObservable = null;
 
         public InternalTexture[] getLoadedTexturesCache()
         {
-            return EventHorizonBlazorInteropt.FuncArrayClass<InternalTexture>(
+            return EventHorizonBlazorInterop.FuncArrayClass<InternalTexture>(
                 entity => new InternalTexture() { ___guid = entity.___guid },
                 new object[]
                 {
@@ -873,7 +873,7 @@ __onBeforeTextureInitObservable = null;
 
         public EngineCapabilitiesCachedEntity getCaps()
         {
-            return EventHorizonBlazorInteropt.FuncClass<EngineCapabilitiesCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<EngineCapabilitiesCachedEntity>(
                 entity => new EngineCapabilitiesCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -907,7 +907,7 @@ __onBeforeTextureInitObservable = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "stopRenderLoop",
                 "CallStopRenderLoopActions",
@@ -928,7 +928,7 @@ __onBeforeTextureInitObservable = null;
 
         public HTMLCanvasElementCachedEntity getRenderingCanvas()
         {
-            return EventHorizonBlazorInteropt.FuncClass<HTMLCanvasElementCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<HTMLCanvasElementCachedEntity>(
                 entity => new HTMLCanvasElementCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -939,7 +939,7 @@ __onBeforeTextureInitObservable = null;
 
         public WindowCachedEntity getHostWindow()
         {
-            return EventHorizonBlazorInteropt.FuncClass<WindowCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<WindowCachedEntity>(
                 entity => new WindowCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -950,7 +950,7 @@ __onBeforeTextureInitObservable = null;
 
         public decimal getRenderWidth(System.Nullable<bool> useScreen = null)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getRenderWidth" }, useScreen
@@ -960,7 +960,7 @@ __onBeforeTextureInitObservable = null;
 
         public decimal getRenderHeight(System.Nullable<bool> useScreen = null)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getRenderHeight" }, useScreen
@@ -993,7 +993,7 @@ __onBeforeTextureInitObservable = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "runRenderLoop",
                 "CallRunRenderLoopActions",
@@ -1014,7 +1014,7 @@ __onBeforeTextureInitObservable = null;
 
         public void clear(IColor4LikeCachedEntity color, bool backBuffer, bool depth, System.Nullable<bool> stencil = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "clear" }, color, backBuffer, depth, stencil
@@ -1024,7 +1024,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setViewport(IViewportLikeCachedEntity viewport, System.Nullable<decimal> requiredWidth = null, System.Nullable<decimal> requiredHeight = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setViewport" }, viewport, requiredWidth, requiredHeight
@@ -1034,7 +1034,7 @@ __onBeforeTextureInitObservable = null;
 
         public void beginFrame()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "beginFrame" }
@@ -1044,7 +1044,7 @@ __onBeforeTextureInitObservable = null;
 
         public void endFrame()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "endFrame" }
@@ -1054,7 +1054,7 @@ __onBeforeTextureInitObservable = null;
 
         public void resize()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "resize" }
@@ -1064,7 +1064,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setSize(decimal width, decimal height)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setSize" }, width, height
@@ -1074,7 +1074,7 @@ __onBeforeTextureInitObservable = null;
 
         public void bindFramebuffer(InternalTexture texture, System.Nullable<decimal> faceIndex = null, System.Nullable<decimal> requiredWidth = null, System.Nullable<decimal> requiredHeight = null, System.Nullable<bool> forceFullscreenViewport = null, System.Nullable<decimal> lodLevel = null, System.Nullable<decimal> layer = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "bindFramebuffer" }, texture, faceIndex, requiredWidth, requiredHeight, forceFullscreenViewport, lodLevel, layer
@@ -1086,7 +1086,7 @@ __onBeforeTextureInitObservable = null;
 
         public void flushFramebuffer()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "flushFramebuffer" }
@@ -1096,7 +1096,7 @@ __onBeforeTextureInitObservable = null;
 
         public void restoreDefaultFramebuffer()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "restoreDefaultFramebuffer" }
@@ -1106,7 +1106,7 @@ __onBeforeTextureInitObservable = null;
 
         public DataBuffer createVertexBuffer(DataArray data)
         {
-            return EventHorizonBlazorInteropt.FuncClass<DataBuffer>(
+            return EventHorizonBlazorInterop.FuncClass<DataBuffer>(
                 entity => new DataBuffer() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1117,7 +1117,7 @@ __onBeforeTextureInitObservable = null;
 
         public DataBuffer createDynamicVertexBuffer(DataArray data)
         {
-            return EventHorizonBlazorInteropt.FuncClass<DataBuffer>(
+            return EventHorizonBlazorInterop.FuncClass<DataBuffer>(
                 entity => new DataBuffer() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1128,7 +1128,7 @@ __onBeforeTextureInitObservable = null;
 
         public DataBuffer createIndexBuffer(decimal[] indices, System.Nullable<bool> updatable = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<DataBuffer>(
+            return EventHorizonBlazorInterop.FuncClass<DataBuffer>(
                 entity => new DataBuffer() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1139,7 +1139,7 @@ __onBeforeTextureInitObservable = null;
 
         public void bindArrayBuffer(DataBuffer buffer)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "bindArrayBuffer" }, buffer
@@ -1149,7 +1149,7 @@ __onBeforeTextureInitObservable = null;
 
         public void updateArrayBuffer(decimal[] data)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "updateArrayBuffer" }, data
@@ -1159,7 +1159,7 @@ __onBeforeTextureInitObservable = null;
 
         public WebGLVertexArrayObjectCachedEntity recordVertexArrayObject(object vertexBuffers, DataBuffer indexBuffer, Effect effect)
         {
-            return EventHorizonBlazorInteropt.FuncClass<WebGLVertexArrayObjectCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<WebGLVertexArrayObjectCachedEntity>(
                 entity => new WebGLVertexArrayObjectCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1170,7 +1170,7 @@ __onBeforeTextureInitObservable = null;
 
         public void bindVertexArrayObject(WebGLVertexArrayObjectCachedEntity vertexArrayObject, DataBuffer indexBuffer)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "bindVertexArrayObject" }, vertexArrayObject, indexBuffer
@@ -1180,7 +1180,7 @@ __onBeforeTextureInitObservable = null;
 
         public void bindBuffersDirectly(DataBuffer vertexBuffer, DataBuffer indexBuffer, decimal[] vertexDeclaration, decimal vertexStrideSize, Effect effect)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "bindBuffersDirectly" }, vertexBuffer, indexBuffer, vertexDeclaration, vertexStrideSize, effect
@@ -1190,7 +1190,7 @@ __onBeforeTextureInitObservable = null;
 
         public void bindBuffers(object vertexBuffers, DataBuffer indexBuffer, Effect effect)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "bindBuffers" }, vertexBuffers, indexBuffer, effect
@@ -1200,7 +1200,7 @@ __onBeforeTextureInitObservable = null;
 
         public void unbindInstanceAttributes()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "unbindInstanceAttributes" }
@@ -1210,7 +1210,7 @@ __onBeforeTextureInitObservable = null;
 
         public void releaseVertexArrayObject(WebGLVertexArrayObjectCachedEntity vao)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "releaseVertexArrayObject" }, vao
@@ -1220,7 +1220,7 @@ __onBeforeTextureInitObservable = null;
 
         public void updateAndBindInstancesBuffer(DataBuffer instancesBuffer, decimal[] data, decimal[] offsetLocations)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "updateAndBindInstancesBuffer" }, instancesBuffer, data, offsetLocations
@@ -1230,7 +1230,7 @@ __onBeforeTextureInitObservable = null;
 
         public void bindInstancesBuffer(DataBuffer instancesBuffer, InstancingAttributeInfoCachedEntity[] attributesInfo, System.Nullable<bool> computeStride = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "bindInstancesBuffer" }, instancesBuffer, attributesInfo, computeStride
@@ -1240,7 +1240,7 @@ __onBeforeTextureInitObservable = null;
 
         public void disableInstanceAttributeByName(string name)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "disableInstanceAttributeByName" }, name
@@ -1250,7 +1250,7 @@ __onBeforeTextureInitObservable = null;
 
         public void disableInstanceAttribute(decimal attributeLocation)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "disableInstanceAttribute" }, attributeLocation
@@ -1260,7 +1260,7 @@ __onBeforeTextureInitObservable = null;
 
         public void disableAttributeByIndex(decimal attributeLocation)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "disableAttributeByIndex" }, attributeLocation
@@ -1270,7 +1270,7 @@ __onBeforeTextureInitObservable = null;
 
         public void draw(bool useTriangles, decimal indexStart, decimal indexCount, System.Nullable<decimal> instancesCount = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "draw" }, useTriangles, indexStart, indexCount, instancesCount
@@ -1280,7 +1280,7 @@ __onBeforeTextureInitObservable = null;
 
         public void drawPointClouds(decimal verticesStart, decimal verticesCount, System.Nullable<decimal> instancesCount = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "drawPointClouds" }, verticesStart, verticesCount, instancesCount
@@ -1290,7 +1290,7 @@ __onBeforeTextureInitObservable = null;
 
         public void drawUnIndexed(bool useTriangles, decimal verticesStart, decimal verticesCount, System.Nullable<decimal> instancesCount = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "drawUnIndexed" }, useTriangles, verticesStart, verticesCount, instancesCount
@@ -1300,7 +1300,7 @@ __onBeforeTextureInitObservable = null;
 
         public void drawElementsType(decimal fillMode, decimal indexStart, decimal indexCount, System.Nullable<decimal> instancesCount = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "drawElementsType" }, fillMode, indexStart, indexCount, instancesCount
@@ -1310,7 +1310,7 @@ __onBeforeTextureInitObservable = null;
 
         public void drawArraysType(decimal fillMode, decimal verticesStart, decimal verticesCount, System.Nullable<decimal> instancesCount = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "drawArraysType" }, fillMode, verticesStart, verticesCount, instancesCount
@@ -1320,7 +1320,7 @@ __onBeforeTextureInitObservable = null;
 
         public Effect createEffect(object baseName, string[] attributesNamesOrOptions, string[] uniformsNamesOrEngine, string[] samplers = null, string defines = null, IEffectFallbacksCachedEntity fallbacks = null, CachedEntity onCompiled = null, CachedEntity onError = null, object indexParameters = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1331,7 +1331,7 @@ __onBeforeTextureInitObservable = null;
 
         public WebGLProgramCachedEntity createRawShaderProgram(IPipelineContextCachedEntity pipelineContext, string vertexCode, string fragmentCode, WebGLRenderingContextCachedEntity context = null, string[] transformFeedbackVaryings = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<WebGLProgramCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<WebGLProgramCachedEntity>(
                 entity => new WebGLProgramCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1342,7 +1342,7 @@ __onBeforeTextureInitObservable = null;
 
         public WebGLProgramCachedEntity createShaderProgram(IPipelineContextCachedEntity pipelineContext, string vertexCode, string fragmentCode, string defines = null, WebGLRenderingContextCachedEntity context = null, string[] transformFeedbackVaryings = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<WebGLProgramCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<WebGLProgramCachedEntity>(
                 entity => new WebGLProgramCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1353,7 +1353,7 @@ __onBeforeTextureInitObservable = null;
 
         public IPipelineContextCachedEntity createPipelineContext()
         {
-            return EventHorizonBlazorInteropt.FuncClass<IPipelineContextCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IPipelineContextCachedEntity>(
                 entity => new IPipelineContextCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1364,7 +1364,7 @@ __onBeforeTextureInitObservable = null;
 
         public WebGLUniformLocationCachedEntity[] getUniforms(IPipelineContextCachedEntity pipelineContext, string[] uniformsNames)
         {
-            return EventHorizonBlazorInteropt.FuncArrayClass<WebGLUniformLocationCachedEntity>(
+            return EventHorizonBlazorInterop.FuncArrayClass<WebGLUniformLocationCachedEntity>(
                 entity => new WebGLUniformLocationCachedEntity() { ___guid = entity.___guid },
                 new object[]
                 {
@@ -1375,7 +1375,7 @@ __onBeforeTextureInitObservable = null;
 
         public decimal[] getAttributes(IPipelineContextCachedEntity pipelineContext, string[] attributesNames)
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "getAttributes" }, pipelineContext, attributesNames
@@ -1385,7 +1385,7 @@ __onBeforeTextureInitObservable = null;
 
         public void enableEffect(Effect effect)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "enableEffect" }, effect
@@ -1395,7 +1395,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setInt(WebGLUniformLocationCachedEntity uniform, decimal value)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setInt" }, uniform, value
@@ -1405,7 +1405,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setIntArray(WebGLUniformLocationCachedEntity uniform, Int32Array array)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setIntArray" }, uniform, array
@@ -1415,7 +1415,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setIntArray2(WebGLUniformLocationCachedEntity uniform, Int32Array array)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setIntArray2" }, uniform, array
@@ -1425,7 +1425,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setIntArray3(WebGLUniformLocationCachedEntity uniform, Int32Array array)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setIntArray3" }, uniform, array
@@ -1435,7 +1435,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setIntArray4(WebGLUniformLocationCachedEntity uniform, Int32Array array)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setIntArray4" }, uniform, array
@@ -1445,7 +1445,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setArray(WebGLUniformLocationCachedEntity uniform, decimal[] array)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setArray" }, uniform, array
@@ -1455,7 +1455,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setArray2(WebGLUniformLocationCachedEntity uniform, decimal[] array)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setArray2" }, uniform, array
@@ -1465,7 +1465,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setArray3(WebGLUniformLocationCachedEntity uniform, decimal[] array)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setArray3" }, uniform, array
@@ -1475,7 +1475,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setArray4(WebGLUniformLocationCachedEntity uniform, decimal[] array)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setArray4" }, uniform, array
@@ -1485,7 +1485,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setMatrices(WebGLUniformLocationCachedEntity uniform, decimal[] matrices)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setMatrices" }, uniform, matrices
@@ -1495,7 +1495,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setMatrix3x3(WebGLUniformLocationCachedEntity uniform, decimal[] matrix)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setMatrix3x3" }, uniform, matrix
@@ -1505,7 +1505,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setMatrix2x2(WebGLUniformLocationCachedEntity uniform, decimal[] matrix)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setMatrix2x2" }, uniform, matrix
@@ -1515,7 +1515,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setFloat(WebGLUniformLocationCachedEntity uniform, decimal value)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setFloat" }, uniform, value
@@ -1525,7 +1525,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setFloat2(WebGLUniformLocationCachedEntity uniform, decimal x, decimal y)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setFloat2" }, uniform, x, y
@@ -1535,7 +1535,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setFloat3(WebGLUniformLocationCachedEntity uniform, decimal x, decimal y, decimal z)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setFloat3" }, uniform, x, y, z
@@ -1545,7 +1545,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setFloat4(WebGLUniformLocationCachedEntity uniform, decimal x, decimal y, decimal z, decimal w)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setFloat4" }, uniform, x, y, z, w
@@ -1555,7 +1555,7 @@ __onBeforeTextureInitObservable = null;
 
         public void applyStates()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "applyStates" }
@@ -1565,7 +1565,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setColorWrite(bool enable)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setColorWrite" }, enable
@@ -1575,7 +1575,7 @@ __onBeforeTextureInitObservable = null;
 
         public bool getColorWrite()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getColorWrite" }
@@ -1585,7 +1585,7 @@ __onBeforeTextureInitObservable = null;
 
         public void clearInternalTexturesCache()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "clearInternalTexturesCache" }
@@ -1595,7 +1595,7 @@ __onBeforeTextureInitObservable = null;
 
         public void wipeCaches(System.Nullable<bool> bruteForce = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "wipeCaches" }, bruteForce
@@ -1605,7 +1605,7 @@ __onBeforeTextureInitObservable = null;
 
         public InternalTexture createTexture(bool noMipmap, bool invertY, ISceneLikeCachedEntity scene, string urlArg = null, System.Nullable<decimal> samplingMode = null, CachedEntity onLoad = null, CachedEntity onError = null, string buffer = null, InternalTexture fallback = null, System.Nullable<decimal> format = null, string forcedExtension = null, string mimeType = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<InternalTexture>(
+            return EventHorizonBlazorInterop.FuncClass<InternalTexture>(
                 entity => new InternalTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1616,7 +1616,7 @@ __onBeforeTextureInitObservable = null;
 
         public InternalTexture createRawTexture(ArrayBufferView data, decimal width, decimal height, decimal format, bool generateMipMaps, bool invertY, decimal samplingMode, string compression = null, System.Nullable<decimal> type = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<InternalTexture>(
+            return EventHorizonBlazorInterop.FuncClass<InternalTexture>(
                 entity => new InternalTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1627,7 +1627,7 @@ __onBeforeTextureInitObservable = null;
 
         public InternalTexture createRawCubeTexture(ArrayBufferView[] data, decimal size, decimal format, decimal type, bool generateMipMaps, bool invertY, decimal samplingMode, string compression = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<InternalTexture>(
+            return EventHorizonBlazorInterop.FuncClass<InternalTexture>(
                 entity => new InternalTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1638,7 +1638,7 @@ __onBeforeTextureInitObservable = null;
 
         public InternalTexture createRawTexture3D(ArrayBufferView data, decimal width, decimal height, decimal depth, decimal format, bool generateMipMaps, bool invertY, decimal samplingMode, string compression = null, System.Nullable<decimal> textureType = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<InternalTexture>(
+            return EventHorizonBlazorInterop.FuncClass<InternalTexture>(
                 entity => new InternalTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1649,7 +1649,7 @@ __onBeforeTextureInitObservable = null;
 
         public InternalTexture createRawTexture2DArray(ArrayBufferView data, decimal width, decimal height, decimal depth, decimal format, bool generateMipMaps, bool invertY, decimal samplingMode, string compression = null, System.Nullable<decimal> textureType = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<InternalTexture>(
+            return EventHorizonBlazorInterop.FuncClass<InternalTexture>(
                 entity => new InternalTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1660,7 +1660,7 @@ __onBeforeTextureInitObservable = null;
 
         public void updateTextureSamplingMode(decimal samplingMode, InternalTexture texture, System.Nullable<bool> generateMipMaps = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "updateTextureSamplingMode" }, samplingMode, texture, generateMipMaps
@@ -1670,7 +1670,7 @@ __onBeforeTextureInitObservable = null;
 
         public void updateTextureWrappingMode(InternalTexture texture, System.Nullable<decimal> wrapU = null, System.Nullable<decimal> wrapV = null, System.Nullable<decimal> wrapR = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "updateTextureWrappingMode" }, texture, wrapU, wrapV, wrapR
@@ -1680,7 +1680,7 @@ __onBeforeTextureInitObservable = null;
 
         public void updateTextureData(InternalTexture texture, ArrayBufferView imageData, decimal xOffset, decimal yOffset, decimal width, decimal height, System.Nullable<decimal> faceIndex = null, System.Nullable<decimal> lod = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "updateTextureData" }, texture, imageData, xOffset, yOffset, width, height, faceIndex, lod
@@ -1690,7 +1690,7 @@ __onBeforeTextureInitObservable = null;
 
         public void bindSamplers(Effect effect)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "bindSamplers" }, effect
@@ -1700,7 +1700,7 @@ __onBeforeTextureInitObservable = null;
 
         public void unbindAllTextures()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "unbindAllTextures" }
@@ -1710,7 +1710,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setTexture(decimal channel, WebGLUniformLocationCachedEntity uniform, BaseTexture texture)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setTexture" }, channel, uniform, texture
@@ -1720,7 +1720,7 @@ __onBeforeTextureInitObservable = null;
 
         public void setTextureArray(decimal channel, WebGLUniformLocationCachedEntity uniform, BaseTexture[] textures)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setTextureArray" }, channel, uniform, textures
@@ -1730,7 +1730,7 @@ __onBeforeTextureInitObservable = null;
 
         public void unbindAllAttributes()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "unbindAllAttributes" }
@@ -1740,7 +1740,7 @@ __onBeforeTextureInitObservable = null;
 
         public void releaseEffects()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "releaseEffects" }
@@ -1750,7 +1750,7 @@ __onBeforeTextureInitObservable = null;
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }
@@ -1783,7 +1783,7 @@ __onBeforeTextureInitObservable = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "attachContextLostEvent",
                 "CallAttachContextLostEventActions",
@@ -1827,7 +1827,7 @@ __onBeforeTextureInitObservable = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "attachContextRestoredEvent",
                 "CallAttachContextRestoredEventActions",
@@ -1848,7 +1848,7 @@ __onBeforeTextureInitObservable = null;
 
         public decimal getError()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getError" }
@@ -1858,7 +1858,7 @@ __onBeforeTextureInitObservable = null;
 
         public decimal[] readPixels(decimal x, decimal y, decimal width, decimal height, System.Nullable<bool> hasAlpha = null)
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "readPixels" }, x, y, width, height, hasAlpha
@@ -1868,7 +1868,7 @@ __onBeforeTextureInitObservable = null;
 
         public Document getHostDocument()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Document>(
+            return EventHorizonBlazorInterop.FuncClass<Document>(
                 entity => new Document() { ___guid = entity.___guid },
                 new object[] 
                 {

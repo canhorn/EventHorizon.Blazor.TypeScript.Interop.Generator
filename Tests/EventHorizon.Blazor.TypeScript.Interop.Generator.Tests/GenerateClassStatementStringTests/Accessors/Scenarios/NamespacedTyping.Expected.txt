@@ -33,7 +33,7 @@ namespace Accessors.Scenarios
             {
             if(__namespacedTyping == null)
             {
-                __namespacedTyping = EventHorizonBlazorInteropt.GetClass<AbstractMesh>(
+                __namespacedTyping = EventHorizonBlazorInterop.GetClass<AbstractMesh>(
                     this.___guid,
                     "namespacedTyping",
                     (entity) =>
@@ -53,7 +53,7 @@ namespace Accessors.Scenarios
             {
             if(__notNamespacedTyping == null)
             {
-                __notNamespacedTyping = EventHorizonBlazorInteropt.GetClass<AbstractMesh>(
+                __notNamespacedTyping = EventHorizonBlazorInterop.GetClass<AbstractMesh>(
                     this.___guid,
                     "notNamespacedTyping",
                     (entity) =>

@@ -24,7 +24,7 @@ namespace BabylonJS
         #region Static Methods
         public static Ray Zero()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Ray>(
+            return EventHorizonBlazorInterop.FuncClass<Ray>(
                 entity => new Ray() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -35,7 +35,7 @@ namespace BabylonJS
 
         public static Ray CreateNew(decimal x, decimal y, decimal viewportWidth, decimal viewportHeight, Matrix world, Matrix view, Matrix projection)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Ray>(
+            return EventHorizonBlazorInterop.FuncClass<Ray>(
                 entity => new Ray() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -46,7 +46,7 @@ namespace BabylonJS
 
         public static Ray CreateNewFromTo(Vector3 origin, Vector3 end, Matrix world = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Ray>(
+            return EventHorizonBlazorInterop.FuncClass<Ray>(
                 entity => new Ray() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -57,7 +57,7 @@ namespace BabylonJS
 
         public static Ray Transform(Ray ray, Matrix matrix)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Ray>(
+            return EventHorizonBlazorInterop.FuncClass<Ray>(
                 entity => new Ray() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -68,7 +68,7 @@ namespace BabylonJS
 
         public static void TransformToRef(Ray ray, Matrix matrix, Ray result)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "Ray", "TransformToRef" }, ray, matrix, result
@@ -89,7 +89,7 @@ namespace BabylonJS
             {
             if(__origin == null)
             {
-                __origin = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __origin = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "origin",
                     (entity) =>
@@ -103,7 +103,7 @@ namespace BabylonJS
             set
             {
 __origin = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "origin",
                     value
@@ -118,7 +118,7 @@ __origin = null;
             {
             if(__direction == null)
             {
-                __direction = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __direction = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "direction",
                     (entity) =>
@@ -132,7 +132,7 @@ __origin = null;
             set
             {
 __direction = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "direction",
                     value
@@ -145,7 +145,7 @@ __direction = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "length"
                 );
@@ -153,7 +153,7 @@ __direction = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "length",
                     value
@@ -176,7 +176,7 @@ __direction = null;
             Vector3 origin, Vector3 direction, System.Nullable<decimal> length = null
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Ray" },
                 origin, direction, length
             );
@@ -187,7 +187,7 @@ __direction = null;
         #region Methods
         public bool intersectsBoxMinMax(Vector3 minimum, Vector3 maximum, System.Nullable<decimal> intersectionTreshold = null)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "intersectsBoxMinMax" }, minimum, maximum, intersectionTreshold
@@ -197,7 +197,7 @@ __direction = null;
 
         public bool intersectsBox(BoundingBox box, System.Nullable<decimal> intersectionTreshold = null)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "intersectsBox" }, box, intersectionTreshold
@@ -207,7 +207,7 @@ __direction = null;
 
         public bool intersectsSphere(BoundingSphere sphere, System.Nullable<decimal> intersectionTreshold = null)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "intersectsSphere" }, sphere, intersectionTreshold
@@ -217,7 +217,7 @@ __direction = null;
 
         public IntersectionInfo intersectsTriangle(Vector3 vertex0, Vector3 vertex1, Vector3 vertex2)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IntersectionInfo>(
+            return EventHorizonBlazorInterop.FuncClass<IntersectionInfo>(
                 entity => new IntersectionInfo() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -228,7 +228,7 @@ __direction = null;
 
         public decimal intersectsPlane(Plane plane)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "intersectsPlane" }, plane
@@ -238,7 +238,7 @@ __direction = null;
 
         public Vector3 intersectsAxis(string axis, System.Nullable<decimal> offset = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Vector3>(
+            return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -249,7 +249,7 @@ __direction = null;
 
         public PickingInfo intersectsMesh(AbstractMesh mesh, System.Nullable<bool> fastCheck = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<PickingInfo>(
+            return EventHorizonBlazorInterop.FuncClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -260,7 +260,7 @@ __direction = null;
 
         public PickingInfo[] intersectsMeshes(AbstractMesh[] meshes, System.Nullable<bool> fastCheck = null, PickingInfo[] results = null)
         {
-            return EventHorizonBlazorInteropt.FuncArrayClass<PickingInfo>(
+            return EventHorizonBlazorInterop.FuncArrayClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },
                 new object[]
                 {
@@ -271,7 +271,7 @@ __direction = null;
 
         public decimal intersectionSegment(Vector3 sega, Vector3 segb, decimal threshold)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "intersectionSegment" }, sega, segb, threshold
@@ -281,7 +281,7 @@ __direction = null;
 
         public Ray update(decimal x, decimal y, decimal viewportWidth, decimal viewportHeight, Matrix world, Matrix view, Matrix projection)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Ray>(
+            return EventHorizonBlazorInterop.FuncClass<Ray>(
                 entity => new Ray() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -292,7 +292,7 @@ __direction = null;
 
         public void unprojectRayToRef(decimal sourceX, decimal sourceY, decimal viewportWidth, decimal viewportHeight, Matrix world, Matrix view, Matrix projection)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "unprojectRayToRef" }, sourceX, sourceY, viewportWidth, viewportHeight, world, view, projection

@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             if(__viewport == null)
             {
-                __viewport = EventHorizonBlazorInteropt.GetClass<IViewportLikeCachedEntity>(
+                __viewport = EventHorizonBlazorInterop.GetClass<IViewportLikeCachedEntity>(
                     this.___guid,
                     "viewport",
                     (entity) =>
@@ -51,7 +51,7 @@ namespace BabylonJS
             set
             {
 __viewport = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "viewport",
                     value

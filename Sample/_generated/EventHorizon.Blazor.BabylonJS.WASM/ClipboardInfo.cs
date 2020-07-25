@@ -24,7 +24,7 @@ namespace BabylonJS
         #region Static Methods
         public static decimal GetTypeFromCharacter(decimal keyCode)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "ClipboardInfo", "GetTypeFromCharacter" }, keyCode
@@ -43,7 +43,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "type"
                 );
@@ -51,7 +51,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "type",
                     value
@@ -66,7 +66,7 @@ namespace BabylonJS
             {
             if(__event == null)
             {
-                __event = EventHorizonBlazorInteropt.GetClass<ClipboardEvent>(
+                __event = EventHorizonBlazorInterop.GetClass<ClipboardEvent>(
                     this.___guid,
                     "event",
                     (entity) =>
@@ -80,7 +80,7 @@ namespace BabylonJS
             set
             {
 __event = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "event",
                     value
@@ -103,7 +103,7 @@ __event = null;
             decimal type, ClipboardEvent @event
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "ClipboardInfo" },
                 type, @event
             );

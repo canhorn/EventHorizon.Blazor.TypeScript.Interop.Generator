@@ -24,7 +24,7 @@ namespace BabylonJS.GUI
         #region Static Methods
         public static AdvancedDynamicTexture CreateForMesh(AbstractMesh mesh, System.Nullable<decimal> width = null, System.Nullable<decimal> height = null, System.Nullable<bool> supportPointerMove = null, System.Nullable<bool> onlyAlphaTesting = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<AdvancedDynamicTexture>(
+            return EventHorizonBlazorInterop.FuncClass<AdvancedDynamicTexture>(
                 entity => new AdvancedDynamicTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -35,7 +35,7 @@ namespace BabylonJS.GUI
 
         public static AdvancedDynamicTexture CreateFullscreenUI(string name, System.Nullable<bool> foreground = null, Scene scene = null, System.Nullable<decimal> sampling = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<AdvancedDynamicTexture>(
+            return EventHorizonBlazorInterop.FuncClass<AdvancedDynamicTexture>(
                 entity => new AdvancedDynamicTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -51,7 +51,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "numLayoutCalls"
                 );
@@ -63,7 +63,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "numRenderCalls"
                 );
@@ -75,7 +75,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "renderScale"
                 );
@@ -83,7 +83,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "renderScale",
                     value
@@ -96,7 +96,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "background"
                 );
@@ -104,7 +104,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "background",
                     value
@@ -117,7 +117,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "idealWidth"
                 );
@@ -125,7 +125,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "idealWidth",
                     value
@@ -138,7 +138,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "idealHeight"
                 );
@@ -146,7 +146,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "idealHeight",
                     value
@@ -159,7 +159,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useSmallestIdeal"
                 );
@@ -167,7 +167,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "useSmallestIdeal",
                     value
@@ -180,7 +180,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "renderAtIdealSize"
                 );
@@ -188,7 +188,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "renderAtIdealSize",
                     value
@@ -201,7 +201,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "idealRatio"
                 );
@@ -215,7 +215,7 @@ namespace BabylonJS.GUI
             {
             if(__layer == null)
             {
-                __layer = EventHorizonBlazorInteropt.GetClass<Layer>(
+                __layer = EventHorizonBlazorInterop.GetClass<Layer>(
                     this.___guid,
                     "layer",
                     (entity) =>
@@ -235,7 +235,7 @@ namespace BabylonJS.GUI
             {
             if(__rootContainer == null)
             {
-                __rootContainer = EventHorizonBlazorInteropt.GetClass<Container>(
+                __rootContainer = EventHorizonBlazorInterop.GetClass<Container>(
                     this.___guid,
                     "rootContainer",
                     (entity) =>
@@ -255,7 +255,7 @@ namespace BabylonJS.GUI
             {
             if(__focusedControl == null)
             {
-                __focusedControl = EventHorizonBlazorInteropt.GetClass<IFocusableControlCachedEntity>(
+                __focusedControl = EventHorizonBlazorInterop.GetClass<IFocusableControlCachedEntity>(
                     this.___guid,
                     "focusedControl",
                     (entity) =>
@@ -269,7 +269,7 @@ namespace BabylonJS.GUI
             set
             {
 __focusedControl = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "focusedControl",
                     value
@@ -282,7 +282,7 @@ __focusedControl = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isForeground"
                 );
@@ -290,7 +290,7 @@ __focusedControl = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isForeground",
                     value
@@ -303,7 +303,7 @@ __focusedControl = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "clipboardData"
                 );
@@ -311,7 +311,7 @@ __focusedControl = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "clipboardData",
                     value
@@ -324,7 +324,7 @@ __focusedControl = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useInvalidateRectOptimization"
                 );
@@ -332,7 +332,7 @@ __focusedControl = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "useInvalidateRectOptimization",
                     value
@@ -349,7 +349,7 @@ __focusedControl = null;
             {
             if(__onClipboardObservable == null)
             {
-                __onClipboardObservable = EventHorizonBlazorInteropt.GetClass<Observable<ClipboardInfo>>(
+                __onClipboardObservable = EventHorizonBlazorInterop.GetClass<Observable<ClipboardInfo>>(
                     this.___guid,
                     "onClipboardObservable",
                     (entity) =>
@@ -363,7 +363,7 @@ __focusedControl = null;
             set
             {
 __onClipboardObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onClipboardObservable",
                     value
@@ -378,7 +378,7 @@ __onClipboardObservable = null;
             {
             if(__onControlPickedObservable == null)
             {
-                __onControlPickedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Control>>(
+                __onControlPickedObservable = EventHorizonBlazorInterop.GetClass<Observable<Control>>(
                     this.___guid,
                     "onControlPickedObservable",
                     (entity) =>
@@ -392,7 +392,7 @@ __onClipboardObservable = null;
             set
             {
 __onControlPickedObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onControlPickedObservable",
                     value
@@ -407,7 +407,7 @@ __onControlPickedObservable = null;
             {
             if(__onBeginLayoutObservable == null)
             {
-                __onBeginLayoutObservable = EventHorizonBlazorInteropt.GetClass<Observable<AdvancedDynamicTexture>>(
+                __onBeginLayoutObservable = EventHorizonBlazorInterop.GetClass<Observable<AdvancedDynamicTexture>>(
                     this.___guid,
                     "onBeginLayoutObservable",
                     (entity) =>
@@ -421,7 +421,7 @@ __onControlPickedObservable = null;
             set
             {
 __onBeginLayoutObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onBeginLayoutObservable",
                     value
@@ -436,7 +436,7 @@ __onBeginLayoutObservable = null;
             {
             if(__onEndLayoutObservable == null)
             {
-                __onEndLayoutObservable = EventHorizonBlazorInteropt.GetClass<Observable<AdvancedDynamicTexture>>(
+                __onEndLayoutObservable = EventHorizonBlazorInterop.GetClass<Observable<AdvancedDynamicTexture>>(
                     this.___guid,
                     "onEndLayoutObservable",
                     (entity) =>
@@ -450,7 +450,7 @@ __onBeginLayoutObservable = null;
             set
             {
 __onEndLayoutObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onEndLayoutObservable",
                     value
@@ -465,7 +465,7 @@ __onEndLayoutObservable = null;
             {
             if(__onBeginRenderObservable == null)
             {
-                __onBeginRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable<AdvancedDynamicTexture>>(
+                __onBeginRenderObservable = EventHorizonBlazorInterop.GetClass<Observable<AdvancedDynamicTexture>>(
                     this.___guid,
                     "onBeginRenderObservable",
                     (entity) =>
@@ -479,7 +479,7 @@ __onEndLayoutObservable = null;
             set
             {
 __onBeginRenderObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onBeginRenderObservable",
                     value
@@ -494,7 +494,7 @@ __onBeginRenderObservable = null;
             {
             if(__onEndRenderObservable == null)
             {
-                __onEndRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable<AdvancedDynamicTexture>>(
+                __onEndRenderObservable = EventHorizonBlazorInterop.GetClass<Observable<AdvancedDynamicTexture>>(
                     this.___guid,
                     "onEndRenderObservable",
                     (entity) =>
@@ -508,7 +508,7 @@ __onBeginRenderObservable = null;
             set
             {
 __onEndRenderObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onEndRenderObservable",
                     value
@@ -521,7 +521,7 @@ __onEndRenderObservable = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "premulAlpha"
                 );
@@ -529,7 +529,7 @@ __onEndRenderObservable = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "premulAlpha",
                     value
@@ -551,7 +551,7 @@ __onEndRenderObservable = null;
             string name, Scene scene, System.Nullable<decimal> width = null, System.Nullable<decimal> height = null, System.Nullable<bool> generateMipMaps = null, System.Nullable<decimal> samplingMode = null
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GUI", "AdvancedDynamicTexture" },
                 name, width, height, scene, generateMipMaps, samplingMode
             );
@@ -562,7 +562,7 @@ __onEndRenderObservable = null;
         #region Methods
         public Container[] getChildren()
         {
-            return EventHorizonBlazorInteropt.FuncArrayClass<Container>(
+            return EventHorizonBlazorInterop.FuncArrayClass<Container>(
                 entity => new Container() { ___guid = entity.___guid },
                 new object[]
                 {
@@ -575,7 +575,7 @@ __onEndRenderObservable = null;
 
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -608,7 +608,7 @@ __onEndRenderObservable = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "executeOnAllControls",
                 "CallExecuteOnAllControlsActions",
@@ -629,7 +629,7 @@ __onEndRenderObservable = null;
 
         public void invalidateRect(decimal invalidMinX, decimal invalidMinY, decimal invalidMaxX, decimal invalidMaxY)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "invalidateRect" }, invalidMinX, invalidMinY, invalidMaxX, invalidMaxY
@@ -639,7 +639,7 @@ __onEndRenderObservable = null;
 
         public void markAsDirty()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "markAsDirty" }
@@ -649,7 +649,7 @@ __onEndRenderObservable = null;
 
         public Style createStyle()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Style>(
+            return EventHorizonBlazorInterop.FuncClass<Style>(
                 entity => new Style() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -660,7 +660,7 @@ __onEndRenderObservable = null;
 
         public AdvancedDynamicTexture addControl(Control control)
         {
-            return EventHorizonBlazorInteropt.FuncClass<AdvancedDynamicTexture>(
+            return EventHorizonBlazorInterop.FuncClass<AdvancedDynamicTexture>(
                 entity => new AdvancedDynamicTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -671,7 +671,7 @@ __onEndRenderObservable = null;
 
         public AdvancedDynamicTexture removeControl(Control control)
         {
-            return EventHorizonBlazorInteropt.FuncClass<AdvancedDynamicTexture>(
+            return EventHorizonBlazorInterop.FuncClass<AdvancedDynamicTexture>(
                 entity => new AdvancedDynamicTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -682,7 +682,7 @@ __onEndRenderObservable = null;
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }
@@ -692,7 +692,7 @@ __onEndRenderObservable = null;
 
         public Vector2 getProjectedPosition(Vector3 position, Matrix worldMatrix)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Vector2>(
+            return EventHorizonBlazorInterop.FuncClass<Vector2>(
                 entity => new Vector2() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -703,7 +703,7 @@ __onEndRenderObservable = null;
 
         public void attach()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "attach" }
@@ -713,7 +713,7 @@ __onEndRenderObservable = null;
 
         public void registerClipboardEvents()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "registerClipboardEvents" }
@@ -723,7 +723,7 @@ __onEndRenderObservable = null;
 
         public void unRegisterClipboardEvents()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "unRegisterClipboardEvents" }
@@ -733,7 +733,7 @@ __onEndRenderObservable = null;
 
         public void attachToMesh(AbstractMesh mesh, System.Nullable<bool> supportPointerMove = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "attachToMesh" }, mesh, supportPointerMove
@@ -743,7 +743,7 @@ __onEndRenderObservable = null;
 
         public void moveFocusToControl(IFocusableControlCachedEntity control)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "moveFocusToControl" }, control

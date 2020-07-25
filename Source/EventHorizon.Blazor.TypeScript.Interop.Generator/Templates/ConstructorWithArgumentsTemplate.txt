@@ -2,7 +2,7 @@
             [[ARGUMENTS]]
         )[[BASE_CLASS_CALL]]
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { [[PROPERTY_NAMESPACE]], "[[CLASS_NAME]]" },
                 [[PROPERTY_ARGUMENTS]]
             );

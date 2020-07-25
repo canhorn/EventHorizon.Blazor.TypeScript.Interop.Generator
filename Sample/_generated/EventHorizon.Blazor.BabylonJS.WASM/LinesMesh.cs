@@ -33,7 +33,7 @@ namespace BabylonJS
             {
             if(__material == null)
             {
-                __material = EventHorizonBlazorInteropt.GetClass<Material>(
+                __material = EventHorizonBlazorInterop.GetClass<Material>(
                     this.___guid,
                     "material",
                     (entity) =>
@@ -47,7 +47,7 @@ namespace BabylonJS
             set
             {
 __material = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "material",
                     value
@@ -60,7 +60,7 @@ __material = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "checkCollisions"
                 );
@@ -74,7 +74,7 @@ __material = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useVertexColor"
                 );
@@ -86,7 +86,7 @@ __material = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useVertexAlpha"
                 );
@@ -100,7 +100,7 @@ __material = null;
             {
             if(__color == null)
             {
-                __color = EventHorizonBlazorInteropt.GetClass<Color3>(
+                __color = EventHorizonBlazorInterop.GetClass<Color3>(
                     this.___guid,
                     "color",
                     (entity) =>
@@ -114,7 +114,7 @@ __material = null;
             set
             {
 __color = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "color",
                     value
@@ -127,7 +127,7 @@ __color = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "alpha"
                 );
@@ -135,7 +135,7 @@ __color = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "alpha",
                     value
@@ -148,7 +148,7 @@ __color = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "intersectionThreshold"
                 );
@@ -156,7 +156,7 @@ __color = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "intersectionThreshold",
                     value
@@ -178,7 +178,7 @@ __color = null;
             string name, Scene scene = null, Node parent = null, LinesMesh source = null, System.Nullable<bool> doNotCloneChildren = null, System.Nullable<bool> useVertexColor = null, System.Nullable<bool> useVertexAlpha = null
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "LinesMesh" },
                 name, scene, parent, source, doNotCloneChildren, useVertexColor, useVertexAlpha
             );
@@ -189,7 +189,7 @@ __color = null;
         #region Methods
         public bool isReady()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isReady" }
@@ -199,7 +199,7 @@ __color = null;
 
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -209,7 +209,7 @@ __color = null;
 
         public void dispose(System.Nullable<bool> doNotRecurse = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }, doNotRecurse
@@ -219,7 +219,7 @@ __color = null;
 
         public LinesMesh clone(string name, Node newParent = null, System.Nullable<bool> doNotCloneChildren = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<LinesMesh>(
+            return EventHorizonBlazorInterop.FuncClass<LinesMesh>(
                 entity => new LinesMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -230,7 +230,7 @@ __color = null;
 
         public InstancedLinesMesh createInstance(string name)
         {
-            return EventHorizonBlazorInteropt.FuncClass<InstancedLinesMesh>(
+            return EventHorizonBlazorInterop.FuncClass<InstancedLinesMesh>(
                 entity => new InstancedLinesMesh() { ___guid = entity.___guid },
                 new object[] 
                 {

@@ -37,7 +37,7 @@ namespace Static.Primitive
             {
             if(__webkitURL == null)
             {
-                __webkitURL = EventHorizonBlazorInteropt.GetClass<URL>(
+                __webkitURL = EventHorizonBlazorInterop.GetClass<URL>(
                     this.___guid,
                     "webkitURL",
                     (entity) =>
@@ -51,7 +51,7 @@ namespace Static.Primitive
             set
             {
 __webkitURL = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "webkitURL",
                     value

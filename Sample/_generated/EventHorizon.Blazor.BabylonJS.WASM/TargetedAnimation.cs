@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             if(__animation == null)
             {
-                __animation = EventHorizonBlazorInteropt.GetClass<Animation>(
+                __animation = EventHorizonBlazorInterop.GetClass<Animation>(
                     this.___guid,
                     "animation",
                     (entity) =>
@@ -51,7 +51,7 @@ namespace BabylonJS
             set
             {
 __animation = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "animation",
                     value
@@ -64,7 +64,7 @@ __animation = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "target"
                 );
@@ -72,7 +72,7 @@ __animation = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "target",
                     value
@@ -97,7 +97,7 @@ __animation = null;
         #region Methods
         public CachedEntity serialize()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }

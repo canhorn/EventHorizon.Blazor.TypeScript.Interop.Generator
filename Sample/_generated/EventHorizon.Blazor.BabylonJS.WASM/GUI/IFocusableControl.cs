@@ -48,7 +48,7 @@ namespace BabylonJS.GUI
         #region Methods
         public void onFocus()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "onFocus" }
@@ -58,7 +58,7 @@ namespace BabylonJS.GUI
 
         public void onBlur()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "onBlur" }
@@ -68,7 +68,7 @@ namespace BabylonJS.GUI
 
         public void processKeyboard(KeyboardEvent evt)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "processKeyboard" }, evt
@@ -78,7 +78,7 @@ namespace BabylonJS.GUI
 
         public Control[] keepsFocusWith()
         {
-            return EventHorizonBlazorInteropt.FuncArrayClass<Control>(
+            return EventHorizonBlazorInterop.FuncArrayClass<Control>(
                 entity => new Control() { ___guid = entity.___guid },
                 new object[]
                 {

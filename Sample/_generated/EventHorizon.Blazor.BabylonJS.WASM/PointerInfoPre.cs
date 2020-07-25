@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             if(__ray == null)
             {
-                __ray = EventHorizonBlazorInteropt.GetClass<Ray>(
+                __ray = EventHorizonBlazorInterop.GetClass<Ray>(
                     this.___guid,
                     "ray",
                     (entity) =>
@@ -51,7 +51,7 @@ namespace BabylonJS
             set
             {
 __ray = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "ray",
                     value
@@ -66,7 +66,7 @@ __ray = null;
             {
             if(__localPosition == null)
             {
-                __localPosition = EventHorizonBlazorInteropt.GetClass<Vector2>(
+                __localPosition = EventHorizonBlazorInterop.GetClass<Vector2>(
                     this.___guid,
                     "localPosition",
                     (entity) =>
@@ -80,7 +80,7 @@ __ray = null;
             set
             {
 __localPosition = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "localPosition",
                     value
@@ -93,7 +93,7 @@ __localPosition = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "skipOnPointerObservable"
                 );
@@ -101,7 +101,7 @@ __localPosition = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "skipOnPointerObservable",
                     value
@@ -123,7 +123,7 @@ __localPosition = null;
             decimal type, PointerEvent @event, decimal localX, decimal localY
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "PointerInfoPre" },
                 type, @event, localX, localY
             );

@@ -24,7 +24,7 @@ namespace Static.Class
         #region Static Methods
         public static Matrix2D[] Identitys()
         {
-            return EventHorizonBlazorInteropt.FuncArrayClass<Matrix2D>(
+            return EventHorizonBlazorInterop.FuncArrayClass<Matrix2D>(
                 entity => new Matrix2D() { ___guid = entity.___guid },
                 new object[]
                 {

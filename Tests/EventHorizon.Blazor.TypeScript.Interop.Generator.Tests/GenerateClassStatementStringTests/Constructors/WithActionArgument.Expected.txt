@@ -47,7 +47,7 @@ namespace Examples
             CachedEntity arg1
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "Examples", "ExampleClass" },
                 arg1
             );

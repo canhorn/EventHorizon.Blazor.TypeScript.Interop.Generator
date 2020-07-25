@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxTexturesImageUnits"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "maxTexturesImageUnits",
                     value
@@ -56,7 +56,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxVertexTextureImageUnits"
                 );
@@ -64,7 +64,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "maxVertexTextureImageUnits",
                     value
@@ -77,7 +77,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxCombinedTexturesImageUnits"
                 );
@@ -85,7 +85,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "maxCombinedTexturesImageUnits",
                     value
@@ -98,7 +98,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxTextureSize"
                 );
@@ -106,7 +106,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "maxTextureSize",
                     value
@@ -119,7 +119,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxSamples"
                 );
@@ -127,7 +127,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "maxSamples",
                     value
@@ -140,7 +140,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxCubemapTextureSize"
                 );
@@ -148,7 +148,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "maxCubemapTextureSize",
                     value
@@ -161,7 +161,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxRenderTextureSize"
                 );
@@ -169,7 +169,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "maxRenderTextureSize",
                     value
@@ -182,7 +182,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxVertexAttribs"
                 );
@@ -190,7 +190,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "maxVertexAttribs",
                     value
@@ -203,7 +203,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxVaryingVectors"
                 );
@@ -211,7 +211,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "maxVaryingVectors",
                     value
@@ -224,7 +224,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxVertexUniformVectors"
                 );
@@ -232,7 +232,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "maxVertexUniformVectors",
                     value
@@ -245,7 +245,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxFragmentUniformVectors"
                 );
@@ -253,7 +253,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "maxFragmentUniformVectors",
                     value
@@ -266,7 +266,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "standardDerivatives"
                 );
@@ -274,7 +274,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "standardDerivatives",
                     value
@@ -289,7 +289,7 @@ namespace BabylonJS
             {
             if(__s3tc == null)
             {
-                __s3tc = EventHorizonBlazorInteropt.GetClass<WEBGL_compressed_texture_s3tc>(
+                __s3tc = EventHorizonBlazorInterop.GetClass<WEBGL_compressed_texture_s3tc>(
                     this.___guid,
                     "s3tc",
                     (entity) =>
@@ -303,7 +303,7 @@ namespace BabylonJS
             set
             {
 __s3tc = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "s3tc",
                     value
@@ -316,7 +316,7 @@ __s3tc = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "pvrtc"
                 );
@@ -324,7 +324,7 @@ __s3tc = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "pvrtc",
                     value
@@ -337,7 +337,7 @@ __s3tc = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "etc1"
                 );
@@ -345,7 +345,7 @@ __s3tc = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "etc1",
                     value
@@ -358,7 +358,7 @@ __s3tc = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "etc2"
                 );
@@ -366,7 +366,7 @@ __s3tc = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "etc2",
                     value
@@ -379,7 +379,7 @@ __s3tc = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "astc"
                 );
@@ -387,7 +387,7 @@ __s3tc = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "astc",
                     value
@@ -400,7 +400,7 @@ __s3tc = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "textureFloat"
                 );
@@ -408,7 +408,7 @@ __s3tc = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "textureFloat",
                     value
@@ -421,7 +421,7 @@ __s3tc = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "vertexArrayObject"
                 );
@@ -429,7 +429,7 @@ __s3tc = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "vertexArrayObject",
                     value
@@ -444,7 +444,7 @@ __s3tc = null;
             {
             if(__textureAnisotropicFilterExtension == null)
             {
-                __textureAnisotropicFilterExtension = EventHorizonBlazorInteropt.GetClass<EXT_texture_filter_anisotropic>(
+                __textureAnisotropicFilterExtension = EventHorizonBlazorInterop.GetClass<EXT_texture_filter_anisotropic>(
                     this.___guid,
                     "textureAnisotropicFilterExtension",
                     (entity) =>
@@ -458,7 +458,7 @@ __s3tc = null;
             set
             {
 __textureAnisotropicFilterExtension = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "textureAnisotropicFilterExtension",
                     value
@@ -471,7 +471,7 @@ __textureAnisotropicFilterExtension = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxAnisotropy"
                 );
@@ -479,7 +479,7 @@ __textureAnisotropicFilterExtension = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "maxAnisotropy",
                     value
@@ -492,7 +492,7 @@ __textureAnisotropicFilterExtension = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "instancedArrays"
                 );
@@ -500,7 +500,7 @@ __textureAnisotropicFilterExtension = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "instancedArrays",
                     value
@@ -513,7 +513,7 @@ __textureAnisotropicFilterExtension = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "uintIndices"
                 );
@@ -521,7 +521,7 @@ __textureAnisotropicFilterExtension = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "uintIndices",
                     value
@@ -534,7 +534,7 @@ __textureAnisotropicFilterExtension = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "highPrecisionShaderSupported"
                 );
@@ -542,7 +542,7 @@ __textureAnisotropicFilterExtension = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "highPrecisionShaderSupported",
                     value
@@ -555,7 +555,7 @@ __textureAnisotropicFilterExtension = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "fragmentDepthSupported"
                 );
@@ -563,7 +563,7 @@ __textureAnisotropicFilterExtension = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "fragmentDepthSupported",
                     value
@@ -576,7 +576,7 @@ __textureAnisotropicFilterExtension = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "textureFloatLinearFiltering"
                 );
@@ -584,7 +584,7 @@ __textureAnisotropicFilterExtension = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "textureFloatLinearFiltering",
                     value
@@ -597,7 +597,7 @@ __textureAnisotropicFilterExtension = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "textureFloatRender"
                 );
@@ -605,7 +605,7 @@ __textureAnisotropicFilterExtension = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "textureFloatRender",
                     value
@@ -618,7 +618,7 @@ __textureAnisotropicFilterExtension = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "textureHalfFloat"
                 );
@@ -626,7 +626,7 @@ __textureAnisotropicFilterExtension = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "textureHalfFloat",
                     value
@@ -639,7 +639,7 @@ __textureAnisotropicFilterExtension = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "textureHalfFloatLinearFiltering"
                 );
@@ -647,7 +647,7 @@ __textureAnisotropicFilterExtension = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "textureHalfFloatLinearFiltering",
                     value
@@ -660,7 +660,7 @@ __textureAnisotropicFilterExtension = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "textureHalfFloatRender"
                 );
@@ -668,7 +668,7 @@ __textureAnisotropicFilterExtension = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "textureHalfFloatRender",
                     value
@@ -681,7 +681,7 @@ __textureAnisotropicFilterExtension = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "textureLOD"
                 );
@@ -689,7 +689,7 @@ __textureAnisotropicFilterExtension = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "textureLOD",
                     value
@@ -702,7 +702,7 @@ __textureAnisotropicFilterExtension = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "drawBuffersExtension"
                 );
@@ -710,7 +710,7 @@ __textureAnisotropicFilterExtension = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "drawBuffersExtension",
                     value
@@ -723,7 +723,7 @@ __textureAnisotropicFilterExtension = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "depthTextureExtension"
                 );
@@ -731,7 +731,7 @@ __textureAnisotropicFilterExtension = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "depthTextureExtension",
                     value
@@ -744,7 +744,7 @@ __textureAnisotropicFilterExtension = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "colorBufferFloat"
                 );
@@ -752,7 +752,7 @@ __textureAnisotropicFilterExtension = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "colorBufferFloat",
                     value
@@ -767,7 +767,7 @@ __textureAnisotropicFilterExtension = null;
             {
             if(__timerQuery == null)
             {
-                __timerQuery = EventHorizonBlazorInteropt.GetClass<EXT_disjoint_timer_queryCachedEntity>(
+                __timerQuery = EventHorizonBlazorInterop.GetClass<EXT_disjoint_timer_queryCachedEntity>(
                     this.___guid,
                     "timerQuery",
                     (entity) =>
@@ -781,7 +781,7 @@ __textureAnisotropicFilterExtension = null;
             set
             {
 __timerQuery = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "timerQuery",
                     value
@@ -794,7 +794,7 @@ __timerQuery = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "canUseTimestampForTimerQuery"
                 );
@@ -802,7 +802,7 @@ __timerQuery = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "canUseTimestampForTimerQuery",
                     value
@@ -815,7 +815,7 @@ __timerQuery = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "multiview"
                 );
@@ -823,7 +823,7 @@ __timerQuery = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "multiview",
                     value
@@ -836,7 +836,7 @@ __timerQuery = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "oculusMultiview"
                 );
@@ -844,7 +844,7 @@ __timerQuery = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "oculusMultiview",
                     value
@@ -857,7 +857,7 @@ __timerQuery = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "parallelShaderCompile"
                 );
@@ -865,7 +865,7 @@ __timerQuery = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "parallelShaderCompile",
                     value
@@ -878,7 +878,7 @@ __timerQuery = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxMSAASamples"
                 );
@@ -886,7 +886,7 @@ __timerQuery = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "maxMSAASamples",
                     value
@@ -899,7 +899,7 @@ __timerQuery = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "blendMinMax"
                 );
@@ -907,7 +907,7 @@ __timerQuery = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "blendMinMax",
                     value

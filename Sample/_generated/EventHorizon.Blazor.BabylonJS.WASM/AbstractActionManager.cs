@@ -19,7 +19,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "AbstractActionManager.HasTriggers"
                 );
@@ -31,7 +31,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "AbstractActionManager.HasPickTriggers"
                 );
@@ -45,7 +45,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     "BABYLON",
                     "AbstractActionManager.Triggers"
                 );
@@ -53,7 +53,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "AbstractActionManager.Triggers",
                     value
@@ -65,7 +65,7 @@ namespace BabylonJS
         #region Static Methods
         public static bool HasSpecificTrigger(decimal trigger)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "AbstractActionManager", "HasSpecificTrigger" }, trigger
@@ -80,7 +80,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "hasPointerTriggers"
                 );
@@ -92,7 +92,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "hasPickTriggers"
                 );
@@ -106,7 +106,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "hoverCursor"
                 );
@@ -114,7 +114,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "hoverCursor",
                     value
@@ -127,7 +127,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<IActionCachedEntity>(
+            return EventHorizonBlazorInterop.GetArrayClass<IActionCachedEntity>(
                     this.___guid,
                     "actions",
                     (entity) =>
@@ -139,7 +139,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "actions",
                     value
@@ -152,7 +152,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isRecursive"
                 );
@@ -160,7 +160,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isRecursive",
                     value
@@ -185,7 +185,7 @@ namespace BabylonJS
         #region Methods
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }
@@ -195,7 +195,7 @@ namespace BabylonJS
 
         public void processTrigger(decimal trigger, IActionEventCachedEntity evt = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "processTrigger" }, trigger, evt
@@ -205,7 +205,7 @@ namespace BabylonJS
 
         public bool hasSpecificTriggers(decimal[] triggers)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "hasSpecificTriggers" }, triggers
@@ -215,7 +215,7 @@ namespace BabylonJS
 
         public bool hasSpecificTriggers2(decimal triggerA, decimal triggerB)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "hasSpecificTriggers2" }, triggerA, triggerB
@@ -227,7 +227,7 @@ namespace BabylonJS
 
         public CachedEntity serialize(string name)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }, name
@@ -237,7 +237,7 @@ namespace BabylonJS
 
         public IActionCachedEntity registerAction(IActionCachedEntity action)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IActionCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IActionCachedEntity>(
                 entity => new IActionCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -248,7 +248,7 @@ namespace BabylonJS
 
         public bool unregisterAction(IActionCachedEntity action)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "unregisterAction" }, action

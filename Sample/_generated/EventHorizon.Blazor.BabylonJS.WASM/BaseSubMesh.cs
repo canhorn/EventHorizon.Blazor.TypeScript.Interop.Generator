@@ -33,7 +33,7 @@ namespace BabylonJS
             {
             if(__materialDefines == null)
             {
-                __materialDefines = EventHorizonBlazorInteropt.GetClass<MaterialDefines>(
+                __materialDefines = EventHorizonBlazorInterop.GetClass<MaterialDefines>(
                     this.___guid,
                     "materialDefines",
                     (entity) =>
@@ -47,7 +47,7 @@ namespace BabylonJS
             set
             {
 __materialDefines = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "materialDefines",
                     value
@@ -62,7 +62,7 @@ __materialDefines = null;
             {
             if(__effect == null)
             {
-                __effect = EventHorizonBlazorInteropt.GetClass<Effect>(
+                __effect = EventHorizonBlazorInterop.GetClass<Effect>(
                     this.___guid,
                     "effect",
                     (entity) =>
@@ -96,7 +96,7 @@ __materialDefines = null;
         #region Methods
         public void setEffect(Effect effect, MaterialDefines defines = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setEffect" }, effect, defines

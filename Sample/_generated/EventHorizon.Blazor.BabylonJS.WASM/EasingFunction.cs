@@ -23,7 +23,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "EasingFunction.EASINGMODE_EASEIN"
                 );
@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "EasingFunction.EASINGMODE_EASEOUT"
                 );
@@ -47,7 +47,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "EasingFunction.EASINGMODE_EASEINOUT"
                 );
@@ -82,7 +82,7 @@ namespace BabylonJS
         #region Methods
         public void setEasingMode(decimal easingMode)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setEasingMode" }, easingMode
@@ -92,7 +92,7 @@ namespace BabylonJS
 
         public decimal getEasingMode()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getEasingMode" }
@@ -102,7 +102,7 @@ namespace BabylonJS
 
         public decimal easeInCore(decimal gradient)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "easeInCore" }, gradient
@@ -112,7 +112,7 @@ namespace BabylonJS
 
         public decimal ease(decimal gradient)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "ease" }, gradient

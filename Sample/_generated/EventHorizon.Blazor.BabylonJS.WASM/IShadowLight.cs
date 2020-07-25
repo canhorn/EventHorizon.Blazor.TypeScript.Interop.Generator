@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "id"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "id",
                     value
@@ -58,7 +58,7 @@ namespace BabylonJS
             {
             if(__position == null)
             {
-                __position = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __position = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "position",
                     (entity) =>
@@ -72,7 +72,7 @@ namespace BabylonJS
             set
             {
 __position = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "position",
                     value
@@ -87,7 +87,7 @@ __position = null;
             {
             if(__direction == null)
             {
-                __direction = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __direction = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "direction",
                     (entity) =>
@@ -101,7 +101,7 @@ __position = null;
             set
             {
 __direction = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "direction",
                     value
@@ -116,7 +116,7 @@ __direction = null;
             {
             if(__transformedPosition == null)
             {
-                __transformedPosition = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __transformedPosition = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "transformedPosition",
                     (entity) =>
@@ -130,7 +130,7 @@ __direction = null;
             set
             {
 __transformedPosition = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "transformedPosition",
                     value
@@ -145,7 +145,7 @@ __transformedPosition = null;
             {
             if(__transformedDirection == null)
             {
-                __transformedDirection = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __transformedDirection = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "transformedDirection",
                     (entity) =>
@@ -159,7 +159,7 @@ __transformedPosition = null;
             set
             {
 __transformedDirection = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "transformedDirection",
                     value
@@ -172,7 +172,7 @@ __transformedDirection = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "name"
                 );
@@ -180,7 +180,7 @@ __transformedDirection = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "name",
                     value
@@ -193,7 +193,7 @@ __transformedDirection = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "shadowMinZ"
                 );
@@ -201,7 +201,7 @@ __transformedDirection = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "shadowMinZ",
                     value
@@ -214,7 +214,7 @@ __transformedDirection = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "shadowMaxZ"
                 );
@@ -222,7 +222,7 @@ __transformedDirection = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "shadowMaxZ",
                     value
@@ -246,7 +246,7 @@ __transformedDirection = null;
         #region Methods
         public bool computeTransformedInformation()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "computeTransformedInformation" }
@@ -256,7 +256,7 @@ __transformedDirection = null;
 
         public Scene getScene()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Scene>(
+            return EventHorizonBlazorInterop.FuncClass<Scene>(
                 entity => new Scene() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -290,7 +290,7 @@ __transformedDirection = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "customProjectionMatrixBuilder",
                 "CallCustomProjectionMatrixBuilderActions",
@@ -311,7 +311,7 @@ __transformedDirection = null;
 
         public IShadowLightCachedEntity setShadowProjectionMatrix(Matrix matrix, Matrix viewMatrix, AbstractMesh[] renderList)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IShadowLightCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IShadowLightCachedEntity>(
                 entity => new IShadowLightCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -322,7 +322,7 @@ __transformedDirection = null;
 
         public decimal getDepthScale()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getDepthScale" }
@@ -332,7 +332,7 @@ __transformedDirection = null;
 
         public bool needCube()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "needCube" }
@@ -342,7 +342,7 @@ __transformedDirection = null;
 
         public bool needProjectionMatrixCompute()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "needProjectionMatrixCompute" }
@@ -352,7 +352,7 @@ __transformedDirection = null;
 
         public void forceProjectionMatrixCompute()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "forceProjectionMatrixCompute" }
@@ -362,7 +362,7 @@ __transformedDirection = null;
 
         public Vector3 getShadowDirection(System.Nullable<decimal> faceIndex = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Vector3>(
+            return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -373,7 +373,7 @@ __transformedDirection = null;
 
         public decimal getDepthMinZ(Camera activeCamera)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getDepthMinZ" }, activeCamera
@@ -383,7 +383,7 @@ __transformedDirection = null;
 
         public decimal getDepthMaxZ(Camera activeCamera)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getDepthMaxZ" }, activeCamera

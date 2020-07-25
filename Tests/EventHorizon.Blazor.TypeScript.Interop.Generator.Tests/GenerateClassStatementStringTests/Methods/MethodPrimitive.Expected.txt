@@ -49,7 +49,7 @@ namespace Static.Class
         #region Methods
         public bool isEqualsTo(Measure other)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isEqualsTo" }, other

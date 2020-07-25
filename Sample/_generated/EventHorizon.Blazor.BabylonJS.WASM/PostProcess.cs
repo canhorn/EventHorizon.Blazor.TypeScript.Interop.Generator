@@ -31,7 +31,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "samples"
                 );
@@ -39,7 +39,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "samples",
                     value
@@ -54,7 +54,7 @@ namespace BabylonJS
             {
             if(__inputTexture == null)
             {
-                __inputTexture = EventHorizonBlazorInteropt.GetClass<InternalTexture>(
+                __inputTexture = EventHorizonBlazorInterop.GetClass<InternalTexture>(
                     this.___guid,
                     "inputTexture",
                     (entity) =>
@@ -68,7 +68,7 @@ namespace BabylonJS
             set
             {
 __inputTexture = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "inputTexture",
                     value
@@ -83,7 +83,7 @@ __inputTexture = null;
             {
             if(__texelSize == null)
             {
-                __texelSize = EventHorizonBlazorInteropt.GetClass<Vector2>(
+                __texelSize = EventHorizonBlazorInterop.GetClass<Vector2>(
                     this.___guid,
                     "texelSize",
                     (entity) =>
@@ -101,7 +101,7 @@ __inputTexture = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isSupported"
                 );
@@ -113,7 +113,7 @@ __inputTexture = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "aspectRatio"
                 );
@@ -127,7 +127,7 @@ __inputTexture = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "name"
                 );
@@ -135,7 +135,7 @@ __inputTexture = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "name",
                     value
@@ -148,7 +148,7 @@ __inputTexture = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "uniqueId"
                 );
@@ -156,7 +156,7 @@ __inputTexture = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "uniqueId",
                     value
@@ -169,7 +169,7 @@ __inputTexture = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "width"
                 );
@@ -177,7 +177,7 @@ __inputTexture = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "width",
                     value
@@ -190,7 +190,7 @@ __inputTexture = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "height"
                 );
@@ -198,7 +198,7 @@ __inputTexture = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "height",
                     value
@@ -211,7 +211,7 @@ __inputTexture = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "renderTargetSamplingMode"
                 );
@@ -219,7 +219,7 @@ __inputTexture = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "renderTargetSamplingMode",
                     value
@@ -234,7 +234,7 @@ __inputTexture = null;
             {
             if(__clearColor == null)
             {
-                __clearColor = EventHorizonBlazorInteropt.GetClass<Color4>(
+                __clearColor = EventHorizonBlazorInterop.GetClass<Color4>(
                     this.___guid,
                     "clearColor",
                     (entity) =>
@@ -248,7 +248,7 @@ __inputTexture = null;
             set
             {
 __clearColor = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "clearColor",
                     value
@@ -261,7 +261,7 @@ __clearColor = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "autoClear"
                 );
@@ -269,7 +269,7 @@ __clearColor = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "autoClear",
                     value
@@ -282,7 +282,7 @@ __clearColor = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "alphaMode"
                 );
@@ -290,7 +290,7 @@ __clearColor = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "alphaMode",
                     value
@@ -305,7 +305,7 @@ __clearColor = null;
             {
             if(__alphaConstants == null)
             {
-                __alphaConstants = EventHorizonBlazorInteropt.GetClass<Color4>(
+                __alphaConstants = EventHorizonBlazorInterop.GetClass<Color4>(
                     this.___guid,
                     "alphaConstants",
                     (entity) =>
@@ -319,7 +319,7 @@ __clearColor = null;
             set
             {
 __alphaConstants = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "alphaConstants",
                     value
@@ -332,7 +332,7 @@ __alphaConstants = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Animation>(
+            return EventHorizonBlazorInterop.GetArrayClass<Animation>(
                     this.___guid,
                     "animations",
                     (entity) =>
@@ -344,7 +344,7 @@ __alphaConstants = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "animations",
                     value
@@ -357,7 +357,7 @@ __alphaConstants = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "enablePixelPerfectMode"
                 );
@@ -365,7 +365,7 @@ __alphaConstants = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "enablePixelPerfectMode",
                     value
@@ -378,7 +378,7 @@ __alphaConstants = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "forceFullscreenViewport"
                 );
@@ -386,7 +386,7 @@ __alphaConstants = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "forceFullscreenViewport",
                     value
@@ -399,7 +399,7 @@ __alphaConstants = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<IInspectableCachedEntity>(
+            return EventHorizonBlazorInterop.GetArrayClass<IInspectableCachedEntity>(
                     this.___guid,
                     "inspectableCustomProperties",
                     (entity) =>
@@ -411,7 +411,7 @@ __alphaConstants = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "inspectableCustomProperties",
                     value
@@ -424,7 +424,7 @@ __alphaConstants = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "scaleMode"
                 );
@@ -432,7 +432,7 @@ __alphaConstants = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "scaleMode",
                     value
@@ -445,7 +445,7 @@ __alphaConstants = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "alwaysForcePOT"
                 );
@@ -453,7 +453,7 @@ __alphaConstants = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "alwaysForcePOT",
                     value
@@ -466,7 +466,7 @@ __alphaConstants = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "adaptScaleToCurrentViewport"
                 );
@@ -474,7 +474,7 @@ __alphaConstants = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "adaptScaleToCurrentViewport",
                     value
@@ -489,7 +489,7 @@ __alphaConstants = null;
             {
             if(__onActivateObservable == null)
             {
-                __onActivateObservable = EventHorizonBlazorInteropt.GetClass<Observable<Camera>>(
+                __onActivateObservable = EventHorizonBlazorInterop.GetClass<Observable<Camera>>(
                     this.___guid,
                     "onActivateObservable",
                     (entity) =>
@@ -503,7 +503,7 @@ __alphaConstants = null;
             set
             {
 __onActivateObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onActivateObservable",
                     value
@@ -518,7 +518,7 @@ __onActivateObservable = null;
             {
             if(__onSizeChangedObservable == null)
             {
-                __onSizeChangedObservable = EventHorizonBlazorInteropt.GetClass<Observable<PostProcess>>(
+                __onSizeChangedObservable = EventHorizonBlazorInterop.GetClass<Observable<PostProcess>>(
                     this.___guid,
                     "onSizeChangedObservable",
                     (entity) =>
@@ -532,7 +532,7 @@ __onActivateObservable = null;
             set
             {
 __onSizeChangedObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onSizeChangedObservable",
                     value
@@ -547,7 +547,7 @@ __onSizeChangedObservable = null;
             {
             if(__onApplyObservable == null)
             {
-                __onApplyObservable = EventHorizonBlazorInteropt.GetClass<Observable<Effect>>(
+                __onApplyObservable = EventHorizonBlazorInterop.GetClass<Observable<Effect>>(
                     this.___guid,
                     "onApplyObservable",
                     (entity) =>
@@ -561,7 +561,7 @@ __onSizeChangedObservable = null;
             set
             {
 __onApplyObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onApplyObservable",
                     value
@@ -576,7 +576,7 @@ __onApplyObservable = null;
             {
             if(__onBeforeRenderObservable == null)
             {
-                __onBeforeRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable<Effect>>(
+                __onBeforeRenderObservable = EventHorizonBlazorInterop.GetClass<Observable<Effect>>(
                     this.___guid,
                     "onBeforeRenderObservable",
                     (entity) =>
@@ -590,7 +590,7 @@ __onApplyObservable = null;
             set
             {
 __onBeforeRenderObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onBeforeRenderObservable",
                     value
@@ -605,7 +605,7 @@ __onBeforeRenderObservable = null;
             {
             if(__onAfterRenderObservable == null)
             {
-                __onAfterRenderObservable = EventHorizonBlazorInteropt.GetClass<Observable<Effect>>(
+                __onAfterRenderObservable = EventHorizonBlazorInterop.GetClass<Observable<Effect>>(
                     this.___guid,
                     "onAfterRenderObservable",
                     (entity) =>
@@ -619,7 +619,7 @@ __onBeforeRenderObservable = null;
             set
             {
 __onAfterRenderObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onAfterRenderObservable",
                     value
@@ -642,7 +642,7 @@ __onAfterRenderObservable = null;
             string name, string fragmentUrl, decimal options, Camera camera, string[] parameters = null, string[] samplers = null, System.Nullable<decimal> samplingMode = null, Engine engine = null, System.Nullable<bool> reusable = null, string defines = null, System.Nullable<decimal> textureType = null, string vertexUrl = null, object indexParameters = null, System.Nullable<bool> blockCompilation = null, System.Nullable<decimal> textureFormat = null
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "PostProcess" },
                 name, fragmentUrl, parameters, samplers, options, camera, samplingMode, engine, reusable, defines, textureType, vertexUrl, indexParameters, blockCompilation, textureFormat
             );
@@ -653,7 +653,7 @@ __onAfterRenderObservable = null;
         #region Methods
         public string getEffectName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getEffectName" }
@@ -663,7 +663,7 @@ __onAfterRenderObservable = null;
 
         public Camera getCamera()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Camera>(
+            return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -674,7 +674,7 @@ __onAfterRenderObservable = null;
 
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -684,7 +684,7 @@ __onAfterRenderObservable = null;
 
         public Engine getEngine()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Engine>(
+            return EventHorizonBlazorInterop.FuncClass<Engine>(
                 entity => new Engine() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -695,7 +695,7 @@ __onAfterRenderObservable = null;
 
         public Effect getEffect()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -706,7 +706,7 @@ __onAfterRenderObservable = null;
 
         public PostProcess shareOutputWith(PostProcess postProcess)
         {
-            return EventHorizonBlazorInteropt.FuncClass<PostProcess>(
+            return EventHorizonBlazorInterop.FuncClass<PostProcess>(
                 entity => new PostProcess() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -717,7 +717,7 @@ __onAfterRenderObservable = null;
 
         public void useOwnOutput()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "useOwnOutput" }
@@ -729,7 +729,7 @@ __onAfterRenderObservable = null;
 
         public bool isReusable()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isReusable" }
@@ -739,7 +739,7 @@ __onAfterRenderObservable = null;
 
         public void markTextureDirty()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "markTextureDirty" }
@@ -749,7 +749,7 @@ __onAfterRenderObservable = null;
 
         public InternalTexture activate(Camera camera, InternalTexture sourceTexture = null, System.Nullable<bool> forceDepthStencil = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<InternalTexture>(
+            return EventHorizonBlazorInterop.FuncClass<InternalTexture>(
                 entity => new InternalTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -760,7 +760,7 @@ __onAfterRenderObservable = null;
 
         public bool isReady()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isReady" }
@@ -770,7 +770,7 @@ __onAfterRenderObservable = null;
 
         public Effect apply()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -781,7 +781,7 @@ __onAfterRenderObservable = null;
 
         public void dispose(Camera camera = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }, camera

@@ -48,7 +48,7 @@ namespace BabylonJS
         #region Methods
         public Collider createCollider()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Collider>(
+            return EventHorizonBlazorInterop.FuncClass<Collider>(
                 entity => new Collider() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -61,7 +61,7 @@ namespace BabylonJS
 
         public void init(Scene scene)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "init" }, scene

@@ -33,7 +33,7 @@ namespace Examples
             {
             if(__ref == null)
             {
-                __ref = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __ref = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "ref",
                     (entity) =>
@@ -53,7 +53,7 @@ namespace Examples
             {
             if(__lock == null)
             {
-                __lock = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __lock = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "lock",
                     (entity) =>
@@ -73,7 +73,7 @@ namespace Examples
             {
             if(__unlock == null)
             {
-                __unlock = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __unlock = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "unlock",
                     (entity) =>
@@ -93,7 +93,7 @@ namespace Examples
             {
             if(__object == null)
             {
-                __object = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __object = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "object",
                     (entity) =>
@@ -113,7 +113,7 @@ namespace Examples
             {
             if(__event == null)
             {
-                __event = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __event = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "event",
                     (entity) =>
@@ -133,7 +133,7 @@ namespace Examples
             {
             if(__bool == null)
             {
-                __bool = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __bool = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "bool",
                     (entity) =>
@@ -153,7 +153,7 @@ namespace Examples
             {
             if(__virtual == null)
             {
-                __virtual = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __virtual = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "virtual",
                     (entity) =>

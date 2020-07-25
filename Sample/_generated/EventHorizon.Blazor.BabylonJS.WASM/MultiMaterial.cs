@@ -24,7 +24,7 @@ namespace BabylonJS
         #region Static Methods
         public static MultiMaterial ParseMultiMaterial(object parsedMultiMaterial, Scene scene)
         {
-            return EventHorizonBlazorInteropt.FuncClass<MultiMaterial>(
+            return EventHorizonBlazorInterop.FuncClass<MultiMaterial>(
                 entity => new MultiMaterial() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -40,7 +40,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Material>(
+            return EventHorizonBlazorInterop.GetArrayClass<Material>(
                     this.___guid,
                     "subMaterials",
                     (entity) =>
@@ -52,7 +52,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "subMaterials",
                     value
@@ -78,7 +78,7 @@ namespace BabylonJS
             string name, Scene scene
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "MultiMaterial" },
                 name, scene
             );
@@ -89,7 +89,7 @@ namespace BabylonJS
         #region Methods
         public Material[] getChildren()
         {
-            return EventHorizonBlazorInteropt.FuncArrayClass<Material>(
+            return EventHorizonBlazorInterop.FuncArrayClass<Material>(
                 entity => new Material() { ___guid = entity.___guid },
                 new object[]
                 {
@@ -100,7 +100,7 @@ namespace BabylonJS
 
         public Material getSubMaterial(decimal index)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Material>(
+            return EventHorizonBlazorInterop.FuncClass<Material>(
                 entity => new Material() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -111,7 +111,7 @@ namespace BabylonJS
 
         public BaseTexture[] getActiveTextures()
         {
-            return EventHorizonBlazorInteropt.FuncArrayClass<BaseTexture>(
+            return EventHorizonBlazorInterop.FuncArrayClass<BaseTexture>(
                 entity => new BaseTexture() { ___guid = entity.___guid },
                 new object[]
                 {
@@ -122,7 +122,7 @@ namespace BabylonJS
 
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -132,7 +132,7 @@ namespace BabylonJS
 
         public bool isReadyForSubMesh(AbstractMesh mesh, BaseSubMesh subMesh, System.Nullable<bool> useInstances = null)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isReadyForSubMesh" }, mesh, subMesh, useInstances
@@ -142,7 +142,7 @@ namespace BabylonJS
 
         public MultiMaterial clone(string name, System.Nullable<bool> cloneChildren = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<MultiMaterial>(
+            return EventHorizonBlazorInterop.FuncClass<MultiMaterial>(
                 entity => new MultiMaterial() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -153,7 +153,7 @@ namespace BabylonJS
 
         public CachedEntity serialize()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }
@@ -163,7 +163,7 @@ namespace BabylonJS
 
         public void dispose(System.Nullable<bool> forceDisposeEffect = null, System.Nullable<bool> forceDisposeTextures = null, System.Nullable<bool> forceDisposeChildren = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }, forceDisposeEffect, forceDisposeTextures, forceDisposeChildren

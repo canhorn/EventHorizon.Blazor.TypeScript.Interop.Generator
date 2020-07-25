@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isRecording"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isRecording",
                     value
@@ -67,7 +67,7 @@ namespace BabylonJS
         #region Methods
         public void requestPointerLock()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "requestPointerLock" }
@@ -77,7 +77,7 @@ namespace BabylonJS
 
         public void msRequestPointerLock()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "msRequestPointerLock" }
@@ -87,7 +87,7 @@ namespace BabylonJS
 
         public void mozRequestPointerLock()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "mozRequestPointerLock" }
@@ -97,7 +97,7 @@ namespace BabylonJS
 
         public void webkitRequestPointerLock()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "webkitRequestPointerLock" }
@@ -107,7 +107,7 @@ namespace BabylonJS
 
         public MediaStream captureStream(System.Nullable<decimal> fps = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<MediaStream>(
+            return EventHorizonBlazorInterop.FuncClass<MediaStream>(
                 entity => new MediaStream() { ___guid = entity.___guid },
                 new object[] 
                 {

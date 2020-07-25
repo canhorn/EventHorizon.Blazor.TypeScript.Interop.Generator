@@ -24,7 +24,7 @@ namespace BabylonJS
         #region Static Methods
         public static Quaternion FromRotationMatrix(Matrix matrix)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -35,7 +35,7 @@ namespace BabylonJS
 
         public static void FromRotationMatrixToRef(Matrix matrix, Quaternion result)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "Quaternion", "FromRotationMatrixToRef" }, matrix, result
@@ -45,7 +45,7 @@ namespace BabylonJS
 
         public static decimal Dot(Quaternion left, Quaternion right)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "Quaternion", "Dot" }, left, right
@@ -55,7 +55,7 @@ namespace BabylonJS
 
         public static bool AreClose(Quaternion quat0, Quaternion quat1)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "Quaternion", "AreClose" }, quat0, quat1
@@ -65,7 +65,7 @@ namespace BabylonJS
 
         public static Quaternion Zero()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -76,7 +76,7 @@ namespace BabylonJS
 
         public static Quaternion Inverse(Quaternion q)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -87,7 +87,7 @@ namespace BabylonJS
 
         public static Quaternion InverseToRef(Quaternion q, Quaternion result)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -98,7 +98,7 @@ namespace BabylonJS
 
         public static Quaternion Identity()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -109,7 +109,7 @@ namespace BabylonJS
 
         public static bool IsIdentity(Quaternion quaternion)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "Quaternion", "IsIdentity" }, quaternion
@@ -119,7 +119,7 @@ namespace BabylonJS
 
         public static Quaternion RotationAxis(Vector3 axis, decimal angle)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -130,7 +130,7 @@ namespace BabylonJS
 
         public static Quaternion RotationAxisToRef(Vector3 axis, decimal angle, Quaternion result)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -141,7 +141,7 @@ namespace BabylonJS
 
         public static Quaternion FromArray(decimal[] array, System.Nullable<decimal> offset = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -152,7 +152,7 @@ namespace BabylonJS
 
         public static Quaternion FromEulerAngles(decimal x, decimal y, decimal z)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -163,7 +163,7 @@ namespace BabylonJS
 
         public static Quaternion FromEulerAnglesToRef(decimal x, decimal y, decimal z, Quaternion result)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -174,7 +174,7 @@ namespace BabylonJS
 
         public static Quaternion FromEulerVector(Vector3 vec)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -185,7 +185,7 @@ namespace BabylonJS
 
         public static Quaternion FromEulerVectorToRef(Vector3 vec, Quaternion result)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -196,7 +196,7 @@ namespace BabylonJS
 
         public static Quaternion RotationYawPitchRoll(decimal yaw, decimal pitch, decimal roll)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -207,7 +207,7 @@ namespace BabylonJS
 
         public static void RotationYawPitchRollToRef(decimal yaw, decimal pitch, decimal roll, Quaternion result)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "Quaternion", "RotationYawPitchRollToRef" }, yaw, pitch, roll, result
@@ -217,7 +217,7 @@ namespace BabylonJS
 
         public static Quaternion RotationAlphaBetaGamma(decimal alpha, decimal beta, decimal gamma)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -228,7 +228,7 @@ namespace BabylonJS
 
         public static void RotationAlphaBetaGammaToRef(decimal alpha, decimal beta, decimal gamma, Quaternion result)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "Quaternion", "RotationAlphaBetaGammaToRef" }, alpha, beta, gamma, result
@@ -238,7 +238,7 @@ namespace BabylonJS
 
         public static Quaternion RotationQuaternionFromAxis(Vector3 axis1, Vector3 axis2, Vector3 axis3)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -249,7 +249,7 @@ namespace BabylonJS
 
         public static void RotationQuaternionFromAxisToRef(Vector3 axis1, Vector3 axis2, Vector3 axis3, Quaternion @ref)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "Quaternion", "RotationQuaternionFromAxisToRef" }, axis1, axis2, axis3, @ref
@@ -259,7 +259,7 @@ namespace BabylonJS
 
         public static Quaternion Slerp(Quaternion left, Quaternion right, decimal amount)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -270,7 +270,7 @@ namespace BabylonJS
 
         public static void SlerpToRef(Quaternion left, Quaternion right, decimal amount, Quaternion result)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "Quaternion", "SlerpToRef" }, left, right, amount, result
@@ -280,7 +280,7 @@ namespace BabylonJS
 
         public static Quaternion Hermite(Quaternion value1, Quaternion tangent1, Quaternion value2, Quaternion tangent2, decimal amount)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -300,7 +300,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "x"
                 );
@@ -308,7 +308,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "x",
                     value
@@ -321,7 +321,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "y"
                 );
@@ -329,7 +329,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "y",
                     value
@@ -342,7 +342,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "z"
                 );
@@ -350,7 +350,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "z",
                     value
@@ -363,7 +363,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "w"
                 );
@@ -371,7 +371,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "w",
                     value
@@ -394,7 +394,7 @@ namespace BabylonJS
             System.Nullable<decimal> x = null, System.Nullable<decimal> y = null, System.Nullable<decimal> z = null, System.Nullable<decimal> w = null
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Quaternion" },
                 x, y, z, w
             );
@@ -405,7 +405,7 @@ namespace BabylonJS
         #region Methods
         public string toString()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "toString" }
@@ -415,7 +415,7 @@ namespace BabylonJS
 
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -425,7 +425,7 @@ namespace BabylonJS
 
         public decimal getHashCode()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getHashCode" }
@@ -435,7 +435,7 @@ namespace BabylonJS
 
         public decimal[] asArray()
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "asArray" }
@@ -445,7 +445,7 @@ namespace BabylonJS
 
         public bool equals(Quaternion otherQuaternion)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "equals" }, otherQuaternion
@@ -455,7 +455,7 @@ namespace BabylonJS
 
         public bool equalsWithEpsilon(Quaternion otherQuaternion, System.Nullable<decimal> epsilon = null)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "equalsWithEpsilon" }, otherQuaternion, epsilon
@@ -465,7 +465,7 @@ namespace BabylonJS
 
         public Quaternion clone()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -476,7 +476,7 @@ namespace BabylonJS
 
         public Quaternion copyFrom(Quaternion other)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -487,7 +487,7 @@ namespace BabylonJS
 
         public Quaternion copyFromFloats(decimal x, decimal y, decimal z, decimal w)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -498,7 +498,7 @@ namespace BabylonJS
 
         public Quaternion set(decimal x, decimal y, decimal z, decimal w)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -509,7 +509,7 @@ namespace BabylonJS
 
         public Quaternion add(Quaternion other)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -520,7 +520,7 @@ namespace BabylonJS
 
         public Quaternion addInPlace(Quaternion other)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -531,7 +531,7 @@ namespace BabylonJS
 
         public Quaternion subtract(Quaternion other)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -542,7 +542,7 @@ namespace BabylonJS
 
         public Quaternion scale(decimal value)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -553,7 +553,7 @@ namespace BabylonJS
 
         public Quaternion scaleToRef(decimal scale, Quaternion result)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -564,7 +564,7 @@ namespace BabylonJS
 
         public Quaternion scaleInPlace(decimal value)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -575,7 +575,7 @@ namespace BabylonJS
 
         public Quaternion scaleAndAddToRef(decimal scale, Quaternion result)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -586,7 +586,7 @@ namespace BabylonJS
 
         public Quaternion multiply(Quaternion q1)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -597,7 +597,7 @@ namespace BabylonJS
 
         public Quaternion multiplyToRef(Quaternion q1, Quaternion result)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -608,7 +608,7 @@ namespace BabylonJS
 
         public Quaternion multiplyInPlace(Quaternion q1)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -619,7 +619,7 @@ namespace BabylonJS
 
         public Quaternion conjugateToRef(Quaternion @ref)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -630,7 +630,7 @@ namespace BabylonJS
 
         public Quaternion conjugateInPlace()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -641,7 +641,7 @@ namespace BabylonJS
 
         public Quaternion conjugate()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -652,7 +652,7 @@ namespace BabylonJS
 
         public decimal length()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "length" }
@@ -662,7 +662,7 @@ namespace BabylonJS
 
         public Quaternion normalize()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -673,7 +673,7 @@ namespace BabylonJS
 
         public Vector3 toEulerAngles(string order = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Vector3>(
+            return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -684,7 +684,7 @@ namespace BabylonJS
 
         public Quaternion toEulerAnglesToRef(Vector3 result)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -695,7 +695,7 @@ namespace BabylonJS
 
         public Quaternion toRotationMatrix(Matrix result)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -706,7 +706,7 @@ namespace BabylonJS
 
         public Quaternion fromRotationMatrix(Matrix matrix)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Quaternion>(
+            return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
                 new object[] 
                 {

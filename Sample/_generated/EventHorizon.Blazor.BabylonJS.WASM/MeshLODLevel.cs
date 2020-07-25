@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "distance"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "distance",
                     value
@@ -58,7 +58,7 @@ namespace BabylonJS
             {
             if(__mesh == null)
             {
-                __mesh = EventHorizonBlazorInteropt.GetClass<Mesh>(
+                __mesh = EventHorizonBlazorInterop.GetClass<Mesh>(
                     this.___guid,
                     "mesh",
                     (entity) =>
@@ -72,7 +72,7 @@ namespace BabylonJS
             set
             {
 __mesh = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "mesh",
                     value
@@ -95,7 +95,7 @@ __mesh = null;
             decimal distance, Mesh mesh
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "MeshLODLevel" },
                 distance, mesh
             );

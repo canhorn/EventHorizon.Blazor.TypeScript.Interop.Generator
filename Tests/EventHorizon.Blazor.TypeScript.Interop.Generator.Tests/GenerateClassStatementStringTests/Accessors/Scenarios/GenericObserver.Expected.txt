@@ -31,7 +31,7 @@ namespace Static.Primitive
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Observer<T>>(
+            return EventHorizonBlazorInterop.GetArrayClass<Observer<T>>(
                     this.___guid,
                     "observers",
                     (entity) =>
@@ -49,7 +49,7 @@ namespace Static.Primitive
             {
             if(__observer == null)
             {
-                __observer = EventHorizonBlazorInteropt.GetClass<Observer<T>>(
+                __observer = EventHorizonBlazorInterop.GetClass<Observer<T>>(
                     this.___guid,
                     "observer",
                     (entity) =>
@@ -69,7 +69,7 @@ namespace Static.Primitive
             {
             if(__getBehaviorByName == null)
             {
-                __getBehaviorByName = EventHorizonBlazorInteropt.GetClass<BehaviorCachedEntity<T>>(
+                __getBehaviorByName = EventHorizonBlazorInterop.GetClass<BehaviorCachedEntity<T>>(
                     this.___guid,
                     "getBehaviorByName",
                     (entity) =>

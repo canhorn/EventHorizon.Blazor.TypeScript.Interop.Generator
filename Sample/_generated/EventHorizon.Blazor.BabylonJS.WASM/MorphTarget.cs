@@ -24,7 +24,7 @@ namespace BabylonJS
         #region Static Methods
         public static MorphTarget Parse(object serializationObject)
         {
-            return EventHorizonBlazorInteropt.FuncClass<MorphTarget>(
+            return EventHorizonBlazorInterop.FuncClass<MorphTarget>(
                 entity => new MorphTarget() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -35,7 +35,7 @@ namespace BabylonJS
 
         public static MorphTarget FromMesh(AbstractMesh mesh, string name = null, System.Nullable<decimal> influence = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<MorphTarget>(
+            return EventHorizonBlazorInterop.FuncClass<MorphTarget>(
                 entity => new MorphTarget() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -51,7 +51,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "influence"
                 );
@@ -59,7 +59,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "influence",
                     value
@@ -74,7 +74,7 @@ namespace BabylonJS
             {
             if(__animationPropertiesOverride == null)
             {
-                __animationPropertiesOverride = EventHorizonBlazorInteropt.GetClass<AnimationPropertiesOverride>(
+                __animationPropertiesOverride = EventHorizonBlazorInterop.GetClass<AnimationPropertiesOverride>(
                     this.___guid,
                     "animationPropertiesOverride",
                     (entity) =>
@@ -88,7 +88,7 @@ namespace BabylonJS
             set
             {
 __animationPropertiesOverride = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "animationPropertiesOverride",
                     value
@@ -101,7 +101,7 @@ __animationPropertiesOverride = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "uniqueId"
                 );
@@ -113,7 +113,7 @@ __animationPropertiesOverride = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "hasPositions"
                 );
@@ -125,7 +125,7 @@ __animationPropertiesOverride = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "hasNormals"
                 );
@@ -137,7 +137,7 @@ __animationPropertiesOverride = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "hasTangents"
                 );
@@ -149,7 +149,7 @@ __animationPropertiesOverride = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "hasUVs"
                 );
@@ -163,7 +163,7 @@ __animationPropertiesOverride = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "name"
                 );
@@ -171,7 +171,7 @@ __animationPropertiesOverride = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "name",
                     value
@@ -184,7 +184,7 @@ __animationPropertiesOverride = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Animation>(
+            return EventHorizonBlazorInterop.GetArrayClass<Animation>(
                     this.___guid,
                     "animations",
                     (entity) =>
@@ -196,7 +196,7 @@ __animationPropertiesOverride = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "animations",
                     value
@@ -211,7 +211,7 @@ __animationPropertiesOverride = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "id"
                 );
@@ -219,7 +219,7 @@ __animationPropertiesOverride = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "id",
                     value
@@ -241,7 +241,7 @@ __animationPropertiesOverride = null;
             string name, System.Nullable<decimal> influence = null, Scene scene = null
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "MorphTarget" },
                 name, influence, scene
             );
@@ -252,7 +252,7 @@ __animationPropertiesOverride = null;
         #region Methods
         public void setPositions(decimal[] data)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setPositions" }, data
@@ -262,7 +262,7 @@ __animationPropertiesOverride = null;
 
         public decimal[] getPositions()
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "getPositions" }
@@ -272,7 +272,7 @@ __animationPropertiesOverride = null;
 
         public void setNormals(decimal[] data)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setNormals" }, data
@@ -282,7 +282,7 @@ __animationPropertiesOverride = null;
 
         public decimal[] getNormals()
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "getNormals" }
@@ -292,7 +292,7 @@ __animationPropertiesOverride = null;
 
         public void setTangents(decimal[] data)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setTangents" }, data
@@ -302,7 +302,7 @@ __animationPropertiesOverride = null;
 
         public decimal[] getTangents()
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "getTangents" }
@@ -312,7 +312,7 @@ __animationPropertiesOverride = null;
 
         public void setUVs(decimal[] data)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setUVs" }, data
@@ -322,7 +322,7 @@ __animationPropertiesOverride = null;
 
         public decimal[] getUVs()
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "getUVs" }
@@ -332,7 +332,7 @@ __animationPropertiesOverride = null;
 
         public MorphTarget clone()
         {
-            return EventHorizonBlazorInteropt.FuncClass<MorphTarget>(
+            return EventHorizonBlazorInterop.FuncClass<MorphTarget>(
                 entity => new MorphTarget() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -343,7 +343,7 @@ __animationPropertiesOverride = null;
 
         public CachedEntity serialize()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }
@@ -353,7 +353,7 @@ __animationPropertiesOverride = null;
 
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }

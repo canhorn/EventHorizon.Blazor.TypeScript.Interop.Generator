@@ -19,7 +19,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "StandardMaterial.DiffuseTextureEnabled"
                 );
@@ -27,7 +27,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "StandardMaterial.DiffuseTextureEnabled",
                     value
@@ -40,7 +40,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "StandardMaterial.AmbientTextureEnabled"
                 );
@@ -48,7 +48,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "StandardMaterial.AmbientTextureEnabled",
                     value
@@ -61,7 +61,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "StandardMaterial.OpacityTextureEnabled"
                 );
@@ -69,7 +69,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "StandardMaterial.OpacityTextureEnabled",
                     value
@@ -82,7 +82,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "StandardMaterial.ReflectionTextureEnabled"
                 );
@@ -90,7 +90,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "StandardMaterial.ReflectionTextureEnabled",
                     value
@@ -103,7 +103,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "StandardMaterial.EmissiveTextureEnabled"
                 );
@@ -111,7 +111,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "StandardMaterial.EmissiveTextureEnabled",
                     value
@@ -124,7 +124,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "StandardMaterial.SpecularTextureEnabled"
                 );
@@ -132,7 +132,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "StandardMaterial.SpecularTextureEnabled",
                     value
@@ -145,7 +145,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "StandardMaterial.BumpTextureEnabled"
                 );
@@ -153,7 +153,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "StandardMaterial.BumpTextureEnabled",
                     value
@@ -166,7 +166,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "StandardMaterial.LightmapTextureEnabled"
                 );
@@ -174,7 +174,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "StandardMaterial.LightmapTextureEnabled",
                     value
@@ -187,7 +187,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "StandardMaterial.RefractionTextureEnabled"
                 );
@@ -195,7 +195,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "StandardMaterial.RefractionTextureEnabled",
                     value
@@ -208,7 +208,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "StandardMaterial.ColorGradingTextureEnabled"
                 );
@@ -216,7 +216,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "StandardMaterial.ColorGradingTextureEnabled",
                     value
@@ -229,7 +229,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "StandardMaterial.FresnelEnabled"
                 );
@@ -237,7 +237,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "StandardMaterial.FresnelEnabled",
                     value
@@ -253,7 +253,7 @@ namespace BabylonJS
         #region Static Methods
         public static StandardMaterial Parse(object source, Scene scene, string rootUrl)
         {
-            return EventHorizonBlazorInteropt.FuncClass<StandardMaterial>(
+            return EventHorizonBlazorInterop.FuncClass<StandardMaterial>(
                 entity => new StandardMaterial() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -271,7 +271,7 @@ namespace BabylonJS
             {
             if(__imageProcessingConfiguration == null)
             {
-                __imageProcessingConfiguration = EventHorizonBlazorInteropt.GetClass<ImageProcessingConfiguration>(
+                __imageProcessingConfiguration = EventHorizonBlazorInterop.GetClass<ImageProcessingConfiguration>(
                     this.___guid,
                     "imageProcessingConfiguration",
                     (entity) =>
@@ -285,7 +285,7 @@ namespace BabylonJS
             set
             {
 __imageProcessingConfiguration = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "imageProcessingConfiguration",
                     value
@@ -298,7 +298,7 @@ __imageProcessingConfiguration = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "cameraColorCurvesEnabled"
                 );
@@ -306,7 +306,7 @@ __imageProcessingConfiguration = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "cameraColorCurvesEnabled",
                     value
@@ -319,7 +319,7 @@ __imageProcessingConfiguration = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "cameraColorGradingEnabled"
                 );
@@ -327,7 +327,7 @@ __imageProcessingConfiguration = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "cameraColorGradingEnabled",
                     value
@@ -340,7 +340,7 @@ __imageProcessingConfiguration = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "cameraToneMappingEnabled"
                 );
@@ -348,7 +348,7 @@ __imageProcessingConfiguration = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "cameraToneMappingEnabled",
                     value
@@ -361,7 +361,7 @@ __imageProcessingConfiguration = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "cameraExposure"
                 );
@@ -369,7 +369,7 @@ __imageProcessingConfiguration = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "cameraExposure",
                     value
@@ -382,7 +382,7 @@ __imageProcessingConfiguration = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "cameraContrast"
                 );
@@ -390,7 +390,7 @@ __imageProcessingConfiguration = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "cameraContrast",
                     value
@@ -405,7 +405,7 @@ __imageProcessingConfiguration = null;
             {
             if(__cameraColorGradingTexture == null)
             {
-                __cameraColorGradingTexture = EventHorizonBlazorInteropt.GetClass<BaseTexture>(
+                __cameraColorGradingTexture = EventHorizonBlazorInterop.GetClass<BaseTexture>(
                     this.___guid,
                     "cameraColorGradingTexture",
                     (entity) =>
@@ -419,7 +419,7 @@ __imageProcessingConfiguration = null;
             set
             {
 __cameraColorGradingTexture = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "cameraColorGradingTexture",
                     value
@@ -434,7 +434,7 @@ __cameraColorGradingTexture = null;
             {
             if(__cameraColorCurves == null)
             {
-                __cameraColorCurves = EventHorizonBlazorInteropt.GetClass<ColorCurves>(
+                __cameraColorCurves = EventHorizonBlazorInterop.GetClass<ColorCurves>(
                     this.___guid,
                     "cameraColorCurves",
                     (entity) =>
@@ -448,7 +448,7 @@ __cameraColorGradingTexture = null;
             set
             {
 __cameraColorCurves = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "cameraColorCurves",
                     value
@@ -461,7 +461,7 @@ __cameraColorCurves = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "hasRenderTargetTextures"
                 );
@@ -473,7 +473,7 @@ __cameraColorCurves = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useLogarithmicDepth"
                 );
@@ -481,7 +481,7 @@ __cameraColorCurves = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "useLogarithmicDepth",
                     value
@@ -498,7 +498,7 @@ __cameraColorCurves = null;
             {
             if(__diffuseTexture == null)
             {
-                __diffuseTexture = EventHorizonBlazorInteropt.GetClass<BaseTexture>(
+                __diffuseTexture = EventHorizonBlazorInterop.GetClass<BaseTexture>(
                     this.___guid,
                     "diffuseTexture",
                     (entity) =>
@@ -512,7 +512,7 @@ __cameraColorCurves = null;
             set
             {
 __diffuseTexture = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "diffuseTexture",
                     value
@@ -527,7 +527,7 @@ __diffuseTexture = null;
             {
             if(__ambientTexture == null)
             {
-                __ambientTexture = EventHorizonBlazorInteropt.GetClass<BaseTexture>(
+                __ambientTexture = EventHorizonBlazorInterop.GetClass<BaseTexture>(
                     this.___guid,
                     "ambientTexture",
                     (entity) =>
@@ -541,7 +541,7 @@ __diffuseTexture = null;
             set
             {
 __ambientTexture = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "ambientTexture",
                     value
@@ -556,7 +556,7 @@ __ambientTexture = null;
             {
             if(__opacityTexture == null)
             {
-                __opacityTexture = EventHorizonBlazorInteropt.GetClass<BaseTexture>(
+                __opacityTexture = EventHorizonBlazorInterop.GetClass<BaseTexture>(
                     this.___guid,
                     "opacityTexture",
                     (entity) =>
@@ -570,7 +570,7 @@ __ambientTexture = null;
             set
             {
 __opacityTexture = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "opacityTexture",
                     value
@@ -585,7 +585,7 @@ __opacityTexture = null;
             {
             if(__reflectionTexture == null)
             {
-                __reflectionTexture = EventHorizonBlazorInteropt.GetClass<BaseTexture>(
+                __reflectionTexture = EventHorizonBlazorInterop.GetClass<BaseTexture>(
                     this.___guid,
                     "reflectionTexture",
                     (entity) =>
@@ -599,7 +599,7 @@ __opacityTexture = null;
             set
             {
 __reflectionTexture = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "reflectionTexture",
                     value
@@ -614,7 +614,7 @@ __reflectionTexture = null;
             {
             if(__emissiveTexture == null)
             {
-                __emissiveTexture = EventHorizonBlazorInteropt.GetClass<BaseTexture>(
+                __emissiveTexture = EventHorizonBlazorInterop.GetClass<BaseTexture>(
                     this.___guid,
                     "emissiveTexture",
                     (entity) =>
@@ -628,7 +628,7 @@ __reflectionTexture = null;
             set
             {
 __emissiveTexture = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "emissiveTexture",
                     value
@@ -643,7 +643,7 @@ __emissiveTexture = null;
             {
             if(__specularTexture == null)
             {
-                __specularTexture = EventHorizonBlazorInteropt.GetClass<BaseTexture>(
+                __specularTexture = EventHorizonBlazorInterop.GetClass<BaseTexture>(
                     this.___guid,
                     "specularTexture",
                     (entity) =>
@@ -657,7 +657,7 @@ __emissiveTexture = null;
             set
             {
 __specularTexture = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "specularTexture",
                     value
@@ -672,7 +672,7 @@ __specularTexture = null;
             {
             if(__bumpTexture == null)
             {
-                __bumpTexture = EventHorizonBlazorInteropt.GetClass<BaseTexture>(
+                __bumpTexture = EventHorizonBlazorInterop.GetClass<BaseTexture>(
                     this.___guid,
                     "bumpTexture",
                     (entity) =>
@@ -686,7 +686,7 @@ __specularTexture = null;
             set
             {
 __bumpTexture = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "bumpTexture",
                     value
@@ -701,7 +701,7 @@ __bumpTexture = null;
             {
             if(__lightmapTexture == null)
             {
-                __lightmapTexture = EventHorizonBlazorInteropt.GetClass<BaseTexture>(
+                __lightmapTexture = EventHorizonBlazorInterop.GetClass<BaseTexture>(
                     this.___guid,
                     "lightmapTexture",
                     (entity) =>
@@ -715,7 +715,7 @@ __bumpTexture = null;
             set
             {
 __lightmapTexture = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "lightmapTexture",
                     value
@@ -730,7 +730,7 @@ __lightmapTexture = null;
             {
             if(__refractionTexture == null)
             {
-                __refractionTexture = EventHorizonBlazorInteropt.GetClass<BaseTexture>(
+                __refractionTexture = EventHorizonBlazorInterop.GetClass<BaseTexture>(
                     this.___guid,
                     "refractionTexture",
                     (entity) =>
@@ -744,7 +744,7 @@ __lightmapTexture = null;
             set
             {
 __refractionTexture = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "refractionTexture",
                     value
@@ -759,7 +759,7 @@ __refractionTexture = null;
             {
             if(__ambientColor == null)
             {
-                __ambientColor = EventHorizonBlazorInteropt.GetClass<Color3>(
+                __ambientColor = EventHorizonBlazorInterop.GetClass<Color3>(
                     this.___guid,
                     "ambientColor",
                     (entity) =>
@@ -773,7 +773,7 @@ __refractionTexture = null;
             set
             {
 __ambientColor = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "ambientColor",
                     value
@@ -788,7 +788,7 @@ __ambientColor = null;
             {
             if(__diffuseColor == null)
             {
-                __diffuseColor = EventHorizonBlazorInteropt.GetClass<Color3>(
+                __diffuseColor = EventHorizonBlazorInterop.GetClass<Color3>(
                     this.___guid,
                     "diffuseColor",
                     (entity) =>
@@ -802,7 +802,7 @@ __ambientColor = null;
             set
             {
 __diffuseColor = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "diffuseColor",
                     value
@@ -817,7 +817,7 @@ __diffuseColor = null;
             {
             if(__specularColor == null)
             {
-                __specularColor = EventHorizonBlazorInteropt.GetClass<Color3>(
+                __specularColor = EventHorizonBlazorInterop.GetClass<Color3>(
                     this.___guid,
                     "specularColor",
                     (entity) =>
@@ -831,7 +831,7 @@ __diffuseColor = null;
             set
             {
 __specularColor = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "specularColor",
                     value
@@ -846,7 +846,7 @@ __specularColor = null;
             {
             if(__emissiveColor == null)
             {
-                __emissiveColor = EventHorizonBlazorInteropt.GetClass<Color3>(
+                __emissiveColor = EventHorizonBlazorInterop.GetClass<Color3>(
                     this.___guid,
                     "emissiveColor",
                     (entity) =>
@@ -860,7 +860,7 @@ __specularColor = null;
             set
             {
 __emissiveColor = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "emissiveColor",
                     value
@@ -873,7 +873,7 @@ __emissiveColor = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "specularPower"
                 );
@@ -881,7 +881,7 @@ __emissiveColor = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "specularPower",
                     value
@@ -894,7 +894,7 @@ __emissiveColor = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useAlphaFromDiffuseTexture"
                 );
@@ -902,7 +902,7 @@ __emissiveColor = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "useAlphaFromDiffuseTexture",
                     value
@@ -915,7 +915,7 @@ __emissiveColor = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useEmissiveAsIllumination"
                 );
@@ -923,7 +923,7 @@ __emissiveColor = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "useEmissiveAsIllumination",
                     value
@@ -936,7 +936,7 @@ __emissiveColor = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "linkEmissiveWithDiffuse"
                 );
@@ -944,7 +944,7 @@ __emissiveColor = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "linkEmissiveWithDiffuse",
                     value
@@ -957,7 +957,7 @@ __emissiveColor = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useSpecularOverAlpha"
                 );
@@ -965,7 +965,7 @@ __emissiveColor = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "useSpecularOverAlpha",
                     value
@@ -978,7 +978,7 @@ __emissiveColor = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useReflectionOverAlpha"
                 );
@@ -986,7 +986,7 @@ __emissiveColor = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "useReflectionOverAlpha",
                     value
@@ -999,7 +999,7 @@ __emissiveColor = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "disableLighting"
                 );
@@ -1007,7 +1007,7 @@ __emissiveColor = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "disableLighting",
                     value
@@ -1020,7 +1020,7 @@ __emissiveColor = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useObjectSpaceNormalMap"
                 );
@@ -1028,7 +1028,7 @@ __emissiveColor = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "useObjectSpaceNormalMap",
                     value
@@ -1041,7 +1041,7 @@ __emissiveColor = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useParallax"
                 );
@@ -1049,7 +1049,7 @@ __emissiveColor = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "useParallax",
                     value
@@ -1062,7 +1062,7 @@ __emissiveColor = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useParallaxOcclusion"
                 );
@@ -1070,7 +1070,7 @@ __emissiveColor = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "useParallaxOcclusion",
                     value
@@ -1083,7 +1083,7 @@ __emissiveColor = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "parallaxScaleBias"
                 );
@@ -1091,7 +1091,7 @@ __emissiveColor = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "parallaxScaleBias",
                     value
@@ -1104,7 +1104,7 @@ __emissiveColor = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "roughness"
                 );
@@ -1112,7 +1112,7 @@ __emissiveColor = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "roughness",
                     value
@@ -1125,7 +1125,7 @@ __emissiveColor = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "indexOfRefraction"
                 );
@@ -1133,7 +1133,7 @@ __emissiveColor = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "indexOfRefraction",
                     value
@@ -1146,7 +1146,7 @@ __emissiveColor = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "invertRefractionY"
                 );
@@ -1154,7 +1154,7 @@ __emissiveColor = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "invertRefractionY",
                     value
@@ -1167,7 +1167,7 @@ __emissiveColor = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "alphaCutOff"
                 );
@@ -1175,7 +1175,7 @@ __emissiveColor = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "alphaCutOff",
                     value
@@ -1188,7 +1188,7 @@ __emissiveColor = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useLightmapAsShadowmap"
                 );
@@ -1196,7 +1196,7 @@ __emissiveColor = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "useLightmapAsShadowmap",
                     value
@@ -1211,7 +1211,7 @@ __emissiveColor = null;
             {
             if(__diffuseFresnelParameters == null)
             {
-                __diffuseFresnelParameters = EventHorizonBlazorInteropt.GetClass<FresnelParameters>(
+                __diffuseFresnelParameters = EventHorizonBlazorInterop.GetClass<FresnelParameters>(
                     this.___guid,
                     "diffuseFresnelParameters",
                     (entity) =>
@@ -1225,7 +1225,7 @@ __emissiveColor = null;
             set
             {
 __diffuseFresnelParameters = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "diffuseFresnelParameters",
                     value
@@ -1240,7 +1240,7 @@ __diffuseFresnelParameters = null;
             {
             if(__opacityFresnelParameters == null)
             {
-                __opacityFresnelParameters = EventHorizonBlazorInteropt.GetClass<FresnelParameters>(
+                __opacityFresnelParameters = EventHorizonBlazorInterop.GetClass<FresnelParameters>(
                     this.___guid,
                     "opacityFresnelParameters",
                     (entity) =>
@@ -1254,7 +1254,7 @@ __diffuseFresnelParameters = null;
             set
             {
 __opacityFresnelParameters = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "opacityFresnelParameters",
                     value
@@ -1269,7 +1269,7 @@ __opacityFresnelParameters = null;
             {
             if(__reflectionFresnelParameters == null)
             {
-                __reflectionFresnelParameters = EventHorizonBlazorInteropt.GetClass<FresnelParameters>(
+                __reflectionFresnelParameters = EventHorizonBlazorInterop.GetClass<FresnelParameters>(
                     this.___guid,
                     "reflectionFresnelParameters",
                     (entity) =>
@@ -1283,7 +1283,7 @@ __opacityFresnelParameters = null;
             set
             {
 __reflectionFresnelParameters = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "reflectionFresnelParameters",
                     value
@@ -1298,7 +1298,7 @@ __reflectionFresnelParameters = null;
             {
             if(__refractionFresnelParameters == null)
             {
-                __refractionFresnelParameters = EventHorizonBlazorInteropt.GetClass<FresnelParameters>(
+                __refractionFresnelParameters = EventHorizonBlazorInterop.GetClass<FresnelParameters>(
                     this.___guid,
                     "refractionFresnelParameters",
                     (entity) =>
@@ -1312,7 +1312,7 @@ __reflectionFresnelParameters = null;
             set
             {
 __refractionFresnelParameters = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "refractionFresnelParameters",
                     value
@@ -1327,7 +1327,7 @@ __refractionFresnelParameters = null;
             {
             if(__emissiveFresnelParameters == null)
             {
-                __emissiveFresnelParameters = EventHorizonBlazorInteropt.GetClass<FresnelParameters>(
+                __emissiveFresnelParameters = EventHorizonBlazorInterop.GetClass<FresnelParameters>(
                     this.___guid,
                     "emissiveFresnelParameters",
                     (entity) =>
@@ -1341,7 +1341,7 @@ __refractionFresnelParameters = null;
             set
             {
 __emissiveFresnelParameters = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "emissiveFresnelParameters",
                     value
@@ -1354,7 +1354,7 @@ __emissiveFresnelParameters = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useReflectionFresnelFromSpecular"
                 );
@@ -1362,7 +1362,7 @@ __emissiveFresnelParameters = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "useReflectionFresnelFromSpecular",
                     value
@@ -1375,7 +1375,7 @@ __emissiveFresnelParameters = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useGlossinessFromSpecularMapAlpha"
                 );
@@ -1383,7 +1383,7 @@ __emissiveFresnelParameters = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "useGlossinessFromSpecularMapAlpha",
                     value
@@ -1396,7 +1396,7 @@ __emissiveFresnelParameters = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxSimultaneousLights"
                 );
@@ -1404,7 +1404,7 @@ __emissiveFresnelParameters = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "maxSimultaneousLights",
                     value
@@ -1417,7 +1417,7 @@ __emissiveFresnelParameters = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "invertNormalMapX"
                 );
@@ -1425,7 +1425,7 @@ __emissiveFresnelParameters = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "invertNormalMapX",
                     value
@@ -1438,7 +1438,7 @@ __emissiveFresnelParameters = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "invertNormalMapY"
                 );
@@ -1446,7 +1446,7 @@ __emissiveFresnelParameters = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "invertNormalMapY",
                     value
@@ -1459,7 +1459,7 @@ __emissiveFresnelParameters = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "twoSidedLighting"
                 );
@@ -1467,7 +1467,7 @@ __emissiveFresnelParameters = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "twoSidedLighting",
                     value
@@ -1489,7 +1489,7 @@ __emissiveFresnelParameters = null;
             string name, Scene scene
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "StandardMaterial" },
                 name, scene
             );
@@ -1523,7 +1523,7 @@ __emissiveFresnelParameters = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "customShaderNameResolve",
                 "CallCustomShaderNameResolveActions",
@@ -1544,7 +1544,7 @@ __emissiveFresnelParameters = null;
 
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -1554,7 +1554,7 @@ __emissiveFresnelParameters = null;
 
         public bool needAlphaBlending()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "needAlphaBlending" }
@@ -1564,7 +1564,7 @@ __emissiveFresnelParameters = null;
 
         public bool needAlphaTesting()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "needAlphaTesting" }
@@ -1574,7 +1574,7 @@ __emissiveFresnelParameters = null;
 
         public BaseTexture getAlphaTestTexture()
         {
-            return EventHorizonBlazorInteropt.FuncClass<BaseTexture>(
+            return EventHorizonBlazorInterop.FuncClass<BaseTexture>(
                 entity => new BaseTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1585,7 +1585,7 @@ __emissiveFresnelParameters = null;
 
         public bool isReadyForSubMesh(AbstractMesh mesh, SubMesh subMesh, System.Nullable<bool> useInstances = null)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isReadyForSubMesh" }, mesh, subMesh, useInstances
@@ -1595,7 +1595,7 @@ __emissiveFresnelParameters = null;
 
         public void buildUniformLayout()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "buildUniformLayout" }
@@ -1605,7 +1605,7 @@ __emissiveFresnelParameters = null;
 
         public void unbind()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "unbind" }
@@ -1615,7 +1615,7 @@ __emissiveFresnelParameters = null;
 
         public void bindForSubMesh(Matrix world, Mesh mesh, SubMesh subMesh)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "bindForSubMesh" }, world, mesh, subMesh
@@ -1625,7 +1625,7 @@ __emissiveFresnelParameters = null;
 
         public IAnimatableCachedEntity[] getAnimatables()
         {
-            return EventHorizonBlazorInteropt.FuncArrayClass<IAnimatableCachedEntity>(
+            return EventHorizonBlazorInterop.FuncArrayClass<IAnimatableCachedEntity>(
                 entity => new IAnimatableCachedEntity() { ___guid = entity.___guid },
                 new object[]
                 {
@@ -1636,7 +1636,7 @@ __emissiveFresnelParameters = null;
 
         public BaseTexture[] getActiveTextures()
         {
-            return EventHorizonBlazorInteropt.FuncArrayClass<BaseTexture>(
+            return EventHorizonBlazorInterop.FuncArrayClass<BaseTexture>(
                 entity => new BaseTexture() { ___guid = entity.___guid },
                 new object[]
                 {
@@ -1647,7 +1647,7 @@ __emissiveFresnelParameters = null;
 
         public bool hasTexture(BaseTexture texture)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "hasTexture" }, texture
@@ -1657,7 +1657,7 @@ __emissiveFresnelParameters = null;
 
         public void dispose(System.Nullable<bool> forceDisposeEffect = null, System.Nullable<bool> forceDisposeTextures = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }, forceDisposeEffect, forceDisposeTextures
@@ -1667,7 +1667,7 @@ __emissiveFresnelParameters = null;
 
         public StandardMaterial clone(string name)
         {
-            return EventHorizonBlazorInteropt.FuncClass<StandardMaterial>(
+            return EventHorizonBlazorInterop.FuncClass<StandardMaterial>(
                 entity => new StandardMaterial() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1678,7 +1678,7 @@ __emissiveFresnelParameters = null;
 
         public CachedEntity serialize()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }

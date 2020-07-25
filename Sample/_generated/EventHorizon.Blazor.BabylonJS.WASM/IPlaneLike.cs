@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             if(__normal == null)
             {
-                __normal = EventHorizonBlazorInteropt.GetClass<IVector3LikeCachedEntity>(
+                __normal = EventHorizonBlazorInterop.GetClass<IVector3LikeCachedEntity>(
                     this.___guid,
                     "normal",
                     (entity) =>
@@ -51,7 +51,7 @@ namespace BabylonJS
             set
             {
 __normal = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "normal",
                     value
@@ -64,7 +64,7 @@ __normal = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "d"
                 );
@@ -72,7 +72,7 @@ __normal = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "d",
                     value
@@ -96,7 +96,7 @@ __normal = null;
         #region Methods
         public void normalize()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "normalize" }

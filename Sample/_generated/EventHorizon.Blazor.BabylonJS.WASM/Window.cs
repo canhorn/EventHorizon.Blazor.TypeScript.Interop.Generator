@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             if(__mozIndexedDB == null)
             {
-                __mozIndexedDB = EventHorizonBlazorInteropt.GetClass<IDBFactory>(
+                __mozIndexedDB = EventHorizonBlazorInterop.GetClass<IDBFactory>(
                     this.___guid,
                     "mozIndexedDB",
                     (entity) =>
@@ -51,7 +51,7 @@ namespace BabylonJS
             set
             {
 __mozIndexedDB = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "mozIndexedDB",
                     value
@@ -66,7 +66,7 @@ __mozIndexedDB = null;
             {
             if(__webkitIndexedDB == null)
             {
-                __webkitIndexedDB = EventHorizonBlazorInteropt.GetClass<IDBFactory>(
+                __webkitIndexedDB = EventHorizonBlazorInterop.GetClass<IDBFactory>(
                     this.___guid,
                     "webkitIndexedDB",
                     (entity) =>
@@ -80,7 +80,7 @@ __mozIndexedDB = null;
             set
             {
 __webkitIndexedDB = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "webkitIndexedDB",
                     value
@@ -95,7 +95,7 @@ __webkitIndexedDB = null;
             {
             if(__msIndexedDB == null)
             {
-                __msIndexedDB = EventHorizonBlazorInteropt.GetClass<IDBFactory>(
+                __msIndexedDB = EventHorizonBlazorInterop.GetClass<IDBFactory>(
                     this.___guid,
                     "msIndexedDB",
                     (entity) =>
@@ -109,7 +109,7 @@ __webkitIndexedDB = null;
             set
             {
 __msIndexedDB = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "msIndexedDB",
                     value
@@ -124,7 +124,7 @@ __msIndexedDB = null;
             {
             if(__webkitURL == null)
             {
-                __webkitURL = EventHorizonBlazorInteropt.GetClass<URL>(
+                __webkitURL = EventHorizonBlazorInterop.GetClass<URL>(
                     this.___guid,
                     "webkitURL",
                     (entity) =>
@@ -138,7 +138,7 @@ __msIndexedDB = null;
             set
             {
 __webkitURL = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "webkitURL",
                     value
@@ -153,7 +153,7 @@ __webkitURL = null;
             {
             if(__WebGLRenderingContext == null)
             {
-                __WebGLRenderingContext = EventHorizonBlazorInteropt.GetClass<WebGLRenderingContextCachedEntity>(
+                __WebGLRenderingContext = EventHorizonBlazorInterop.GetClass<WebGLRenderingContextCachedEntity>(
                     this.___guid,
                     "WebGLRenderingContext",
                     (entity) =>
@@ -167,7 +167,7 @@ __webkitURL = null;
             set
             {
 __WebGLRenderingContext = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "WebGLRenderingContext",
                     value
@@ -182,7 +182,7 @@ __WebGLRenderingContext = null;
             {
             if(__MSGesture == null)
             {
-                __MSGesture = EventHorizonBlazorInteropt.GetClass<MSGesture>(
+                __MSGesture = EventHorizonBlazorInterop.GetClass<MSGesture>(
                     this.___guid,
                     "MSGesture",
                     (entity) =>
@@ -196,7 +196,7 @@ __WebGLRenderingContext = null;
             set
             {
 __MSGesture = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "MSGesture",
                     value
@@ -209,7 +209,7 @@ __MSGesture = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "CANNON"
                 );
@@ -217,7 +217,7 @@ __MSGesture = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "CANNON",
                     value
@@ -232,7 +232,7 @@ __MSGesture = null;
             {
             if(__AudioContext == null)
             {
-                __AudioContext = EventHorizonBlazorInteropt.GetClass<AudioContext>(
+                __AudioContext = EventHorizonBlazorInterop.GetClass<AudioContext>(
                     this.___guid,
                     "AudioContext",
                     (entity) =>
@@ -246,7 +246,7 @@ __MSGesture = null;
             set
             {
 __AudioContext = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "AudioContext",
                     value
@@ -261,7 +261,7 @@ __AudioContext = null;
             {
             if(__webkitAudioContext == null)
             {
-                __webkitAudioContext = EventHorizonBlazorInteropt.GetClass<AudioContext>(
+                __webkitAudioContext = EventHorizonBlazorInterop.GetClass<AudioContext>(
                     this.___guid,
                     "webkitAudioContext",
                     (entity) =>
@@ -275,7 +275,7 @@ __AudioContext = null;
             set
             {
 __webkitAudioContext = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "webkitAudioContext",
                     value
@@ -288,7 +288,7 @@ __webkitAudioContext = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "PointerEvent"
                 );
@@ -296,7 +296,7 @@ __webkitAudioContext = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "PointerEvent",
                     value
@@ -311,7 +311,7 @@ __webkitAudioContext = null;
             {
             if(__Math == null)
             {
-                __Math = EventHorizonBlazorInteropt.GetClass<MathCachedEntity>(
+                __Math = EventHorizonBlazorInterop.GetClass<MathCachedEntity>(
                     this.___guid,
                     "Math",
                     (entity) =>
@@ -325,7 +325,7 @@ __webkitAudioContext = null;
             set
             {
 __Math = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "Math",
                     value
@@ -340,7 +340,7 @@ __Math = null;
             {
             if(__Uint8Array == null)
             {
-                __Uint8Array = EventHorizonBlazorInteropt.GetClass<Uint8ArrayConstructor>(
+                __Uint8Array = EventHorizonBlazorInterop.GetClass<Uint8ArrayConstructor>(
                     this.___guid,
                     "Uint8Array",
                     (entity) =>
@@ -354,7 +354,7 @@ __Math = null;
             set
             {
 __Uint8Array = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "Uint8Array",
                     value
@@ -369,7 +369,7 @@ __Uint8Array = null;
             {
             if(__Float32Array == null)
             {
-                __Float32Array = EventHorizonBlazorInteropt.GetClass<Float32ArrayConstructor>(
+                __Float32Array = EventHorizonBlazorInterop.GetClass<Float32ArrayConstructor>(
                     this.___guid,
                     "Float32Array",
                     (entity) =>
@@ -383,7 +383,7 @@ __Uint8Array = null;
             set
             {
 __Float32Array = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "Float32Array",
                     value
@@ -398,7 +398,7 @@ __Float32Array = null;
             {
             if(__mozURL == null)
             {
-                __mozURL = EventHorizonBlazorInteropt.GetClass<URL>(
+                __mozURL = EventHorizonBlazorInterop.GetClass<URL>(
                     this.___guid,
                     "mozURL",
                     (entity) =>
@@ -412,7 +412,7 @@ __Float32Array = null;
             set
             {
 __mozURL = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "mozURL",
                     value
@@ -427,7 +427,7 @@ __mozURL = null;
             {
             if(__msURL == null)
             {
-                __msURL = EventHorizonBlazorInteropt.GetClass<URL>(
+                __msURL = EventHorizonBlazorInterop.GetClass<URL>(
                     this.___guid,
                     "msURL",
                     (entity) =>
@@ -441,7 +441,7 @@ __mozURL = null;
             set
             {
 __msURL = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "msURL",
                     value
@@ -454,7 +454,7 @@ __msURL = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "VRFrameData"
                 );
@@ -462,7 +462,7 @@ __msURL = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "VRFrameData",
                     value
@@ -475,7 +475,7 @@ __msURL = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "DracoDecoderModule"
                 );
@@ -483,7 +483,7 @@ __msURL = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "DracoDecoderModule",
                     value
@@ -507,7 +507,7 @@ __msURL = null;
         #region Methods
         public decimal mozRequestAnimationFrame(FrameRequestCallback callback)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "mozRequestAnimationFrame" }, callback
@@ -517,7 +517,7 @@ __msURL = null;
 
         public decimal oRequestAnimationFrame(FrameRequestCallback callback)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "oRequestAnimationFrame" }, callback
@@ -550,7 +550,7 @@ __msURL = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "setImmediate",
                 "CallSetImmediateActions",

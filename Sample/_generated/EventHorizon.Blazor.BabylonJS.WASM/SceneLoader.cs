@@ -19,7 +19,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "SceneLoader.ForceFullSceneLoadingForIncremental"
                 );
@@ -27,7 +27,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "SceneLoader.ForceFullSceneLoadingForIncremental",
                     value
@@ -40,7 +40,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "SceneLoader.ShowLoadingScreen"
                 );
@@ -48,7 +48,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "SceneLoader.ShowLoadingScreen",
                     value
@@ -61,7 +61,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "SceneLoader.loggingLevel"
                 );
@@ -69,7 +69,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "SceneLoader.loggingLevel",
                     value
@@ -82,7 +82,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "SceneLoader.CleanBoneMatrixWeights"
                 );
@@ -90,7 +90,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "SceneLoader.CleanBoneMatrixWeights",
                     value
@@ -105,7 +105,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "SceneLoader.NO_LOGGING"
                 );
@@ -117,7 +117,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "SceneLoader.MINIMAL_LOGGING"
                 );
@@ -129,7 +129,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "SceneLoader.SUMMARY_LOGGING"
                 );
@@ -141,7 +141,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "SceneLoader.DETAILED_LOGGING"
                 );
@@ -155,7 +155,7 @@ namespace BabylonJS
             {
             if(__OnPluginActivatedObservable == null)
             {
-                __OnPluginActivatedObservable = EventHorizonBlazorInteropt.GetClass<Observable<ISceneLoaderPluginCachedEntity>>(
+                __OnPluginActivatedObservable = EventHorizonBlazorInterop.GetClass<Observable<ISceneLoaderPluginCachedEntity>>(
                     "BABYLON",
                     "SceneLoader.OnPluginActivatedObservable",
                     (entity) =>
@@ -169,7 +169,7 @@ namespace BabylonJS
             set
             {
 __OnPluginActivatedObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "SceneLoader.OnPluginActivatedObservable",
                     value
@@ -181,7 +181,7 @@ __OnPluginActivatedObservable = null;
         #region Static Methods
         public static ISceneLoaderPluginCachedEntity GetPluginForExtension(string extension)
         {
-            return EventHorizonBlazorInteropt.FuncClass<ISceneLoaderPluginCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<ISceneLoaderPluginCachedEntity>(
                 entity => new ISceneLoaderPluginCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -192,7 +192,7 @@ __OnPluginActivatedObservable = null;
 
         public static bool IsPluginForExtensionAvailable(string extension)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "SceneLoader", "IsPluginForExtensionAvailable" }, extension
@@ -202,7 +202,7 @@ __OnPluginActivatedObservable = null;
 
         public static void RegisterPlugin(ISceneLoaderPluginCachedEntity plugin)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "SceneLoader", "RegisterPlugin" }, plugin
@@ -212,7 +212,7 @@ __OnPluginActivatedObservable = null;
 
         public static ISceneLoaderPluginCachedEntity ImportMesh(object meshNames, string rootUrl, string sceneFilename = null, Scene scene = null, CachedEntity onSuccess = null, CachedEntity onProgress = null, CachedEntity onError = null, string pluginExtension = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<ISceneLoaderPluginCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<ISceneLoaderPluginCachedEntity>(
                 entity => new ISceneLoaderPluginCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -223,7 +223,7 @@ __OnPluginActivatedObservable = null;
 
         public static void ImportMeshAsync(object meshNames, string rootUrl, string sceneFilename = null, Scene scene = null, CachedEntity onProgress = null, string pluginExtension = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "SceneLoader", "ImportMeshAsync" }, meshNames, rootUrl, sceneFilename, scene, onProgress, pluginExtension
@@ -233,7 +233,7 @@ __OnPluginActivatedObservable = null;
 
         public static ISceneLoaderPluginCachedEntity Load(string rootUrl, string sceneFilename = null, Engine engine = null, CachedEntity onSuccess = null, CachedEntity onProgress = null, CachedEntity onError = null, string pluginExtension = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<ISceneLoaderPluginCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<ISceneLoaderPluginCachedEntity>(
                 entity => new ISceneLoaderPluginCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -244,7 +244,7 @@ __OnPluginActivatedObservable = null;
 
         public static void LoadAsync(string rootUrl, string sceneFilename = null, Engine engine = null, CachedEntity onProgress = null, string pluginExtension = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "SceneLoader", "LoadAsync" }, rootUrl, sceneFilename, engine, onProgress, pluginExtension
@@ -254,7 +254,7 @@ __OnPluginActivatedObservable = null;
 
         public static ISceneLoaderPluginCachedEntity Append(string rootUrl, string sceneFilename = null, Scene scene = null, CachedEntity onSuccess = null, CachedEntity onProgress = null, CachedEntity onError = null, string pluginExtension = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<ISceneLoaderPluginCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<ISceneLoaderPluginCachedEntity>(
                 entity => new ISceneLoaderPluginCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -265,7 +265,7 @@ __OnPluginActivatedObservable = null;
 
         public static void AppendAsync(string rootUrl, string sceneFilename = null, Scene scene = null, CachedEntity onProgress = null, string pluginExtension = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "SceneLoader", "AppendAsync" }, rootUrl, sceneFilename, scene, onProgress, pluginExtension
@@ -275,7 +275,7 @@ __OnPluginActivatedObservable = null;
 
         public static ISceneLoaderPluginCachedEntity LoadAssetContainer(string rootUrl, string sceneFilename = null, Scene scene = null, CachedEntity onSuccess = null, CachedEntity onProgress = null, CachedEntity onError = null, string pluginExtension = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<ISceneLoaderPluginCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<ISceneLoaderPluginCachedEntity>(
                 entity => new ISceneLoaderPluginCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -286,7 +286,7 @@ __OnPluginActivatedObservable = null;
 
         public static void LoadAssetContainerAsync(string rootUrl, string sceneFilename = null, Scene scene = null, CachedEntity onProgress = null, string pluginExtension = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "SceneLoader", "LoadAssetContainerAsync" }, rootUrl, sceneFilename, scene, onProgress, pluginExtension
@@ -296,7 +296,7 @@ __OnPluginActivatedObservable = null;
 
         public static void ImportAnimations(string rootUrl, string sceneFilename = null, Scene scene = null, System.Nullable<bool> overwriteAnimations = null, SceneLoaderAnimationGroupLoadingMode animationGroupLoadingMode = null, CachedEntity targetConverter = null, CachedEntity onSuccess = null, CachedEntity onProgress = null, CachedEntity onError = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "SceneLoader", "ImportAnimations" }, rootUrl, sceneFilename, scene, overwriteAnimations, animationGroupLoadingMode, targetConverter, onSuccess, onProgress, onError
@@ -306,7 +306,7 @@ __OnPluginActivatedObservable = null;
 
         public static void ImportAnimationsAsync(string rootUrl, string sceneFilename = null, Scene scene = null, System.Nullable<bool> overwriteAnimations = null, SceneLoaderAnimationGroupLoadingMode animationGroupLoadingMode = null, CachedEntity targetConverter = null, CachedEntity onSuccess = null, CachedEntity onProgress = null, CachedEntity onError = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "SceneLoader", "ImportAnimationsAsync" }, rootUrl, sceneFilename, scene, overwriteAnimations, animationGroupLoadingMode, targetConverter, onSuccess, onProgress, onError

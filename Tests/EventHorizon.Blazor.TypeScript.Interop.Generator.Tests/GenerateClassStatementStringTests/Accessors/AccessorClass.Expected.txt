@@ -33,7 +33,7 @@ namespace Static.Primitive
             {
             if(__Up == null)
             {
-                __Up = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __Up = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "Up",
                     (entity) =>
