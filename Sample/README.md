@@ -13,10 +13,6 @@ Update the generationList variable in the Project.cs file to generate more Class
 dotnet run
 ~~~
 
-## Blazor Interop
-
-The EventHorizon.Blazor.Interop project includes a common set of JSRuntime interop patterns, these patterns help with common functionality that is needed by the generated project to access the JavaScript .
-
 ## Website Example
 
 The EventHorizon.Blazor.BabylonJS project is a ASP.NET Core Blazor WASM (client side) project, the website uses the generated BabylonJS project to show of creating a BabylonJS Scene using just C# on a Razor page.
