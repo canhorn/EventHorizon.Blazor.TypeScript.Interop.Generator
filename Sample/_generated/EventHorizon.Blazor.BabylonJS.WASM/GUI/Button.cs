@@ -24,7 +24,7 @@ namespace BabylonJS.GUI
         #region Static Methods
         public static Button CreateImageButton(string name, string text, string imageUrl)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Button>(
+            return EventHorizonBlazorInterop.FuncClass<Button>(
                 entity => new Button() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -35,7 +35,7 @@ namespace BabylonJS.GUI
 
         public static Button CreateImageOnlyButton(string name, string imageUrl)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Button>(
+            return EventHorizonBlazorInterop.FuncClass<Button>(
                 entity => new Button() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -46,7 +46,7 @@ namespace BabylonJS.GUI
 
         public static Button CreateSimpleButton(string name, string text)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Button>(
+            return EventHorizonBlazorInterop.FuncClass<Button>(
                 entity => new Button() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -57,7 +57,7 @@ namespace BabylonJS.GUI
 
         public static Button CreateImageWithCenterTextButton(string name, string text, string imageUrl)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Button>(
+            return EventHorizonBlazorInterop.FuncClass<Button>(
                 entity => new Button() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -75,7 +75,7 @@ namespace BabylonJS.GUI
             {
             if(__image == null)
             {
-                __image = EventHorizonBlazorInteropt.GetClass<Image>(
+                __image = EventHorizonBlazorInterop.GetClass<Image>(
                     this.___guid,
                     "image",
                     (entity) =>
@@ -95,7 +95,7 @@ namespace BabylonJS.GUI
             {
             if(__textBlock == null)
             {
-                __textBlock = EventHorizonBlazorInteropt.GetClass<TextBlock>(
+                __textBlock = EventHorizonBlazorInterop.GetClass<TextBlock>(
                     this.___guid,
                     "textBlock",
                     (entity) =>
@@ -115,7 +115,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "name"
                 );
@@ -123,7 +123,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "name",
                     value
@@ -136,7 +136,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "delegatePickingToChildren"
                 );
@@ -144,7 +144,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "delegatePickingToChildren",
                     value
@@ -166,7 +166,7 @@ namespace BabylonJS.GUI
             string name = null
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GUI", "Button" },
                 name
             );
@@ -200,7 +200,7 @@ namespace BabylonJS.GUI
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "pointerEnterAnimation",
                 "CallPointerEnterAnimationActions",
@@ -244,7 +244,7 @@ namespace BabylonJS.GUI
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "pointerOutAnimation",
                 "CallPointerOutAnimationActions",
@@ -288,7 +288,7 @@ namespace BabylonJS.GUI
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "pointerDownAnimation",
                 "CallPointerDownAnimationActions",
@@ -332,7 +332,7 @@ namespace BabylonJS.GUI
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "pointerUpAnimation",
                 "CallPointerUpAnimationActions",

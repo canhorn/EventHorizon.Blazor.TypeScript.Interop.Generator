@@ -23,7 +23,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "RenderTargetTexture.REFRESHRATE_RENDER_ONCE"
                 );
@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "RenderTargetTexture.REFRESHRATE_RENDER_ONEVERYFRAME"
                 );
@@ -47,7 +47,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "RenderTargetTexture.REFRESHRATE_RENDER_ONEVERYTWOFRAMES"
                 );
@@ -65,7 +65,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<AbstractMesh>(
+            return EventHorizonBlazorInterop.GetArrayClass<AbstractMesh>(
                     this.___guid,
                     "renderList",
                     (entity) =>
@@ -77,7 +77,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "renderList",
                     value
@@ -92,7 +92,7 @@ namespace BabylonJS
             {
             if(__renderTargetOptions == null)
             {
-                __renderTargetOptions = EventHorizonBlazorInteropt.GetClass<RenderTargetCreationOptions>(
+                __renderTargetOptions = EventHorizonBlazorInterop.GetClass<RenderTargetCreationOptions>(
                     this.___guid,
                     "renderTargetOptions",
                     (entity) =>
@@ -112,7 +112,7 @@ namespace BabylonJS
             {
             if(__boundingBoxSize == null)
             {
-                __boundingBoxSize = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __boundingBoxSize = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "boundingBoxSize",
                     (entity) =>
@@ -126,7 +126,7 @@ namespace BabylonJS
             set
             {
 __boundingBoxSize = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "boundingBoxSize",
                     value
@@ -141,7 +141,7 @@ __boundingBoxSize = null;
             {
             if(__depthStencilTexture == null)
             {
-                __depthStencilTexture = EventHorizonBlazorInteropt.GetClass<InternalTexture>(
+                __depthStencilTexture = EventHorizonBlazorInterop.GetClass<InternalTexture>(
                     this.___guid,
                     "depthStencilTexture",
                     (entity) =>
@@ -159,7 +159,7 @@ __boundingBoxSize = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "samples"
                 );
@@ -167,7 +167,7 @@ __boundingBoxSize = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "samples",
                     value
@@ -180,7 +180,7 @@ __boundingBoxSize = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "refreshRate"
                 );
@@ -188,7 +188,7 @@ __boundingBoxSize = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "refreshRate",
                     value
@@ -201,7 +201,7 @@ __boundingBoxSize = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "canRescale"
                 );
@@ -215,7 +215,7 @@ __boundingBoxSize = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isCube"
                 );
@@ -223,7 +223,7 @@ __boundingBoxSize = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isCube",
                     value
@@ -236,7 +236,7 @@ __boundingBoxSize = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "renderParticles"
                 );
@@ -244,7 +244,7 @@ __boundingBoxSize = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "renderParticles",
                     value
@@ -257,7 +257,7 @@ __boundingBoxSize = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "renderSprites"
                 );
@@ -265,7 +265,7 @@ __boundingBoxSize = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "renderSprites",
                     value
@@ -278,7 +278,7 @@ __boundingBoxSize = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "coordinatesMode"
                 );
@@ -286,7 +286,7 @@ __boundingBoxSize = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "coordinatesMode",
                     value
@@ -301,7 +301,7 @@ __boundingBoxSize = null;
             {
             if(__activeCamera == null)
             {
-                __activeCamera = EventHorizonBlazorInteropt.GetClass<Camera>(
+                __activeCamera = EventHorizonBlazorInterop.GetClass<Camera>(
                     this.___guid,
                     "activeCamera",
                     (entity) =>
@@ -315,7 +315,7 @@ __boundingBoxSize = null;
             set
             {
 __activeCamera = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "activeCamera",
                     value
@@ -328,7 +328,7 @@ __activeCamera = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useCameraPostProcesses"
                 );
@@ -336,7 +336,7 @@ __activeCamera = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "useCameraPostProcesses",
                     value
@@ -349,7 +349,7 @@ __activeCamera = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "ignoreCameraViewport"
                 );
@@ -357,7 +357,7 @@ __activeCamera = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "ignoreCameraViewport",
                     value
@@ -372,7 +372,7 @@ __activeCamera = null;
             {
             if(__onBeforeBindObservable == null)
             {
-                __onBeforeBindObservable = EventHorizonBlazorInteropt.GetClass<Observable<RenderTargetTexture>>(
+                __onBeforeBindObservable = EventHorizonBlazorInterop.GetClass<Observable<RenderTargetTexture>>(
                     this.___guid,
                     "onBeforeBindObservable",
                     (entity) =>
@@ -386,7 +386,7 @@ __activeCamera = null;
             set
             {
 __onBeforeBindObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onBeforeBindObservable",
                     value
@@ -401,7 +401,7 @@ __onBeforeBindObservable = null;
             {
             if(__onAfterUnbindObservable == null)
             {
-                __onAfterUnbindObservable = EventHorizonBlazorInteropt.GetClass<Observable<RenderTargetTexture>>(
+                __onAfterUnbindObservable = EventHorizonBlazorInterop.GetClass<Observable<RenderTargetTexture>>(
                     this.___guid,
                     "onAfterUnbindObservable",
                     (entity) =>
@@ -415,7 +415,7 @@ __onBeforeBindObservable = null;
             set
             {
 __onAfterUnbindObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onAfterUnbindObservable",
                     value
@@ -434,7 +434,7 @@ __onAfterUnbindObservable = null;
             {
             if(__onClearObservable == null)
             {
-                __onClearObservable = EventHorizonBlazorInteropt.GetClass<Observable<Engine>>(
+                __onClearObservable = EventHorizonBlazorInterop.GetClass<Observable<Engine>>(
                     this.___guid,
                     "onClearObservable",
                     (entity) =>
@@ -448,7 +448,7 @@ __onAfterUnbindObservable = null;
             set
             {
 __onClearObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onClearObservable",
                     value
@@ -463,7 +463,7 @@ __onClearObservable = null;
             {
             if(__onResizeObservable == null)
             {
-                __onResizeObservable = EventHorizonBlazorInteropt.GetClass<Observable<RenderTargetTexture>>(
+                __onResizeObservable = EventHorizonBlazorInterop.GetClass<Observable<RenderTargetTexture>>(
                     this.___guid,
                     "onResizeObservable",
                     (entity) =>
@@ -477,7 +477,7 @@ __onClearObservable = null;
             set
             {
 __onResizeObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onResizeObservable",
                     value
@@ -492,7 +492,7 @@ __onResizeObservable = null;
             {
             if(__clearColor == null)
             {
-                __clearColor = EventHorizonBlazorInteropt.GetClass<Color4>(
+                __clearColor = EventHorizonBlazorInterop.GetClass<Color4>(
                     this.___guid,
                     "clearColor",
                     (entity) =>
@@ -506,7 +506,7 @@ __onResizeObservable = null;
             set
             {
 __clearColor = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "clearColor",
                     value
@@ -521,7 +521,7 @@ __clearColor = null;
             {
             if(__boundingBoxPosition == null)
             {
-                __boundingBoxPosition = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __boundingBoxPosition = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "boundingBoxPosition",
                     (entity) =>
@@ -535,7 +535,7 @@ __clearColor = null;
             set
             {
 __boundingBoxPosition = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "boundingBoxPosition",
                     value
@@ -557,7 +557,7 @@ __boundingBoxPosition = null;
             string name, decimal size, Scene scene, System.Nullable<bool> generateMipMaps = null, System.Nullable<bool> doNotChangeAspectRatio = null, System.Nullable<decimal> type = null, System.Nullable<bool> isCube = null, System.Nullable<decimal> samplingMode = null, System.Nullable<bool> generateDepthBuffer = null, System.Nullable<bool> generateStencilBuffer = null, System.Nullable<bool> isMulti = null, System.Nullable<decimal> format = null, System.Nullable<bool> delayAllocation = null
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "RenderTargetTexture" },
                 name, size, scene, generateMipMaps, doNotChangeAspectRatio, type, isCube, samplingMode, generateDepthBuffer, generateStencilBuffer, isMulti, format, delayAllocation
             );
@@ -591,7 +591,7 @@ __boundingBoxPosition = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "renderListPredicate",
                 "CallRenderListPredicateActions",
@@ -635,7 +635,7 @@ __boundingBoxPosition = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "getCustomRenderList",
                 "CallGetCustomRenderListActions",
@@ -679,7 +679,7 @@ __boundingBoxPosition = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "customRenderFunction",
                 "CallCustomRenderFunctionActions",
@@ -700,7 +700,7 @@ __boundingBoxPosition = null;
 
         public void createDepthStencilTexture(System.Nullable<decimal> comparisonFunction = null, System.Nullable<bool> bilinearFiltering = null, System.Nullable<bool> generateStencil = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "createDepthStencilTexture" }, comparisonFunction, bilinearFiltering, generateStencil
@@ -710,7 +710,7 @@ __boundingBoxPosition = null;
 
         public void resetRefreshCounter()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "resetRefreshCounter" }
@@ -720,7 +720,7 @@ __boundingBoxPosition = null;
 
         public void addPostProcess(PostProcess postProcess)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "addPostProcess" }, postProcess
@@ -730,7 +730,7 @@ __boundingBoxPosition = null;
 
         public void clearPostProcesses(System.Nullable<bool> dispose = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "clearPostProcesses" }, dispose
@@ -740,7 +740,7 @@ __boundingBoxPosition = null;
 
         public void removePostProcess(PostProcess postProcess)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "removePostProcess" }, postProcess
@@ -750,7 +750,7 @@ __boundingBoxPosition = null;
 
         public decimal getRenderSize()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getRenderSize" }
@@ -760,7 +760,7 @@ __boundingBoxPosition = null;
 
         public decimal getRenderWidth()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getRenderWidth" }
@@ -770,7 +770,7 @@ __boundingBoxPosition = null;
 
         public decimal getRenderHeight()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getRenderHeight" }
@@ -780,7 +780,7 @@ __boundingBoxPosition = null;
 
         public decimal getRenderLayers()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getRenderLayers" }
@@ -790,7 +790,7 @@ __boundingBoxPosition = null;
 
         public void scale(decimal ratio)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "scale" }, ratio
@@ -800,7 +800,7 @@ __boundingBoxPosition = null;
 
         public Matrix getReflectionTextureMatrix()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Matrix>(
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -811,7 +811,7 @@ __boundingBoxPosition = null;
 
         public void resize(decimal size)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "resize" }, size
@@ -821,7 +821,7 @@ __boundingBoxPosition = null;
 
         public void render(System.Nullable<bool> useCameraPostProcess = null, System.Nullable<bool> dumpForDebug = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "render" }, useCameraPostProcess, dumpForDebug
@@ -831,7 +831,7 @@ __boundingBoxPosition = null;
 
         public void setRenderingOrder(decimal renderingGroupId, CachedEntity opaqueSortCompareFn = null, CachedEntity alphaTestSortCompareFn = null, CachedEntity transparentSortCompareFn = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setRenderingOrder" }, renderingGroupId, opaqueSortCompareFn, alphaTestSortCompareFn, transparentSortCompareFn
@@ -841,7 +841,7 @@ __boundingBoxPosition = null;
 
         public void setRenderingAutoClearDepthStencil(decimal renderingGroupId, bool autoClearDepthStencil)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setRenderingAutoClearDepthStencil" }, renderingGroupId, autoClearDepthStencil
@@ -851,7 +851,7 @@ __boundingBoxPosition = null;
 
         public RenderTargetTexture clone()
         {
-            return EventHorizonBlazorInteropt.FuncClass<RenderTargetTexture>(
+            return EventHorizonBlazorInterop.FuncClass<RenderTargetTexture>(
                 entity => new RenderTargetTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -862,7 +862,7 @@ __boundingBoxPosition = null;
 
         public CachedEntity serialize()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }
@@ -872,7 +872,7 @@ __boundingBoxPosition = null;
 
         public void disposeFramebufferObjects()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "disposeFramebufferObjects" }
@@ -882,7 +882,7 @@ __boundingBoxPosition = null;
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }
@@ -892,7 +892,7 @@ __boundingBoxPosition = null;
 
         public void freeRenderingGroups()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "freeRenderingGroups" }
@@ -902,7 +902,7 @@ __boundingBoxPosition = null;
 
         public decimal getViewCount()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getViewCount" }

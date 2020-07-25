@@ -31,7 +31,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "size"
                 );
@@ -39,7 +39,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "size",
                     value
@@ -54,7 +54,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "name"
                 );
@@ -62,7 +62,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "name",
                     value
@@ -77,7 +77,7 @@ namespace BabylonJS
             {
             if(__position == null)
             {
-                __position = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __position = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "position",
                     (entity) =>
@@ -91,7 +91,7 @@ namespace BabylonJS
             set
             {
 __position = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "position",
                     value
@@ -106,7 +106,7 @@ __position = null;
             {
             if(__color == null)
             {
-                __color = EventHorizonBlazorInteropt.GetClass<Color4>(
+                __color = EventHorizonBlazorInterop.GetClass<Color4>(
                     this.___guid,
                     "color",
                     (entity) =>
@@ -120,7 +120,7 @@ __position = null;
             set
             {
 __color = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "color",
                     value
@@ -133,7 +133,7 @@ __color = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "width"
                 );
@@ -141,7 +141,7 @@ __color = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "width",
                     value
@@ -154,7 +154,7 @@ __color = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "height"
                 );
@@ -162,7 +162,7 @@ __color = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "height",
                     value
@@ -175,7 +175,7 @@ __color = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "angle"
                 );
@@ -183,7 +183,7 @@ __color = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "angle",
                     value
@@ -196,7 +196,7 @@ __color = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "cellIndex"
                 );
@@ -204,7 +204,7 @@ __color = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "cellIndex",
                     value
@@ -217,7 +217,7 @@ __color = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "cellRef"
                 );
@@ -225,7 +225,7 @@ __color = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "cellRef",
                     value
@@ -238,7 +238,7 @@ __color = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "invertU"
                 );
@@ -246,7 +246,7 @@ __color = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "invertU",
                     value
@@ -259,7 +259,7 @@ __color = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "invertV"
                 );
@@ -267,7 +267,7 @@ __color = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "invertV",
                     value
@@ -280,7 +280,7 @@ __color = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "disposeWhenFinishedAnimating"
                 );
@@ -288,7 +288,7 @@ __color = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "disposeWhenFinishedAnimating",
                     value
@@ -301,7 +301,7 @@ __color = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Animation>(
+            return EventHorizonBlazorInterop.GetArrayClass<Animation>(
                     this.___guid,
                     "animations",
                     (entity) =>
@@ -313,7 +313,7 @@ __color = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "animations",
                     value
@@ -326,7 +326,7 @@ __color = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isPickable"
                 );
@@ -334,7 +334,7 @@ __color = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isPickable",
                     value
@@ -349,7 +349,7 @@ __color = null;
             {
             if(__actionManager == null)
             {
-                __actionManager = EventHorizonBlazorInteropt.GetClass<ActionManager>(
+                __actionManager = EventHorizonBlazorInterop.GetClass<ActionManager>(
                     this.___guid,
                     "actionManager",
                     (entity) =>
@@ -363,7 +363,7 @@ __color = null;
             set
             {
 __actionManager = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "actionManager",
                     value
@@ -376,7 +376,7 @@ __actionManager = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isVisible"
                 );
@@ -384,7 +384,7 @@ __actionManager = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isVisible",
                     value
@@ -407,7 +407,7 @@ __actionManager = null;
             string name, ISpriteManagerCachedEntity manager
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Sprite" },
                 name, manager
             );
@@ -420,7 +420,7 @@ __actionManager = null;
 
         public void stopAnimation()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "stopAnimation" }
@@ -430,7 +430,7 @@ __actionManager = null;
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }

@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "name"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "name",
                     value
@@ -67,7 +67,7 @@ namespace BabylonJS
         #region Methods
         public void init()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "init" }
@@ -77,7 +77,7 @@ namespace BabylonJS
 
         public void attach(T target)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "attach" }, target
@@ -87,7 +87,7 @@ namespace BabylonJS
 
         public void detach()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "detach" }

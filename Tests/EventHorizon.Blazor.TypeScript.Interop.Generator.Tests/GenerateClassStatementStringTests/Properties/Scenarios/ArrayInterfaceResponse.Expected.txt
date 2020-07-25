@@ -35,7 +35,7 @@ namespace Static
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<IInterfaceResponseTypeCachedEntity>(
+            return EventHorizonBlazorInterop.GetArrayClass<IInterfaceResponseTypeCachedEntity>(
                     this.___guid,
                     "InterfaceResponseType",
                     (entity) =>
@@ -47,7 +47,7 @@ namespace Static
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "InterfaceResponseType",
                     value

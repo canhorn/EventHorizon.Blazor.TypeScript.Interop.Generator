@@ -24,7 +24,7 @@ namespace BabylonJS
         #region Static Methods
         public static FresnelParameters Parse(object parsedFresnelParameters)
         {
-            return EventHorizonBlazorInteropt.FuncClass<FresnelParameters>(
+            return EventHorizonBlazorInterop.FuncClass<FresnelParameters>(
                 entity => new FresnelParameters() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -40,7 +40,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isEnabled"
                 );
@@ -48,7 +48,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isEnabled",
                     value
@@ -65,7 +65,7 @@ namespace BabylonJS
             {
             if(__leftColor == null)
             {
-                __leftColor = EventHorizonBlazorInteropt.GetClass<Color3>(
+                __leftColor = EventHorizonBlazorInterop.GetClass<Color3>(
                     this.___guid,
                     "leftColor",
                     (entity) =>
@@ -79,7 +79,7 @@ namespace BabylonJS
             set
             {
 __leftColor = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "leftColor",
                     value
@@ -94,7 +94,7 @@ __leftColor = null;
             {
             if(__rightColor == null)
             {
-                __rightColor = EventHorizonBlazorInteropt.GetClass<Color3>(
+                __rightColor = EventHorizonBlazorInterop.GetClass<Color3>(
                     this.___guid,
                     "rightColor",
                     (entity) =>
@@ -108,7 +108,7 @@ __leftColor = null;
             set
             {
 __rightColor = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "rightColor",
                     value
@@ -121,7 +121,7 @@ __rightColor = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "bias"
                 );
@@ -129,7 +129,7 @@ __rightColor = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "bias",
                     value
@@ -142,7 +142,7 @@ __rightColor = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "power"
                 );
@@ -150,7 +150,7 @@ __rightColor = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "power",
                     value
@@ -175,7 +175,7 @@ __rightColor = null;
         #region Methods
         public FresnelParameters clone()
         {
-            return EventHorizonBlazorInteropt.FuncClass<FresnelParameters>(
+            return EventHorizonBlazorInterop.FuncClass<FresnelParameters>(
                 entity => new FresnelParameters() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -186,7 +186,7 @@ __rightColor = null;
 
         public CachedEntity serialize()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }

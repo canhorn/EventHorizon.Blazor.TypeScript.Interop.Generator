@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.BabylonJS.WASM", "_generated\EventHorizon.Blazor.BabylonJS.WASM\EventHorizon.Blazor.BabylonJS.WASM.csproj", "{59959313-8708-4A01-BF30-257F999DA16B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.Interop", "EventHorizon.Blazor.Interop\EventHorizon.Blazor.Interop.csproj", "{5528D05C-D619-4A59-AD8A-3285655856B4}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.BabylonJS", "EventHorizon.Blazor.BabylonJS\EventHorizon.Blazor.BabylonJS.csproj", "{D05436BF-6028-4CE7-982E-51AF0B4EBA3E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5013C277-C128-4F17-9BFE-501EB87905B6}"
@@ -26,10 +24,6 @@ Global
 		{59959313-8708-4A01-BF30-257F999DA16B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59959313-8708-4A01-BF30-257F999DA16B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59959313-8708-4A01-BF30-257F999DA16B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5528D05C-D619-4A59-AD8A-3285655856B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5528D05C-D619-4A59-AD8A-3285655856B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5528D05C-D619-4A59-AD8A-3285655856B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5528D05C-D619-4A59-AD8A-3285655856B4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D05436BF-6028-4CE7-982E-51AF0B4EBA3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D05436BF-6028-4CE7-982E-51AF0B4EBA3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D05436BF-6028-4CE7-982E-51AF0B4EBA3E}.Release|Any CPU.ActiveCfg = Release|Any CPU

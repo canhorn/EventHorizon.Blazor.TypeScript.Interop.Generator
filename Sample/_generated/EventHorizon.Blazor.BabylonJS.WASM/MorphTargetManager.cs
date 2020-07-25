@@ -24,7 +24,7 @@ namespace BabylonJS
         #region Static Methods
         public static MorphTargetManager Parse(object serializationObject, Scene scene)
         {
-            return EventHorizonBlazorInteropt.FuncClass<MorphTargetManager>(
+            return EventHorizonBlazorInterop.FuncClass<MorphTargetManager>(
                 entity => new MorphTargetManager() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -40,7 +40,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "uniqueId"
                 );
@@ -52,7 +52,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "vertexCount"
                 );
@@ -64,7 +64,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "supportsNormals"
                 );
@@ -76,7 +76,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "supportsTangents"
                 );
@@ -88,7 +88,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "supportsUVs"
                 );
@@ -100,7 +100,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "numTargets"
                 );
@@ -112,7 +112,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "numInfluencers"
                 );
@@ -124,7 +124,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<decimal>(
+            return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "influences"
                 );
@@ -138,7 +138,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "enableNormalMorphing"
                 );
@@ -146,7 +146,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "enableNormalMorphing",
                     value
@@ -159,7 +159,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "enableTangentMorphing"
                 );
@@ -167,7 +167,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "enableTangentMorphing",
                     value
@@ -180,7 +180,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "enableUVMorphing"
                 );
@@ -188,7 +188,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "enableUVMorphing",
                     value
@@ -211,7 +211,7 @@ namespace BabylonJS
             Scene scene = null
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "MorphTargetManager" },
                 scene
             );
@@ -222,7 +222,7 @@ namespace BabylonJS
         #region Methods
         public MorphTarget getActiveTarget(decimal index)
         {
-            return EventHorizonBlazorInteropt.FuncClass<MorphTarget>(
+            return EventHorizonBlazorInterop.FuncClass<MorphTarget>(
                 entity => new MorphTarget() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -233,7 +233,7 @@ namespace BabylonJS
 
         public MorphTarget getTarget(decimal index)
         {
-            return EventHorizonBlazorInteropt.FuncClass<MorphTarget>(
+            return EventHorizonBlazorInterop.FuncClass<MorphTarget>(
                 entity => new MorphTarget() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -244,7 +244,7 @@ namespace BabylonJS
 
         public void addTarget(MorphTarget target)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "addTarget" }, target
@@ -254,7 +254,7 @@ namespace BabylonJS
 
         public void removeTarget(MorphTarget target)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "removeTarget" }, target
@@ -264,7 +264,7 @@ namespace BabylonJS
 
         public MorphTargetManager clone()
         {
-            return EventHorizonBlazorInteropt.FuncClass<MorphTargetManager>(
+            return EventHorizonBlazorInterop.FuncClass<MorphTargetManager>(
                 entity => new MorphTargetManager() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -275,7 +275,7 @@ namespace BabylonJS
 
         public CachedEntity serialize()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }
@@ -285,7 +285,7 @@ namespace BabylonJS
 
         public void synchronize()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "synchronize" }

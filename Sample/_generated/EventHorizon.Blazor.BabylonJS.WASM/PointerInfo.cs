@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             if(__pickInfo == null)
             {
-                __pickInfo = EventHorizonBlazorInteropt.GetClass<PickingInfo>(
+                __pickInfo = EventHorizonBlazorInterop.GetClass<PickingInfo>(
                     this.___guid,
                     "pickInfo",
                     (entity) =>
@@ -51,7 +51,7 @@ namespace BabylonJS
             set
             {
 __pickInfo = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "pickInfo",
                     value
@@ -73,7 +73,7 @@ __pickInfo = null;
             decimal type, PointerEvent @event, PickingInfo pickInfo
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "PointerInfo" },
                 type, @event, pickInfo
             );

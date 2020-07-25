@@ -24,7 +24,7 @@ namespace BabylonJS
         #region Static Methods
         public static bool Intersects(BoundingSphere sphere0, BoundingSphere sphere1)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "BoundingSphere", "Intersects" }, sphere0, sphere1
@@ -45,7 +45,7 @@ namespace BabylonJS
             {
             if(__center == null)
             {
-                __center = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __center = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "center",
                     (entity) =>
@@ -63,7 +63,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "radius"
                 );
@@ -71,7 +71,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "radius",
                     value
@@ -86,7 +86,7 @@ namespace BabylonJS
             {
             if(__centerWorld == null)
             {
-                __centerWorld = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __centerWorld = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "centerWorld",
                     (entity) =>
@@ -104,7 +104,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "radiusWorld"
                 );
@@ -112,7 +112,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "radiusWorld",
                     value
@@ -127,7 +127,7 @@ namespace BabylonJS
             {
             if(__minimum == null)
             {
-                __minimum = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __minimum = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "minimum",
                     (entity) =>
@@ -147,7 +147,7 @@ namespace BabylonJS
             {
             if(__maximum == null)
             {
-                __maximum = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __maximum = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "maximum",
                     (entity) =>
@@ -175,7 +175,7 @@ namespace BabylonJS
             Vector3 min, Vector3 max, Matrix worldMatrix = null
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "BoundingSphere" },
                 min, max, worldMatrix
             );
@@ -186,7 +186,7 @@ namespace BabylonJS
         #region Methods
         public void reConstruct(Vector3 min, Vector3 max, Matrix worldMatrix = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "reConstruct" }, min, max, worldMatrix
@@ -196,7 +196,7 @@ namespace BabylonJS
 
         public BoundingSphere scale(decimal factor)
         {
-            return EventHorizonBlazorInteropt.FuncClass<BoundingSphere>(
+            return EventHorizonBlazorInterop.FuncClass<BoundingSphere>(
                 entity => new BoundingSphere() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -207,7 +207,7 @@ namespace BabylonJS
 
         public Matrix getWorldMatrix()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Matrix>(
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -218,7 +218,7 @@ namespace BabylonJS
 
         public bool isInFrustum(Plane[] frustumPlanes)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isInFrustum" }, frustumPlanes
@@ -228,7 +228,7 @@ namespace BabylonJS
 
         public bool isCenterInFrustum(Plane[] frustumPlanes)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isCenterInFrustum" }, frustumPlanes
@@ -238,7 +238,7 @@ namespace BabylonJS
 
         public bool intersectsPoint(Vector3 point)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "intersectsPoint" }, point

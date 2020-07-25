@@ -35,7 +35,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "buttonIndex"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "buttonIndex",
                     value
@@ -65,7 +65,7 @@ namespace BabylonJS.GUI
             Vector2 source, System.Nullable<decimal> buttonIndex = null
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GUI", "Vector2WithInfo" },
                 source, buttonIndex
             );

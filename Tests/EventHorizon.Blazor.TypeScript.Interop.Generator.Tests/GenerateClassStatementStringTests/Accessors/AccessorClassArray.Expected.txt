@@ -31,7 +31,7 @@ namespace Static.Primitive
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Vector3>(
+            return EventHorizonBlazorInterop.GetArrayClass<Vector3>(
                     this.___guid,
                     "Downs",
                     (entity) =>

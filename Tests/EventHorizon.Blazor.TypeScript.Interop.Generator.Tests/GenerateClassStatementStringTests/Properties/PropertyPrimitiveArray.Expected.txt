@@ -35,7 +35,7 @@ namespace Static.Primitive
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<string>(
+            return EventHorizonBlazorInterop.GetArray<string>(
                     this.___guid,
                     "widths"
                 );
@@ -43,7 +43,7 @@ namespace Static.Primitive
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "widths",
                     value

@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<T>(
+            return EventHorizonBlazorInterop.GetArrayClass<T>(
                     this.___guid,
                     "data",
                     (entity) =>
@@ -47,7 +47,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "data",
                     value
@@ -60,7 +60,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "length"
                 );
@@ -68,7 +68,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "length",
                     value
@@ -90,7 +90,7 @@ namespace BabylonJS
             decimal capacity
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "SmartArray" },
                 capacity
             );
@@ -101,7 +101,7 @@ namespace BabylonJS
         #region Methods
         public void push(T value)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "push" }, value
@@ -134,7 +134,7 @@ namespace BabylonJS
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "forEach",
                 "CallForEachActions",
@@ -178,7 +178,7 @@ namespace BabylonJS
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "sort",
                 "CallSortActions",
@@ -199,7 +199,7 @@ namespace BabylonJS
 
         public void reset()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "reset" }
@@ -209,7 +209,7 @@ namespace BabylonJS
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }
@@ -219,7 +219,7 @@ namespace BabylonJS
 
         public void concat(object array)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "concat" }, array
@@ -229,7 +229,7 @@ namespace BabylonJS
 
         public decimal indexOf(T value)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "indexOf" }, value
@@ -239,7 +239,7 @@ namespace BabylonJS
 
         public bool contains(T value)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "contains" }, value

@@ -24,7 +24,7 @@ namespace Static.Class
         #region Static Methods
         public static decimal[] numberArray()
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { "Static", "Class", "ExampleClass", "numberArray" }
@@ -34,7 +34,7 @@ namespace Static.Class
 
         public static decimal[] numberArrayObj()
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { "Static", "Class", "ExampleClass", "numberArrayObj" }

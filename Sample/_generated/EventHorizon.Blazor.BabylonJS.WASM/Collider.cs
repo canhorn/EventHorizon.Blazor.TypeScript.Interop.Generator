@@ -31,7 +31,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "collisionMask"
                 );
@@ -39,7 +39,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "collisionMask",
                     value
@@ -54,7 +54,7 @@ namespace BabylonJS
             {
             if(__slidePlaneNormal == null)
             {
-                __slidePlaneNormal = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __slidePlaneNormal = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "slidePlaneNormal",
                     (entity) =>
@@ -74,7 +74,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "collisionFound"
                 );
@@ -82,7 +82,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "collisionFound",
                     value
@@ -97,7 +97,7 @@ namespace BabylonJS
             {
             if(__intersectionPoint == null)
             {
-                __intersectionPoint = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __intersectionPoint = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "intersectionPoint",
                     (entity) =>
@@ -111,7 +111,7 @@ namespace BabylonJS
             set
             {
 __intersectionPoint = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "intersectionPoint",
                     value
@@ -126,7 +126,7 @@ __intersectionPoint = null;
             {
             if(__collidedMesh == null)
             {
-                __collidedMesh = EventHorizonBlazorInteropt.GetClass<AbstractMesh>(
+                __collidedMesh = EventHorizonBlazorInterop.GetClass<AbstractMesh>(
                     this.___guid,
                     "collidedMesh",
                     (entity) =>
@@ -140,7 +140,7 @@ __intersectionPoint = null;
             set
             {
 __collidedMesh = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "collidedMesh",
                     value

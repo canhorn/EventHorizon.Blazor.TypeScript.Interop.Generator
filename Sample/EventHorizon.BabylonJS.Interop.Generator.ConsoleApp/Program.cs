@@ -12,7 +12,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
         static void Main(string[] args)
         {
             var stopwatch = Stopwatch.StartNew();
-            var projectFileInteropProjectReference = "<ProjectReference Include=\"..\\..\\EventHorizon.Blazor.Interop\\EventHorizon.Blazor.Interop.csproj\" />";
             var projectAssembly = "EventHorizon.Blazor.BabylonJS.WASM";
             var projectGenerationLocation = Path.Combine(
                 "..",
@@ -26,9 +25,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
             var textFormatter = new NoFormattingTextFormatter();
             var writer = new ProjectWriter(
                 projectGenerationLocation,
-                projectAssembly,
-                //"BabylonJS.Generated",
-                projectFileInteropProjectReference
+                projectAssembly
             );
             var sourceFiles = new List<string>
             {

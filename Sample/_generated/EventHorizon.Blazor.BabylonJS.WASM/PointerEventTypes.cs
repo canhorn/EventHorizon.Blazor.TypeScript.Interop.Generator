@@ -23,7 +23,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "PointerEventTypes.POINTERDOWN"
                 );
@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "PointerEventTypes.POINTERUP"
                 );
@@ -47,7 +47,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "PointerEventTypes.POINTERMOVE"
                 );
@@ -59,7 +59,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "PointerEventTypes.POINTERWHEEL"
                 );
@@ -71,7 +71,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "PointerEventTypes.POINTERPICK"
                 );
@@ -83,7 +83,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "PointerEventTypes.POINTERTAP"
                 );
@@ -95,7 +95,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "PointerEventTypes.POINTERDOUBLETAP"
                 );

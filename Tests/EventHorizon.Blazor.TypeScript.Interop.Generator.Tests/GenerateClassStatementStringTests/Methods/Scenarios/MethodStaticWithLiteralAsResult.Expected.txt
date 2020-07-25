@@ -24,7 +24,7 @@ namespace Static.Class
         #region Static Methods
         public static CachedEntity ObjectLiteralFirstUnionResult()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "Static", "Class", "ExampleClass", "ObjectLiteralFirstUnionResult" }
@@ -34,7 +34,7 @@ namespace Static.Class
 
         public static string ObjectLiteralLastUnionResult()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { "Static", "Class", "ExampleClass", "ObjectLiteralLastUnionResult" }
@@ -67,7 +67,7 @@ namespace Static.Class
         #region Methods
         public CachedEntity getVertexBuffers()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getVertexBuffers" }

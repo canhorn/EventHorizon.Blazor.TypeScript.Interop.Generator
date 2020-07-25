@@ -47,7 +47,7 @@ namespace Examples
             OverrideVector4 arg1, int arg2
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "Examples", "ExampleClass" },
                 arg1, arg2
             );

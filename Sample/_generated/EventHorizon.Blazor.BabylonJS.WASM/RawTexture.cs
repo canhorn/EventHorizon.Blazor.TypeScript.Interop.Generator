@@ -24,7 +24,7 @@ namespace BabylonJS
         #region Static Methods
         public static RawTexture CreateLuminanceTexture(ArrayBufferView data, decimal width, decimal height, Scene scene, System.Nullable<bool> generateMipMaps = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<RawTexture>(
+            return EventHorizonBlazorInterop.FuncClass<RawTexture>(
                 entity => new RawTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -35,7 +35,7 @@ namespace BabylonJS
 
         public static RawTexture CreateLuminanceAlphaTexture(ArrayBufferView data, decimal width, decimal height, Scene scene, System.Nullable<bool> generateMipMaps = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<RawTexture>(
+            return EventHorizonBlazorInterop.FuncClass<RawTexture>(
                 entity => new RawTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -46,7 +46,7 @@ namespace BabylonJS
 
         public static RawTexture CreateAlphaTexture(ArrayBufferView data, decimal width, decimal height, Scene scene, System.Nullable<bool> generateMipMaps = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<RawTexture>(
+            return EventHorizonBlazorInterop.FuncClass<RawTexture>(
                 entity => new RawTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -57,7 +57,7 @@ namespace BabylonJS
 
         public static RawTexture CreateRGBTexture(ArrayBufferView data, decimal width, decimal height, Scene scene, System.Nullable<bool> generateMipMaps = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, System.Nullable<decimal> type = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<RawTexture>(
+            return EventHorizonBlazorInterop.FuncClass<RawTexture>(
                 entity => new RawTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -68,7 +68,7 @@ namespace BabylonJS
 
         public static RawTexture CreateRGBATexture(ArrayBufferView data, decimal width, decimal height, Scene scene, System.Nullable<bool> generateMipMaps = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, System.Nullable<decimal> type = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<RawTexture>(
+            return EventHorizonBlazorInterop.FuncClass<RawTexture>(
                 entity => new RawTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -79,7 +79,7 @@ namespace BabylonJS
 
         public static RawTexture CreateRTexture(ArrayBufferView data, decimal width, decimal height, Scene scene, System.Nullable<bool> generateMipMaps = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, System.Nullable<decimal> type = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<RawTexture>(
+            return EventHorizonBlazorInterop.FuncClass<RawTexture>(
                 entity => new RawTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -99,7 +99,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "format"
                 );
@@ -107,7 +107,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "format",
                     value
@@ -129,7 +129,7 @@ namespace BabylonJS
             ArrayBufferView data, decimal width, decimal height, decimal format, Scene scene, System.Nullable<bool> generateMipMaps = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, System.Nullable<decimal> type = null
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "RawTexture" },
                 data, width, height, format, scene, generateMipMaps, invertY, samplingMode, type
             );
@@ -140,7 +140,7 @@ namespace BabylonJS
         #region Methods
         public void update(ArrayBufferView data)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "update" }, data

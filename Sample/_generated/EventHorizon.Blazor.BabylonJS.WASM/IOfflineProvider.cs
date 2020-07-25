@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "enableSceneOffline"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "enableSceneOffline",
                     value
@@ -56,7 +56,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "enableTexturesOffline"
                 );
@@ -64,7 +64,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "enableTexturesOffline",
                     value
@@ -111,7 +111,7 @@ namespace BabylonJS
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "open",
                 "CallOpenActions",
@@ -132,7 +132,7 @@ namespace BabylonJS
 
         public void loadImage(string url, HTMLImageElement image)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "loadImage" }, url, image

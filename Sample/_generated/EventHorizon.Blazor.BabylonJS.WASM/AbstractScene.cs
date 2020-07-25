@@ -24,7 +24,7 @@ namespace BabylonJS
         #region Static Methods
         public static void AddParser(string name, BabylonFileParser parser)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "AbstractScene", "AddParser" }, name, parser
@@ -34,7 +34,7 @@ namespace BabylonJS
 
         public static BabylonFileParser GetParser(string name)
         {
-            return EventHorizonBlazorInteropt.FuncClass<BabylonFileParser>(
+            return EventHorizonBlazorInterop.FuncClass<BabylonFileParser>(
                 entity => new BabylonFileParser() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -45,7 +45,7 @@ namespace BabylonJS
 
         public static void AddIndividualParser(string name, IndividualBabylonFileParser parser)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "AbstractScene", "AddIndividualParser" }, name, parser
@@ -55,7 +55,7 @@ namespace BabylonJS
 
         public static IndividualBabylonFileParser GetIndividualParser(string name)
         {
-            return EventHorizonBlazorInteropt.FuncClass<IndividualBabylonFileParser>(
+            return EventHorizonBlazorInterop.FuncClass<IndividualBabylonFileParser>(
                 entity => new IndividualBabylonFileParser() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -66,7 +66,7 @@ namespace BabylonJS
 
         public static void Parse(object jsonData, Scene scene, AssetContainer container, string rootUrl)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "AbstractScene", "Parse" }, jsonData, scene, container, rootUrl
@@ -85,7 +85,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Node>(
+            return EventHorizonBlazorInterop.GetArrayClass<Node>(
                     this.___guid,
                     "rootNodes",
                     (entity) =>
@@ -97,7 +97,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "rootNodes",
                     value
@@ -110,7 +110,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Camera>(
+            return EventHorizonBlazorInterop.GetArrayClass<Camera>(
                     this.___guid,
                     "cameras",
                     (entity) =>
@@ -122,7 +122,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "cameras",
                     value
@@ -135,7 +135,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Light>(
+            return EventHorizonBlazorInterop.GetArrayClass<Light>(
                     this.___guid,
                     "lights",
                     (entity) =>
@@ -147,7 +147,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "lights",
                     value
@@ -160,7 +160,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<AbstractMesh>(
+            return EventHorizonBlazorInterop.GetArrayClass<AbstractMesh>(
                     this.___guid,
                     "meshes",
                     (entity) =>
@@ -172,7 +172,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "meshes",
                     value
@@ -185,7 +185,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Skeleton>(
+            return EventHorizonBlazorInterop.GetArrayClass<Skeleton>(
                     this.___guid,
                     "skeletons",
                     (entity) =>
@@ -197,7 +197,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "skeletons",
                     value
@@ -210,7 +210,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<IParticleSystemCachedEntity>(
+            return EventHorizonBlazorInterop.GetArrayClass<IParticleSystemCachedEntity>(
                     this.___guid,
                     "particleSystems",
                     (entity) =>
@@ -222,7 +222,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "particleSystems",
                     value
@@ -235,7 +235,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Animation>(
+            return EventHorizonBlazorInterop.GetArrayClass<Animation>(
                     this.___guid,
                     "animations",
                     (entity) =>
@@ -247,7 +247,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "animations",
                     value
@@ -260,7 +260,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<AnimationGroup>(
+            return EventHorizonBlazorInterop.GetArrayClass<AnimationGroup>(
                     this.___guid,
                     "animationGroups",
                     (entity) =>
@@ -272,7 +272,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "animationGroups",
                     value
@@ -285,7 +285,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<MultiMaterial>(
+            return EventHorizonBlazorInterop.GetArrayClass<MultiMaterial>(
                     this.___guid,
                     "multiMaterials",
                     (entity) =>
@@ -297,7 +297,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "multiMaterials",
                     value
@@ -310,7 +310,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Material>(
+            return EventHorizonBlazorInterop.GetArrayClass<Material>(
                     this.___guid,
                     "materials",
                     (entity) =>
@@ -322,7 +322,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "materials",
                     value
@@ -335,7 +335,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<MorphTargetManager>(
+            return EventHorizonBlazorInterop.GetArrayClass<MorphTargetManager>(
                     this.___guid,
                     "morphTargetManagers",
                     (entity) =>
@@ -347,7 +347,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "morphTargetManagers",
                     value
@@ -360,7 +360,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Geometry>(
+            return EventHorizonBlazorInterop.GetArrayClass<Geometry>(
                     this.___guid,
                     "geometries",
                     (entity) =>
@@ -372,7 +372,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "geometries",
                     value
@@ -385,7 +385,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<TransformNode>(
+            return EventHorizonBlazorInterop.GetArrayClass<TransformNode>(
                     this.___guid,
                     "transformNodes",
                     (entity) =>
@@ -397,7 +397,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "transformNodes",
                     value
@@ -410,7 +410,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<AbstractActionManager>(
+            return EventHorizonBlazorInterop.GetArrayClass<AbstractActionManager>(
                     this.___guid,
                     "actionManagers",
                     (entity) =>
@@ -422,7 +422,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "actionManagers",
                     value
@@ -435,7 +435,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<BaseTexture>(
+            return EventHorizonBlazorInterop.GetArrayClass<BaseTexture>(
                     this.___guid,
                     "textures",
                     (entity) =>
@@ -447,7 +447,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "textures",
                     value
@@ -462,7 +462,7 @@ namespace BabylonJS
             {
             if(__environmentTexture == null)
             {
-                __environmentTexture = EventHorizonBlazorInteropt.GetClass<BaseTexture>(
+                __environmentTexture = EventHorizonBlazorInterop.GetClass<BaseTexture>(
                     this.___guid,
                     "environmentTexture",
                     (entity) =>
@@ -476,7 +476,7 @@ namespace BabylonJS
             set
             {
 __environmentTexture = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "environmentTexture",
                     value
@@ -501,7 +501,7 @@ __environmentTexture = null;
         #region Methods
         public Node[] getNodes()
         {
-            return EventHorizonBlazorInteropt.FuncArrayClass<Node>(
+            return EventHorizonBlazorInterop.FuncArrayClass<Node>(
                 entity => new Node() { ___guid = entity.___guid },
                 new object[]
                 {

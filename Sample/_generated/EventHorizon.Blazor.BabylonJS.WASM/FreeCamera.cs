@@ -31,7 +31,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "angularSensibility"
                 );
@@ -39,7 +39,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "angularSensibility",
                     value
@@ -52,7 +52,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<decimal>(
+            return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "keysUp"
                 );
@@ -60,7 +60,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "keysUp",
                     value
@@ -73,7 +73,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<decimal>(
+            return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "keysDown"
                 );
@@ -81,7 +81,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "keysDown",
                     value
@@ -94,7 +94,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<decimal>(
+            return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "keysLeft"
                 );
@@ -102,7 +102,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "keysLeft",
                     value
@@ -115,7 +115,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<decimal>(
+            return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "keysRight"
                 );
@@ -123,7 +123,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "keysRight",
                     value
@@ -136,7 +136,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "collisionMask"
                 );
@@ -144,7 +144,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "collisionMask",
                     value
@@ -161,7 +161,7 @@ namespace BabylonJS
             {
             if(__ellipsoid == null)
             {
-                __ellipsoid = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __ellipsoid = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "ellipsoid",
                     (entity) =>
@@ -175,7 +175,7 @@ namespace BabylonJS
             set
             {
 __ellipsoid = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "ellipsoid",
                     value
@@ -190,7 +190,7 @@ __ellipsoid = null;
             {
             if(__ellipsoidOffset == null)
             {
-                __ellipsoidOffset = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __ellipsoidOffset = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "ellipsoidOffset",
                     (entity) =>
@@ -204,7 +204,7 @@ __ellipsoid = null;
             set
             {
 __ellipsoidOffset = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "ellipsoidOffset",
                     value
@@ -217,7 +217,7 @@ __ellipsoidOffset = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "checkCollisions"
                 );
@@ -225,7 +225,7 @@ __ellipsoidOffset = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "checkCollisions",
                     value
@@ -238,7 +238,7 @@ __ellipsoidOffset = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "applyGravity"
                 );
@@ -246,7 +246,7 @@ __ellipsoidOffset = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "applyGravity",
                     value
@@ -261,7 +261,7 @@ __ellipsoidOffset = null;
             {
             if(__inputs == null)
             {
-                __inputs = EventHorizonBlazorInteropt.GetClass<FreeCameraInputsManager>(
+                __inputs = EventHorizonBlazorInterop.GetClass<FreeCameraInputsManager>(
                     this.___guid,
                     "inputs",
                     (entity) =>
@@ -275,7 +275,7 @@ __ellipsoidOffset = null;
             set
             {
 __inputs = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "inputs",
                     value
@@ -297,7 +297,7 @@ __inputs = null;
             string name, Vector3 position, Scene scene, System.Nullable<bool> setActiveOnSceneIfNoneActive = null
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "FreeCamera" },
                 name, position, scene, setActiveOnSceneIfNoneActive
             );
@@ -331,7 +331,7 @@ __inputs = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "onCollide",
                 "CallOnCollideActions",
@@ -352,7 +352,7 @@ __inputs = null;
 
         public void attachControl(object element, System.Nullable<bool> noPreventDefault = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "attachControl" }, element, noPreventDefault
@@ -362,7 +362,7 @@ __inputs = null;
 
         public void detachControl(object element)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "detachControl" }, element
@@ -372,7 +372,7 @@ __inputs = null;
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }
@@ -382,7 +382,7 @@ __inputs = null;
 
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }

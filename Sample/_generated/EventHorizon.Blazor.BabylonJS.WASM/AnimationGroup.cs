@@ -24,7 +24,7 @@ namespace BabylonJS
         #region Static Methods
         public static AnimationGroup Parse(object parsedAnimationGroup, Scene scene)
         {
-            return EventHorizonBlazorInteropt.FuncClass<AnimationGroup>(
+            return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -40,7 +40,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "from"
                 );
@@ -52,7 +52,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "to"
                 );
@@ -64,7 +64,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isStarted"
                 );
@@ -76,7 +76,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isPlaying"
                 );
@@ -88,7 +88,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "speedRatio"
                 );
@@ -96,7 +96,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "speedRatio",
                     value
@@ -109,7 +109,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "loopAnimation"
                 );
@@ -117,7 +117,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "loopAnimation",
                     value
@@ -130,7 +130,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<TargetedAnimation>(
+            return EventHorizonBlazorInterop.GetArrayClass<TargetedAnimation>(
                     this.___guid,
                     "targetedAnimations",
                     (entity) =>
@@ -146,7 +146,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Animatable>(
+            return EventHorizonBlazorInterop.GetArrayClass<Animatable>(
                     this.___guid,
                     "animatables",
                     (entity) =>
@@ -164,7 +164,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "name"
                 );
@@ -172,7 +172,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "name",
                     value
@@ -185,7 +185,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "uniqueId"
                 );
@@ -193,7 +193,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "uniqueId",
                     value
@@ -208,7 +208,7 @@ namespace BabylonJS
             {
             if(__onAnimationEndObservable == null)
             {
-                __onAnimationEndObservable = EventHorizonBlazorInteropt.GetClass<Observable<TargetedAnimation>>(
+                __onAnimationEndObservable = EventHorizonBlazorInterop.GetClass<Observable<TargetedAnimation>>(
                     this.___guid,
                     "onAnimationEndObservable",
                     (entity) =>
@@ -222,7 +222,7 @@ namespace BabylonJS
             set
             {
 __onAnimationEndObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onAnimationEndObservable",
                     value
@@ -237,7 +237,7 @@ __onAnimationEndObservable = null;
             {
             if(__onAnimationLoopObservable == null)
             {
-                __onAnimationLoopObservable = EventHorizonBlazorInteropt.GetClass<Observable<TargetedAnimation>>(
+                __onAnimationLoopObservable = EventHorizonBlazorInterop.GetClass<Observable<TargetedAnimation>>(
                     this.___guid,
                     "onAnimationLoopObservable",
                     (entity) =>
@@ -251,7 +251,7 @@ __onAnimationEndObservable = null;
             set
             {
 __onAnimationLoopObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onAnimationLoopObservable",
                     value
@@ -266,7 +266,7 @@ __onAnimationLoopObservable = null;
             {
             if(__onAnimationGroupLoopObservable == null)
             {
-                __onAnimationGroupLoopObservable = EventHorizonBlazorInteropt.GetClass<Observable<AnimationGroup>>(
+                __onAnimationGroupLoopObservable = EventHorizonBlazorInterop.GetClass<Observable<AnimationGroup>>(
                     this.___guid,
                     "onAnimationGroupLoopObservable",
                     (entity) =>
@@ -280,7 +280,7 @@ __onAnimationLoopObservable = null;
             set
             {
 __onAnimationGroupLoopObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onAnimationGroupLoopObservable",
                     value
@@ -295,7 +295,7 @@ __onAnimationGroupLoopObservable = null;
             {
             if(__onAnimationGroupEndObservable == null)
             {
-                __onAnimationGroupEndObservable = EventHorizonBlazorInteropt.GetClass<Observable<AnimationGroup>>(
+                __onAnimationGroupEndObservable = EventHorizonBlazorInterop.GetClass<Observable<AnimationGroup>>(
                     this.___guid,
                     "onAnimationGroupEndObservable",
                     (entity) =>
@@ -309,7 +309,7 @@ __onAnimationGroupLoopObservable = null;
             set
             {
 __onAnimationGroupEndObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onAnimationGroupEndObservable",
                     value
@@ -324,7 +324,7 @@ __onAnimationGroupEndObservable = null;
             {
             if(__onAnimationGroupPauseObservable == null)
             {
-                __onAnimationGroupPauseObservable = EventHorizonBlazorInteropt.GetClass<Observable<AnimationGroup>>(
+                __onAnimationGroupPauseObservable = EventHorizonBlazorInterop.GetClass<Observable<AnimationGroup>>(
                     this.___guid,
                     "onAnimationGroupPauseObservable",
                     (entity) =>
@@ -338,7 +338,7 @@ __onAnimationGroupEndObservable = null;
             set
             {
 __onAnimationGroupPauseObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onAnimationGroupPauseObservable",
                     value
@@ -353,7 +353,7 @@ __onAnimationGroupPauseObservable = null;
             {
             if(__onAnimationGroupPlayObservable == null)
             {
-                __onAnimationGroupPlayObservable = EventHorizonBlazorInteropt.GetClass<Observable<AnimationGroup>>(
+                __onAnimationGroupPlayObservable = EventHorizonBlazorInterop.GetClass<Observable<AnimationGroup>>(
                     this.___guid,
                     "onAnimationGroupPlayObservable",
                     (entity) =>
@@ -367,7 +367,7 @@ __onAnimationGroupPauseObservable = null;
             set
             {
 __onAnimationGroupPlayObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onAnimationGroupPlayObservable",
                     value
@@ -390,7 +390,7 @@ __onAnimationGroupPlayObservable = null;
             string name, Scene scene = null
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "AnimationGroup" },
                 name, scene
             );
@@ -401,7 +401,7 @@ __onAnimationGroupPlayObservable = null;
         #region Methods
         public TargetedAnimation addTargetedAnimation(Animation animation, object target)
         {
-            return EventHorizonBlazorInteropt.FuncClass<TargetedAnimation>(
+            return EventHorizonBlazorInterop.FuncClass<TargetedAnimation>(
                 entity => new TargetedAnimation() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -412,7 +412,7 @@ __onAnimationGroupPlayObservable = null;
 
         public AnimationGroup normalize(System.Nullable<decimal> beginFrame = null, System.Nullable<decimal> endFrame = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<AnimationGroup>(
+            return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -423,7 +423,7 @@ __onAnimationGroupPlayObservable = null;
 
         public AnimationGroup start(System.Nullable<bool> loop = null, System.Nullable<decimal> speedRatio = null, System.Nullable<decimal> from = null, System.Nullable<decimal> to = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<AnimationGroup>(
+            return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -434,7 +434,7 @@ __onAnimationGroupPlayObservable = null;
 
         public AnimationGroup pause()
         {
-            return EventHorizonBlazorInteropt.FuncClass<AnimationGroup>(
+            return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -445,7 +445,7 @@ __onAnimationGroupPlayObservable = null;
 
         public AnimationGroup play(System.Nullable<bool> loop = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<AnimationGroup>(
+            return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -456,7 +456,7 @@ __onAnimationGroupPlayObservable = null;
 
         public AnimationGroup reset()
         {
-            return EventHorizonBlazorInteropt.FuncClass<AnimationGroup>(
+            return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -467,7 +467,7 @@ __onAnimationGroupPlayObservable = null;
 
         public AnimationGroup restart()
         {
-            return EventHorizonBlazorInteropt.FuncClass<AnimationGroup>(
+            return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -478,7 +478,7 @@ __onAnimationGroupPlayObservable = null;
 
         public AnimationGroup stop()
         {
-            return EventHorizonBlazorInteropt.FuncClass<AnimationGroup>(
+            return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -489,7 +489,7 @@ __onAnimationGroupPlayObservable = null;
 
         public AnimationGroup setWeightForAllAnimatables(decimal weight)
         {
-            return EventHorizonBlazorInteropt.FuncClass<AnimationGroup>(
+            return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -500,7 +500,7 @@ __onAnimationGroupPlayObservable = null;
 
         public AnimationGroup syncAllAnimationsWith(Animatable root)
         {
-            return EventHorizonBlazorInteropt.FuncClass<AnimationGroup>(
+            return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -511,7 +511,7 @@ __onAnimationGroupPlayObservable = null;
 
         public AnimationGroup goToFrame(decimal frame)
         {
-            return EventHorizonBlazorInteropt.FuncClass<AnimationGroup>(
+            return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -522,7 +522,7 @@ __onAnimationGroupPlayObservable = null;
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }
@@ -534,7 +534,7 @@ __onAnimationGroupPlayObservable = null;
 
         public CachedEntity serialize()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }
@@ -544,7 +544,7 @@ __onAnimationGroupPlayObservable = null;
 
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -554,7 +554,7 @@ __onAnimationGroupPlayObservable = null;
 
         public string toString(System.Nullable<bool> fullDetails = null)
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "toString" }, fullDetails

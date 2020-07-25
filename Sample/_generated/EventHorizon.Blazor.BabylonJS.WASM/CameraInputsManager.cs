@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             if(__attached == null)
             {
-                __attached = EventHorizonBlazorInteropt.GetClass<CameraInputsMapCachedEntity<TCamera>>(
+                __attached = EventHorizonBlazorInterop.GetClass<CameraInputsMapCachedEntity<TCamera>>(
                     this.___guid,
                     "attached",
                     (entity) =>
@@ -51,7 +51,7 @@ namespace BabylonJS
             set
             {
 __attached = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "attached",
                     value
@@ -64,7 +64,7 @@ __attached = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "attachedElement"
                 );
@@ -72,7 +72,7 @@ __attached = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "attachedElement",
                     value
@@ -85,7 +85,7 @@ __attached = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "noPreventDefault"
                 );
@@ -93,7 +93,7 @@ __attached = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "noPreventDefault",
                     value
@@ -108,7 +108,7 @@ __attached = null;
             {
             if(__camera == null)
             {
-                __camera = EventHorizonBlazorInteropt.GetClass<TCamera>(
+                __camera = EventHorizonBlazorInterop.GetClass<TCamera>(
                     this.___guid,
                     "camera",
                     (entity) =>
@@ -122,7 +122,7 @@ __attached = null;
             set
             {
 __camera = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "camera",
                     value
@@ -145,7 +145,7 @@ __camera = null;
             TCamera camera
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "CameraInputsManager" },
                 camera
             );
@@ -179,7 +179,7 @@ __camera = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "checkInputs",
                 "CallCheckInputsActions",
@@ -200,7 +200,7 @@ __camera = null;
 
         public void add(ICameraInputCachedEntity<TCamera> input)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "add" }, input
@@ -210,7 +210,7 @@ __camera = null;
 
         public void remove(ICameraInputCachedEntity<TCamera> inputToRemove)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "remove" }, inputToRemove
@@ -220,7 +220,7 @@ __camera = null;
 
         public void removeByType(string inputType)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "removeByType" }, inputType
@@ -230,7 +230,7 @@ __camera = null;
 
         public void attachInput(ICameraInputCachedEntity<TCamera> input)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "attachInput" }, input
@@ -240,7 +240,7 @@ __camera = null;
 
         public void attachElement(object element, System.Nullable<bool> noPreventDefault = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "attachElement" }, element, noPreventDefault
@@ -250,7 +250,7 @@ __camera = null;
 
         public void detachElement(object element, System.Nullable<bool> disconnect = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "detachElement" }, element, disconnect
@@ -260,7 +260,7 @@ __camera = null;
 
         public void rebuildInputCheck()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "rebuildInputCheck" }
@@ -270,7 +270,7 @@ __camera = null;
 
         public void clear()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "clear" }
@@ -280,7 +280,7 @@ __camera = null;
 
         public void serialize(object serializedCamera)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }, serializedCamera
@@ -290,7 +290,7 @@ __camera = null;
 
         public void parse(object parsedCamera)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "parse" }, parsedCamera

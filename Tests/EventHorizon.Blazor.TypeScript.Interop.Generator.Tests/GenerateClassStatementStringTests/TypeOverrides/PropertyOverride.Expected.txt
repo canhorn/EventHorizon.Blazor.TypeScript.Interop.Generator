@@ -25,7 +25,7 @@ namespace Examples
             {
             if(__vectorStaticCheck == null)
             {
-                __vectorStaticCheck = EventHorizonBlazorInteropt.GetClass<OverrideVector4>(
+                __vectorStaticCheck = EventHorizonBlazorInterop.GetClass<OverrideVector4>(
                     "Examples",
                     "ExampleClass.vectorStaticCheck",
                     (entity) =>
@@ -39,7 +39,7 @@ namespace Examples
             set
             {
 __vectorStaticCheck = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "Examples",
                     "ExampleClass.vectorStaticCheck",
                     value
@@ -52,7 +52,7 @@ __vectorStaticCheck = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<int>(
+            return EventHorizonBlazorInterop.Get<int>(
                     "Examples",
                     "ExampleClass.primativeStaticCheck"
                 );
@@ -76,7 +76,7 @@ __vectorStaticCheck = null;
             {
             if(__vectorCheck == null)
             {
-                __vectorCheck = EventHorizonBlazorInteropt.GetClass<OverrideVector4>(
+                __vectorCheck = EventHorizonBlazorInterop.GetClass<OverrideVector4>(
                     this.___guid,
                     "vectorCheck",
                     (entity) =>
@@ -90,7 +90,7 @@ __vectorStaticCheck = null;
             set
             {
 __vectorCheck = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "vectorCheck",
                     value
@@ -103,7 +103,7 @@ __vectorCheck = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<int>(
+            return EventHorizonBlazorInterop.Get<int>(
                     this.___guid,
                     "primativeCheck"
                 );
@@ -111,7 +111,7 @@ __vectorCheck = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "primativeCheck",
                     value

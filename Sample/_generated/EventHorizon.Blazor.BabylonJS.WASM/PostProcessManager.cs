@@ -47,7 +47,7 @@ namespace BabylonJS
             Scene scene
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "PostProcessManager" },
                 scene
             );
@@ -58,7 +58,7 @@ namespace BabylonJS
         #region Methods
         public void directRender(PostProcess[] postProcesses, InternalTexture targetTexture = null, System.Nullable<bool> forceFullscreenViewport = null, System.Nullable<decimal> faceIndex = null, System.Nullable<decimal> lodLevel = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "directRender" }, postProcesses, targetTexture, forceFullscreenViewport, faceIndex, lodLevel
@@ -68,7 +68,7 @@ namespace BabylonJS
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }

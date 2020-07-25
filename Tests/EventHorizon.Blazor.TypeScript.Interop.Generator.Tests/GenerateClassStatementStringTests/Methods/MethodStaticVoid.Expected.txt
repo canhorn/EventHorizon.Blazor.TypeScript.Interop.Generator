@@ -24,7 +24,7 @@ namespace Static.Class
         #region Static Methods
         public static void makeObserverTopPriority(Observer<T> observer)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "Static", "Class", "ExampleClass", "makeObserverTopPriority" }, observer
@@ -34,7 +34,7 @@ namespace Static.Class
 
         public static void VoidMethodNoIdentifier()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "Static", "Class", "ExampleClass", "VoidMethodNoIdentifier" }

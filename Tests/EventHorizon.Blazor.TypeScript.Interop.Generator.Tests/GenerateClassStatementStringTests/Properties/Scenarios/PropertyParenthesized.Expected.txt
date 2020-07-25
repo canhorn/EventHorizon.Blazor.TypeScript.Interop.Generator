@@ -37,7 +37,7 @@ namespace Static.Primitive
             {
             if(__wrappedHeight == null)
             {
-                __wrappedHeight = EventHorizonBlazorInteropt.GetClass<Vector2>(
+                __wrappedHeight = EventHorizonBlazorInterop.GetClass<Vector2>(
                     this.___guid,
                     "wrappedHeight",
                     (entity) =>
@@ -51,7 +51,7 @@ namespace Static.Primitive
             set
             {
 __wrappedHeight = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "wrappedHeight",
                     value
@@ -66,7 +66,7 @@ __wrappedHeight = null;
             {
             if(__height == null)
             {
-                __height = EventHorizonBlazorInteropt.GetClass<Vector2>(
+                __height = EventHorizonBlazorInterop.GetClass<Vector2>(
                     this.___guid,
                     "height",
                     (entity) =>
@@ -80,7 +80,7 @@ __wrappedHeight = null;
             set
             {
 __height = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "height",
                     value
@@ -128,7 +128,7 @@ __height = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "functionType",
                 "CallFunctionTypeActions",

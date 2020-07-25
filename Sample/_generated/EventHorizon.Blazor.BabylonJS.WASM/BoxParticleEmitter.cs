@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             if(__direction1 == null)
             {
-                __direction1 = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __direction1 = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "direction1",
                     (entity) =>
@@ -51,7 +51,7 @@ namespace BabylonJS
             set
             {
 __direction1 = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "direction1",
                     value
@@ -66,7 +66,7 @@ __direction1 = null;
             {
             if(__direction2 == null)
             {
-                __direction2 = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __direction2 = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "direction2",
                     (entity) =>
@@ -80,7 +80,7 @@ __direction1 = null;
             set
             {
 __direction2 = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "direction2",
                     value
@@ -95,7 +95,7 @@ __direction2 = null;
             {
             if(__minEmitBox == null)
             {
-                __minEmitBox = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __minEmitBox = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "minEmitBox",
                     (entity) =>
@@ -109,7 +109,7 @@ __direction2 = null;
             set
             {
 __minEmitBox = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "minEmitBox",
                     value
@@ -124,7 +124,7 @@ __minEmitBox = null;
             {
             if(__maxEmitBox == null)
             {
-                __maxEmitBox = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __maxEmitBox = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "maxEmitBox",
                     (entity) =>
@@ -138,7 +138,7 @@ __minEmitBox = null;
             set
             {
 __maxEmitBox = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "maxEmitBox",
                     value
@@ -162,7 +162,7 @@ __maxEmitBox = null;
         #region Methods
         public void startDirectionFunction(Matrix worldMatrix, Vector3 directionToUpdate, Particle particle, bool isLocal)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "startDirectionFunction" }, worldMatrix, directionToUpdate, particle, isLocal
@@ -172,7 +172,7 @@ __maxEmitBox = null;
 
         public void startPositionFunction(Matrix worldMatrix, Vector3 positionToUpdate, Particle particle, bool isLocal)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "startPositionFunction" }, worldMatrix, positionToUpdate, particle, isLocal
@@ -182,7 +182,7 @@ __maxEmitBox = null;
 
         public BoxParticleEmitter clone()
         {
-            return EventHorizonBlazorInteropt.FuncClass<BoxParticleEmitter>(
+            return EventHorizonBlazorInterop.FuncClass<BoxParticleEmitter>(
                 entity => new BoxParticleEmitter() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -193,7 +193,7 @@ __maxEmitBox = null;
 
         public void applyToShader(Effect effect)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "applyToShader" }, effect
@@ -203,7 +203,7 @@ __maxEmitBox = null;
 
         public string getEffectDefines()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getEffectDefines" }
@@ -213,7 +213,7 @@ __maxEmitBox = null;
 
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -223,7 +223,7 @@ __maxEmitBox = null;
 
         public CachedEntity serialize()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }
@@ -233,7 +233,7 @@ __maxEmitBox = null;
 
         public void parse(object serializationObject)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "parse" }, serializationObject

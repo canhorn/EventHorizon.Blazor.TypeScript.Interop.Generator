@@ -9,7 +9,7 @@ namespace EventHorizon.Blazor.BabylonJS.Model
     {
         public static Canvas GetElementById(
             string elementId
-        ) => EventHorizonBlazorInteropt.FuncClass(
+        ) => EventHorizonBlazorInterop.FuncClass(
             entity => new Canvas(entity),
             new string[] { "document", "getElementById" },
             elementId

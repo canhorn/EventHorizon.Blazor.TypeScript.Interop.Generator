@@ -19,7 +19,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "GUI.Control.HORIZONTAL_ALIGNMENT_LEFT"
                 );
@@ -31,7 +31,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "GUI.Control.HORIZONTAL_ALIGNMENT_CENTER"
                 );
@@ -55,7 +55,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "GUI.Control.VERTICAL_ALIGNMENT_TOP"
                 );
@@ -67,7 +67,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "GUI.Control.VERTICAL_ALIGNMENT_BOTTOM"
                 );
@@ -79,7 +79,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "GUI.Control.VERTICAL_ALIGNMENT_CENTER"
                 );
@@ -93,7 +93,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "GUI.Control.AllowAlphaInheritance"
                 );
@@ -101,7 +101,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "GUI.Control.AllowAlphaInheritance",
                     value
@@ -136,7 +136,7 @@ namespace BabylonJS.GUI
             {
                 return;
             }
-            EventHorizonBlazorInteropt.AssemblyFuncCallback(
+            EventHorizonBlazorInterop.AssemblyFuncCallback(
                 "EventHorizon.Blazor.BabylonJS.WASM",
                 "BABYLON.GUI.Control.AddHeader",
                 "CallAddHeaderStaticActions"
@@ -161,7 +161,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "shadowOffsetX"
                 );
@@ -169,7 +169,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "shadowOffsetX",
                     value
@@ -182,7 +182,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "shadowOffsetY"
                 );
@@ -190,7 +190,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "shadowOffsetY",
                     value
@@ -203,7 +203,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "shadowBlur"
                 );
@@ -211,7 +211,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "shadowBlur",
                     value
@@ -224,7 +224,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "shadowColor"
                 );
@@ -232,7 +232,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "shadowColor",
                     value
@@ -245,7 +245,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "typeName"
                 );
@@ -259,7 +259,7 @@ namespace BabylonJS.GUI
             {
             if(__host == null)
             {
-                __host = EventHorizonBlazorInteropt.GetClass<AdvancedDynamicTexture>(
+                __host = EventHorizonBlazorInterop.GetClass<AdvancedDynamicTexture>(
                     this.___guid,
                     "host",
                     (entity) =>
@@ -277,7 +277,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "fontOffset"
                 );
@@ -285,7 +285,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "fontOffset",
                     value
@@ -298,7 +298,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "alpha"
                 );
@@ -306,7 +306,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "alpha",
                     value
@@ -319,7 +319,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isHighlighted"
                 );
@@ -327,7 +327,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isHighlighted",
                     value
@@ -340,7 +340,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "scaleX"
                 );
@@ -348,7 +348,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "scaleX",
                     value
@@ -361,7 +361,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "scaleY"
                 );
@@ -369,7 +369,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "scaleY",
                     value
@@ -382,7 +382,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "rotation"
                 );
@@ -390,7 +390,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "rotation",
                     value
@@ -403,7 +403,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "transformCenterY"
                 );
@@ -411,7 +411,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "transformCenterY",
                     value
@@ -424,7 +424,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "transformCenterX"
                 );
@@ -432,7 +432,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "transformCenterX",
                     value
@@ -445,7 +445,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "horizontalAlignment"
                 );
@@ -453,7 +453,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "horizontalAlignment",
                     value
@@ -466,7 +466,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "verticalAlignment"
                 );
@@ -474,7 +474,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "verticalAlignment",
                     value
@@ -487,7 +487,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "width"
                 );
@@ -495,7 +495,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "width",
                     value
@@ -508,7 +508,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "widthInPixels"
                 );
@@ -516,7 +516,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "widthInPixels",
                     value
@@ -529,7 +529,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "height"
                 );
@@ -537,7 +537,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "height",
                     value
@@ -550,7 +550,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "heightInPixels"
                 );
@@ -558,7 +558,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "heightInPixels",
                     value
@@ -571,7 +571,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "fontFamily"
                 );
@@ -579,7 +579,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "fontFamily",
                     value
@@ -592,7 +592,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "fontStyle"
                 );
@@ -600,7 +600,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "fontStyle",
                     value
@@ -613,7 +613,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "fontWeight"
                 );
@@ -621,7 +621,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "fontWeight",
                     value
@@ -636,7 +636,7 @@ namespace BabylonJS.GUI
             {
             if(__style == null)
             {
-                __style = EventHorizonBlazorInteropt.GetClass<Style>(
+                __style = EventHorizonBlazorInterop.GetClass<Style>(
                     this.___guid,
                     "style",
                     (entity) =>
@@ -650,7 +650,7 @@ namespace BabylonJS.GUI
             set
             {
 __style = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "style",
                     value
@@ -663,7 +663,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "fontSizeInPixels"
                 );
@@ -671,7 +671,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "fontSizeInPixels",
                     value
@@ -684,7 +684,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "fontSize"
                 );
@@ -692,7 +692,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "fontSize",
                     value
@@ -705,7 +705,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "color"
                 );
@@ -713,7 +713,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "color",
                     value
@@ -726,7 +726,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "zIndex"
                 );
@@ -734,7 +734,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "zIndex",
                     value
@@ -747,7 +747,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "notRenderable"
                 );
@@ -755,7 +755,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "notRenderable",
                     value
@@ -768,7 +768,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isVisible"
                 );
@@ -776,7 +776,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isVisible",
                     value
@@ -789,7 +789,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isDirty"
                 );
@@ -803,7 +803,7 @@ __style = null;
             {
             if(__linkedMesh == null)
             {
-                __linkedMesh = EventHorizonBlazorInteropt.GetClass<AbstractMesh>(
+                __linkedMesh = EventHorizonBlazorInterop.GetClass<AbstractMesh>(
                     this.___guid,
                     "linkedMesh",
                     (entity) =>
@@ -821,7 +821,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "paddingLeft"
                 );
@@ -829,7 +829,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "paddingLeft",
                     value
@@ -842,7 +842,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "paddingLeftInPixels"
                 );
@@ -850,7 +850,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "paddingLeftInPixels",
                     value
@@ -863,7 +863,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "paddingRight"
                 );
@@ -871,7 +871,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "paddingRight",
                     value
@@ -884,7 +884,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "paddingRightInPixels"
                 );
@@ -892,7 +892,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "paddingRightInPixels",
                     value
@@ -905,7 +905,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "paddingTop"
                 );
@@ -913,7 +913,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "paddingTop",
                     value
@@ -926,7 +926,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "paddingTopInPixels"
                 );
@@ -934,7 +934,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "paddingTopInPixels",
                     value
@@ -947,7 +947,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "paddingBottom"
                 );
@@ -955,7 +955,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "paddingBottom",
                     value
@@ -968,7 +968,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "paddingBottomInPixels"
                 );
@@ -976,7 +976,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "paddingBottomInPixels",
                     value
@@ -989,7 +989,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "left"
                 );
@@ -997,7 +997,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "left",
                     value
@@ -1010,7 +1010,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "leftInPixels"
                 );
@@ -1018,7 +1018,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "leftInPixels",
                     value
@@ -1031,7 +1031,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "top"
                 );
@@ -1039,7 +1039,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "top",
                     value
@@ -1052,7 +1052,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "topInPixels"
                 );
@@ -1060,7 +1060,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "topInPixels",
                     value
@@ -1073,7 +1073,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "linkOffsetX"
                 );
@@ -1081,7 +1081,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "linkOffsetX",
                     value
@@ -1094,7 +1094,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "linkOffsetXInPixels"
                 );
@@ -1102,7 +1102,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "linkOffsetXInPixels",
                     value
@@ -1115,7 +1115,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "linkOffsetY"
                 );
@@ -1123,7 +1123,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "linkOffsetY",
                     value
@@ -1136,7 +1136,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "linkOffsetYInPixels"
                 );
@@ -1144,7 +1144,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "linkOffsetYInPixels",
                     value
@@ -1157,7 +1157,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "centerX"
                 );
@@ -1169,7 +1169,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "centerY"
                 );
@@ -1181,7 +1181,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isEnabled"
                 );
@@ -1189,7 +1189,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isEnabled",
                     value
@@ -1202,7 +1202,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "disabledColor"
                 );
@@ -1210,7 +1210,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "disabledColor",
                     value
@@ -1223,7 +1223,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "disabledColorItem"
                 );
@@ -1231,7 +1231,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "disabledColorItem",
                     value
@@ -1246,7 +1246,7 @@ __style = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "name"
                 );
@@ -1254,7 +1254,7 @@ __style = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "name",
                     value
@@ -1269,7 +1269,7 @@ __style = null;
             {
             if(__parent == null)
             {
-                __parent = EventHorizonBlazorInteropt.GetClass<Container>(
+                __parent = EventHorizonBlazorInterop.GetClass<Container>(
                     this.___guid,
                     "parent",
                     (entity) =>
@@ -1283,7 +1283,7 @@ __style = null;
             set
             {
 __parent = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "parent",
                     value
@@ -1296,7 +1296,7 @@ __parent = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "uniqueId"
                 );
@@ -1304,7 +1304,7 @@ __parent = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "uniqueId",
                     value
@@ -1317,7 +1317,7 @@ __parent = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "metadata"
                 );
@@ -1325,7 +1325,7 @@ __parent = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "metadata",
                     value
@@ -1338,7 +1338,7 @@ __parent = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isHitTestVisible"
                 );
@@ -1346,7 +1346,7 @@ __parent = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isHitTestVisible",
                     value
@@ -1359,7 +1359,7 @@ __parent = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isPointerBlocker"
                 );
@@ -1367,7 +1367,7 @@ __parent = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isPointerBlocker",
                     value
@@ -1380,7 +1380,7 @@ __parent = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isFocusInvisible"
                 );
@@ -1388,7 +1388,7 @@ __parent = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isFocusInvisible",
                     value
@@ -1401,7 +1401,7 @@ __parent = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "clipChildren"
                 );
@@ -1409,7 +1409,7 @@ __parent = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "clipChildren",
                     value
@@ -1422,7 +1422,7 @@ __parent = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "clipContent"
                 );
@@ -1430,7 +1430,7 @@ __parent = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "clipContent",
                     value
@@ -1443,7 +1443,7 @@ __parent = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useBitmapCache"
                 );
@@ -1451,7 +1451,7 @@ __parent = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "useBitmapCache",
                     value
@@ -1464,7 +1464,7 @@ __parent = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "hoverCursor"
                 );
@@ -1472,7 +1472,7 @@ __parent = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "hoverCursor",
                     value
@@ -1487,7 +1487,7 @@ __parent = null;
             {
             if(__onWheelObservable == null)
             {
-                __onWheelObservable = EventHorizonBlazorInteropt.GetClass<Observable<Vector2>>(
+                __onWheelObservable = EventHorizonBlazorInterop.GetClass<Observable<Vector2>>(
                     this.___guid,
                     "onWheelObservable",
                     (entity) =>
@@ -1501,7 +1501,7 @@ __parent = null;
             set
             {
 __onWheelObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onWheelObservable",
                     value
@@ -1516,7 +1516,7 @@ __onWheelObservable = null;
             {
             if(__onPointerMoveObservable == null)
             {
-                __onPointerMoveObservable = EventHorizonBlazorInteropt.GetClass<Observable<Vector2>>(
+                __onPointerMoveObservable = EventHorizonBlazorInterop.GetClass<Observable<Vector2>>(
                     this.___guid,
                     "onPointerMoveObservable",
                     (entity) =>
@@ -1530,7 +1530,7 @@ __onWheelObservable = null;
             set
             {
 __onPointerMoveObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onPointerMoveObservable",
                     value
@@ -1545,7 +1545,7 @@ __onPointerMoveObservable = null;
             {
             if(__onPointerOutObservable == null)
             {
-                __onPointerOutObservable = EventHorizonBlazorInteropt.GetClass<Observable<Control>>(
+                __onPointerOutObservable = EventHorizonBlazorInterop.GetClass<Observable<Control>>(
                     this.___guid,
                     "onPointerOutObservable",
                     (entity) =>
@@ -1559,7 +1559,7 @@ __onPointerMoveObservable = null;
             set
             {
 __onPointerOutObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onPointerOutObservable",
                     value
@@ -1574,7 +1574,7 @@ __onPointerOutObservable = null;
             {
             if(__onPointerDownObservable == null)
             {
-                __onPointerDownObservable = EventHorizonBlazorInteropt.GetClass<Observable<Vector2WithInfo>>(
+                __onPointerDownObservable = EventHorizonBlazorInterop.GetClass<Observable<Vector2WithInfo>>(
                     this.___guid,
                     "onPointerDownObservable",
                     (entity) =>
@@ -1588,7 +1588,7 @@ __onPointerOutObservable = null;
             set
             {
 __onPointerDownObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onPointerDownObservable",
                     value
@@ -1603,7 +1603,7 @@ __onPointerDownObservable = null;
             {
             if(__onPointerUpObservable == null)
             {
-                __onPointerUpObservable = EventHorizonBlazorInteropt.GetClass<Observable<Vector2WithInfo>>(
+                __onPointerUpObservable = EventHorizonBlazorInterop.GetClass<Observable<Vector2WithInfo>>(
                     this.___guid,
                     "onPointerUpObservable",
                     (entity) =>
@@ -1617,7 +1617,7 @@ __onPointerDownObservable = null;
             set
             {
 __onPointerUpObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onPointerUpObservable",
                     value
@@ -1632,7 +1632,7 @@ __onPointerUpObservable = null;
             {
             if(__onPointerClickObservable == null)
             {
-                __onPointerClickObservable = EventHorizonBlazorInteropt.GetClass<Observable<Vector2WithInfo>>(
+                __onPointerClickObservable = EventHorizonBlazorInterop.GetClass<Observable<Vector2WithInfo>>(
                     this.___guid,
                     "onPointerClickObservable",
                     (entity) =>
@@ -1646,7 +1646,7 @@ __onPointerUpObservable = null;
             set
             {
 __onPointerClickObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onPointerClickObservable",
                     value
@@ -1661,7 +1661,7 @@ __onPointerClickObservable = null;
             {
             if(__onPointerEnterObservable == null)
             {
-                __onPointerEnterObservable = EventHorizonBlazorInteropt.GetClass<Observable<Control>>(
+                __onPointerEnterObservable = EventHorizonBlazorInterop.GetClass<Observable<Control>>(
                     this.___guid,
                     "onPointerEnterObservable",
                     (entity) =>
@@ -1675,7 +1675,7 @@ __onPointerClickObservable = null;
             set
             {
 __onPointerEnterObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onPointerEnterObservable",
                     value
@@ -1690,7 +1690,7 @@ __onPointerEnterObservable = null;
             {
             if(__onDirtyObservable == null)
             {
-                __onDirtyObservable = EventHorizonBlazorInteropt.GetClass<Observable<Control>>(
+                __onDirtyObservable = EventHorizonBlazorInterop.GetClass<Observable<Control>>(
                     this.___guid,
                     "onDirtyObservable",
                     (entity) =>
@@ -1704,7 +1704,7 @@ __onPointerEnterObservable = null;
             set
             {
 __onDirtyObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onDirtyObservable",
                     value
@@ -1719,7 +1719,7 @@ __onDirtyObservable = null;
             {
             if(__onBeforeDrawObservable == null)
             {
-                __onBeforeDrawObservable = EventHorizonBlazorInteropt.GetClass<Observable<Control>>(
+                __onBeforeDrawObservable = EventHorizonBlazorInterop.GetClass<Observable<Control>>(
                     this.___guid,
                     "onBeforeDrawObservable",
                     (entity) =>
@@ -1733,7 +1733,7 @@ __onDirtyObservable = null;
             set
             {
 __onBeforeDrawObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onBeforeDrawObservable",
                     value
@@ -1748,7 +1748,7 @@ __onBeforeDrawObservable = null;
             {
             if(__onAfterDrawObservable == null)
             {
-                __onAfterDrawObservable = EventHorizonBlazorInteropt.GetClass<Observable<Control>>(
+                __onAfterDrawObservable = EventHorizonBlazorInterop.GetClass<Observable<Control>>(
                     this.___guid,
                     "onAfterDrawObservable",
                     (entity) =>
@@ -1762,7 +1762,7 @@ __onBeforeDrawObservable = null;
             set
             {
 __onAfterDrawObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onAfterDrawObservable",
                     value
@@ -1785,7 +1785,7 @@ __onAfterDrawObservable = null;
             string name = null
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GUI", "Control" },
                 name
             );
@@ -1796,7 +1796,7 @@ __onAfterDrawObservable = null;
         #region Methods
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -1806,7 +1806,7 @@ __onAfterDrawObservable = null;
 
         public Control getAscendantOfClass(string className)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Control>(
+            return EventHorizonBlazorInterop.FuncClass<Control>(
                 entity => new Control() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1817,7 +1817,7 @@ __onAfterDrawObservable = null;
 
         public bool isAscendant(Control container)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isAscendant" }, container
@@ -1827,7 +1827,7 @@ __onAfterDrawObservable = null;
 
         public Vector2 getLocalCoordinates(Vector2 globalCoordinates)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Vector2>(
+            return EventHorizonBlazorInterop.FuncClass<Vector2>(
                 entity => new Vector2() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1838,7 +1838,7 @@ __onAfterDrawObservable = null;
 
         public Control getLocalCoordinatesToRef(Vector2 globalCoordinates, Vector2 result)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Control>(
+            return EventHorizonBlazorInterop.FuncClass<Control>(
                 entity => new Control() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1849,7 +1849,7 @@ __onAfterDrawObservable = null;
 
         public Vector2 getParentLocalCoordinates(Vector2 globalCoordinates)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Vector2>(
+            return EventHorizonBlazorInterop.FuncClass<Vector2>(
                 entity => new Vector2() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1860,7 +1860,7 @@ __onAfterDrawObservable = null;
 
         public void moveToVector3(Vector3 position, Scene scene)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "moveToVector3" }, position, scene
@@ -1874,7 +1874,7 @@ __onAfterDrawObservable = null;
 
         public void linkWithMesh(AbstractMesh mesh)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "linkWithMesh" }, mesh
@@ -1884,7 +1884,7 @@ __onAfterDrawObservable = null;
 
         public bool contains(decimal x, decimal y)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "contains" }, x, y
@@ -1894,7 +1894,7 @@ __onAfterDrawObservable = null;
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }

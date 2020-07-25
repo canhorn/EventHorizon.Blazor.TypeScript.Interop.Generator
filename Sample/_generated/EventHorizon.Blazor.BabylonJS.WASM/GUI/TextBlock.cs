@@ -31,7 +31,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArray<CachedEntity>(
+            return EventHorizonBlazorInterop.GetArray<CachedEntity>(
                     this.___guid,
                     "lines"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "resizeToFit"
                 );
@@ -51,7 +51,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "resizeToFit",
                     value
@@ -66,7 +66,7 @@ namespace BabylonJS.GUI
             {
             if(__textWrapping == null)
             {
-                __textWrapping = EventHorizonBlazorInteropt.GetClass<TextWrapping>(
+                __textWrapping = EventHorizonBlazorInterop.GetClass<TextWrapping>(
                     this.___guid,
                     "textWrapping",
                     (entity) =>
@@ -80,7 +80,7 @@ namespace BabylonJS.GUI
             set
             {
 __textWrapping = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "textWrapping",
                     value
@@ -93,7 +93,7 @@ __textWrapping = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "text"
                 );
@@ -101,7 +101,7 @@ __textWrapping = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "text",
                     value
@@ -114,7 +114,7 @@ __textWrapping = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "textHorizontalAlignment"
                 );
@@ -122,7 +122,7 @@ __textWrapping = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "textHorizontalAlignment",
                     value
@@ -135,7 +135,7 @@ __textWrapping = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "textVerticalAlignment"
                 );
@@ -143,7 +143,7 @@ __textWrapping = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "textVerticalAlignment",
                     value
@@ -156,7 +156,7 @@ __textWrapping = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "lineSpacing"
                 );
@@ -164,7 +164,7 @@ __textWrapping = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "lineSpacing",
                     value
@@ -177,7 +177,7 @@ __textWrapping = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "outlineWidth"
                 );
@@ -185,7 +185,7 @@ __textWrapping = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "outlineWidth",
                     value
@@ -198,7 +198,7 @@ __textWrapping = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "outlineColor"
                 );
@@ -206,7 +206,7 @@ __textWrapping = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "outlineColor",
                     value
@@ -221,7 +221,7 @@ __textWrapping = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "name"
                 );
@@ -229,7 +229,7 @@ __textWrapping = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "name",
                     value
@@ -244,7 +244,7 @@ __textWrapping = null;
             {
             if(__onTextChangedObservable == null)
             {
-                __onTextChangedObservable = EventHorizonBlazorInteropt.GetClass<Observable<TextBlock>>(
+                __onTextChangedObservable = EventHorizonBlazorInterop.GetClass<Observable<TextBlock>>(
                     this.___guid,
                     "onTextChangedObservable",
                     (entity) =>
@@ -258,7 +258,7 @@ __textWrapping = null;
             set
             {
 __onTextChangedObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onTextChangedObservable",
                     value
@@ -273,7 +273,7 @@ __onTextChangedObservable = null;
             {
             if(__onLinesReadyObservable == null)
             {
-                __onLinesReadyObservable = EventHorizonBlazorInteropt.GetClass<Observable<TextBlock>>(
+                __onLinesReadyObservable = EventHorizonBlazorInterop.GetClass<Observable<TextBlock>>(
                     this.___guid,
                     "onLinesReadyObservable",
                     (entity) =>
@@ -287,7 +287,7 @@ __onTextChangedObservable = null;
             set
             {
 __onLinesReadyObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onLinesReadyObservable",
                     value
@@ -309,7 +309,7 @@ __onLinesReadyObservable = null;
             string name = null, string text = null
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GUI", "TextBlock" },
                 name, text
             );
@@ -320,7 +320,7 @@ __onLinesReadyObservable = null;
         #region Methods
         public decimal computeExpectedHeight()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "computeExpectedHeight" }
@@ -330,7 +330,7 @@ __onLinesReadyObservable = null;
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }

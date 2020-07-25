@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "frame"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "frame",
                     value
@@ -56,7 +56,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "value"
                 );
@@ -64,7 +64,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "value",
                     value
@@ -77,7 +77,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "inTangent"
                 );
@@ -85,7 +85,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "inTangent",
                     value
@@ -98,7 +98,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "outTangent"
                 );
@@ -106,7 +106,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "outTangent",
                     value
@@ -121,7 +121,7 @@ namespace BabylonJS
             {
             if(__interpolation == null)
             {
-                __interpolation = EventHorizonBlazorInteropt.GetClass<AnimationKeyInterpolation>(
+                __interpolation = EventHorizonBlazorInterop.GetClass<AnimationKeyInterpolation>(
                     this.___guid,
                     "interpolation",
                     (entity) =>
@@ -135,7 +135,7 @@ namespace BabylonJS
             set
             {
 __interpolation = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "interpolation",
                     value

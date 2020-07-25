@@ -35,7 +35,7 @@ namespace Static.Primitive
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "stringType"
                 );
@@ -43,7 +43,7 @@ namespace Static.Primitive
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "stringType",
                     value
@@ -56,7 +56,7 @@ namespace Static.Primitive
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "booleanType"
                 );
@@ -64,7 +64,7 @@ namespace Static.Primitive
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "booleanType",
                     value
@@ -77,7 +77,7 @@ namespace Static.Primitive
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "htmlElementType"
                 );
@@ -85,7 +85,7 @@ namespace Static.Primitive
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "htmlElementType",
                     value
@@ -98,7 +98,7 @@ namespace Static.Primitive
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<int>(
+            return EventHorizonBlazorInterop.Get<int>(
                     this.___guid,
                     "intType"
                 );
@@ -106,7 +106,7 @@ namespace Static.Primitive
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "intType",
                     value
@@ -119,7 +119,7 @@ namespace Static.Primitive
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "partialObject"
                 );
@@ -127,7 +127,7 @@ namespace Static.Primitive
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "partialObject",
                     value

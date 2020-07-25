@@ -72,7 +72,7 @@ namespace Static.Class
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "add",
                 "CallAddActions",

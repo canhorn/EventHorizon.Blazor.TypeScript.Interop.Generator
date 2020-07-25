@@ -48,7 +48,7 @@ namespace BabylonJS
         #region Methods
         public RenderTargetTexture getShadowMap()
         {
-            return EventHorizonBlazorInteropt.FuncClass<RenderTargetTexture>(
+            return EventHorizonBlazorInterop.FuncClass<RenderTargetTexture>(
                 entity => new RenderTargetTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -59,7 +59,7 @@ namespace BabylonJS
 
         public bool isReady(SubMesh subMesh, bool useInstances)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isReady" }, subMesh, useInstances
@@ -69,7 +69,7 @@ namespace BabylonJS
 
         public void prepareDefines(MaterialDefines defines, decimal lightIndex)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "prepareDefines" }, defines, lightIndex
@@ -79,7 +79,7 @@ namespace BabylonJS
 
         public void bindShadowLight(string lightIndex, Effect effect)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "bindShadowLight" }, lightIndex, effect
@@ -89,7 +89,7 @@ namespace BabylonJS
 
         public Matrix getTransformMatrix()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Matrix>(
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -100,7 +100,7 @@ namespace BabylonJS
 
         public void recreateShadowMap()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "recreateShadowMap" }
@@ -133,7 +133,7 @@ namespace BabylonJS
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "forceCompilation",
                 "CallForceCompilationActions",
@@ -154,7 +154,7 @@ namespace BabylonJS
 
         public void forceCompilationAsync(object options = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "forceCompilationAsync" }, options
@@ -164,7 +164,7 @@ namespace BabylonJS
 
         public CachedEntity serialize()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }
@@ -174,7 +174,7 @@ namespace BabylonJS
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }

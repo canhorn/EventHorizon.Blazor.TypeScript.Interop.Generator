@@ -471,9 +471,9 @@
                         args.push(arg);
                     }
                 }
-                if (referenceMethod === "CallAddActions") {
-                    console.log({ type: arguments[0].type, entity, funcCallbackName, referenceMethod, invokableReference, arguments, args })
-                }
+                //if (referenceMethod === "CallAddActions") {
+                //    console.log({ type: arguments[0].type, entity, funcCallbackName, referenceMethod, invokableReference, arguments, args })
+                //}
                 invokableReference.invokeMethodAsync(referenceMethod, ...args);
             });
         },

@@ -37,7 +37,7 @@ namespace Generic.Properties
             {
             if(__attached == null)
             {
-                __attached = EventHorizonBlazorInteropt.GetClass<CameraInputsMapCachedEntity<TCamera>>(
+                __attached = EventHorizonBlazorInterop.GetClass<CameraInputsMapCachedEntity<TCamera>>(
                     this.___guid,
                     "attached",
                     (entity) =>
@@ -51,7 +51,7 @@ namespace Generic.Properties
             set
             {
 __attached = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "attached",
                     value
@@ -66,7 +66,7 @@ __attached = null;
             {
             if(__initWebVR == null)
             {
-                __initWebVR = EventHorizonBlazorInteropt.GetClass<Observable<CameraInputsMapCachedEntity>>(
+                __initWebVR = EventHorizonBlazorInterop.GetClass<Observable<CameraInputsMapCachedEntity>>(
                     this.___guid,
                     "initWebVR",
                     (entity) =>
@@ -80,7 +80,7 @@ __attached = null;
             set
             {
 __initWebVR = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "initWebVR",
                     value

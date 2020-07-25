@@ -31,7 +31,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "shadowAngle"
                 );
@@ -39,7 +39,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "shadowAngle",
                     value
@@ -54,7 +54,7 @@ namespace BabylonJS
             {
             if(__direction == null)
             {
-                __direction = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __direction = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "direction",
                     (entity) =>
@@ -68,7 +68,7 @@ namespace BabylonJS
             set
             {
 __direction = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "direction",
                     value
@@ -94,7 +94,7 @@ __direction = null;
             string name, Vector3 position, Scene scene
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "PointLight" },
                 name, position, scene
             );
@@ -105,7 +105,7 @@ __direction = null;
         #region Methods
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -115,7 +115,7 @@ __direction = null;
 
         public decimal getTypeID()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getTypeID" }
@@ -125,7 +125,7 @@ __direction = null;
 
         public bool needCube()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "needCube" }
@@ -135,7 +135,7 @@ __direction = null;
 
         public Vector3 getShadowDirection(System.Nullable<decimal> faceIndex = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Vector3>(
+            return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -146,7 +146,7 @@ __direction = null;
 
         public PointLight transferToEffect(Effect effect, string lightIndex)
         {
-            return EventHorizonBlazorInteropt.FuncClass<PointLight>(
+            return EventHorizonBlazorInterop.FuncClass<PointLight>(
                 entity => new PointLight() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -157,7 +157,7 @@ __direction = null;
 
         public PointLight transferToNodeMaterialEffect(Effect effect, string lightDataUniformName)
         {
-            return EventHorizonBlazorInteropt.FuncClass<PointLight>(
+            return EventHorizonBlazorInterop.FuncClass<PointLight>(
                 entity => new PointLight() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -168,7 +168,7 @@ __direction = null;
 
         public void prepareLightSpecificDefines(object defines, decimal lightIndex)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "prepareLightSpecificDefines" }, defines, lightIndex

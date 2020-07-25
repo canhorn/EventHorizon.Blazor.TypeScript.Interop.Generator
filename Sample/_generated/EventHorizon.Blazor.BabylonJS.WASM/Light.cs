@@ -23,7 +23,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Light.FALLOFF_DEFAULT"
                 );
@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Light.FALLOFF_PHYSICAL"
                 );
@@ -47,7 +47,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Light.FALLOFF_GLTF"
                 );
@@ -59,7 +59,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Light.FALLOFF_STANDARD"
                 );
@@ -71,7 +71,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Light.LIGHTMAP_DEFAULT"
                 );
@@ -83,7 +83,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Light.LIGHTMAP_SPECULAR"
                 );
@@ -95,7 +95,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Light.LIGHTMAP_SHADOWSONLY"
                 );
@@ -107,7 +107,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Light.INTENSITYMODE_AUTOMATIC"
                 );
@@ -119,7 +119,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Light.INTENSITYMODE_LUMINOUSPOWER"
                 );
@@ -131,7 +131,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Light.INTENSITYMODE_LUMINOUSINTENSITY"
                 );
@@ -143,7 +143,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Light.INTENSITYMODE_ILLUMINANCE"
                 );
@@ -155,7 +155,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Light.INTENSITYMODE_LUMINANCE"
                 );
@@ -167,7 +167,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Light.LIGHTTYPEID_POINTLIGHT"
                 );
@@ -179,7 +179,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Light.LIGHTTYPEID_DIRECTIONALLIGHT"
                 );
@@ -191,7 +191,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Light.LIGHTTYPEID_SPOTLIGHT"
                 );
@@ -203,7 +203,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Light.LIGHTTYPEID_HEMISPHERICLIGHT"
                 );
@@ -214,7 +214,7 @@ namespace BabylonJS
         #region Static Methods
         public static decimal CompareLightsPriority(Light a, Light b)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "Light", "CompareLightsPriority" }, a, b
@@ -224,7 +224,7 @@ namespace BabylonJS
 
         public static CachedEntity GetConstructorFromName(decimal type, string name, Scene scene)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "Light", "GetConstructorFromName" }, type, name, scene
@@ -234,7 +234,7 @@ namespace BabylonJS
 
         public static Light Parse(object parsedLight, Scene scene)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Light>(
+            return EventHorizonBlazorInterop.FuncClass<Light>(
                 entity => new Light() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -250,7 +250,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "range"
                 );
@@ -258,7 +258,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "range",
                     value
@@ -271,7 +271,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "intensityMode"
                 );
@@ -279,7 +279,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "intensityMode",
                     value
@@ -292,7 +292,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "radius"
                 );
@@ -300,7 +300,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "radius",
                     value
@@ -313,7 +313,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "shadowEnabled"
                 );
@@ -321,7 +321,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "shadowEnabled",
                     value
@@ -334,7 +334,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<AbstractMesh>(
+            return EventHorizonBlazorInterop.GetArrayClass<AbstractMesh>(
                     this.___guid,
                     "includedOnlyMeshes",
                     (entity) =>
@@ -346,7 +346,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "includedOnlyMeshes",
                     value
@@ -359,7 +359,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<AbstractMesh>(
+            return EventHorizonBlazorInterop.GetArrayClass<AbstractMesh>(
                     this.___guid,
                     "excludedMeshes",
                     (entity) =>
@@ -371,7 +371,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "excludedMeshes",
                     value
@@ -384,7 +384,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "excludeWithLayerMask"
                 );
@@ -392,7 +392,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "excludeWithLayerMask",
                     value
@@ -405,7 +405,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "includeOnlyWithLayerMask"
                 );
@@ -413,7 +413,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "includeOnlyWithLayerMask",
                     value
@@ -426,7 +426,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "lightmapMode"
                 );
@@ -434,7 +434,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "lightmapMode",
                     value
@@ -451,7 +451,7 @@ namespace BabylonJS
             {
             if(__diffuse == null)
             {
-                __diffuse = EventHorizonBlazorInteropt.GetClass<Color3>(
+                __diffuse = EventHorizonBlazorInterop.GetClass<Color3>(
                     this.___guid,
                     "diffuse",
                     (entity) =>
@@ -465,7 +465,7 @@ namespace BabylonJS
             set
             {
 __diffuse = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "diffuse",
                     value
@@ -480,7 +480,7 @@ __diffuse = null;
             {
             if(__specular == null)
             {
-                __specular = EventHorizonBlazorInteropt.GetClass<Color3>(
+                __specular = EventHorizonBlazorInterop.GetClass<Color3>(
                     this.___guid,
                     "specular",
                     (entity) =>
@@ -494,7 +494,7 @@ __diffuse = null;
             set
             {
 __specular = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "specular",
                     value
@@ -507,7 +507,7 @@ __specular = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "falloffType"
                 );
@@ -515,7 +515,7 @@ __specular = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "falloffType",
                     value
@@ -528,7 +528,7 @@ __specular = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "intensity"
                 );
@@ -536,7 +536,7 @@ __specular = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "intensity",
                     value
@@ -549,7 +549,7 @@ __specular = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "renderPriority"
                 );
@@ -557,7 +557,7 @@ __specular = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "renderPriority",
                     value
@@ -579,7 +579,7 @@ __specular = null;
             string name, Scene scene
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Light" },
                 name, scene
             );
@@ -590,7 +590,7 @@ __specular = null;
         #region Methods
         public Light transferToEffect(Effect effect, string lightIndex)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Light>(
+            return EventHorizonBlazorInterop.FuncClass<Light>(
                 entity => new Light() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -601,7 +601,7 @@ __specular = null;
 
         public Light transferTexturesToEffect(Effect effect, string lightIndex)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Light>(
+            return EventHorizonBlazorInterop.FuncClass<Light>(
                 entity => new Light() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -612,7 +612,7 @@ __specular = null;
 
         public Light transferToNodeMaterialEffect(Effect effect, string lightDataUniformName)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Light>(
+            return EventHorizonBlazorInterop.FuncClass<Light>(
                 entity => new Light() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -623,7 +623,7 @@ __specular = null;
 
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -633,7 +633,7 @@ __specular = null;
 
         public string toString(System.Nullable<bool> fullDetails = null)
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "toString" }, fullDetails
@@ -643,7 +643,7 @@ __specular = null;
 
         public void setEnabled(bool value)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setEnabled" }, value
@@ -653,7 +653,7 @@ __specular = null;
 
         public IShadowGeneratorCachedEntity getShadowGenerator()
         {
-            return EventHorizonBlazorInteropt.FuncClass<IShadowGeneratorCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<IShadowGeneratorCachedEntity>(
                 entity => new IShadowGeneratorCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -664,7 +664,7 @@ __specular = null;
 
         public Vector3 getAbsolutePosition()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Vector3>(
+            return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -675,7 +675,7 @@ __specular = null;
 
         public bool canAffectMesh(AbstractMesh mesh)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "canAffectMesh" }, mesh
@@ -685,7 +685,7 @@ __specular = null;
 
         public void dispose(System.Nullable<bool> doNotRecurse = null, System.Nullable<bool> disposeMaterialAndTextures = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }, doNotRecurse, disposeMaterialAndTextures
@@ -695,7 +695,7 @@ __specular = null;
 
         public decimal getTypeID()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getTypeID" }
@@ -705,7 +705,7 @@ __specular = null;
 
         public decimal getScaledIntensity()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getScaledIntensity" }
@@ -715,7 +715,7 @@ __specular = null;
 
         public Light clone(string name)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Light>(
+            return EventHorizonBlazorInterop.FuncClass<Light>(
                 entity => new Light() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -726,7 +726,7 @@ __specular = null;
 
         public CachedEntity serialize()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }
@@ -736,7 +736,7 @@ __specular = null;
 
         public void prepareLightSpecificDefines(object defines, decimal lightIndex)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "prepareLightSpecificDefines" }, defines, lightIndex

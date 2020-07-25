@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<TransformNode>(
+            return EventHorizonBlazorInterop.GetArrayClass<TransformNode>(
                     this.___guid,
                     "rootNodes",
                     (entity) =>
@@ -47,7 +47,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "rootNodes",
                     value
@@ -60,7 +60,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Skeleton>(
+            return EventHorizonBlazorInterop.GetArrayClass<Skeleton>(
                     this.___guid,
                     "skeletons",
                     (entity) =>
@@ -72,7 +72,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "skeletons",
                     value
@@ -85,7 +85,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<AnimationGroup>(
+            return EventHorizonBlazorInterop.GetArrayClass<AnimationGroup>(
                     this.___guid,
                     "animationGroups",
                     (entity) =>
@@ -97,7 +97,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "animationGroups",
                     value

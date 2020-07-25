@@ -31,7 +31,7 @@ namespace Static.Primitive
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "Now"
                 );
@@ -39,7 +39,7 @@ namespace Static.Primitive
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "Now",
                     value

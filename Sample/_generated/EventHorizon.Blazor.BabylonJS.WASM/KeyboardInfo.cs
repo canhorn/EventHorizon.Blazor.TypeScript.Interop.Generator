@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "type"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "type",
                     value
@@ -58,7 +58,7 @@ namespace BabylonJS
             {
             if(__event == null)
             {
-                __event = EventHorizonBlazorInteropt.GetClass<KeyboardEvent>(
+                __event = EventHorizonBlazorInterop.GetClass<KeyboardEvent>(
                     this.___guid,
                     "event",
                     (entity) =>
@@ -72,7 +72,7 @@ namespace BabylonJS
             set
             {
 __event = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "event",
                     value
@@ -95,7 +95,7 @@ __event = null;
             decimal type, KeyboardEvent @event
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "KeyboardInfo" },
                 type, @event
             );

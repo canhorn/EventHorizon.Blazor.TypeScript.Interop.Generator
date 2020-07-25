@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             if(__offlineProvider == null)
             {
-                __offlineProvider = EventHorizonBlazorInteropt.GetClass<IOfflineProviderCachedEntity>(
+                __offlineProvider = EventHorizonBlazorInterop.GetClass<IOfflineProviderCachedEntity>(
                     this.___guid,
                     "offlineProvider",
                     (entity) =>
@@ -51,7 +51,7 @@ namespace BabylonJS
             set
             {
 __offlineProvider = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "offlineProvider",
                     value

@@ -33,7 +33,7 @@ namespace BabylonJS
             {
             if(__audioContext == null)
             {
-                __audioContext = EventHorizonBlazorInteropt.GetClass<AudioContext>(
+                __audioContext = EventHorizonBlazorInterop.GetClass<AudioContext>(
                     this.___guid,
                     "audioContext",
                     (entity) =>
@@ -53,7 +53,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "canUseWebAudio"
                 );
@@ -61,7 +61,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "canUseWebAudio",
                     value
@@ -76,7 +76,7 @@ namespace BabylonJS
             {
             if(__masterGain == null)
             {
-                __masterGain = EventHorizonBlazorInteropt.GetClass<GainNode>(
+                __masterGain = EventHorizonBlazorInterop.GetClass<GainNode>(
                     this.___guid,
                     "masterGain",
                     (entity) =>
@@ -90,7 +90,7 @@ namespace BabylonJS
             set
             {
 __masterGain = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "masterGain",
                     value
@@ -103,7 +103,7 @@ __masterGain = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "WarnedWebAudioUnsupported"
                 );
@@ -111,7 +111,7 @@ __masterGain = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "WarnedWebAudioUnsupported",
                     value
@@ -124,7 +124,7 @@ __masterGain = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isMP3supported"
                 );
@@ -132,7 +132,7 @@ __masterGain = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isMP3supported",
                     value
@@ -145,7 +145,7 @@ __masterGain = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isOGGsupported"
                 );
@@ -153,7 +153,7 @@ __masterGain = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isOGGsupported",
                     value
@@ -166,7 +166,7 @@ __masterGain = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "unlocked"
                 );
@@ -174,7 +174,7 @@ __masterGain = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "unlocked",
                     value
@@ -187,7 +187,7 @@ __masterGain = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useCustomUnlockedButton"
                 );
@@ -195,7 +195,7 @@ __masterGain = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "useCustomUnlockedButton",
                     value
@@ -210,7 +210,7 @@ __masterGain = null;
             {
             if(__onAudioUnlockedObservable == null)
             {
-                __onAudioUnlockedObservable = EventHorizonBlazorInteropt.GetClass<Observable<AudioEngine>>(
+                __onAudioUnlockedObservable = EventHorizonBlazorInterop.GetClass<Observable<AudioEngine>>(
                     this.___guid,
                     "onAudioUnlockedObservable",
                     (entity) =>
@@ -224,7 +224,7 @@ __masterGain = null;
             set
             {
 __onAudioUnlockedObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onAudioUnlockedObservable",
                     value
@@ -239,7 +239,7 @@ __onAudioUnlockedObservable = null;
             {
             if(__onAudioLockedObservable == null)
             {
-                __onAudioLockedObservable = EventHorizonBlazorInteropt.GetClass<Observable<AudioEngine>>(
+                __onAudioLockedObservable = EventHorizonBlazorInterop.GetClass<Observable<AudioEngine>>(
                     this.___guid,
                     "onAudioLockedObservable",
                     (entity) =>
@@ -253,7 +253,7 @@ __onAudioUnlockedObservable = null;
             set
             {
 __onAudioLockedObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onAudioLockedObservable",
                     value
@@ -275,7 +275,7 @@ __onAudioLockedObservable = null;
             CachedEntity hostElement = null
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "AudioEngine" },
                 hostElement
             );
@@ -286,7 +286,7 @@ __onAudioLockedObservable = null;
         #region Methods
         public void @lock()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "@lock" }
@@ -296,7 +296,7 @@ __onAudioLockedObservable = null;
 
         public void @unlock()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "@unlock" }
@@ -306,7 +306,7 @@ __onAudioLockedObservable = null;
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }
@@ -316,7 +316,7 @@ __onAudioLockedObservable = null;
 
         public decimal getGlobalVolume()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getGlobalVolume" }
@@ -326,7 +326,7 @@ __onAudioLockedObservable = null;
 
         public void setGlobalVolume(decimal newVolume)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setGlobalVolume" }, newVolume
@@ -336,7 +336,7 @@ __onAudioLockedObservable = null;
 
         public void connectToAnalyser(Analyser analyser)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "connectToAnalyser" }, analyser

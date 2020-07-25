@@ -31,7 +31,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "refreshRate"
                 );
@@ -39,7 +39,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "refreshRate",
                     value
@@ -54,7 +54,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isCube"
                 );
@@ -62,7 +62,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isCube",
                     value
@@ -75,7 +75,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isEnabled"
                 );
@@ -83,7 +83,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isEnabled",
                     value
@@ -96,7 +96,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "autoClear"
                 );
@@ -104,7 +104,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "autoClear",
                     value
@@ -119,7 +119,7 @@ namespace BabylonJS
             {
             if(__onGeneratedObservable == null)
             {
-                __onGeneratedObservable = EventHorizonBlazorInteropt.GetClass<Observable<ProceduralTexture>>(
+                __onGeneratedObservable = EventHorizonBlazorInterop.GetClass<Observable<ProceduralTexture>>(
                     this.___guid,
                     "onGeneratedObservable",
                     (entity) =>
@@ -133,7 +133,7 @@ namespace BabylonJS
             set
             {
 __onGeneratedObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onGeneratedObservable",
                     value
@@ -155,7 +155,7 @@ __onGeneratedObservable = null;
             string name, object size, object fragment, Scene scene, Texture fallbackTexture = null, System.Nullable<bool> generateMipMaps = null, System.Nullable<bool> isCube = null
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "ProceduralTexture" },
                 name, size, fragment, scene, fallbackTexture, generateMipMaps, isCube
             );
@@ -189,7 +189,7 @@ __onGeneratedObservable = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "onGenerated",
                 "CallOnGeneratedActions",
@@ -210,7 +210,7 @@ __onGeneratedObservable = null;
 
         public Effect getEffect()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -221,7 +221,7 @@ __onGeneratedObservable = null;
 
         public ArrayBufferView getContent()
         {
-            return EventHorizonBlazorInteropt.FuncClass<ArrayBufferView>(
+            return EventHorizonBlazorInterop.FuncClass<ArrayBufferView>(
                 entity => new ArrayBufferView() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -232,7 +232,7 @@ __onGeneratedObservable = null;
 
         public void reset()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "reset" }
@@ -242,7 +242,7 @@ __onGeneratedObservable = null;
 
         public bool isReady()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isReady" }
@@ -252,7 +252,7 @@ __onGeneratedObservable = null;
 
         public void resetRefreshCounter()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "resetRefreshCounter" }
@@ -262,7 +262,7 @@ __onGeneratedObservable = null;
 
         public void setFragment(object fragment)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setFragment" }, fragment
@@ -272,7 +272,7 @@ __onGeneratedObservable = null;
 
         public decimal getRenderSize()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getRenderSize" }
@@ -282,7 +282,7 @@ __onGeneratedObservable = null;
 
         public void resize(decimal size, bool generateMipMaps)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "resize" }, size, generateMipMaps
@@ -292,7 +292,7 @@ __onGeneratedObservable = null;
 
         public ProceduralTexture setTexture(string name, Texture texture)
         {
-            return EventHorizonBlazorInteropt.FuncClass<ProceduralTexture>(
+            return EventHorizonBlazorInterop.FuncClass<ProceduralTexture>(
                 entity => new ProceduralTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -303,7 +303,7 @@ __onGeneratedObservable = null;
 
         public ProceduralTexture setFloat(string name, decimal value)
         {
-            return EventHorizonBlazorInteropt.FuncClass<ProceduralTexture>(
+            return EventHorizonBlazorInterop.FuncClass<ProceduralTexture>(
                 entity => new ProceduralTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -314,7 +314,7 @@ __onGeneratedObservable = null;
 
         public ProceduralTexture setInt(string name, decimal value)
         {
-            return EventHorizonBlazorInteropt.FuncClass<ProceduralTexture>(
+            return EventHorizonBlazorInterop.FuncClass<ProceduralTexture>(
                 entity => new ProceduralTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -325,7 +325,7 @@ __onGeneratedObservable = null;
 
         public ProceduralTexture setFloats(string name, decimal[] value)
         {
-            return EventHorizonBlazorInteropt.FuncClass<ProceduralTexture>(
+            return EventHorizonBlazorInterop.FuncClass<ProceduralTexture>(
                 entity => new ProceduralTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -336,7 +336,7 @@ __onGeneratedObservable = null;
 
         public ProceduralTexture setColor3(string name, Color3 value)
         {
-            return EventHorizonBlazorInteropt.FuncClass<ProceduralTexture>(
+            return EventHorizonBlazorInterop.FuncClass<ProceduralTexture>(
                 entity => new ProceduralTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -347,7 +347,7 @@ __onGeneratedObservable = null;
 
         public ProceduralTexture setColor4(string name, Color4 value)
         {
-            return EventHorizonBlazorInteropt.FuncClass<ProceduralTexture>(
+            return EventHorizonBlazorInterop.FuncClass<ProceduralTexture>(
                 entity => new ProceduralTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -358,7 +358,7 @@ __onGeneratedObservable = null;
 
         public ProceduralTexture setVector2(string name, Vector2 value)
         {
-            return EventHorizonBlazorInteropt.FuncClass<ProceduralTexture>(
+            return EventHorizonBlazorInterop.FuncClass<ProceduralTexture>(
                 entity => new ProceduralTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -369,7 +369,7 @@ __onGeneratedObservable = null;
 
         public ProceduralTexture setVector3(string name, Vector3 value)
         {
-            return EventHorizonBlazorInteropt.FuncClass<ProceduralTexture>(
+            return EventHorizonBlazorInterop.FuncClass<ProceduralTexture>(
                 entity => new ProceduralTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -380,7 +380,7 @@ __onGeneratedObservable = null;
 
         public ProceduralTexture setMatrix(string name, Matrix value)
         {
-            return EventHorizonBlazorInteropt.FuncClass<ProceduralTexture>(
+            return EventHorizonBlazorInterop.FuncClass<ProceduralTexture>(
                 entity => new ProceduralTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -391,7 +391,7 @@ __onGeneratedObservable = null;
 
         public void render(System.Nullable<bool> useCameraPostProcess = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "render" }, useCameraPostProcess
@@ -401,7 +401,7 @@ __onGeneratedObservable = null;
 
         public ProceduralTexture clone()
         {
-            return EventHorizonBlazorInteropt.FuncClass<ProceduralTexture>(
+            return EventHorizonBlazorInterop.FuncClass<ProceduralTexture>(
                 entity => new ProceduralTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -412,7 +412,7 @@ __onGeneratedObservable = null;
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }

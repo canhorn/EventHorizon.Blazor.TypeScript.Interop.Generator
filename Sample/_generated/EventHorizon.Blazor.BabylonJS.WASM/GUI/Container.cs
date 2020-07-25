@@ -31,7 +31,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "adaptHeightToChildren"
                 );
@@ -39,7 +39,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "adaptHeightToChildren",
                     value
@@ -52,7 +52,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "adaptWidthToChildren"
                 );
@@ -60,7 +60,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "adaptWidthToChildren",
                     value
@@ -73,7 +73,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "background"
                 );
@@ -81,7 +81,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "background",
                     value
@@ -94,7 +94,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Control>(
+            return EventHorizonBlazorInterop.GetArrayClass<Control>(
                     this.___guid,
                     "children",
                     (entity) =>
@@ -112,7 +112,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "name"
                 );
@@ -120,7 +120,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "name",
                     value
@@ -133,7 +133,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "logLayoutCycleErrors"
                 );
@@ -141,7 +141,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "logLayoutCycleErrors",
                     value
@@ -154,7 +154,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxLayoutCycle"
                 );
@@ -162,7 +162,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "maxLayoutCycle",
                     value
@@ -184,7 +184,7 @@ namespace BabylonJS.GUI
             string name = null
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GUI", "Container" },
                 name
             );
@@ -195,7 +195,7 @@ namespace BabylonJS.GUI
         #region Methods
         public Control getChildByName(string name)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Control>(
+            return EventHorizonBlazorInterop.FuncClass<Control>(
                 entity => new Control() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -206,7 +206,7 @@ namespace BabylonJS.GUI
 
         public Control getChildByType(string name, string type)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Control>(
+            return EventHorizonBlazorInterop.FuncClass<Control>(
                 entity => new Control() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -217,7 +217,7 @@ namespace BabylonJS.GUI
 
         public bool containsControl(Control control)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "containsControl" }, control
@@ -227,7 +227,7 @@ namespace BabylonJS.GUI
 
         public Container addControl(Control control)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Container>(
+            return EventHorizonBlazorInterop.FuncClass<Container>(
                 entity => new Container() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -238,7 +238,7 @@ namespace BabylonJS.GUI
 
         public Container clearControls()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Container>(
+            return EventHorizonBlazorInterop.FuncClass<Container>(
                 entity => new Container() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -249,7 +249,7 @@ namespace BabylonJS.GUI
 
         public Container removeControl(Control control)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Container>(
+            return EventHorizonBlazorInterop.FuncClass<Container>(
                 entity => new Container() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -262,7 +262,7 @@ namespace BabylonJS.GUI
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }

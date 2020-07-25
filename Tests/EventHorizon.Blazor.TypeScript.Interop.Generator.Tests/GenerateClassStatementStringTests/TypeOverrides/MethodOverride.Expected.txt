@@ -24,7 +24,7 @@ namespace Examples
         #region Static Methods
         public static int methodStaticCheck(Vector3 arg1, decimal arg2)
         {
-            return EventHorizonBlazorInteropt.Func<int>(
+            return EventHorizonBlazorInterop.Func<int>(
                 new object[] 
                 {
                     new string[] { "Examples", "ExampleClass", "methodStaticCheck" }, arg1, arg2
@@ -34,7 +34,7 @@ namespace Examples
 
         public static bool vectorStaticMethodCheck(OverrideVector4 arg1, decimal arg2)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { "Examples", "ExampleClass", "vectorStaticMethodCheck" }, arg1, arg2
@@ -44,7 +44,7 @@ namespace Examples
 
         public static bool primativeStaticMethodCheck(Vector3 arg1, int arg2)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { "Examples", "ExampleClass", "primativeStaticMethodCheck" }, arg1, arg2
@@ -77,7 +77,7 @@ namespace Examples
         #region Methods
         public OverrideVector4 methodCheck(Vector3 arg1, decimal arg2)
         {
-            return EventHorizonBlazorInteropt.FuncClass<OverrideVector4>(
+            return EventHorizonBlazorInterop.FuncClass<OverrideVector4>(
                 entity => new OverrideVector4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -88,7 +88,7 @@ namespace Examples
 
         public bool vectorMethodCheck(OverrideVector4 arg1, decimal arg2)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "vectorMethodCheck" }, arg1, arg2
@@ -98,7 +98,7 @@ namespace Examples
 
         public bool primativeMethodCheck(Vector3 arg1, int arg2)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "primativeMethodCheck" }, arg1, arg2

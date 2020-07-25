@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "MAX_SAMPLES"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "MAX_SAMPLES",
                     value
@@ -56,7 +56,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "RGBA8"
                 );
@@ -64,7 +64,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "RGBA8",
                     value
@@ -77,7 +77,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "READ_FRAMEBUFFER"
                 );
@@ -85,7 +85,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "READ_FRAMEBUFFER",
                     value
@@ -98,7 +98,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "DRAW_FRAMEBUFFER"
                 );
@@ -106,7 +106,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "DRAW_FRAMEBUFFER",
                     value
@@ -119,7 +119,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "UNIFORM_BUFFER"
                 );
@@ -127,7 +127,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "UNIFORM_BUFFER",
                     value
@@ -140,7 +140,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "HALF_FLOAT_OES"
                 );
@@ -148,7 +148,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "HALF_FLOAT_OES",
                     value
@@ -161,7 +161,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "RGBA16F"
                 );
@@ -169,7 +169,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "RGBA16F",
                     value
@@ -182,7 +182,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "RGBA32F"
                 );
@@ -190,7 +190,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "RGBA32F",
                     value
@@ -203,7 +203,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "R32F"
                 );
@@ -211,7 +211,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "R32F",
                     value
@@ -224,7 +224,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "RG32F"
                 );
@@ -232,7 +232,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "RG32F",
                     value
@@ -245,7 +245,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "RGB32F"
                 );
@@ -253,7 +253,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "RGB32F",
                     value
@@ -266,7 +266,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "R16F"
                 );
@@ -274,7 +274,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "R16F",
                     value
@@ -287,7 +287,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "RG16F"
                 );
@@ -295,7 +295,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "RG16F",
                     value
@@ -308,7 +308,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "RGB16F"
                 );
@@ -316,7 +316,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "RGB16F",
                     value
@@ -329,7 +329,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "RED"
                 );
@@ -337,7 +337,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "RED",
                     value
@@ -350,7 +350,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "RG"
                 );
@@ -358,7 +358,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "RG",
                     value
@@ -371,7 +371,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "R8"
                 );
@@ -379,7 +379,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "R8",
                     value
@@ -392,7 +392,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "RG8"
                 );
@@ -400,7 +400,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "RG8",
                     value
@@ -413,7 +413,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "UNSIGNED_INT_24_8"
                 );
@@ -421,7 +421,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "UNSIGNED_INT_24_8",
                     value
@@ -434,7 +434,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "DEPTH24_STENCIL8"
                 );
@@ -442,7 +442,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "DEPTH24_STENCIL8",
                     value
@@ -455,7 +455,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "MIN"
                 );
@@ -463,7 +463,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "MIN",
                     value
@@ -476,7 +476,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "MAX"
                 );
@@ -484,7 +484,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "MAX",
                     value
@@ -497,7 +497,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "COLOR_ATTACHMENT0"
                 );
@@ -509,7 +509,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "COLOR_ATTACHMENT1"
                 );
@@ -521,7 +521,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "COLOR_ATTACHMENT2"
                 );
@@ -533,7 +533,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "COLOR_ATTACHMENT3"
                 );
@@ -545,7 +545,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "ANY_SAMPLES_PASSED_CONSERVATIVE"
                 );
@@ -553,7 +553,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "ANY_SAMPLES_PASSED_CONSERVATIVE",
                     value
@@ -566,7 +566,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "ANY_SAMPLES_PASSED"
                 );
@@ -574,7 +574,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "ANY_SAMPLES_PASSED",
                     value
@@ -587,7 +587,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "QUERY_RESULT_AVAILABLE"
                 );
@@ -595,7 +595,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "QUERY_RESULT_AVAILABLE",
                     value
@@ -608,7 +608,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "QUERY_RESULT"
                 );
@@ -616,7 +616,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "QUERY_RESULT",
                     value
@@ -640,7 +640,7 @@ namespace BabylonJS
         #region Methods
         public void drawArraysInstanced(decimal mode, decimal first, decimal count, decimal primcount)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "drawArraysInstanced" }, mode, first, count, primcount
@@ -650,7 +650,7 @@ namespace BabylonJS
 
         public void drawElementsInstanced(decimal mode, decimal count, decimal type, decimal offset, decimal primcount)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "drawElementsInstanced" }, mode, count, type, offset, primcount
@@ -660,7 +660,7 @@ namespace BabylonJS
 
         public void vertexAttribDivisor(decimal index, decimal divisor)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "vertexAttribDivisor" }, index, divisor
@@ -670,7 +670,7 @@ namespace BabylonJS
 
         public CachedEntity createVertexArray()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "createVertexArray" }
@@ -680,7 +680,7 @@ namespace BabylonJS
 
         public void bindVertexArray(WebGLVertexArrayObjectCachedEntity vao = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "bindVertexArray" }, vao
@@ -690,7 +690,7 @@ namespace BabylonJS
 
         public void deleteVertexArray(WebGLVertexArrayObjectCachedEntity vao)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "deleteVertexArray" }, vao
@@ -700,7 +700,7 @@ namespace BabylonJS
 
         public void blitFramebuffer(decimal srcX0, decimal srcY0, decimal srcX1, decimal srcY1, decimal dstX0, decimal dstY0, decimal dstX1, decimal dstY1, decimal mask, decimal filter)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "blitFramebuffer" }, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter
@@ -710,7 +710,7 @@ namespace BabylonJS
 
         public void renderbufferStorageMultisample(decimal target, decimal samples, decimal internalformat, decimal width, decimal height)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "renderbufferStorageMultisample" }, target, samples, internalformat, width, height
@@ -720,7 +720,7 @@ namespace BabylonJS
 
         public void bindBufferBase(decimal target, decimal index, WebGLBuffer buffer = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "bindBufferBase" }, target, index, buffer
@@ -730,7 +730,7 @@ namespace BabylonJS
 
         public decimal getUniformBlockIndex(WebGLProgramCachedEntity program, string uniformBlockName)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getUniformBlockIndex" }, program, uniformBlockName
@@ -740,7 +740,7 @@ namespace BabylonJS
 
         public void uniformBlockBinding(WebGLProgramCachedEntity program, decimal uniformBlockIndex, decimal uniformBlockBinding)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "uniformBlockBinding" }, program, uniformBlockIndex, uniformBlockBinding
@@ -750,7 +750,7 @@ namespace BabylonJS
 
         public WebGLQueryCachedEntity createQuery()
         {
-            return EventHorizonBlazorInteropt.FuncClass<WebGLQueryCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<WebGLQueryCachedEntity>(
                 entity => new WebGLQueryCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -761,7 +761,7 @@ namespace BabylonJS
 
         public void deleteQuery(WebGLQueryCachedEntity query)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "deleteQuery" }, query
@@ -771,7 +771,7 @@ namespace BabylonJS
 
         public void beginQuery(decimal target, WebGLQueryCachedEntity query)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "beginQuery" }, target, query
@@ -781,7 +781,7 @@ namespace BabylonJS
 
         public void endQuery(decimal target)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "endQuery" }, target
@@ -791,7 +791,7 @@ namespace BabylonJS
 
         public CachedEntity getQueryParameter(WebGLQueryCachedEntity query, decimal pname)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getQueryParameter" }, query, pname
@@ -801,7 +801,7 @@ namespace BabylonJS
 
         public CachedEntity getQuery(decimal target, decimal pname)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getQuery" }, target, pname
@@ -811,7 +811,7 @@ namespace BabylonJS
 
         public void drawBuffers(decimal[] buffers)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "drawBuffers" }, buffers
@@ -821,7 +821,7 @@ namespace BabylonJS
 
         public void readBuffer(decimal src)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "readBuffer" }, src

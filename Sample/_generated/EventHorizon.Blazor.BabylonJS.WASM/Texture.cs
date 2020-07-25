@@ -23,7 +23,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "Texture.SerializeBuffers"
                 );
@@ -31,7 +31,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "Texture.SerializeBuffers",
                     value
@@ -44,7 +44,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.NEAREST_SAMPLINGMODE"
                 );
@@ -56,7 +56,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.NEAREST_NEAREST_MIPLINEAR"
                 );
@@ -68,7 +68,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.BILINEAR_SAMPLINGMODE"
                 );
@@ -80,7 +80,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.LINEAR_LINEAR_MIPNEAREST"
                 );
@@ -92,7 +92,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.TRILINEAR_SAMPLINGMODE"
                 );
@@ -104,7 +104,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.LINEAR_LINEAR_MIPLINEAR"
                 );
@@ -116,7 +116,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.NEAREST_NEAREST_MIPNEAREST"
                 );
@@ -128,7 +128,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.NEAREST_LINEAR_MIPNEAREST"
                 );
@@ -140,7 +140,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.NEAREST_LINEAR_MIPLINEAR"
                 );
@@ -152,7 +152,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.NEAREST_LINEAR"
                 );
@@ -164,7 +164,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.NEAREST_NEAREST"
                 );
@@ -176,7 +176,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.LINEAR_NEAREST_MIPNEAREST"
                 );
@@ -188,7 +188,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.LINEAR_NEAREST_MIPLINEAR"
                 );
@@ -200,7 +200,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.LINEAR_LINEAR"
                 );
@@ -212,7 +212,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.LINEAR_NEAREST"
                 );
@@ -224,7 +224,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.EXPLICIT_MODE"
                 );
@@ -236,7 +236,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.SPHERICAL_MODE"
                 );
@@ -248,7 +248,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.PLANAR_MODE"
                 );
@@ -260,7 +260,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.CUBIC_MODE"
                 );
@@ -272,7 +272,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.PROJECTION_MODE"
                 );
@@ -284,7 +284,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.SKYBOX_MODE"
                 );
@@ -296,7 +296,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.INVCUBIC_MODE"
                 );
@@ -308,7 +308,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.EQUIRECTANGULAR_MODE"
                 );
@@ -320,7 +320,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.FIXED_EQUIRECTANGULAR_MODE"
                 );
@@ -332,7 +332,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.FIXED_EQUIRECTANGULAR_MIRRORED_MODE"
                 );
@@ -344,7 +344,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.CLAMP_ADDRESSMODE"
                 );
@@ -356,7 +356,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.WRAP_ADDRESSMODE"
                 );
@@ -368,7 +368,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Texture.MIRROR_ADDRESSMODE"
                 );
@@ -380,7 +380,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "Texture.UseSerializedUrlIfAny"
                 );
@@ -388,7 +388,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "Texture.UseSerializedUrlIfAny",
                     value
@@ -400,7 +400,7 @@ namespace BabylonJS
         #region Static Methods
         public static BaseTexture Parse(object parsedTexture, Scene scene, string rootUrl)
         {
-            return EventHorizonBlazorInteropt.FuncClass<BaseTexture>(
+            return EventHorizonBlazorInterop.FuncClass<BaseTexture>(
                 entity => new BaseTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -411,7 +411,7 @@ namespace BabylonJS
 
         public static Texture CreateFromBase64String(string data, string name, Scene scene, System.Nullable<bool> noMipmap = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, CachedEntity onLoad = null, CachedEntity onError = null, System.Nullable<decimal> format = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Texture>(
+            return EventHorizonBlazorInterop.FuncClass<Texture>(
                 entity => new Texture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -422,7 +422,7 @@ namespace BabylonJS
 
         public static Texture LoadFromDataString(string name, object buffer, Scene scene, System.Nullable<bool> deleteBuffer = null, System.Nullable<bool> noMipmap = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, CachedEntity onLoad = null, CachedEntity onError = null, System.Nullable<decimal> format = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Texture>(
+            return EventHorizonBlazorInterop.FuncClass<Texture>(
                 entity => new Texture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -438,7 +438,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "noMipmap"
                 );
@@ -450,7 +450,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isBlocking"
                 );
@@ -458,7 +458,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isBlocking",
                     value
@@ -471,7 +471,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "samplingMode"
                 );
@@ -483,7 +483,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "invertY"
                 );
@@ -497,7 +497,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "url"
                 );
@@ -505,7 +505,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "url",
                     value
@@ -518,7 +518,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "uOffset"
                 );
@@ -526,7 +526,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "uOffset",
                     value
@@ -539,7 +539,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "vOffset"
                 );
@@ -547,7 +547,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "vOffset",
                     value
@@ -560,7 +560,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "uScale"
                 );
@@ -568,7 +568,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "uScale",
                     value
@@ -581,7 +581,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "vScale"
                 );
@@ -589,7 +589,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "vScale",
                     value
@@ -602,7 +602,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "uAng"
                 );
@@ -610,7 +610,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "uAng",
                     value
@@ -623,7 +623,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "vAng"
                 );
@@ -631,7 +631,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "vAng",
                     value
@@ -644,7 +644,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "wAng"
                 );
@@ -652,7 +652,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "wAng",
                     value
@@ -665,7 +665,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "uRotationCenter"
                 );
@@ -673,7 +673,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "uRotationCenter",
                     value
@@ -686,7 +686,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "vRotationCenter"
                 );
@@ -694,7 +694,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "vRotationCenter",
                     value
@@ -707,7 +707,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "wRotationCenter"
                 );
@@ -715,7 +715,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "wRotationCenter",
                     value
@@ -728,7 +728,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<IInspectableCachedEntity>(
+            return EventHorizonBlazorInterop.GetArrayClass<IInspectableCachedEntity>(
                     this.___guid,
                     "inspectableCustomProperties",
                     (entity) =>
@@ -740,7 +740,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "inspectableCustomProperties",
                     value
@@ -755,7 +755,7 @@ namespace BabylonJS
             {
             if(__onLoadObservable == null)
             {
-                __onLoadObservable = EventHorizonBlazorInteropt.GetClass<Observable<Texture>>(
+                __onLoadObservable = EventHorizonBlazorInterop.GetClass<Observable<Texture>>(
                     this.___guid,
                     "onLoadObservable",
                     (entity) =>
@@ -769,7 +769,7 @@ namespace BabylonJS
             set
             {
 __onLoadObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onLoadObservable",
                     value
@@ -791,7 +791,7 @@ __onLoadObservable = null;
             Scene sceneOrEngine, string url = null, System.Nullable<bool> noMipmap = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, CachedEntity onLoad = null, CachedEntity onError = null, string buffer = null, System.Nullable<bool> deleteBuffer = null, System.Nullable<decimal> format = null, string mimeType = null
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Texture" },
                 url, sceneOrEngine, noMipmap, invertY, samplingMode, onLoad, onError, buffer, deleteBuffer, format, mimeType
             );
@@ -804,7 +804,7 @@ __onLoadObservable = null;
 
         public void delayLoad()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "delayLoad" }
@@ -814,7 +814,7 @@ __onLoadObservable = null;
 
         public Matrix getTextureMatrix(System.Nullable<decimal> uBase = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Matrix>(
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -825,7 +825,7 @@ __onLoadObservable = null;
 
         public Matrix getReflectionTextureMatrix()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Matrix>(
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -836,7 +836,7 @@ __onLoadObservable = null;
 
         public Texture clone()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Texture>(
+            return EventHorizonBlazorInterop.FuncClass<Texture>(
                 entity => new Texture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -847,7 +847,7 @@ __onLoadObservable = null;
 
         public CachedEntity serialize()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }
@@ -857,7 +857,7 @@ __onLoadObservable = null;
 
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -867,7 +867,7 @@ __onLoadObservable = null;
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }

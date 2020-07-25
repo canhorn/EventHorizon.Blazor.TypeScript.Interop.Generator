@@ -23,7 +23,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Camera.PERSPECTIVE_CAMERA"
                 );
@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Camera.ORTHOGRAPHIC_CAMERA"
                 );
@@ -47,7 +47,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Camera.FOVMODE_VERTICAL_FIXED"
                 );
@@ -59,7 +59,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Camera.FOVMODE_HORIZONTAL_FIXED"
                 );
@@ -71,7 +71,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Camera.RIG_MODE_NONE"
                 );
@@ -83,7 +83,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Camera.RIG_MODE_STEREOSCOPIC_ANAGLYPH"
                 );
@@ -95,7 +95,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Camera.RIG_MODE_STEREOSCOPIC_SIDEBYSIDE_PARALLEL"
                 );
@@ -107,7 +107,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Camera.RIG_MODE_STEREOSCOPIC_SIDEBYSIDE_CROSSEYED"
                 );
@@ -119,7 +119,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Camera.RIG_MODE_STEREOSCOPIC_OVERUNDER"
                 );
@@ -131,7 +131,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Camera.RIG_MODE_STEREOSCOPIC_INTERLACED"
                 );
@@ -143,7 +143,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Camera.RIG_MODE_VR"
                 );
@@ -155,7 +155,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Camera.RIG_MODE_WEBVR"
                 );
@@ -167,7 +167,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "Camera.RIG_MODE_CUSTOM"
                 );
@@ -179,7 +179,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "Camera.ForceAttachControlToAlwaysPreventDefault"
                 );
@@ -187,7 +187,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "Camera.ForceAttachControlToAlwaysPreventDefault",
                     value
@@ -222,7 +222,7 @@ namespace BabylonJS
             {
                 return;
             }
-            EventHorizonBlazorInteropt.AssemblyFuncCallback(
+            EventHorizonBlazorInterop.AssemblyFuncCallback(
                 "EventHorizon.Blazor.BabylonJS.WASM",
                 "BABYLON.Camera.GetConstructorFromName",
                 "CallGetConstructorFromNameStaticActions"
@@ -242,7 +242,7 @@ namespace BabylonJS
 
         public static Camera Parse(object parsedCamera, Scene scene)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Camera>(
+            return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -260,7 +260,7 @@ namespace BabylonJS
             {
             if(__position == null)
             {
-                __position = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __position = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "position",
                     (entity) =>
@@ -274,7 +274,7 @@ namespace BabylonJS
             set
             {
 __position = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "position",
                     value
@@ -289,7 +289,7 @@ __position = null;
             {
             if(__globalPosition == null)
             {
-                __globalPosition = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __globalPosition = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "globalPosition",
                     (entity) =>
@@ -307,7 +307,7 @@ __position = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Camera>(
+            return EventHorizonBlazorInterop.GetArrayClass<Camera>(
                     this.___guid,
                     "rigCameras",
                     (entity) =>
@@ -325,7 +325,7 @@ __position = null;
             {
             if(__rigPostProcess == null)
             {
-                __rigPostProcess = EventHorizonBlazorInteropt.GetClass<PostProcess>(
+                __rigPostProcess = EventHorizonBlazorInterop.GetClass<PostProcess>(
                     this.___guid,
                     "rigPostProcess",
                     (entity) =>
@@ -343,7 +343,7 @@ __position = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isLeftCamera"
                 );
@@ -355,7 +355,7 @@ __position = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isRightCamera"
                 );
@@ -369,7 +369,7 @@ __position = null;
             {
             if(__leftCamera == null)
             {
-                __leftCamera = EventHorizonBlazorInteropt.GetClass<FreeCamera>(
+                __leftCamera = EventHorizonBlazorInterop.GetClass<FreeCamera>(
                     this.___guid,
                     "leftCamera",
                     (entity) =>
@@ -389,7 +389,7 @@ __position = null;
             {
             if(__rightCamera == null)
             {
-                __rightCamera = EventHorizonBlazorInteropt.GetClass<FreeCamera>(
+                __rightCamera = EventHorizonBlazorInterop.GetClass<FreeCamera>(
                     this.___guid,
                     "rightCamera",
                     (entity) =>
@@ -409,7 +409,7 @@ __position = null;
             {
             if(__absoluteRotation == null)
             {
-                __absoluteRotation = EventHorizonBlazorInteropt.GetClass<Quaternion>(
+                __absoluteRotation = EventHorizonBlazorInterop.GetClass<Quaternion>(
                     this.___guid,
                     "absoluteRotation",
                     (entity) =>
@@ -431,7 +431,7 @@ __position = null;
             {
             if(__inputs == null)
             {
-                __inputs = EventHorizonBlazorInteropt.GetClass<CameraInputsManager<Camera>>(
+                __inputs = EventHorizonBlazorInterop.GetClass<CameraInputsManager<Camera>>(
                     this.___guid,
                     "inputs",
                     (entity) =>
@@ -445,7 +445,7 @@ __position = null;
             set
             {
 __inputs = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "inputs",
                     value
@@ -460,7 +460,7 @@ __inputs = null;
             {
             if(__upVector == null)
             {
-                __upVector = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __upVector = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "upVector",
                     (entity) =>
@@ -474,7 +474,7 @@ __inputs = null;
             set
             {
 __upVector = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "upVector",
                     value
@@ -487,7 +487,7 @@ __upVector = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "orthoLeft"
                 );
@@ -495,7 +495,7 @@ __upVector = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "orthoLeft",
                     value
@@ -508,7 +508,7 @@ __upVector = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "orthoRight"
                 );
@@ -516,7 +516,7 @@ __upVector = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "orthoRight",
                     value
@@ -529,7 +529,7 @@ __upVector = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "orthoBottom"
                 );
@@ -537,7 +537,7 @@ __upVector = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "orthoBottom",
                     value
@@ -550,7 +550,7 @@ __upVector = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "orthoTop"
                 );
@@ -558,7 +558,7 @@ __upVector = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "orthoTop",
                     value
@@ -571,7 +571,7 @@ __upVector = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "fov"
                 );
@@ -579,7 +579,7 @@ __upVector = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "fov",
                     value
@@ -592,7 +592,7 @@ __upVector = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "minZ"
                 );
@@ -600,7 +600,7 @@ __upVector = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "minZ",
                     value
@@ -613,7 +613,7 @@ __upVector = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxZ"
                 );
@@ -621,7 +621,7 @@ __upVector = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "maxZ",
                     value
@@ -634,7 +634,7 @@ __upVector = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "inertia"
                 );
@@ -642,7 +642,7 @@ __upVector = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "inertia",
                     value
@@ -655,7 +655,7 @@ __upVector = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "mode"
                 );
@@ -663,7 +663,7 @@ __upVector = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "mode",
                     value
@@ -676,7 +676,7 @@ __upVector = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isIntermediate"
                 );
@@ -684,7 +684,7 @@ __upVector = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isIntermediate",
                     value
@@ -699,7 +699,7 @@ __upVector = null;
             {
             if(__viewport == null)
             {
-                __viewport = EventHorizonBlazorInteropt.GetClass<Viewport>(
+                __viewport = EventHorizonBlazorInterop.GetClass<Viewport>(
                     this.___guid,
                     "viewport",
                     (entity) =>
@@ -713,7 +713,7 @@ __upVector = null;
             set
             {
 __viewport = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "viewport",
                     value
@@ -726,7 +726,7 @@ __viewport = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "layerMask"
                 );
@@ -734,7 +734,7 @@ __viewport = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "layerMask",
                     value
@@ -747,7 +747,7 @@ __viewport = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "fovMode"
                 );
@@ -755,7 +755,7 @@ __viewport = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "fovMode",
                     value
@@ -768,7 +768,7 @@ __viewport = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "cameraRigMode"
                 );
@@ -776,7 +776,7 @@ __viewport = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "cameraRigMode",
                     value
@@ -789,7 +789,7 @@ __viewport = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "interaxialDistance"
                 );
@@ -797,7 +797,7 @@ __viewport = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "interaxialDistance",
                     value
@@ -810,7 +810,7 @@ __viewport = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isStereoscopicSideBySide"
                 );
@@ -818,7 +818,7 @@ __viewport = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isStereoscopicSideBySide",
                     value
@@ -831,7 +831,7 @@ __viewport = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<RenderTargetTexture>(
+            return EventHorizonBlazorInterop.GetArrayClass<RenderTargetTexture>(
                     this.___guid,
                     "customRenderTargets",
                     (entity) =>
@@ -843,7 +843,7 @@ __viewport = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "customRenderTargets",
                     value
@@ -858,7 +858,7 @@ __viewport = null;
             {
             if(__outputRenderTarget == null)
             {
-                __outputRenderTarget = EventHorizonBlazorInteropt.GetClass<RenderTargetTexture>(
+                __outputRenderTarget = EventHorizonBlazorInterop.GetClass<RenderTargetTexture>(
                     this.___guid,
                     "outputRenderTarget",
                     (entity) =>
@@ -872,7 +872,7 @@ __viewport = null;
             set
             {
 __outputRenderTarget = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "outputRenderTarget",
                     value
@@ -887,7 +887,7 @@ __outputRenderTarget = null;
             {
             if(__onViewMatrixChangedObservable == null)
             {
-                __onViewMatrixChangedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Camera>>(
+                __onViewMatrixChangedObservable = EventHorizonBlazorInterop.GetClass<Observable<Camera>>(
                     this.___guid,
                     "onViewMatrixChangedObservable",
                     (entity) =>
@@ -901,7 +901,7 @@ __outputRenderTarget = null;
             set
             {
 __onViewMatrixChangedObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onViewMatrixChangedObservable",
                     value
@@ -916,7 +916,7 @@ __onViewMatrixChangedObservable = null;
             {
             if(__onProjectionMatrixChangedObservable == null)
             {
-                __onProjectionMatrixChangedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Camera>>(
+                __onProjectionMatrixChangedObservable = EventHorizonBlazorInterop.GetClass<Observable<Camera>>(
                     this.___guid,
                     "onProjectionMatrixChangedObservable",
                     (entity) =>
@@ -930,7 +930,7 @@ __onViewMatrixChangedObservable = null;
             set
             {
 __onProjectionMatrixChangedObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onProjectionMatrixChangedObservable",
                     value
@@ -945,7 +945,7 @@ __onProjectionMatrixChangedObservable = null;
             {
             if(__onAfterCheckInputsObservable == null)
             {
-                __onAfterCheckInputsObservable = EventHorizonBlazorInteropt.GetClass<Observable<Camera>>(
+                __onAfterCheckInputsObservable = EventHorizonBlazorInterop.GetClass<Observable<Camera>>(
                     this.___guid,
                     "onAfterCheckInputsObservable",
                     (entity) =>
@@ -959,7 +959,7 @@ __onProjectionMatrixChangedObservable = null;
             set
             {
 __onAfterCheckInputsObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onAfterCheckInputsObservable",
                     value
@@ -974,7 +974,7 @@ __onAfterCheckInputsObservable = null;
             {
             if(__onRestoreStateObservable == null)
             {
-                __onRestoreStateObservable = EventHorizonBlazorInteropt.GetClass<Observable<Camera>>(
+                __onRestoreStateObservable = EventHorizonBlazorInterop.GetClass<Observable<Camera>>(
                     this.___guid,
                     "onRestoreStateObservable",
                     (entity) =>
@@ -988,7 +988,7 @@ __onAfterCheckInputsObservable = null;
             set
             {
 __onRestoreStateObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onRestoreStateObservable",
                     value
@@ -1001,7 +1001,7 @@ __onRestoreStateObservable = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isRigCamera"
                 );
@@ -1009,7 +1009,7 @@ __onRestoreStateObservable = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isRigCamera",
                     value
@@ -1024,7 +1024,7 @@ __onRestoreStateObservable = null;
             {
             if(__rigParent == null)
             {
-                __rigParent = EventHorizonBlazorInteropt.GetClass<Camera>(
+                __rigParent = EventHorizonBlazorInterop.GetClass<Camera>(
                     this.___guid,
                     "rigParent",
                     (entity) =>
@@ -1038,7 +1038,7 @@ __onRestoreStateObservable = null;
             set
             {
 __rigParent = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "rigParent",
                     value
@@ -1060,7 +1060,7 @@ __rigParent = null;
             string name, Vector3 position, Scene scene, System.Nullable<bool> setActiveOnSceneIfNoneActive = null
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Camera" },
                 name, position, scene, setActiveOnSceneIfNoneActive
             );
@@ -1071,7 +1071,7 @@ __rigParent = null;
         #region Methods
         public Camera storeState()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Camera>(
+            return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1082,7 +1082,7 @@ __rigParent = null;
 
         public bool restoreState()
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "restoreState" }
@@ -1092,7 +1092,7 @@ __rigParent = null;
 
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -1102,7 +1102,7 @@ __rigParent = null;
 
         public string toString(System.Nullable<bool> fullDetails = null)
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "toString" }, fullDetails
@@ -1112,7 +1112,7 @@ __rigParent = null;
 
         public SmartArray<AbstractMesh> getActiveMeshes()
         {
-            return EventHorizonBlazorInteropt.FuncClass<SmartArray<AbstractMesh>>(
+            return EventHorizonBlazorInterop.FuncClass<SmartArray<AbstractMesh>>(
                 entity => new SmartArray<AbstractMesh>() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1123,7 +1123,7 @@ __rigParent = null;
 
         public bool isActiveMesh(Mesh mesh)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isActiveMesh" }, mesh
@@ -1133,7 +1133,7 @@ __rigParent = null;
 
         public bool isReady(System.Nullable<bool> completeCheck = null)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isReady" }, completeCheck
@@ -1143,7 +1143,7 @@ __rigParent = null;
 
         public void attachControl(object element, System.Nullable<bool> noPreventDefault = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "attachControl" }, element, noPreventDefault
@@ -1153,7 +1153,7 @@ __rigParent = null;
 
         public void detachControl(object element)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "detachControl" }, element
@@ -1163,7 +1163,7 @@ __rigParent = null;
 
         public void update()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "update" }
@@ -1173,7 +1173,7 @@ __rigParent = null;
 
         public decimal attachPostProcess(PostProcess postProcess, System.Nullable<decimal> insertAt = null)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "attachPostProcess" }, postProcess, insertAt
@@ -1183,7 +1183,7 @@ __rigParent = null;
 
         public void detachPostProcess(PostProcess postProcess)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "detachPostProcess" }, postProcess
@@ -1193,7 +1193,7 @@ __rigParent = null;
 
         public Matrix getWorldMatrix()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Matrix>(
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1204,7 +1204,7 @@ __rigParent = null;
 
         public Matrix getViewMatrix(System.Nullable<bool> force = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Matrix>(
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1215,7 +1215,7 @@ __rigParent = null;
 
         public void freezeProjectionMatrix(Matrix projection = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "freezeProjectionMatrix" }, projection
@@ -1225,7 +1225,7 @@ __rigParent = null;
 
         public void unfreezeProjectionMatrix()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "unfreezeProjectionMatrix" }
@@ -1235,7 +1235,7 @@ __rigParent = null;
 
         public Matrix getProjectionMatrix(System.Nullable<bool> force = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Matrix>(
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1246,7 +1246,7 @@ __rigParent = null;
 
         public Matrix getTransformationMatrix()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Matrix>(
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1257,7 +1257,7 @@ __rigParent = null;
 
         public bool isInFrustum(ICullableCachedEntity target, System.Nullable<bool> checkRigCameras = null)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isInFrustum" }, target, checkRigCameras
@@ -1267,7 +1267,7 @@ __rigParent = null;
 
         public bool isCompletelyInFrustum(ICullableCachedEntity target)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isCompletelyInFrustum" }, target
@@ -1277,7 +1277,7 @@ __rigParent = null;
 
         public Ray getForwardRay(System.Nullable<decimal> length = null, Matrix transform = null, Vector3 origin = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Ray>(
+            return EventHorizonBlazorInterop.FuncClass<Ray>(
                 entity => new Ray() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1288,7 +1288,7 @@ __rigParent = null;
 
         public void dispose(System.Nullable<bool> doNotRecurse = null, System.Nullable<bool> disposeMaterialAndTextures = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }, doNotRecurse, disposeMaterialAndTextures
@@ -1298,7 +1298,7 @@ __rigParent = null;
 
         public Vector3 getLeftTarget()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Vector3>(
+            return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1309,7 +1309,7 @@ __rigParent = null;
 
         public Vector3 getRightTarget()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Vector3>(
+            return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1320,7 +1320,7 @@ __rigParent = null;
 
         public void setCameraRigMode(decimal mode, object rigParams)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setCameraRigMode" }, mode, rigParams
@@ -1330,7 +1330,7 @@ __rigParent = null;
 
         public void setCameraRigParameter(string name, object value)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setCameraRigParameter" }, name, value
@@ -1340,7 +1340,7 @@ __rigParent = null;
 
         public Camera createRigCamera(string name, decimal cameraIndex)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Camera>(
+            return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1351,7 +1351,7 @@ __rigParent = null;
 
         public CachedEntity serialize()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }
@@ -1361,7 +1361,7 @@ __rigParent = null;
 
         public Camera clone(string name)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Camera>(
+            return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1372,7 +1372,7 @@ __rigParent = null;
 
         public Vector3 getDirection(Vector3 localAxis)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Vector3>(
+            return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -1383,7 +1383,7 @@ __rigParent = null;
 
         public void getDirectionToRef(Vector3 localAxis, Vector3 result)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getDirectionToRef" }, localAxis, result
@@ -1393,7 +1393,7 @@ __rigParent = null;
 
         public Matrix computeWorldMatrix()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Matrix>(
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {

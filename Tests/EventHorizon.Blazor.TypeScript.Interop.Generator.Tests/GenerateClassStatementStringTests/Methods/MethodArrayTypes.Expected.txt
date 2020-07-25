@@ -49,7 +49,7 @@ namespace Static.Primitive
         #region Methods
         public string[] arrayExample()
         {
-            return EventHorizonBlazorInteropt.FuncArray<string>(
+            return EventHorizonBlazorInterop.FuncArray<string>(
                 new object[]
                 {
                     new string[] { this.___guid, "arrayExample" }
@@ -59,7 +59,7 @@ namespace Static.Primitive
 
         public string[] arrayLikeExample()
         {
-            return EventHorizonBlazorInteropt.FuncArray<string>(
+            return EventHorizonBlazorInterop.FuncArray<string>(
                 new object[]
                 {
                     new string[] { this.___guid, "arrayLikeExample" }
@@ -69,7 +69,7 @@ namespace Static.Primitive
 
         public decimal[] floatArrayExample()
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "floatArrayExample" }
@@ -79,7 +79,7 @@ namespace Static.Primitive
 
         public decimal[] float32ArrayExample()
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "float32ArrayExample" }
@@ -89,7 +89,7 @@ namespace Static.Primitive
 
         public decimal[] indicesArrayExample()
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "indicesArrayExample" }
@@ -99,7 +99,7 @@ namespace Static.Primitive
 
         public decimal[] uint8ArrayExample()
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "uint8ArrayExample" }
@@ -109,7 +109,7 @@ namespace Static.Primitive
 
         public string[] nullableArrayExample()
         {
-            return EventHorizonBlazorInteropt.FuncArray<string>(
+            return EventHorizonBlazorInterop.FuncArray<string>(
                 new object[]
                 {
                     new string[] { this.___guid, "nullableArrayExample" }
@@ -119,7 +119,7 @@ namespace Static.Primitive
 
         public string[] nullableArrayLikeExample()
         {
-            return EventHorizonBlazorInteropt.FuncArray<string>(
+            return EventHorizonBlazorInterop.FuncArray<string>(
                 new object[]
                 {
                     new string[] { this.___guid, "nullableArrayLikeExample" }
@@ -129,7 +129,7 @@ namespace Static.Primitive
 
         public decimal[] nullableFloatArrayExample()
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "nullableFloatArrayExample" }
@@ -139,7 +139,7 @@ namespace Static.Primitive
 
         public decimal[] nullableFloat32ArrayExample()
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "nullableFloat32ArrayExample" }
@@ -149,7 +149,7 @@ namespace Static.Primitive
 
         public decimal[] nullableIndicesArrayExample()
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "nullableIndicesArrayExample" }
@@ -159,7 +159,7 @@ namespace Static.Primitive
 
         public decimal[] nullableUint8ArrayExample()
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "nullableUint8ArrayExample" }
@@ -169,7 +169,7 @@ namespace Static.Primitive
 
         public decimal[] nullableDeepImmutableArray()
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "nullableDeepImmutableArray" }

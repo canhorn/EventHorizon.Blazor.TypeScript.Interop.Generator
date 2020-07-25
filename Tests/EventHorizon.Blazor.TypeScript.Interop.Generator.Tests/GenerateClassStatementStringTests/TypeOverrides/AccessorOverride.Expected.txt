@@ -21,7 +21,7 @@ namespace Examples
             {
             if(__vectorStaticCheck == null)
             {
-                __vectorStaticCheck = EventHorizonBlazorInteropt.GetClass<OverrideVector4>(
+                __vectorStaticCheck = EventHorizonBlazorInterop.GetClass<OverrideVector4>(
                     "Examples",
                     "ExampleClass.vectorStaticCheck",
                     (entity) =>
@@ -39,7 +39,7 @@ namespace Examples
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<int>(
+            return EventHorizonBlazorInterop.Get<int>(
                     "Examples",
                     "ExampleClass.primativeStaticCheck"
                 );
@@ -63,7 +63,7 @@ namespace Examples
             {
             if(__vectorCheck == null)
             {
-                __vectorCheck = EventHorizonBlazorInteropt.GetClass<OverrideVector4>(
+                __vectorCheck = EventHorizonBlazorInterop.GetClass<OverrideVector4>(
                     this.___guid,
                     "vectorCheck",
                     (entity) =>
@@ -81,7 +81,7 @@ namespace Examples
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<int>(
+            return EventHorizonBlazorInterop.Get<int>(
                     this.___guid,
                     "primativeCheck"
                 );

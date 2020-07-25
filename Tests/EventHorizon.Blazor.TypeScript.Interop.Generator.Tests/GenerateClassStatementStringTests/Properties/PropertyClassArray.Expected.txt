@@ -35,7 +35,7 @@ namespace Static.Primitive
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Vector2>(
+            return EventHorizonBlazorInterop.GetArrayClass<Vector2>(
                     this.___guid,
                     "matrix",
                     (entity) =>
@@ -47,7 +47,7 @@ namespace Static.Primitive
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "matrix",
                     value

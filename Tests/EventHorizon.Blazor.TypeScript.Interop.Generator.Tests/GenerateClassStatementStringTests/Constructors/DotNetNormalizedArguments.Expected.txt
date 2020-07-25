@@ -47,7 +47,7 @@ namespace Examples
             string @ref, string @lock, string @unlock, string @object, string @event, string @bool, string @virtual
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "Examples", "ExampleClass" },
                 @ref, @lock, @unlock, @object, @event, @bool, @virtual
             );

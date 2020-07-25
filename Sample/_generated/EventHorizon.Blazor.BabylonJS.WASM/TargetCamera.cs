@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             if(__cameraDirection == null)
             {
-                __cameraDirection = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __cameraDirection = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "cameraDirection",
                     (entity) =>
@@ -51,7 +51,7 @@ namespace BabylonJS
             set
             {
 __cameraDirection = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "cameraDirection",
                     value
@@ -66,7 +66,7 @@ __cameraDirection = null;
             {
             if(__cameraRotation == null)
             {
-                __cameraRotation = EventHorizonBlazorInteropt.GetClass<Vector2>(
+                __cameraRotation = EventHorizonBlazorInterop.GetClass<Vector2>(
                     this.___guid,
                     "cameraRotation",
                     (entity) =>
@@ -80,7 +80,7 @@ __cameraDirection = null;
             set
             {
 __cameraRotation = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "cameraRotation",
                     value
@@ -93,7 +93,7 @@ __cameraRotation = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "updateUpVectorFromRotation"
                 );
@@ -101,7 +101,7 @@ __cameraRotation = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "updateUpVectorFromRotation",
                     value
@@ -116,7 +116,7 @@ __cameraRotation = null;
             {
             if(__rotation == null)
             {
-                __rotation = EventHorizonBlazorInteropt.GetClass<Vector3>(
+                __rotation = EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
                     "rotation",
                     (entity) =>
@@ -130,7 +130,7 @@ __cameraRotation = null;
             set
             {
 __rotation = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "rotation",
                     value
@@ -145,7 +145,7 @@ __rotation = null;
             {
             if(__rotationQuaternion == null)
             {
-                __rotationQuaternion = EventHorizonBlazorInteropt.GetClass<Quaternion>(
+                __rotationQuaternion = EventHorizonBlazorInterop.GetClass<Quaternion>(
                     this.___guid,
                     "rotationQuaternion",
                     (entity) =>
@@ -159,7 +159,7 @@ __rotation = null;
             set
             {
 __rotationQuaternion = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "rotationQuaternion",
                     value
@@ -172,7 +172,7 @@ __rotationQuaternion = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "speed"
                 );
@@ -180,7 +180,7 @@ __rotationQuaternion = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "speed",
                     value
@@ -193,7 +193,7 @@ __rotationQuaternion = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "noRotationConstraint"
                 );
@@ -201,7 +201,7 @@ __rotationQuaternion = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "noRotationConstraint",
                     value
@@ -214,7 +214,7 @@ __rotationQuaternion = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "lockedTarget"
                 );
@@ -222,7 +222,7 @@ __rotationQuaternion = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "lockedTarget",
                     value
@@ -244,7 +244,7 @@ __rotationQuaternion = null;
             string name, Vector3 position, Scene scene, System.Nullable<bool> setActiveOnSceneIfNoneActive = null
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "TargetCamera" },
                 name, position, scene, setActiveOnSceneIfNoneActive
             );
@@ -255,7 +255,7 @@ __rotationQuaternion = null;
         #region Methods
         public Vector3 getFrontPosition(decimal distance)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Vector3>(
+            return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -266,7 +266,7 @@ __rotationQuaternion = null;
 
         public Camera storeState()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Camera>(
+            return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -277,7 +277,7 @@ __rotationQuaternion = null;
 
         public void setTarget(Vector3 target)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "setTarget" }, target
@@ -287,7 +287,7 @@ __rotationQuaternion = null;
 
         public Vector3 getTarget()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Vector3>(
+            return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -298,7 +298,7 @@ __rotationQuaternion = null;
 
         public Camera createRigCamera(string name, decimal cameraIndex)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Camera>(
+            return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -309,7 +309,7 @@ __rotationQuaternion = null;
 
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }

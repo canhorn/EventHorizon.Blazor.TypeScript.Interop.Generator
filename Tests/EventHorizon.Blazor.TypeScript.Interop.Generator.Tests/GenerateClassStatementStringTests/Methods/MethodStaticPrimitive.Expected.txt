@@ -24,7 +24,7 @@ namespace Static.Class
         #region Static Methods
         public static decimal numberMethod()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { "Static", "Class", "ExampleClass", "numberMethod" }

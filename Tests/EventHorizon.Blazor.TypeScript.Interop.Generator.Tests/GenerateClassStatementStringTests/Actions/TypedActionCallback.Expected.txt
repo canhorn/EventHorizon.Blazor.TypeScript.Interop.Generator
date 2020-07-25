@@ -72,7 +72,7 @@ namespace Examples
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "add",
                 "CallAddActions",
@@ -118,7 +118,7 @@ namespace Examples
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "setImmediate",
                 "CallSetImmediateActions",

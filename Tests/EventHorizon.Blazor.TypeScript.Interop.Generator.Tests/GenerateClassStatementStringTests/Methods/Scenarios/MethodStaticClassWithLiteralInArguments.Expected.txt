@@ -24,7 +24,7 @@ namespace Static.Class
         #region Static Methods
         public static GroundMesh CreateGroundFromHeightMap(string name, string url, object options, Scene scene = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<GroundMesh>(
+            return EventHorizonBlazorInterop.FuncClass<GroundMesh>(
                 entity => new GroundMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -35,7 +35,7 @@ namespace Static.Class
 
         public static void ObjectLiteralAsSecondArgument(string options)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "Static", "Class", "ExampleClass", "ObjectLiteralAsSecondArgument" }, options
@@ -45,7 +45,7 @@ namespace Static.Class
 
         public static void ObjectLiteral(object options)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "Static", "Class", "ExampleClass", "ObjectLiteral" }, options
@@ -55,7 +55,7 @@ namespace Static.Class
 
         public static Vector3 ObjectLiteralFirst(AbstractMesh[] meshesOrMinMaxVector)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Vector3>(
+            return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
                 new object[] 
                 {

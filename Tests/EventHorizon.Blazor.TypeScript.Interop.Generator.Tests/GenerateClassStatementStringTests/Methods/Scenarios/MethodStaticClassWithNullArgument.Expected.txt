@@ -24,7 +24,7 @@ namespace Static.Method.Argument
         #region Static Methods
         public static bool undefinedArgument(System.Nullable<decimal> arg1 = null)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { "Static", "Method", "Argument", "ExampleClass", "undefinedArgument" }, arg1
@@ -34,7 +34,7 @@ namespace Static.Method.Argument
 
         public static bool nullableArgument(System.Nullable<decimal> arg1 = null)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { "Static", "Method", "Argument", "ExampleClass", "nullableArgument" }, arg1

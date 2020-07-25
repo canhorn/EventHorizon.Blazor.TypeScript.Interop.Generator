@@ -31,7 +31,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "canRescale"
                 );
@@ -56,7 +56,7 @@ namespace BabylonJS
             string name, object options, bool generateMipMaps, Scene scene = null, System.Nullable<decimal> samplingMode = null, System.Nullable<decimal> format = null
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "DynamicTexture" },
                 name, options, scene, generateMipMaps, samplingMode, format
             );
@@ -67,7 +67,7 @@ namespace BabylonJS
         #region Methods
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -77,7 +77,7 @@ namespace BabylonJS
 
         public void scale(decimal ratio)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "scale" }, ratio
@@ -87,7 +87,7 @@ namespace BabylonJS
 
         public void scaleTo(decimal width, decimal height)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "scaleTo" }, width, height
@@ -97,7 +97,7 @@ namespace BabylonJS
 
         public CanvasRenderingContext2DCachedEntity getContext()
         {
-            return EventHorizonBlazorInteropt.FuncClass<CanvasRenderingContext2DCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<CanvasRenderingContext2DCachedEntity>(
                 entity => new CanvasRenderingContext2DCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -108,7 +108,7 @@ namespace BabylonJS
 
         public void clear()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "clear" }
@@ -118,7 +118,7 @@ namespace BabylonJS
 
         public void update(System.Nullable<bool> invertY = null, System.Nullable<bool> premulAlpha = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "update" }, invertY, premulAlpha
@@ -128,7 +128,7 @@ namespace BabylonJS
 
         public void drawText(string text, string font, string color, string clearColor, System.Nullable<decimal> x = null, System.Nullable<decimal> y = null, System.Nullable<bool> invertY = null, System.Nullable<bool> update = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "drawText" }, text, x, y, font, color, clearColor, invertY, update
@@ -138,7 +138,7 @@ namespace BabylonJS
 
         public DynamicTexture clone()
         {
-            return EventHorizonBlazorInteropt.FuncClass<DynamicTexture>(
+            return EventHorizonBlazorInterop.FuncClass<DynamicTexture>(
                 entity => new DynamicTexture() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -149,7 +149,7 @@ namespace BabylonJS
 
         public CachedEntity serialize()
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "serialize" }

@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "canUseWebAudio"
                 );
@@ -49,7 +49,7 @@ namespace BabylonJS
             {
             if(__audioContext == null)
             {
-                __audioContext = EventHorizonBlazorInteropt.GetClass<AudioContext>(
+                __audioContext = EventHorizonBlazorInterop.GetClass<AudioContext>(
                     this.___guid,
                     "audioContext",
                     (entity) =>
@@ -69,7 +69,7 @@ namespace BabylonJS
             {
             if(__masterGain == null)
             {
-                __masterGain = EventHorizonBlazorInteropt.GetClass<GainNode>(
+                __masterGain = EventHorizonBlazorInterop.GetClass<GainNode>(
                     this.___guid,
                     "masterGain",
                     (entity) =>
@@ -87,7 +87,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isMP3supported"
                 );
@@ -99,7 +99,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isOGGsupported"
                 );
@@ -111,7 +111,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "WarnedWebAudioUnsupported"
                 );
@@ -119,7 +119,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "WarnedWebAudioUnsupported",
                     value
@@ -132,7 +132,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useCustomUnlockedButton"
                 );
@@ -140,7 +140,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "useCustomUnlockedButton",
                     value
@@ -153,7 +153,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "unlocked"
                 );
@@ -167,7 +167,7 @@ namespace BabylonJS
             {
             if(__onAudioUnlockedObservable == null)
             {
-                __onAudioUnlockedObservable = EventHorizonBlazorInteropt.GetClass<Observable<AudioEngine>>(
+                __onAudioUnlockedObservable = EventHorizonBlazorInterop.GetClass<Observable<AudioEngine>>(
                     this.___guid,
                     "onAudioUnlockedObservable",
                     (entity) =>
@@ -181,7 +181,7 @@ namespace BabylonJS
             set
             {
 __onAudioUnlockedObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onAudioUnlockedObservable",
                     value
@@ -196,7 +196,7 @@ __onAudioUnlockedObservable = null;
             {
             if(__onAudioLockedObservable == null)
             {
-                __onAudioLockedObservable = EventHorizonBlazorInteropt.GetClass<Observable<AudioEngine>>(
+                __onAudioLockedObservable = EventHorizonBlazorInterop.GetClass<Observable<AudioEngine>>(
                     this.___guid,
                     "onAudioLockedObservable",
                     (entity) =>
@@ -210,7 +210,7 @@ __onAudioUnlockedObservable = null;
             set
             {
 __onAudioLockedObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onAudioLockedObservable",
                     value
@@ -234,7 +234,7 @@ __onAudioLockedObservable = null;
         #region Methods
         public void @lock()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "@lock" }
@@ -244,7 +244,7 @@ __onAudioLockedObservable = null;
 
         public void @unlock()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "@unlock" }

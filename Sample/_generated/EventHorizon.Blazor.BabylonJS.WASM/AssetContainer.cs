@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             if(__scene == null)
             {
-                __scene = EventHorizonBlazorInteropt.GetClass<Scene>(
+                __scene = EventHorizonBlazorInterop.GetClass<Scene>(
                     this.___guid,
                     "scene",
                     (entity) =>
@@ -51,7 +51,7 @@ namespace BabylonJS
             set
             {
 __scene = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "scene",
                     value
@@ -73,7 +73,7 @@ __scene = null;
             Scene scene
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "AssetContainer" },
                 scene
             );
@@ -107,7 +107,7 @@ __scene = null;
             {
                 return;
             }
-            EventHorizonBlazorInteropt.FuncCallback(
+            EventHorizonBlazorInterop.FuncCallback(
                 this,
                 "instantiateModelsToScene",
                 "CallInstantiateModelsToSceneActions",
@@ -128,7 +128,7 @@ __scene = null;
 
         public void addAllToScene()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "addAllToScene" }
@@ -138,7 +138,7 @@ __scene = null;
 
         public void removeAllFromScene()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "removeAllFromScene" }
@@ -148,7 +148,7 @@ __scene = null;
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }
@@ -158,7 +158,7 @@ __scene = null;
 
         public void moveAllFromScene(KeepAssets keepAssets = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "moveAllFromScene" }, keepAssets
@@ -168,7 +168,7 @@ __scene = null;
 
         public Mesh createRootMesh()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -179,7 +179,7 @@ __scene = null;
 
         public void mergeAnimationsTo(Animatable[] animatables, Scene scene = null, CachedEntity targetConverter = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "mergeAnimationsTo" }, scene, animatables, targetConverter

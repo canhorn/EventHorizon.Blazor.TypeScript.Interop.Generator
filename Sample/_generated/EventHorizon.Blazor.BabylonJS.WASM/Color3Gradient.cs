@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "gradient"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "gradient",
                     value
@@ -58,7 +58,7 @@ namespace BabylonJS
             {
             if(__color == null)
             {
-                __color = EventHorizonBlazorInteropt.GetClass<Color3>(
+                __color = EventHorizonBlazorInterop.GetClass<Color3>(
                     this.___guid,
                     "color",
                     (entity) =>
@@ -72,7 +72,7 @@ namespace BabylonJS
             set
             {
 __color = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "color",
                     value

@@ -1,4 +1,4 @@
-EventHorizonBlazorInteropt.Get<[[TYPE]]>(
+EventHorizonBlazorInterop.Get<[[TYPE]]>(
                     [[ROOT]],
                     "[[PROPERTY]]"
                 )

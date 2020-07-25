@@ -31,7 +31,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.GetArrayClass<Light>(
+            return EventHorizonBlazorInterop.GetArrayClass<Light>(
                     this.___guid,
                     "lightSources",
                     (entity) =>
@@ -47,7 +47,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "receiveShadows"
                 );
@@ -61,7 +61,7 @@ namespace BabylonJS
             {
             if(__material == null)
             {
-                __material = EventHorizonBlazorInteropt.GetClass<Material>(
+                __material = EventHorizonBlazorInterop.GetClass<Material>(
                     this.___guid,
                     "material",
                     (entity) =>
@@ -79,7 +79,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "visibility"
                 );
@@ -93,7 +93,7 @@ namespace BabylonJS
             {
             if(__skeleton == null)
             {
-                __skeleton = EventHorizonBlazorInteropt.GetClass<Skeleton>(
+                __skeleton = EventHorizonBlazorInterop.GetClass<Skeleton>(
                     this.___guid,
                     "skeleton",
                     (entity) =>
@@ -111,7 +111,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "renderingGroupId"
                 );
@@ -119,7 +119,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "renderingGroupId",
                     value
@@ -134,7 +134,7 @@ namespace BabylonJS
             {
             if(__sourceMesh == null)
             {
-                __sourceMesh = EventHorizonBlazorInteropt.GetClass<Mesh>(
+                __sourceMesh = EventHorizonBlazorInterop.GetClass<Mesh>(
                     this.___guid,
                     "sourceMesh",
                     (entity) =>
@@ -152,7 +152,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isAnInstance"
                 );
@@ -177,7 +177,7 @@ namespace BabylonJS
             string name, Mesh source
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "InstancedMesh" },
                 name, source
             );
@@ -188,7 +188,7 @@ namespace BabylonJS
         #region Methods
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -198,7 +198,7 @@ namespace BabylonJS
 
         public decimal getTotalVertices()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getTotalVertices" }
@@ -208,7 +208,7 @@ namespace BabylonJS
 
         public decimal getTotalIndices()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getTotalIndices" }
@@ -218,7 +218,7 @@ namespace BabylonJS
 
         public bool isReady(System.Nullable<bool> completeCheck = null)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isReady" }, completeCheck
@@ -228,7 +228,7 @@ namespace BabylonJS
 
         public decimal[] getVerticesData(string kind, System.Nullable<bool> copyWhenShared = null)
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "getVerticesData" }, kind, copyWhenShared
@@ -238,7 +238,7 @@ namespace BabylonJS
 
         public AbstractMesh setVerticesData(string kind, decimal[] data, System.Nullable<bool> updatable = null, System.Nullable<decimal> stride = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
+            return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
                 entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -249,7 +249,7 @@ namespace BabylonJS
 
         public Mesh updateVerticesData(string kind, decimal[] data, System.Nullable<bool> updateExtends = null, System.Nullable<bool> makeItUnique = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -260,7 +260,7 @@ namespace BabylonJS
 
         public Mesh setIndices(decimal[] indices, System.Nullable<decimal> totalVertices = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Mesh>(
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -271,7 +271,7 @@ namespace BabylonJS
 
         public bool isVerticesDataPresent(string kind)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isVerticesDataPresent" }, kind
@@ -281,7 +281,7 @@ namespace BabylonJS
 
         public decimal[] getIndices()
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "getIndices" }
@@ -291,7 +291,7 @@ namespace BabylonJS
 
         public InstancedMesh refreshBoundingInfo(System.Nullable<bool> applySkeleton = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<InstancedMesh>(
+            return EventHorizonBlazorInterop.FuncClass<InstancedMesh>(
                 entity => new InstancedMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -302,7 +302,7 @@ namespace BabylonJS
 
         public Matrix getWorldMatrix()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Matrix>(
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -313,7 +313,7 @@ namespace BabylonJS
 
         public AbstractMesh getLOD(Camera camera)
         {
-            return EventHorizonBlazorInteropt.FuncClass<AbstractMesh>(
+            return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
                 entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -324,7 +324,7 @@ namespace BabylonJS
 
         public InstancedMesh clone(string name, Node newParent = null, System.Nullable<bool> doNotCloneChildren = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<InstancedMesh>(
+            return EventHorizonBlazorInterop.FuncClass<InstancedMesh>(
                 entity => new InstancedMesh() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -335,7 +335,7 @@ namespace BabylonJS
 
         public void dispose(System.Nullable<bool> doNotRecurse = null, System.Nullable<bool> disposeMaterialAndTextures = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }, doNotRecurse, disposeMaterialAndTextures

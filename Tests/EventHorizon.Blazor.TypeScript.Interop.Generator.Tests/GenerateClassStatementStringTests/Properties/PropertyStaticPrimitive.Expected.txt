@@ -23,7 +23,7 @@ namespace Static.Primitive
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "Static",
                     "Primitive.ExampleClass.NoneLogLevel"
                 );

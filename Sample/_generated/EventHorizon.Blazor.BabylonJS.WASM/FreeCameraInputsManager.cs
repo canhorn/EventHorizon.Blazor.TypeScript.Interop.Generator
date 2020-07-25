@@ -46,7 +46,7 @@ namespace BabylonJS
             FreeCamera camera
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "FreeCameraInputsManager" },
                 camera
             );
@@ -57,7 +57,7 @@ namespace BabylonJS
         #region Methods
         public FreeCameraInputsManager addKeyboard()
         {
-            return EventHorizonBlazorInteropt.FuncClass<FreeCameraInputsManager>(
+            return EventHorizonBlazorInterop.FuncClass<FreeCameraInputsManager>(
                 entity => new FreeCameraInputsManager() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -68,7 +68,7 @@ namespace BabylonJS
 
         public FreeCameraInputsManager addMouse(System.Nullable<bool> touchEnabled = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<FreeCameraInputsManager>(
+            return EventHorizonBlazorInterop.FuncClass<FreeCameraInputsManager>(
                 entity => new FreeCameraInputsManager() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -79,7 +79,7 @@ namespace BabylonJS
 
         public FreeCameraInputsManager removeMouse()
         {
-            return EventHorizonBlazorInteropt.FuncClass<FreeCameraInputsManager>(
+            return EventHorizonBlazorInterop.FuncClass<FreeCameraInputsManager>(
                 entity => new FreeCameraInputsManager() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -90,7 +90,7 @@ namespace BabylonJS
 
         public FreeCameraInputsManager addTouch()
         {
-            return EventHorizonBlazorInteropt.FuncClass<FreeCameraInputsManager>(
+            return EventHorizonBlazorInterop.FuncClass<FreeCameraInputsManager>(
                 entity => new FreeCameraInputsManager() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -101,7 +101,7 @@ namespace BabylonJS
 
         public void clear()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "clear" }

@@ -48,7 +48,7 @@ namespace BabylonJS
         #region Methods
         public bool isInFrustum(Plane[] frustumPlanes)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isInFrustum" }, frustumPlanes
@@ -58,7 +58,7 @@ namespace BabylonJS
 
         public bool isCompletelyInFrustum(Plane[] frustumPlanes)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isCompletelyInFrustum" }, frustumPlanes

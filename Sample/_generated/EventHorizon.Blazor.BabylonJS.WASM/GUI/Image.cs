@@ -23,7 +23,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "GUI.Image.STRETCH_NONE"
                 );
@@ -35,7 +35,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "GUI.Image.STRETCH_FILL"
                 );
@@ -47,7 +47,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "GUI.Image.STRETCH_UNIFORM"
                 );
@@ -59,7 +59,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "GUI.Image.STRETCH_EXTEND"
                 );
@@ -71,7 +71,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "GUI.Image.STRETCH_NINE_PATCH"
                 );
@@ -89,7 +89,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isLoaded"
                 );
@@ -101,7 +101,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "populateNinePatchSlicesFromImage"
                 );
@@ -109,7 +109,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "populateNinePatchSlicesFromImage",
                     value
@@ -122,7 +122,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "detectPointerOnOpaqueOnly"
                 );
@@ -130,7 +130,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "detectPointerOnOpaqueOnly",
                     value
@@ -143,7 +143,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "sliceLeft"
                 );
@@ -151,7 +151,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "sliceLeft",
                     value
@@ -164,7 +164,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "sliceRight"
                 );
@@ -172,7 +172,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "sliceRight",
                     value
@@ -185,7 +185,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "sliceTop"
                 );
@@ -193,7 +193,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "sliceTop",
                     value
@@ -206,7 +206,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "sliceBottom"
                 );
@@ -214,7 +214,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "sliceBottom",
                     value
@@ -227,7 +227,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "sourceLeft"
                 );
@@ -235,7 +235,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "sourceLeft",
                     value
@@ -248,7 +248,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "sourceTop"
                 );
@@ -256,7 +256,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "sourceTop",
                     value
@@ -269,7 +269,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "sourceWidth"
                 );
@@ -277,7 +277,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "sourceWidth",
                     value
@@ -290,7 +290,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "sourceHeight"
                 );
@@ -298,7 +298,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "sourceHeight",
                     value
@@ -311,7 +311,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "isSVG"
                 );
@@ -323,7 +323,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "svgAttributesComputationCompleted"
                 );
@@ -335,7 +335,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "autoScale"
                 );
@@ -343,7 +343,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "autoScale",
                     value
@@ -356,7 +356,7 @@ namespace BabylonJS.GUI
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "stretch"
                 );
@@ -364,7 +364,7 @@ namespace BabylonJS.GUI
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "stretch",
                     value
@@ -379,7 +379,7 @@ namespace BabylonJS.GUI
             {
             if(__domImage == null)
             {
-                __domImage = EventHorizonBlazorInteropt.GetClass<HTMLImageElement>(
+                __domImage = EventHorizonBlazorInterop.GetClass<HTMLImageElement>(
                     this.___guid,
                     "domImage",
                     (entity) =>
@@ -393,7 +393,7 @@ namespace BabylonJS.GUI
             set
             {
 __domImage = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "domImage",
                     value
@@ -406,7 +406,7 @@ __domImage = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "cellWidth"
                 );
@@ -414,7 +414,7 @@ __domImage = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "cellWidth",
                     value
@@ -427,7 +427,7 @@ __domImage = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "cellHeight"
                 );
@@ -435,7 +435,7 @@ __domImage = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "cellHeight",
                     value
@@ -448,7 +448,7 @@ __domImage = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "cellId"
                 );
@@ -456,7 +456,7 @@ __domImage = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "cellId",
                     value
@@ -471,7 +471,7 @@ __domImage = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<string>(
+            return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "name"
                 );
@@ -479,7 +479,7 @@ __domImage = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "name",
                     value
@@ -494,7 +494,7 @@ __domImage = null;
             {
             if(__onImageLoadedObservable == null)
             {
-                __onImageLoadedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Image>>(
+                __onImageLoadedObservable = EventHorizonBlazorInterop.GetClass<Observable<Image>>(
                     this.___guid,
                     "onImageLoadedObservable",
                     (entity) =>
@@ -508,7 +508,7 @@ __domImage = null;
             set
             {
 __onImageLoadedObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onImageLoadedObservable",
                     value
@@ -523,7 +523,7 @@ __onImageLoadedObservable = null;
             {
             if(__onSVGAttributesComputedObservable == null)
             {
-                __onSVGAttributesComputedObservable = EventHorizonBlazorInteropt.GetClass<Observable<Image>>(
+                __onSVGAttributesComputedObservable = EventHorizonBlazorInterop.GetClass<Observable<Image>>(
                     this.___guid,
                     "onSVGAttributesComputedObservable",
                     (entity) =>
@@ -537,7 +537,7 @@ __onImageLoadedObservable = null;
             set
             {
 __onSVGAttributesComputedObservable = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onSVGAttributesComputedObservable",
                     value
@@ -559,7 +559,7 @@ __onSVGAttributesComputedObservable = null;
             string name = null, string url = null
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GUI", "Image" },
                 name, url
             );
@@ -570,7 +570,7 @@ __onSVGAttributesComputedObservable = null;
         #region Methods
         public bool contains(decimal x, decimal y)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "contains" }, x, y
@@ -580,7 +580,7 @@ __onSVGAttributesComputedObservable = null;
 
         public void synchronizeSizeWithContent()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "synchronizeSizeWithContent" }
@@ -590,7 +590,7 @@ __onSVGAttributesComputedObservable = null;
 
         public void dispose()
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "dispose" }

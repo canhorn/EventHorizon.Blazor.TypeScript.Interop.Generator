@@ -24,7 +24,7 @@ namespace BabylonJS
         #region Static Methods
         public static Size Zero()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Size>(
+            return EventHorizonBlazorInterop.FuncClass<Size>(
                 entity => new Size() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -35,7 +35,7 @@ namespace BabylonJS
 
         public static Size Lerp(Size start, Size end, decimal amount)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Size>(
+            return EventHorizonBlazorInterop.FuncClass<Size>(
                 entity => new Size() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -51,7 +51,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "surface"
                 );
@@ -65,7 +65,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "width"
                 );
@@ -73,7 +73,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "width",
                     value
@@ -86,7 +86,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "height"
                 );
@@ -94,7 +94,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "height",
                     value
@@ -116,7 +116,7 @@ namespace BabylonJS
             decimal width, decimal height
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Size" },
                 width, height
             );
@@ -127,7 +127,7 @@ namespace BabylonJS
         #region Methods
         public string toString()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "toString" }
@@ -137,7 +137,7 @@ namespace BabylonJS
 
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -147,7 +147,7 @@ namespace BabylonJS
 
         public decimal getHashCode()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getHashCode" }
@@ -157,7 +157,7 @@ namespace BabylonJS
 
         public void copyFrom(Size src)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "copyFrom" }, src
@@ -167,7 +167,7 @@ namespace BabylonJS
 
         public Size copyFromFloats(decimal width, decimal height)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Size>(
+            return EventHorizonBlazorInterop.FuncClass<Size>(
                 entity => new Size() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -178,7 +178,7 @@ namespace BabylonJS
 
         public Size set(decimal width, decimal height)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Size>(
+            return EventHorizonBlazorInterop.FuncClass<Size>(
                 entity => new Size() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -189,7 +189,7 @@ namespace BabylonJS
 
         public Size multiplyByFloats(decimal w, decimal h)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Size>(
+            return EventHorizonBlazorInterop.FuncClass<Size>(
                 entity => new Size() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -200,7 +200,7 @@ namespace BabylonJS
 
         public Size clone()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Size>(
+            return EventHorizonBlazorInterop.FuncClass<Size>(
                 entity => new Size() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -211,7 +211,7 @@ namespace BabylonJS
 
         public bool equals(Size other)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "equals" }, other
@@ -221,7 +221,7 @@ namespace BabylonJS
 
         public Size add(Size otherSize)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Size>(
+            return EventHorizonBlazorInterop.FuncClass<Size>(
                 entity => new Size() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -232,7 +232,7 @@ namespace BabylonJS
 
         public Size subtract(Size otherSize)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Size>(
+            return EventHorizonBlazorInterop.FuncClass<Size>(
                 entity => new Size() { ___guid = entity.___guid },
                 new object[] 
                 {

@@ -48,7 +48,7 @@ namespace BabylonJS
         #region Methods
         public decimal ease(decimal gradient)
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "ease" }, gradient

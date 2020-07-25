@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<bool>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "allowShaderHotSwapping"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "allowShaderHotSwapping",
                     value
@@ -65,7 +65,7 @@ namespace BabylonJS
             string name, Scene scene
         ) : base()
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "PushMaterial" },
                 name, scene
             );
@@ -76,7 +76,7 @@ namespace BabylonJS
         #region Methods
         public Effect getEffect()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Effect>(
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -87,7 +87,7 @@ namespace BabylonJS
 
         public bool isReady(AbstractMesh mesh = null, System.Nullable<bool> useInstances = null)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "isReady" }, mesh, useInstances
@@ -97,7 +97,7 @@ namespace BabylonJS
 
         public void bindOnlyWorldMatrix(Matrix world)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "bindOnlyWorldMatrix" }, world
@@ -107,7 +107,7 @@ namespace BabylonJS
 
         public void bindOnlyNormalMatrix(Matrix normalMatrix)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "bindOnlyNormalMatrix" }, normalMatrix
@@ -117,7 +117,7 @@ namespace BabylonJS
 
         public void bind(Matrix world, Mesh mesh = null)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "bind" }, world, mesh

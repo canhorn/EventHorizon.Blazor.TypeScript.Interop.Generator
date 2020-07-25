@@ -49,7 +49,7 @@ namespace Generic.Properties
         #region Methods
         public CameraInputsMapCachedEntity<TCamera> attached()
         {
-            return EventHorizonBlazorInteropt.FuncClass<CameraInputsMapCachedEntity<TCamera>>(
+            return EventHorizonBlazorInterop.FuncClass<CameraInputsMapCachedEntity<TCamera>>(
                 entity => new CameraInputsMapCachedEntity<TCamera>() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -60,7 +60,7 @@ namespace Generic.Properties
 
         public Observable<CameraInputsMapCachedEntity> initWebVR()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Observable<CameraInputsMapCachedEntity>>(
+            return EventHorizonBlazorInterop.FuncClass<Observable<CameraInputsMapCachedEntity>>(
                 entity => new Observable<CameraInputsMapCachedEntity>() { ___guid = entity.___guid },
                 new object[] 
                 {

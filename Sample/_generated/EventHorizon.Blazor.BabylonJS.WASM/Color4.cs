@@ -24,7 +24,7 @@ namespace BabylonJS
         #region Static Methods
         public static Color4 FromHexString(string hex)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -35,7 +35,7 @@ namespace BabylonJS
 
         public static Color4 Lerp(Color4 left, Color4 right, decimal amount)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -46,7 +46,7 @@ namespace BabylonJS
 
         public static void LerpToRef(Color4 left, Color4 right, decimal amount, Color4 result)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "Color4", "LerpToRef" }, left, right, amount, result
@@ -56,7 +56,7 @@ namespace BabylonJS
 
         public static Color4 FromColor3(Color3 color3, System.Nullable<decimal> alpha = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -67,7 +67,7 @@ namespace BabylonJS
 
         public static Color4 FromArray(decimal[] array, System.Nullable<decimal> offset = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -78,7 +78,7 @@ namespace BabylonJS
 
         public static Color4 FromInts(decimal r, decimal g, decimal b, decimal a)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -89,7 +89,7 @@ namespace BabylonJS
 
         public static decimal[] CheckColors4(decimal[] colors, decimal count)
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { "BABYLON", "Color4", "CheckColors4" }, colors, count
@@ -108,7 +108,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "r"
                 );
@@ -116,7 +116,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "r",
                     value
@@ -129,7 +129,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "g"
                 );
@@ -137,7 +137,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "g",
                     value
@@ -150,7 +150,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "b"
                 );
@@ -158,7 +158,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "b",
                     value
@@ -171,7 +171,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "a"
                 );
@@ -179,7 +179,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "a",
                     value
@@ -202,7 +202,7 @@ namespace BabylonJS
             System.Nullable<decimal> r = null, System.Nullable<decimal> g = null, System.Nullable<decimal> b = null, System.Nullable<decimal> a = null
         )
         {
-            var entity = EventHorizonBlazorInteropt.New(
+            var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Color4" },
                 r, g, b, a
             );
@@ -213,7 +213,7 @@ namespace BabylonJS
         #region Methods
         public Color4 addInPlace(Color4 right)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -224,7 +224,7 @@ namespace BabylonJS
 
         public decimal[] asArray()
         {
-            return EventHorizonBlazorInteropt.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "asArray" }
@@ -234,7 +234,7 @@ namespace BabylonJS
 
         public Color4 toArray(decimal[] array, System.Nullable<decimal> index = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -245,7 +245,7 @@ namespace BabylonJS
 
         public bool equals(Color4 otherColor)
         {
-            return EventHorizonBlazorInteropt.Func<bool>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
                 {
                     new string[] { this.___guid, "equals" }, otherColor
@@ -255,7 +255,7 @@ namespace BabylonJS
 
         public Color4 add(Color4 right)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -266,7 +266,7 @@ namespace BabylonJS
 
         public Color4 subtract(Color4 right)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -277,7 +277,7 @@ namespace BabylonJS
 
         public Color4 subtractToRef(Color4 right, Color4 result)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -288,7 +288,7 @@ namespace BabylonJS
 
         public Color4 scale(decimal scale)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -299,7 +299,7 @@ namespace BabylonJS
 
         public Color4 scaleToRef(decimal scale, Color4 result)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -310,7 +310,7 @@ namespace BabylonJS
 
         public Color4 scaleAndAddToRef(decimal scale, Color4 result)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -321,7 +321,7 @@ namespace BabylonJS
 
         public Color4 clampToRef(Color4 result, System.Nullable<decimal> min = null, System.Nullable<decimal> max = null)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -332,7 +332,7 @@ namespace BabylonJS
 
         public Color4 multiply(Color4 color)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -343,7 +343,7 @@ namespace BabylonJS
 
         public Color4 multiplyToRef(Color4 color, Color4 result)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -354,7 +354,7 @@ namespace BabylonJS
 
         public string toString()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "toString" }
@@ -364,7 +364,7 @@ namespace BabylonJS
 
         public string getClassName()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getClassName" }
@@ -374,7 +374,7 @@ namespace BabylonJS
 
         public decimal getHashCode()
         {
-            return EventHorizonBlazorInteropt.Func<decimal>(
+            return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getHashCode" }
@@ -384,7 +384,7 @@ namespace BabylonJS
 
         public Color4 clone()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -395,7 +395,7 @@ namespace BabylonJS
 
         public Color4 copyFrom(Color4 source)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -406,7 +406,7 @@ namespace BabylonJS
 
         public Color4 copyFromFloats(decimal r, decimal g, decimal b, decimal a)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -417,7 +417,7 @@ namespace BabylonJS
 
         public Color4 set(decimal r, decimal g, decimal b, decimal a)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -428,7 +428,7 @@ namespace BabylonJS
 
         public string toHexString()
         {
-            return EventHorizonBlazorInteropt.Func<string>(
+            return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
                 {
                     new string[] { this.___guid, "toHexString" }
@@ -438,7 +438,7 @@ namespace BabylonJS
 
         public Color4 toLinearSpace()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -449,7 +449,7 @@ namespace BabylonJS
 
         public Color4 toLinearSpaceToRef(Color4 convertedColor)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -460,7 +460,7 @@ namespace BabylonJS
 
         public Color4 toGammaSpace()
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -471,7 +471,7 @@ namespace BabylonJS
 
         public Color4 toGammaSpaceToRef(Color4 convertedColor)
         {
-            return EventHorizonBlazorInteropt.FuncClass<Color4>(
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
                 new object[] 
                 {

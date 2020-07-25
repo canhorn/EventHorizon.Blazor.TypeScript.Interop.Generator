@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "QUERY_COUNTER_BITS_EXT"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "QUERY_COUNTER_BITS_EXT",
                     value
@@ -56,7 +56,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "TIME_ELAPSED_EXT"
                 );
@@ -64,7 +64,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "TIME_ELAPSED_EXT",
                     value
@@ -77,7 +77,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "TIMESTAMP_EXT"
                 );
@@ -85,7 +85,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "TIMESTAMP_EXT",
                     value
@@ -98,7 +98,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "GPU_DISJOINT_EXT"
                 );
@@ -106,7 +106,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "GPU_DISJOINT_EXT",
                     value
@@ -119,7 +119,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "QUERY_RESULT_EXT"
                 );
@@ -127,7 +127,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "QUERY_RESULT_EXT",
                     value
@@ -140,7 +140,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "QUERY_RESULT_AVAILABLE_EXT"
                 );
@@ -148,7 +148,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "QUERY_RESULT_AVAILABLE_EXT",
                     value
@@ -172,7 +172,7 @@ namespace BabylonJS
         #region Methods
         public void queryCounterEXT(WebGLQueryCachedEntity query, decimal target)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "queryCounterEXT" }, query, target
@@ -182,7 +182,7 @@ namespace BabylonJS
 
         public WebGLQueryCachedEntity createQueryEXT()
         {
-            return EventHorizonBlazorInteropt.FuncClass<WebGLQueryCachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<WebGLQueryCachedEntity>(
                 entity => new WebGLQueryCachedEntity() { ___guid = entity.___guid },
                 new object[] 
                 {
@@ -193,7 +193,7 @@ namespace BabylonJS
 
         public void beginQueryEXT(decimal target, WebGLQueryCachedEntity query)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "beginQueryEXT" }, target, query
@@ -203,7 +203,7 @@ namespace BabylonJS
 
         public void endQueryEXT(decimal target)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "endQueryEXT" }, target
@@ -213,7 +213,7 @@ namespace BabylonJS
 
         public CachedEntity getQueryObjectEXT(WebGLQueryCachedEntity query, decimal target)
         {
-            return EventHorizonBlazorInteropt.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getQueryObjectEXT" }, query, target
@@ -223,7 +223,7 @@ namespace BabylonJS
 
         public void deleteQueryEXT(WebGLQueryCachedEntity query)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "deleteQueryEXT" }, query

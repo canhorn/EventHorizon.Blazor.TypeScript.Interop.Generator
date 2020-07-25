@@ -37,7 +37,7 @@ namespace Static.Primitive
             {
             if(__height == null)
             {
-                __height = EventHorizonBlazorInteropt.GetClass<Vector2>(
+                __height = EventHorizonBlazorInterop.GetClass<Vector2>(
                     this.___guid,
                     "height",
                     (entity) =>
@@ -51,7 +51,7 @@ namespace Static.Primitive
             set
             {
 __height = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "height",
                     value

@@ -35,7 +35,7 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "gradient"
                 );
@@ -43,7 +43,7 @@ namespace BabylonJS
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "gradient",
                     value
@@ -58,7 +58,7 @@ namespace BabylonJS
             {
             if(__color1 == null)
             {
-                __color1 = EventHorizonBlazorInteropt.GetClass<Color4>(
+                __color1 = EventHorizonBlazorInterop.GetClass<Color4>(
                     this.___guid,
                     "color1",
                     (entity) =>
@@ -72,7 +72,7 @@ namespace BabylonJS
             set
             {
 __color1 = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "color1",
                     value
@@ -87,7 +87,7 @@ __color1 = null;
             {
             if(__color2 == null)
             {
-                __color2 = EventHorizonBlazorInteropt.GetClass<Color4>(
+                __color2 = EventHorizonBlazorInterop.GetClass<Color4>(
                     this.___guid,
                     "color2",
                     (entity) =>
@@ -101,7 +101,7 @@ __color1 = null;
             set
             {
 __color2 = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "color2",
                     value
@@ -125,7 +125,7 @@ __color2 = null;
         #region Methods
         public void getColorToRef(Color4 result)
         {
-            EventHorizonBlazorInteropt.Func<CachedEntity>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
                 {
                     new string[] { this.___guid, "getColorToRef" }, result

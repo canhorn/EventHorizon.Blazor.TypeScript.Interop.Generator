@@ -37,7 +37,7 @@ namespace BabylonJS
             {
             if(__scene == null)
             {
-                __scene = EventHorizonBlazorInteropt.GetClass<Scene>(
+                __scene = EventHorizonBlazorInterop.GetClass<Scene>(
                     this.___guid,
                     "scene",
                     (entity) =>
@@ -51,7 +51,7 @@ namespace BabylonJS
             set
             {
 __scene = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "scene",
                     value
@@ -66,7 +66,7 @@ __scene = null;
             {
             if(__camera == null)
             {
-                __camera = EventHorizonBlazorInteropt.GetClass<Camera>(
+                __camera = EventHorizonBlazorInterop.GetClass<Camera>(
                     this.___guid,
                     "camera",
                     (entity) =>
@@ -80,7 +80,7 @@ __scene = null;
             set
             {
 __camera = null;
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "camera",
                     value
@@ -93,7 +93,7 @@ __camera = null;
         {
             get
             {
-            return EventHorizonBlazorInteropt.Get<decimal>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "renderingGroupId"
                 );
@@ -101,7 +101,7 @@ __camera = null;
             set
             {
 
-                EventHorizonBlazorInteropt.Set(
+                EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "renderingGroupId",
                     value

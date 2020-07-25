@@ -49,7 +49,7 @@ namespace Static.Class
         #region Methods
         public bool[] isBooleans()
         {
-            return EventHorizonBlazorInteropt.FuncArray<bool>(
+            return EventHorizonBlazorInterop.FuncArray<bool>(
                 new object[]
                 {
                     new string[] { this.___guid, "isBooleans" }
@@ -59,7 +59,7 @@ namespace Static.Class
 
         public bool[] isBooleansAsArray()
         {
-            return EventHorizonBlazorInteropt.FuncArray<bool>(
+            return EventHorizonBlazorInterop.FuncArray<bool>(
                 new object[]
                 {
                     new string[] { this.___guid, "isBooleansAsArray" }
