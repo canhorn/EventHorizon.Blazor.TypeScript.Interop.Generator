@@ -8,7 +8,7 @@
 [![EventHorizon.Blazor.TypeScript.Interop.Generator.Model](https://img.shields.io/nuget/vpre/EventHorizon.Blazor.TypeScript.Interop.Generator.Model?style=for-the-badge&label=Model)](https://www.nuget.org/packages/EventHorizon.Blazor.TypeScript.Interop.Generator.Model)
 [![EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project](https://img.shields.io/nuget/vpre/EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project?style=for-the-badge&label=Project+Writer)](https://www.nuget.org/packages/EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project)
 
-[![EventHorizon.Blazor.TypeScript.Interop.Tool](https://img.shields.io/nuget/vpre/EventHorizon.Blazor.TypeScript.Interop.Generator.Tool?style=for-the-badge&label=Tool)](https://www.nuget.org/packages/EventHorizon.Blazor.TypeScript.Interop.Generator.Tool)
+[![EventHorizon.Blazor.TypeScript.Interop.Tool](https://img.shields.io/nuget/vpre/EventHorizon.Blazor.TypeScript.Interop.Tool?style=for-the-badge&label=Tool)](https://www.nuget.org/packages/EventHorizon.Blazor.TypeScript.Interop.Tool)
 
 # About EventHorizon Blazor TypeScript Interop Generator
 
