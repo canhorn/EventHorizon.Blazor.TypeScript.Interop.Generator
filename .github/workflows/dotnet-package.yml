@@ -1,0 +1,37 @@
+name: EventHorizon Nuget Packages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    types: [opened, synchronize]
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: '0'
+    - name: Install GitVersion
+      uses: gittools/actions/gitversion/setup@v0.9.4
+      with:
+        versionSpec: '5.3.x'
+    - name: Use GitVersion
+      id: gitversion # step id used as reference for output values
+      uses: gittools/actions/gitversion/execute@v0.9.4
+      with:
+        additionalArguments: '/updateAssemblyInfo'
+    - run: |
+        echo "NuGetVersionV2: ${{ steps.gitversion.outputs.NuGetVersionV2 }}"
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0.100-preview.7.20366.6'
+    - name: Build with dotnet
+      run: dotnet build --configuration Release
+    - name: Pack with dotnet
+      run: dotnet pack EventHorizon.Blazor.TypeScript.Interop.Generator.sln --output nuget-packages --configuration Release -p:PackageVersion=${{ steps.gitversion.outputs.NuGetVersionV2 }}
+    - name: Push with dotnet
+      run: find nuget-packages -name '*.nupkg' | xargs -i dotnet nuget push --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json {}

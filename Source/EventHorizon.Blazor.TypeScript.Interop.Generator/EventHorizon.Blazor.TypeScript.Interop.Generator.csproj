@@ -2,6 +2,13 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
+
+        <AssemblyTitle>EventHorizon.Blazor.TypeScript.Interop.Generator</AssemblyTitle>
+        <AssemblyName>EventHorizon.Blazor.TypeScript.Interop.Generator</AssemblyName>
+        <PackageId>EventHorizon.Blazor.TypeScript.Interop.Generator</PackageId>
+
+        <Description>Parser for TypeScript definitions to create C# representations. The package provides three layers type of generators Class Statement, ClassStatement string, and writer based generation.</Description>
+        <PackageTags>Blazor, WASM, Interop, Generation</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>

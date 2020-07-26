@@ -2,6 +2,13 @@
 
   <PropertyGroup>
       <TargetFramework>net5.0</TargetFramework>
+
+      <AssemblyTitle>EventHorizon.Blazor.TypeScript.Interop.Generator.Model</AssemblyTitle>
+      <AssemblyName>EventHorizon.Blazor.TypeScript.Interop.Generator.Model</AssemblyName>
+      <PackageId>EventHorizon.Blazor.TypeScript.Interop.Generator.Model</PackageId>
+
+      <Description>Model's for the EventHorizon.Blazor.TypeScript.Interop.Generator that can be used to create writers.</Description>
+      <PackageTags>Blazor, WASM, Interop, Model</PackageTags>
   </PropertyGroup>
 
 </Project>
