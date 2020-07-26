@@ -25,21 +25,21 @@ Identifier | Details | Required/Default
 ~~~ bash
 # Generated BabylonJS project with interop to Vector3 class.
 # Created with a project assembly of Blazor.BabylonJS.
-dotnet ehz-generate --project-assembly Blazor.BabylonJS --class-to-generate Vector3 --source https://raw.githubusercontent.com/BabylonJS/Babylon.js/master/dist/babylon.d.ts
+ehz-generate --project-assembly Blazor.BabylonJS --class-to-generate Vector3 --source https://raw.githubusercontent.com/BabylonJS/Babylon.js/master/dist/babylon.d.ts
 ~~~
 
 ~~~ bash
 # (using shorthand alias) Generated BabylonJS project with interop to Vector3 class.
 # Created with a project assembly of Blazor.BabylonJS.
-dotnet ehz-generate -a Blazor.BabylonJS -c Vector3 -s https://raw.githubusercontent.com/BabylonJS/Babylon.js/master/dist/babylon.d.ts
+ehz-generate -a Blazor.BabylonJS -c Vector3 -s https://raw.githubusercontent.com/BabylonJS/Babylon.js/master/dist/babylon.d.ts
 ~~~
 
 ~~~ bash
 # Generated BabylonJS project interop with multiple classes.
-dotnet ehz-generate -c Vector3 -c Mesh -c Engine -c Scene -s https://raw.githubusercontent.com/BabylonJS/Babylon.js/master/dist/babylon.d.ts
+ehz-generate -c Vector3 -c Mesh -c Engine -c Scene -s https://raw.githubusercontent.com/BabylonJS/Babylon.js/master/dist/babylon.d.ts
 ~~~
 
 ~~~ bash
 # Generated BabylonJS project interop with multiple sources.
-dotnet ehz-generate -c Button -s https://raw.githubusercontent.com/BabylonJS/Babylon.js/master/dist/babylon.d.ts -s https://raw.githubusercontent.com/BabylonJS/Babylon.js/master/dist/gui/babylon.gui.d.ts
+ehz-generate -c Button -s https://raw.githubusercontent.com/BabylonJS/Babylon.js/master/dist/babylon.d.ts -s https://raw.githubusercontent.com/BabylonJS/Babylon.js/master/dist/gui/babylon.gui.d.ts
 ~~~
