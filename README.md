@@ -1,4 +1,9 @@
-![.NET Core](https://github.com/canhorn/EventHorizon.Blazor.TypeScript.Interop.Generator/workflows/.NET%20Core/badge.svg) [![codecov](https://codecov.io/gh/canhorn/EventHorizon.Blazor.TypeScript.Interop.Generator/branch/main/graph/badge.svg)](https://codecov.io/gh/canhorn/EventHorizon.Blazor.TypeScript.Interop.Generator) 
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fcanhorn%2FEventHorizon.Blazor.TypeScript.Interop.Generator%2Fbadge%3Fref%3Dmain&style=for-the-badge)](https://actions-badge.atrox.dev/canhorn/EventHorizon.Blazor.TypeScript.Interop.Generator/goto?ref=main)
+[![Nuget](https://img.shields.io/nuget/vpre/EventHorizon.Blazor.TypeScript.Interop.Generator?style=for-the-badge)](https://www.nuget.org/packages/EventHorizon.Blazor.TypeScript.Interop.Generator)
+[![codecov](https://img.shields.io/codecov/c/github/canhorn/EventHorizon.Blazor.TypeScript.Interop.Generator?style=for-the-badge)](https://codecov.io/gh/canhorn/EventHorizon.Blazor.TypeScript.Interop.Generator) 
+
+[![GitHub](https://img.shields.io/github/license/canhorn/EventHorizon.Blazor.TypeScript.Interop.Generator?style=for-the-badge)](https://github.com/canhorn/EventHorizon.Blazor.TypeScript.Interop.Generator/blob/main/LICENSE)
+[![GitHub tag (latest SemVer pre-release)](https://img.shields.io/github/v/tag/canhorn/EventHorizon.Blazor.TypeScript.Interop.Generator?include_prereleases&label=latest%20tag&style=for-the-badge)](https://github.com/canhorn/EventHorizon.Blazor.TypeScript.Interop.Generator/tags)
 
 # About EventHorizon Blazor TypeScript Interop Generator
 
