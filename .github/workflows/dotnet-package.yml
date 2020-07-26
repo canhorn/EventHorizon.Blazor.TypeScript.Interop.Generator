@@ -33,5 +33,5 @@ jobs:
       run: dotnet build --configuration Release
     - name: Pack with dotnet
       run: dotnet pack EventHorizon.Blazor.TypeScript.Interop.Generator.sln --output nuget-packages --configuration Release -p:PackageVersion=${{ steps.gitversion.outputs.NuGetVersionV2 }}
-    # - name: Push with dotnet
-    #   run: dotnet nuget push nuget-packages/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+    - name: Push with dotnet
+      run: dotnet nuget push nuget-packages/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
