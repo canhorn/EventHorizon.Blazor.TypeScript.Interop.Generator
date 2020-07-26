@@ -2,8 +2,8 @@
     <PropertyGroup>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <Authors>Cody Merritt Anhorn</Authors>
-        <PackageProjectUrl>https://github.com/canhorn/EventHorizon.Blazor.Interop</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/canhorn/EventHorizon.Blazor.Interop</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/canhorn/EventHorizon.Blazor.TypeScript.Interop.Generator</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/canhorn/EventHorizon.Blazor.TypeScript.Interop.Generator</RepositoryUrl>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     </PropertyGroup>
 </Project>
