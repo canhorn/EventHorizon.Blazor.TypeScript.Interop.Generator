@@ -188,7 +188,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
             if (sources == null || sources.Count == 0)
             {
                 throw new ToolArgumentException(
-                    "--sources",
+                    "--source",
                     "No sources found."
                 );
             }
