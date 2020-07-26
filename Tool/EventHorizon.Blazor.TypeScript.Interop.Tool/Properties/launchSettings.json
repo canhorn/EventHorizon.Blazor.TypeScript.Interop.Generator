@@ -1,0 +1,8 @@
+{
+    "profiles": {
+        "EventHorizon.Blazor.TypeScript.Interop.Tool": {
+            "commandName": "Project",
+            "commandLineArgs": "--source https://raw.githubusercontent.com/BabylonJS/Babylon.js/master/dist/gui/babylon.gui.d.ts --source https://raw.githubusercontent.com/BabylonJS/Babylon.js/master/dist/babylon.d.ts --class-to-generate Vector3 --force"
+        }
+    }
+}

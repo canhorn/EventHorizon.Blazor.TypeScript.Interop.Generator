@@ -89,7 +89,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
             );
             stopwatch.Stop();
             GlobalLogger.Info("Removed Generation Directory");
-            System.Console.WriteLine($"Took {stopwatch.ElapsedMilliseconds}ms to generate.");
+            GlobalLogger.Info($"Took {stopwatch.ElapsedMilliseconds}ms to generate.");
 
         }
     }
