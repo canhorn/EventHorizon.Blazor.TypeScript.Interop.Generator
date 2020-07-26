@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+
+        <PackAsTool>true</PackAsTool>
+        <ToolCommandName>ehz-generate</ToolCommandName>
+
+        <AssemblyTitle>EventHorizon.Blazor.TypeScript.Interop.Tool</AssemblyTitle>
+        <AssemblyName>EventHorizon.Blazor.TypeScript.Interop.Tool</AssemblyName>
+        <PackageId>EventHorizon.Blazor.TypeScript.Interop.Tool</PackageId>
+
+        <Description>This dotnet tool encapsulates project generation for TypeScript Blazor Interop proxy abstraction.</Description>
+        <PackageTags>Blazor, WASM, Interop, Generation, Tool</PackageTags>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <DefaultItemExcludes>$(DefaultItemExcludes);_generated\**\*;_sourceFiles\**\*</DefaultItemExcludes>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="System.CommandLine" Version="2.0.0-beta1.20371.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Source\EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project\EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project.csproj" />
+        <ProjectReference Include="..\..\Source\EventHorizon.Blazor.TypeScript.Interop.Generator\EventHorizon.Blazor.TypeScript.Interop.Generator.csproj" />
+    </ItemGroup>
+
+</Project>

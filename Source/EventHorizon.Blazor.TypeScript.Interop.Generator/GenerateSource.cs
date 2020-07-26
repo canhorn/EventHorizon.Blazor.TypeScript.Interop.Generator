@@ -31,18 +31,27 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             IDictionary<string, string> typeOverrideMap
         )
         {
+            var overallStopwatch = Stopwatch.StartNew();
+            var stopwatch = Stopwatch.StartNew();
+            GlobalLogger.Info($"=== Consolidate Source Files");
             var sourceFilesAsText = GetSourceFilesAsSingleTextString(
                 sourceDirectory,
                 sourceFiles
             );
+            GlobalLogger.Info($"=== Consolidated Source Files | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms");
+
+            stopwatch.Restart();
+            GlobalLogger.Info($"=== Generated AST");
             var ast = new TypeScriptAST(
                 sourceFilesAsText,
                 "source-combined.ts"
             );
-            GlobalLogger.Info("Generated AST");
+            GlobalLogger.Info($"=== Generated AST | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms");
             var notGeneratedClassNames = new List<string>();
 
             var generatedStatements = new List<GeneratedStatement>();
+            stopwatch.Restart();
+            GlobalLogger.Info($"=== Generate Cached Entity Object");
             var cachedEntityObject = GenerateCachedEntityObject.GenerateClassStatement();
             generatedStatements.Add(
                 new GeneratedStatement(
@@ -50,8 +59,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                     GenerateCachedEntityObject.GenerateString()
                 )
             );
-            GlobalLogger.Info("Generate Cached Entity Object");
+            GlobalLogger.Info($"=== Generated Cached Entity Object | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms");
 
+            stopwatch.Restart();
+            GlobalLogger.Info($"=== Generate Class Statements");
             var generatedClassStatements = GenerateClassFromList(
                 ast,
                 projectAssembly,
@@ -60,9 +71,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                 typeOverrideMap,
                 new List<ClassStatement> { cachedEntityObject }
             );
-            GlobalLogger.Info("Generate Class From List");
-
             generatedClassStatements.Remove(cachedEntityObject);
+            GlobalLogger.Info($"=== Generated Class Statements | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms");
+
+            stopwatch.Restart();
+            GlobalLogger.Info($"=== Generate Statements");
             foreach (var generatedStatement in generatedClassStatements)
             {
                 generatedStatements.Add(
@@ -75,8 +88,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                     )
                 );
             }
-            GlobalLogger.Info("Generated Statements");
+            GlobalLogger.Info($"=== Generated Statements | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms");
 
+            stopwatch.Restart();
+            GlobalLogger.Info($"=== Generating Shimmed Classes");
             foreach (var notGeneratedInterfaceName in notGeneratedClassNames)
             {
                 if (!JavaScriptProvidedApiIdentifier.Identify(notGeneratedInterfaceName, out _))
@@ -94,15 +109,20 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                             )
                         )
                     );
+                    GlobalLogger.Info($"=== Generated Shimmed Class: {notGeneratedInterfaceName}");
                 }
             }
-            GlobalLogger.Info("Generated NOT Generated Class Names");
+            GlobalLogger.Info($"=== Generated Shimmed Classes | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms");
 
             // Write Generated Statements to Passed in Writer
+            stopwatch.Restart();
+            GlobalLogger.Info($"=== Writing Generated Statements");
             writer.Write(
                 generatedStatements
             );
-            GlobalLogger.Warning("Writer Finished");
+            GlobalLogger.Info($"=== Finished Writing Generated Statements | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms");
+
+            GlobalLogger.Success($"=== Finished Run | ElapsedTime: {overallStopwatch.ElapsedMilliseconds}ms");
 
             return true;
         }
@@ -161,8 +181,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                 {
                     if (!notGeneratedClassNames.Contains(classIdentifier))
                     {
-                        GlobalLogger.Error(
-                            $"Was not found in AST. classIdentifier: {classIdentifier}"
+                        GlobalLogger.Warning(
+                            $"Was not found in AST. Adding to Shim Generation List. classIdentifier: {classIdentifier}"
                         );
                         notGeneratedClassNames.Add(
                             classIdentifier
