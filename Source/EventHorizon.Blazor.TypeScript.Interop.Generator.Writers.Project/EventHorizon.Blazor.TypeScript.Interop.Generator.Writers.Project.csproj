@@ -2,6 +2,13 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
+
+        <AssemblyTitle>EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project</AssemblyTitle> 
+        <AssemblyName>EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project</AssemblyName>
+        <PackageId>EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project</PackageId>
+
+        <Description>Includes a Writer implementation that will generate a C# Project. This should be used with the EventHorizon.Blazor.TypeScript.Interop.Generator project to write out the generated statements to a C# project.</Description>
+        <PackageTags>Blazor, WASM, Interop</PackageTags>
     </PropertyGroup>
 
     <ItemGroup>

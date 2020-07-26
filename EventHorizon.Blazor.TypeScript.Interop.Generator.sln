@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
+		.github\workflows\dotnet-package.yml = .github\workflows\dotnet-package.yml
+		.github\workflows\main-tag-bump.yml = .github\workflows\main-tag-bump.yml
 		README.md = README.md
 	EndProjectSection
 EndProject
