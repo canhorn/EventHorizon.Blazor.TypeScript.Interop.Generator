@@ -24,7 +24,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
             {
                 new Option<IList<string>>(
                     new string[] { "--source", "-s" },
-                    description: "TypeScript Definition to generate from, accepts multiple or as Array"
+                    description: "TypeScript Definition to generate from, can be a File or URL, accepts multiple or as Array"
                 )
                 {
                     IsRequired = true,
@@ -39,12 +39,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
                 new Option<string>(
                     new string[] { "--project-assembly", "-a" },
                     getDefaultValue: () => "Generated.WASM",
-                    description: ""
+                    description: "The project name of the Assembly that will be generated"
                 ),
                 new Option<string>(
                     new string[] { "--project-generation-location", "-l" },
                     getDefaultValue: () => "_generated",
-                    description: ""
+                    description: "The directory where the Generated Project assembly will be saved"
                 ),
                 new Option<bool>(
                     new string[] { "--force", "-f" },
