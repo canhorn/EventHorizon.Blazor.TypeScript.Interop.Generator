@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<Texture>))]
     public class Texture : BaseTexture
     {
         #region Static Accessors
@@ -409,7 +410,7 @@ namespace BabylonJS
             );
         }
 
-        public static Texture CreateFromBase64String(string data, string name, Scene scene, System.Nullable<bool> noMipmap = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, CachedEntity onLoad = null, CachedEntity onError = null, System.Nullable<decimal> format = null)
+        public static Texture CreateFromBase64String(string data, string name, Scene scene, System.Nullable<bool> noMipmap = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, ActionCallback onLoad = null, ActionCallback onError = null, System.Nullable<decimal> format = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Texture>(
                 entity => new Texture() { ___guid = entity.___guid },
@@ -420,7 +421,7 @@ namespace BabylonJS
             );
         }
 
-        public static Texture LoadFromDataString(string name, object buffer, Scene scene, System.Nullable<bool> deleteBuffer = null, System.Nullable<bool> noMipmap = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, CachedEntity onLoad = null, CachedEntity onError = null, System.Nullable<decimal> format = null)
+        public static Texture LoadFromDataString(string name, object buffer, Scene scene, System.Nullable<bool> deleteBuffer = null, System.Nullable<bool> noMipmap = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, ActionCallback onLoad = null, ActionCallback<string, CachedEntity> onError = null, System.Nullable<decimal> format = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Texture>(
                 entity => new Texture() { ___guid = entity.___guid },
@@ -788,7 +789,7 @@ __onLoadObservable = null;
         }
 
         public Texture(
-            Scene sceneOrEngine, string url = null, System.Nullable<bool> noMipmap = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, CachedEntity onLoad = null, CachedEntity onError = null, string buffer = null, System.Nullable<bool> deleteBuffer = null, System.Nullable<decimal> format = null, string mimeType = null
+            Scene sceneOrEngine, string url = null, System.Nullable<bool> noMipmap = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, ActionCallback onLoad = null, ActionCallback<string, CachedEntity> onError = null, string buffer = null, System.Nullable<bool> deleteBuffer = null, System.Nullable<decimal> format = null, string mimeType = null
         ) : base()
         {
             var entity = EventHorizonBlazorInterop.New(
@@ -800,7 +801,15 @@ __onLoadObservable = null;
         #endregion
 
         #region Methods
-// updateURL is not supported by the platform yet
+        public void updateURL(string url, string buffer = null, ActionCallback onLoad = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "updateURL" }, url, buffer, onLoad
+                }
+            );
+        }
 
         public void delayLoad()
         {

@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<Scene>))]
     public class Scene : AbstractScene, IAnimatable
     {
         #region Static Accessors
@@ -4481,7 +4482,15 @@ __actionManager = null;
             );
         }
 
-// stopAnimation is not supported by the platform yet
+        public void stopAnimation(object target, string animationName = null, ActionCallback<object> targetMask = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "stopAnimation" }, target, animationName, targetMask
+                }
+            );
+        }
 
         public decimal removeAnimationGroup(AnimationGroup toRemove)
         {
@@ -5131,7 +5140,16 @@ __actionManager = null;
             );
         }
 
-// getOrAddExternalDataWithFactory is not supported by the platform yet
+        public T getOrAddExternalDataWithFactory<T>(string key, ActionCallback<string> factory) where T : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
+                new object[] 
+                {
+                    new string[] { this.___guid, "getOrAddExternalDataWithFactory" }, key, factory
+                }
+            );
+        }
 
         public bool removeExternalData(string key)
         {
@@ -5583,13 +5601,49 @@ __actionManager = null;
             );
         }
 
-// pick is not supported by the platform yet
+        public PickingInfo pick(decimal x, decimal y, ActionCallback<AbstractMesh> predicate = null, System.Nullable<bool> fastCheck = null, Camera camera = null, TrianglePickingPredicate trianglePredicate = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<PickingInfo>(
+                entity => new PickingInfo() { ___guid = entity.___guid },
+                new object[] 
+                {
+                    new string[] { this.___guid, "pick" }, x, y, predicate, fastCheck, camera, trianglePredicate
+                }
+            );
+        }
 
-// pickWithRay is not supported by the platform yet
+        public PickingInfo pickWithRay(Ray ray, ActionCallback<AbstractMesh> predicate = null, System.Nullable<bool> fastCheck = null, TrianglePickingPredicate trianglePredicate = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<PickingInfo>(
+                entity => new PickingInfo() { ___guid = entity.___guid },
+                new object[] 
+                {
+                    new string[] { this.___guid, "pickWithRay" }, ray, predicate, fastCheck, trianglePredicate
+                }
+            );
+        }
 
-// multiPick is not supported by the platform yet
+        public PickingInfo[] multiPick(decimal x, decimal y, ActionCallback<AbstractMesh> predicate = null, Camera camera = null, TrianglePickingPredicate trianglePredicate = null)
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<PickingInfo>(
+                entity => new PickingInfo() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "multiPick" }, x, y, predicate, camera, trianglePredicate
+                }
+            );
+        }
 
-// multiPickWithRay is not supported by the platform yet
+        public PickingInfo[] multiPickWithRay(Ray ray, ActionCallback<AbstractMesh> predicate, TrianglePickingPredicate trianglePredicate = null)
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<PickingInfo>(
+                entity => new PickingInfo() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "multiPickWithRay" }, ray, predicate, trianglePredicate
+                }
+            );
+        }
 
         public void setPointerOverMesh(AbstractMesh mesh)
         {
@@ -5612,15 +5666,51 @@ __actionManager = null;
             );
         }
 
-// getMeshesByTags is not supported by the platform yet
+        public Mesh[] getMeshesByTags(string tagsQuery, ActionCallback<AbstractMesh> forEach = null)
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<Mesh>(
+                entity => new Mesh() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "getMeshesByTags" }, tagsQuery, forEach
+                }
+            );
+        }
 
-// getCamerasByTags is not supported by the platform yet
+        public Camera[] getCamerasByTags(string tagsQuery, ActionCallback<Camera> forEach = null)
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<Camera>(
+                entity => new Camera() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "getCamerasByTags" }, tagsQuery, forEach
+                }
+            );
+        }
 
-// getLightsByTags is not supported by the platform yet
+        public Light[] getLightsByTags(string tagsQuery, ActionCallback<Light> forEach = null)
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<Light>(
+                entity => new Light() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "getLightsByTags" }, tagsQuery, forEach
+                }
+            );
+        }
 
-// getMaterialByTags is not supported by the platform yet
+        public Material[] getMaterialByTags(string tagsQuery, ActionCallback<Material> forEach = null)
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<Material>(
+                entity => new Material() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "getMaterialByTags" }, tagsQuery, forEach
+                }
+            );
+        }
 
-        public void setRenderingOrder(decimal renderingGroupId, CachedEntity opaqueSortCompareFn = null, CachedEntity alphaTestSortCompareFn = null, CachedEntity transparentSortCompareFn = null)
+        public void setRenderingOrder(decimal renderingGroupId, ActionCallback<SubMesh, SubMesh> opaqueSortCompareFn = null, ActionCallback<SubMesh, SubMesh> alphaTestSortCompareFn = null, ActionCallback<SubMesh, SubMesh> transparentSortCompareFn = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -5651,7 +5741,15 @@ __actionManager = null;
             );
         }
 
-// markAllMaterialsAsDirty is not supported by the platform yet
+        public void markAllMaterialsAsDirty(decimal flag, ActionCallback<Material> predicate = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "markAllMaterialsAsDirty" }, flag, predicate
+                }
+            );
+        }
         #endregion
     }
 }

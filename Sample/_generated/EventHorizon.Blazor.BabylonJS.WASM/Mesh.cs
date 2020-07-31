@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<Mesh>))]
     public class Mesh : AbstractMesh, IGetSetVerticesData
     {
         #region Static Accessors
@@ -458,7 +459,16 @@ namespace BabylonJS
             );
         }
 
-// CreateGroundFromHeightMap is not supported by the platform yet
+        public static GroundMesh CreateGroundFromHeightMap(string name, string url, decimal width, decimal height, decimal subdivisions, decimal minHeight, decimal maxHeight, Scene scene, System.Nullable<bool> updatable = null, ActionCallback<GroundMesh> onReady = null, System.Nullable<decimal> alphaFilter = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<GroundMesh>(
+                entity => new GroundMesh() { ___guid = entity.___guid },
+                new object[] 
+                {
+                    new string[] { "BABYLON", "Mesh", "CreateGroundFromHeightMap" }, name, url, width, height, subdivisions, minHeight, maxHeight, scene, updatable, onReady, alphaFilter
+                }
+            );
+        }
 
         public static Mesh CreateTube(string name, Vector3[] path, decimal radius, decimal tessellation, object radiusFunction, decimal cap, Scene scene, System.Nullable<bool> updatable = null, System.Nullable<decimal> sideOrientation = null, Mesh instance = null)
         {
@@ -948,7 +958,16 @@ __morphTargetManager = null;
         }
         #endregion
 
-// instantiateHierarchy is not supported by the platform yet
+        public TransformNode instantiateHierarchy(TransformNode newParent = null, object options = null, ActionCallback<TransformNode, TransformNode> onNewNodeCreated = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<TransformNode>(
+                entity => new TransformNode() { ___guid = entity.___guid },
+                new object[] 
+                {
+                    new string[] { this.___guid, "instantiateHierarchy" }, newParent, options, onNewNodeCreated
+                }
+            );
+        }
 
         public string getClassName()
         {
@@ -1214,10 +1233,10 @@ __morphTargetManager = null;
 
         #region updateMeshPositions TODO: Get Comments as metadata identification
         private bool _isUpdateMeshPositionsEnabled = false;
-        private readonly IDictionary<string, Func<Array, Task>> _updateMeshPositionsActionMap = new Dictionary<string, Func<Array, Task>>();
+        private readonly IDictionary<string, Func<decimal[], Task>> _updateMeshPositionsActionMap = new Dictionary<string, Func<decimal[], Task>>();
 
         public string updateMeshPositions(
-            Func<Array, Task> callback
+            Func<decimal[], Task> callback
         )
         {
             SetupUpdateMeshPositionsLoop();
@@ -1582,7 +1601,16 @@ __morphTargetManager = null;
             );
         }
 
-// applyDisplacementMap is not supported by the platform yet
+        public Mesh applyDisplacementMap(string url, decimal minHeight, decimal maxHeight, ActionCallback<Mesh> onSuccess = null, Vector2 uvOffset = null, Vector2 uvScale = null, System.Nullable<bool> forceUpdate = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
+                entity => new Mesh() { ___guid = entity.___guid },
+                new object[] 
+                {
+                    new string[] { this.___guid, "applyDisplacementMap" }, url, minHeight, maxHeight, onSuccess, uvOffset, uvScale, forceUpdate
+                }
+            );
+        }
 
         public Mesh applyDisplacementMapFromBuffer(decimal[] buffer, decimal heightMapWidth, decimal heightMapHeight, decimal minHeight, decimal maxHeight, Vector2 uvOffset = null, Vector2 uvScale = null, System.Nullable<bool> forceUpdate = null)
         {

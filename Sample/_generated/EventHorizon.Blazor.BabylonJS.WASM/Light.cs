@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<Light>))]
     public class Light : Node
     {
         #region Static Accessors
@@ -222,9 +223,9 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity GetConstructorFromName(decimal type, string name, Scene scene)
+        public static ActionCallback GetConstructorFromName(decimal type, string name, Scene scene)
         {
-            return EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<ActionCallback>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "Light", "GetConstructorFromName" }, type, name, scene

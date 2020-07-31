@@ -7,14 +7,20 @@ using EventHorizon.Blazor.BabylonJS.Model;
 
 namespace EventHorizon.Blazor.BabylonJS.Pages
 {
-    public partial class MeshExample
+    public partial class MeshExample : IDisposable
     {
+        private Engine _engine;
         protected override void OnAfterRender(bool firstRender)
         {
             if (firstRender)
             {
                 CreateScene();
             }
+        }
+
+        public void Dispose()
+        {
+            _engine?.dispose();
         }
 
         public void CreateScene()
@@ -75,6 +81,8 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
                 false
             );
             engine.runRenderLoop(() => Task.Run(() => scene.render(true, false)));
+
+            _engine = engine;
         }
     }
 }

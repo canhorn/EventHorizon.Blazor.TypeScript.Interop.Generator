@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     public interface ISpriteManager : ICachedEntity { }
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<ISpriteManagerCachedEntity>))]
     public class ISpriteManagerCachedEntity : CachedEntityObject, ISpriteManager
     {
         #region Static Accessors
@@ -132,9 +133,27 @@ namespace BabylonJS
         #endregion
 
         #region Methods
-// intersects is not supported by the platform yet
+        public PickingInfo intersects(Ray ray, Camera camera, ActionCallback<Sprite> predicate = null, System.Nullable<bool> fastCheck = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<PickingInfo>(
+                entity => new PickingInfo() { ___guid = entity.___guid },
+                new object[] 
+                {
+                    new string[] { this.___guid, "intersects" }, ray, camera, predicate, fastCheck
+                }
+            );
+        }
 
-// multiIntersects is not supported by the platform yet
+        public PickingInfo[] multiIntersects(Ray ray, Camera camera, ActionCallback<Sprite> predicate = null)
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<PickingInfo>(
+                entity => new PickingInfo() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "multiIntersects" }, ray, camera, predicate
+                }
+            );
+        }
 
         public void render()
         {

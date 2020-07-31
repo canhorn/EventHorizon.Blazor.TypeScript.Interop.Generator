@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<Skeleton>))]
     public class Skeleton : CachedEntityObject, IAnimatable
     {
         #region Static Accessors
@@ -515,7 +516,16 @@ __onBeforeComputeObservable = null;
             );
         }
 
-// beginAnimation is not supported by the platform yet
+        public Animatable beginAnimation(string name, System.Nullable<bool> loop = null, System.Nullable<decimal> speedRatio = null, ActionCallback onAnimationEnd = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Animatable>(
+                entity => new Animatable() { ___guid = entity.___guid },
+                new object[] 
+                {
+                    new string[] { this.___guid, "beginAnimation" }, name, loop, speedRatio, onAnimationEnd
+                }
+            );
+        }
 
         public void prepare()
         {

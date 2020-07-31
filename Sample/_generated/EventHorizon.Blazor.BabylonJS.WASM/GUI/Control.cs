@@ -6,11 +6,12 @@ namespace BabylonJS.GUI
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<Control>))]
     public class Control : CachedEntityObject
     {
         #region Static Accessors
@@ -1868,9 +1869,26 @@ __onAfterDrawObservable = null;
             );
         }
 
-// getDescendantsToRef is not supported by the platform yet
+        public void getDescendantsToRef(Control[] results, System.Nullable<bool> directDescendantsOnly = null, ActionCallback<Control> predicate = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "getDescendantsToRef" }, results, directDescendantsOnly, predicate
+                }
+            );
+        }
 
-// getDescendants is not supported by the platform yet
+        public Control[] getDescendants(System.Nullable<bool> directDescendantsOnly = null, ActionCallback<Control> predicate = null)
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<Control>(
+                entity => new Control() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "getDescendants" }, directDescendantsOnly, predicate
+                }
+            );
+        }
 
         public void linkWithMesh(AbstractMesh mesh)
         {

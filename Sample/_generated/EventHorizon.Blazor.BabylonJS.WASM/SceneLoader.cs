@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<SceneLoader>))]
     public class SceneLoader : CachedEntityObject
     {
         #region Static Accessors
@@ -210,7 +211,7 @@ __OnPluginActivatedObservable = null;
             );
         }
 
-        public static ISceneLoaderPluginCachedEntity ImportMesh(object meshNames, string rootUrl, string sceneFilename = null, Scene scene = null, CachedEntity onSuccess = null, CachedEntity onProgress = null, CachedEntity onError = null, string pluginExtension = null)
+        public static ISceneLoaderPluginCachedEntity ImportMesh(object meshNames, string rootUrl, string sceneFilename = null, Scene scene = null, ActionCallback<AbstractMesh[], IParticleSystem[], Skeleton[], AnimationGroup[]> onSuccess = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null, string pluginExtension = null)
         {
             return EventHorizonBlazorInterop.FuncClass<ISceneLoaderPluginCachedEntity>(
                 entity => new ISceneLoaderPluginCachedEntity() { ___guid = entity.___guid },
@@ -221,7 +222,7 @@ __OnPluginActivatedObservable = null;
             );
         }
 
-        public static void ImportMeshAsync(object meshNames, string rootUrl, string sceneFilename = null, Scene scene = null, CachedEntity onProgress = null, string pluginExtension = null)
+        public static void ImportMeshAsync(object meshNames, string rootUrl, string sceneFilename = null, Scene scene = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, string pluginExtension = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -231,7 +232,7 @@ __OnPluginActivatedObservable = null;
             );
         }
 
-        public static ISceneLoaderPluginCachedEntity Load(string rootUrl, string sceneFilename = null, Engine engine = null, CachedEntity onSuccess = null, CachedEntity onProgress = null, CachedEntity onError = null, string pluginExtension = null)
+        public static ISceneLoaderPluginCachedEntity Load(string rootUrl, string sceneFilename = null, Engine engine = null, ActionCallback<Scene> onSuccess = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null, string pluginExtension = null)
         {
             return EventHorizonBlazorInterop.FuncClass<ISceneLoaderPluginCachedEntity>(
                 entity => new ISceneLoaderPluginCachedEntity() { ___guid = entity.___guid },
@@ -242,7 +243,7 @@ __OnPluginActivatedObservable = null;
             );
         }
 
-        public static void LoadAsync(string rootUrl, string sceneFilename = null, Engine engine = null, CachedEntity onProgress = null, string pluginExtension = null)
+        public static void LoadAsync(string rootUrl, string sceneFilename = null, Engine engine = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, string pluginExtension = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -252,7 +253,7 @@ __OnPluginActivatedObservable = null;
             );
         }
 
-        public static ISceneLoaderPluginCachedEntity Append(string rootUrl, string sceneFilename = null, Scene scene = null, CachedEntity onSuccess = null, CachedEntity onProgress = null, CachedEntity onError = null, string pluginExtension = null)
+        public static ISceneLoaderPluginCachedEntity Append(string rootUrl, string sceneFilename = null, Scene scene = null, ActionCallback<Scene> onSuccess = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null, string pluginExtension = null)
         {
             return EventHorizonBlazorInterop.FuncClass<ISceneLoaderPluginCachedEntity>(
                 entity => new ISceneLoaderPluginCachedEntity() { ___guid = entity.___guid },
@@ -263,7 +264,7 @@ __OnPluginActivatedObservable = null;
             );
         }
 
-        public static void AppendAsync(string rootUrl, string sceneFilename = null, Scene scene = null, CachedEntity onProgress = null, string pluginExtension = null)
+        public static void AppendAsync(string rootUrl, string sceneFilename = null, Scene scene = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, string pluginExtension = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -273,7 +274,7 @@ __OnPluginActivatedObservable = null;
             );
         }
 
-        public static ISceneLoaderPluginCachedEntity LoadAssetContainer(string rootUrl, string sceneFilename = null, Scene scene = null, CachedEntity onSuccess = null, CachedEntity onProgress = null, CachedEntity onError = null, string pluginExtension = null)
+        public static ISceneLoaderPluginCachedEntity LoadAssetContainer(string rootUrl, string sceneFilename = null, Scene scene = null, ActionCallback<AssetContainer> onSuccess = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null, string pluginExtension = null)
         {
             return EventHorizonBlazorInterop.FuncClass<ISceneLoaderPluginCachedEntity>(
                 entity => new ISceneLoaderPluginCachedEntity() { ___guid = entity.___guid },
@@ -284,7 +285,7 @@ __OnPluginActivatedObservable = null;
             );
         }
 
-        public static void LoadAssetContainerAsync(string rootUrl, string sceneFilename = null, Scene scene = null, CachedEntity onProgress = null, string pluginExtension = null)
+        public static void LoadAssetContainerAsync(string rootUrl, string sceneFilename = null, Scene scene = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, string pluginExtension = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -294,7 +295,7 @@ __OnPluginActivatedObservable = null;
             );
         }
 
-        public static void ImportAnimations(string rootUrl, string sceneFilename = null, Scene scene = null, System.Nullable<bool> overwriteAnimations = null, SceneLoaderAnimationGroupLoadingMode animationGroupLoadingMode = null, CachedEntity targetConverter = null, CachedEntity onSuccess = null, CachedEntity onProgress = null, CachedEntity onError = null)
+        public static void ImportAnimations(string rootUrl, string sceneFilename = null, Scene scene = null, System.Nullable<bool> overwriteAnimations = null, SceneLoaderAnimationGroupLoadingMode animationGroupLoadingMode = null, ActionCallback<CachedEntity> targetConverter = null, ActionCallback<Scene> onSuccess = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -304,7 +305,7 @@ __OnPluginActivatedObservable = null;
             );
         }
 
-        public static void ImportAnimationsAsync(string rootUrl, string sceneFilename = null, Scene scene = null, System.Nullable<bool> overwriteAnimations = null, SceneLoaderAnimationGroupLoadingMode animationGroupLoadingMode = null, CachedEntity targetConverter = null, CachedEntity onSuccess = null, CachedEntity onProgress = null, CachedEntity onError = null)
+        public static void ImportAnimationsAsync(string rootUrl, string sceneFilename = null, Scene scene = null, System.Nullable<bool> overwriteAnimations = null, SceneLoaderAnimationGroupLoadingMode animationGroupLoadingMode = null, ActionCallback<CachedEntity> targetConverter = null, ActionCallback<Scene> onSuccess = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 

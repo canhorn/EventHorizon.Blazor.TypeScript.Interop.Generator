@@ -6,11 +6,12 @@ namespace BabylonJS.GUI
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<Container>))]
     public class Container : Control
     {
         #region Static Accessors
@@ -258,7 +259,15 @@ namespace BabylonJS.GUI
             );
         }
 
-// getDescendantsToRef is not supported by the platform yet
+        public void getDescendantsToRef(Control[] results, System.Nullable<bool> directDescendantsOnly = null, ActionCallback<Control> predicate = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "getDescendantsToRef" }, results, directDescendantsOnly, predicate
+                }
+            );
+        }
 
         public void dispose()
         {

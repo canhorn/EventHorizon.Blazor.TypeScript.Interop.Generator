@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<Engine>))]
     public class Engine : ThinEngine
     {
         #region Static Accessors
@@ -1219,7 +1220,15 @@ __audioEngine = null;
         #endregion
 
         #region Static Methods
-// MarkAllMaterialsAsDirty is not supported by the platform yet
+        public static void MarkAllMaterialsAsDirty(decimal flag, ActionCallback<Material> predicate = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { "BABYLON", "Engine", "MarkAllMaterialsAsDirty" }, flag, predicate
+                }
+            );
+        }
 
         public static ILoadingScreenCachedEntity DefaultLoadingScreenFactory(HTMLCanvasElementCachedEntity canvas)
         {

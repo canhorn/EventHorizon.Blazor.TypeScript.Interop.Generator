@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<Observer<CachedEntity>>))]
     public class Observer<T> : CachedEntityObject where T : CachedEntity, new()
     {
         #region Static Accessors
@@ -105,7 +106,7 @@ namespace BabylonJS
         }
 
         public Observer(
-            CachedEntity callback, decimal mask, object scope = null
+            ActionCallback<T, EventState> callback, decimal mask, object scope = null
         )
         {
             var entity = EventHorizonBlazorInterop.New(

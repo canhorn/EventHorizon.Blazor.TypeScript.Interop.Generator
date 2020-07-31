@@ -253,5 +253,3 @@ App_Data/*
 
 coverage*.json
 coverage*.xml
-_generated
-_sourceFiles

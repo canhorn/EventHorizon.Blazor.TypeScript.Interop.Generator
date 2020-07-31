@@ -18,6 +18,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             // Observer -> PickerInfo -> PickerData
             // Observer<PickerInfo<PickerData>>   [[INTERFACE_POSTFIX]]
             var standardTemplate = "[[NAME]]";
+            var actionVoidTemplate = "ActionCallback";
+            var actionTemplate = "ActionCallback<[[GENERIC_TYPES]]>";
             var standardArrayTemplate = "[[NAME]][]";
             var standardPostfixTemplate = "[[NAME]][[INTERFACE_POSTFIX]]";
             var genericTemplate = "[[NAME]]<[[GENERIC_TYPES]]>";
@@ -66,8 +68,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             }
             if (type.IsAction)
             {
-                name = GenerationIdentifiedTypes.CachedEntity;
-                template = standardTemplate;
+                template = actionTemplate;
+
+                if (!type.GenericTypes.Any())
+                {
+                    template = actionVoidTemplate;
+                }
             }
 
             return template.Replace(
@@ -78,7 +84,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 genericTypesAsString
             ).Replace(
                 "[[INTERFACE_POSTFIX]]",
-                ignorePrefix ? string.Empty : "CachedEntity"
+                ignorePrefix ? string.Empty : Constants.INTERFACE_POSTFIX
             );
         }
     }

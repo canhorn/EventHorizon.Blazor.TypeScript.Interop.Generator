@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<Node>))]
     public class Node : CachedEntityObject, IBehaviorAware<Node>
     {
         #region Static Accessors
@@ -32,9 +33,9 @@ namespace BabylonJS
             );
         }
 
-        public static CachedEntity Construct(string type, string name, Scene scene, object options = null)
+        public static ActionCallback Construct(string type, string name, Scene scene, object options = null)
         {
-            return EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<ActionCallback>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "Node", "Construct" }, type, name, scene, options
@@ -348,11 +349,11 @@ __animationPropertiesOverride = null;
         }
 
         
-        public CachedEntity onReady
+        public ActionCallback<Node> onReady
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<ActionCallback<Node>>(
                     this.___guid,
                     "onReady"
                 );
@@ -576,9 +577,27 @@ __onDisposeObservable = null;
             );
         }
 
-// getDescendants is not supported by the platform yet
+        public Node[] getDescendants(System.Nullable<bool> directDescendantsOnly = null, ActionCallback<Node> predicate = null)
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<Node>(
+                entity => new Node() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "getDescendants" }, directDescendantsOnly, predicate
+                }
+            );
+        }
 
-// getChildMeshes is not supported by the platform yet
+        public AbstractMesh[] getChildMeshes(System.Nullable<bool> directDescendantsOnly = null, ActionCallback<Node> predicate = null)
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<AbstractMesh>(
+                entity => new AbstractMesh() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "getChildMeshes" }, directDescendantsOnly, predicate
+                }
+            );
+        }
 
         #region getChildren TODO: Get Comments as metadata identification
         private bool _isGetChildrenEnabled = false;
@@ -677,7 +696,16 @@ __onDisposeObservable = null;
             );
         }
 
-// beginAnimation is not supported by the platform yet
+        public Animatable beginAnimation(string name, System.Nullable<bool> loop = null, System.Nullable<decimal> speedRatio = null, ActionCallback onAnimationEnd = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Animatable>(
+                entity => new Animatable() { ___guid = entity.___guid },
+                new object[] 
+                {
+                    new string[] { this.___guid, "beginAnimation" }, name, loop, speedRatio, onAnimationEnd
+                }
+            );
+        }
 
         public CachedEntity serializeAnimationRanges()
         {
@@ -710,7 +738,7 @@ __onDisposeObservable = null;
             );
         }
 
-        public CachedEntity getHierarchyBoundingVectors(System.Nullable<bool> includeDescendants = null, CachedEntity predicate = null)
+        public CachedEntity getHierarchyBoundingVectors(System.Nullable<bool> includeDescendants = null, ActionCallback<AbstractMesh> predicate = null)
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 

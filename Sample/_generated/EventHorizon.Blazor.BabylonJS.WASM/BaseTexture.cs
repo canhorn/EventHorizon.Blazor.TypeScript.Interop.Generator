@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<BaseTexture>))]
     public class BaseTexture : CachedEntityObject, IAnimatable
     {
         #region Static Accessors
@@ -41,7 +42,15 @@ namespace BabylonJS
         #endregion
 
         #region Static Methods
-// WhenAllReady is not supported by the platform yet
+        public static void WhenAllReady(BaseTexture[] textures, ActionCallback callback)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { "BABYLON", "BaseTexture", "WhenAllReady" }, textures, callback
+                }
+            );
+        }
         #endregion
 
         #region Accessors

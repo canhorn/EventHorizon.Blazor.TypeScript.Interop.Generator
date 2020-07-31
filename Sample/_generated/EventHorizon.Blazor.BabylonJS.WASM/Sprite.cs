@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<Sprite>))]
     public class Sprite : CachedEntityObject
     {
         #region Static Accessors
@@ -416,7 +417,15 @@ __actionManager = null;
         #endregion
 
         #region Methods
-// playAnimation is not supported by the platform yet
+        public void playAnimation(decimal from, decimal to, bool loop, decimal delay, ActionCallback onAnimationEnd)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "playAnimation" }, from, to, loop, delay, onAnimationEnd
+                }
+            );
+        }
 
         public void stopAnimation()
         {

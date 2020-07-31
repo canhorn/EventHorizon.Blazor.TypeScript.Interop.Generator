@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     public interface HTMLCanvasElement : ICachedEntity { }
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<HTMLCanvasElementCachedEntity>))]
     public class HTMLCanvasElementCachedEntity : CachedEntityObject, HTMLCanvasElement
     {
         #region Static Accessors

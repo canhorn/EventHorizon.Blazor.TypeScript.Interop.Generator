@@ -47,6 +47,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
                 "Control",
                 "Button",
                 "UniversalCamera",
+                "ArcRotateCamera",
                 "PointLight",
                 "Grid",
                 "StackPanel",

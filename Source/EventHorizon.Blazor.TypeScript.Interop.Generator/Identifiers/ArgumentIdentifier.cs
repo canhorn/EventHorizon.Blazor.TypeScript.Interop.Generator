@@ -48,10 +48,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     {
                         type.Name = GenerationIdentifiedTypes.Object;
                     }
-
-                    ConvertIdentifiedActionTypes(
-                        type
-                    );
+                    if (type.Name == GenerationIdentifiedTypes.Action)
+                    {
+                        type.GenericTypes = type.Arguments.Select(a => a.Type);
+                    }
 
                     var name = parameter.IdentifierStr;
                     var methodOrConstructorName = node.IdentifierStr;
@@ -88,22 +88,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 }).ToList();
 
             return parameters;
-        }
-
-        private static void ConvertIdentifiedActionTypes(
-            TypeStatement type
-        )
-        {
-            if (type.Name == GenerationIdentifiedTypes.Action)
-            {
-                // TODO: [ACTION] : Callback action implementation
-            }
-            foreach (var genericType in type.GenericTypes)
-            {
-                ConvertIdentifiedActionTypes(
-                    genericType
-                );
-            }
         }
     }
 }

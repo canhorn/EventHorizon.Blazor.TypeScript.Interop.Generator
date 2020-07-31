@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<Animation>))]
     public class Animation : CachedEntityObject
     {
         #region Static Accessors
@@ -205,13 +206,40 @@ namespace BabylonJS
             );
         }
 
-// CreateAndStartAnimation is not supported by the platform yet
+        public static Animatable CreateAndStartAnimation(string name, Node node, string targetProperty, decimal framePerSecond, decimal totalFrame, object from, object to, System.Nullable<decimal> loopMode = null, EasingFunction easingFunction = null, ActionCallback onAnimationEnd = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Animatable>(
+                entity => new Animatable() { ___guid = entity.___guid },
+                new object[] 
+                {
+                    new string[] { "BABYLON", "Animation", "CreateAndStartAnimation" }, name, node, targetProperty, framePerSecond, totalFrame, from, to, loopMode, easingFunction, onAnimationEnd
+                }
+            );
+        }
 
-// CreateAndStartHierarchyAnimation is not supported by the platform yet
+        public static Animatable[] CreateAndStartHierarchyAnimation(string name, Node node, bool directDescendantsOnly, string targetProperty, decimal framePerSecond, decimal totalFrame, object from, object to, System.Nullable<decimal> loopMode = null, EasingFunction easingFunction = null, ActionCallback onAnimationEnd = null)
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<Animatable>(
+                entity => new Animatable() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "Animation", "CreateAndStartHierarchyAnimation" }, name, node, directDescendantsOnly, targetProperty, framePerSecond, totalFrame, from, to, loopMode, easingFunction, onAnimationEnd
+                }
+            );
+        }
 
-// CreateMergeAndStartAnimation is not supported by the platform yet
+        public static Animatable CreateMergeAndStartAnimation(string name, Node node, string targetProperty, decimal framePerSecond, decimal totalFrame, object from, object to, System.Nullable<decimal> loopMode = null, EasingFunction easingFunction = null, ActionCallback onAnimationEnd = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Animatable>(
+                entity => new Animatable() { ___guid = entity.___guid },
+                new object[] 
+                {
+                    new string[] { "BABYLON", "Animation", "CreateMergeAndStartAnimation" }, name, node, targetProperty, framePerSecond, totalFrame, from, to, loopMode, easingFunction, onAnimationEnd
+                }
+            );
+        }
 
-        public static Animatable TransitionTo(string property, object targetValue, object host, Scene scene, decimal frameRate, Animation transition, decimal duration, CachedEntity onAnimationEnd = null)
+        public static Animatable TransitionTo(string property, object targetValue, object host, Scene scene, decimal frameRate, Animation transition, decimal duration, ActionCallback onAnimationEnd = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Animatable>(
                 entity => new Animatable() { ___guid = entity.___guid },

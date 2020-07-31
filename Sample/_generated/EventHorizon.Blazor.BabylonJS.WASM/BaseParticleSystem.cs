@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<BaseParticleSystem>))]
     public class BaseParticleSystem : CachedEntityObject
     {
         #region Static Accessors
@@ -985,11 +986,11 @@ __noiseStrength = null;
         }
 
         
-        public CachedEntity onAnimationEnd
+        public ActionCallback onAnimationEnd
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<ActionCallback>(
                     this.___guid,
                     "onAnimationEnd"
                 );

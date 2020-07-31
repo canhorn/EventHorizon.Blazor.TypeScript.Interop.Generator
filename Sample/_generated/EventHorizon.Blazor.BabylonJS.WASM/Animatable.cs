@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<Animatable>))]
     public class Animatable : CachedEntityObject
     {
         #region Static Accessors
@@ -298,7 +299,7 @@ __onAnimationLoopObservable = null;
         }
 
         public Animatable(
-            Scene scene, object target, System.Nullable<decimal> fromFrame = null, System.Nullable<decimal> toFrame = null, System.Nullable<bool> loopAnimation = null, System.Nullable<decimal> speedRatio = null, CachedEntity onAnimationEnd = null, Animation[] animations = null, CachedEntity onAnimationLoop = null
+            Scene scene, object target, System.Nullable<decimal> fromFrame = null, System.Nullable<decimal> toFrame = null, System.Nullable<bool> loopAnimation = null, System.Nullable<decimal> speedRatio = null, ActionCallback onAnimationEnd = null, Animation[] animations = null, ActionCallback onAnimationLoop = null
         )
         {
             var entity = EventHorizonBlazorInterop.New(
@@ -512,7 +513,15 @@ __onAnimationLoopObservable = null;
             );
         }
 
-// stop is not supported by the platform yet
+        public void stop(string animationName = null, ActionCallback<object> targetMask = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "stop" }, animationName, targetMask
+                }
+            );
+        }
 
         public void waitAsync()
         {

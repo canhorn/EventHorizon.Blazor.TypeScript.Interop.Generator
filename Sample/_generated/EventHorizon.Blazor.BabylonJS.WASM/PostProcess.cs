@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<PostProcess>))]
     public class PostProcess : CachedEntityObject
     {
         #region Static Accessors
@@ -725,7 +726,15 @@ __onAfterRenderObservable = null;
             );
         }
 
-// updateEffect is not supported by the platform yet
+        public void updateEffect(string defines = null, string[] uniforms = null, string[] samplers = null, object indexParameters = null, ActionCallback<Effect> onCompiled = null, ActionCallback<Effect, string> onError = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "updateEffect" }, defines, uniforms, samplers, indexParameters, onCompiled, onError
+                }
+            );
+        }
 
         public bool isReusable()
         {

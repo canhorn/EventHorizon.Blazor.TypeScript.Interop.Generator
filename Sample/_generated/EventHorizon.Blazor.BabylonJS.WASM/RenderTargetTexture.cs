@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<RenderTargetTexture>))]
     public class RenderTargetTexture : Texture
     {
         #region Static Accessors
@@ -829,7 +830,7 @@ __boundingBoxPosition = null;
             );
         }
 
-        public void setRenderingOrder(decimal renderingGroupId, CachedEntity opaqueSortCompareFn = null, CachedEntity alphaTestSortCompareFn = null, CachedEntity transparentSortCompareFn = null)
+        public void setRenderingOrder(decimal renderingGroupId, ActionCallback<SubMesh, SubMesh> opaqueSortCompareFn = null, ActionCallback<SubMesh, SubMesh> alphaTestSortCompareFn = null, ActionCallback<SubMesh, SubMesh> transparentSortCompareFn = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
