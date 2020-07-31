@@ -31,14 +31,14 @@ The interop project is also included in this repository, it gives the generated 
 
 Below is a list of API that will be generated.
 
-API | Details | Example | Support (:large_orange_diamond: limited support)
+API | Details | Example | Support
 --- | --- | --- | ---
 Constructor | You can use the default constructor of Classes, causes new call in JavaScript. | ```new BabylonJS.Engine()``` | :heavy_check_mark:
 Constructor with arguments | Same as Constructor, but can also pass in arguments. | ```new BabylonJS.Engine("canvas-window-id")``` | :heavy_check_mark:
 Property | You can get or set properties supplied by the object. | ```var isDisabled = engine.disableManifestCheck``` and ```engine.disableManifestCheck = true``` | :heavy_check_mark:
 Property | You can ***set*** properties supplied by created objects. | ```engine.disableManifestCheck = true``` | :heavy_check_mark:
 Static Property | You can ***get*** ***Static*** properties of a Class. | ```var isDisabled = Engine.ALPHA_DISABLE``` | :heavy_check_mark:
-Method | You can call a ***method*** supplied by an object. | ```var ratio = engine.getScreenAspectRatio()``` | ::heavy_check_mark:
+Method | You can call a ***method*** supplied by an object. | ```var ratio = engine.getScreenAspectRatio()``` | :heavy_check_mark:
 Static Method | You can call a ***Static*** ***method*** provided by a Class. | ```engine.DefaultLoadingScreenFactory(canvas)``` | :heavy_check_mark:
 Callback Method | You can supply a callback action to a ***method*** supplied by an object. | ```observer.add(() => doSomething())``` | :heavy_check_mark:
 Static Callback Method | You can call a ***Static*** ***method*** provided by a Class. | ```Engine.AudioEngineFactory()``` | :heavy_check_mark:
