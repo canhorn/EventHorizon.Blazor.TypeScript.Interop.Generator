@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     public interface ISceneLoaderPlugin : ICachedEntity { }
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<ISceneLoaderPluginCachedEntity>))]
     public class ISceneLoaderPluginCachedEntity : CachedEntityObject, ISceneLoaderPlugin
     {
         #region Static Accessors
@@ -46,11 +47,36 @@ namespace BabylonJS
         #endregion
 
         #region Methods
-// importMesh is not supported by the platform yet
+        public bool importMesh(object meshesNames, Scene scene, object data, string rootUrl, AbstractMesh[] meshes, IParticleSystemCachedEntity[] particleSystems, Skeleton[] skeletons, ActionCallback<string, object> onError = null)
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "importMesh" }, meshesNames, scene, data, rootUrl, meshes, particleSystems, skeletons, onError
+                }
+            );
+        }
 
-// load is not supported by the platform yet
+        public bool load(Scene scene, object data, string rootUrl, ActionCallback<string, object> onError = null)
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "load" }, scene, data, rootUrl, onError
+                }
+            );
+        }
 
-// loadAssetContainer is not supported by the platform yet
+        public AssetContainer loadAssetContainer(Scene scene, object data, string rootUrl, ActionCallback<string, object> onError = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<AssetContainer>(
+                entity => new AssetContainer() { ___guid = entity.___guid },
+                new object[] 
+                {
+                    new string[] { this.___guid, "loadAssetContainer" }, scene, data, rootUrl, onError
+                }
+            );
+        }
         #endregion
     }
 }

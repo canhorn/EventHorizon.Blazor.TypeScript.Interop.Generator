@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<BoxParticleEmitter>))]
     public class BoxParticleEmitter : CachedEntityObject, IParticleEmitterType
     {
         #region Static Accessors

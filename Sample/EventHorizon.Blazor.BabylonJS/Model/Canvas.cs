@@ -4,7 +4,7 @@ using EventHorizon.Blazor.Interop;
 
 namespace EventHorizon.Blazor.BabylonJS.Model
 {
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<Canvas>))]
     public class Canvas : HTMLCanvasElementCachedEntity
     {
         public static Canvas GetElementById(

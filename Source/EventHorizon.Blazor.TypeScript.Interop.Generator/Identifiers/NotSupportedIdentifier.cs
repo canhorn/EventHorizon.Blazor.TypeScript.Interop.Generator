@@ -18,10 +18,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         {
             return Identify(
                 statement.Type
-            )
-            // Check for not supported Action Arguments
-            || (statement.Arguments.Any(a => a.Type.IsAction)
-                && !(statement.Arguments.Take(1).Any(a => a.Type.IsAction))
             );
         }
 

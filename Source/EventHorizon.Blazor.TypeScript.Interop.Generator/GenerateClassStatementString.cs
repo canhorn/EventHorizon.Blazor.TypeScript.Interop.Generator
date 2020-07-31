@@ -70,6 +70,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             classTokenMap["[[CLASS_GENERICS]]"] = BuildClassGenerics(
                 classStatement
             );
+            classTokenMap["[[JSON_CONVERTER_CLASS_GENERICS]]"] = BuildJsonConvertClassGenerics(
+                classStatement
+            );
             classTokenMap["[[EXTENDED_CLASSES_SECTION]]"] = BuildExtendedClassesSection(
                 classStatement
             );
@@ -159,6 +162,23 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                         )
                     )
                 )
+            );
+        }
+
+        private static string BuildJsonConvertClassGenerics(
+            ClassStatement classStatement
+        )
+        {
+            var template = "<[[TYPE]]>";
+
+            if (!classStatement.GenericTypes.Any())
+            {
+                return string.Empty;
+            }
+
+            return template.Replace(
+                "[[TYPE]]",
+                GenerationIdentifiedTypes.CachedEntity
             );
         }
 

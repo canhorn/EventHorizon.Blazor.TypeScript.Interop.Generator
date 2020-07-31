@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<AnimationEvent>))]
     public class AnimationEvent : CachedEntityObject
     {
         #region Static Accessors
@@ -105,7 +106,7 @@ namespace BabylonJS
         }
 
         public AnimationEvent(
-            decimal frame, CachedEntity action, System.Nullable<bool> onlyOnce = null
+            decimal frame, ActionCallback<decimal> action, System.Nullable<bool> onlyOnce = null
         )
         {
             var entity = EventHorizonBlazorInterop.New(

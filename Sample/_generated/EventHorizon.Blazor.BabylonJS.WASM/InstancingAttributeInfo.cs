@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     public interface InstancingAttributeInfo : ICachedEntity { }
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<InstancingAttributeInfoCachedEntity>))]
     public class InstancingAttributeInfoCachedEntity : CachedEntityObject, InstancingAttributeInfo
     {
         #region Static Accessors

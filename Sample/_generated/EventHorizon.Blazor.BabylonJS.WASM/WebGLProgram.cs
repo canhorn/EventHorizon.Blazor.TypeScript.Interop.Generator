@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     public interface WebGLProgram : ICachedEntity { }
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<WebGLProgramCachedEntity>))]
     public class WebGLProgramCachedEntity : CachedEntityObject, WebGLProgram
     {
         #region Static Accessors

@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<ActionManager>))]
     public class ActionManager : AbstractActionManager
     {
         #region Static Accessors
@@ -338,7 +339,15 @@ namespace BabylonJS
             );
         }
 
-// hasSpecificTrigger is not supported by the platform yet
+        public bool hasSpecificTrigger(decimal trigger, ActionCallback<object> parameterPredicate = null)
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "hasSpecificTrigger" }, trigger, parameterPredicate
+                }
+            );
+        }
 
         public IActionCachedEntity registerAction(IActionCachedEntity action)
         {

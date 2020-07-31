@@ -6,11 +6,12 @@ namespace BabylonJS.GUI
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     public interface IFocusableControl : ICachedEntity { }
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<IFocusableControlCachedEntity>))]
     public class IFocusableControlCachedEntity : CachedEntityObject, IFocusableControl
     {
         #region Static Accessors

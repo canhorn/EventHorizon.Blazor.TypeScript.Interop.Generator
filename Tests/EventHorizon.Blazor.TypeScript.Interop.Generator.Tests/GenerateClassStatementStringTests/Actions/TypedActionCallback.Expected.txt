@@ -6,11 +6,12 @@ namespace Examples
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<ExampleClass<CachedEntity>>))]
     public class ExampleClass<T> : CachedEntityObject where T : CachedEntity, new()
     {
         #region Static Accessors
@@ -91,7 +92,15 @@ namespace Examples
         }
         #endregion
 
-// getNewPosition is not supported by the platform yet
+        public void getNewPosition(Vector3 position, Vector3 displacement, Collider collider, decimal maximumRetry, AbstractMesh excludedMesh, ActionCallback<decimal, Vector3, AbstractMesh> onNewPosition, decimal collisionIndex)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "getNewPosition" }, position, displacement, collider, maximumRetry, excludedMesh, onNewPosition, collisionIndex
+                }
+            );
+        }
 
         #region setImmediate TODO: Get Comments as metadata identification
         private bool _isSetImmediateEnabled = false;

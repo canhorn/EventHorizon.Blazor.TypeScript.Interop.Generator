@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<Effect>))]
     public class Effect : CachedEntityObject
     {
         #region Static Accessors
@@ -194,11 +195,11 @@ namespace BabylonJS
         }
 
         
-        public CachedEntity onCompiled
+        public ActionCallback<Effect> onCompiled
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<ActionCallback<Effect>>(
                     this.___guid,
                     "onCompiled"
                 );
@@ -215,11 +216,11 @@ namespace BabylonJS
         }
 
         
-        public CachedEntity onError
+        public ActionCallback<Effect, string> onError
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<ActionCallback<Effect, string>>(
                     this.___guid,
                     "onError"
                 );
@@ -236,11 +237,11 @@ namespace BabylonJS
         }
 
         
-        public CachedEntity onBind
+        public ActionCallback<Effect> onBind
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<ActionCallback<Effect>>(
                     this.___guid,
                     "onBind"
                 );
@@ -347,7 +348,7 @@ __onErrorObservable = null;
         }
 
         public Effect(
-            object baseName, string[] attributesNamesOrOptions, string[] uniformsNamesOrEngine, string[] samplers = null, ThinEngine engine = null, string defines = null, IEffectFallbacksCachedEntity fallbacks = null, CachedEntity onCompiled = null, CachedEntity onError = null, object indexParameters = null
+            object baseName, string[] attributesNamesOrOptions, string[] uniformsNamesOrEngine, string[] samplers = null, ThinEngine engine = null, string defines = null, IEffectFallbacksCachedEntity fallbacks = null, ActionCallback<Effect> onCompiled = null, ActionCallback<Effect, string> onError = null, object indexParameters = null
         )
         {
             var entity = EventHorizonBlazorInterop.New(

@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<TransformNode>))]
     public class TransformNode : Node
     {
         #region Static Accessors
@@ -675,7 +676,16 @@ __onAfterWorldMatrixUpdateObservable = null;
             );
         }
 
-// instantiateHierarchy is not supported by the platform yet
+        public TransformNode instantiateHierarchy(TransformNode newParent = null, object options = null, ActionCallback<TransformNode, TransformNode> onNewNodeCreated = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<TransformNode>(
+                entity => new TransformNode() { ___guid = entity.___guid },
+                new object[] 
+                {
+                    new string[] { this.___guid, "instantiateHierarchy" }, newParent, options, onNewNodeCreated
+                }
+            );
+        }
 
         public TransformNode freezeWorldMatrix(Matrix newWorldMatrix = null)
         {
@@ -1081,7 +1091,16 @@ __onAfterWorldMatrixUpdateObservable = null;
             );
         }
 
-// getChildTransformNodes is not supported by the platform yet
+        public TransformNode[] getChildTransformNodes(System.Nullable<bool> directDescendantsOnly = null, ActionCallback<Node> predicate = null)
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<TransformNode>(
+                entity => new TransformNode() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "getChildTransformNodes" }, directDescendantsOnly, predicate
+                }
+            );
+        }
 
         public void dispose(System.Nullable<bool> doNotRecurse = null, System.Nullable<bool> disposeMaterialAndTextures = null)
         {
@@ -1093,7 +1112,7 @@ __onAfterWorldMatrixUpdateObservable = null;
             );
         }
 
-        public TransformNode normalizeToUnitCube(System.Nullable<bool> includeDescendants = null, System.Nullable<bool> ignoreRotation = null, CachedEntity predicate = null)
+        public TransformNode normalizeToUnitCube(System.Nullable<bool> includeDescendants = null, System.Nullable<bool> ignoreRotation = null, ActionCallback<AbstractMesh> predicate = null)
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },

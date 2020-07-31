@@ -29,65 +29,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 var argumentStrings = new List<string>();
                 foreach (var argument in arguments.OrderBy(a => a.IsOptional))
                 {
-                    var argumentsTemplate = "[[TYPE]][[IS_ARRAY]] [[NAME]]";
-                    if (argument.IsOptional)
-                    {
-                        argumentsTemplate = "System.Nullable<[[TYPE]][[IS_ARRAY]]> [[NAME]] = null";
-                        if (argument.Type.IsNullable)
-                        {
-                            var genericType = argument.Type.GenericTypes.First();
-                            if (ClassIdentifier.Identify(
-                                argument.UsedClassNames,
-                                genericType.Name
-                            ) || genericType.IsNullable
-                                || genericType.IsArray
-                                || genericType.IsModifier
-                                || genericType.Name == GenerationIdentifiedTypes.Action
-                                || genericType.Name == GenerationIdentifiedTypes.String
-                                || genericType.Name == GenerationIdentifiedTypes.CachedEntity)
-                            {
-                                argumentsTemplate = "[[TYPE]][[IS_ARRAY]] [[NAME]] = null";
-                            }
-                        }
-                        else if (ClassIdentifier.Identify(
-                            argument.UsedClassNames,
-                            argument.Type.Name
-                        ) || argument.Type.IsNullable
-                            || argument.Type.IsArray
-                            || argument.Type.IsModifier
-                            || argument.Type.Name == GenerationIdentifiedTypes.Action
-                            || argument.Type.Name == GenerationIdentifiedTypes.String
-                            || argument.Type.Name == GenerationIdentifiedTypes.CachedEntity)
-                        {
-                            argumentsTemplate = "[[TYPE]][[IS_ARRAY]] [[NAME]] = null";
-                        }
-                    }
-                    var argumentString = argumentsTemplate.Replace(
-                        "[[NAME]]",
-                        DotNetNormalizer.Normalize(argument.Name)
-                    ).Replace(
-                        "[[TYPE]]",
-                        TypeStatementWriter.Write(
-                            argument.Type
-                        )
-                    ).Replace(
-                        "[[ARRAY_TYPE]]",
-                        TypeStatementWriter.Write(
-                            argument.Type,
-                            true
-                        )
-                    ).Replace(
-                        "[[NEW_TYPE]]",
-                        TypeStatementWriter.Write(
-                            argument.Type,
-                            true
-                        )
-                    ).Replace(
-                        "[[IS_ARRAY]]",
-                        string.Empty
-                    );
                     argumentStrings.Add(
-                        argumentString
+                        ArgumentWriter.Write(
+                            argument,
+                            true,
+                            " = null"
+                        )
                     );
                 }
                 var constructorArguments = string.Join(

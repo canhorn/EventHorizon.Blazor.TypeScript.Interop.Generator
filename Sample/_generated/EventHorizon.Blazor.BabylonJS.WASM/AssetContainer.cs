@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<AssetContainer>))]
     public class AssetContainer : AbstractScene
     {
         #region Static Accessors
@@ -177,7 +178,7 @@ __scene = null;
             );
         }
 
-        public void mergeAnimationsTo(Animatable[] animatables, Scene scene = null, CachedEntity targetConverter = null)
+        public void mergeAnimationsTo(Animatable[] animatables, Scene scene = null, ActionCallback<CachedEntity> targetConverter = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 

@@ -6,11 +6,12 @@ namespace [[NAMESPACE]]
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     [[INTERFACE_SECTION]]
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<[[CLASS_NAME]][[INTERFACE_POSTFIX]][[JSON_CONVERTER_CLASS_GENERICS]]>))]
     public class [[CLASS_NAME]][[INTERFACE_POSTFIX]][[CLASS_GENERICS]][[EXTENDED_CLASSES_SECTION]][[WHERE_CONSTRAINT]]
     {
         #region Static Accessors

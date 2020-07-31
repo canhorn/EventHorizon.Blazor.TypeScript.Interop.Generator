@@ -24,16 +24,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 .FirstOrDefault();
             if (constructor != null)
             {
-                var list = ArgumentIdentifier.Identify(
+                return ArgumentIdentifier.Identify(
                     constructor,
                     classMetadata,
                     ast,
                     typeOverrideDetails
                 );
-                return ConvertActionToObject(
-                    list
-                );
-
             }
 
             return EMPTY;

@@ -12,8 +12,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
         [InlineData("DotNetNormalizedArguments.ts", "Constructors", "DotNetNormalizedArguments.Expected.txt")]
         [InlineData("MixedArguments.ts", "Constructors", "MixedArguments.Expected.txt")]
         [InlineData("NoConstructor.ts", "Constructors", "NoConstructor.Expected.txt")]
-        [InlineData("WithNullArguments.ts", "Constructors", "WithNullArguments.Expected.txt")]
         [InlineData("WithActionArgument.ts", "Constructors", "WithActionArgument.Expected.txt")]
+        [InlineData("WithActionGenericArgument.ts", "Constructors", "WithActionGenericArgument.Expected.txt")]
+        [InlineData("WithNullArguments.ts", "Constructors", "WithNullArguments.Expected.txt")]
         public void ShouldGenerateConstructorStrings(
             string sourceFile,
             string path,

@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<ThinEngine>))]
     public class ThinEngine : CachedEntityObject
     {
         #region Static Accessors
@@ -1082,7 +1083,15 @@ __onBeforeTextureInitObservable = null;
             );
         }
 
-// unBindFramebuffer is not supported by the platform yet
+        public void unBindFramebuffer(InternalTexture texture, System.Nullable<bool> disableGenerateMipMaps = null, ActionCallback onBeforeUnbind = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "unBindFramebuffer" }, texture, disableGenerateMipMaps, onBeforeUnbind
+                }
+            );
+        }
 
         public void flushFramebuffer()
         {
@@ -1318,7 +1327,7 @@ __onBeforeTextureInitObservable = null;
             );
         }
 
-        public Effect createEffect(object baseName, string[] attributesNamesOrOptions, string[] uniformsNamesOrEngine, string[] samplers = null, string defines = null, IEffectFallbacksCachedEntity fallbacks = null, CachedEntity onCompiled = null, CachedEntity onError = null, object indexParameters = null)
+        public Effect createEffect(object baseName, string[] attributesNamesOrOptions, string[] uniformsNamesOrEngine, string[] samplers = null, string defines = null, IEffectFallbacksCachedEntity fallbacks = null, ActionCallback<Effect> onCompiled = null, ActionCallback<Effect, string> onError = null, object indexParameters = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
@@ -1603,7 +1612,7 @@ __onBeforeTextureInitObservable = null;
             );
         }
 
-        public InternalTexture createTexture(bool noMipmap, bool invertY, ISceneLikeCachedEntity scene, string urlArg = null, System.Nullable<decimal> samplingMode = null, CachedEntity onLoad = null, CachedEntity onError = null, string buffer = null, InternalTexture fallback = null, System.Nullable<decimal> format = null, string forcedExtension = null, string mimeType = null)
+        public InternalTexture createTexture(bool noMipmap, bool invertY, ISceneLikeCachedEntity scene, string urlArg = null, System.Nullable<decimal> samplingMode = null, ActionCallback onLoad = null, ActionCallback<string, CachedEntity> onError = null, string buffer = null, InternalTexture fallback = null, System.Nullable<decimal> format = null, string forcedExtension = null, string mimeType = null)
         {
             return EventHorizonBlazorInterop.FuncClass<InternalTexture>(
                 entity => new InternalTexture() { ___guid = entity.___guid },

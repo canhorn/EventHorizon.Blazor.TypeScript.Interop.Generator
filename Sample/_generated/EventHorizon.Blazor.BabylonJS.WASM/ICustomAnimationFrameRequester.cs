@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     public interface ICustomAnimationFrameRequester : ICachedEntity { }
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<ICustomAnimationFrameRequesterCachedEntity>))]
     public class ICustomAnimationFrameRequesterCachedEntity : CachedEntityObject, ICustomAnimationFrameRequester
     {
         #region Static Accessors

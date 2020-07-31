@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<Geometry>))]
     public class Geometry : CachedEntityObject, IGetSetVerticesData
     {
         #region Static Accessors
@@ -507,7 +508,15 @@ __boundingBias = null;
             );
         }
 
-// load is not supported by the platform yet
+        public void load(Scene scene, ActionCallback onLoaded = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "load" }, scene, onLoaded
+                }
+            );
+        }
 
         public void toLeftHanded()
         {

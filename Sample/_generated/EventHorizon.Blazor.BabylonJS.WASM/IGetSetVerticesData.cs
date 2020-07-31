@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     public interface IGetSetVerticesData : ICachedEntity { }
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<IGetSetVerticesDataCachedEntity>))]
     public class IGetSetVerticesDataCachedEntity : CachedEntityObject, IGetSetVerticesData
     {
         #region Static Accessors

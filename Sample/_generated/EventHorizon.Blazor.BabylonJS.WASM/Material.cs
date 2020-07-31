@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<Material>))]
     public class Material : CachedEntityObject, IAnimatable
     {
         #region Static Accessors
@@ -686,11 +687,11 @@ namespace BabylonJS
         }
 
         
-        public CachedEntity onCompiled
+        public ActionCallback<Effect> onCompiled
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<ActionCallback<Effect>>(
                     this.___guid,
                     "onCompiled"
                 );
@@ -707,11 +708,11 @@ namespace BabylonJS
         }
 
         
-        public CachedEntity onError
+        public ActionCallback<Effect, string> onError
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<ActionCallback<Effect, string>>(
                     this.___guid,
                     "onError"
                 );
@@ -728,11 +729,11 @@ namespace BabylonJS
         }
 
         
-        public CachedEntity getRenderTargetTextures
+        public ActionCallback getRenderTargetTextures
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.Get<ActionCallback>(
                     this.___guid,
                     "getRenderTargetTextures"
                 );
@@ -1239,7 +1240,15 @@ __onDisposeObservable = null;
             );
         }
 
-// forceCompilation is not supported by the platform yet
+        public void forceCompilation(AbstractMesh mesh, ActionCallback<Material> onCompiled = null, IMaterialCompilationOptionsCachedEntity options = null, ActionCallback<string> onError = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "forceCompilation" }, mesh, onCompiled, options, onError
+                }
+            );
+        }
 
         public void forceCompilationAsync(AbstractMesh mesh, IMaterialCompilationOptionsCachedEntity options = null)
         {

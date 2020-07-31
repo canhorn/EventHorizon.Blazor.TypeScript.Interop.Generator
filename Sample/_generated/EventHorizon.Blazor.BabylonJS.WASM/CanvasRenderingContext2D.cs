@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     public interface CanvasRenderingContext2D : ICachedEntity { }
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<CanvasRenderingContext2DCachedEntity>))]
     public class CanvasRenderingContext2DCachedEntity : CachedEntityObject, CanvasRenderingContext2D
     {
         #region Static Accessors

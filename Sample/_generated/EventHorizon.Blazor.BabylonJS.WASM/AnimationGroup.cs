@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<AnimationGroup>))]
     public class AnimationGroup : CachedEntityObject
     {
         #region Static Accessors
@@ -530,7 +531,16 @@ __onAnimationGroupPlayObservable = null;
             );
         }
 
-// clone is not supported by the platform yet
+        public AnimationGroup clone(string newName, ActionCallback<object> targetConverter = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
+                entity => new AnimationGroup() { ___guid = entity.___guid },
+                new object[] 
+                {
+                    new string[] { this.___guid, "clone" }, newName, targetConverter
+                }
+            );
+        }
 
         public CachedEntity serialize()
         {

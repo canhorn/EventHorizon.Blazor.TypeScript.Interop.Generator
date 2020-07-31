@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<AbstractMesh>))]
     public class AbstractMesh : TransformNode
     {
         #region Static Accessors
@@ -1587,7 +1588,7 @@ __onRebuildObservable = null;
             );
         }
 
-        public AbstractMesh normalizeToUnitCube(System.Nullable<bool> includeDescendants = null, System.Nullable<bool> ignoreRotation = null, CachedEntity predicate = null)
+        public AbstractMesh normalizeToUnitCube(System.Nullable<bool> includeDescendants = null, System.Nullable<bool> ignoreRotation = null, ActionCallback<AbstractMesh> predicate = null)
         {
             return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
                 entity => new AbstractMesh() { ___guid = entity.___guid },

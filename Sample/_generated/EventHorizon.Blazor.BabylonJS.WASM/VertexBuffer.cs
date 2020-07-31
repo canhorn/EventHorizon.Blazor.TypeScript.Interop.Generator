@@ -6,11 +6,12 @@ namespace BabylonJS
     using System.Text.Json.Serialization;
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter))]
+    [JsonConverter(typeof(CachedEntityConverter<VertexBuffer>))]
     public class VertexBuffer : CachedEntityObject
     {
         #region Static Accessors
@@ -292,7 +293,15 @@ namespace BabylonJS
             );
         }
 
-// ForEach is not supported by the platform yet
+        public static void ForEach(DataArray data, decimal byteOffset, decimal byteStride, decimal componentCount, decimal componentType, decimal count, bool normalized, ActionCallback<decimal, decimal> callback)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { "BABYLON", "VertexBuffer", "ForEach" }, data, byteOffset, byteStride, componentCount, componentType, count, normalized, callback
+                }
+            );
+        }
         #endregion
 
         #region Accessors
@@ -523,7 +532,15 @@ namespace BabylonJS
             );
         }
 
-// forEach is not supported by the platform yet
+        public void forEach(decimal count, ActionCallback<decimal, decimal> callback)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "forEach" }, count, callback
+                }
+            );
+        }
         #endregion
     }
 }

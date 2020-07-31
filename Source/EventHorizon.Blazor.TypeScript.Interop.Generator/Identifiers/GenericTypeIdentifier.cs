@@ -137,6 +137,23 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     typeIdentifier = GenerationIdentifiedTypes.Void;
                 }
             }
+            else if (NullableTypeIdentifier.Identify(
+                typeIdentifier
+            ) && node is ParameterDeclaration nullableParameter
+                && nullableParameter.Type is TypeReferenceNode typeRefernce
+                && typeRefernce.TypeArguments != null
+                && typeRefernce.TypeArguments.Any()
+                && typeRefernce.TypeArguments.First() is Node typeArgumentFirst)
+            {
+                genericTypes.Add(
+                    Identify(
+                        typeArgumentFirst,
+                        classMetadata,
+                        ast,
+                        typeOverrideDetails
+                    )
+                );
+            }
 
             if (typeIdentifier == GenerationIdentifiedTypes.Void)
             {
