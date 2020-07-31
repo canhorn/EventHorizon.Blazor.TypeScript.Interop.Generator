@@ -34,21 +34,5 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 
             return EMPTY;
         }
-
-        private static IList<ArgumentStatement> ConvertActionToObject(
-            IList<ArgumentStatement> list
-        )
-        {
-            return list.Select(
-                a =>
-                {
-                    if (a.Type.Name == GenerationIdentifiedTypes.Action)
-                    {
-                        a.Type.Name = GenerationIdentifiedTypes.CachedEntity;
-                    }
-                    return a;
-                }
-            ).ToList();
-        }
     }
 }
