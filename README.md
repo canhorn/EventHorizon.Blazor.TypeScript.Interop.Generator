@@ -20,7 +20,7 @@ This project generates a C# Blazor Interop proxy using a TypeScript definition f
 The generated project can be used with Blazor WASM to interface with JavaScript from C#, this gives most JavaScript libraries an easy to use interface from C#. 
 It uses the JSRuntime to interop directly with the underlying JavaScript from C#, this is done with a custom interop abstraction. 
 
-The interop project is also included in this repository, it gives the generated code access to a common set of access patterns it then uses to interface with the JavaScript.
+The interop project can be found in the [canhorn/EventHorizon.Blazor.Interop](https://github.com/canhorn/EventHorizon.Blazor.Interop) repository, it gives the generated code access to a common set of access patterns it then uses to interface with the JavaScript.
 
 ## Tech Used
 
