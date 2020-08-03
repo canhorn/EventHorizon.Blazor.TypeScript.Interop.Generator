@@ -73,27 +73,19 @@ namespace BabylonJS
             }
         }
 
-        private InspectableType __type;
-        public InspectableType type
+        
+        public int type
         {
             get
             {
-            if(__type == null)
-            {
-                __type = EventHorizonBlazorInterop.GetClass<InspectableType>(
+            return EventHorizonBlazorInterop.Get<int>(
                     this.___guid,
-                    "type",
-                    (entity) =>
-                    {
-                        return new InspectableType() { ___guid = entity.___guid };
-                    }
+                    "type"
                 );
-            }
-            return __type;
             }
             set
             {
-__type = null;
+
                 EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "type",

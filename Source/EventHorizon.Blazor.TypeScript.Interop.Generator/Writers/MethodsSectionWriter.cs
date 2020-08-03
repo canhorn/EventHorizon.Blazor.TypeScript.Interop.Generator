@@ -45,6 +45,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 var isNotSupported = NotSupportedIdentifier.Identify(
                     method
                 );
+                var isEnum = method.Type.IsEnum;
                 var isAction = method.Type.Name == GenerationIdentifiedTypes.Action
                     || (method.Arguments.Take(1).Any(a => a.Type.IsAction));
 
@@ -160,7 +161,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     }
                 }
 
-                if (isClassResponse && isArray)
+                if (isEnum)
+                {
+                    returnTypeContent = templates.InteropFunc;
+                }
+                else if (isClassResponse && isArray)
                 {
                     returnTypeContent = templates.InteropFuncArrayClass;
                 }
@@ -172,7 +177,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 {
                     returnTypeContent = templates.InteropFuncArray;
                 }
-
 
                 if (method.IsStatic)
                 {

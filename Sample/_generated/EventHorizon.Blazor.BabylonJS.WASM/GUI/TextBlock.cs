@@ -60,27 +60,19 @@ namespace BabylonJS.GUI
             }
         }
 
-        private TextWrapping __textWrapping;
-        public TextWrapping textWrapping
+        
+        public int textWrapping
         {
             get
             {
-            if(__textWrapping == null)
-            {
-                __textWrapping = EventHorizonBlazorInterop.GetClass<TextWrapping>(
+            return EventHorizonBlazorInterop.Get<int>(
                     this.___guid,
-                    "textWrapping",
-                    (entity) =>
-                    {
-                        return new TextWrapping() { ___guid = entity.___guid };
-                    }
+                    "textWrapping"
                 );
-            }
-            return __textWrapping;
             }
             set
             {
-__textWrapping = null;
+
                 EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "textWrapping",

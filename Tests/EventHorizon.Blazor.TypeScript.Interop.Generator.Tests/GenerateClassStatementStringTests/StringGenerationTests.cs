@@ -247,5 +247,20 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             },
             expectedFile
         );
+
+        [Theory(DisplayName = "Enums")]
+        [Trait("Category", "StringGeneration.Enum")]
+        [InlineData("EnumAccessor.ts", "Enums", "EnumAccessor.Expected.txt")]
+        [InlineData("EnumArgument.ts", "Enums", "EnumArgument.Expected.txt")]
+        [InlineData("EnumProperty.ts", "Enums", "EnumProperty.Expected.txt")]
+        public void ShouldGenerateEnumScenarioStrings(
+            string sourceFile,
+            string rootPath,
+            string expectedFile
+        ) => ValidateGenerateStrings(
+            rootPath,
+            sourceFile,
+            expectedFile
+        );
     }
 }

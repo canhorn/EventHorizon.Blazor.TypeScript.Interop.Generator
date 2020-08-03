@@ -38,6 +38,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 var isNotSupported = NotSupportedIdentifier.Identify(
                     property
                 );
+                var isEnum = property.Type.IsEnum;
 
                 var template = templates.AccessorWithSetter;
                 var propertyGetterResultType = templates.InteropGet;
@@ -77,7 +78,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     }
                 }
 
-                if (isClassResponse && isArray)
+                if (isEnum)
+                {
+                    propertyGetterResultType = templates.InteropGet;
+                }
+                else if (isClassResponse && isArray)
                 {
                     propertyGetterResultType = templates.InteropGetArrayClass;
                 }

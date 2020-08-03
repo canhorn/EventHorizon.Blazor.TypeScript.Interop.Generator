@@ -187,6 +187,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     typeIdentifier,
                     ast
                 ),
+                IsEnum = EnumTypeIdentifier.Identify(
+                    typeIdentifier,
+                    ast
+                ),
                 GenericTypes = genericTypes,
                 Arguments = ArgumentIdentifier.Identify(
                     node,

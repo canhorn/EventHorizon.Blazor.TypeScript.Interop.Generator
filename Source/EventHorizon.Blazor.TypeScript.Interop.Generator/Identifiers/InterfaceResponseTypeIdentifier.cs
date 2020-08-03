@@ -9,14 +9,27 @@ using Sdcb.TypeScript.TsTypes;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
+    public interface IInterfaceResponseTypeIdentifier
+    {
+        bool Identify(
+            string identifierString,
+            TypeScriptAST ast
+        );
+        bool Identify(
+            TypeStatement type,
+            TypeScriptAST ast
+        );
+    }
     public static class InterfaceResponseTypeIdentifier
     {
-        private static ConcurrentDictionary<string, bool> _cache = new ConcurrentDictionary<string, bool>();
-        private static bool _cacheDisabled = false;
+
+        private static IInterfaceResponseTypeIdentifier CACHED = new InterfaceResponseTypeIdentifierCached();
+        private static IInterfaceResponseTypeIdentifier NOT_CACHED = new InterfaceResponseTypeIdentifierNotCached();
+        private static IInterfaceResponseTypeIdentifier ACTIVE = CACHED;
 
         public static void DisableCache()
         {
-            _cacheDisabled = true;
+            ACTIVE = NOT_CACHED;
         }
 
         public static bool Identify(
@@ -24,10 +37,32 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             TypeScriptAST ast
         )
         {
-            if (!_cacheDisabled && _cache.TryGetValue(identifierString, out var value))
-            {
-                return value;
-            }
+            return ACTIVE.Identify(
+                identifierString,
+                ast
+            );
+        }
+
+        public static bool Identify(
+            TypeStatement type,
+            TypeScriptAST ast
+        )
+        {
+            return ACTIVE.Identify(
+                type,
+                ast
+            );
+        }
+    }
+
+    public class InterfaceResponseTypeIdentifierNotCached
+        : IInterfaceResponseTypeIdentifier
+    {
+        public virtual bool Identify(
+            string identifierString,
+            TypeScriptAST ast
+        )
+        {
             var hasClassDeclarations = ast.RootNode.OfKind(
                 SyntaxKind.ClassDeclaration
             ).Any(
@@ -38,18 +73,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             ).Any(
                 child => child.IdentifierStr == identifierString
             );
-            if (!_cacheDisabled && identifierString != null)
-            {
-                _cache.AddOrUpdate(
-                    identifierString,
-                    response,
-                    (_, __) => response
-                );
-            }
             return response;
         }
 
-        public static bool Identify(
+        public virtual bool Identify(
             TypeStatement type,
             TypeScriptAST ast
         )
@@ -67,6 +94,43 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             }
             return Identify(
                 identifierString,
+                ast
+            );
+        }
+    }
+
+    public class InterfaceResponseTypeIdentifierCached
+        : InterfaceResponseTypeIdentifierNotCached
+    {
+        private readonly Dictionary<string, bool> _cache = new Dictionary<string, bool>();
+
+        public override bool Identify(
+            string identifierString,
+            TypeScriptAST ast
+        )
+        {
+            if (_cache.TryGetValue(identifierString, out var value))
+            {
+                return value;
+            }
+            var response = base.Identify(
+                identifierString,
+                ast
+            );
+            if (identifierString != null)
+            {
+                _cache[identifierString] = response;
+            }
+            return response;
+        }
+
+        public override bool Identify(
+            TypeStatement type,
+            TypeScriptAST ast
+        )
+        {
+            return base.Identify(
+                type,
                 ast
             );
         }

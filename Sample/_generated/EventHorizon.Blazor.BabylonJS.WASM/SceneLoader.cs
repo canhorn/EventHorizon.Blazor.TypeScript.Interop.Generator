@@ -295,7 +295,7 @@ __OnPluginActivatedObservable = null;
             );
         }
 
-        public static void ImportAnimations(string rootUrl, string sceneFilename = null, Scene scene = null, System.Nullable<bool> overwriteAnimations = null, SceneLoaderAnimationGroupLoadingMode animationGroupLoadingMode = null, ActionCallback<CachedEntity> targetConverter = null, ActionCallback<Scene> onSuccess = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null)
+        public static void ImportAnimations(string rootUrl, string sceneFilename = null, Scene scene = null, System.Nullable<bool> overwriteAnimations = null, System.Nullable<int> animationGroupLoadingMode = null, ActionCallback<CachedEntity> targetConverter = null, ActionCallback<Scene> onSuccess = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -305,7 +305,7 @@ __OnPluginActivatedObservable = null;
             );
         }
 
-        public static void ImportAnimationsAsync(string rootUrl, string sceneFilename = null, Scene scene = null, System.Nullable<bool> overwriteAnimations = null, SceneLoaderAnimationGroupLoadingMode animationGroupLoadingMode = null, ActionCallback<CachedEntity> targetConverter = null, ActionCallback<Scene> onSuccess = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null)
+        public static void ImportAnimationsAsync(string rootUrl, string sceneFilename = null, Scene scene = null, System.Nullable<bool> overwriteAnimations = null, System.Nullable<int> animationGroupLoadingMode = null, ActionCallback<CachedEntity> targetConverter = null, ActionCallback<Scene> onSuccess = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 

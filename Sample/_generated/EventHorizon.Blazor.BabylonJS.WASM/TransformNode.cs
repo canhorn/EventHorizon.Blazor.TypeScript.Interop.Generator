@@ -764,7 +764,7 @@ __onAfterWorldMatrixUpdateObservable = null;
             );
         }
 
-        public TransformNode lookAt(Vector3 targetPoint, System.Nullable<decimal> yawCor = null, System.Nullable<decimal> pitchCor = null, System.Nullable<decimal> rollCor = null, Space space = null)
+        public TransformNode lookAt(Vector3 targetPoint, System.Nullable<decimal> yawCor = null, System.Nullable<decimal> pitchCor = null, System.Nullable<decimal> rollCor = null, System.Nullable<int> space = null)
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
@@ -808,7 +808,7 @@ __onAfterWorldMatrixUpdateObservable = null;
             );
         }
 
-        public TransformNode setPivotPoint(Vector3 point, Space space = null)
+        public TransformNode setPivotPoint(Vector3 point, System.Nullable<int> space = null)
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
@@ -896,7 +896,7 @@ __onAfterWorldMatrixUpdateObservable = null;
             );
         }
 
-        public TransformNode rotate(Vector3 axis, decimal amount, Space space = null)
+        public TransformNode rotate(Vector3 axis, decimal amount, System.Nullable<int> space = null)
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
@@ -918,7 +918,7 @@ __onAfterWorldMatrixUpdateObservable = null;
             );
         }
 
-        public TransformNode translate(Vector3 axis, decimal distance, Space space = null)
+        public TransformNode translate(Vector3 axis, decimal distance, System.Nullable<int> space = null)
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },

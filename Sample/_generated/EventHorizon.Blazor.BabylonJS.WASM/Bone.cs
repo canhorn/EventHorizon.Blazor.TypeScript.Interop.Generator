@@ -460,7 +460,7 @@ __scaling = null;
             );
         }
 
-        public void translate(Vector3 vec, Space space = null, AbstractMesh mesh = null)
+        public void translate(Vector3 vec, System.Nullable<int> space = null, AbstractMesh mesh = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -470,7 +470,7 @@ __scaling = null;
             );
         }
 
-        public void setPosition(Vector3 position, Space space = null, AbstractMesh mesh = null)
+        public void setPosition(Vector3 position, System.Nullable<int> space = null, AbstractMesh mesh = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -531,7 +531,7 @@ __scaling = null;
             );
         }
 
-        public void setYawPitchRoll(decimal yaw, decimal pitch, decimal roll, Space space = null, AbstractMesh mesh = null)
+        public void setYawPitchRoll(decimal yaw, decimal pitch, decimal roll, System.Nullable<int> space = null, AbstractMesh mesh = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -541,7 +541,7 @@ __scaling = null;
             );
         }
 
-        public void rotate(Vector3 axis, decimal amount, Space space = null, AbstractMesh mesh = null)
+        public void rotate(Vector3 axis, decimal amount, System.Nullable<int> space = null, AbstractMesh mesh = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -551,7 +551,7 @@ __scaling = null;
             );
         }
 
-        public void setAxisAngle(Vector3 axis, decimal angle, Space space = null, AbstractMesh mesh = null)
+        public void setAxisAngle(Vector3 axis, decimal angle, System.Nullable<int> space = null, AbstractMesh mesh = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -561,7 +561,7 @@ __scaling = null;
             );
         }
 
-        public void setRotation(Vector3 rotation, Space space = null, AbstractMesh mesh = null)
+        public void setRotation(Vector3 rotation, System.Nullable<int> space = null, AbstractMesh mesh = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -571,7 +571,7 @@ __scaling = null;
             );
         }
 
-        public void setRotationQuaternion(Quaternion quat, Space space = null, AbstractMesh mesh = null)
+        public void setRotationQuaternion(Quaternion quat, System.Nullable<int> space = null, AbstractMesh mesh = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -581,7 +581,7 @@ __scaling = null;
             );
         }
 
-        public void setRotationMatrix(Matrix rotMat, Space space = null, AbstractMesh mesh = null)
+        public void setRotationMatrix(Matrix rotMat, System.Nullable<int> space = null, AbstractMesh mesh = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -591,7 +591,7 @@ __scaling = null;
             );
         }
 
-        public Vector3 getPosition(Space space = null, AbstractMesh mesh = null)
+        public Vector3 getPosition(System.Nullable<int> space = null, AbstractMesh mesh = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
@@ -602,7 +602,7 @@ __scaling = null;
             );
         }
 
-        public void getPositionToRef(AbstractMesh mesh, Vector3 result, Space space = null)
+        public void getPositionToRef(AbstractMesh mesh, Vector3 result, System.Nullable<int> space = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -664,7 +664,7 @@ __scaling = null;
             );
         }
 
-        public Vector3 getRotation(Space space = null, AbstractMesh mesh = null)
+        public Vector3 getRotation(System.Nullable<int> space = null, AbstractMesh mesh = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
@@ -675,7 +675,7 @@ __scaling = null;
             );
         }
 
-        public void getRotationToRef(Vector3 result, Space space = null, AbstractMesh mesh = null)
+        public void getRotationToRef(Vector3 result, System.Nullable<int> space = null, AbstractMesh mesh = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -685,7 +685,7 @@ __scaling = null;
             );
         }
 
-        public Quaternion getRotationQuaternion(Space space = null, AbstractMesh mesh = null)
+        public Quaternion getRotationQuaternion(System.Nullable<int> space = null, AbstractMesh mesh = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
@@ -696,7 +696,7 @@ __scaling = null;
             );
         }
 
-        public void getRotationQuaternionToRef(Quaternion result, Space space = null, AbstractMesh mesh = null)
+        public void getRotationQuaternionToRef(Quaternion result, System.Nullable<int> space = null, AbstractMesh mesh = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -706,7 +706,7 @@ __scaling = null;
             );
         }
 
-        public Matrix getRotationMatrix(AbstractMesh mesh, Space space = null)
+        public Matrix getRotationMatrix(AbstractMesh mesh, System.Nullable<int> space = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
@@ -717,7 +717,7 @@ __scaling = null;
             );
         }
 
-        public void getRotationMatrixToRef(AbstractMesh mesh, Matrix result, Space space = null)
+        public void getRotationMatrixToRef(AbstractMesh mesh, Matrix result, System.Nullable<int> space = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
