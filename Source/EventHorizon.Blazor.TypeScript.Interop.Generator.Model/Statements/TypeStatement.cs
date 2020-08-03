@@ -15,6 +15,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements
         public bool IsLiteral { get; set; }
         public bool IsModifier { get; set; }
         public bool IsInterface { get; set; }
+        public bool IsEnum { get; set; }
 
         public override string ToString()
         {
@@ -22,6 +23,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements
             var nullable = IsNullable ? "?" : string.Empty;
             var modifier = IsModifier ? "(M)" : string.Empty;
             var interfaceString = IsInterface ? "(I)" : string.Empty;
+            var enumString = IsEnum ? $"(E)" : string.Empty;
             var arguments = string.Join(
                 ", ",
                 Arguments.Select(generic => generic.ToString())
@@ -33,7 +35,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements
             );
             var generics = GenericTypes.Any() ? $"<{genericsJoined}>" : string.Empty;
 
-            return $"{action} {modifier}{interfaceString}{Name}{generics}{array}{nullable}";
+            return $"{action} {enumString}{modifier}{interfaceString}{Name}{generics}{array}{nullable}";
         }
     }
 }

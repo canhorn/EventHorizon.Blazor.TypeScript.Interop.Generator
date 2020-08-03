@@ -115,27 +115,19 @@ namespace BabylonJS
             }
         }
 
-        private AnimationKeyInterpolation __interpolation;
-        public AnimationKeyInterpolation interpolation
+        
+        public int interpolation
         {
             get
             {
-            if(__interpolation == null)
-            {
-                __interpolation = EventHorizonBlazorInterop.GetClass<AnimationKeyInterpolation>(
+            return EventHorizonBlazorInterop.Get<int>(
                     this.___guid,
-                    "interpolation",
-                    (entity) =>
-                    {
-                        return new AnimationKeyInterpolation() { ___guid = entity.___guid };
-                    }
+                    "interpolation"
                 );
-            }
-            return __interpolation;
             }
             set
             {
-__interpolation = null;
+
                 EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "interpolation",

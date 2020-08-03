@@ -75,6 +75,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     template = actionVoidTemplate;
                 }
             }
+            if(type.IsEnum)
+            {
+                template = template.Replace(
+                    "[[NAME]]",
+                    "int"
+                );
+            }
 
             return template.Replace(
                 "[[NAME]]",

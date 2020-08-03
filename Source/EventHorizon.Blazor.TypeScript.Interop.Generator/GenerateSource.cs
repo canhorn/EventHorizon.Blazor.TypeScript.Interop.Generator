@@ -5,7 +5,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
     using System.IO;
     using System.Linq;
     using System.Text;
-    using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
@@ -19,6 +18,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
         public static void DisableCache()
         {
             InterfaceResponseTypeIdentifier.DisableCache();
+            EnumTypeIdentifier.DisableCache();
         }
 
         public bool Run(

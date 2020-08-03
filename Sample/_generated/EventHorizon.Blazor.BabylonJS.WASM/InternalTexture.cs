@@ -27,23 +27,15 @@ namespace BabylonJS
         #endregion
 
         #region Accessors
-        private InternalTextureSource __source;
-        public InternalTextureSource source
+        
+        public int source
         {
             get
             {
-            if(__source == null)
-            {
-                __source = EventHorizonBlazorInterop.GetClass<InternalTextureSource>(
+            return EventHorizonBlazorInterop.Get<int>(
                     this.___guid,
-                    "source",
-                    (entity) =>
-                    {
-                        return new InternalTextureSource() { ___guid = entity.___guid };
-                    }
+                    "source"
                 );
-            }
-            return __source;
             }
         }
         #endregion
@@ -468,7 +460,7 @@ __onLoadedObservable = null;
         }
 
         public InternalTexture(
-            ThinEngine engine, InternalTextureSource source, System.Nullable<bool> delayAllocation = null
+            ThinEngine engine, int source, System.Nullable<bool> delayAllocation = null
         )
         {
             var entity = EventHorizonBlazorInterop.New(

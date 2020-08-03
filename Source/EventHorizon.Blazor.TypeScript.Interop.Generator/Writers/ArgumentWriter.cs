@@ -63,28 +63,35 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             if (typeStatement.IsNullable)
             {
                 var genericType = typeStatement.GenericTypes.First();
-                if (ClassIdentifier.Identify(
-                    usedClassNames,
-                    genericType.Name
-                ) || genericType.IsNullable
-                    || genericType.IsArray
-                    || genericType.IsModifier
-                    || genericType.IsAction
-                    || genericType.Name == GenerationIdentifiedTypes.String
-                    || genericType.Name == GenerationIdentifiedTypes.CachedEntity)
+
+                if (!genericType.IsEnum
+                    && (ClassIdentifier.Identify(
+                        usedClassNames,
+                        genericType.Name
+                    ) || genericType.IsNullable
+                        || genericType.IsArray
+                        || genericType.IsModifier
+                        || genericType.IsAction
+                        || genericType.Name == GenerationIdentifiedTypes.String
+                        || genericType.Name == GenerationIdentifiedTypes.CachedEntity
+                    )
+                )
                 {
                     argumentsTemplate = "[[TYPE]][[IS_ARRAY]][[NAME]][[DEFAULT_VALUE]]";
                 }
             }
-            else if (ClassIdentifier.Identify(
-                usedClassNames,
-                typeStatement.Name
-            ) || typeStatement.IsNullable
-                || typeStatement.IsArray
-                || typeStatement.IsModifier
-                || typeStatement.IsAction
-                || typeStatement.Name == GenerationIdentifiedTypes.String
-                || typeStatement.Name == GenerationIdentifiedTypes.CachedEntity)
+            else if (!typeStatement.IsEnum 
+                && (ClassIdentifier.Identify(
+                    usedClassNames,
+                    typeStatement.Name
+                ) || typeStatement.IsNullable
+                    || typeStatement.IsArray
+                    || typeStatement.IsModifier
+                    || typeStatement.IsAction
+                    || typeStatement.Name == GenerationIdentifiedTypes.String
+                    || typeStatement.Name == GenerationIdentifiedTypes.CachedEntity
+                )
+            )
             {
                 argumentsTemplate = "[[TYPE]][[IS_ARRAY]][[NAME]][[DEFAULT_VALUE]]";
             }
