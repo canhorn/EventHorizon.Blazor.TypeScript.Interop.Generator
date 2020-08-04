@@ -107,7 +107,7 @@ namespace BabylonJS
             );
         }
 
-        public IActionCachedEntity then(IActionCachedEntity action)
+        public IActionCachedEntity then(IAction action)
         {
             return EventHorizonBlazorInterop.FuncClass<IActionCachedEntity>(
                 entity => new IActionCachedEntity() { ___guid = entity.___guid },

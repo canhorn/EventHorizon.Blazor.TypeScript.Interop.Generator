@@ -1230,7 +1230,7 @@ __audioEngine = null;
             );
         }
 
-        public static ILoadingScreenCachedEntity DefaultLoadingScreenFactory(HTMLCanvasElementCachedEntity canvas)
+        public static ILoadingScreenCachedEntity DefaultLoadingScreenFactory(HTMLCanvasElement canvas)
         {
             return EventHorizonBlazorInterop.FuncClass<ILoadingScreenCachedEntity>(
                 entity => new ILoadingScreenCachedEntity() { ___guid = entity.___guid },
@@ -1836,7 +1836,7 @@ __onAfterShaderCompilationObservable = null;
         }
 
         public Engine(
-            HTMLCanvasElementCachedEntity canvasOrContext, System.Nullable<bool> antialias = null, EngineOptionsCachedEntity options = null, System.Nullable<bool> adaptToDeviceRatio = null
+            HTMLCanvasElement canvasOrContext, System.Nullable<bool> antialias = null, EngineOptions options = null, System.Nullable<bool> adaptToDeviceRatio = null
         ) : base()
         {
             var entity = EventHorizonBlazorInterop.New(
@@ -1858,7 +1858,7 @@ __onAfterShaderCompilationObservable = null;
             );
         }
 
-        public decimal getAspectRatio(IViewportOwnerLikeCachedEntity viewportOwner, System.Nullable<bool> useScreen = null)
+        public decimal getAspectRatio(IViewportOwnerLike viewportOwner, System.Nullable<bool> useScreen = null)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
@@ -2271,7 +2271,7 @@ __onAfterShaderCompilationObservable = null;
             );
         }
 
-        public void scissorClear(decimal x, decimal y, decimal width, decimal height, IColor4LikeCachedEntity clearColor)
+        public void scissorClear(decimal x, decimal y, decimal width, decimal height, IColor4Like clearColor)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -2332,7 +2332,7 @@ __onAfterShaderCompilationObservable = null;
             );
         }
 
-        public string getVertexShaderSource(WebGLProgramCachedEntity program)
+        public string getVertexShaderSource(WebGLProgram program)
         {
             return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
@@ -2342,7 +2342,7 @@ __onAfterShaderCompilationObservable = null;
             );
         }
 
-        public string getFragmentShaderSource(WebGLProgramCachedEntity program)
+        public string getFragmentShaderSource(WebGLProgram program)
         {
             return EventHorizonBlazorInterop.Func<string>(
                 new object[] 
@@ -2352,7 +2352,7 @@ __onAfterShaderCompilationObservable = null;
             );
         }
 
-        public void setDepthStencilTexture(decimal channel, WebGLUniformLocationCachedEntity uniform, RenderTargetTexture texture)
+        public void setDepthStencilTexture(decimal channel, WebGLUniformLocation uniform, RenderTargetTexture texture)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -2482,7 +2482,7 @@ __onAfterShaderCompilationObservable = null;
             );
         }
 
-        public WebGLProgramCachedEntity createShaderProgram(IPipelineContextCachedEntity pipelineContext, string vertexCode, string fragmentCode, string defines = null, WebGLRenderingContextCachedEntity context = null, string[] transformFeedbackVaryings = null)
+        public WebGLProgramCachedEntity createShaderProgram(IPipelineContext pipelineContext, string vertexCode, string fragmentCode, string defines = null, WebGLRenderingContext context = null, string[] transformFeedbackVaryings = null)
         {
             return EventHorizonBlazorInterop.FuncClass<WebGLProgramCachedEntity>(
                 entity => new WebGLProgramCachedEntity() { ___guid = entity.___guid },

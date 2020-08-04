@@ -12,7 +12,7 @@ namespace BabylonJS
     
     
     [JsonConverter(typeof(CachedEntityConverter<ParticleSystem>))]
-    public class ParticleSystem : BaseParticleSystem
+    public class ParticleSystem : BaseParticleSystem, _IDisposable, IAnimatable, IParticleSystem
     {
         #region Static Accessors
 

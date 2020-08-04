@@ -171,7 +171,7 @@ namespace BabylonJS
         #endregion
 
         #region Methods
-        public void queryCounterEXT(WebGLQueryCachedEntity query, decimal target)
+        public void queryCounterEXT(WebGLQuery query, decimal target)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -192,7 +192,7 @@ namespace BabylonJS
             );
         }
 
-        public void beginQueryEXT(decimal target, WebGLQueryCachedEntity query)
+        public void beginQueryEXT(decimal target, WebGLQuery query)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -212,7 +212,7 @@ namespace BabylonJS
             );
         }
 
-        public CachedEntity getQueryObjectEXT(WebGLQueryCachedEntity query, decimal target)
+        public CachedEntity getQueryObjectEXT(WebGLQuery query, decimal target)
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -222,7 +222,7 @@ namespace BabylonJS
             );
         }
 
-        public void deleteQueryEXT(WebGLQueryCachedEntity query)
+        public void deleteQueryEXT(WebGLQuery query)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 

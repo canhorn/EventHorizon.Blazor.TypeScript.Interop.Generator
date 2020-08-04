@@ -5,5 +5,6 @@ declare module Examples {
     export class ExampleClass {
         unsupportedMethod(): IEffectFallbacks<boolean>;
         onInfluenceChanged: Observable<boolean>;
+        arrayOfArray: string[][];
     }
 }

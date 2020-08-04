@@ -1,5 +1,5 @@
 /// Generated - Do Not Edit
-namespace Examples
+namespace BabylonJS
 {
     using System;
     using System.Collections.Generic;
@@ -9,10 +9,10 @@ namespace Examples
     using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
+    public interface _IDisposable : ICachedEntity { }
     
-    
-    [JsonConverter(typeof(CachedEntityConverter<ExampleClass>))]
-    public class ExampleClass : CachedEntityObject
+    [JsonConverter(typeof(CachedEntityConverter<_IDisposableCachedEntity>))]
+    public class _IDisposableCachedEntity : CachedEntityObject, _IDisposable
     {
         #region Static Accessors
 
@@ -31,26 +31,31 @@ namespace Examples
         #endregion
 
         #region Properties
-// onInfluenceChanged is not supported by the platform yet
 
-// arrayOfArray is not supported by the platform yet
         #endregion
         
         #region Constructor
-        public ExampleClass() : base() { } 
+        public _IDisposableCachedEntity() : base() { }
 
-        public ExampleClass(
+        public _IDisposableCachedEntity(
             ICachedEntity entity
         ) : base(entity)
         {
-            ___guid = entity.___guid;
         }
 
 
         #endregion
 
         #region Methods
-// unsupportedMethod is not supported by the platform yet
+        public void dispose()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "dispose" }
+                }
+            );
+        }
         #endregion
     }
 }

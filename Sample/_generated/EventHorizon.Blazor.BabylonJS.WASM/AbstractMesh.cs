@@ -12,7 +12,7 @@ namespace BabylonJS
     
     
     [JsonConverter(typeof(CachedEntityConverter<AbstractMesh>))]
-    public class AbstractMesh : TransformNode
+    public class AbstractMesh : TransformNode, _IDisposable, ICullable, IGetSetVerticesData
     {
         #region Static Accessors
         
@@ -1825,15 +1825,7 @@ __onRebuildObservable = null;
             );
         }
 
-        public decimal[][] getFacetLocalPartitioning()
-        {
-            return EventHorizonBlazorInterop.FuncArray<decimal[]>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getFacetLocalPartitioning" }
-                }
-            );
-        }
+// getFacetLocalPartitioning is not supported by the platform yet
 
         public Vector3 getFacetPosition(decimal i)
         {

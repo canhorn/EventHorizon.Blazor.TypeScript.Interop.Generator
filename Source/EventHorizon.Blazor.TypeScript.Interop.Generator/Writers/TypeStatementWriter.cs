@@ -9,7 +9,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
     {
         public static string Write(
             TypeStatement type,
-            bool root = false,
+            bool includeArraySymbol = true,
             bool ignorePrefix = false
         )
         {
@@ -50,7 +50,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 var genericTypes = type.GenericTypes.Select(
                     a => Write(
                         a,
-                        root && (type.IsNullable || type.IsModifier)
+                        includeArraySymbol,
+                        ignorePrefix
                     )
                 );
 
@@ -61,7 +62,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             }
             if (type.IsNullable
                 || type.IsModifier
-                || (type.IsArray && root)
+                || (type.IsArray && type.GenericTypes.Any() && !includeArraySymbol)
             )
             {
                 template = rootArrayTemplate;
@@ -75,7 +76,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     template = actionVoidTemplate;
                 }
             }
-            if(type.IsEnum)
+            if (type.IsEnum)
             {
                 template = template.Replace(
                     "[[NAME]]",

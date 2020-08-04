@@ -12,7 +12,7 @@ namespace BabylonJS.GUI
     
     
     [JsonConverter(typeof(CachedEntityConverter<Style>))]
-    public class Style : CachedEntityObject
+    public class Style : CachedEntityObject, _IDisposable
     {
         #region Static Accessors
 
@@ -144,18 +144,17 @@ __onChangedObservable = null;
         #endregion
         
         #region Constructor
-        public Style() : base() { } 
+        public Style() : base() { }
 
         public Style(
             ICachedEntity entity
         ) : base(entity)
         {
-            ___guid = entity.___guid;
         }
 
         public Style(
             AdvancedDynamicTexture host
-        )
+        ) : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GUI", "Style" },

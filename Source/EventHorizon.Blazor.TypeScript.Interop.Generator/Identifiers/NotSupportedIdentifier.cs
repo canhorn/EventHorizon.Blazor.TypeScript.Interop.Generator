@@ -46,6 +46,32 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             {
                 return true;
             }
+            // Check for Array in Array
+            if (HasAnArrayInArray(typeStatement))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private static bool HasAnArrayInArray(
+            TypeStatement typeStatement
+        )
+        {
+            if (typeStatement.IsArray)
+            {
+                if (typeStatement.GenericTypes.Any(a => a.IsArray))
+                {
+                    return true;
+                }
+            }
+            foreach (var genericType in typeStatement.GenericTypes)
+            {
+                return HasAnArrayInArray(
+                    genericType
+                );
+            }
             return false;
         }
     }

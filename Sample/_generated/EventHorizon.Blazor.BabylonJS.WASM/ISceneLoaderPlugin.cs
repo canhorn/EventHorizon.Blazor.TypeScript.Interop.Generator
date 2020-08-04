@@ -47,7 +47,7 @@ namespace BabylonJS
         #endregion
 
         #region Methods
-        public bool importMesh(object meshesNames, Scene scene, object data, string rootUrl, AbstractMesh[] meshes, IParticleSystemCachedEntity[] particleSystems, Skeleton[] skeletons, ActionCallback<string, object> onError = null)
+        public bool importMesh(object meshesNames, Scene scene, object data, string rootUrl, AbstractMesh[] meshes, IParticleSystem[] particleSystems, Skeleton[] skeletons, ActionCallback<string, object> onError = null)
         {
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 

@@ -67,7 +67,7 @@ namespace BabylonJS
         #endregion
 
         #region Static Methods
-        public static void PrepareUniforms(string[] uniforms, IImageProcessingConfigurationDefinesCachedEntity defines)
+        public static void PrepareUniforms(string[] uniforms, IImageProcessingConfigurationDefines defines)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -77,7 +77,7 @@ namespace BabylonJS
             );
         }
 
-        public static void PrepareSamplers(string[] samplersList, IImageProcessingConfigurationDefinesCachedEntity defines)
+        public static void PrepareSamplers(string[] samplersList, IImageProcessingConfigurationDefines defines)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -600,7 +600,7 @@ __onUpdateParameters = null;
             );
         }
 
-        public void prepareDefines(IImageProcessingConfigurationDefinesCachedEntity defines, System.Nullable<bool> forPostProcess = null)
+        public void prepareDefines(IImageProcessingConfigurationDefines defines, System.Nullable<bool> forPostProcess = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 

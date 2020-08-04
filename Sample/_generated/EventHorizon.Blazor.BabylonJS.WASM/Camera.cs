@@ -1256,7 +1256,7 @@ __rigParent = null;
             );
         }
 
-        public bool isInFrustum(ICullableCachedEntity target, System.Nullable<bool> checkRigCameras = null)
+        public bool isInFrustum(ICullable target, System.Nullable<bool> checkRigCameras = null)
         {
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
@@ -1266,7 +1266,7 @@ __rigParent = null;
             );
         }
 
-        public bool isCompletelyInFrustum(ICullableCachedEntity target)
+        public bool isCompletelyInFrustum(ICullable target)
         {
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 

@@ -47,7 +47,7 @@ namespace BabylonJS
         #endregion
 
         #region Methods
-        public T addBehavior(BehaviorCachedEntity<T> behavior)
+        public T addBehavior(Behavior<T> behavior)
         {
             return EventHorizonBlazorInterop.FuncClass<T>(
                 entity => new T() { ___guid = entity.___guid },
@@ -58,7 +58,7 @@ namespace BabylonJS
             );
         }
 
-        public T removeBehavior(BehaviorCachedEntity<T> behavior)
+        public T removeBehavior(Behavior<T> behavior)
         {
             return EventHorizonBlazorInterop.FuncClass<T>(
                 entity => new T() { ___guid = entity.___guid },

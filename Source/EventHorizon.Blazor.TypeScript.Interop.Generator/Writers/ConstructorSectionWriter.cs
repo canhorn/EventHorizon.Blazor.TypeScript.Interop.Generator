@@ -33,7 +33,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         ArgumentWriter.Write(
                             argument,
                             true,
-                            " = null"
+                            " = null",
+                            ignorePrefix: true
                         )
                     );
                 }

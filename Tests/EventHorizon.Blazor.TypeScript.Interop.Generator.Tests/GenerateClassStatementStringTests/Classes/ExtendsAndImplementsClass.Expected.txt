@@ -12,7 +12,7 @@ namespace Examples
     
     
     [JsonConverter(typeof(CachedEntityConverter<ExampleClass>))]
-    public class ExampleClass : CachedEntityObject
+    public class ExampleClass : TransformNode, _IDisposable, ICullable, IGetSetVerticesData
     {
         #region Static Accessors
 
@@ -35,25 +35,15 @@ namespace Examples
         #endregion
         
         #region Constructor
-        public ExampleClass() : base() { } 
+        public ExampleClass() : base() { }
 
         public ExampleClass(
             ICachedEntity entity
         ) : base(entity)
         {
-            ___guid = entity.___guid;
         }
 
-        public ExampleClass(
-            object baseName, string[] attributesNamesOrOptions, string[] uniformsNamesOrEngine, string[] samplers = null, ThinEngine engine = null, string defines = null, IEffectFallbacks fallbacks = null, ActionCallback<Effect> onCompiled = null, ActionCallback<Effect, string> onError = null, object indexParameters = null
-        )
-        {
-            var entity = EventHorizonBlazorInterop.New(
-                new string[] { "Examples", "ExampleClass" },
-                baseName, attributesNamesOrOptions, uniformsNamesOrEngine, samplers, engine, defines, fallbacks, onCompiled, onError, indexParameters
-            );
-            ___guid = entity.___guid;
-        }
+
         #endregion
 
         #region Methods

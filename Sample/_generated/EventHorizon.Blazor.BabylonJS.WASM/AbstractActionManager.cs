@@ -12,7 +12,7 @@ namespace BabylonJS
     
     
     [JsonConverter(typeof(CachedEntityConverter<AbstractActionManager>))]
-    public class AbstractActionManager : CachedEntityObject
+    public class AbstractActionManager : CachedEntityObject, _IDisposable
     {
         #region Static Accessors
         
@@ -171,13 +171,12 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public AbstractActionManager() : base() { } 
+        public AbstractActionManager() : base() { }
 
         public AbstractActionManager(
             ICachedEntity entity
         ) : base(entity)
         {
-            ___guid = entity.___guid;
         }
 
 
@@ -194,7 +193,7 @@ namespace BabylonJS
             );
         }
 
-        public void processTrigger(decimal trigger, IActionEventCachedEntity evt = null)
+        public void processTrigger(decimal trigger, IActionEvent evt = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -244,7 +243,7 @@ namespace BabylonJS
             );
         }
 
-        public IActionCachedEntity registerAction(IActionCachedEntity action)
+        public IActionCachedEntity registerAction(IAction action)
         {
             return EventHorizonBlazorInterop.FuncClass<IActionCachedEntity>(
                 entity => new IActionCachedEntity() { ___guid = entity.___guid },
@@ -255,7 +254,7 @@ namespace BabylonJS
             );
         }
 
-        public bool unregisterAction(IActionCachedEntity action)
+        public bool unregisterAction(IAction action)
         {
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 

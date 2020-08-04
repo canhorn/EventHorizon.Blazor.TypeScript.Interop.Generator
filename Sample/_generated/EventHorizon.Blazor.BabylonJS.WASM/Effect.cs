@@ -12,7 +12,7 @@ namespace BabylonJS
     
     
     [JsonConverter(typeof(CachedEntityConverter<Effect>))]
-    public class Effect : CachedEntityObject
+    public class Effect : CachedEntityObject, _IDisposable
     {
         #region Static Accessors
 
@@ -338,18 +338,17 @@ __onErrorObservable = null;
         #endregion
         
         #region Constructor
-        public Effect() : base() { } 
+        public Effect() : base() { }
 
         public Effect(
             ICachedEntity entity
         ) : base(entity)
         {
-            ___guid = entity.___guid;
         }
 
         public Effect(
-            object baseName, string[] attributesNamesOrOptions, string[] uniformsNamesOrEngine, string[] samplers = null, ThinEngine engine = null, string defines = null, IEffectFallbacksCachedEntity fallbacks = null, ActionCallback<Effect> onCompiled = null, ActionCallback<Effect, string> onError = null, object indexParameters = null
-        )
+            object baseName, string[] attributesNamesOrOptions, string[] uniformsNamesOrEngine, string[] samplers = null, ThinEngine engine = null, string defines = null, IEffectFallbacks fallbacks = null, ActionCallback<Effect> onCompiled = null, ActionCallback<Effect, string> onError = null, object indexParameters = null
+        ) : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Effect" },
@@ -751,7 +750,7 @@ __onErrorObservable = null;
             );
         }
 
-        public Effect setMatrix(string uniformName, IMatrixLikeCachedEntity matrix)
+        public Effect setMatrix(string uniformName, IMatrixLike matrix)
         {
             return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
@@ -806,7 +805,7 @@ __onErrorObservable = null;
             );
         }
 
-        public Effect setVector2(string uniformName, IVector2LikeCachedEntity vector2)
+        public Effect setVector2(string uniformName, IVector2Like vector2)
         {
             return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
@@ -828,7 +827,7 @@ __onErrorObservable = null;
             );
         }
 
-        public Effect setVector3(string uniformName, IVector3LikeCachedEntity vector3)
+        public Effect setVector3(string uniformName, IVector3Like vector3)
         {
             return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
@@ -850,7 +849,7 @@ __onErrorObservable = null;
             );
         }
 
-        public Effect setVector4(string uniformName, IVector4LikeCachedEntity vector4)
+        public Effect setVector4(string uniformName, IVector4Like vector4)
         {
             return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
@@ -872,7 +871,7 @@ __onErrorObservable = null;
             );
         }
 
-        public Effect setColor3(string uniformName, IColor3LikeCachedEntity color3)
+        public Effect setColor3(string uniformName, IColor3Like color3)
         {
             return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
@@ -883,7 +882,7 @@ __onErrorObservable = null;
             );
         }
 
-        public Effect setColor4(string uniformName, IColor3LikeCachedEntity color3, decimal alpha)
+        public Effect setColor4(string uniformName, IColor3Like color3, decimal alpha)
         {
             return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
@@ -894,7 +893,7 @@ __onErrorObservable = null;
             );
         }
 
-        public Effect setDirectColor4(string uniformName, IColor4LikeCachedEntity color4)
+        public Effect setDirectColor4(string uniformName, IColor4Like color4)
         {
             return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },

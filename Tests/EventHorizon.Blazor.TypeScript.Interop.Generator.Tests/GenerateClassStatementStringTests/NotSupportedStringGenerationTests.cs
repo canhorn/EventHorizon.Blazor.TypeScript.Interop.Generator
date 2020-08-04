@@ -8,6 +8,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
     {
         [Theory(DisplayName = "NotSupported")]
         [Trait("Category", "StringGeneration.NotSupported")]
+        [InlineData("IDisposablDotNetInterfaceName.ts", "NotSupported", "IDisposablDotNetInterfaceName.Expected.txt", "IDisposable")]
         [InlineData("NotSupportedDotNetClassName.ts", "NotSupported", "NotSupportedDotNetClassName.Expected.txt", "IDisposable")]
         [InlineData("NotSupportedResponseType.ts", "NotSupported", "NotSupportedResponseType.Expected.txt", "ExampleClass")]
         public void ShouldGenerateConstructorStrings(

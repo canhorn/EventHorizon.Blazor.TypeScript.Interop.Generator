@@ -463,7 +463,7 @@ __onDisposeObservable = null;
             );
         }
 
-        public Node addBehavior(BehaviorCachedEntity<Node> behavior, System.Nullable<bool> attachImmediately = null)
+        public Node addBehavior(Behavior<Node> behavior, System.Nullable<bool> attachImmediately = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Node>(
                 entity => new Node() { ___guid = entity.___guid },
@@ -474,7 +474,7 @@ __onDisposeObservable = null;
             );
         }
 
-        public Node removeBehavior(BehaviorCachedEntity<Node> behavior)
+        public Node removeBehavior(Behavior<Node> behavior)
         {
             return EventHorizonBlazorInterop.FuncClass<Node>(
                 entity => new Node() { ___guid = entity.___guid },

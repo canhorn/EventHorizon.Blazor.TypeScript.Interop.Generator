@@ -596,7 +596,7 @@ namespace BabylonJS
             );
         }
 
-        public static Matrix Reflection(IPlaneLikeCachedEntity plane)
+        public static Matrix Reflection(IPlaneLike plane)
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
@@ -607,7 +607,7 @@ namespace BabylonJS
             );
         }
 
-        public static void ReflectionToRef(IPlaneLikeCachedEntity plane, Matrix result)
+        public static void ReflectionToRef(IPlaneLike plane, Matrix result)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 

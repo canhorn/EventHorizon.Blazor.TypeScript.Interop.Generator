@@ -1,5 +1,5 @@
 /// Generated - Do Not Edit
-namespace Examples
+namespace Static.Class
 {
     using System;
     using System.Collections.Generic;
@@ -44,20 +44,19 @@ namespace Examples
             ___guid = entity.___guid;
         }
 
-        public ExampleClass(
-            object baseName, string[] attributesNamesOrOptions, string[] uniformsNamesOrEngine, string[] samplers = null, ThinEngine engine = null, string defines = null, IEffectFallbacks fallbacks = null, ActionCallback<Effect> onCompiled = null, ActionCallback<Effect, string> onError = null, object indexParameters = null
-        )
-        {
-            var entity = EventHorizonBlazorInterop.New(
-                new string[] { "Examples", "ExampleClass" },
-                baseName, attributesNamesOrOptions, uniformsNamesOrEngine, samplers, engine, defines, fallbacks, onCompiled, onError, indexParameters
-            );
-            ___guid = entity.___guid;
-        }
+
         #endregion
 
         #region Methods
-
+        public void interfaceFunction(ISomeInterface interfaceArgument)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] 
+                {
+                    new string[] { this.___guid, "interfaceFunction" }, interfaceArgument
+                }
+            );
+        }
         #endregion
     }
 }

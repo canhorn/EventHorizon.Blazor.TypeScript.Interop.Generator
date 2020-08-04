@@ -751,7 +751,7 @@ __onEndRenderObservable = null;
             );
         }
 
-        public void moveFocusToControl(IFocusableControlCachedEntity control)
+        public void moveFocusToControl(IFocusableControl control)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
