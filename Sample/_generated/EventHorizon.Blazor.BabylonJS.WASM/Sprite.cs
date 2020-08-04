@@ -405,7 +405,7 @@ __actionManager = null;
         }
 
         public Sprite(
-            string name, ISpriteManagerCachedEntity manager
+            string name, ISpriteManager manager
         )
         {
             var entity = EventHorizonBlazorInterop.New(

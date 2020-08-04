@@ -12,7 +12,7 @@ namespace BabylonJS
     
     
     [JsonConverter(typeof(CachedEntityConverter<AnimationGroup>))]
-    public class AnimationGroup : CachedEntityObject
+    public class AnimationGroup : CachedEntityObject, _IDisposable
     {
         #region Static Accessors
 
@@ -378,18 +378,17 @@ __onAnimationGroupPlayObservable = null;
         #endregion
         
         #region Constructor
-        public AnimationGroup() : base() { } 
+        public AnimationGroup() : base() { }
 
         public AnimationGroup(
             ICachedEntity entity
         ) : base(entity)
         {
-            ___guid = entity.___guid;
         }
 
         public AnimationGroup(
             string name, Scene scene = null
-        )
+        ) : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "AnimationGroup" },

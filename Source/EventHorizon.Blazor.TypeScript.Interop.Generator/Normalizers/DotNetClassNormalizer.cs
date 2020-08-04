@@ -23,5 +23,23 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers
             }
             return text;
         }
+
+        public static string Denormalize(
+            string text
+        )
+        {
+            if (!text.StartsWith("_"))
+            {
+                return text;
+            }
+            var denormalizeText = text.Substring(1);
+            if (DOTNET_NOT_SUPPORTED_LIST.Contains(
+                denormalizeText
+            ))
+            {
+                return denormalizeText;
+            }
+            return text;
+        }
     }
 }

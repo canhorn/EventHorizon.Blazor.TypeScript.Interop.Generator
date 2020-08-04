@@ -1,0 +1,96 @@
+/// Generated - Do Not Edit
+namespace Static.Class
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter<ExampleClass>))]
+    public class ExampleClass : CachedEntityObject
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { } 
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+
+        #endregion
+
+        #region Methods
+        #region interfaceAction TODO: Get Comments as metadata identification
+        private bool _isInterfaceActionEnabled = false;
+        private readonly IDictionary<string, Func<ISomeInterface, Task>> _interfaceActionActionMap = new Dictionary<string, Func<ISomeInterface, Task>>();
+
+        public string interfaceAction(
+            Func<ISomeInterface, Task> callback
+        )
+        {
+            SetupInterfaceActionLoop();
+
+            var handle = Guid.NewGuid().ToString();
+            _interfaceActionActionMap.Add(
+                handle,
+                callback
+            );
+
+            return handle;
+        }
+
+        private void SetupInterfaceActionLoop()
+        {
+            if (_isInterfaceActionEnabled)
+            {
+                return;
+            }
+            EventHorizonBlazorInterop.FuncCallback(
+                this,
+                "interfaceAction",
+                "CallInterfaceActionActions",
+                _invokableReference
+            );
+            _isInterfaceActionEnabled = true;
+        }
+
+        [JSInvokable]
+        public async Task CallInterfaceActionActions(ISomeInterfaceCachedEntity interfaceArgument)
+        {
+            foreach (var action in _interfaceActionActionMap.Values)
+            {
+                await action(interfaceArgument);
+            }
+        }
+        #endregion
+        #endregion
+    }
+}

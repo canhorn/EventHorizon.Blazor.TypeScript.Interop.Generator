@@ -12,10 +12,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
         public static string Write(
             ArgumentStatement argument,
             bool includeName,
-            string defaultValue
+            string defaultValue,
+            bool ignorePrefix = true
         )
         {
-            var argumentsTemplate = "[[TYPE]][[IS_ARRAY]] [[NAME]]";
+            var argumentsTemplate = "[[TYPE]] [[NAME]]";
             if (argument.IsOptional)
             {
                 argumentsTemplate = GenericTypeWriter(
@@ -33,23 +34,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             ).Replace(
                 "[[TYPE]]",
                 TypeStatementWriter.Write(
-                    argument.Type
-                )
-            ).Replace(
-                "[[ARRAY_TYPE]]",
-                TypeStatementWriter.Write(
                     argument.Type,
-                    true
+                    true,
+                    ignorePrefix
                 )
-            ).Replace(
-                "[[NEW_TYPE]]",
-                TypeStatementWriter.Write(
-                    argument.Type,
-                    true
-                )
-            ).Replace(
-                "[[IS_ARRAY]]",
-                string.Empty
             );
         }
 
@@ -59,7 +47,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             bool includeName
         )
         {
-            var argumentsTemplate = "System.Nullable<[[TYPE]][[IS_ARRAY]]>[[NAME]][[DEFAULT_VALUE]]";
+            var argumentsTemplate = "System.Nullable<[[TYPE]]>[[NAME]][[DEFAULT_VALUE]]";
             if (typeStatement.IsNullable)
             {
                 var genericType = typeStatement.GenericTypes.First();
@@ -77,7 +65,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     )
                 )
                 {
-                    argumentsTemplate = "[[TYPE]][[IS_ARRAY]][[NAME]][[DEFAULT_VALUE]]";
+                    argumentsTemplate = "[[TYPE]][[NAME]][[DEFAULT_VALUE]]";
                 }
             }
             else if (!typeStatement.IsEnum 
@@ -93,7 +81,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 )
             )
             {
-                argumentsTemplate = "[[TYPE]][[IS_ARRAY]][[NAME]][[DEFAULT_VALUE]]";
+                argumentsTemplate = "[[TYPE]][[NAME]][[DEFAULT_VALUE]]";
             }
 
             return argumentsTemplate.Replace(

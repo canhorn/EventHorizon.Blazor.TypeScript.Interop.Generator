@@ -3383,7 +3383,7 @@ __actionManager = null;
         }
 
         public Scene(
-            Engine engine, SceneOptionsCachedEntity options = null
+            Engine engine, SceneOptions options = null
         ) : base()
         {
             var entity = EventHorizonBlazorInterop.New(
@@ -4462,7 +4462,7 @@ __actionManager = null;
             );
         }
 
-        public decimal removeParticleSystem(IParticleSystemCachedEntity toRemove)
+        public decimal removeParticleSystem(IParticleSystem toRemove)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
@@ -4582,7 +4582,7 @@ __actionManager = null;
             );
         }
 
-        public void addParticleSystem(IParticleSystemCachedEntity newParticleSystem)
+        public void addParticleSystem(IParticleSystem newParticleSystem)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 

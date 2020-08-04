@@ -349,7 +349,7 @@ namespace BabylonJS
             );
         }
 
-        public IActionCachedEntity registerAction(IActionCachedEntity action)
+        public IActionCachedEntity registerAction(IAction action)
         {
             return EventHorizonBlazorInterop.FuncClass<IActionCachedEntity>(
                 entity => new IActionCachedEntity() { ___guid = entity.___guid },
@@ -360,7 +360,7 @@ namespace BabylonJS
             );
         }
 
-        public bool unregisterAction(IActionCachedEntity action)
+        public bool unregisterAction(IAction action)
         {
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[] 
@@ -370,7 +370,7 @@ namespace BabylonJS
             );
         }
 
-        public void processTrigger(decimal trigger, IActionEventCachedEntity evt = null)
+        public void processTrigger(decimal trigger, IActionEvent evt = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 

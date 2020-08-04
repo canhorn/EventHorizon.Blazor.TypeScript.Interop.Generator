@@ -29,14 +29,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
         )
         {
             //var namespaceIdentifier = string.Join(".", identifier.Take(identifier.Count - 1)); // "Bablyon";
-            var className = classIdentifier;
+            var className = DotNetClassNormalizer.Denormalize(classIdentifier);
 
             var toGenerateNode = ast.OfKind(SyntaxKind.ClassDeclaration)
-                .FirstOrDefault(a => a.IdentifierStr == classIdentifier);
+                .FirstOrDefault(a => a.IdentifierStr == className);
             if (toGenerateNode == null)
             {
                 toGenerateNode = ast.OfKind(SyntaxKind.InterfaceDeclaration)
-                    .FirstOrDefault(a => a.IdentifierStr == classIdentifier);
+                    .FirstOrDefault(a => a.IdentifierStr == className);
                 if (toGenerateNode == null)
                 {
                     return null;
@@ -46,7 +46,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             var classMetadata = new ClassMetadata
             {
                 Namespace = namespaceIdentifier,
-                Name = classIdentifier,
+                Name = className,
             };
 
 

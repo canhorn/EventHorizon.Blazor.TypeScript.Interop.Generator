@@ -111,10 +111,10 @@ namespace BabylonJS
 
         #region forceCompilation TODO: Get Comments as metadata identification
         private bool _isForceCompilationEnabled = false;
-        private readonly IDictionary<string, Func<IShadowGeneratorCachedEntity, Task>> _forceCompilationActionMap = new Dictionary<string, Func<IShadowGeneratorCachedEntity, Task>>();
+        private readonly IDictionary<string, Func<IShadowGenerator, Task>> _forceCompilationActionMap = new Dictionary<string, Func<IShadowGenerator, Task>>();
 
         public string forceCompilation(
-            Func<IShadowGeneratorCachedEntity, Task> callback
+            Func<IShadowGenerator, Task> callback
         )
         {
             SetupForceCompilationLoop();

@@ -78,7 +78,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         {
                             functionGenericsStrings.Add(
                                 TypeStatementWriter.Write(
-                                    genericType
+                                    genericType,
+                                    ignorePrefix: true
                                 )
                             );
                         }
@@ -90,7 +91,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                                 ArgumentWriter.Write(
                                     argument,
                                     true,
-                                    string.Empty
+                                    string.Empty,
+                                    ignorePrefix: false
                                 )
                             );
                         }
@@ -228,17 +230,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         );
                     }
                 }
-                var propType = TypeStatementWriter.Write(
-                    method.Type
-                );
-                var arrayType = TypeStatementWriter.Write(
-                    method.Type,
-                    true
-                );
-                var newType = TypeStatementWriter.Write(
-                    method.Type,
-                    true
-                );
 
                 if (isNotSupported)
                 {
@@ -288,13 +279,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     "[[ARRAY_TYPE]]",
                     TypeStatementWriter.Write(
                         methodType,
-                        true
+                        false
                     )
                 ).Replace(
                     "[[NEW_TYPE]]",
                     TypeStatementWriter.Write(
                         methodType,
-                        true
+                        false
                     )
                 ).Replace(
                     "[[GENERIC_SECTION]]",

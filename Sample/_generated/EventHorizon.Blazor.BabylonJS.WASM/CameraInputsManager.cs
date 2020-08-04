@@ -199,7 +199,7 @@ __camera = null;
         }
         #endregion
 
-        public void add(ICameraInputCachedEntity<TCamera> input)
+        public void add(ICameraInput<TCamera> input)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -209,7 +209,7 @@ __camera = null;
             );
         }
 
-        public void remove(ICameraInputCachedEntity<TCamera> inputToRemove)
+        public void remove(ICameraInput<TCamera> inputToRemove)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -229,7 +229,7 @@ __camera = null;
             );
         }
 
-        public void attachInput(ICameraInputCachedEntity<TCamera> input)
+        public void attachInput(ICameraInput<TCamera> input)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 

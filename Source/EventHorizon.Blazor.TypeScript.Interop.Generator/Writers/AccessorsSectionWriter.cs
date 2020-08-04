@@ -93,17 +93,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 {
                     propertyGetterResultType = templates.InteropGetArray;
                 }
-                var propType = TypeStatementWriter.Write(
-                    accessor.Type
-                );
-                var arrayType = TypeStatementWriter.Write(
-                    accessor.Type,
-                    true
-                );
-                var newType = TypeStatementWriter.Write(
-                    accessor.Type,
-                    true
-                );
 
                 template = template
                     .Replace(
@@ -153,13 +142,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         "[[ARRAY_TYPE]]",
                         TypeStatementWriter.Write(
                             accessor.Type,
-                            true
+                            false
                         )
                     ).Replace(
                         "[[NEW_TYPE]]",
                         TypeStatementWriter.Write(
                             accessor.Type,
-                            true
+                            false
                         )
                     ).Replace(
                         "[[PROPERTY]]",

@@ -261,7 +261,7 @@ namespace BabylonJS
             );
         }
 
-        public static void AppendSerializedAnimations(IAnimatableCachedEntity source, object destination)
+        public static void AppendSerializedAnimations(IAnimatable source, object destination)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -750,7 +750,7 @@ namespace BabylonJS
             );
         }
 
-        public void setKeys(IAnimationKeyCachedEntity[] values)
+        public void setKeys(IAnimationKey[] values)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 

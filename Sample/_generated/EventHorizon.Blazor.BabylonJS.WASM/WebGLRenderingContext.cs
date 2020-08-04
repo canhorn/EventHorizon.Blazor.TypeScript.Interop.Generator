@@ -679,7 +679,7 @@ namespace BabylonJS
             );
         }
 
-        public void bindVertexArray(WebGLVertexArrayObjectCachedEntity vao = null)
+        public void bindVertexArray(WebGLVertexArrayObject vao = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -689,7 +689,7 @@ namespace BabylonJS
             );
         }
 
-        public void deleteVertexArray(WebGLVertexArrayObjectCachedEntity vao)
+        public void deleteVertexArray(WebGLVertexArrayObject vao)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -729,7 +729,7 @@ namespace BabylonJS
             );
         }
 
-        public decimal getUniformBlockIndex(WebGLProgramCachedEntity program, string uniformBlockName)
+        public decimal getUniformBlockIndex(WebGLProgram program, string uniformBlockName)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
                 new object[] 
@@ -739,7 +739,7 @@ namespace BabylonJS
             );
         }
 
-        public void uniformBlockBinding(WebGLProgramCachedEntity program, decimal uniformBlockIndex, decimal uniformBlockBinding)
+        public void uniformBlockBinding(WebGLProgram program, decimal uniformBlockIndex, decimal uniformBlockBinding)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -760,7 +760,7 @@ namespace BabylonJS
             );
         }
 
-        public void deleteQuery(WebGLQueryCachedEntity query)
+        public void deleteQuery(WebGLQuery query)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -770,7 +770,7 @@ namespace BabylonJS
             );
         }
 
-        public void beginQuery(decimal target, WebGLQueryCachedEntity query)
+        public void beginQuery(decimal target, WebGLQuery query)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -790,7 +790,7 @@ namespace BabylonJS
             );
         }
 
-        public CachedEntity getQueryParameter(WebGLQueryCachedEntity query, decimal pname)
+        public CachedEntity getQueryParameter(WebGLQuery query, decimal pname)
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 

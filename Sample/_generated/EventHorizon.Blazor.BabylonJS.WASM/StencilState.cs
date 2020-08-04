@@ -270,7 +270,7 @@ namespace BabylonJS
             );
         }
 
-        public void apply(WebGLRenderingContextCachedEntity gl)
+        public void apply(WebGLRenderingContext gl)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 

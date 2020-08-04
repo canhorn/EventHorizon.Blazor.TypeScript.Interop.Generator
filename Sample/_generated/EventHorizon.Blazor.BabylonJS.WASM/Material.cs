@@ -1240,7 +1240,7 @@ __onDisposeObservable = null;
             );
         }
 
-        public void forceCompilation(AbstractMesh mesh, ActionCallback<Material> onCompiled = null, IMaterialCompilationOptionsCachedEntity options = null, ActionCallback<string> onError = null)
+        public void forceCompilation(AbstractMesh mesh, ActionCallback<Material> onCompiled = null, IMaterialCompilationOptions options = null, ActionCallback<string> onError = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -1250,7 +1250,7 @@ __onDisposeObservable = null;
             );
         }
 
-        public void forceCompilationAsync(AbstractMesh mesh, IMaterialCompilationOptionsCachedEntity options = null)
+        public void forceCompilationAsync(AbstractMesh mesh, IMaterialCompilationOptions options = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 

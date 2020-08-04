@@ -27,19 +27,29 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 && classDeclaration.HeritageClauses != null
                 && classDeclaration.HeritageClauses.Any())
             {
-                foreach (var herited in classDeclaration.HeritageClauses)
+                foreach (var heritageClauses in classDeclaration.HeritageClauses)
                 {
-                    var identifiedInterface = GenericTypeIdentifier.Identify(
-                        herited.First,
-                        classMetadata,
-                        ast,
-                        typeOverrideDetails
-                    );
-                    if (interfaceCache.Any(a => a.IdentifierStr == identifiedInterface.Name))
+                    foreach (var heritageClauseType in heritageClauses.Types)
                     {
-                        interfaces.Add(
-                            identifiedInterface
-                        );
+                        var identifiers = heritageClauseType.OfKind(SyntaxKind.Identifier);
+                        foreach (var identifier in identifiers)
+                        {
+                            var interfaceNode = interfaceCache.FirstOrDefault(
+                                a => a.IdentifierStr == identifier.IdentifierStr
+                            );
+                            if (interfaceNode != null)
+                            {
+                                interfaces.Add(
+                                    GenericTypeIdentifier.Identify(
+                                        heritageClauseType,
+                                        classMetadata,
+                                        ast,
+                                        typeOverrideDetails
+                                    )
+                                );
+                                break;
+                            }
+                        }
                     }
                 }
             }

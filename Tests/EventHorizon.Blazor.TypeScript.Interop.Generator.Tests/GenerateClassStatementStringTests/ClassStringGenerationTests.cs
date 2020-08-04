@@ -8,6 +8,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
     {
         [Theory(DisplayName = "Class")]
         [Trait("Category", "StringGeneration.Classes")]
+        [InlineData("ExtendsAndImplementsClass.ts", "Classes", "ExtendsAndImplementsClass.Expected.txt")]
         [InlineData("ExtendsInterface.ts", "Classes", "ExtendsInterface.Expected.txt")]
         [InlineData("InterfaceGenerics.ts", "Classes", "InterfaceGenerics.Expected.txt")]
         [InlineData("NamespaceExtendsClass.ts", "Classes", "NamespaceExtendsClass.Expected.txt")]

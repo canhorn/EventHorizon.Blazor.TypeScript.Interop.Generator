@@ -97,17 +97,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 {
                     propertyGetterResultType = templates.InteropGetArray;
                 }
-                var propType = TypeStatementWriter.Write(
-                    property.Type
-                );
-                var arrayType = TypeStatementWriter.Write(
-                    property.Type,
-                    true
-                );
-                var newType = TypeStatementWriter.Write(
-                    property.Type,
-                    true
-                );
 
                 if (isNotSupported)
                 {
@@ -159,13 +148,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         "[[ARRAY_TYPE]]",
                         TypeStatementWriter.Write(
                             property.Type,
-                            true
+                            false
                         )
                     ).Replace(
                         "[[NEW_TYPE]]",
                         TypeStatementWriter.Write(
                             property.Type,
-                            true
+                            false
                         )
                     ).Replace(
                         "[[PROPERTY]]",

@@ -201,7 +201,7 @@ __OnPluginActivatedObservable = null;
             );
         }
 
-        public static void RegisterPlugin(ISceneLoaderPluginCachedEntity plugin)
+        public static void RegisterPlugin(ISceneLoaderPlugin plugin)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
