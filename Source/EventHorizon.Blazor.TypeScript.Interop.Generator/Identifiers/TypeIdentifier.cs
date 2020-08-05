@@ -1,9 +1,5 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
 using Sdcb.TypeScript.TsTypes;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
@@ -38,31 +34,41 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             ClassMetadata classMetadata
         )
         {
-            return kind switch
+            switch (kind)
             {
-                SyntaxKind.UnionType => UnionTypeCheck(
-                    node,
-                    classMetadata
-                ),
-                SyntaxKind.ParenthesizedType => ParenthesizedTypeCheck(
-                    node,
-                    classMetadata
-                ),
-                SyntaxKind.FunctionType => GenerationIdentifiedTypes.Action,
-                SyntaxKind.VoidKeyword => GenerationIdentifiedTypes.Void,
-                SyntaxKind.StringKeyword => GenerationIdentifiedTypes.String,
-                SyntaxKind.BooleanKeyword => GenerationIdentifiedTypes.Bool,
-                SyntaxKind.NumberKeyword => GenerationIdentifiedTypes.Number,
-                SyntaxKind.ObjectKeyword => GenerationIdentifiedTypes.CachedEntity,
-                SyntaxKind.LiteralType => GenerationIdentifiedTypes.Literal,
-                SyntaxKind.TypeLiteral => GenerationIdentifiedTypes.Literal,
-                SyntaxKind.ArrayType => GenerationIdentifiedTypes.Array,
-                // All Other Types
-                _ => AllOtherTypeChecks(
-                    node,
-                    classMetadata
-                ),
-            };
+                case SyntaxKind.UnionType:
+                    return UnionTypeCheck(
+                        node,
+                        classMetadata
+                    );
+                case SyntaxKind.ParenthesizedType:
+                    return ParenthesizedTypeCheck(
+                        node,
+                        classMetadata
+                    );
+                case SyntaxKind.FunctionType:
+                    return GenerationIdentifiedTypes.Action;
+                case SyntaxKind.VoidKeyword:
+                    return GenerationIdentifiedTypes.Void;
+                case SyntaxKind.StringKeyword:
+                    return GenerationIdentifiedTypes.String;
+                case SyntaxKind.BooleanKeyword:
+                    return GenerationIdentifiedTypes.Bool;
+                case SyntaxKind.NumberKeyword:
+                    return GenerationIdentifiedTypes.Number;
+                case SyntaxKind.ObjectKeyword:
+                    return GenerationIdentifiedTypes.CachedEntity;
+                case SyntaxKind.LiteralType:
+                case SyntaxKind.TypeLiteral:
+                    return GenerationIdentifiedTypes.Literal;
+                case SyntaxKind.ArrayType:
+                    return GenerationIdentifiedTypes.Array;
+                default:
+                    return AllOtherTypeChecks(
+                        node,
+                        classMetadata
+                    );
+            }
         }
 
         private static string UnionTypeCheck(

@@ -11,11 +11,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             string type
         )
         {
-            return type switch
-            {
-                GenerationIdentifiedTypes.Action => true,
-                _ => false,
-            };
+            return GenerationIdentifiedTypes.Action == type;
         }
     }
 }
