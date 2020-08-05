@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EventHorizon.Blazor.Interop" Version="0.1.0-preview0007" />
+    <PackageReference Include="EventHorizon.Blazor.Interop" Version="0.1.0-preview0008" />
   </ItemGroup>
 
 </Project>
