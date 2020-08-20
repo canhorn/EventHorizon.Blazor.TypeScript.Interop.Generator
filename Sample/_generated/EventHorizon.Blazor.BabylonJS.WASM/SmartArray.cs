@@ -129,6 +129,15 @@ namespace BabylonJS
             return handle;
         }
 
+        public bool forEach_Remove(
+            string handle
+        )
+        {
+            return _forEachActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupForEachLoop()
         {
             if (_isForEachEnabled)
@@ -171,6 +180,15 @@ namespace BabylonJS
             );
 
             return handle;
+        }
+
+        public bool sort_Remove(
+            string handle
+        )
+        {
+            return _sortActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupSortLoop()

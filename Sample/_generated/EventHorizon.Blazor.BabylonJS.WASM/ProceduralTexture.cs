@@ -184,6 +184,15 @@ __onGeneratedObservable = null;
             return handle;
         }
 
+        public bool onGenerated_Remove(
+            string handle
+        )
+        {
+            return _onGeneratedActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupOnGeneratedLoop()
         {
             if (_isOnGeneratedEnabled)

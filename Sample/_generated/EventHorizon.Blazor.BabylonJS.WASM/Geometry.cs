@@ -249,6 +249,15 @@ __boundingBias = null;
             return handle;
         }
 
+        public bool onGeometryUpdated_Remove(
+            string handle
+        )
+        {
+            return _onGeometryUpdatedActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupOnGeometryUpdatedLoop()
         {
             if (_isOnGeometryUpdatedEnabled)

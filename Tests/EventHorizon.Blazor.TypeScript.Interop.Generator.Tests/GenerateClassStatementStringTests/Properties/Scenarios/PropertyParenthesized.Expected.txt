@@ -123,6 +123,15 @@ __height = null;
             return handle;
         }
 
+        public bool functionType_Remove(
+            string handle
+        )
+        {
+            return _functionTypeActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupFunctionTypeLoop()
         {
             if (_isFunctionTypeEnabled)

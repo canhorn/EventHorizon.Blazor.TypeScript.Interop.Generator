@@ -980,6 +980,15 @@ __onAfterWorldMatrixUpdateObservable = null;
             return handle;
         }
 
+        public bool registerAfterWorldMatrixUpdate_Remove(
+            string handle
+        )
+        {
+            return _registerAfterWorldMatrixUpdateActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupRegisterAfterWorldMatrixUpdateLoop()
         {
             if (_isRegisterAfterWorldMatrixUpdateEnabled)
@@ -1022,6 +1031,15 @@ __onAfterWorldMatrixUpdateObservable = null;
             );
 
             return handle;
+        }
+
+        public bool unregisterAfterWorldMatrixUpdate_Remove(
+            string handle
+        )
+        {
+            return _unregisterAfterWorldMatrixUpdateActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupUnregisterAfterWorldMatrixUpdateLoop()

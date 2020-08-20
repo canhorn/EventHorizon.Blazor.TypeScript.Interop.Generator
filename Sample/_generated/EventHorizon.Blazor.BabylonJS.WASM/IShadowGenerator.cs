@@ -128,6 +128,15 @@ namespace BabylonJS
             return handle;
         }
 
+        public bool forceCompilation_Remove(
+            string handle
+        )
+        {
+            return _forceCompilationActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupForceCompilationLoop()
         {
             if (_isForceCompilationEnabled)

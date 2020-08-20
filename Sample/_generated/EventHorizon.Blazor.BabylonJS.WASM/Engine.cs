@@ -1260,6 +1260,15 @@ __audioEngine = null;
             return handle;
         }
 
+        public static bool AudioEngineFactory_Remove(
+            string handle
+        )
+        {
+            return AudioEngineFactoryActionMap.Remove(
+                handle
+            );
+        }
+
         private static void SetupAudioEngineFactoryStaticLoop()
         {
             if (IsAudioEngineFactoryEnabled)
@@ -1301,6 +1310,15 @@ __audioEngine = null;
             );
 
             return handle;
+        }
+
+        public static bool OfflineProviderFactory_Remove(
+            string handle
+        )
+        {
+            return OfflineProviderFactoryActionMap.Remove(
+                handle
+            );
         }
 
         private static void SetupOfflineProviderFactoryStaticLoop()

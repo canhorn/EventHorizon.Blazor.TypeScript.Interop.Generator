@@ -3414,6 +3414,15 @@ __actionManager = null;
             return handle;
         }
 
+        public bool customLODSelector_Remove(
+            string handle
+        )
+        {
+            return _customLODSelectorActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupCustomLODSelectorLoop()
         {
             if (_isCustomLODSelectorEnabled)
@@ -3456,6 +3465,15 @@ __actionManager = null;
             );
 
             return handle;
+        }
+
+        public bool pointerDownPredicate_Remove(
+            string handle
+        )
+        {
+            return _pointerDownPredicateActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupPointerDownPredicateLoop()
@@ -3502,6 +3520,15 @@ __actionManager = null;
             return handle;
         }
 
+        public bool pointerUpPredicate_Remove(
+            string handle
+        )
+        {
+            return _pointerUpPredicateActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupPointerUpPredicateLoop()
         {
             if (_isPointerUpPredicateEnabled)
@@ -3544,6 +3571,15 @@ __actionManager = null;
             );
 
             return handle;
+        }
+
+        public bool pointerMovePredicate_Remove(
+            string handle
+        )
+        {
+            return _pointerMovePredicateActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupPointerMovePredicateLoop()
@@ -3590,6 +3626,15 @@ __actionManager = null;
             return handle;
         }
 
+        public bool onPointerMove_Remove(
+            string handle
+        )
+        {
+            return _onPointerMoveActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupOnPointerMoveLoop()
         {
             if (_isOnPointerMoveEnabled)
@@ -3632,6 +3677,15 @@ __actionManager = null;
             );
 
             return handle;
+        }
+
+        public bool onPointerDown_Remove(
+            string handle
+        )
+        {
+            return _onPointerDownActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupOnPointerDownLoop()
@@ -3678,6 +3732,15 @@ __actionManager = null;
             return handle;
         }
 
+        public bool onPointerUp_Remove(
+            string handle
+        )
+        {
+            return _onPointerUpActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupOnPointerUpLoop()
         {
             if (_isOnPointerUpEnabled)
@@ -3720,6 +3783,15 @@ __actionManager = null;
             );
 
             return handle;
+        }
+
+        public bool onPointerPick_Remove(
+            string handle
+        )
+        {
+            return _onPointerPickActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupOnPointerPickLoop()
@@ -4043,6 +4115,15 @@ __actionManager = null;
             return handle;
         }
 
+        public bool registerBeforeRender_Remove(
+            string handle
+        )
+        {
+            return _registerBeforeRenderActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupRegisterBeforeRenderLoop()
         {
             if (_isRegisterBeforeRenderEnabled)
@@ -4085,6 +4166,15 @@ __actionManager = null;
             );
 
             return handle;
+        }
+
+        public bool unregisterBeforeRender_Remove(
+            string handle
+        )
+        {
+            return _unregisterBeforeRenderActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupUnregisterBeforeRenderLoop()
@@ -4131,6 +4221,15 @@ __actionManager = null;
             return handle;
         }
 
+        public bool registerAfterRender_Remove(
+            string handle
+        )
+        {
+            return _registerAfterRenderActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupRegisterAfterRenderLoop()
         {
             if (_isRegisterAfterRenderEnabled)
@@ -4175,6 +4274,15 @@ __actionManager = null;
             return handle;
         }
 
+        public bool unregisterAfterRender_Remove(
+            string handle
+        )
+        {
+            return _unregisterAfterRenderActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupUnregisterAfterRenderLoop()
         {
             if (_isUnregisterAfterRenderEnabled)
@@ -4217,6 +4325,15 @@ __actionManager = null;
             );
 
             return handle;
+        }
+
+        public bool executeOnceBeforeRender_Remove(
+            string handle
+        )
+        {
+            return _executeOnceBeforeRenderActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupExecuteOnceBeforeRenderLoop()
@@ -4271,6 +4388,15 @@ __actionManager = null;
             );
 
             return handle;
+        }
+
+        public bool executeWhenReady_Remove(
+            string handle
+        )
+        {
+            return _executeWhenReadyActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupExecuteWhenReadyLoop()
@@ -5210,6 +5336,15 @@ __actionManager = null;
             return handle;
         }
 
+        public bool getActiveMeshCandidates_Remove(
+            string handle
+        )
+        {
+            return _getActiveMeshCandidatesActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupGetActiveMeshCandidatesLoop()
         {
             if (_isGetActiveMeshCandidatesEnabled)
@@ -5252,6 +5387,15 @@ __actionManager = null;
             );
 
             return handle;
+        }
+
+        public bool getActiveSubMeshCandidates_Remove(
+            string handle
+        )
+        {
+            return _getActiveSubMeshCandidatesActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupGetActiveSubMeshCandidatesLoop()
@@ -5298,6 +5442,15 @@ __actionManager = null;
             return handle;
         }
 
+        public bool getIntersectingSubMeshCandidates_Remove(
+            string handle
+        )
+        {
+            return _getIntersectingSubMeshCandidatesActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupGetIntersectingSubMeshCandidatesLoop()
         {
             if (_isGetIntersectingSubMeshCandidatesEnabled)
@@ -5340,6 +5493,15 @@ __actionManager = null;
             );
 
             return handle;
+        }
+
+        public bool getCollidingSubMeshCandidates_Remove(
+            string handle
+        )
+        {
+            return _getCollidingSubMeshCandidatesActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupGetCollidingSubMeshCandidatesLoop()
@@ -5416,6 +5578,15 @@ __actionManager = null;
             );
 
             return handle;
+        }
+
+        public bool getDeterministicFrameTime_Remove(
+            string handle
+        )
+        {
+            return _getDeterministicFrameTimeActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupGetDeterministicFrameTimeLoop()
@@ -5530,6 +5701,15 @@ __actionManager = null;
             );
 
             return handle;
+        }
+
+        public bool getWorldExtends_Remove(
+            string handle
+        )
+        {
+            return _getWorldExtendsActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupGetWorldExtendsLoop()

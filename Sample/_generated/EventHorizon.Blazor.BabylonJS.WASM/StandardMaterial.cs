@@ -1518,6 +1518,15 @@ __emissiveFresnelParameters = null;
             return handle;
         }
 
+        public bool customShaderNameResolve_Remove(
+            string handle
+        )
+        {
+            return _customShaderNameResolveActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupCustomShaderNameResolveLoop()
         {
             if (_isCustomShaderNameResolveEnabled)

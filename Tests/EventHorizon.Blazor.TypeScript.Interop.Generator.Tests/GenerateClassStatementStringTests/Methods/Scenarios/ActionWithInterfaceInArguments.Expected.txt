@@ -67,6 +67,15 @@ namespace Static.Class
             return handle;
         }
 
+        public bool interfaceAction_Remove(
+            string handle
+        )
+        {
+            return _interfaceActionActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupInterfaceActionLoop()
         {
             if (_isInterfaceActionEnabled)

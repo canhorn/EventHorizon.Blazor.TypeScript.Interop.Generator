@@ -17,6 +17,15 @@
             return handle;
         }
 
+        public static bool [[NAME]]_Remove(
+            string handle
+        )
+        {
+            return [[NAME]]ActionMap.Remove(
+                handle
+            );
+        }
+
         private static void Setup[[NAME_CAPTIALIZED]]StaticLoop()
         {
             if (Is[[NAME_CAPTIALIZED]]Enabled)

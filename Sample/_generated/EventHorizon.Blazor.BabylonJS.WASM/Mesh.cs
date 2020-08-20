@@ -933,6 +933,15 @@ __morphTargetManager = null;
             return handle;
         }
 
+        public bool onLODLevelSelection_Remove(
+            string handle
+        )
+        {
+            return _onLODLevelSelectionActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupOnLODLevelSelectionLoop()
         {
             if (_isOnLODLevelSelectionEnabled)
@@ -1250,6 +1259,15 @@ __morphTargetManager = null;
             return handle;
         }
 
+        public bool updateMeshPositions_Remove(
+            string handle
+        )
+        {
+            return _updateMeshPositionsActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupUpdateMeshPositionsLoop()
         {
             if (_isUpdateMeshPositionsEnabled)
@@ -1338,6 +1356,15 @@ __morphTargetManager = null;
             return handle;
         }
 
+        public bool registerBeforeRender_Remove(
+            string handle
+        )
+        {
+            return _registerBeforeRenderActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupRegisterBeforeRenderLoop()
         {
             if (_isRegisterBeforeRenderEnabled)
@@ -1380,6 +1407,15 @@ __morphTargetManager = null;
             );
 
             return handle;
+        }
+
+        public bool unregisterBeforeRender_Remove(
+            string handle
+        )
+        {
+            return _unregisterBeforeRenderActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupUnregisterBeforeRenderLoop()
@@ -1426,6 +1462,15 @@ __morphTargetManager = null;
             return handle;
         }
 
+        public bool registerAfterRender_Remove(
+            string handle
+        )
+        {
+            return _registerAfterRenderActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupRegisterAfterRenderLoop()
         {
             if (_isRegisterAfterRenderEnabled)
@@ -1468,6 +1513,15 @@ __morphTargetManager = null;
             );
 
             return handle;
+        }
+
+        public bool unregisterAfterRender_Remove(
+            string handle
+        )
+        {
+            return _unregisterAfterRenderActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupUnregisterAfterRenderLoop()
@@ -1715,6 +1769,15 @@ __morphTargetManager = null;
             );
 
             return handle;
+        }
+
+        public bool optimizeIndices_Remove(
+            string handle
+        )
+        {
+            return _optimizeIndicesActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupOptimizeIndicesLoop()

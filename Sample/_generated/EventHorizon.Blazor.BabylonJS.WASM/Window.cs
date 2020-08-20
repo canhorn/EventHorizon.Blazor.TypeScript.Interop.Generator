@@ -545,6 +545,15 @@ __msURL = null;
             return handle;
         }
 
+        public bool setImmediate_Remove(
+            string handle
+        )
+        {
+            return _setImmediateActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupSetImmediateLoop()
         {
             if (_isSetImmediateEnabled)

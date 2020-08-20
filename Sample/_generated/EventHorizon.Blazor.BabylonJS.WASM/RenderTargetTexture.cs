@@ -586,6 +586,15 @@ __boundingBoxPosition = null;
             return handle;
         }
 
+        public bool renderListPredicate_Remove(
+            string handle
+        )
+        {
+            return _renderListPredicateActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupRenderListPredicateLoop()
         {
             if (_isRenderListPredicateEnabled)
@@ -630,6 +639,15 @@ __boundingBoxPosition = null;
             return handle;
         }
 
+        public bool getCustomRenderList_Remove(
+            string handle
+        )
+        {
+            return _getCustomRenderListActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupGetCustomRenderListLoop()
         {
             if (_isGetCustomRenderListEnabled)
@@ -672,6 +690,15 @@ __boundingBoxPosition = null;
             );
 
             return handle;
+        }
+
+        public bool customRenderFunction_Remove(
+            string handle
+        )
+        {
+            return _customRenderFunctionActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupCustomRenderFunctionLoop()
