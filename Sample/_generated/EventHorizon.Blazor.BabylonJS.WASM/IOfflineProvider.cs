@@ -106,6 +106,15 @@ namespace BabylonJS
             return handle;
         }
 
+        public bool open_Remove(
+            string handle
+        )
+        {
+            return _openActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupOpenLoop()
         {
             if (_isOpenEnabled)

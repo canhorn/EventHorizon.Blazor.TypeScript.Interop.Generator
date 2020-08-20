@@ -618,6 +618,15 @@ __onDisposeObservable = null;
             return handle;
         }
 
+        public bool getChildren_Remove(
+            string handle
+        )
+        {
+            return _getChildrenActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupGetChildrenLoop()
         {
             if (_isGetChildrenEnabled)

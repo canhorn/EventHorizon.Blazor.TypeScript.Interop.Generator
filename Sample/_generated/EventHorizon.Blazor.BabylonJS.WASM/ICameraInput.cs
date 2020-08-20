@@ -133,6 +133,15 @@ __camera = null;
             return handle;
         }
 
+        public bool checkInputs_Remove(
+            string handle
+        )
+        {
+            return _checkInputsActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupCheckInputsLoop()
         {
             if (_isCheckInputsEnabled)

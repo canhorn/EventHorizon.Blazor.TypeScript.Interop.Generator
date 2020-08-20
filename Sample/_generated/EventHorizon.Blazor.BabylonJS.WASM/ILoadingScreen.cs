@@ -106,6 +106,15 @@ namespace BabylonJS
             return handle;
         }
 
+        public bool displayLoadingUI_Remove(
+            string handle
+        )
+        {
+            return _displayLoadingUIActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupDisplayLoadingUILoop()
         {
             if (_isDisplayLoadingUIEnabled)
@@ -148,6 +157,15 @@ namespace BabylonJS
             );
 
             return handle;
+        }
+
+        public bool hideLoadingUI_Remove(
+            string handle
+        )
+        {
+            return _hideLoadingUIActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupHideLoadingUILoop()

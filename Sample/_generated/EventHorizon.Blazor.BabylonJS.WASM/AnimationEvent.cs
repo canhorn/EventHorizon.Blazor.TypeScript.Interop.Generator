@@ -137,6 +137,15 @@ namespace BabylonJS
             return handle;
         }
 
+        public bool action_Remove(
+            string handle
+        )
+        {
+            return _actionActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupActionLoop()
         {
             if (_isActionEnabled)

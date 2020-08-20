@@ -42,6 +42,15 @@ namespace Static.Class
             return handle;
         }
 
+        public static bool OnNewCacheEntry_Remove(
+            string handle
+        )
+        {
+            return OnNewCacheEntryActionMap.Remove(
+                handle
+            );
+        }
+
         private static void SetupOnNewCacheEntryStaticLoop()
         {
             if (IsOnNewCacheEntryEnabled)

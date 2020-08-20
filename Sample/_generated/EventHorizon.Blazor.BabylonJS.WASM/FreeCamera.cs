@@ -326,6 +326,15 @@ __inputs = null;
             return handle;
         }
 
+        public bool onCollide_Remove(
+            string handle
+        )
+        {
+            return _onCollideActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupOnCollideLoop()
         {
             if (_isOnCollideEnabled)

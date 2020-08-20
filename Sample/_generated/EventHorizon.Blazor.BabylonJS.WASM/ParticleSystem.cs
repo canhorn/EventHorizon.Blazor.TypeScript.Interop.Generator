@@ -251,6 +251,15 @@ __onDisposeObservable = null;
             return handle;
         }
 
+        public bool updateFunction_Remove(
+            string handle
+        )
+        {
+            return _updateFunctionActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupUpdateFunctionLoop()
         {
             if (_isUpdateFunctionEnabled)
@@ -295,6 +304,15 @@ __onDisposeObservable = null;
             return handle;
         }
 
+        public bool startDirectionFunction_Remove(
+            string handle
+        )
+        {
+            return _startDirectionFunctionActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupStartDirectionFunctionLoop()
         {
             if (_isStartDirectionFunctionEnabled)
@@ -337,6 +355,15 @@ __onDisposeObservable = null;
             );
 
             return handle;
+        }
+
+        public bool startPositionFunction_Remove(
+            string handle
+        )
+        {
+            return _startPositionFunctionActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupStartPositionFunctionLoop()
@@ -726,6 +753,15 @@ __onDisposeObservable = null;
             );
 
             return handle;
+        }
+
+        public bool recycleParticle_Remove(
+            string handle
+        )
+        {
+            return _recycleParticleActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupRecycleParticleLoop()

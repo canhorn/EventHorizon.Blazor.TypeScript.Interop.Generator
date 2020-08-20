@@ -501,6 +501,15 @@ __onErrorObservable = null;
             return handle;
         }
 
+        public bool executeWhenCompiled_Remove(
+            string handle
+        )
+        {
+            return _executeWhenCompiledActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupExecuteWhenCompiledLoop()
         {
             if (_isExecuteWhenCompiledEnabled)

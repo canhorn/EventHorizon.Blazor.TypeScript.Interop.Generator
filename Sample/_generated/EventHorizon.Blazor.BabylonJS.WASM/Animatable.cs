@@ -330,6 +330,15 @@ __onAnimationLoopObservable = null;
             return handle;
         }
 
+        public bool onAnimationEnd_Remove(
+            string handle
+        )
+        {
+            return _onAnimationEndActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupOnAnimationEndLoop()
         {
             if (_isOnAnimationEndEnabled)
@@ -372,6 +381,15 @@ __onAnimationLoopObservable = null;
             );
 
             return handle;
+        }
+
+        public bool onAnimationLoop_Remove(
+            string handle
+        )
+        {
+            return _onAnimationLoopActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupOnAnimationLoopLoop()

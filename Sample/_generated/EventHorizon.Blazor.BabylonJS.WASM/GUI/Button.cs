@@ -195,6 +195,15 @@ namespace BabylonJS.GUI
             return handle;
         }
 
+        public bool pointerEnterAnimation_Remove(
+            string handle
+        )
+        {
+            return _pointerEnterAnimationActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupPointerEnterAnimationLoop()
         {
             if (_isPointerEnterAnimationEnabled)
@@ -237,6 +246,15 @@ namespace BabylonJS.GUI
             );
 
             return handle;
+        }
+
+        public bool pointerOutAnimation_Remove(
+            string handle
+        )
+        {
+            return _pointerOutAnimationActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupPointerOutAnimationLoop()
@@ -283,6 +301,15 @@ namespace BabylonJS.GUI
             return handle;
         }
 
+        public bool pointerDownAnimation_Remove(
+            string handle
+        )
+        {
+            return _pointerDownAnimationActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupPointerDownAnimationLoop()
         {
             if (_isPointerDownAnimationEnabled)
@@ -325,6 +352,15 @@ namespace BabylonJS.GUI
             );
 
             return handle;
+        }
+
+        public bool pointerUpAnimation_Remove(
+            string handle
+        )
+        {
+            return _pointerUpAnimationActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupPointerUpAnimationLoop()

@@ -220,6 +220,15 @@ __transformedDirection = null;
             return handle;
         }
 
+        public bool customProjectionMatrixBuilder_Remove(
+            string handle
+        )
+        {
+            return _customProjectionMatrixBuilderActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupCustomProjectionMatrixBuilderLoop()
         {
             if (_isCustomProjectionMatrixBuilderEnabled)

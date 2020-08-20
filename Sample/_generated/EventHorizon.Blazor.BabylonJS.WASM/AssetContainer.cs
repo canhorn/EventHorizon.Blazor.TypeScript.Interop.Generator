@@ -102,6 +102,15 @@ __scene = null;
             return handle;
         }
 
+        public bool instantiateModelsToScene_Remove(
+            string handle
+        )
+        {
+            return _instantiateModelsToSceneActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupInstantiateModelsToSceneLoop()
         {
             if (_isInstantiateModelsToSceneEnabled)

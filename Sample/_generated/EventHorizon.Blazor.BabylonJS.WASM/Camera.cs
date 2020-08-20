@@ -217,6 +217,15 @@ namespace BabylonJS
             return handle;
         }
 
+        public static bool GetConstructorFromName_Remove(
+            string handle
+        )
+        {
+            return GetConstructorFromNameActionMap.Remove(
+                handle
+            );
+        }
+
         private static void SetupGetConstructorFromNameStaticLoop()
         {
             if (IsGetConstructorFromNameEnabled)

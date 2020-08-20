@@ -137,6 +137,15 @@ namespace BabylonJS
             return handle;
         }
 
+        public bool callback_Remove(
+            string handle
+        )
+        {
+            return _callbackActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupCallbackLoop()
         {
             if (_isCallbackEnabled)

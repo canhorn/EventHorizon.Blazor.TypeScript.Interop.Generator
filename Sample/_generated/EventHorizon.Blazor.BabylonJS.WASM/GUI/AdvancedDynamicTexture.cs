@@ -612,6 +612,15 @@ __onEndRenderObservable = null;
             return handle;
         }
 
+        public bool executeOnAllControls_Remove(
+            string handle
+        )
+        {
+            return _executeOnAllControlsActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupExecuteOnAllControlsLoop()
         {
             if (_isExecuteOnAllControlsEnabled)

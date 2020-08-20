@@ -131,6 +131,15 @@ namespace BabylonJS.GUI
             return handle;
         }
 
+        public static bool AddHeader_Remove(
+            string handle
+        )
+        {
+            return AddHeaderActionMap.Remove(
+                handle
+            );
+        }
+
         private static void SetupAddHeaderStaticLoop()
         {
             if (IsAddHeaderEnabled)

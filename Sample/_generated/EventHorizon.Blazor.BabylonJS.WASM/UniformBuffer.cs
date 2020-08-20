@@ -98,6 +98,15 @@ namespace BabylonJS
             return handle;
         }
 
+        public bool updateMatrix3x3_Remove(
+            string handle
+        )
+        {
+            return _updateMatrix3x3ActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupUpdateMatrix3x3Loop()
         {
             if (_isUpdateMatrix3x3Enabled)
@@ -140,6 +149,15 @@ namespace BabylonJS
             );
 
             return handle;
+        }
+
+        public bool updateMatrix2x2_Remove(
+            string handle
+        )
+        {
+            return _updateMatrix2x2ActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupUpdateMatrix2x2Loop()
@@ -186,6 +204,15 @@ namespace BabylonJS
             return handle;
         }
 
+        public bool updateFloat_Remove(
+            string handle
+        )
+        {
+            return _updateFloatActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupUpdateFloatLoop()
         {
             if (_isUpdateFloatEnabled)
@@ -228,6 +255,15 @@ namespace BabylonJS
             );
 
             return handle;
+        }
+
+        public bool updateFloat2_Remove(
+            string handle
+        )
+        {
+            return _updateFloat2ActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupUpdateFloat2Loop()
@@ -274,6 +310,15 @@ namespace BabylonJS
             return handle;
         }
 
+        public bool updateFloat3_Remove(
+            string handle
+        )
+        {
+            return _updateFloat3ActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupUpdateFloat3Loop()
         {
             if (_isUpdateFloat3Enabled)
@@ -316,6 +361,15 @@ namespace BabylonJS
             );
 
             return handle;
+        }
+
+        public bool updateFloat4_Remove(
+            string handle
+        )
+        {
+            return _updateFloat4ActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupUpdateFloat4Loop()
@@ -362,6 +416,15 @@ namespace BabylonJS
             return handle;
         }
 
+        public bool updateMatrix_Remove(
+            string handle
+        )
+        {
+            return _updateMatrixActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupUpdateMatrixLoop()
         {
             if (_isUpdateMatrixEnabled)
@@ -404,6 +467,15 @@ namespace BabylonJS
             );
 
             return handle;
+        }
+
+        public bool updateVector3_Remove(
+            string handle
+        )
+        {
+            return _updateVector3ActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupUpdateVector3Loop()
@@ -450,6 +522,15 @@ namespace BabylonJS
             return handle;
         }
 
+        public bool updateVector4_Remove(
+            string handle
+        )
+        {
+            return _updateVector4ActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupUpdateVector4Loop()
         {
             if (_isUpdateVector4Enabled)
@@ -494,6 +575,15 @@ namespace BabylonJS
             return handle;
         }
 
+        public bool updateColor3_Remove(
+            string handle
+        )
+        {
+            return _updateColor3ActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupUpdateColor3Loop()
         {
             if (_isUpdateColor3Enabled)
@@ -536,6 +626,15 @@ namespace BabylonJS
             );
 
             return handle;
+        }
+
+        public bool updateColor4_Remove(
+            string handle
+        )
+        {
+            return _updateColor4ActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupUpdateColor4Loop()

@@ -90,6 +90,15 @@ namespace BabylonJS
             return handle;
         }
 
+        public bool add_Remove(
+            string handle
+        )
+        {
+            return _addActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupAddLoop()
         {
             if (_isAddEnabled)
@@ -132,6 +141,15 @@ namespace BabylonJS
             );
 
             return handle;
+        }
+
+        public bool addOnce_Remove(
+            string handle
+        )
+        {
+            return _addOnceActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupAddOnceLoop()
@@ -186,6 +204,15 @@ namespace BabylonJS
             );
 
             return handle;
+        }
+
+        public bool removeCallback_Remove(
+            string handle
+        )
+        {
+            return _removeCallbackActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupRemoveCallbackLoop()

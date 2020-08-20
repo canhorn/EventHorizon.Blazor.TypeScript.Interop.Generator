@@ -67,6 +67,15 @@ namespace Examples
             return handle;
         }
 
+        public bool add_Remove(
+            string handle
+        )
+        {
+            return _addActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupAddLoop()
         {
             if (_isAddEnabled)
@@ -119,6 +128,15 @@ namespace Examples
             );
 
             return handle;
+        }
+
+        public bool setImmediate_Remove(
+            string handle
+        )
+        {
+            return _setImmediateActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupSetImmediateLoop()

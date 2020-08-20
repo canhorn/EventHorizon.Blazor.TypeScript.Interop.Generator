@@ -67,6 +67,15 @@ namespace Static.Class
             return handle;
         }
 
+        public bool add_Remove(
+            string handle
+        )
+        {
+            return _addActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupAddLoop()
         {
             if (_isAddEnabled)

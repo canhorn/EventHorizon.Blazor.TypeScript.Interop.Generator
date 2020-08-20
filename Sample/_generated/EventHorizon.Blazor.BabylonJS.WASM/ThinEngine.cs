@@ -175,6 +175,15 @@ namespace BabylonJS
             return handle;
         }
 
+        public static bool QueueNewFrame_Remove(
+            string handle
+        )
+        {
+            return QueueNewFrameActionMap.Remove(
+                handle
+            );
+        }
+
         private static void SetupQueueNewFrameStaticLoop()
         {
             if (IsQueueNewFrameEnabled)
@@ -902,6 +911,15 @@ __onBeforeTextureInitObservable = null;
             return handle;
         }
 
+        public bool stopRenderLoop_Remove(
+            string handle
+        )
+        {
+            return _stopRenderLoopActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupStopRenderLoopLoop()
         {
             if (_isStopRenderLoopEnabled)
@@ -986,6 +1004,15 @@ __onBeforeTextureInitObservable = null;
             );
 
             return handle;
+        }
+
+        public bool runRenderLoop_Remove(
+            string handle
+        )
+        {
+            return _runRenderLoopActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupRunRenderLoopLoop()
@@ -1786,6 +1813,15 @@ __onBeforeTextureInitObservable = null;
             return handle;
         }
 
+        public bool attachContextLostEvent_Remove(
+            string handle
+        )
+        {
+            return _attachContextLostEventActionMap.Remove(
+                handle
+            );
+        }
+
         private void SetupAttachContextLostEventLoop()
         {
             if (_isAttachContextLostEventEnabled)
@@ -1828,6 +1864,15 @@ __onBeforeTextureInitObservable = null;
             );
 
             return handle;
+        }
+
+        public bool attachContextRestoredEvent_Remove(
+            string handle
+        )
+        {
+            return _attachContextRestoredEventActionMap.Remove(
+                handle
+            );
         }
 
         private void SetupAttachContextRestoredEventLoop()
