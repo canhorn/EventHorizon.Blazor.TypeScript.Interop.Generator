@@ -12,7 +12,7 @@ namespace BabylonJS
     
     
     [JsonConverter(typeof(CachedEntityConverter<Scene>))]
-    public class Scene : AbstractScene, IAnimatable
+    public class Scene : AbstractScene, IAnimatable, IClipPlanesHolder
     {
         #region Static Accessors
         
@@ -197,7 +197,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Material>(
                 entity => new Material() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "Scene", "DefaultMaterialFactory" }, scene
                 }
@@ -208,7 +208,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<ICollisionCoordinatorCachedEntity>(
                 entity => new ICollisionCoordinatorCachedEntity() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "Scene", "CollisionCoordinatorFactory" }
                 }
@@ -2307,6 +2307,35 @@ __onNewMaterialAddedObservable = null;
             }
         }
 
+        private Observable<MultiMaterial> __onNewMultiMaterialAddedObservable;
+        public Observable<MultiMaterial> onNewMultiMaterialAddedObservable
+        {
+            get
+            {
+            if(__onNewMultiMaterialAddedObservable == null)
+            {
+                __onNewMultiMaterialAddedObservable = EventHorizonBlazorInterop.GetClass<Observable<MultiMaterial>>(
+                    this.___guid,
+                    "onNewMultiMaterialAddedObservable",
+                    (entity) =>
+                    {
+                        return new Observable<MultiMaterial>() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __onNewMultiMaterialAddedObservable;
+            }
+            set
+            {
+__onNewMultiMaterialAddedObservable = null;
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "onNewMultiMaterialAddedObservable",
+                    value
+                );
+            }
+        }
+
         private Observable<Material> __onMaterialRemovedObservable;
         public Observable<Material> onMaterialRemovedObservable
         {
@@ -2331,6 +2360,35 @@ __onMaterialRemovedObservable = null;
                 EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onMaterialRemovedObservable",
+                    value
+                );
+            }
+        }
+
+        private Observable<MultiMaterial> __onMultiMaterialRemovedObservable;
+        public Observable<MultiMaterial> onMultiMaterialRemovedObservable
+        {
+            get
+            {
+            if(__onMultiMaterialRemovedObservable == null)
+            {
+                __onMultiMaterialRemovedObservable = EventHorizonBlazorInterop.GetClass<Observable<MultiMaterial>>(
+                    this.___guid,
+                    "onMultiMaterialRemovedObservable",
+                    (entity) =>
+                    {
+                        return new Observable<MultiMaterial>() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __onMultiMaterialRemovedObservable;
+            }
+            set
+            {
+__onMultiMaterialRemovedObservable = null;
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "onMultiMaterialRemovedObservable",
                     value
                 );
             }
@@ -2864,6 +2922,27 @@ __fogColor = null;
         }
 
         
+        public bool prePass
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "prePass"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "prePass",
+                    value
+                );
+            }
+        }
+
+        
         public Camera[] activeCameras
         {
             get
@@ -2883,6 +2962,27 @@ __fogColor = null;
                 EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "activeCameras",
+                    value
+                );
+            }
+        }
+
+        
+        public bool physicsEnabled
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "physicsEnabled"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "physicsEnabled",
                     value
                 );
             }
@@ -3017,31 +3117,6 @@ __gravity = null;
                 EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "postProcessesEnabled",
-                    value
-                );
-            }
-        }
-
-        
-        public PostProcess[] postProcesses
-        {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArrayClass<PostProcess>(
-                    this.___guid,
-                    "postProcesses",
-                    (entity) =>
-                    {
-                        return new PostProcess() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "postProcesses",
                     value
                 );
             }
@@ -3822,7 +3897,7 @@ __actionManager = null;
         public void setStepId(decimal newStepId)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setStepId" }, newStepId
                 }
@@ -3832,7 +3907,7 @@ __actionManager = null;
         public decimal getStepId()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getStepId" }
                 }
@@ -3842,7 +3917,7 @@ __actionManager = null;
         public decimal getInternalStep()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getInternalStep" }
                 }
@@ -3852,7 +3927,7 @@ __actionManager = null;
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getClassName" }
                 }
@@ -3862,7 +3937,7 @@ __actionManager = null;
         public void setDefaultCandidateProviders()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setDefaultCandidateProviders" }
                 }
@@ -3873,7 +3948,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Material>(
                 entity => new Material() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getCachedMaterial" }
                 }
@@ -3884,7 +3959,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getCachedEffect" }
                 }
@@ -3894,7 +3969,7 @@ __actionManager = null;
         public decimal getCachedVisibility()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getCachedVisibility" }
                 }
@@ -3904,7 +3979,7 @@ __actionManager = null;
         public bool isCachedMaterialInvalid(Material material, Effect effect, System.Nullable<decimal> visibility = null)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "isCachedMaterialInvalid" }, material, effect, visibility
                 }
@@ -3915,7 +3990,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Engine>(
                 entity => new Engine() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getEngine" }
                 }
@@ -3925,7 +4000,7 @@ __actionManager = null;
         public decimal getTotalVertices()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getTotalVertices" }
                 }
@@ -3935,7 +4010,7 @@ __actionManager = null;
         public decimal getActiveIndices()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getActiveIndices" }
                 }
@@ -3945,7 +4020,7 @@ __actionManager = null;
         public decimal getActiveParticles()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getActiveParticles" }
                 }
@@ -3955,7 +4030,7 @@ __actionManager = null;
         public decimal getActiveBones()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getActiveBones" }
                 }
@@ -3966,7 +4041,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<SmartArray<AbstractMesh>>(
                 entity => new SmartArray<AbstractMesh>() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getActiveMeshes" }
                 }
@@ -3976,7 +4051,7 @@ __actionManager = null;
         public decimal getAnimationRatio()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getAnimationRatio" }
                 }
@@ -3986,7 +4061,7 @@ __actionManager = null;
         public decimal getRenderId()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getRenderId" }
                 }
@@ -3996,7 +4071,7 @@ __actionManager = null;
         public decimal getFrameId()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getFrameId" }
                 }
@@ -4006,7 +4081,7 @@ __actionManager = null;
         public void incrementRenderId()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "incrementRenderId" }
                 }
@@ -4017,7 +4092,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Scene>(
                 entity => new Scene() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "simulatePointerMove" }, pickResult, pointerEventInit
                 }
@@ -4028,7 +4103,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Scene>(
                 entity => new Scene() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "simulatePointerDown" }, pickResult, pointerEventInit
                 }
@@ -4039,7 +4114,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Scene>(
                 entity => new Scene() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "simulatePointerUp" }, pickResult, pointerEventInit, doubleTap
                 }
@@ -4049,7 +4124,7 @@ __actionManager = null;
         public bool isPointerCaptured(System.Nullable<decimal> pointerId = null)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "isPointerCaptured" }, pointerId
                 }
@@ -4059,7 +4134,7 @@ __actionManager = null;
         public void attachControl(System.Nullable<bool> attachUp = null, System.Nullable<bool> attachDown = null, System.Nullable<bool> attachMove = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "attachControl" }, attachUp, attachDown, attachMove
                 }
@@ -4069,7 +4144,7 @@ __actionManager = null;
         public void detachControl()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "detachControl" }
                 }
@@ -4079,7 +4154,7 @@ __actionManager = null;
         public bool isReady()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "isReady" }
                 }
@@ -4089,345 +4164,87 @@ __actionManager = null;
         public void resetCachedMaterial()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "resetCachedMaterial" }
                 }
             );
         }
 
-        #region registerBeforeRender TODO: Get Comments as metadata identification
-        private bool _isRegisterBeforeRenderEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _registerBeforeRenderActionMap = new Dictionary<string, Func<Task>>();
-
-        public string registerBeforeRender(
-            Func<Task> callback
-        )
+        public void registerBeforeRender(ActionCallback func)
         {
-            SetupRegisterBeforeRenderLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _registerBeforeRenderActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        public bool registerBeforeRender_Remove(
-            string handle
-        )
-        {
-            return _registerBeforeRenderActionMap.Remove(
-                handle
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "registerBeforeRender" }, func
+                }
             );
         }
 
-        private void SetupRegisterBeforeRenderLoop()
+        public void unregisterBeforeRender(ActionCallback func)
         {
-            if (_isRegisterBeforeRenderEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "registerBeforeRender",
-                "CallRegisterBeforeRenderActions",
-                _invokableReference
-            );
-            _isRegisterBeforeRenderEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallRegisterBeforeRenderActions()
-        {
-            foreach (var action in _registerBeforeRenderActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region unregisterBeforeRender TODO: Get Comments as metadata identification
-        private bool _isUnregisterBeforeRenderEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _unregisterBeforeRenderActionMap = new Dictionary<string, Func<Task>>();
-
-        public string unregisterBeforeRender(
-            Func<Task> callback
-        )
-        {
-            SetupUnregisterBeforeRenderLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _unregisterBeforeRenderActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        public bool unregisterBeforeRender_Remove(
-            string handle
-        )
-        {
-            return _unregisterBeforeRenderActionMap.Remove(
-                handle
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "unregisterBeforeRender" }, func
+                }
             );
         }
 
-        private void SetupUnregisterBeforeRenderLoop()
+        public void registerAfterRender(ActionCallback func)
         {
-            if (_isUnregisterBeforeRenderEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "unregisterBeforeRender",
-                "CallUnregisterBeforeRenderActions",
-                _invokableReference
-            );
-            _isUnregisterBeforeRenderEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallUnregisterBeforeRenderActions()
-        {
-            foreach (var action in _unregisterBeforeRenderActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region registerAfterRender TODO: Get Comments as metadata identification
-        private bool _isRegisterAfterRenderEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _registerAfterRenderActionMap = new Dictionary<string, Func<Task>>();
-
-        public string registerAfterRender(
-            Func<Task> callback
-        )
-        {
-            SetupRegisterAfterRenderLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _registerAfterRenderActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        public bool registerAfterRender_Remove(
-            string handle
-        )
-        {
-            return _registerAfterRenderActionMap.Remove(
-                handle
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "registerAfterRender" }, func
+                }
             );
         }
 
-        private void SetupRegisterAfterRenderLoop()
+        public void unregisterAfterRender(ActionCallback func)
         {
-            if (_isRegisterAfterRenderEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "registerAfterRender",
-                "CallRegisterAfterRenderActions",
-                _invokableReference
-            );
-            _isRegisterAfterRenderEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallRegisterAfterRenderActions()
-        {
-            foreach (var action in _registerAfterRenderActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region unregisterAfterRender TODO: Get Comments as metadata identification
-        private bool _isUnregisterAfterRenderEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _unregisterAfterRenderActionMap = new Dictionary<string, Func<Task>>();
-
-        public string unregisterAfterRender(
-            Func<Task> callback
-        )
-        {
-            SetupUnregisterAfterRenderLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _unregisterAfterRenderActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        public bool unregisterAfterRender_Remove(
-            string handle
-        )
-        {
-            return _unregisterAfterRenderActionMap.Remove(
-                handle
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "unregisterAfterRender" }, func
+                }
             );
         }
 
-        private void SetupUnregisterAfterRenderLoop()
+        public void executeOnceBeforeRender(ActionCallback func, System.Nullable<decimal> timeout = null)
         {
-            if (_isUnregisterAfterRenderEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "unregisterAfterRender",
-                "CallUnregisterAfterRenderActions",
-                _invokableReference
-            );
-            _isUnregisterAfterRenderEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallUnregisterAfterRenderActions()
-        {
-            foreach (var action in _unregisterAfterRenderActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region executeOnceBeforeRender TODO: Get Comments as metadata identification
-        private bool _isExecuteOnceBeforeRenderEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _executeOnceBeforeRenderActionMap = new Dictionary<string, Func<Task>>();
-
-        public string executeOnceBeforeRender(
-            Func<Task> callback
-        )
-        {
-            SetupExecuteOnceBeforeRenderLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _executeOnceBeforeRenderActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        public bool executeOnceBeforeRender_Remove(
-            string handle
-        )
-        {
-            return _executeOnceBeforeRenderActionMap.Remove(
-                handle
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "executeOnceBeforeRender" }, func, timeout
+                }
             );
         }
-
-        private void SetupExecuteOnceBeforeRenderLoop()
-        {
-            if (_isExecuteOnceBeforeRenderEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "executeOnceBeforeRender",
-                "CallExecuteOnceBeforeRenderActions",
-                _invokableReference
-            );
-            _isExecuteOnceBeforeRenderEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallExecuteOnceBeforeRenderActions()
-        {
-            foreach (var action in _executeOnceBeforeRenderActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
 
         public decimal getWaitingItemsCount()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getWaitingItemsCount" }
                 }
             );
         }
 
-        #region executeWhenReady TODO: Get Comments as metadata identification
-        private bool _isExecuteWhenReadyEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _executeWhenReadyActionMap = new Dictionary<string, Func<Task>>();
-
-        public string executeWhenReady(
-            Func<Task> callback
-        )
-        {
-            SetupExecuteWhenReadyLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _executeWhenReadyActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        public bool executeWhenReady_Remove(
-            string handle
-        )
-        {
-            return _executeWhenReadyActionMap.Remove(
-                handle
-            );
-        }
-
-        private void SetupExecuteWhenReadyLoop()
-        {
-            if (_isExecuteWhenReadyEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "executeWhenReady",
-                "CallExecuteWhenReadyActions",
-                _invokableReference
-            );
-            _isExecuteWhenReadyEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallExecuteWhenReadyActions()
-        {
-            foreach (var action in _executeWhenReadyActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        public void whenReadyAsync()
+        public void executeWhenReady(ActionCallback func)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
+                {
+                    new string[] { this.___guid, "executeWhenReady" }, func
+                }
+            );
+        }
+
+        public async ValueTask whenReadyAsync()
+        {
+            await EventHorizonBlazorInterop.Task<CachedEntity>(
+                new object[]
                 {
                     new string[] { this.___guid, "whenReadyAsync" }
                 }
@@ -4437,7 +4254,7 @@ __actionManager = null;
         public void resetLastAnimationTimeFrame()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "resetLastAnimationTimeFrame" }
                 }
@@ -4448,7 +4265,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getViewMatrix" }
                 }
@@ -4459,7 +4276,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getProjectionMatrix" }
                 }
@@ -4470,7 +4287,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getTransformMatrix" }
                 }
@@ -4480,7 +4297,7 @@ __actionManager = null;
         public void setTransformMatrix(Matrix viewL, Matrix projectionL, Matrix viewR = null, Matrix projectionR = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setTransformMatrix" }, viewL, projectionL, viewR, projectionR
                 }
@@ -4491,7 +4308,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<UniformBuffer>(
                 entity => new UniformBuffer() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getSceneUniformBuffer" }
                 }
@@ -4501,7 +4318,7 @@ __actionManager = null;
         public decimal getUniqueId()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getUniqueId" }
                 }
@@ -4511,7 +4328,7 @@ __actionManager = null;
         public void addMesh(AbstractMesh newMesh, System.Nullable<bool> recursive = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addMesh" }, newMesh, recursive
                 }
@@ -4521,7 +4338,7 @@ __actionManager = null;
         public decimal removeMesh(AbstractMesh toRemove, System.Nullable<bool> recursive = null)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removeMesh" }, toRemove, recursive
                 }
@@ -4531,7 +4348,7 @@ __actionManager = null;
         public void addTransformNode(TransformNode newTransformNode)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addTransformNode" }, newTransformNode
                 }
@@ -4541,7 +4358,7 @@ __actionManager = null;
         public decimal removeTransformNode(TransformNode toRemove)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removeTransformNode" }, toRemove
                 }
@@ -4551,7 +4368,7 @@ __actionManager = null;
         public decimal removeSkeleton(Skeleton toRemove)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removeSkeleton" }, toRemove
                 }
@@ -4561,7 +4378,7 @@ __actionManager = null;
         public decimal removeMorphTargetManager(MorphTargetManager toRemove)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removeMorphTargetManager" }, toRemove
                 }
@@ -4571,7 +4388,7 @@ __actionManager = null;
         public decimal removeLight(Light toRemove)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removeLight" }, toRemove
                 }
@@ -4581,7 +4398,7 @@ __actionManager = null;
         public decimal removeCamera(Camera toRemove)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removeCamera" }, toRemove
                 }
@@ -4591,7 +4408,7 @@ __actionManager = null;
         public decimal removeParticleSystem(IParticleSystem toRemove)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removeParticleSystem" }, toRemove
                 }
@@ -4601,7 +4418,7 @@ __actionManager = null;
         public decimal removeAnimation(Animation toRemove)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removeAnimation" }, toRemove
                 }
@@ -4611,7 +4428,7 @@ __actionManager = null;
         public void stopAnimation(object target, string animationName = null, ActionCallback<object> targetMask = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "stopAnimation" }, target, animationName, targetMask
                 }
@@ -4621,7 +4438,7 @@ __actionManager = null;
         public decimal removeAnimationGroup(AnimationGroup toRemove)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removeAnimationGroup" }, toRemove
                 }
@@ -4631,7 +4448,7 @@ __actionManager = null;
         public decimal removeMultiMaterial(MultiMaterial toRemove)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removeMultiMaterial" }, toRemove
                 }
@@ -4641,7 +4458,7 @@ __actionManager = null;
         public decimal removeMaterial(Material toRemove)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removeMaterial" }, toRemove
                 }
@@ -4651,7 +4468,7 @@ __actionManager = null;
         public decimal removeActionManager(AbstractActionManager toRemove)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removeActionManager" }, toRemove
                 }
@@ -4661,7 +4478,7 @@ __actionManager = null;
         public decimal removeTexture(BaseTexture toRemove)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removeTexture" }, toRemove
                 }
@@ -4671,7 +4488,7 @@ __actionManager = null;
         public void addLight(Light newLight)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addLight" }, newLight
                 }
@@ -4681,7 +4498,7 @@ __actionManager = null;
         public void sortLightsByPriority()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "sortLightsByPriority" }
                 }
@@ -4691,7 +4508,7 @@ __actionManager = null;
         public void addCamera(Camera newCamera)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addCamera" }, newCamera
                 }
@@ -4701,7 +4518,7 @@ __actionManager = null;
         public void addSkeleton(Skeleton newSkeleton)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addSkeleton" }, newSkeleton
                 }
@@ -4711,7 +4528,7 @@ __actionManager = null;
         public void addParticleSystem(IParticleSystem newParticleSystem)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addParticleSystem" }, newParticleSystem
                 }
@@ -4721,7 +4538,7 @@ __actionManager = null;
         public void addAnimation(Animation newAnimation)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addAnimation" }, newAnimation
                 }
@@ -4731,7 +4548,7 @@ __actionManager = null;
         public void addAnimationGroup(AnimationGroup newAnimationGroup)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addAnimationGroup" }, newAnimationGroup
                 }
@@ -4741,7 +4558,7 @@ __actionManager = null;
         public void addMultiMaterial(MultiMaterial newMultiMaterial)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addMultiMaterial" }, newMultiMaterial
                 }
@@ -4751,7 +4568,7 @@ __actionManager = null;
         public void addMaterial(Material newMaterial)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addMaterial" }, newMaterial
                 }
@@ -4761,7 +4578,7 @@ __actionManager = null;
         public void addMorphTargetManager(MorphTargetManager newMorphTargetManager)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addMorphTargetManager" }, newMorphTargetManager
                 }
@@ -4771,7 +4588,7 @@ __actionManager = null;
         public void addGeometry(Geometry newGeometry)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addGeometry" }, newGeometry
                 }
@@ -4781,7 +4598,7 @@ __actionManager = null;
         public void addActionManager(AbstractActionManager newActionManager)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addActionManager" }, newActionManager
                 }
@@ -4791,7 +4608,7 @@ __actionManager = null;
         public void addTexture(BaseTexture newTexture)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addTexture" }, newTexture
                 }
@@ -4801,7 +4618,7 @@ __actionManager = null;
         public void switchActiveCamera(Camera newCamera, System.Nullable<bool> attachControl = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "switchActiveCamera" }, newCamera, attachControl
                 }
@@ -4812,7 +4629,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setActiveCameraByID" }, id
                 }
@@ -4823,7 +4640,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setActiveCameraByName" }, name
                 }
@@ -4834,7 +4651,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getAnimationGroupByName" }, name
                 }
@@ -4845,7 +4662,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Material>(
                 entity => new Material() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getMaterialByUniqueID" }, uniqueId
                 }
@@ -4856,7 +4673,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Material>(
                 entity => new Material() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getMaterialByID" }, id
                 }
@@ -4867,7 +4684,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Material>(
                 entity => new Material() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getLastMaterialByID" }, id
                 }
@@ -4878,7 +4695,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Material>(
                 entity => new Material() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getMaterialByName" }, name
                 }
@@ -4889,7 +4706,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<BaseTexture>(
                 entity => new BaseTexture() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getTextureByUniqueID" }, uniqueId
                 }
@@ -4900,7 +4717,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getCameraByID" }, id
                 }
@@ -4911,7 +4728,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getCameraByUniqueID" }, uniqueId
                 }
@@ -4922,7 +4739,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getCameraByName" }, name
                 }
@@ -4933,7 +4750,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Bone>(
                 entity => new Bone() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getBoneByID" }, id
                 }
@@ -4944,7 +4761,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Bone>(
                 entity => new Bone() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getBoneByName" }, name
                 }
@@ -4955,7 +4772,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Light>(
                 entity => new Light() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getLightByName" }, name
                 }
@@ -4966,7 +4783,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Light>(
                 entity => new Light() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getLightByID" }, id
                 }
@@ -4977,7 +4794,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Light>(
                 entity => new Light() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getLightByUniqueID" }, uniqueId
                 }
@@ -4988,7 +4805,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getParticleSystemByID" }, id
                 }
@@ -4999,7 +4816,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Geometry>(
                 entity => new Geometry() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getGeometryByID" }, id
                 }
@@ -5009,7 +4826,7 @@ __actionManager = null;
         public bool pushGeometry(Geometry geometry, System.Nullable<bool> force = null)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "pushGeometry" }, geometry, force
                 }
@@ -5019,7 +4836,7 @@ __actionManager = null;
         public bool removeGeometry(Geometry geometry)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removeGeometry" }, geometry
                 }
@@ -5041,7 +4858,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
                 entity => new AbstractMesh() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getMeshByID" }, id
                 }
@@ -5063,7 +4880,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getTransformNodeByID" }, id
                 }
@@ -5074,7 +4891,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getTransformNodeByUniqueID" }, uniqueId
                 }
@@ -5096,7 +4913,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
                 entity => new AbstractMesh() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getMeshByUniqueID" }, uniqueId
                 }
@@ -5107,7 +4924,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
                 entity => new AbstractMesh() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getLastMeshByID" }, id
                 }
@@ -5118,7 +4935,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Node>(
                 entity => new Node() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getLastEntryByID" }, id
                 }
@@ -5129,7 +4946,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Node>(
                 entity => new Node() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getNodeByID" }, id
                 }
@@ -5140,7 +4957,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Node>(
                 entity => new Node() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getNodeByName" }, name
                 }
@@ -5151,7 +4968,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
                 entity => new AbstractMesh() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getMeshByName" }, name
                 }
@@ -5162,7 +4979,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getTransformNodeByName" }, name
                 }
@@ -5173,7 +4990,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Skeleton>(
                 entity => new Skeleton() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getLastSkeletonByID" }, id
                 }
@@ -5184,7 +5001,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Skeleton>(
                 entity => new Skeleton() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getSkeletonByUniqueId" }, uniqueId
                 }
@@ -5195,7 +5012,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Skeleton>(
                 entity => new Skeleton() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getSkeletonById" }, id
                 }
@@ -5206,7 +5023,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Skeleton>(
                 entity => new Skeleton() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getSkeletonByName" }, name
                 }
@@ -5217,7 +5034,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<MorphTargetManager>(
                 entity => new MorphTargetManager() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getMorphTargetManagerById" }, id
                 }
@@ -5228,9 +5045,31 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<MorphTarget>(
                 entity => new MorphTarget() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getMorphTargetById" }, id
+                }
+            );
+        }
+
+        public MorphTarget getMorphTargetByName(string name)
+        {
+            return EventHorizonBlazorInterop.FuncClass<MorphTarget>(
+                entity => new MorphTarget() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "getMorphTargetByName" }, name
+                }
+            );
+        }
+
+        public PostProcess getPostProcessByName(string name)
+        {
+            return EventHorizonBlazorInterop.FuncClass<PostProcess>(
+                entity => new PostProcess() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "getPostProcessByName" }, name
                 }
             );
         }
@@ -5238,7 +5077,7 @@ __actionManager = null;
         public bool isActiveMesh(AbstractMesh mesh)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "isActiveMesh" }, mesh
                 }
@@ -5248,7 +5087,7 @@ __actionManager = null;
         public bool addExternalData<T>(string key, T data)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addExternalData" }, key, data
                 }
@@ -5259,7 +5098,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<T>(
                 entity => new T() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getExternalData" }, key
                 }
@@ -5270,7 +5109,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<T>(
                 entity => new T() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getOrAddExternalDataWithFactory" }, key, factory
                 }
@@ -5280,7 +5119,7 @@ __actionManager = null;
         public bool removeExternalData(string key)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removeExternalData" }, key
                 }
@@ -5290,7 +5129,7 @@ __actionManager = null;
         public void freeProcessedMaterials()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "freeProcessedMaterials" }
                 }
@@ -5300,7 +5139,7 @@ __actionManager = null;
         public void freeActiveMeshes()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "freeActiveMeshes" }
                 }
@@ -5310,7 +5149,7 @@ __actionManager = null;
         public void freeRenderingGroups()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "freeRenderingGroups" }
                 }
@@ -5529,13 +5368,13 @@ __actionManager = null;
         }
         #endregion
 
-        public Scene freezeActiveMeshes(System.Nullable<bool> skipEvaluateActiveMeshes = null)
+        public Scene freezeActiveMeshes(System.Nullable<bool> skipEvaluateActiveMeshes = null, ActionCallback onSuccess = null, ActionCallback<string> onError = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Scene>(
                 entity => new Scene() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "freezeActiveMeshes" }, skipEvaluateActiveMeshes
+                    new string[] { this.___guid, "freezeActiveMeshes" }, skipEvaluateActiveMeshes, onSuccess, onError
                 }
             );
         }
@@ -5544,7 +5383,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Scene>(
                 entity => new Scene() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "unfreezeActiveMeshes" }
                 }
@@ -5554,7 +5393,7 @@ __actionManager = null;
         public void updateTransformMatrix(System.Nullable<bool> force = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "updateTransformMatrix" }, force
                 }
@@ -5617,7 +5456,7 @@ __actionManager = null;
         public void animate()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "animate" }
                 }
@@ -5627,7 +5466,7 @@ __actionManager = null;
         public void render(System.Nullable<bool> updateCameras = null, System.Nullable<bool> ignoreAnimations = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "render" }, updateCameras, ignoreAnimations
                 }
@@ -5637,7 +5476,7 @@ __actionManager = null;
         public void freezeMaterials()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "freezeMaterials" }
                 }
@@ -5647,7 +5486,7 @@ __actionManager = null;
         public void unfreezeMaterials()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "unfreezeMaterials" }
                 }
@@ -5657,7 +5496,7 @@ __actionManager = null;
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }
                 }
@@ -5667,7 +5506,7 @@ __actionManager = null;
         public void clearCachedVertexData()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "clearCachedVertexData" }
                 }
@@ -5677,71 +5516,28 @@ __actionManager = null;
         public void cleanCachedTextureBuffer()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "cleanCachedTextureBuffer" }
                 }
             );
         }
 
-        #region getWorldExtends TODO: Get Comments as metadata identification
-        private bool _isGetWorldExtendsEnabled = false;
-        private readonly IDictionary<string, Func<AbstractMesh, Task>> _getWorldExtendsActionMap = new Dictionary<string, Func<AbstractMesh, Task>>();
-
-        public string getWorldExtends(
-            Func<AbstractMesh, Task> callback
-        )
+        public CachedEntity getWorldExtends(ActionCallback<AbstractMesh> filterPredicate = null)
         {
-            SetupGetWorldExtendsLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _getWorldExtendsActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        public bool getWorldExtends_Remove(
-            string handle
-        )
-        {
-            return _getWorldExtendsActionMap.Remove(
-                handle
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "getWorldExtends" }, filterPredicate
+                }
             );
         }
-
-        private void SetupGetWorldExtendsLoop()
-        {
-            if (_isGetWorldExtendsEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "getWorldExtends",
-                "CallGetWorldExtendsActions",
-                _invokableReference
-            );
-            _isGetWorldExtendsEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallGetWorldExtendsActions(AbstractMesh mesh)
-        {
-            foreach (var action in _getWorldExtendsActionMap.Values)
-            {
-                await action(mesh);
-            }
-        }
-        #endregion
 
         public Ray createPickingRay(decimal x, decimal y, Matrix world, Camera camera, System.Nullable<bool> cameraViewSpace = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Ray>(
                 entity => new Ray() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "createPickingRay" }, x, y, world, camera, cameraViewSpace
                 }
@@ -5752,7 +5548,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Scene>(
                 entity => new Scene() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "createPickingRayToRef" }, x, y, world, result, camera, cameraViewSpace
                 }
@@ -5763,7 +5559,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Ray>(
                 entity => new Ray() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "createPickingRayInCameraSpace" }, x, y, camera
                 }
@@ -5774,36 +5570,47 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Scene>(
                 entity => new Scene() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "createPickingRayInCameraSpaceToRef" }, x, y, result, camera
                 }
             );
         }
 
-        public PickingInfo pick(decimal x, decimal y, ActionCallback<AbstractMesh> predicate = null, System.Nullable<bool> fastCheck = null, Camera camera = null, TrianglePickingPredicate trianglePredicate = null)
+        public PickingInfo pick(decimal x, decimal y, ActionCallback<AbstractMesh> predicate = null, System.Nullable<bool> fastCheck = null, Camera camera = null, ActionCallback<Vector3, Vector3, Vector3, Ray> trianglePredicate = null)
         {
             return EventHorizonBlazorInterop.FuncClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "pick" }, x, y, predicate, fastCheck, camera, trianglePredicate
                 }
             );
         }
 
-        public PickingInfo pickWithRay(Ray ray, ActionCallback<AbstractMesh> predicate = null, System.Nullable<bool> fastCheck = null, TrianglePickingPredicate trianglePredicate = null)
+        public PickingInfo pickWithBoundingInfo(decimal x, decimal y, ActionCallback<AbstractMesh> predicate = null, System.Nullable<bool> fastCheck = null, Camera camera = null)
         {
             return EventHorizonBlazorInterop.FuncClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
+                {
+                    new string[] { this.___guid, "pickWithBoundingInfo" }, x, y, predicate, fastCheck, camera
+                }
+            );
+        }
+
+        public PickingInfo pickWithRay(Ray ray, ActionCallback<AbstractMesh> predicate = null, System.Nullable<bool> fastCheck = null, ActionCallback<Vector3, Vector3, Vector3, Ray> trianglePredicate = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<PickingInfo>(
+                entity => new PickingInfo() { ___guid = entity.___guid },
+                new object[]
                 {
                     new string[] { this.___guid, "pickWithRay" }, ray, predicate, fastCheck, trianglePredicate
                 }
             );
         }
 
-        public PickingInfo[] multiPick(decimal x, decimal y, ActionCallback<AbstractMesh> predicate = null, Camera camera = null, TrianglePickingPredicate trianglePredicate = null)
+        public PickingInfo[] multiPick(decimal x, decimal y, ActionCallback<AbstractMesh> predicate = null, Camera camera = null, ActionCallback<Vector3, Vector3, Vector3, Ray> trianglePredicate = null)
         {
             return EventHorizonBlazorInterop.FuncArrayClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },
@@ -5814,7 +5621,7 @@ __actionManager = null;
             );
         }
 
-        public PickingInfo[] multiPickWithRay(Ray ray, ActionCallback<AbstractMesh> predicate, TrianglePickingPredicate trianglePredicate = null)
+        public PickingInfo[] multiPickWithRay(Ray ray, ActionCallback<AbstractMesh> predicate, ActionCallback<Vector3, Vector3, Vector3, Ray> trianglePredicate = null)
         {
             return EventHorizonBlazorInterop.FuncArrayClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },
@@ -5825,12 +5632,12 @@ __actionManager = null;
             );
         }
 
-        public void setPointerOverMesh(AbstractMesh mesh)
+        public void setPointerOverMesh(AbstractMesh mesh, System.Nullable<decimal> pointerId = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "setPointerOverMesh" }, mesh
+                    new string[] { this.___guid, "setPointerOverMesh" }, mesh, pointerId
                 }
             );
         }
@@ -5839,7 +5646,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
                 entity => new AbstractMesh() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getPointerOverMesh" }
                 }
@@ -5890,10 +5697,21 @@ __actionManager = null;
             );
         }
 
+        public TransformNode[] getTransformNodesByTags(string tagsQuery, ActionCallback<TransformNode> forEach = null)
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<TransformNode>(
+                entity => new TransformNode() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "getTransformNodesByTags" }, tagsQuery, forEach
+                }
+            );
+        }
+
         public void setRenderingOrder(decimal renderingGroupId, ActionCallback<SubMesh, SubMesh> opaqueSortCompareFn = null, ActionCallback<SubMesh, SubMesh> alphaTestSortCompareFn = null, ActionCallback<SubMesh, SubMesh> transparentSortCompareFn = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setRenderingOrder" }, renderingGroupId, opaqueSortCompareFn, alphaTestSortCompareFn, transparentSortCompareFn
                 }
@@ -5903,7 +5721,7 @@ __actionManager = null;
         public void setRenderingAutoClearDepthStencil(decimal renderingGroupId, bool autoClearDepthStencil, System.Nullable<bool> depth = null, System.Nullable<bool> stencil = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setRenderingAutoClearDepthStencil" }, renderingGroupId, autoClearDepthStencil, depth, stencil
                 }
@@ -5914,7 +5732,7 @@ __actionManager = null;
         {
             return EventHorizonBlazorInterop.FuncClass<IRenderingManagerAutoClearSetupCachedEntity>(
                 entity => new IRenderingManagerAutoClearSetupCachedEntity() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getAutoClearDepthStencilSetup" }, index
                 }
@@ -5924,7 +5742,7 @@ __actionManager = null;
         public void markAllMaterialsAsDirty(decimal flag, ActionCallback<Material> predicate = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "markAllMaterialsAsDirty" }, flag, predicate
                 }

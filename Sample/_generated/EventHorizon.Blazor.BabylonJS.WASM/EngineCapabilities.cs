@@ -397,6 +397,27 @@ __s3tc = null;
         }
 
         
+        public CachedEntity bptc
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
+                    this.___guid,
+                    "bptc"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "bptc",
+                    value
+                );
+            }
+        }
+
+        
         public bool textureFloat
         {
             get

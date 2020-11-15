@@ -27,7 +27,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Ray>(
                 entity => new Ray() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "Ray", "Zero" }
                 }
@@ -38,7 +38,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Ray>(
                 entity => new Ray() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "Ray", "CreateNew" }, x, y, viewportWidth, viewportHeight, world, view, projection
                 }
@@ -49,7 +49,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Ray>(
                 entity => new Ray() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "Ray", "CreateNewFromTo" }, origin, end, world
                 }
@@ -60,7 +60,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Ray>(
                 entity => new Ray() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "Ray", "Transform" }, ray, matrix
                 }
@@ -70,7 +70,7 @@ namespace BabylonJS
         public static void TransformToRef(Ray ray, Matrix matrix, Ray result)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "Ray", "TransformToRef" }, ray, matrix, result
                 }
@@ -164,7 +164,7 @@ __direction = null;
         #endregion
         
         #region Constructor
-        public Ray() : base() { } 
+        public Ray() : base() { }
 
         public Ray(
             ICachedEntity entity
@@ -189,7 +189,7 @@ __direction = null;
         public bool intersectsBoxMinMax(Vector3 minimum, Vector3 maximum, System.Nullable<decimal> intersectionTreshold = null)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "intersectsBoxMinMax" }, minimum, maximum, intersectionTreshold
                 }
@@ -199,7 +199,7 @@ __direction = null;
         public bool intersectsBox(BoundingBox box, System.Nullable<decimal> intersectionTreshold = null)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "intersectsBox" }, box, intersectionTreshold
                 }
@@ -209,7 +209,7 @@ __direction = null;
         public bool intersectsSphere(BoundingSphere sphere, System.Nullable<decimal> intersectionTreshold = null)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "intersectsSphere" }, sphere, intersectionTreshold
                 }
@@ -220,7 +220,7 @@ __direction = null;
         {
             return EventHorizonBlazorInterop.FuncClass<IntersectionInfo>(
                 entity => new IntersectionInfo() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "intersectsTriangle" }, vertex0, vertex1, vertex2
                 }
@@ -230,7 +230,7 @@ __direction = null;
         public decimal intersectsPlane(Plane plane)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "intersectsPlane" }, plane
                 }
@@ -241,7 +241,7 @@ __direction = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "intersectsAxis" }, axis, offset
                 }
@@ -252,7 +252,7 @@ __direction = null;
         {
             return EventHorizonBlazorInterop.FuncClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "intersectsMesh" }, mesh, fastCheck
                 }
@@ -273,7 +273,7 @@ __direction = null;
         public decimal intersectionSegment(Vector3 sega, Vector3 segb, decimal threshold)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "intersectionSegment" }, sega, segb, threshold
                 }
@@ -284,7 +284,7 @@ __direction = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Ray>(
                 entity => new Ray() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "update" }, x, y, viewportWidth, viewportHeight, world, view, projection
                 }
@@ -294,7 +294,7 @@ __direction = null;
         public void unprojectRayToRef(decimal sourceX, decimal sourceY, decimal viewportWidth, decimal viewportHeight, Matrix world, Matrix view, Matrix projection)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "unprojectRayToRef" }, sourceX, sourceY, viewportWidth, viewportHeight, world, view, projection
                 }

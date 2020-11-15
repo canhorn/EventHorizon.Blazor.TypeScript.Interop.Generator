@@ -1,0 +1,6 @@
+[[TASK_AWAIT]]EventHorizonBlazorInterop.Task<[[TASK_TYPE]]>(
+                new object[]
+                {
+                    new string[] { [[PROPERTY_IDENTIFIER]], "[[PROPERTY]]" }[[PROPERTY_ARGUMENTS]]
+                }
+            )

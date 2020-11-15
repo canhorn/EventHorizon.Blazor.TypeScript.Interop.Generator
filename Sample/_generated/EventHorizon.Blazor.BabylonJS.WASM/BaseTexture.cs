@@ -12,7 +12,7 @@ namespace BabylonJS
     
     
     [JsonConverter(typeof(CachedEntityConverter<BaseTexture>))]
-    public class BaseTexture : CachedEntityObject, IAnimatable
+    public class BaseTexture : ThinTexture, IAnimatable
     {
         #region Static Accessors
 
@@ -45,7 +45,7 @@ namespace BabylonJS
         public static void WhenAllReady(BaseTexture[] textures, ActionCallback callback)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "BaseTexture", "WhenAllReady" }, textures, callback
                 }
@@ -91,6 +91,48 @@ namespace BabylonJS
                 EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "coordinatesMode",
+                    value
+                );
+            }
+        }
+
+        
+        public decimal wrapU
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<decimal>(
+                    this.___guid,
+                    "wrapU"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "wrapU",
+                    value
+                );
+            }
+        }
+
+        
+        public decimal wrapV
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<decimal>(
+                    this.___guid,
+                    "wrapV"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "wrapV",
                     value
                 );
             }
@@ -154,6 +196,27 @@ namespace BabylonJS
                 EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "is2DArray",
+                    value
+                );
+            }
+        }
+
+        
+        public bool gammaSpace
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "gammaSpace"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "gammaSpace",
                     value
                 );
             }
@@ -494,48 +557,6 @@ __irradianceTexture = null;
         }
 
         
-        public decimal wrapU
-        {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "wrapU"
-                );
-            }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "wrapU",
-                    value
-                );
-            }
-        }
-
-        
-        public decimal wrapV
-        {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "wrapV"
-                );
-            }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "wrapV",
-                    value
-                );
-            }
-        }
-
-        
         public decimal wrapR
         {
             get
@@ -572,27 +593,6 @@ __irradianceTexture = null;
                 EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "anisotropicFilteringLevel",
-                    value
-                );
-            }
-        }
-
-        
-        public bool gammaSpace
-        {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "gammaSpace"
-                );
-            }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "gammaSpace",
                     value
                 );
             }
@@ -714,27 +714,6 @@ __onDisposeObservable = null;
                 );
             }
         }
-
-        
-        public decimal delayLoadState
-        {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "delayLoadState"
-                );
-            }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "delayLoadState",
-                    value
-                );
-            }
-        }
         #endregion
         
         #region Constructor
@@ -747,12 +726,12 @@ __onDisposeObservable = null;
         }
 
         public BaseTexture(
-            Scene scene
+            Scene sceneOrEngine
         ) : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "BaseTexture" },
-                scene
+                sceneOrEngine
             );
             ___guid = entity.___guid;
         }
@@ -762,7 +741,7 @@ __onDisposeObservable = null;
         public string toString()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "toString" }
                 }
@@ -772,7 +751,7 @@ __onDisposeObservable = null;
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getClassName" }
                 }
@@ -783,9 +762,19 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Scene>(
                 entity => new Scene() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getScene" }
+                }
+            );
+        }
+
+        public bool checkTransformsAreIdentical(BaseTexture texture)
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[]
+                {
+                    new string[] { this.___guid, "checkTransformsAreIdentical" }, texture
                 }
             );
         }
@@ -794,7 +783,7 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getTextureMatrix" }
                 }
@@ -805,20 +794,9 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getReflectionTextureMatrix" }
-                }
-            );
-        }
-
-        public InternalTexture getInternalTexture()
-        {
-            return EventHorizonBlazorInterop.FuncClass<InternalTexture>(
-                entity => new InternalTexture() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getInternalTexture" }
                 }
             );
         }
@@ -826,51 +804,9 @@ __onDisposeObservable = null;
         public bool isReadyOrNotBlocking()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "isReadyOrNotBlocking" }
-                }
-            );
-        }
-
-        public bool isReady()
-        {
-            return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "isReady" }
-                }
-            );
-        }
-
-        public ISizeCachedEntity getSize()
-        {
-            return EventHorizonBlazorInterop.FuncClass<ISizeCachedEntity>(
-                entity => new ISizeCachedEntity() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getSize" }
-                }
-            );
-        }
-
-        public ISizeCachedEntity getBaseSize()
-        {
-            return EventHorizonBlazorInterop.FuncClass<ISizeCachedEntity>(
-                entity => new ISizeCachedEntity() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getBaseSize" }
-                }
-            );
-        }
-
-        public void updateSamplingMode(decimal samplingMode)
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "updateSamplingMode" }, samplingMode
                 }
             );
         }
@@ -878,19 +814,9 @@ __onDisposeObservable = null;
         public void scale(decimal ratio)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "scale" }, ratio
-                }
-            );
-        }
-
-        public void delayLoad()
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "delayLoad" }
                 }
             );
         }
@@ -899,7 +825,7 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<BaseTexture>(
                 entity => new BaseTexture() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "clone" }
                 }
@@ -910,19 +836,9 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<ArrayBufferView>(
                 entity => new ArrayBufferView() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "readPixels" }, faceIndex, level, buffer
-                }
-            );
-        }
-
-        public void releaseInternalTexture()
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "releaseInternalTexture" }
                 }
             );
         }
@@ -930,7 +846,7 @@ __onDisposeObservable = null;
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }
                 }
@@ -940,7 +856,7 @@ __onDisposeObservable = null;
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "serialize" }
                 }

@@ -32,6 +32,27 @@ namespace BabylonJS
 
         #region Properties
         
+        public string name
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<string>(
+                    this.___guid,
+                    "name"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "name",
+                    value
+                );
+            }
+        }
+
+        
         public decimal layerMask
         {
             get
@@ -68,6 +89,35 @@ namespace BabylonJS
                 EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "isPickable",
+                    value
+                );
+            }
+        }
+
+        private Scene __scene;
+        public Scene scene
+        {
+            get
+            {
+            if(__scene == null)
+            {
+                __scene = EventHorizonBlazorInterop.GetClass<Scene>(
+                    this.___guid,
+                    "scene",
+                    (entity) =>
+                    {
+                        return new Scene() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __scene;
+            }
+            set
+            {
+__scene = null;
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "scene",
                     value
                 );
             }
@@ -118,6 +168,77 @@ namespace BabylonJS
                 );
             }
         }
+
+        private Texture __texture;
+        public Texture texture
+        {
+            get
+            {
+            if(__texture == null)
+            {
+                __texture = EventHorizonBlazorInterop.GetClass<Texture>(
+                    this.___guid,
+                    "texture",
+                    (entity) =>
+                    {
+                        return new Texture() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __texture;
+            }
+            set
+            {
+__texture = null;
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "texture",
+                    value
+                );
+            }
+        }
+
+        
+        public decimal cellWidth
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<decimal>(
+                    this.___guid,
+                    "cellWidth"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "cellWidth",
+                    value
+                );
+            }
+        }
+
+        
+        public decimal cellHeight
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<decimal>(
+                    this.___guid,
+                    "cellHeight"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "cellHeight",
+                    value
+                );
+            }
+        }
         #endregion
         
         #region Constructor
@@ -137,7 +258,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "intersects" }, ray, camera, predicate, fastCheck
                 }
@@ -158,7 +279,7 @@ namespace BabylonJS
         public void render()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "render" }
                 }

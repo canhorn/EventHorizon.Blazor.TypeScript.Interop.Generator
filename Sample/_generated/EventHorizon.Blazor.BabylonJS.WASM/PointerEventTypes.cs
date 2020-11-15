@@ -117,7 +117,7 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public PointerEventTypes() : base() { } 
+        public PointerEventTypes() : base() { }
 
         public PointerEventTypes(
             ICachedEntity entity

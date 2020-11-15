@@ -120,14 +120,23 @@ __color2 = null;
         {
         }
 
-
+        public ColorGradient(
+            decimal gradient, Color4 color1, Color4 color2 = null
+        ) : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "ColorGradient" },
+                gradient, color1, color2
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods
         public void getColorToRef(Color4 result)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getColorToRef" }, result
                 }

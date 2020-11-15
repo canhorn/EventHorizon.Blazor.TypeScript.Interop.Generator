@@ -240,6 +240,69 @@ namespace BabylonJS
                 );
             }
         }
+
+        
+        public bool xrCompatible
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "xrCompatible"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "xrCompatible",
+                    value
+                );
+            }
+        }
+
+        
+        public bool useHighPrecisionMatrix
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "useHighPrecisionMatrix"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "useHighPrecisionMatrix",
+                    value
+                );
+            }
+        }
+
+        
+        public bool failIfMajorPerformanceCaveat
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "failIfMajorPerformanceCaveat"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "failIfMajorPerformanceCaveat",
+                    value
+                );
+            }
+        }
         #endregion
         
         #region Constructor

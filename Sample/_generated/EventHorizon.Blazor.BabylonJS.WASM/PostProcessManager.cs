@@ -35,7 +35,7 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public PostProcessManager() : base() { } 
+        public PostProcessManager() : base() { }
 
         public PostProcessManager(
             ICachedEntity entity
@@ -57,12 +57,12 @@ namespace BabylonJS
         #endregion
 
         #region Methods
-        public void directRender(PostProcess[] postProcesses, InternalTexture targetTexture = null, System.Nullable<bool> forceFullscreenViewport = null, System.Nullable<decimal> faceIndex = null, System.Nullable<decimal> lodLevel = null)
+        public void directRender(PostProcess[] postProcesses, InternalTexture targetTexture = null, System.Nullable<bool> forceFullscreenViewport = null, System.Nullable<decimal> faceIndex = null, System.Nullable<decimal> lodLevel = null, System.Nullable<bool> doNotBindFrambuffer = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "directRender" }, postProcesses, targetTexture, forceFullscreenViewport, faceIndex, lodLevel
+                    new string[] { this.___guid, "directRender" }, postProcesses, targetTexture, forceFullscreenViewport, faceIndex, lodLevel, doNotBindFrambuffer
                 }
             );
         }
@@ -70,7 +70,7 @@ namespace BabylonJS
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }
                 }

@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
@@ -14,6 +16,32 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             return GenerationIdentifiedTypes.Literal.Equals(
                 type
             );
+        }
+
+        public static bool Identify(
+            TypeStatement property
+        )
+        {
+            var type = property;
+            if (type.IsModifier
+                || type.IsNullable
+                || type.IsTask
+                || type.IsArray)
+            {
+                if (type.GenericTypes.Any())
+                {
+                    return Identify(
+                        type.GenericTypes.First()
+                    );
+                }
+            }
+            else if (type.IsTypeAlias)
+            {
+                return Identify(
+                    type.AliasType
+                );
+            }
+            return type.IsLiteral;
         }
     }
 }

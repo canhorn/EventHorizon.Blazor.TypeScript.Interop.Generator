@@ -102,26 +102,35 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
     public class InterfaceResponseTypeIdentifierCached
         : InterfaceResponseTypeIdentifierNotCached
     {
-        private readonly Dictionary<string, bool> _cache = new Dictionary<string, bool>();
+        private bool _isCachedSetup;
+        private readonly List<string> _cacheClassDeclaration = new List<string>();
+        private readonly List<string> _cacheInterfaceDeclaration = new List<string>();
 
         public override bool Identify(
             string identifierString,
             TypeScriptAST ast
         )
         {
-            if (_cache.TryGetValue(identifierString, out var value))
+            if (!_isCachedSetup)
             {
-                return value;
+                var classDeclarations = ast.RootNode.OfKind(
+                    SyntaxKind.ClassDeclaration
+                );
+                foreach (var classDeclaration in classDeclarations)
+                {
+                    _cacheClassDeclaration.Add(classDeclaration.IdentifierStr);
+                }
+                var interfaceDeclarations = ast.RootNode.OfKind(
+                    SyntaxKind.InterfaceDeclaration
+                );
+                foreach (var interfaceDeclaration in interfaceDeclarations)
+                {
+                    _cacheInterfaceDeclaration.Add(interfaceDeclaration.IdentifierStr);
+                }
+                _isCachedSetup = true;
             }
-            var response = base.Identify(
-                identifierString,
-                ast
-            );
-            if (identifierString != null)
-            {
-                _cache[identifierString] = response;
-            }
-            return response;
+            return !_cacheClassDeclaration.Contains(identifierString)
+                && _cacheInterfaceDeclaration.Contains(identifierString);
         }
 
         public override bool Identify(

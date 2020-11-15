@@ -70,6 +70,27 @@ namespace BabylonJS
         }
 
         
+        public decimal[] keysUpward
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.GetArray<decimal>(
+                    this.___guid,
+                    "keysUpward"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "keysUpward",
+                    value
+                );
+            }
+        }
+
+        
         public decimal[] keysDown
         {
             get
@@ -85,6 +106,27 @@ namespace BabylonJS
                 EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "keysDown",
+                    value
+                );
+            }
+        }
+
+        
+        public decimal[] keysDownward
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.GetArray<decimal>(
+                    this.___guid,
+                    "keysDownward"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "keysDownward",
                     value
                 );
             }
@@ -360,22 +402,22 @@ __inputs = null;
         }
         #endregion
 
-        public void attachControl(object element, System.Nullable<bool> noPreventDefault = null)
+        public void attachControl(System.Nullable<bool> noPreventDefault = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "attachControl" }, element, noPreventDefault
+                    new string[] { this.___guid, "attachControl" }, noPreventDefault
                 }
             );
         }
 
-        public void detachControl(object element)
+        public void detachControl()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "detachControl" }, element
+                    new string[] { this.___guid, "detachControl" }
                 }
             );
         }
@@ -383,7 +425,7 @@ __inputs = null;
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }
                 }
@@ -393,7 +435,7 @@ __inputs = null;
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getClassName" }
                 }

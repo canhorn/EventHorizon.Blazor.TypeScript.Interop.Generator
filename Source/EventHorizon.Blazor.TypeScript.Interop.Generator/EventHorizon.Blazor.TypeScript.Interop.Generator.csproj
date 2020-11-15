@@ -24,4 +24,11 @@
         <EmbeddedResource Include="Templates\*" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Templates\InteropTaskArrayClassTemplate.txt" />
+      <None Remove="Templates\InteropTaskArrayTemplate.txt" />
+      <None Remove="Templates\InteropTaskClassTemplate.txt" />
+      <None Remove="Templates\InteropTaskTemplate.txt" />
+    </ItemGroup>
+
 </Project>

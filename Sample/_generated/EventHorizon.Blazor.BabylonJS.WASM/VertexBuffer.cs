@@ -276,7 +276,7 @@ namespace BabylonJS
         public static decimal DeduceStride(string kind)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "VertexBuffer", "DeduceStride" }, kind
                 }
@@ -286,17 +286,17 @@ namespace BabylonJS
         public static decimal GetTypeByteLength(decimal type)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "VertexBuffer", "GetTypeByteLength" }, type
                 }
             );
         }
 
-        public static void ForEach(DataArray data, decimal byteOffset, decimal byteStride, decimal componentCount, decimal componentType, decimal count, bool normalized, ActionCallback<decimal, decimal> callback)
+        public static void ForEach(decimal[] data, decimal byteOffset, decimal byteStride, decimal componentCount, decimal componentType, decimal count, bool normalized, ActionCallback<decimal, decimal> callback)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "VertexBuffer", "ForEach" }, data, byteOffset, byteStride, componentCount, componentType, count, normalized, callback
                 }
@@ -378,7 +378,7 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public VertexBuffer() : base() { } 
+        public VertexBuffer() : base() { }
 
         public VertexBuffer(
             ICachedEntity entity
@@ -388,12 +388,12 @@ namespace BabylonJS
         }
 
         public VertexBuffer(
-            object engine, DataArray data, string kind, bool updatable, System.Nullable<bool> postponeInternalCreation = null, System.Nullable<decimal> stride = null, System.Nullable<bool> instanced = null, System.Nullable<decimal> offset = null, System.Nullable<decimal> size = null, System.Nullable<decimal> type = null, System.Nullable<bool> normalized = null, System.Nullable<bool> useBytes = null, System.Nullable<decimal> divisor = null
+            object engine, decimal[] data, string kind, bool updatable, System.Nullable<bool> postponeInternalCreation = null, System.Nullable<decimal> stride = null, System.Nullable<bool> instanced = null, System.Nullable<decimal> offset = null, System.Nullable<decimal> size = null, System.Nullable<decimal> type = null, System.Nullable<bool> normalized = null, System.Nullable<bool> useBytes = null, System.Nullable<decimal> divisor = null, System.Nullable<bool> takeBufferOwnership = null
         )
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "VertexBuffer" },
-                engine, data, kind, updatable, postponeInternalCreation, stride, instanced, offset, size, type, normalized, useBytes, divisor
+                engine, data, kind, updatable, postponeInternalCreation, stride, instanced, offset, size, type, normalized, useBytes, divisor, takeBufferOwnership
             );
             ___guid = entity.___guid;
         }
@@ -403,7 +403,7 @@ namespace BabylonJS
         public string getKind()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getKind" }
                 }
@@ -413,18 +413,17 @@ namespace BabylonJS
         public bool isUpdatable()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "isUpdatable" }
                 }
             );
         }
 
-        public DataArray getData()
+        public decimal[] getData()
         {
-            return EventHorizonBlazorInterop.FuncClass<DataArray>(
-                entity => new DataArray() { ___guid = entity.___guid },
-                new object[] 
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
+                new object[]
                 {
                     new string[] { this.___guid, "getData" }
                 }
@@ -435,7 +434,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<DataBuffer>(
                 entity => new DataBuffer() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getBuffer" }
                 }
@@ -445,7 +444,7 @@ namespace BabylonJS
         public decimal getStrideSize()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getStrideSize" }
                 }
@@ -455,7 +454,7 @@ namespace BabylonJS
         public decimal getOffset()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getOffset" }
                 }
@@ -465,7 +464,7 @@ namespace BabylonJS
         public decimal getSize()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getSize" }
                 }
@@ -475,7 +474,7 @@ namespace BabylonJS
         public bool getIsInstanced()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getIsInstanced" }
                 }
@@ -485,37 +484,37 @@ namespace BabylonJS
         public decimal getInstanceDivisor()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getInstanceDivisor" }
                 }
             );
         }
 
-        public void create(DataArray data = null)
+        public void create(decimal[] data = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "create" }, data
                 }
             );
         }
 
-        public void update(DataArray data)
+        public void update(decimal[] data)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "update" }, data
                 }
             );
         }
 
-        public void updateDirectly(DataArray data, decimal offset, System.Nullable<bool> useBytes = null)
+        public void updateDirectly(decimal[] data, decimal offset, System.Nullable<bool> useBytes = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "updateDirectly" }, data, offset, useBytes
                 }
@@ -525,7 +524,7 @@ namespace BabylonJS
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }
                 }
@@ -535,7 +534,7 @@ namespace BabylonJS
         public void forEach(decimal count, ActionCallback<decimal, decimal> callback)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "forEach" }, count, callback
                 }

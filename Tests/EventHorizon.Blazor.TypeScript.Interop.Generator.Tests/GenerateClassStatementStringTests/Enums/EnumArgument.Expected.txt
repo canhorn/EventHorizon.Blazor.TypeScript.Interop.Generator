@@ -35,7 +35,7 @@ namespace Static.Class
         #endregion
         
         #region Constructor
-        public ExampleClass() : base() { } 
+        public ExampleClass() : base() { }
 
         public ExampleClass(
             ICachedEntity entity
@@ -51,7 +51,7 @@ namespace Static.Class
         public void enumFunction(int enumArgument)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "enumFunction" }, enumArgument
                 }
@@ -61,7 +61,7 @@ namespace Static.Class
         public void enumOptional(System.Nullable<int> enumArgument = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "enumOptional" }, enumArgument
                 }
@@ -71,7 +71,7 @@ namespace Static.Class
         public int enumReponse()
         {
             return EventHorizonBlazorInterop.Func<int>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "enumReponse" }
                 }

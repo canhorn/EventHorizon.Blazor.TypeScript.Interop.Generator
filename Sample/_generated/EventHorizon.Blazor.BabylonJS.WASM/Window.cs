@@ -509,7 +509,7 @@ __msURL = null;
         public decimal mozRequestAnimationFrame(FrameRequestCallback callback)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "mozRequestAnimationFrame" }, callback
                 }
@@ -519,65 +519,22 @@ __msURL = null;
         public decimal oRequestAnimationFrame(FrameRequestCallback callback)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "oRequestAnimationFrame" }, callback
                 }
             );
         }
 
-        #region setImmediate TODO: Get Comments as metadata identification
-        private bool _isSetImmediateEnabled = false;
-        private readonly IDictionary<string, Func<CachedEntity[], Task>> _setImmediateActionMap = new Dictionary<string, Func<CachedEntity[], Task>>();
-
-        public string setImmediate(
-            Func<CachedEntity[], Task> callback
-        )
+        public decimal setImmediate(ActionCallback<CachedEntity[]> handler)
         {
-            SetupSetImmediateLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _setImmediateActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        public bool setImmediate_Remove(
-            string handle
-        )
-        {
-            return _setImmediateActionMap.Remove(
-                handle
+            return EventHorizonBlazorInterop.Func<decimal>(
+                new object[]
+                {
+                    new string[] { this.___guid, "setImmediate" }, handler
+                }
             );
         }
-
-        private void SetupSetImmediateLoop()
-        {
-            if (_isSetImmediateEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "setImmediate",
-                "CallSetImmediateActions",
-                _invokableReference
-            );
-            _isSetImmediateEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallSetImmediateActions(CachedEntity[] args)
-        {
-            foreach (var action in _setImmediateActionMap.Values)
-            {
-                await action(args);
-            }
-        }
-        #endregion
         #endregion
     }
 }

@@ -187,6 +187,48 @@ namespace BabylonJS.GUI
         }
 
         
+        public bool underline
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "underline"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "underline",
+                    value
+                );
+            }
+        }
+
+        
+        public bool lineThrough
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "lineThrough"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "lineThrough",
+                    value
+                );
+            }
+        }
+
+        
         public string outlineColor
         {
             get
@@ -287,6 +329,27 @@ __onLinesReadyObservable = null;
                 );
             }
         }
+
+        
+        public ActionCallback<string> wordSplittingFunction
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<ActionCallback<string>>(
+                    this.___guid,
+                    "wordSplittingFunction"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "wordSplittingFunction",
+                    value
+                );
+            }
+        }
         #endregion
         
         #region Constructor
@@ -314,7 +377,7 @@ __onLinesReadyObservable = null;
         public decimal computeExpectedHeight()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "computeExpectedHeight" }
                 }
@@ -324,7 +387,7 @@ __onLinesReadyObservable = null;
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }
                 }

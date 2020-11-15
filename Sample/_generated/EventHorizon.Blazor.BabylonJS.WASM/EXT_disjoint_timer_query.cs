@@ -174,7 +174,7 @@ namespace BabylonJS
         public void queryCounterEXT(WebGLQuery query, decimal target)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "queryCounterEXT" }, query, target
                 }
@@ -185,7 +185,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<WebGLQueryCachedEntity>(
                 entity => new WebGLQueryCachedEntity() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "createQueryEXT" }
                 }
@@ -195,7 +195,7 @@ namespace BabylonJS
         public void beginQueryEXT(decimal target, WebGLQuery query)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "beginQueryEXT" }, target, query
                 }
@@ -205,7 +205,7 @@ namespace BabylonJS
         public void endQueryEXT(decimal target)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "endQueryEXT" }, target
                 }
@@ -215,7 +215,7 @@ namespace BabylonJS
         public CachedEntity getQueryObjectEXT(WebGLQuery query, decimal target)
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getQueryObjectEXT" }, query, target
                 }
@@ -225,7 +225,7 @@ namespace BabylonJS
         public void deleteQueryEXT(WebGLQuery query)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "deleteQueryEXT" }, query
                 }

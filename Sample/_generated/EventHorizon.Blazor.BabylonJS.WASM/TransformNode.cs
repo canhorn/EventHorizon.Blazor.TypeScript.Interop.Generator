@@ -151,7 +151,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "TransformNode", "Parse" }, parsedTransformNode, scene, rootUrl
                 }
@@ -603,7 +603,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getClassName" }
                 }
@@ -614,7 +614,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "updatePoseMatrix" }, matrix
                 }
@@ -625,7 +625,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getPoseMatrix" }
                 }
@@ -636,7 +636,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "markAsDirty" }, property
                 }
@@ -647,7 +647,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setPreTransformMatrix" }, matrix
                 }
@@ -658,7 +658,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setPivotMatrix" }, matrix, postMultiplyPivotMatrix
                 }
@@ -669,7 +669,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getPivotMatrix" }
                 }
@@ -680,7 +680,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "instantiateHierarchy" }, newParent, options, onNewNodeCreated
                 }
@@ -691,7 +691,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "freezeWorldMatrix" }, newWorldMatrix
                 }
@@ -702,7 +702,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "unfreezeWorldMatrix" }
                 }
@@ -713,7 +713,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getAbsolutePosition" }
                 }
@@ -724,7 +724,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setAbsolutePosition" }, absolutePosition
                 }
@@ -735,7 +735,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setPositionWithLocalVector" }, vector3
                 }
@@ -746,7 +746,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getPositionExpressedInLocalSpace" }
                 }
@@ -757,7 +757,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "locallyTranslate" }, vector3
                 }
@@ -768,7 +768,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "lookAt" }, targetPoint, yawCor, pitchCor, rollCor, space
                 }
@@ -779,7 +779,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getDirection" }, localAxis
                 }
@@ -790,7 +790,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getDirectionToRef" }, localAxis, result
                 }
@@ -801,7 +801,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setDirection" }, localAxis, yawCor, pitchCor, rollCor
                 }
@@ -812,7 +812,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setPivotPoint" }, point, space
                 }
@@ -823,7 +823,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getPivotPoint" }
                 }
@@ -834,7 +834,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getPivotPointToRef" }, result
                 }
@@ -845,7 +845,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getAbsolutePivotPoint" }
                 }
@@ -856,7 +856,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getAbsolutePivotPointToRef" }, result
                 }
@@ -867,7 +867,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setParent" }, node
                 }
@@ -878,7 +878,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "attachToBone" }, bone, affectedTransformNode
                 }
@@ -889,7 +889,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "detachFromBone" }
                 }
@@ -900,7 +900,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "rotate" }, axis, amount, space
                 }
@@ -911,7 +911,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "rotateAround" }, point, axis, amount
                 }
@@ -922,7 +922,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "translate" }, axis, distance, space
                 }
@@ -933,7 +933,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addRotation" }, x, y, z
                 }
@@ -944,7 +944,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "computeWorldMatrix" }, force
                 }
@@ -954,124 +954,40 @@ __onAfterWorldMatrixUpdateObservable = null;
         public void resetLocalMatrix(System.Nullable<bool> independentOfChildren = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "resetLocalMatrix" }, independentOfChildren
                 }
             );
         }
 
-        #region registerAfterWorldMatrixUpdate TODO: Get Comments as metadata identification
-        private bool _isRegisterAfterWorldMatrixUpdateEnabled = false;
-        private readonly IDictionary<string, Func<TransformNode, Task>> _registerAfterWorldMatrixUpdateActionMap = new Dictionary<string, Func<TransformNode, Task>>();
-
-        public string registerAfterWorldMatrixUpdate(
-            Func<TransformNode, Task> callback
-        )
+        public TransformNode registerAfterWorldMatrixUpdate(ActionCallback<TransformNode> func)
         {
-            SetupRegisterAfterWorldMatrixUpdateLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _registerAfterWorldMatrixUpdateActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        public bool registerAfterWorldMatrixUpdate_Remove(
-            string handle
-        )
-        {
-            return _registerAfterWorldMatrixUpdateActionMap.Remove(
-                handle
+            return EventHorizonBlazorInterop.FuncClass<TransformNode>(
+                entity => new TransformNode() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "registerAfterWorldMatrixUpdate" }, func
+                }
             );
         }
 
-        private void SetupRegisterAfterWorldMatrixUpdateLoop()
+        public TransformNode unregisterAfterWorldMatrixUpdate(ActionCallback<TransformNode> func)
         {
-            if (_isRegisterAfterWorldMatrixUpdateEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "registerAfterWorldMatrixUpdate",
-                "CallRegisterAfterWorldMatrixUpdateActions",
-                _invokableReference
-            );
-            _isRegisterAfterWorldMatrixUpdateEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallRegisterAfterWorldMatrixUpdateActions(TransformNode mesh)
-        {
-            foreach (var action in _registerAfterWorldMatrixUpdateActionMap.Values)
-            {
-                await action(mesh);
-            }
-        }
-        #endregion
-
-        #region unregisterAfterWorldMatrixUpdate TODO: Get Comments as metadata identification
-        private bool _isUnregisterAfterWorldMatrixUpdateEnabled = false;
-        private readonly IDictionary<string, Func<TransformNode, Task>> _unregisterAfterWorldMatrixUpdateActionMap = new Dictionary<string, Func<TransformNode, Task>>();
-
-        public string unregisterAfterWorldMatrixUpdate(
-            Func<TransformNode, Task> callback
-        )
-        {
-            SetupUnregisterAfterWorldMatrixUpdateLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _unregisterAfterWorldMatrixUpdateActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        public bool unregisterAfterWorldMatrixUpdate_Remove(
-            string handle
-        )
-        {
-            return _unregisterAfterWorldMatrixUpdateActionMap.Remove(
-                handle
+            return EventHorizonBlazorInterop.FuncClass<TransformNode>(
+                entity => new TransformNode() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "unregisterAfterWorldMatrixUpdate" }, func
+                }
             );
         }
-
-        private void SetupUnregisterAfterWorldMatrixUpdateLoop()
-        {
-            if (_isUnregisterAfterWorldMatrixUpdateEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "unregisterAfterWorldMatrixUpdate",
-                "CallUnregisterAfterWorldMatrixUpdateActions",
-                _invokableReference
-            );
-            _isUnregisterAfterWorldMatrixUpdateEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallUnregisterAfterWorldMatrixUpdateActions(TransformNode mesh)
-        {
-            foreach (var action in _unregisterAfterWorldMatrixUpdateActionMap.Values)
-            {
-                await action(mesh);
-            }
-        }
-        #endregion
 
         public Vector3 getPositionInCameraSpace(Camera camera = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getPositionInCameraSpace" }, camera
                 }
@@ -1081,7 +997,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         public decimal getDistanceToCamera(Camera camera = null)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getDistanceToCamera" }, camera
                 }
@@ -1092,7 +1008,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "clone" }, name, newParent, doNotCloneChildren
                 }
@@ -1102,7 +1018,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         public CachedEntity serialize(object currentSerializationObject = null)
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "serialize" }, currentSerializationObject
                 }
@@ -1123,7 +1039,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         public void dispose(System.Nullable<bool> doNotRecurse = null, System.Nullable<bool> disposeMaterialAndTextures = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }, doNotRecurse, disposeMaterialAndTextures
                 }
@@ -1134,7 +1050,7 @@ __onAfterWorldMatrixUpdateObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "normalizeToUnitCube" }, includeDescendants, ignoreRotation, predicate
                 }

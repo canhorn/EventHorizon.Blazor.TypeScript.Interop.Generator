@@ -27,7 +27,7 @@ namespace BabylonJS.GUI
         {
             return EventHorizonBlazorInterop.FuncClass<Button>(
                 entity => new Button() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "GUI", "Button", "CreateImageButton" }, name, text, imageUrl
                 }
@@ -38,7 +38,7 @@ namespace BabylonJS.GUI
         {
             return EventHorizonBlazorInterop.FuncClass<Button>(
                 entity => new Button() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "GUI", "Button", "CreateImageOnlyButton" }, name, imageUrl
                 }
@@ -49,7 +49,7 @@ namespace BabylonJS.GUI
         {
             return EventHorizonBlazorInterop.FuncClass<Button>(
                 entity => new Button() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "GUI", "Button", "CreateSimpleButton" }, name, text
                 }
@@ -60,7 +60,7 @@ namespace BabylonJS.GUI
         {
             return EventHorizonBlazorInterop.FuncClass<Button>(
                 entity => new Button() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "GUI", "Button", "CreateImageWithCenterTextButton" }, name, text, imageUrl
                 }

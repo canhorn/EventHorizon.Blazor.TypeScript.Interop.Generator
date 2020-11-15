@@ -41,6 +41,27 @@ namespace BabylonJS
         }
 
         
+        public static bool ForceSerializeBuffers
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<bool>(
+                    "BABYLON",
+                    "Texture.ForceSerializeBuffers"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    "BABYLON",
+                    "Texture.ForceSerializeBuffers",
+                    value
+                );
+            }
+        }
+
+        
         public static decimal NEAREST_SAMPLINGMODE
         {
             get
@@ -403,7 +424,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<BaseTexture>(
                 entity => new BaseTexture() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "Texture", "Parse" }, parsedTexture, scene, rootUrl
                 }
@@ -414,7 +435,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Texture>(
                 entity => new Texture() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "Texture", "CreateFromBase64String" }, data, name, scene, noMipmap, invertY, samplingMode, onLoad, onError, format
                 }
@@ -425,7 +446,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Texture>(
                 entity => new Texture() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "Texture", "LoadFromDataString" }, name, buffer, scene, deleteBuffer, noMipmap, invertY, samplingMode, onLoad, onError, format
                 }
@@ -442,6 +463,18 @@ namespace BabylonJS
             return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "noMipmap"
+                );
+            }
+        }
+
+        
+        public string mimeType
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<string>(
+                    this.___guid,
+                    "mimeType"
                 );
             }
         }
@@ -725,6 +758,27 @@ namespace BabylonJS
         }
 
         
+        public bool homogeneousRotationInUVTransform
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "homogeneousRotationInUVTransform"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "homogeneousRotationInUVTransform",
+                    value
+                );
+            }
+        }
+
+        
         public IInspectableCachedEntity[] inspectableCustomProperties
         {
             get
@@ -789,12 +843,12 @@ __onLoadObservable = null;
         }
 
         public Texture(
-            Scene sceneOrEngine, string url = null, System.Nullable<bool> noMipmap = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, ActionCallback onLoad = null, ActionCallback<string, CachedEntity> onError = null, string buffer = null, System.Nullable<bool> deleteBuffer = null, System.Nullable<decimal> format = null, string mimeType = null
+            Scene sceneOrEngine, string url = null, System.Nullable<bool> noMipmap = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, ActionCallback onLoad = null, ActionCallback<string, CachedEntity> onError = null, string buffer = null, System.Nullable<bool> deleteBuffer = null, System.Nullable<decimal> format = null, string mimeType = null, object loaderOptions = null
         ) : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Texture" },
-                url, sceneOrEngine, noMipmap, invertY, samplingMode, onLoad, onError, buffer, deleteBuffer, format, mimeType
+                url, sceneOrEngine, noMipmap, invertY, samplingMode, onLoad, onError, buffer, deleteBuffer, format, mimeType, loaderOptions
             );
             ___guid = entity.___guid;
         }
@@ -804,7 +858,7 @@ __onLoadObservable = null;
         public void updateURL(string url, string buffer = null, ActionCallback onLoad = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "updateURL" }, url, buffer, onLoad
                 }
@@ -814,9 +868,19 @@ __onLoadObservable = null;
         public void delayLoad()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "delayLoad" }
+                }
+            );
+        }
+
+        public bool checkTransformsAreIdentical(Texture texture)
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[]
+                {
+                    new string[] { this.___guid, "checkTransformsAreIdentical" }, texture
                 }
             );
         }
@@ -825,7 +889,7 @@ __onLoadObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getTextureMatrix" }, uBase
                 }
@@ -836,7 +900,7 @@ __onLoadObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getReflectionTextureMatrix" }
                 }
@@ -847,7 +911,7 @@ __onLoadObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Texture>(
                 entity => new Texture() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "clone" }
                 }
@@ -857,7 +921,7 @@ __onLoadObservable = null;
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "serialize" }
                 }
@@ -867,7 +931,7 @@ __onLoadObservable = null;
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getClassName" }
                 }
@@ -877,7 +941,7 @@ __onLoadObservable = null;
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }
                 }

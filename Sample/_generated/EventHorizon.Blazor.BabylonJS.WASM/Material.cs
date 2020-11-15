@@ -212,6 +212,18 @@ namespace BabylonJS
         }
 
         
+        public static decimal PrePassDirtyFlag
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<decimal>(
+                    "BABYLON",
+                    "Material.PrePassDirtyFlag"
+                );
+            }
+        }
+
+        
         public static decimal AllDirtyFlag
         {
             get
@@ -222,6 +234,78 @@ namespace BabylonJS
                 );
             }
         }
+
+        
+        public static decimal MATERIAL_OPAQUE
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<decimal>(
+                    "BABYLON",
+                    "Material.MATERIAL_OPAQUE"
+                );
+            }
+        }
+
+        
+        public static decimal MATERIAL_ALPHATEST
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<decimal>(
+                    "BABYLON",
+                    "Material.MATERIAL_ALPHATEST"
+                );
+            }
+        }
+
+        
+        public static decimal MATERIAL_ALPHABLEND
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<decimal>(
+                    "BABYLON",
+                    "Material.MATERIAL_ALPHABLEND"
+                );
+            }
+        }
+
+        
+        public static decimal MATERIAL_ALPHATESTANDBLEND
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<decimal>(
+                    "BABYLON",
+                    "Material.MATERIAL_ALPHATESTANDBLEND"
+                );
+            }
+        }
+
+        
+        public static decimal MATERIAL_NORMALBLENDMETHOD_WHITEOUT
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<decimal>(
+                    "BABYLON",
+                    "Material.MATERIAL_NORMALBLENDMETHOD_WHITEOUT"
+                );
+            }
+        }
+
+        
+        public static decimal MATERIAL_NORMALBLENDMETHOD_RNM
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<decimal>(
+                    "BABYLON",
+                    "Material.MATERIAL_NORMALBLENDMETHOD_RNM"
+                );
+            }
+        }
         #endregion
 
         #region Static Methods
@@ -229,7 +313,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Material>(
                 entity => new Material() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "Material", "Parse" }, parsedMaterial, scene, rootUrl
                 }
@@ -238,6 +322,18 @@ namespace BabylonJS
         #endregion
 
         #region Accessors
+        
+        public bool canRenderToMRT
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "canRenderToMRT"
+                );
+            }
+        }
+
         
         public decimal alpha
         {
@@ -329,6 +425,26 @@ namespace BabylonJS
                 );
             }
             return __onUnBindObservable;
+            }
+        }
+
+        private Observable<CachedEntity> __onEffectCreatedObservable;
+        public Observable<CachedEntity> onEffectCreatedObservable
+        {
+            get
+            {
+            if(__onEffectCreatedObservable == null)
+            {
+                __onEffectCreatedObservable = EventHorizonBlazorInterop.GetClass<Observable<CachedEntity>>(
+                    this.___guid,
+                    "onEffectCreatedObservable",
+                    (entity) =>
+                    {
+                        return new Observable<CachedEntity>() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __onEffectCreatedObservable;
             }
         }
 
@@ -469,9 +585,80 @@ namespace BabylonJS
                 );
             }
         }
+
+        
+        public decimal transparencyMode
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<decimal>(
+                    this.___guid,
+                    "transparencyMode"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "transparencyMode",
+                    value
+                );
+            }
+        }
         #endregion
 
         #region Properties
+        private ShadowDepthWrapper __shadowDepthWrapper;
+        public ShadowDepthWrapper shadowDepthWrapper
+        {
+            get
+            {
+            if(__shadowDepthWrapper == null)
+            {
+                __shadowDepthWrapper = EventHorizonBlazorInterop.GetClass<ShadowDepthWrapper>(
+                    this.___guid,
+                    "shadowDepthWrapper",
+                    (entity) =>
+                    {
+                        return new ShadowDepthWrapper() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __shadowDepthWrapper;
+            }
+            set
+            {
+__shadowDepthWrapper = null;
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "shadowDepthWrapper",
+                    value
+                );
+            }
+        }
+
+        
+        public bool allowShaderHotSwapping
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "allowShaderHotSwapping"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "allowShaderHotSwapping",
+                    value
+                );
+            }
+        }
+
         
         public string id
         {
@@ -846,6 +1033,27 @@ __onDisposeObservable = null;
         }
 
         
+        public bool disableColorWrite
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "disableColorWrite"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "disableColorWrite",
+                    value
+                );
+            }
+        }
+
+        
         public bool forceDepthWrite
         {
             get
@@ -950,19 +1158,27 @@ __onDisposeObservable = null;
             }
         }
 
-        
-        public CachedEntity meshMap
+        private AbstractMesh __meshMap;
+        public AbstractMesh meshMap
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            if(__meshMap == null)
+            {
+                __meshMap = EventHorizonBlazorInterop.GetClass<AbstractMesh>(
                     this.___guid,
-                    "meshMap"
+                    "meshMap",
+                    (entity) =>
+                    {
+                        return new AbstractMesh() { ___guid = entity.___guid };
+                    }
                 );
+            }
+            return __meshMap;
             }
             set
             {
-
+__meshMap = null;
                 EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "meshMap",
@@ -994,10 +1210,63 @@ __onDisposeObservable = null;
         #endregion
 
         #region Methods
+        #region customShaderNameResolve TODO: Get Comments as metadata identification
+        private bool _isCustomShaderNameResolveEnabled = false;
+        private readonly IDictionary<string, Func<Task>> _customShaderNameResolveActionMap = new Dictionary<string, Func<Task>>();
+
+        public string customShaderNameResolve(
+            Func<Task> callback
+        )
+        {
+            SetupCustomShaderNameResolveLoop();
+
+            var handle = Guid.NewGuid().ToString();
+            _customShaderNameResolveActionMap.Add(
+                handle,
+                callback
+            );
+
+            return handle;
+        }
+
+        public bool customShaderNameResolve_Remove(
+            string handle
+        )
+        {
+            return _customShaderNameResolveActionMap.Remove(
+                handle
+            );
+        }
+
+        private void SetupCustomShaderNameResolveLoop()
+        {
+            if (_isCustomShaderNameResolveEnabled)
+            {
+                return;
+            }
+            EventHorizonBlazorInterop.FuncCallback(
+                this,
+                "customShaderNameResolve",
+                "CallCustomShaderNameResolveActions",
+                _invokableReference
+            );
+            _isCustomShaderNameResolveEnabled = true;
+        }
+
+        [JSInvokable]
+        public async Task CallCustomShaderNameResolveActions()
+        {
+            foreach (var action in _customShaderNameResolveActionMap.Values)
+            {
+                await action();
+            }
+        }
+        #endregion
+
         public string toString(System.Nullable<bool> fullDetails = null)
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "toString" }, fullDetails
                 }
@@ -1007,7 +1276,7 @@ __onDisposeObservable = null;
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getClassName" }
                 }
@@ -1017,7 +1286,7 @@ __onDisposeObservable = null;
         public void freeze()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "freeze" }
                 }
@@ -1027,7 +1296,7 @@ __onDisposeObservable = null;
         public void unfreeze()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "unfreeze" }
                 }
@@ -1037,17 +1306,17 @@ __onDisposeObservable = null;
         public bool isReady(AbstractMesh mesh = null, System.Nullable<bool> useInstances = null)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "isReady" }, mesh, useInstances
                 }
             );
         }
 
-        public bool isReadyForSubMesh(AbstractMesh mesh, BaseSubMesh subMesh, System.Nullable<bool> useInstances = null)
+        public bool isReadyForSubMesh(AbstractMesh mesh, SubMesh subMesh, System.Nullable<bool> useInstances = null)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "isReadyForSubMesh" }, mesh, subMesh, useInstances
                 }
@@ -1058,7 +1327,7 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getEffect" }
                 }
@@ -1069,7 +1338,7 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Scene>(
                 entity => new Scene() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getScene" }
                 }
@@ -1079,7 +1348,7 @@ __onDisposeObservable = null;
         public bool needAlphaBlending()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "needAlphaBlending" }
                 }
@@ -1089,7 +1358,7 @@ __onDisposeObservable = null;
         public bool needAlphaBlendingForMesh(AbstractMesh mesh)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "needAlphaBlendingForMesh" }, mesh
                 }
@@ -1099,7 +1368,7 @@ __onDisposeObservable = null;
         public bool needAlphaTesting()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "needAlphaTesting" }
                 }
@@ -1110,7 +1379,7 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<BaseTexture>(
                 entity => new BaseTexture() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getAlphaTestTexture" }
                 }
@@ -1120,7 +1389,7 @@ __onDisposeObservable = null;
         public void markDirty()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "markDirty" }
                 }
@@ -1130,7 +1399,7 @@ __onDisposeObservable = null;
         public void bind(Matrix world, Mesh mesh = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "bind" }, world, mesh
                 }
@@ -1140,7 +1409,7 @@ __onDisposeObservable = null;
         public void bindForSubMesh(Matrix world, Mesh mesh, SubMesh subMesh)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "bindForSubMesh" }, world, mesh, subMesh
                 }
@@ -1150,7 +1419,7 @@ __onDisposeObservable = null;
         public void bindOnlyWorldMatrix(Matrix world)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "bindOnlyWorldMatrix" }, world
                 }
@@ -1160,7 +1429,7 @@ __onDisposeObservable = null;
         public void bindSceneUniformBuffer(Effect effect, UniformBuffer sceneUbo)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "bindSceneUniformBuffer" }, effect, sceneUbo
                 }
@@ -1170,7 +1439,7 @@ __onDisposeObservable = null;
         public void bindView(Effect effect)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "bindView" }, effect
                 }
@@ -1180,7 +1449,7 @@ __onDisposeObservable = null;
         public void bindViewProjection(Effect effect)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "bindViewProjection" }, effect
                 }
@@ -1190,7 +1459,7 @@ __onDisposeObservable = null;
         public void unbind()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "unbind" }
                 }
@@ -1211,7 +1480,7 @@ __onDisposeObservable = null;
         public bool hasTexture(BaseTexture texture)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "hasTexture" }, texture
                 }
@@ -1222,7 +1491,7 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Material>(
                 entity => new Material() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "clone" }, name
                 }
@@ -1243,17 +1512,17 @@ __onDisposeObservable = null;
         public void forceCompilation(AbstractMesh mesh, ActionCallback<Material> onCompiled = null, IMaterialCompilationOptions options = null, ActionCallback<string> onError = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "forceCompilation" }, mesh, onCompiled, options, onError
                 }
             );
         }
 
-        public void forceCompilationAsync(AbstractMesh mesh, IMaterialCompilationOptions options = null)
+        public async ValueTask forceCompilationAsync(AbstractMesh mesh, IMaterialCompilationOptions options = null)
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+            await EventHorizonBlazorInterop.Task<CachedEntity>(
+                new object[]
                 {
                     new string[] { this.___guid, "forceCompilationAsync" }, mesh, options
                 }
@@ -1263,9 +1532,19 @@ __onDisposeObservable = null;
         public void markAsDirty(decimal flag)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "markAsDirty" }, flag
+                }
+            );
+        }
+
+        public bool setPrePassRenderer(PrePassRenderer prePassRenderer)
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[]
+                {
+                    new string[] { this.___guid, "setPrePassRenderer" }, prePassRenderer
                 }
             );
         }
@@ -1273,7 +1552,7 @@ __onDisposeObservable = null;
         public void dispose(System.Nullable<bool> forceDisposeEffect = null, System.Nullable<bool> forceDisposeTextures = null, System.Nullable<bool> notBoundToMesh = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }, forceDisposeEffect, forceDisposeTextures, notBoundToMesh
                 }
@@ -1283,7 +1562,7 @@ __onDisposeObservable = null;
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "serialize" }
                 }

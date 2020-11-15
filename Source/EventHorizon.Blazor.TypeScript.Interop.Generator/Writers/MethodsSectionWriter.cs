@@ -41,13 +41,20 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 var type = TypeStatementWriter.Write(
                     methodType
                 );
+                var typeNoModifier = TypeStatementWriter.Write(
+                    methodType,
+                    false
+                );
                 var propertyArguments = string.Empty;
                 var isNotSupported = NotSupportedIdentifier.Identify(
                     method
                 );
-                var isEnum = method.Type.IsEnum;
+                var isTask = method.Type.IsTask;
+                var isEnum = TypeEnumIdentifier.Identify(
+                    method.Type
+                );
                 var isAction = method.Type.Name == GenerationIdentifiedTypes.Action
-                    || (method.Arguments.Take(1).Any(a => a.Type.IsAction));
+                    || (method.Arguments.Take(1).Any(a => a.Type.IsAction && a.Name == "callback"));
 
                 var bodyTemplate = templates.ReturnTypePrimitiveTemplate;
                 var returnTypeContent = templates.InteropFunc;
@@ -64,6 +71,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 var functionGenerics = string.Empty;
                 var genericSection = string.Empty;
                 var whereConstraint = string.Empty;
+                var taskType = TypeStatementWriter.Write(
+                    methodType,
+                    false
+                );
+                var taskAsync = string.Empty;
+                var taskAwait = string.Empty;
 
                 // Argument Generation
                 if (isAction)
@@ -180,6 +193,34 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     returnTypeContent = templates.InteropFuncArray;
                 }
 
+                if (isTask)
+                {
+                    returnTypeContent = templates.InteropTask;
+
+                    if (isClassResponse && isArray)
+                    {
+                        returnTypeContent = templates.InteropTaskArrayClass;
+                    }
+                    else if (isClassResponse
+                        || taskType == GenerationIdentifiedTypes.CachedEntity)
+                    {
+                        returnTypeContent = templates.InteropTaskClass;
+                    }
+                    else if (isArray)
+                    {
+                        returnTypeContent = templates.InteropTaskArray;
+                    }
+
+                    // Change up the taskType if 'void';
+                    if (taskType == GenerationIdentifiedTypes.Void)
+                    {
+                        bodyTemplate = templates.ReturnTypeVoidTemplate;
+                        taskType = GenerationIdentifiedTypes.CachedEntity;
+                        taskAsync = "async ";
+                        taskAwait = "await ";
+                    }
+                }
+
                 if (method.IsStatic)
                 {
                     propertyIdentifier = string.Join(
@@ -217,7 +258,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
 
                     if (isClassResponse
                         && method.GenericTypes.Any(
-                            genericType => genericType == type
+                            genericType => genericType == typeNoModifier
                         )
                     )
                     {
@@ -288,6 +329,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         false
                     )
                 ).Replace(
+                    "[[TASK_TYPE]]",
+                    taskType
+                ).Replace(
                     "[[GENERIC_SECTION]]",
                     genericSection
                 ).Replace(
@@ -313,6 +357,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 ).Replace(
                     "[[FUNCTION_GENERICS]]",
                     functionGenerics
+                ).Replace(
+                    "[[TASK_ASYNC]]",
+                    taskAsync
+                ).Replace(
+                    "[[TASK_AWAIT]]",
+                    taskAwait
                 );
 
                 section.Append(

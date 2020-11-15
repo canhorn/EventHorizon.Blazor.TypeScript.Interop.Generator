@@ -50,7 +50,7 @@ namespace BabylonJS
         public bool importMesh(object meshesNames, Scene scene, object data, string rootUrl, AbstractMesh[] meshes, IParticleSystem[] particleSystems, Skeleton[] skeletons, ActionCallback<string, object> onError = null)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "importMesh" }, meshesNames, scene, data, rootUrl, meshes, particleSystems, skeletons, onError
                 }
@@ -60,7 +60,7 @@ namespace BabylonJS
         public bool load(Scene scene, object data, string rootUrl, ActionCallback<string, object> onError = null)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "load" }, scene, data, rootUrl, onError
                 }
@@ -71,7 +71,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<AssetContainer>(
                 entity => new AssetContainer() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "loadAssetContainer" }, scene, data, rootUrl, onError
                 }

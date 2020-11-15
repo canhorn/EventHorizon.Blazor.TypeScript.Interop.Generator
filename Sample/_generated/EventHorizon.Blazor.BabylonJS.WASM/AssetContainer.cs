@@ -83,63 +83,21 @@ __scene = null;
         #endregion
 
         #region Methods
-        #region instantiateModelsToScene TODO: Get Comments as metadata identification
-        private bool _isInstantiateModelsToSceneEnabled = false;
-        private readonly IDictionary<string, Func<string, Task>> _instantiateModelsToSceneActionMap = new Dictionary<string, Func<string, Task>>();
-
-        public string instantiateModelsToScene(
-            Func<string, Task> callback
-        )
+        public InstantiatedEntries instantiateModelsToScene(ActionCallback<string> nameFunction = null, System.Nullable<bool> cloneMaterials = null)
         {
-            SetupInstantiateModelsToSceneLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _instantiateModelsToSceneActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        public bool instantiateModelsToScene_Remove(
-            string handle
-        )
-        {
-            return _instantiateModelsToSceneActionMap.Remove(
-                handle
+            return EventHorizonBlazorInterop.FuncClass<InstantiatedEntries>(
+                entity => new InstantiatedEntries() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "instantiateModelsToScene" }, nameFunction, cloneMaterials
+                }
             );
         }
-
-        private void SetupInstantiateModelsToSceneLoop()
-        {
-            if (_isInstantiateModelsToSceneEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "instantiateModelsToScene",
-                "CallInstantiateModelsToSceneActions",
-                _invokableReference
-            );
-            _isInstantiateModelsToSceneEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallInstantiateModelsToSceneActions(string sourceName)
-        {
-            foreach (var action in _instantiateModelsToSceneActionMap.Values)
-            {
-                await action(sourceName);
-            }
-        }
-        #endregion
 
         public void addAllToScene()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addAllToScene" }
                 }
@@ -149,7 +107,7 @@ __scene = null;
         public void removeAllFromScene()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removeAllFromScene" }
                 }
@@ -159,7 +117,7 @@ __scene = null;
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }
                 }
@@ -169,7 +127,7 @@ __scene = null;
         public void moveAllFromScene(KeepAssets keepAssets = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "moveAllFromScene" }, keepAssets
                 }
@@ -180,17 +138,18 @@ __scene = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "createRootMesh" }
                 }
             );
         }
 
-        public void mergeAnimationsTo(Animatable[] animatables, Scene scene = null, ActionCallback<CachedEntity> targetConverter = null)
+        public AnimationGroup[] mergeAnimationsTo(Animatable[] animatables, Scene scene = null, ActionCallback<CachedEntity> targetConverter = null)
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+            return EventHorizonBlazorInterop.FuncArrayClass<AnimationGroup>(
+                entity => new AnimationGroup() { ___guid = entity.___guid },
+                new object[]
                 {
                     new string[] { this.___guid, "mergeAnimationsTo" }, scene, animatables, targetConverter
                 }

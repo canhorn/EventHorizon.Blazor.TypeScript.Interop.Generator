@@ -83,7 +83,7 @@ __mesh = null;
         #endregion
         
         #region Constructor
-        public MeshLODLevel() : base() { } 
+        public MeshLODLevel() : base() { }
 
         public MeshLODLevel(
             ICachedEntity entity

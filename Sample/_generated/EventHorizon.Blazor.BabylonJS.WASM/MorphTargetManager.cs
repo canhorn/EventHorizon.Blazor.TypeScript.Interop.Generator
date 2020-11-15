@@ -27,7 +27,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<MorphTargetManager>(
                 entity => new MorphTargetManager() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "MorphTargetManager", "Parse" }, serializationObject, scene
                 }
@@ -199,7 +199,7 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public MorphTargetManager() : base() { } 
+        public MorphTargetManager() : base() { }
 
         public MorphTargetManager(
             ICachedEntity entity
@@ -225,7 +225,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<MorphTarget>(
                 entity => new MorphTarget() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getActiveTarget" }, index
                 }
@@ -236,7 +236,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<MorphTarget>(
                 entity => new MorphTarget() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getTarget" }, index
                 }
@@ -246,7 +246,7 @@ namespace BabylonJS
         public void addTarget(MorphTarget target)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addTarget" }, target
                 }
@@ -256,7 +256,7 @@ namespace BabylonJS
         public void removeTarget(MorphTarget target)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removeTarget" }, target
                 }
@@ -267,7 +267,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<MorphTargetManager>(
                 entity => new MorphTargetManager() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "clone" }
                 }
@@ -277,7 +277,7 @@ namespace BabylonJS
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "serialize" }
                 }
@@ -287,7 +287,7 @@ namespace BabylonJS
         public void synchronize()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "synchronize" }
                 }

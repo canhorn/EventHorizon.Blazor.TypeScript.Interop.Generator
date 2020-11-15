@@ -32,13 +32,18 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     property.Type,
                     property.UsedClassNames
                 );
+                var isLiteral = TypeLiteralIdentifier.Identify(
+                    property.Type
+                );
                 var isArray = ArrayResponseIdentifier.Identify(
                     property.Type
                 );
                 var isNotSupported = NotSupportedIdentifier.Identify(
                     property
                 );
-                var isEnum = property.Type.IsEnum;
+                var isEnum = TypeEnumIdentifier.Identify(
+                    property.Type
+                );
 
                 var template = templates.AccessorWithSetter;
                 var propertyGetterResultType = templates.InteropGet;
@@ -92,6 +97,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     propertyGetterResultType = templates.InteropGetClass;
                     cacheSection = "private [[STATIC]][[TYPE]] __[[CACHE_NAME]];";
                     cacheSetterSection = "__[[CACHE_NAME]] = null;";
+                }
+                else if (isArray && isLiteral)
+                {
+                    propertyGetterResultType = templates.InteropGetArrayClass;
                 }
                 else if (isArray)
                 {

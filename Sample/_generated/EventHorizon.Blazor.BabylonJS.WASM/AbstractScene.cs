@@ -23,42 +23,40 @@ namespace BabylonJS
         #endregion
 
         #region Static Methods
-        public static void AddParser(string name, BabylonFileParser parser)
+        public static void AddParser(string name, ActionCallback<CachedEntity, Scene, AssetContainer, string> parser)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "AbstractScene", "AddParser" }, name, parser
                 }
             );
         }
 
-        public static BabylonFileParser GetParser(string name)
+        public static ActionCallback<CachedEntity, Scene, AssetContainer, string> GetParser(string name)
         {
-            return EventHorizonBlazorInterop.FuncClass<BabylonFileParser>(
-                entity => new BabylonFileParser() { ___guid = entity.___guid },
-                new object[] 
+            return EventHorizonBlazorInterop.Func<ActionCallback<CachedEntity, Scene, AssetContainer, string>>(
+                new object[]
                 {
                     new string[] { "BABYLON", "AbstractScene", "GetParser" }, name
                 }
             );
         }
 
-        public static void AddIndividualParser(string name, IndividualBabylonFileParser parser)
+        public static void AddIndividualParser(string name, ActionCallback<CachedEntity, Scene, string> parser)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "AbstractScene", "AddIndividualParser" }, name, parser
                 }
             );
         }
 
-        public static IndividualBabylonFileParser GetIndividualParser(string name)
+        public static ActionCallback<CachedEntity, Scene, string> GetIndividualParser(string name)
         {
-            return EventHorizonBlazorInterop.FuncClass<IndividualBabylonFileParser>(
-                entity => new IndividualBabylonFileParser() { ___guid = entity.___guid },
-                new object[] 
+            return EventHorizonBlazorInterop.Func<ActionCallback<CachedEntity, Scene, string>>(
+                new object[]
                 {
                     new string[] { "BABYLON", "AbstractScene", "GetIndividualParser" }, name
                 }
@@ -68,7 +66,7 @@ namespace BabylonJS
         public static void Parse(object jsonData, Scene scene, AssetContainer container, string rootUrl)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "AbstractScene", "Parse" }, jsonData, scene, container, rootUrl
                 }
@@ -77,7 +75,34 @@ namespace BabylonJS
         #endregion
 
         #region Accessors
-
+        private BaseTexture __environmentTexture;
+        public BaseTexture environmentTexture
+        {
+            get
+            {
+            if(__environmentTexture == null)
+            {
+                __environmentTexture = EventHorizonBlazorInterop.GetClass<BaseTexture>(
+                    this.___guid,
+                    "environmentTexture",
+                    (entity) =>
+                    {
+                        return new BaseTexture() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __environmentTexture;
+            }
+            set
+            {
+__environmentTexture = null;
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "environmentTexture",
+                    value
+                );
+            }
+        }
         #endregion
 
         #region Properties
@@ -456,30 +481,26 @@ namespace BabylonJS
             }
         }
 
-        private BaseTexture __environmentTexture;
-        public BaseTexture environmentTexture
+        
+        public PostProcess[] postProcesses
         {
             get
             {
-            if(__environmentTexture == null)
-            {
-                __environmentTexture = EventHorizonBlazorInterop.GetClass<BaseTexture>(
+            return EventHorizonBlazorInterop.GetArrayClass<PostProcess>(
                     this.___guid,
-                    "environmentTexture",
+                    "postProcesses",
                     (entity) =>
                     {
-                        return new BaseTexture() { ___guid = entity.___guid };
+                        return new PostProcess() { ___guid = entity.___guid };
                     }
                 );
             }
-            return __environmentTexture;
-            }
             set
             {
-__environmentTexture = null;
+
                 EventHorizonBlazorInterop.Set(
                     this.___guid,
-                    "environmentTexture",
+                    "postProcesses",
                     value
                 );
             }
@@ -487,7 +508,7 @@ __environmentTexture = null;
         #endregion
         
         #region Constructor
-        public AbstractScene() : base() { } 
+        public AbstractScene() : base() { }
 
         public AbstractScene(
             ICachedEntity entity

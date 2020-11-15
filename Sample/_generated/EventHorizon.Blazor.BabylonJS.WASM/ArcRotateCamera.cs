@@ -1132,7 +1132,7 @@ __collisionRadius = null;
         public void setMatUp()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setMatUp" }
                 }
@@ -1196,29 +1196,29 @@ __collisionRadius = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "storeState" }
                 }
             );
         }
 
-        public void attachControl(object element, System.Nullable<bool> noPreventDefault = null, System.Nullable<bool> useCtrlForPanning = null, System.Nullable<decimal> panningMouseButton = null)
+        public void attachControl(System.Nullable<bool> noPreventDefault = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "attachControl" }, element, noPreventDefault, useCtrlForPanning, panningMouseButton
+                    new string[] { this.___guid, "attachControl" }, noPreventDefault
                 }
             );
         }
 
-        public void detachControl(object element)
+        public void detachControl()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "detachControl" }, element
+                    new string[] { this.___guid, "detachControl" }
                 }
             );
         }
@@ -1226,7 +1226,7 @@ __collisionRadius = null;
         public void rebuildAnglesAndRadius()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "rebuildAnglesAndRadius" }
                 }
@@ -1236,7 +1236,7 @@ __collisionRadius = null;
         public void setPosition(Vector3 position)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setPosition" }, position
                 }
@@ -1246,7 +1246,7 @@ __collisionRadius = null;
         public void setTarget(AbstractMesh target, System.Nullable<bool> toBoundingCenter = null, System.Nullable<bool> allowSamePosition = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setTarget" }, target, toBoundingCenter, allowSamePosition
                 }
@@ -1256,7 +1256,7 @@ __collisionRadius = null;
         public void zoomOn(AbstractMesh[] meshes = null, System.Nullable<bool> doNotUpdateMaxZ = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "zoomOn" }, meshes, doNotUpdateMaxZ
                 }
@@ -1266,7 +1266,7 @@ __collisionRadius = null;
         public void focusOn(AbstractMesh[] meshesOrMinMaxVectorAndDistance, System.Nullable<bool> doNotUpdateMaxZ = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "focusOn" }, meshesOrMinMaxVectorAndDistance, doNotUpdateMaxZ
                 }
@@ -1277,7 +1277,7 @@ __collisionRadius = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "createRigCamera" }, name, cameraIndex
                 }
@@ -1287,7 +1287,7 @@ __collisionRadius = null;
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }
                 }
@@ -1297,7 +1297,7 @@ __collisionRadius = null;
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getClassName" }
                 }

@@ -77,7 +77,7 @@ __camera = null;
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getClassName" }
                 }
@@ -87,29 +87,29 @@ __camera = null;
         public string getSimpleName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getSimpleName" }
                 }
             );
         }
 
-        public void attachControl(object element, System.Nullable<bool> noPreventDefault = null)
+        public void attachControl(System.Nullable<bool> noPreventDefault = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "attachControl" }, element, noPreventDefault
+                    new string[] { this.___guid, "attachControl" }, noPreventDefault
                 }
             );
         }
 
-        public void detachControl(CachedEntity element)
+        public void detachControl()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "detachControl" }, element
+                    new string[] { this.___guid, "detachControl" }
                 }
             );
         }

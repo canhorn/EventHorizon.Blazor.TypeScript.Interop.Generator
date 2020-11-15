@@ -26,5 +26,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model
         public string InteropGetClass { get; set; }
         public string InteropGet { get; set; }
         public string InteropSet { get; set; }
+        public string InteropTask { get; set; }
+        public string InteropTaskClass { get; set; }
+        public string InteropTaskArray { get; set; }
+        public string InteropTaskArrayClass { get; set; }
     }
 }

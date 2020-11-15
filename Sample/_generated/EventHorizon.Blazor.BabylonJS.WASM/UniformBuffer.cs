@@ -57,7 +57,7 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public UniformBuffer() : base() { } 
+        public UniformBuffer() : base() { }
 
         public UniformBuffer(
             ICachedEntity entity
@@ -665,7 +665,7 @@ namespace BabylonJS
         public bool isDynamic()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "isDynamic" }
                 }
@@ -686,7 +686,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<DataBuffer>(
                 entity => new DataBuffer() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getBuffer" }
                 }
@@ -696,7 +696,7 @@ namespace BabylonJS
         public void addUniform(string name, decimal size)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addUniform" }, name, size
                 }
@@ -706,7 +706,7 @@ namespace BabylonJS
         public void addMatrix(string name, Matrix mat)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addMatrix" }, name, mat
                 }
@@ -716,7 +716,7 @@ namespace BabylonJS
         public void addFloat2(string name, decimal x, decimal y)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addFloat2" }, name, x, y
                 }
@@ -726,7 +726,7 @@ namespace BabylonJS
         public void addFloat3(string name, decimal x, decimal y, decimal z)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addFloat3" }, name, x, y, z
                 }
@@ -736,7 +736,7 @@ namespace BabylonJS
         public void addColor3(string name, Color3 color)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addColor3" }, name, color
                 }
@@ -746,7 +746,7 @@ namespace BabylonJS
         public void addColor4(string name, Color3 color, decimal alpha)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addColor4" }, name, color, alpha
                 }
@@ -756,7 +756,7 @@ namespace BabylonJS
         public void addVector3(string name, Vector3 vector)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addVector3" }, name, vector
                 }
@@ -766,7 +766,7 @@ namespace BabylonJS
         public void addMatrix3x3(string name)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addMatrix3x3" }, name
                 }
@@ -776,7 +776,7 @@ namespace BabylonJS
         public void addMatrix2x2(string name)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addMatrix2x2" }, name
                 }
@@ -786,7 +786,7 @@ namespace BabylonJS
         public void create()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "create" }
                 }
@@ -796,7 +796,7 @@ namespace BabylonJS
         public void update()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "update" }
                 }
@@ -806,7 +806,7 @@ namespace BabylonJS
         public void updateUniform(string uniformName, decimal[] data, decimal size)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "updateUniform" }, uniformName, data, size
                 }
@@ -816,7 +816,7 @@ namespace BabylonJS
         public void setTexture(string name, BaseTexture texture)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setTexture" }, name, texture
                 }
@@ -826,7 +826,7 @@ namespace BabylonJS
         public void updateUniformDirectly(string uniformName, decimal[] data)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "updateUniformDirectly" }, uniformName, data
                 }
@@ -836,7 +836,7 @@ namespace BabylonJS
         public void bindToEffect(Effect effect, string name)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "bindToEffect" }, effect, name
                 }
@@ -846,7 +846,7 @@ namespace BabylonJS
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }
                 }

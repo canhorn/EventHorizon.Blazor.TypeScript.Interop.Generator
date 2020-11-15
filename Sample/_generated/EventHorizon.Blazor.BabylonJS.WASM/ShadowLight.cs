@@ -257,7 +257,7 @@ __transformedDirection = null;
         public bool computeTransformedInformation()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "computeTransformedInformation" }
                 }
@@ -267,7 +267,7 @@ __transformedDirection = null;
         public decimal getDepthScale()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getDepthScale" }
                 }
@@ -278,7 +278,7 @@ __transformedDirection = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getShadowDirection" }, faceIndex
                 }
@@ -289,7 +289,7 @@ __transformedDirection = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getAbsolutePosition" }
                 }
@@ -300,7 +300,7 @@ __transformedDirection = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setDirectionToTarget" }, target
                 }
@@ -311,7 +311,7 @@ __transformedDirection = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getRotation" }
                 }
@@ -321,7 +321,7 @@ __transformedDirection = null;
         public bool needCube()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "needCube" }
                 }
@@ -331,7 +331,7 @@ __transformedDirection = null;
         public bool needProjectionMatrixCompute()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "needProjectionMatrixCompute" }
                 }
@@ -341,7 +341,7 @@ __transformedDirection = null;
         public void forceProjectionMatrixCompute()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "forceProjectionMatrixCompute" }
                 }
@@ -352,7 +352,7 @@ __transformedDirection = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "computeWorldMatrix" }, force
                 }
@@ -362,7 +362,7 @@ __transformedDirection = null;
         public decimal getDepthMinZ(Camera activeCamera)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getDepthMinZ" }, activeCamera
                 }
@@ -372,7 +372,7 @@ __transformedDirection = null;
         public decimal getDepthMaxZ(Camera activeCamera)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getDepthMaxZ" }, activeCamera
                 }
@@ -383,7 +383,7 @@ __transformedDirection = null;
         {
             return EventHorizonBlazorInterop.FuncClass<IShadowLightCachedEntity>(
                 entity => new IShadowLightCachedEntity() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setShadowProjectionMatrix" }, matrix, viewMatrix, renderList
                 }

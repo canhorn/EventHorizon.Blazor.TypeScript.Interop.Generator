@@ -91,7 +91,16 @@ __color = null;
         {
         }
 
-
+        public Color3Gradient(
+            decimal gradient, Color3 color
+        ) : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "Color3Gradient" },
+                gradient, color
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods

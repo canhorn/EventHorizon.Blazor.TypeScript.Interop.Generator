@@ -190,7 +190,7 @@ __EasingFunction = null;
         public void init()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "init" }
                 }
@@ -200,7 +200,7 @@ __EasingFunction = null;
         public void attach(ArcRotateCamera camera)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "attach" }, camera
                 }
@@ -210,7 +210,7 @@ __EasingFunction = null;
         public void detach()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "detach" }
                 }
@@ -220,7 +220,7 @@ __EasingFunction = null;
         public void stopAllAnimations()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "stopAllAnimations" }
                 }

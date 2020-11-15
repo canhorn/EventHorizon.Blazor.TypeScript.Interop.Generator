@@ -151,7 +151,7 @@ __collidedMesh = null;
         #endregion
         
         #region Constructor
-        public Collider() : base() { } 
+        public Collider() : base() { }
 
         public Collider(
             ICachedEntity entity

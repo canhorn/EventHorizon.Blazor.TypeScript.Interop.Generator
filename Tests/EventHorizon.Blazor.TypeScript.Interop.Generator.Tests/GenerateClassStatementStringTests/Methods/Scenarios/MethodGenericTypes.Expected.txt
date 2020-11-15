@@ -35,7 +35,7 @@ namespace Generic.Properties
         #endregion
         
         #region Constructor
-        public ExampleClass() : base() { } 
+        public ExampleClass() : base() { }
 
         public ExampleClass(
             ICachedEntity entity
@@ -52,7 +52,7 @@ namespace Generic.Properties
         {
             return EventHorizonBlazorInterop.FuncClass<CameraInputsMapCachedEntity<TCamera>>(
                 entity => new CameraInputsMapCachedEntity<TCamera>() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "attached" }
                 }
@@ -63,7 +63,7 @@ namespace Generic.Properties
         {
             return EventHorizonBlazorInterop.FuncClass<Observable<CameraInputsMapCachedEntity>>(
                 entity => new Observable<CameraInputsMapCachedEntity>() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "initWebVR" }
                 }

@@ -48,7 +48,15 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
         )
         {
             var argumentsTemplate = "System.Nullable<[[TYPE]]>[[NAME]][[DEFAULT_VALUE]]";
-            if (typeStatement.IsNullable)
+            if (typeStatement.IsTypeAlias)
+            {
+                return GenericTypeWriter(
+                    typeStatement.AliasType,
+                    usedClassNames,
+                    includeName
+                );
+            }
+            else if (typeStatement.IsNullable)
             {
                 var genericType = typeStatement.GenericTypes.First();
 
@@ -60,6 +68,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         || genericType.IsArray
                         || genericType.IsModifier
                         || genericType.IsAction
+                        || genericType.IsTypeAlias
                         || genericType.Name == GenerationIdentifiedTypes.String
                         || genericType.Name == GenerationIdentifiedTypes.CachedEntity
                     )

@@ -84,7 +84,7 @@ namespace BabylonJS
         public void setEasingMode(decimal easingMode)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setEasingMode" }, easingMode
                 }
@@ -94,7 +94,7 @@ namespace BabylonJS
         public decimal getEasingMode()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getEasingMode" }
                 }
@@ -104,7 +104,7 @@ namespace BabylonJS
         public decimal easeInCore(decimal gradient)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "easeInCore" }, gradient
                 }
@@ -114,7 +114,7 @@ namespace BabylonJS
         public decimal ease(decimal gradient)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "ease" }, gradient
                 }

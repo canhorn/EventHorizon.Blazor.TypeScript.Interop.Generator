@@ -27,9 +27,20 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "AnimationGroup", "Parse" }, parsedAnimationGroup, scene
+                }
+            );
+        }
+
+        public static AnimationGroup MakeAnimationAdditive(AnimationGroup sourceAnimationGroup, System.Nullable<decimal> referenceFrame = null, string range = null, System.Nullable<bool> cloneOriginal = null, string clonedName = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
+                entity => new AnimationGroup() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "AnimationGroup", "MakeAnimationAdditive" }, sourceAnimationGroup, referenceFrame, range, cloneOriginal, clonedName
                 }
             );
         }
@@ -127,6 +138,27 @@ namespace BabylonJS
         }
 
         
+        public bool isAdditive
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "isAdditive"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "isAdditive",
+                    value
+                );
+            }
+        }
+
+        
         public TargetedAnimation[] targetedAnimations
         {
             get
@@ -153,6 +185,22 @@ namespace BabylonJS
                     (entity) =>
                     {
                         return new Animatable() { ___guid = entity.___guid };
+                    }
+                );
+            }
+        }
+
+        
+        public TargetedAnimation[] children
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.GetArrayClass<TargetedAnimation>(
+                    this.___guid,
+                    "children",
+                    (entity) =>
+                    {
+                        return new TargetedAnimation() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -403,7 +451,7 @@ __onAnimationGroupPlayObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<TargetedAnimation>(
                 entity => new TargetedAnimation() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addTargetedAnimation" }, animation, target
                 }
@@ -414,20 +462,20 @@ __onAnimationGroupPlayObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "normalize" }, beginFrame, endFrame
                 }
             );
         }
 
-        public AnimationGroup start(System.Nullable<bool> loop = null, System.Nullable<decimal> speedRatio = null, System.Nullable<decimal> from = null, System.Nullable<decimal> to = null)
+        public AnimationGroup start(System.Nullable<bool> loop = null, System.Nullable<decimal> speedRatio = null, System.Nullable<decimal> from = null, System.Nullable<decimal> to = null, System.Nullable<bool> isAdditive = null)
         {
             return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "start" }, loop, speedRatio, from, to
+                    new string[] { this.___guid, "start" }, loop, speedRatio, from, to, isAdditive
                 }
             );
         }
@@ -436,7 +484,7 @@ __onAnimationGroupPlayObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "pause" }
                 }
@@ -447,7 +495,7 @@ __onAnimationGroupPlayObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "play" }, loop
                 }
@@ -458,7 +506,7 @@ __onAnimationGroupPlayObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "reset" }
                 }
@@ -469,7 +517,7 @@ __onAnimationGroupPlayObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "restart" }
                 }
@@ -480,7 +528,7 @@ __onAnimationGroupPlayObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "stop" }
                 }
@@ -491,7 +539,7 @@ __onAnimationGroupPlayObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setWeightForAllAnimatables" }, weight
                 }
@@ -502,7 +550,7 @@ __onAnimationGroupPlayObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "syncAllAnimationsWith" }, root
                 }
@@ -513,7 +561,7 @@ __onAnimationGroupPlayObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "goToFrame" }, frame
                 }
@@ -523,7 +571,7 @@ __onAnimationGroupPlayObservable = null;
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }
                 }
@@ -534,7 +582,7 @@ __onAnimationGroupPlayObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "clone" }, newName, targetConverter
                 }
@@ -544,7 +592,7 @@ __onAnimationGroupPlayObservable = null;
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "serialize" }
                 }
@@ -554,7 +602,7 @@ __onAnimationGroupPlayObservable = null;
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getClassName" }
                 }
@@ -564,7 +612,7 @@ __onAnimationGroupPlayObservable = null;
         public string toString(System.Nullable<bool> fullDetails = null)
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "toString" }, fullDetails
                 }

@@ -13,6 +13,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             bool ignorePrefix = false
         )
         {
+            if (type.IsTypeAlias 
+                && !type.IsNullable
+                && !type.IsModifier
+                && !type.IsArray
+            )
+            {
+                type = type.AliasType;
+            }
             var name = type.Name;
             var genericTypesAsString = string.Empty;
             // Observer -> PickerInfo -> PickerData
@@ -20,6 +28,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             var standardTemplate = "[[NAME]]";
             var actionVoidTemplate = "ActionCallback";
             var actionTemplate = "ActionCallback<[[GENERIC_TYPES]]>";
+            var taskVoidTemplate = "ValueTask";
+            var taskTemplate = "ValueTask<[[GENERIC_TYPES]]>";
+            var rootTaskTemplate = "[[GENERIC_TYPES]]";
             var standardArrayTemplate = "[[NAME]][]";
             var standardPostfixTemplate = "[[NAME]][[INTERFACE_POSTFIX]]";
             var genericTemplate = "[[NAME]]<[[GENERIC_TYPES]]>";
@@ -74,6 +85,24 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 if (!type.GenericTypes.Any())
                 {
                     template = actionVoidTemplate;
+                }
+            }
+            if (type.IsTask)
+            {
+                template = taskTemplate;
+                if (!includeArraySymbol)
+                {
+                    template = rootTaskTemplate;
+                }
+
+                if (!type.GenericTypes.Any()
+                    || type.GenericTypes.Any(type => type.Name == "void"))
+                {
+                    template = taskVoidTemplate;
+                    if (!includeArraySymbol)
+                    {
+                        template = rootTaskTemplate;
+                    }
                 }
             }
             if (type.IsEnum)

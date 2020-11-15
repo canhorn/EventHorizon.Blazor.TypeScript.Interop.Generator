@@ -27,7 +27,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "Color4", "FromHexString" }, hex
                 }
@@ -38,7 +38,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "Color4", "Lerp" }, left, right, amount
                 }
@@ -48,7 +48,7 @@ namespace BabylonJS
         public static void LerpToRef(Color4 left, Color4 right, decimal amount, Color4 result)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "Color4", "LerpToRef" }, left, right, amount, result
                 }
@@ -59,7 +59,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "Color4", "FromColor3" }, color3, alpha
                 }
@@ -70,9 +70,19 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "Color4", "FromArray" }, array, offset
+                }
+            );
+        }
+
+        public static void FromArrayToRef(decimal[] array, Color4 result, System.Nullable<decimal> offset = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { "BABYLON", "Color4", "FromArrayToRef" }, array, offset, result
                 }
             );
         }
@@ -81,7 +91,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "Color4", "FromInts" }, r, g, b, a
                 }
@@ -190,7 +200,7 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public Color4() : base() { } 
+        public Color4() : base() { }
 
         public Color4(
             ICachedEntity entity
@@ -216,7 +226,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addInPlace" }, right
                 }
@@ -237,9 +247,20 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "toArray" }, array, index
+                }
+            );
+        }
+
+        public Color4 fromArray(decimal[] array, System.Nullable<decimal> offset = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
+                entity => new Color4() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "fromArray" }, array, offset
                 }
             );
         }
@@ -247,7 +268,7 @@ namespace BabylonJS
         public bool equals(Color4 otherColor)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "equals" }, otherColor
                 }
@@ -258,7 +279,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "add" }, right
                 }
@@ -269,7 +290,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "subtract" }, right
                 }
@@ -280,7 +301,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "subtractToRef" }, right, result
                 }
@@ -291,7 +312,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "scale" }, scale
                 }
@@ -302,7 +323,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "scaleToRef" }, scale, result
                 }
@@ -313,7 +334,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "scaleAndAddToRef" }, scale, result
                 }
@@ -324,7 +345,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "clampToRef" }, min, max, result
                 }
@@ -335,7 +356,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "multiply" }, color
                 }
@@ -346,7 +367,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "multiplyToRef" }, color, result
                 }
@@ -356,7 +377,7 @@ namespace BabylonJS
         public string toString()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "toString" }
                 }
@@ -366,7 +387,7 @@ namespace BabylonJS
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getClassName" }
                 }
@@ -376,7 +397,7 @@ namespace BabylonJS
         public decimal getHashCode()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getHashCode" }
                 }
@@ -387,7 +408,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "clone" }
                 }
@@ -398,7 +419,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "copyFrom" }, source
                 }
@@ -409,7 +430,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "copyFromFloats" }, r, g, b, a
                 }
@@ -420,19 +441,19 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "set" }, r, g, b, a
                 }
             );
         }
 
-        public string toHexString()
+        public string toHexString(System.Nullable<bool> returnAsColor3 = null)
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "toHexString" }
+                    new string[] { this.___guid, "toHexString" }, returnAsColor3
                 }
             );
         }
@@ -441,7 +462,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "toLinearSpace" }
                 }
@@ -452,7 +473,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "toLinearSpaceToRef" }, convertedColor
                 }
@@ -463,7 +484,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "toGammaSpace" }
                 }
@@ -474,7 +495,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "toGammaSpaceToRef" }, convertedColor
                 }

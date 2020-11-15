@@ -78,7 +78,7 @@ namespace BabylonJS
         public decimal easeInCore(decimal gradient)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "easeInCore" }, gradient
                 }

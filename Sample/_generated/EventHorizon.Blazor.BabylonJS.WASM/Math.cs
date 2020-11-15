@@ -50,7 +50,7 @@ namespace BabylonJS
         public decimal fround(decimal x)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "fround" }, x
                 }
@@ -60,7 +60,7 @@ namespace BabylonJS
         public decimal imul(decimal a, decimal b)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "imul" }, a, b
                 }

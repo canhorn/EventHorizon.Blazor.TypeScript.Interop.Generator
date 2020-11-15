@@ -27,7 +27,7 @@ namespace Static.Class
         {
             return EventHorizonBlazorInterop.FuncClass<GroundMesh>(
                 entity => new GroundMesh() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "Static", "Class", "ExampleClass", "CreateGroundFromHeightMap" }, name, url, options, scene
                 }
@@ -37,7 +37,7 @@ namespace Static.Class
         public static void ObjectLiteralAsSecondArgument(string options)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { "Static", "Class", "ExampleClass", "ObjectLiteralAsSecondArgument" }, options
                 }
@@ -47,7 +47,7 @@ namespace Static.Class
         public static void ObjectLiteral(object options)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { "Static", "Class", "ExampleClass", "ObjectLiteral" }, options
                 }
@@ -58,7 +58,7 @@ namespace Static.Class
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "Static", "Class", "ExampleClass", "ObjectLiteralFirst" }, meshesOrMinMaxVector
                 }
@@ -75,7 +75,7 @@ namespace Static.Class
         #endregion
         
         #region Constructor
-        public ExampleClass() : base() { } 
+        public ExampleClass() : base() { }
 
         public ExampleClass(
             ICachedEntity entity

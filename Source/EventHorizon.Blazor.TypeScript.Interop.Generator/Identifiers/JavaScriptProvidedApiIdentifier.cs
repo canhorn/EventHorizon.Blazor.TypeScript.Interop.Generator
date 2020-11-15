@@ -16,7 +16,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             jsProvidedApiType = typeAsString;
             if (typeAsString == JavaScriptTypes.Promise)
             {
-                jsProvidedApiType = GenerationIdentifiedTypes.Void;
+                jsProvidedApiType = GenerationIdentifiedTypes.Task;
                 return true;
             }
             else if (typeAsString == JavaScriptTypes.Function)

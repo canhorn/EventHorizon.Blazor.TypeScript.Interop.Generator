@@ -106,7 +106,7 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public DataBuffer() : base() { } 
+        public DataBuffer() : base() { }
 
         public DataBuffer(
             ICachedEntity entity

@@ -96,7 +96,7 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public AnimationEvent() : base() { } 
+        public AnimationEvent() : base() { }
 
         public AnimationEvent(
             ICachedEntity entity

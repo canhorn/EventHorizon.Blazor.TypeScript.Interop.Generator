@@ -108,7 +108,7 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public InstantiatedEntries() : base() { } 
+        public InstantiatedEntries() : base() { }
 
         public InstantiatedEntries(
             ICachedEntity entity

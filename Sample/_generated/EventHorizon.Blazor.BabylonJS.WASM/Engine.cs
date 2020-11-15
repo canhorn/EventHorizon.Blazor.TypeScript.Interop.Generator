@@ -1223,7 +1223,7 @@ __audioEngine = null;
         public static void MarkAllMaterialsAsDirty(decimal flag, ActionCallback<Material> predicate = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "Engine", "MarkAllMaterialsAsDirty" }, flag, predicate
                 }
@@ -1234,7 +1234,7 @@ __audioEngine = null;
         {
             return EventHorizonBlazorInterop.FuncClass<ILoadingScreenCachedEntity>(
                 entity => new ILoadingScreenCachedEntity() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "Engine", "DefaultLoadingScreenFactory" }, canvas
                 }
@@ -1869,7 +1869,7 @@ __onAfterShaderCompilationObservable = null;
         public CachedEntity getInputElement()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getInputElement" }
                 }
@@ -1879,7 +1879,7 @@ __onAfterShaderCompilationObservable = null;
         public decimal getAspectRatio(IViewportOwnerLike viewportOwner, System.Nullable<bool> useScreen = null)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getAspectRatio" }, viewportOwner, useScreen
                 }
@@ -1889,7 +1889,7 @@ __onAfterShaderCompilationObservable = null;
         public decimal getScreenAspectRatio()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getScreenAspectRatio" }
                 }
@@ -1900,7 +1900,7 @@ __onAfterShaderCompilationObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<ClientRect>(
                 entity => new ClientRect() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getRenderingCanvasClientRect" }
                 }
@@ -1911,7 +1911,7 @@ __onAfterShaderCompilationObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<ClientRect>(
                 entity => new ClientRect() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getInputElementClientRect" }
                 }
@@ -1921,7 +1921,7 @@ __onAfterShaderCompilationObservable = null;
         public bool isDeterministicLockStep()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "isDeterministicLockStep" }
                 }
@@ -1931,7 +1931,7 @@ __onAfterShaderCompilationObservable = null;
         public decimal getLockstepMaxSteps()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getLockstepMaxSteps" }
                 }
@@ -1941,7 +1941,7 @@ __onAfterShaderCompilationObservable = null;
         public decimal getTimeStep()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getTimeStep" }
                 }
@@ -1951,7 +1951,7 @@ __onAfterShaderCompilationObservable = null;
         public void generateMipMapsForCubemap(InternalTexture texture, System.Nullable<bool> unbind = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "generateMipMapsForCubemap" }, texture, unbind
                 }
@@ -1961,7 +1961,7 @@ __onAfterShaderCompilationObservable = null;
         public void setState(bool culling, System.Nullable<decimal> zOffset = null, System.Nullable<bool> force = null, System.Nullable<bool> reverseSide = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setState" }, culling, zOffset, force, reverseSide
                 }
@@ -1971,7 +1971,7 @@ __onAfterShaderCompilationObservable = null;
         public void setZOffset(decimal value)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setZOffset" }, value
                 }
@@ -1981,7 +1981,7 @@ __onAfterShaderCompilationObservable = null;
         public decimal getZOffset()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getZOffset" }
                 }
@@ -1991,7 +1991,7 @@ __onAfterShaderCompilationObservable = null;
         public void setDepthBuffer(bool enable)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setDepthBuffer" }, enable
                 }
@@ -2001,7 +2001,7 @@ __onAfterShaderCompilationObservable = null;
         public bool getDepthWrite()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getDepthWrite" }
                 }
@@ -2011,7 +2011,7 @@ __onAfterShaderCompilationObservable = null;
         public void setDepthWrite(bool enable)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setDepthWrite" }, enable
                 }
@@ -2021,7 +2021,7 @@ __onAfterShaderCompilationObservable = null;
         public bool getStencilBuffer()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getStencilBuffer" }
                 }
@@ -2031,7 +2031,7 @@ __onAfterShaderCompilationObservable = null;
         public void setStencilBuffer(bool enable)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setStencilBuffer" }, enable
                 }
@@ -2041,7 +2041,7 @@ __onAfterShaderCompilationObservable = null;
         public decimal getStencilMask()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getStencilMask" }
                 }
@@ -2051,7 +2051,7 @@ __onAfterShaderCompilationObservable = null;
         public void setStencilMask(decimal mask)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setStencilMask" }, mask
                 }
@@ -2061,7 +2061,7 @@ __onAfterShaderCompilationObservable = null;
         public decimal getStencilFunction()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getStencilFunction" }
                 }
@@ -2071,7 +2071,7 @@ __onAfterShaderCompilationObservable = null;
         public decimal getStencilFunctionReference()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getStencilFunctionReference" }
                 }
@@ -2081,7 +2081,7 @@ __onAfterShaderCompilationObservable = null;
         public decimal getStencilFunctionMask()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getStencilFunctionMask" }
                 }
@@ -2091,7 +2091,7 @@ __onAfterShaderCompilationObservable = null;
         public void setStencilFunction(decimal stencilFunc)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setStencilFunction" }, stencilFunc
                 }
@@ -2101,7 +2101,7 @@ __onAfterShaderCompilationObservable = null;
         public void setStencilFunctionReference(decimal reference)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setStencilFunctionReference" }, reference
                 }
@@ -2111,7 +2111,7 @@ __onAfterShaderCompilationObservable = null;
         public void setStencilFunctionMask(decimal mask)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setStencilFunctionMask" }, mask
                 }
@@ -2121,7 +2121,7 @@ __onAfterShaderCompilationObservable = null;
         public decimal getStencilOperationFail()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getStencilOperationFail" }
                 }
@@ -2131,7 +2131,7 @@ __onAfterShaderCompilationObservable = null;
         public decimal getStencilOperationDepthFail()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getStencilOperationDepthFail" }
                 }
@@ -2141,7 +2141,7 @@ __onAfterShaderCompilationObservable = null;
         public decimal getStencilOperationPass()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getStencilOperationPass" }
                 }
@@ -2151,7 +2151,7 @@ __onAfterShaderCompilationObservable = null;
         public void setStencilOperationFail(decimal operation)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setStencilOperationFail" }, operation
                 }
@@ -2161,7 +2161,7 @@ __onAfterShaderCompilationObservable = null;
         public void setStencilOperationDepthFail(decimal operation)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setStencilOperationDepthFail" }, operation
                 }
@@ -2171,7 +2171,7 @@ __onAfterShaderCompilationObservable = null;
         public void setStencilOperationPass(decimal operation)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setStencilOperationPass" }, operation
                 }
@@ -2181,7 +2181,7 @@ __onAfterShaderCompilationObservable = null;
         public void setDitheringState(bool value)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setDitheringState" }, value
                 }
@@ -2191,7 +2191,7 @@ __onAfterShaderCompilationObservable = null;
         public void setRasterizerState(bool value)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setRasterizerState" }, value
                 }
@@ -2201,7 +2201,7 @@ __onAfterShaderCompilationObservable = null;
         public decimal getDepthFunction()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getDepthFunction" }
                 }
@@ -2211,7 +2211,7 @@ __onAfterShaderCompilationObservable = null;
         public void setDepthFunction(decimal depthFunc)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setDepthFunction" }, depthFunc
                 }
@@ -2221,7 +2221,7 @@ __onAfterShaderCompilationObservable = null;
         public void setDepthFunctionToGreater()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setDepthFunctionToGreater" }
                 }
@@ -2231,7 +2231,7 @@ __onAfterShaderCompilationObservable = null;
         public void setDepthFunctionToGreaterOrEqual()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setDepthFunctionToGreaterOrEqual" }
                 }
@@ -2241,7 +2241,7 @@ __onAfterShaderCompilationObservable = null;
         public void setDepthFunctionToLess()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setDepthFunctionToLess" }
                 }
@@ -2251,7 +2251,7 @@ __onAfterShaderCompilationObservable = null;
         public void setDepthFunctionToLessOrEqual()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setDepthFunctionToLessOrEqual" }
                 }
@@ -2261,7 +2261,7 @@ __onAfterShaderCompilationObservable = null;
         public void cacheStencilState()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "cacheStencilState" }
                 }
@@ -2271,7 +2271,7 @@ __onAfterShaderCompilationObservable = null;
         public void restoreStencilState()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "restoreStencilState" }
                 }
@@ -2282,7 +2282,7 @@ __onAfterShaderCompilationObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<IViewportLikeCachedEntity>(
                 entity => new IViewportLikeCachedEntity() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setDirectViewport" }, x, y, width, height
                 }
@@ -2292,7 +2292,7 @@ __onAfterShaderCompilationObservable = null;
         public void scissorClear(decimal x, decimal y, decimal width, decimal height, IColor4Like clearColor)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "scissorClear" }, x, y, width, height, clearColor
                 }
@@ -2302,7 +2302,7 @@ __onAfterShaderCompilationObservable = null;
         public void enableScissor(decimal x, decimal y, decimal width, decimal height)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "enableScissor" }, x, y, width, height
                 }
@@ -2312,7 +2312,7 @@ __onAfterShaderCompilationObservable = null;
         public void disableScissor()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "disableScissor" }
                 }
@@ -2323,7 +2323,7 @@ __onAfterShaderCompilationObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Observable<IDisplayChangedEventArgsCachedEntity>>(
                 entity => new Observable<IDisplayChangedEventArgsCachedEntity>() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "initWebVR" }
                 }
@@ -2333,7 +2333,7 @@ __onAfterShaderCompilationObservable = null;
         public void disableVR()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "disableVR" }
                 }
@@ -2343,7 +2343,7 @@ __onAfterShaderCompilationObservable = null;
         public bool isVRPresenting()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "isVRPresenting" }
                 }
@@ -2353,7 +2353,7 @@ __onAfterShaderCompilationObservable = null;
         public string getVertexShaderSource(WebGLProgram program)
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getVertexShaderSource" }, program
                 }
@@ -2363,7 +2363,7 @@ __onAfterShaderCompilationObservable = null;
         public string getFragmentShaderSource(WebGLProgram program)
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getFragmentShaderSource" }, program
                 }
@@ -2373,7 +2373,7 @@ __onAfterShaderCompilationObservable = null;
         public void setDepthStencilTexture(decimal channel, WebGLUniformLocation uniform, RenderTargetTexture texture)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setDepthStencilTexture" }, channel, uniform, texture
                 }
@@ -2383,7 +2383,7 @@ __onAfterShaderCompilationObservable = null;
         public void setTextureFromPostProcess(decimal channel, PostProcess postProcess)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setTextureFromPostProcess" }, channel, postProcess
                 }
@@ -2393,7 +2393,7 @@ __onAfterShaderCompilationObservable = null;
         public void setTextureFromPostProcessOutput(decimal channel, PostProcess postProcess)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setTextureFromPostProcessOutput" }, channel, postProcess
                 }
@@ -2403,7 +2403,7 @@ __onAfterShaderCompilationObservable = null;
         public void switchFullscreen(bool requestPointerLock)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "switchFullscreen" }, requestPointerLock
                 }
@@ -2413,7 +2413,7 @@ __onAfterShaderCompilationObservable = null;
         public void enterFullscreen(bool requestPointerLock)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "enterFullscreen" }, requestPointerLock
                 }
@@ -2423,7 +2423,7 @@ __onAfterShaderCompilationObservable = null;
         public void exitFullscreen()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "exitFullscreen" }
                 }
@@ -2433,7 +2433,7 @@ __onAfterShaderCompilationObservable = null;
         public void enterPointerlock()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "enterPointerlock" }
                 }
@@ -2443,7 +2443,7 @@ __onAfterShaderCompilationObservable = null;
         public void exitPointerlock()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "exitPointerlock" }
                 }
@@ -2453,7 +2453,7 @@ __onAfterShaderCompilationObservable = null;
         public void beginFrame()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "beginFrame" }
                 }
@@ -2463,7 +2463,7 @@ __onAfterShaderCompilationObservable = null;
         public void endFrame()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "endFrame" }
                 }
@@ -2473,29 +2473,19 @@ __onAfterShaderCompilationObservable = null;
         public void resize()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "resize" }
                 }
             );
         }
 
-        public void setSize(decimal width, decimal height)
+        public bool setSize(decimal width, decimal height)
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[]
                 {
                     new string[] { this.___guid, "setSize" }, width, height
-                }
-            );
-        }
-
-        public void updateDynamicVertexBuffer(DataBuffer vertexBuffer, DataArray data, System.Nullable<decimal> byteOffset = null, System.Nullable<decimal> byteLength = null)
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "updateDynamicVertexBuffer" }, vertexBuffer, data, byteOffset, byteLength
                 }
             );
         }
@@ -2504,7 +2494,7 @@ __onAfterShaderCompilationObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<WebGLProgramCachedEntity>(
                 entity => new WebGLProgramCachedEntity() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "createShaderProgram" }, pipelineContext, vertexCode, fragmentCode, defines, context, transformFeedbackVaryings
                 }
@@ -2514,7 +2504,7 @@ __onAfterShaderCompilationObservable = null;
         public decimal getFps()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getFps" }
                 }
@@ -2524,19 +2514,9 @@ __onAfterShaderCompilationObservable = null;
         public decimal getDeltaTime()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getDeltaTime" }
-                }
-            );
-        }
-
-        public void updateDynamicIndexBuffer(DataBuffer indexBuffer, decimal[] indices, System.Nullable<decimal> offset = null)
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "updateDynamicIndexBuffer" }, indexBuffer, indices, offset
                 }
             );
         }
@@ -2544,7 +2524,7 @@ __onAfterShaderCompilationObservable = null;
         public decimal updateRenderTargetTextureSampleCount(InternalTexture texture, decimal samples)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "updateRenderTargetTextureSampleCount" }, texture, samples
                 }
@@ -2554,7 +2534,7 @@ __onAfterShaderCompilationObservable = null;
         public void updateTextureComparisonFunction(InternalTexture texture, decimal comparisonFunction)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "updateTextureComparisonFunction" }, texture, comparisonFunction
                 }
@@ -2565,7 +2545,7 @@ __onAfterShaderCompilationObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<DataBuffer>(
                 entity => new DataBuffer() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "createInstancesBuffer" }, capacity
                 }
@@ -2575,7 +2555,7 @@ __onAfterShaderCompilationObservable = null;
         public void deleteInstancesBuffer(WebGLBuffer buffer)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "deleteInstancesBuffer" }, buffer
                 }
@@ -2585,7 +2565,7 @@ __onAfterShaderCompilationObservable = null;
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }
                 }
@@ -2595,7 +2575,7 @@ __onAfterShaderCompilationObservable = null;
         public void displayLoadingUI()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "displayLoadingUI" }
                 }
@@ -2605,7 +2585,7 @@ __onAfterShaderCompilationObservable = null;
         public void hideLoadingUI()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "hideLoadingUI" }
                 }

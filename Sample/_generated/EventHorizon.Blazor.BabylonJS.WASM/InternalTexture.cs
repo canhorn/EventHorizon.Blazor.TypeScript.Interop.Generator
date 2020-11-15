@@ -450,7 +450,7 @@ __onLoadedObservable = null;
         #endregion
         
         #region Constructor
-        public InternalTexture() : base() { } 
+        public InternalTexture() : base() { }
 
         public InternalTexture(
             ICachedEntity entity
@@ -476,7 +476,7 @@ __onLoadedObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<ThinEngine>(
                 entity => new ThinEngine() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getEngine" }
                 }
@@ -486,17 +486,17 @@ __onLoadedObservable = null;
         public void incrementReferences()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "incrementReferences" }
                 }
             );
         }
 
-        public void updateSize(int width, int height, System.Nullable<int> depth = null)
+        public void updateSize(decimal width, decimal height, System.Nullable<decimal> depth = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "updateSize" }, width, height, depth
                 }
@@ -506,7 +506,7 @@ __onLoadedObservable = null;
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }
                 }

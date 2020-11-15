@@ -104,14 +104,23 @@ namespace BabylonJS
         {
         }
 
-
+        public FactorGradient(
+            decimal gradient, decimal factor1, System.Nullable<decimal> factor2 = null
+        ) : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "FactorGradient" },
+                gradient, factor1, factor2
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods
         public decimal getFactor()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getFactor" }
                 }

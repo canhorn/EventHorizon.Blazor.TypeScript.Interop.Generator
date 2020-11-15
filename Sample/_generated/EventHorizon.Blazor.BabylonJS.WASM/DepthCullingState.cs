@@ -192,7 +192,7 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public DepthCullingState() : base() { } 
+        public DepthCullingState() : base() { }
 
         public DepthCullingState(
             ICachedEntity entity
@@ -208,7 +208,7 @@ namespace BabylonJS
         public void reset()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "reset" }
                 }
@@ -218,7 +218,7 @@ namespace BabylonJS
         public void apply(WebGLRenderingContext gl)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "apply" }, gl
                 }

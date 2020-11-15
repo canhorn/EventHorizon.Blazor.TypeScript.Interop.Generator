@@ -51,7 +51,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Collider>(
                 entity => new Collider() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "createCollider" }
                 }
@@ -61,7 +61,7 @@ namespace BabylonJS
         public void getNewPosition(Vector3 position, Vector3 displacement, Collider collider, decimal maximumRetry, AbstractMesh excludedMesh, ActionCallback<decimal, Vector3, AbstractMesh> onNewPosition, decimal collisionIndex)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getNewPosition" }, position, displacement, collider, maximumRetry, excludedMesh, onNewPosition, collisionIndex
                 }
@@ -71,7 +71,7 @@ namespace BabylonJS
         public void init(Scene scene)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "init" }, scene
                 }

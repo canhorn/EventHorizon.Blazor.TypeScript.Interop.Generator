@@ -159,7 +159,7 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public RenderTargetCreationOptions() : base() { } 
+        public RenderTargetCreationOptions() : base() { }
 
         public RenderTargetCreationOptions(
             ICachedEntity entity

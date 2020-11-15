@@ -70,7 +70,7 @@ namespace BabylonJS
         public static void PrepareUniforms(string[] uniforms, IImageProcessingConfigurationDefines defines)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "ImageProcessingConfiguration", "PrepareUniforms" }, uniforms, defines
                 }
@@ -80,7 +80,7 @@ namespace BabylonJS
         public static void PrepareSamplers(string[] samplersList, IImageProcessingConfigurationDefines defines)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "ImageProcessingConfiguration", "PrepareSamplers" }, samplersList, defines
                 }
@@ -91,7 +91,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<ImageProcessingConfiguration>(
                 entity => new ImageProcessingConfiguration() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "ImageProcessingConfiguration", "Parse" }, source
                 }
@@ -577,7 +577,7 @@ __onUpdateParameters = null;
         #endregion
         
         #region Constructor
-        public ImageProcessingConfiguration() : base() { } 
+        public ImageProcessingConfiguration() : base() { }
 
         public ImageProcessingConfiguration(
             ICachedEntity entity
@@ -593,7 +593,7 @@ __onUpdateParameters = null;
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getClassName" }
                 }
@@ -603,7 +603,7 @@ __onUpdateParameters = null;
         public void prepareDefines(IImageProcessingConfigurationDefines defines, System.Nullable<bool> forPostProcess = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "prepareDefines" }, defines, forPostProcess
                 }
@@ -613,7 +613,7 @@ __onUpdateParameters = null;
         public bool isReady()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "isReady" }
                 }
@@ -623,7 +623,7 @@ __onUpdateParameters = null;
         public void bind(Effect effect, System.Nullable<decimal> overrideAspectRatio = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "bind" }, effect, overrideAspectRatio
                 }
@@ -634,7 +634,7 @@ __onUpdateParameters = null;
         {
             return EventHorizonBlazorInterop.FuncClass<ImageProcessingConfiguration>(
                 entity => new ImageProcessingConfiguration() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "clone" }
                 }
@@ -644,7 +644,7 @@ __onUpdateParameters = null;
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "serialize" }
                 }

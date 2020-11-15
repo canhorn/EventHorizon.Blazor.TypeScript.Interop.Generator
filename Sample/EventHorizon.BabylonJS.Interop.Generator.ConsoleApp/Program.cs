@@ -58,6 +58,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
                 "PointerInfo",
                 "PointerInfoBase",
                 "SceneLoader",
+                "ParticleHelper",
+                "Sound",
+                "Tools",
             };
 
             // Remove any already Generated Source.

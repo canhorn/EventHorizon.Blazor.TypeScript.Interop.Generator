@@ -96,7 +96,7 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public Observer() : base() { } 
+        public Observer() : base() { }
 
         public Observer(
             ICachedEntity entity
