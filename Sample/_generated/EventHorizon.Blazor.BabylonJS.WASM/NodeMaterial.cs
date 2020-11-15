@@ -240,9 +240,13 @@ __imageProcessingConfiguration = null;
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
-                    "editorData"
+                    "editorData",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
                 );
             }
             set

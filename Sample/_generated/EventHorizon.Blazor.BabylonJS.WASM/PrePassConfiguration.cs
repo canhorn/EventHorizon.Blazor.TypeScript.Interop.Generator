@@ -54,9 +54,13 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
-                    "previousWorldMatrices"
+                    "previousWorldMatrices",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
                 );
             }
             set
@@ -104,9 +108,13 @@ __previousViewProjection = null;
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
-                    "previousBones"
+                    "previousBones",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
                 );
             }
             set

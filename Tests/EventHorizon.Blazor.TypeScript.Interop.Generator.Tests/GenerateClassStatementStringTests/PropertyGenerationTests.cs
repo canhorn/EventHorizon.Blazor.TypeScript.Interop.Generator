@@ -41,6 +41,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
 
         [Theory(DisplayName = "Property.Scenarios")]
         [Trait("Category", "Property.Scenarios")]
+        [InlineData("AnyLiteralPropertyType.ts", "Properties", "Scenarios", "AnyLiteralPropertyType.Expected.txt")]
         [InlineData("ArrayInterfaceResponse.ts", "Properties", "Scenarios", "ArrayInterfaceResponse.Expected.txt")]
         [InlineData("DotNetNormalized.ts", "Properties", "Scenarios", "DotNetNormalized.Expected.txt")]
         [InlineData("PropertyGenericTypes.ts", "Properties", "Scenarios", "PropertyGenericTypes.Expected.txt")]

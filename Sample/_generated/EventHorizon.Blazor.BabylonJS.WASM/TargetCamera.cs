@@ -305,9 +305,13 @@ __rotationQuaternion = null;
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
-                    "lockedTarget"
+                    "lockedTarget",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
                 );
             }
             set

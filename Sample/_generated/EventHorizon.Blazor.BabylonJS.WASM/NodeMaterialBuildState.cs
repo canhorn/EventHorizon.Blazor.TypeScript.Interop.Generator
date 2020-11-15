@@ -141,9 +141,13 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
-                    "functions"
+                    "functions",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
                 );
             }
             set
@@ -162,9 +166,13 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
-                    "extensions"
+                    "extensions",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
                 );
             }
             set
@@ -204,9 +212,13 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
-                    "counters"
+                    "counters",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
                 );
             }
             set

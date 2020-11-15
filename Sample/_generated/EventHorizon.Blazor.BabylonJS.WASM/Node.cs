@@ -9,8 +9,8 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
-
-
+    
+    
     [JsonConverter(typeof(CachedEntityConverter<Node>))]
     public class Node : CachedEntityObject, IBehaviorAware<Node>
     {
@@ -55,15 +55,15 @@ namespace BabylonJS
         #endregion
 
         #region Accessors
-
+        
         public bool doNotSerialize
         {
             get
             {
-                return EventHorizonBlazorInterop.Get<bool>(
-                        this.___guid,
-                        "doNotSerialize"
-                    );
+            return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "doNotSerialize"
+                );
             }
             set
             {
@@ -81,22 +81,22 @@ namespace BabylonJS
         {
             get
             {
-                if (__parent == null)
-                {
-                    __parent = EventHorizonBlazorInterop.GetClass<Node>(
-                        this.___guid,
-                        "parent",
-                        (entity) =>
-                        {
-                            return new Node() { ___guid = entity.___guid };
-                        }
-                    );
-                }
-                return __parent;
+            if(__parent == null)
+            {
+                __parent = EventHorizonBlazorInterop.GetClass<Node>(
+                    this.___guid,
+                    "parent",
+                    (entity) =>
+                    {
+                        return new Node() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __parent;
             }
             set
             {
-                __parent = null;
+__parent = null;
                 EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "parent",
@@ -110,22 +110,22 @@ namespace BabylonJS
         {
             get
             {
-                if (__animationPropertiesOverride == null)
-                {
-                    __animationPropertiesOverride = EventHorizonBlazorInterop.GetClass<AnimationPropertiesOverride>(
-                        this.___guid,
-                        "animationPropertiesOverride",
-                        (entity) =>
-                        {
-                            return new AnimationPropertiesOverride() { ___guid = entity.___guid };
-                        }
-                    );
-                }
-                return __animationPropertiesOverride;
+            if(__animationPropertiesOverride == null)
+            {
+                __animationPropertiesOverride = EventHorizonBlazorInterop.GetClass<AnimationPropertiesOverride>(
+                    this.___guid,
+                    "animationPropertiesOverride",
+                    (entity) =>
+                    {
+                        return new AnimationPropertiesOverride() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __animationPropertiesOverride;
             }
             set
             {
-                __animationPropertiesOverride = null;
+__animationPropertiesOverride = null;
                 EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "animationPropertiesOverride",
@@ -134,19 +134,19 @@ namespace BabylonJS
             }
         }
 
-
+        
         public BehaviorCachedEntity<Node>[] behaviors
         {
             get
             {
-                return EventHorizonBlazorInterop.GetArrayClass<BehaviorCachedEntity<Node>>(
-                        this.___guid,
-                        "behaviors",
-                        (entity) =>
-                        {
-                            return new BehaviorCachedEntity<Node>() { ___guid = entity.___guid };
-                        }
-                    );
+            return EventHorizonBlazorInterop.GetArrayClass<BehaviorCachedEntity<Node>>(
+                    this.___guid,
+                    "behaviors",
+                    (entity) =>
+                    {
+                        return new BehaviorCachedEntity<Node>() { ___guid = entity.___guid };
+                    }
+                );
             }
         }
 
@@ -155,32 +155,32 @@ namespace BabylonJS
         {
             get
             {
-                if (__worldMatrixFromCache == null)
-                {
-                    __worldMatrixFromCache = EventHorizonBlazorInterop.GetClass<Matrix>(
-                        this.___guid,
-                        "worldMatrixFromCache",
-                        (entity) =>
-                        {
-                            return new Matrix() { ___guid = entity.___guid };
-                        }
-                    );
-                }
-                return __worldMatrixFromCache;
+            if(__worldMatrixFromCache == null)
+            {
+                __worldMatrixFromCache = EventHorizonBlazorInterop.GetClass<Matrix>(
+                    this.___guid,
+                    "worldMatrixFromCache",
+                    (entity) =>
+                    {
+                        return new Matrix() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __worldMatrixFromCache;
             }
         }
         #endregion
 
         #region Properties
-
+        
         public string name
         {
             get
             {
-                return EventHorizonBlazorInterop.Get<string>(
-                        this.___guid,
-                        "name"
-                    );
+            return EventHorizonBlazorInterop.Get<string>(
+                    this.___guid,
+                    "name"
+                );
             }
             set
             {
@@ -193,15 +193,15 @@ namespace BabylonJS
             }
         }
 
-
+        
         public string id
         {
             get
             {
-                return EventHorizonBlazorInterop.Get<string>(
-                        this.___guid,
-                        "id"
-                    );
+            return EventHorizonBlazorInterop.Get<string>(
+                    this.___guid,
+                    "id"
+                );
             }
             set
             {
@@ -214,15 +214,15 @@ namespace BabylonJS
             }
         }
 
-
+        
         public decimal uniqueId
         {
             get
             {
-                return EventHorizonBlazorInterop.Get<decimal>(
-                        this.___guid,
-                        "uniqueId"
-                    );
+            return EventHorizonBlazorInterop.Get<decimal>(
+                    this.___guid,
+                    "uniqueId"
+                );
             }
             set
             {
@@ -235,15 +235,15 @@ namespace BabylonJS
             }
         }
 
-
+        
         public string state
         {
             get
             {
-                return EventHorizonBlazorInterop.Get<string>(
-                        this.___guid,
-                        "state"
-                    );
+            return EventHorizonBlazorInterop.Get<string>(
+                    this.___guid,
+                    "state"
+                );
             }
             set
             {
@@ -256,16 +256,19 @@ namespace BabylonJS
             }
         }
 
-
+        
         public CachedEntity metadata
         {
             get
             {
-                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
-                        this.___guid,
-                        "metadata",
-                        entity => new CachedEntity() { ___guid = entity.___guid }
-                    );
+            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                    this.___guid,
+                    "metadata",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
+                );
             }
             set
             {
@@ -278,15 +281,19 @@ namespace BabylonJS
             }
         }
 
-
+        
         public CachedEntity reservedDataStore
         {
             get
             {
-                return EventHorizonBlazorInterop.Get<CachedEntity>(
-                        this.___guid,
-                        "reservedDataStore"
-                    );
+            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                    this.___guid,
+                    "reservedDataStore",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
+                );
             }
             set
             {
@@ -299,19 +306,19 @@ namespace BabylonJS
             }
         }
 
-
+        
         public IInspectableCachedEntity[] inspectableCustomProperties
         {
             get
             {
-                return EventHorizonBlazorInterop.GetArrayClass<IInspectableCachedEntity>(
-                        this.___guid,
-                        "inspectableCustomProperties",
-                        (entity) =>
-                        {
-                            return new IInspectableCachedEntity() { ___guid = entity.___guid };
-                        }
-                    );
+            return EventHorizonBlazorInterop.GetArrayClass<IInspectableCachedEntity>(
+                    this.___guid,
+                    "inspectableCustomProperties",
+                    (entity) =>
+                    {
+                        return new IInspectableCachedEntity() { ___guid = entity.___guid };
+                    }
+                );
             }
             set
             {
@@ -324,19 +331,19 @@ namespace BabylonJS
             }
         }
 
-
+        
         public Animation[] animations
         {
             get
             {
-                return EventHorizonBlazorInterop.GetArrayClass<Animation>(
-                        this.___guid,
-                        "animations",
-                        (entity) =>
-                        {
-                            return new Animation() { ___guid = entity.___guid };
-                        }
-                    );
+            return EventHorizonBlazorInterop.GetArrayClass<Animation>(
+                    this.___guid,
+                    "animations",
+                    (entity) =>
+                    {
+                        return new Animation() { ___guid = entity.___guid };
+                    }
+                );
             }
             set
             {
@@ -349,15 +356,15 @@ namespace BabylonJS
             }
         }
 
-
+        
         public ActionCallback<Node> onReady
         {
             get
             {
-                return EventHorizonBlazorInterop.Get<ActionCallback<Node>>(
-                        this.___guid,
-                        "onReady"
-                    );
+            return EventHorizonBlazorInterop.Get<ActionCallback<Node>>(
+                    this.___guid,
+                    "onReady"
+                );
             }
             set
             {
@@ -375,22 +382,22 @@ namespace BabylonJS
         {
             get
             {
-                if (__onDisposeObservable == null)
-                {
-                    __onDisposeObservable = EventHorizonBlazorInterop.GetClass<Observable<Node>>(
-                        this.___guid,
-                        "onDisposeObservable",
-                        (entity) =>
-                        {
-                            return new Observable<Node>() { ___guid = entity.___guid };
-                        }
-                    );
-                }
-                return __onDisposeObservable;
+            if(__onDisposeObservable == null)
+            {
+                __onDisposeObservable = EventHorizonBlazorInterop.GetClass<Observable<Node>>(
+                    this.___guid,
+                    "onDisposeObservable",
+                    (entity) =>
+                    {
+                        return new Observable<Node>() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __onDisposeObservable;
             }
             set
             {
-                __onDisposeObservable = null;
+__onDisposeObservable = null;
                 EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "onDisposeObservable",
@@ -399,7 +406,7 @@ namespace BabylonJS
             }
         }
         #endregion
-
+        
         #region Constructor
         public Node() : base() { }
 

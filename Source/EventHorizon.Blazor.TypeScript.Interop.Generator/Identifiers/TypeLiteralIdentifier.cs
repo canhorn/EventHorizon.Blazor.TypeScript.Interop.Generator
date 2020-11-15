@@ -35,12 +35,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     );
                 }
             }
-            else if (type.IsTypeAlias)
-            {
-                return Identify(
-                    type.AliasType
-                );
-            }
             return type.IsLiteral;
         }
     }

@@ -46,9 +46,13 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     "BABYLON",
-                    "AbstractActionManager.Triggers"
+                    "AbstractActionManager.Triggers",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
                 );
             }
             set

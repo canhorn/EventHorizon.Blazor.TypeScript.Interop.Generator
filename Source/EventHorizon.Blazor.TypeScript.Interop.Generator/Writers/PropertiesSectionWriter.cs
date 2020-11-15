@@ -106,6 +106,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 {
                     propertyGetterResultType = templates.InteropGetArray;
                 }
+                else if(isLiteral && property.Type.Name == GenerationIdentifiedTypes.CachedEntity)
+                {
+                    propertyGetterResultType = templates.InteropGetClass;
+                }
 
                 if (isNotSupported)
                 {
