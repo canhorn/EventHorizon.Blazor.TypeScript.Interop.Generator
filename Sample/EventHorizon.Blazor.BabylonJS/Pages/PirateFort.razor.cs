@@ -163,9 +163,12 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
             );
 
             //load particle system from the snippet server and set the emitter to the particleEmitter. Set its stopDuration.
+            var baseurl = Tools.BaseUrl;
             var smokeBlast = await ParticleHelper.CreateFromSnippetAsync(
                 "LCBQ5Y#6",
-                scene
+                scene,
+                false,
+                ParticleHelper.SnippetUrl
             );
             smokeBlast.emitter = particleEmitter;
             smokeBlast.targetStopDuration = 0.2m;
@@ -278,16 +281,6 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
                     return Task.CompletedTask;
                 }
                 var pickResult = pointerInfo.pickInfo;
-                var name = pickResult.pickedMesh.name;
-                Console.WriteLine(name);
-                foreach (var item in cannonAnimationPairings)
-                {
-                    Console.WriteLine(item.Key);
-                }
-                foreach (var item in cannonReadyToPlay)
-                {
-                    Console.WriteLine(item.Key);
-                }
                 //check if a mesh was picked and if that mesh has specific metadata
                 if (pickResult.pickedMesh != null
                     && pickResult.pickedMesh.metadata != null)
@@ -299,11 +292,11 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
                     }
                     //find the top level parent (necessary since the cannon is an extra layer below the clone root)
                     var topParent = pickResult.pickedMesh.parent;
-                    if (topParent.parent != null)
+                    if (topParent.parent != null 
+                        && topParent.parent.name != null)
                     {
                         topParent = topParent.parent;
                     }
-
                     //wrap all 'play' elements into a check to make sure the cannon can be played.
                     if (cannonReadyToPlay[topParent.name] == 1)
                     {
@@ -331,7 +324,7 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
                         {
                             for (var j = 0; j < childMeshes.Length; j++)
                             {
-                                if (childMeshes[j] == smokeBlasts[i].emitter)
+                                if (childMeshes[j].___guid == smokeBlasts[i].emitter.___guid)
                                 {
                                     smokeBlasts[i].start();
                                 }
@@ -397,306 +390,6 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
             ));
 
             _engine = engine;
-        }
-
-        public void CreateScene()
-        {
-            var canvas = Canvas.GetElementById(
-                "game-window"
-            );
-            var engine = new Engine(
-                canvas,
-                true
-            );
-            // This creates a basic Babylon Scene object (non-mesh)
-            _scene = new Scene(
-                engine
-            );
-            _scene.clearColor = new Color4(
-                0.31m,
-                0.48m,
-                0.64m,
-                1.0m
-            );
-
-            //add an arcRotateCamera to the scene
-            var camera = new ArcRotateCamera(
-                "ArcRotateCamera",
-                (decimal)(System.Math.PI / 2),
-                (decimal)(System.Math.PI / 4),
-                25,
-                new Vector3(0, 3, 0),
-                _scene
-            )
-            {
-                lowerRadiusLimit = 10,
-                upperRadiusLimit = 40,
-            };
-
-            // This attaches the camera to the canvas
-            camera.attachControl(true);
-
-            // weakmap for holding the canons
-
-            var pirateFortImport = SceneLoader.ImportMesh(
-                "",
-                "https://models.babylonjs.com/pirateFort/",
-                "pirateFort.glb",
-                _scene,
-                onSuccess: new ActionCallback<AbstractMesh[], IParticleSystem[], Skeleton[], AnimationGroup[], TransformNode[], Geometry[], Light[]>(
-                    async (meshList, _, __, ___, ____, _____, ______) =>
-                    {
-                        meshList[0].name = "pirateFort";
-                        _scene.getMeshByName("sea").material.needDepthPrePass = true;
-                        _scene.getLightByName("Sun").intensity = 12;
-
-                        _pirateFortLoaded = true;
-                        await CheckLoadStatus();
-                    }
-                )
-            );
-
-            //Load the cannon model and create clones
-            var cannonImportResult = SceneLoader.ImportMesh(
-                "",
-                "https://models.babylonjs.com/pirateFort/",
-                "cannon.glb",
-                _scene,
-                onSuccess: new ActionCallback<AbstractMesh[], IParticleSystem[], Skeleton[], AnimationGroup[], TransformNode[], Geometry[], Light[]>(
-                    async (meshList, _, __, cannonAnimationGroups, ___, ____, _____) =>
-                    {
-                        //remove the top level root node
-                        _cannon = meshList[0].getChildMeshes()[0];
-                        _cannon.setParent(null);
-                        meshList[0].dispose();
-
-                        _importedAnimGroups = cannonAnimationGroups;
-
-                        _cannonLoaded = true;
-                        await CheckLoadStatus();
-                    }
-                )
-            );
-
-
-
-
-
-            //var light0 = new PointLight(
-            //    "Omni",
-            //    new Vector3(
-            //        0,
-            //        100,
-            //        8
-            //    ),
-            //    scene
-            //);
-            //var light1 = new HemisphericLight(
-            //    "HemisphericLight",
-            //    new Vector3(
-            //        0,
-            //        100,
-            //        8
-            //    ),
-            //    scene
-            //);
-            //var advancedTexture = AdvancedDynamicTexture.CreateFullscreenUI("UI");
-            //var UiPanel = new StackPanel("name")
-            //{
-            //    width = "220px",
-            //    fontSize = "14px",
-            //    horizontalAlignment = Control.HORIZONTAL_ALIGNMENT_RIGHT,
-            //    verticalAlignment = Control.VERTICAL_ALIGNMENT_CENTER
-            //};
-            //advancedTexture.addControl(UiPanel);
-
-            //var house = SceneLoader.ImportMesh(
-            //    null,
-            //    "assets/",
-            //    "Player.glb",
-            //    scene,
-            //    new Interop.Callbacks.ActionCallback<AbstractMesh[], IParticleSystem[], Skeleton[], AnimationGroup[]>((arg1, arg2, arg3, arg4) =>
-            //    {
-            //        foreach (var animation in arg4)
-            //        {
-            //            animation.stop();
-            //            _animationMap.Add(animation.name, animation);
-            //            AddRunAnimationButton(
-            //                UiPanel,
-            //                animation.name
-            //            );
-            //        }
-            //        if(_animationMap.Count > 0)
-            //        {
-            //            _runningAnimation = _animationMap.First().Value;
-            //            _runningAnimation.start(true);
-            //        }
-            //        return Task.CompletedTask;
-            //    })
-            //);
-            //scene.activeCamera = camera;
-            //camera.attachControl(
-            //    canvas,
-            //    false
-            //);
-
-
-            engine.runRenderLoop(new ActionCallback(
-                () => Task.Run(() => _scene.render(true, false))
-            ));
-
-            _engine = engine;
-        }
-
-        private async Task CheckLoadStatus()
-        {
-            if (!_pirateFortLoaded
-                || !_cannonLoaded)
-            {
-                return;
-            }
-
-            //loop through all imported animation groups and copy the animation curve data to an array.
-            var animations = new List<Animation>();
-            for (var i = 0; i < _importedAnimGroups.Length; i++)
-            {
-                _importedAnimGroups[i].stop();
-                animations.Add(
-                    _importedAnimGroups[i].targetedAnimations[0].animation
-                );
-                _importedAnimGroups[i].dispose();
-            }
-
-            //create a new animation group and add targeted animations based on copied curve data from the "animations" array.
-            var cannonAnimGroup = new AnimationGroup("cannonAnimGroup");
-            cannonAnimGroup.addTargetedAnimation(
-                animations[0],
-                _cannon.getChildMeshes()[1]
-            );
-            cannonAnimGroup.addTargetedAnimation(
-                animations[1],
-                _cannon.getChildMeshes()[0]
-            );
-
-            //create a box for particle emission, position it at the muzzle of the cannon, turn off visibility and parent it to the cannon mesh
-            var particleEmitter = MeshBuilder.CreateBox(
-                "particleEmitter",
-                new
-                {
-                    size = 0.05
-                },
-                _scene
-            );
-            particleEmitter.position = new Vector3(0, 0.76m, 1.05m);
-            //particleEmitter.rotation.x = Tools.ToRadians(78.5);
-            particleEmitter.rotation.x = ConvertToRadians(78.5);
-            particleEmitter.isVisible = false;
-            particleEmitter.setParent(
-                _cannon.getChildMeshes()[1]
-            );
-
-            ////load particle system from the snippet server and set the emitter to the particleEmitter. Set its stopDuration.
-            //var smokeBlast = await ParticleHelper.CreateFromSnippet(
-            //    "LCBQ5Y#6",
-            //    _scene
-            //);
-            //smokeBlast.emitter = particleEmitter;
-            //smokeBlast.targetStopDuration = 0.2;
-
-            ////load a cannon blast sound
-            //var cannonBlastSound = new Sound(
-            //    "music", 
-            //    "https://assets.babylonjs.com/sound/cannonBlast.mp3", 
-            //    _scene
-            //);
-
-            ////position and rotation data for the placement of the cannon clones
-            //var cannonPositionArray = new Vector3[][]
-            //{
-            //    new Vector3[] { new Vector3(0.97m, 5.52m, 1.79m), new Vector3(ConvertToRadians(0), ConvertToRadians(0), ConvertToRadians(180)) }
-            //};
-
-
-            ////[new Vector3(0.97, 5.52, 1.79), new Vector3(Tools.ToRadians(0), Tools.ToRadians(0), Tools.ToRadians(180))],
-
-
-
-            ////            [new Vector3(1.08, 2.32, 3.05), new Vector3(Tools.ToRadians(0), Tools.ToRadians(0), Tools.ToRadians(180))],
-
-
-            ////            [new Vector3(1.46, 2.35, -0.73), new Vector3(Tools.ToRadians(0), Tools.ToRadians(90), Tools.ToRadians(180))],
-
-
-            ////            [new Vector3(1.45, 5.52, -1.66), new Vector3(Tools.ToRadians(0), Tools.ToRadians(90), Tools.ToRadians(180))],
-
-
-            ////            [new Vector3(1.49, 8.69, -0.35), new Vector3(Tools.ToRadians(0), Tools.ToRadians(90), Tools.ToRadians(180))],
-
-
-            ////            [new Vector3(-1.37, 8.69, -0.39), new Vector3(Tools.ToRadians(0), Tools.ToRadians(-90), Tools.ToRadians(180))],
-
-
-            ////            [new Vector3(0.58, 4, -2.18), new Vector3(Tools.ToRadians(0), Tools.ToRadians(180), Tools.ToRadians(180))],
-
-
-            ////            [new Vector3(1.22, 8.69, -2.5), new Vector3(Tools.ToRadians(0), Tools.ToRadians(180), Tools.ToRadians(180))],
-
-
-            ////            [new Vector3(-1.31, 2.33, -2.45), new Vector3(Tools.ToRadians(0), Tools.ToRadians(180), Tools.ToRadians(180))],
-
-
-            ////            [new Vector3(-3.54, 5.26, -2.12), new Vector3(Tools.ToRadians(0), Tools.ToRadians(-90), Tools.ToRadians(180))]
-            ////];
-
-            ////create 10 cannon clones, each with unique position/rotation data. Note that particle systems are cloned with parent meshes
-            ////also create 10 new animation groups with targeted animations applied to the newly cloned meshes
-            //for (var i = 0; i < cannonPositionArray.Length; i++)
-            //{
-            //    var cannonClone = _cannon.clone("cannonClone" + i, null);
-            //    cannonClone.position = cannonPositionArray[i][0];
-            //    cannonClone.rotation = cannonPositionArray[i][1];
-
-            //    // get child meshes now for fast referencing
-            //    var childMeshes = cannonClone.getChildMeshes();
-
-            //    // create animation group
-            //    var animationGroup = new AnimationGroup("cannonAnimGroupClone" + i);
-            //    animationGroup.addTargetedAnimation(cannonAnimGroup.targetedAnimations[0].animation, childMeshes[1]);
-            //    animationGroup.addTargetedAnimation(cannonAnimGroup.targetedAnimations[1].animation, childMeshes[0]);
-
-            //    // find smoke blast emitter by looping through all child meshes and match it with the emitter of the particle system
-            //    smokeBlast = _scene.particleSystems.First(
-            //        smokeBlast => childMeshes.Any(
-            //            childMesh => childMesh == smokeBlast.emitter
-            //        )
-            //    );
-            //    // stop system from playing.
-            //    smokeBlast.stop();
-
-            //    // add a sound refence (for different sounds, pitches etc in the future)
-            //    var sound = cannonBlastSound;
-
-            //    //store a key/value pair of each clone name and the name of the associated animation group.
-            //    _cannons.Add(
-            //        cannonClone.GetHashCode(), new
-            //    {
-            //        animationGroup,
-            //        smokeBlast,
-            //        sound
-            //    });
-            //}
-
-            ////dispose of the original cannon, animation group, and particle system
-            //_cannon.dispose();
-            //cannonAnimGroup.dispose();
-            //smokeBlast.dispose();
-        }
-
-        public decimal ConvertToRadians(
-            double angle
-        )
-        {
-            return (decimal)((System.Math.PI / 180) * angle);
         }
     }
 
