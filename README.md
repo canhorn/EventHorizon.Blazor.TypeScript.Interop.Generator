@@ -39,6 +39,7 @@ Property | You can get or set properties supplied by the object. | ```var isDisa
 Property | You can ***set*** properties supplied by created objects. | ```engine.disableManifestCheck = true``` | :heavy_check_mark:
 Static Property | You can ***get*** ***Static*** properties of a Class. | ```var isDisabled = Engine.ALPHA_DISABLE``` | :heavy_check_mark:
 Method | You can call a ***method*** supplied by an object. | ```var ratio = engine.getScreenAspectRatio()``` | :heavy_check_mark:
+Async Methods | You can call a ***Task*** ***method*** and await the result. | ```var ratio = await SceneLoader.LoadSceneAsync(...)``` | :heavy_check_mark:
 Static Method | You can call a ***Static*** ***method*** provided by a Class. | ```engine.DefaultLoadingScreenFactory(canvas)``` | :heavy_check_mark:
 Callback Method | You can supply a callback action to a ***method*** supplied by an object. | ```observer.add(() => doSomething())``` | :heavy_check_mark:
 Static Callback Method | You can call a ***Static*** ***method*** provided by a Class. | ```Engine.AudioEngineFactory()``` | :heavy_check_mark:
@@ -48,10 +49,6 @@ Action Callback | You can run Async based code. | ```meshLoader.OnSuccess(new Ac
 Action Callback in Literal | You can run Async based code. | ```new HeightMapMesh({ onReady = new ActionCallback<Mesh>(mesh => { return Task.CompletedTask; }) })``` | :heavy_check_mark:
 
 Notes on the framework, it might not have the exact API supplied by a TypeScript definition file, in that it might transform the API into something more general and friendly to C#. I used C# as my main source of inspiration for the generated code.
-
-## Future Planned Work
-
-- [ ] Promise Result Types -> Ability to async/await Promised response typed Methods.
 
 ## Example
 
