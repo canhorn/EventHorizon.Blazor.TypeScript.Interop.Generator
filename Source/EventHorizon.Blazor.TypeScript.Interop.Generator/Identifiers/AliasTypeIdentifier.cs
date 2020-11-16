@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 using Sdcb.TypeScript;
 using Sdcb.TypeScript.TsTypes;
 
@@ -11,10 +10,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
     {
         bool Identify(
             string identifierString,
-            TypeScriptAST ast
-        );
-        bool Identify(
-            TypeStatement type,
             TypeScriptAST ast
         );
     }
@@ -40,17 +35,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 ast
             );
         }
-
-        public static bool Identify(
-            TypeStatement type,
-            TypeScriptAST ast
-        )
-        {
-            return ACTIVE.Identify(
-                type,
-                ast
-            );
-        }
     }
 
     public class AliasTypeIdentifierNotCached
@@ -66,28 +50,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             ).Any(
                 child => child.IdentifierStr == identifierString
                     && child.IdentifierStr != JavaScriptTypes.Nullable
-            );
-        }
-
-        public virtual bool Identify(
-            TypeStatement type,
-            TypeScriptAST ast
-        )
-        {
-            var identifierString = type.Name;
-            if (type.IsModifier
-                || type.IsArray
-                || type.IsNullable
-            )
-            {
-                if (type.GenericTypes.Any())
-                {
-                    identifierString = type.GenericTypes.First().Name;
-                }
-            }
-            return Identify(
-                identifierString,
-                ast
             );
         }
     }
@@ -120,17 +82,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 _isCachedSetup = true;
             }
             return _cache.Contains(identifierString);
-        }
-
-        public override bool Identify(
-            TypeStatement type,
-            TypeScriptAST ast
-        )
-        {
-            return base.Identify(
-                type,
-                ast
-            );
         }
     }
 }
