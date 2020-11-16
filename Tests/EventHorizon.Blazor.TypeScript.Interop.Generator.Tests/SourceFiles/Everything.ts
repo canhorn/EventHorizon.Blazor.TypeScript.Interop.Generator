@@ -1,4 +1,8 @@
+
 declare module BABYLON.GUI {
+    export type Nullable<T> = T | null;
+    export type Vector3 = { x: number; };
+    export class AbstractMesh { }
     export class Otherthing { }
     export interface IDisposable { }
     export interface IInterfaceResponseType { }
@@ -16,6 +20,7 @@ declare module BABYLON.GUI {
         static readonly LogLevels: number[];
         static readonly Vector3LogLevel: Vector3;
         static readonly Vector3List: Vector3[];
+        static readonly Vector3Promise: Promise<Vector3>;
 
         // Static Methods
         static makeObserverTopPriority(observer: Observer<T>): void; // No Return Type
@@ -37,6 +42,8 @@ declare module BABYLON.GUI {
         set text(value: string);
         get style(): BABYLON.Nullable<Style>;
         set style(value: BABYLON.Nullable<Style>);
+        get surroundingMeshes(): Nullable<AbstractMesh[]>;
+        set surroundingMeshes(meshes: Nullable<AbstractMesh[]>);
 
         // Properties
         num: number;
@@ -77,5 +84,7 @@ declare module BABYLON.GUI {
         nullableClassStyle(): Nullable<Style>;
         nullableGenericNumber(): Nullable<number>;
         orderNullArguments(scene: Scene | null | undefined, animatables: Animatable[], targetConverter?: Nullable<(target: any) => Nullable<Node>>): void;
+        literalTypesMethod(scene: { name: string }, animatables: Nullable<{ name: string }>, targetConverter?: Array<{ node: Node }>): Promise<{ name: string }>;
+        promiseTyped(): Promise<Array<Node>>;
     }
 }
