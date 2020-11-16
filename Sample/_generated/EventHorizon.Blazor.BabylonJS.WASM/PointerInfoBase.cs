@@ -83,7 +83,7 @@ __event = null;
         #endregion
         
         #region Constructor
-        public PointerInfoBase() : base() { } 
+        public PointerInfoBase() : base() { }
 
         public PointerInfoBase(
             ICachedEntity entity

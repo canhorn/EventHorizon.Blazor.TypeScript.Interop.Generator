@@ -112,7 +112,7 @@ __camera = null;
         #endregion
         
         #region Constructor
-        public RenderingGroupInfo() : base() { } 
+        public RenderingGroupInfo() : base() { }
 
         public RenderingGroupInfo(
             ICachedEntity entity

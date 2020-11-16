@@ -168,7 +168,7 @@ __onChangedObservable = null;
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }
                 }

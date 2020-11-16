@@ -161,19 +161,19 @@ namespace BabylonJS
             }
         }
 
-        private Observable<AudioEngine> __onAudioUnlockedObservable;
-        public Observable<AudioEngine> onAudioUnlockedObservable
+        private Observable<IAudioEngineCachedEntity> __onAudioUnlockedObservable;
+        public Observable<IAudioEngineCachedEntity> onAudioUnlockedObservable
         {
             get
             {
             if(__onAudioUnlockedObservable == null)
             {
-                __onAudioUnlockedObservable = EventHorizonBlazorInterop.GetClass<Observable<AudioEngine>>(
+                __onAudioUnlockedObservable = EventHorizonBlazorInterop.GetClass<Observable<IAudioEngineCachedEntity>>(
                     this.___guid,
                     "onAudioUnlockedObservable",
                     (entity) =>
                     {
-                        return new Observable<AudioEngine>() { ___guid = entity.___guid };
+                        return new Observable<IAudioEngineCachedEntity>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -190,19 +190,19 @@ __onAudioUnlockedObservable = null;
             }
         }
 
-        private Observable<AudioEngine> __onAudioLockedObservable;
-        public Observable<AudioEngine> onAudioLockedObservable
+        private Observable<IAudioEngineCachedEntity> __onAudioLockedObservable;
+        public Observable<IAudioEngineCachedEntity> onAudioLockedObservable
         {
             get
             {
             if(__onAudioLockedObservable == null)
             {
-                __onAudioLockedObservable = EventHorizonBlazorInterop.GetClass<Observable<AudioEngine>>(
+                __onAudioLockedObservable = EventHorizonBlazorInterop.GetClass<Observable<IAudioEngineCachedEntity>>(
                     this.___guid,
                     "onAudioLockedObservable",
                     (entity) =>
                     {
-                        return new Observable<AudioEngine>() { ___guid = entity.___guid };
+                        return new Observable<IAudioEngineCachedEntity>() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -236,7 +236,7 @@ __onAudioLockedObservable = null;
         public void @lock()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "@lock" }
                 }
@@ -246,9 +246,39 @@ __onAudioLockedObservable = null;
         public void @unlock()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "@unlock" }
+                }
+            );
+        }
+
+        public decimal getGlobalVolume()
+        {
+            return EventHorizonBlazorInterop.Func<decimal>(
+                new object[]
+                {
+                    new string[] { this.___guid, "getGlobalVolume" }
+                }
+            );
+        }
+
+        public void setGlobalVolume(decimal newVolume)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "setGlobalVolume" }, newVolume
+                }
+            );
+        }
+
+        public void connectToAnalyser(Analyser analyser)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "connectToAnalyser" }, analyser
                 }
             );
         }

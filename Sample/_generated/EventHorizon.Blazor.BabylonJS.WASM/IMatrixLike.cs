@@ -32,11 +32,11 @@ namespace BabylonJS
 
         #region Properties
         
-        public int updateFlag
+        public decimal updateFlag
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<int>(
+            return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "updateFlag"
                 );

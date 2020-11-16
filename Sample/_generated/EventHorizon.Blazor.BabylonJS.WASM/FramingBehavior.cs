@@ -349,7 +349,7 @@ __EasingFunction = null;
         public void init()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "init" }
                 }
@@ -359,7 +359,7 @@ __EasingFunction = null;
         public void attach(ArcRotateCamera camera)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "attach" }, camera
                 }
@@ -369,7 +369,7 @@ __EasingFunction = null;
         public void detach()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "detach" }
                 }
@@ -379,7 +379,7 @@ __EasingFunction = null;
         public void zoomOnMesh(AbstractMesh mesh, System.Nullable<bool> focusOnOriginXZ = null, ActionCallback onAnimationEnd = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "zoomOnMesh" }, mesh, focusOnOriginXZ, onAnimationEnd
                 }
@@ -389,7 +389,7 @@ __EasingFunction = null;
         public void zoomOnMeshHierarchy(AbstractMesh mesh, System.Nullable<bool> focusOnOriginXZ = null, ActionCallback onAnimationEnd = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "zoomOnMeshHierarchy" }, mesh, focusOnOriginXZ, onAnimationEnd
                 }
@@ -399,7 +399,7 @@ __EasingFunction = null;
         public void zoomOnMeshesHierarchy(AbstractMesh[] meshes, System.Nullable<bool> focusOnOriginXZ = null, ActionCallback onAnimationEnd = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "zoomOnMeshesHierarchy" }, meshes, focusOnOriginXZ, onAnimationEnd
                 }
@@ -409,7 +409,7 @@ __EasingFunction = null;
         public void zoomOnBoundingInfo(Vector3 minimumWorld, Vector3 maximumWorld, System.Nullable<bool> focusOnOriginXZ = null, ActionCallback onAnimationEnd = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "zoomOnBoundingInfo" }, minimumWorld, maximumWorld, focusOnOriginXZ, onAnimationEnd
                 }
@@ -419,7 +419,7 @@ __EasingFunction = null;
         public void stopAllAnimations()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "stopAllAnimations" }
                 }

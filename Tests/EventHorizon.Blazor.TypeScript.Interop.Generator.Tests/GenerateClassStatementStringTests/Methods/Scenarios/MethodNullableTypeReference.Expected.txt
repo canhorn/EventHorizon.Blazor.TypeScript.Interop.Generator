@@ -35,7 +35,7 @@ namespace Static.Class
         #endregion
         
         #region Constructor
-        public ExampleClass() : base() { } 
+        public ExampleClass() : base() { }
 
         public ExampleClass(
             ICachedEntity entity
@@ -52,7 +52,7 @@ namespace Static.Class
         {
             return EventHorizonBlazorInterop.FuncClass<T>(
                 entity => new T() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getExternalData" }, key
                 }

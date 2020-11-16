@@ -122,7 +122,7 @@ __vectorCheck = null;
         #endregion
         
         #region Constructor
-        public ExampleClass() : base() { } 
+        public ExampleClass() : base() { }
 
         public ExampleClass(
             ICachedEntity entity

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BabylonJS;
 using BabylonJS.GUI;
 using EventHorizon.Blazor.BabylonJS.Model;
+using EventHorizon.Blazor.Interop.Callbacks;
 
 namespace EventHorizon.Blazor.BabylonJS.Pages
 {
@@ -39,6 +40,7 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
             var scene = new Scene(
                 engine
             );
+            scene.clearColor = new Color4(0, 0, 0, 0);
             var light0 = new PointLight(
                 "Omni",
                 new Vector3(
@@ -72,7 +74,7 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
                 "assets/",
                 "Player.glb",
                 scene,
-                new Interop.Callbacks.ActionCallback<AbstractMesh[], IParticleSystem[], Skeleton[], AnimationGroup[]>((arg1, arg2, arg3, arg4) =>
+                new Interop.Callbacks.ActionCallback<AbstractMesh[], IParticleSystem[], Skeleton[], AnimationGroup[], TransformNode[], Geometry[], Light[]>((arg1, arg2, arg3, arg4, arg5, arg6, arg7) =>
                 {
                     foreach (var animation in arg4)
                     {
@@ -106,10 +108,11 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
             };
             scene.activeCamera = camera;
             camera.attachControl(
-                canvas,
                 false
             );
-            engine.runRenderLoop(() => Task.Run(() => scene.render(true, false)));
+            engine.runRenderLoop(new ActionCallback(
+                () => Task.Run(() => scene.render(true, false))
+            ));
 
             _engine = engine;
         }

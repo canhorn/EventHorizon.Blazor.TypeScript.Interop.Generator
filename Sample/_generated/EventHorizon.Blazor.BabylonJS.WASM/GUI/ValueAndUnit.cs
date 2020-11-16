@@ -152,7 +152,7 @@ namespace BabylonJS.GUI
         #endregion
         
         #region Constructor
-        public ValueAndUnit() : base() { } 
+        public ValueAndUnit() : base() { }
 
         public ValueAndUnit(
             ICachedEntity entity
@@ -177,7 +177,7 @@ namespace BabylonJS.GUI
         public decimal getValueInPixel(AdvancedDynamicTexture host, decimal refValue)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getValueInPixel" }, host, refValue
                 }
@@ -188,7 +188,7 @@ namespace BabylonJS.GUI
         {
             return EventHorizonBlazorInterop.FuncClass<ValueAndUnit>(
                 entity => new ValueAndUnit() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "updateInPlace" }, value, unit
                 }
@@ -198,7 +198,7 @@ namespace BabylonJS.GUI
         public decimal getValue(AdvancedDynamicTexture host)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getValue" }, host
                 }
@@ -208,7 +208,7 @@ namespace BabylonJS.GUI
         public string toString(AdvancedDynamicTexture host, System.Nullable<decimal> decimals = null)
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "toString" }, host, decimals
                 }
@@ -218,7 +218,7 @@ namespace BabylonJS.GUI
         public bool fromString(string source)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "fromString" }, source
                 }

@@ -60,7 +60,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<ArcRotateCameraInputsManager>(
                 entity => new ArcRotateCameraInputsManager() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addMouseWheel" }
                 }
@@ -71,7 +71,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<ArcRotateCameraInputsManager>(
                 entity => new ArcRotateCameraInputsManager() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addPointers" }
                 }
@@ -82,7 +82,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<ArcRotateCameraInputsManager>(
                 entity => new ArcRotateCameraInputsManager() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addKeyboard" }
                 }

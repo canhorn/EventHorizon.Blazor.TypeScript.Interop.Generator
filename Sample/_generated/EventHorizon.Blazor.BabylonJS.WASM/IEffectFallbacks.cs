@@ -69,7 +69,7 @@ namespace BabylonJS
         public string reduce(string currentDefines, Effect effect)
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "reduce" }, currentDefines, effect
                 }
@@ -79,7 +79,7 @@ namespace BabylonJS
         public void unBindMesh()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "unBindMesh" }
                 }

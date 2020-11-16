@@ -9,6 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.Babylon
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5013C277-C128-4F17-9BFE-501EB87905B6}"
 	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\dotnet-core.yml = ..\.github\workflows\dotnet-core.yml
+		..\.github\workflows\dotnet-package.yml = ..\.github\workflows\dotnet-package.yml
+		..\.github\workflows\main-tag-bump.yml = ..\.github\workflows\main-tag-bump.yml
 		README.md = README.md
 	EndProjectSection
 EndProject

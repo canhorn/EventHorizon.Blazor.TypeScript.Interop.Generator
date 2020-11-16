@@ -35,7 +35,7 @@ namespace Static.Class
         #endregion
         
         #region Constructor
-        public ExampleClass() : base() { } 
+        public ExampleClass() : base() { }
 
         public ExampleClass(
             ICachedEntity entity
@@ -52,7 +52,7 @@ namespace Static.Class
         {
             return EventHorizonBlazorInterop.FuncClass<Style>(
                 entity => new Style() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "nullableClassStyle" }
                 }
@@ -62,7 +62,7 @@ namespace Static.Class
         public decimal nullableGenericNumber()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "nullableGenericNumber" }
                 }
@@ -72,7 +72,7 @@ namespace Static.Class
         public void orderNullArguments(Animatable[] animatables, Scene scene = null, ActionCallback<CachedEntity> targetConverter = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "orderNullArguments" }, scene, animatables, targetConverter
                 }
@@ -83,7 +83,7 @@ namespace Static.Class
         {
             return EventHorizonBlazorInterop.FuncClass<ExampleClass>(
                 entity => new ExampleClass() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "undefinedStringArgument" }, name
                 }
@@ -94,7 +94,7 @@ namespace Static.Class
         {
             return EventHorizonBlazorInterop.FuncClass<LinesMesh>(
                 entity => new LinesMesh() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "mixedUndefinedAndOptional" }, name, points, scene, updatable, instance
                 }

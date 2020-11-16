@@ -26,7 +26,7 @@ namespace BabylonJS
         public static decimal GetTypeFromCharacter(decimal keyCode)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "ClipboardInfo", "GetTypeFromCharacter" }, keyCode
                 }
@@ -91,7 +91,7 @@ __event = null;
         #endregion
         
         #region Constructor
-        public ClipboardInfo() : base() { } 
+        public ClipboardInfo() : base() { }
 
         public ClipboardInfo(
             ICachedEntity entity

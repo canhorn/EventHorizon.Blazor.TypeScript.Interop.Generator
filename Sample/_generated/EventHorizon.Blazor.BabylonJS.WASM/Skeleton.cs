@@ -23,11 +23,22 @@ namespace BabylonJS
         #endregion
 
         #region Static Methods
+        public static Skeleton MakeAnimationAdditive(Skeleton skeleton, string range, System.Nullable<decimal> referenceFrame = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Skeleton>(
+                entity => new Skeleton() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "Skeleton", "MakeAnimationAdditive" }, skeleton, referenceFrame, range
+                }
+            );
+        }
+
         public static Skeleton Parse(object parsedSkeleton, Scene scene)
         {
             return EventHorizonBlazorInterop.FuncClass<Skeleton>(
                 entity => new Skeleton() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "Skeleton", "Parse" }, parsedSkeleton, scene
                 }
@@ -384,7 +395,7 @@ __onBeforeComputeObservable = null;
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getClassName" }
                 }
@@ -416,7 +427,7 @@ __onBeforeComputeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<RawTexture>(
                 entity => new RawTexture() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getTransformMatrixTexture" }, mesh
                 }
@@ -427,7 +438,7 @@ __onBeforeComputeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Scene>(
                 entity => new Scene() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getScene" }
                 }
@@ -437,7 +448,7 @@ __onBeforeComputeObservable = null;
         public string toString(System.Nullable<bool> fullDetails = null)
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "toString" }, fullDetails
                 }
@@ -447,7 +458,7 @@ __onBeforeComputeObservable = null;
         public decimal getBoneIndexByName(string name)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getBoneIndexByName" }, name
                 }
@@ -457,7 +468,7 @@ __onBeforeComputeObservable = null;
         public void createAnimationRange(string name, decimal from, decimal to)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "createAnimationRange" }, name, from, to
                 }
@@ -467,7 +478,7 @@ __onBeforeComputeObservable = null;
         public void deleteAnimationRange(string name, System.Nullable<bool> deleteFrames = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "deleteAnimationRange" }, name, deleteFrames
                 }
@@ -478,7 +489,7 @@ __onBeforeComputeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<AnimationRange>(
                 entity => new AnimationRange() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getAnimationRange" }, name
                 }
@@ -499,7 +510,7 @@ __onBeforeComputeObservable = null;
         public bool copyAnimationRange(Skeleton source, string name, System.Nullable<bool> rescaleAsRequired = null)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "copyAnimationRange" }, source, name, rescaleAsRequired
                 }
@@ -509,7 +520,7 @@ __onBeforeComputeObservable = null;
         public void returnToRest()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "returnToRest" }
                 }
@@ -520,7 +531,7 @@ __onBeforeComputeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Animatable>(
                 entity => new Animatable() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "beginAnimation" }, name, loop, speedRatio, onAnimationEnd
                 }
@@ -530,7 +541,7 @@ __onBeforeComputeObservable = null;
         public void prepare()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "prepare" }
                 }
@@ -552,7 +563,7 @@ __onBeforeComputeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Skeleton>(
                 entity => new Skeleton() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "clone" }, name, id
                 }
@@ -562,7 +573,7 @@ __onBeforeComputeObservable = null;
         public void enableBlending(System.Nullable<decimal> blendingSpeed = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "enableBlending" }, blendingSpeed
                 }
@@ -572,7 +583,7 @@ __onBeforeComputeObservable = null;
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }
                 }
@@ -582,7 +593,7 @@ __onBeforeComputeObservable = null;
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "serialize" }
                 }
@@ -592,7 +603,7 @@ __onBeforeComputeObservable = null;
         public void computeAbsoluteTransforms(System.Nullable<bool> forceUpdate = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "computeAbsoluteTransforms" }, forceUpdate
                 }
@@ -603,7 +614,7 @@ __onBeforeComputeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getPoseMatrix" }
                 }
@@ -613,9 +624,19 @@ __onBeforeComputeObservable = null;
         public void sortBones()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "sortBones" }
+                }
+            );
+        }
+
+        public void setCurrentPoseAsRest()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "setCurrentPoseAsRest" }
                 }
             );
         }

@@ -50,7 +50,7 @@ namespace BabylonJS
         public bool isVerticesDataPresent(string kind)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "isVerticesDataPresent" }, kind
                 }
@@ -80,7 +80,7 @@ namespace BabylonJS
         public void setVerticesData(string kind, decimal[] data, bool updatable)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setVerticesData" }, kind, data, updatable
                 }
@@ -90,7 +90,7 @@ namespace BabylonJS
         public void updateVerticesData(string kind, decimal[] data, System.Nullable<bool> updateExtends = null, System.Nullable<bool> makeItUnique = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "updateVerticesData" }, kind, data, updateExtends, makeItUnique
                 }
@@ -100,7 +100,7 @@ namespace BabylonJS
         public void setIndices(decimal[] indices, System.Nullable<decimal> totalVertices = null, System.Nullable<bool> updatable = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setIndices" }, indices, totalVertices, updatable
                 }

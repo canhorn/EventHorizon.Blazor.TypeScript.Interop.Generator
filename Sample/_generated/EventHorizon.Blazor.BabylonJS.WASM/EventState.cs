@@ -78,9 +78,13 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
-                    "target"
+                    "target",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
                 );
             }
             set
@@ -99,9 +103,13 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
-                    "currentTarget"
+                    "currentTarget",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
                 );
             }
             set
@@ -120,9 +128,13 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
-                    "lastReturnValue"
+                    "lastReturnValue",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
                 );
             }
             set
@@ -135,10 +147,35 @@ namespace BabylonJS
                 );
             }
         }
+
+        
+        public CachedEntity userInfo
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                    this.___guid,
+                    "userInfo",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "userInfo",
+                    value
+                );
+            }
+        }
         #endregion
         
         #region Constructor
-        public EventState() : base() { } 
+        public EventState() : base() { }
 
         public EventState(
             ICachedEntity entity
@@ -164,7 +201,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<EventState>(
                 entity => new EventState() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "initalize" }, mask, skipNextObservers, target, currentTarget
                 }

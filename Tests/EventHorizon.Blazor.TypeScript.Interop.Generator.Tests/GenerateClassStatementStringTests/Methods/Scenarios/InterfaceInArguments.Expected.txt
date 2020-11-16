@@ -35,7 +35,7 @@ namespace Static.Class
         #endregion
         
         #region Constructor
-        public ExampleClass() : base() { } 
+        public ExampleClass() : base() { }
 
         public ExampleClass(
             ICachedEntity entity
@@ -51,7 +51,7 @@ namespace Static.Class
         public void interfaceFunction(ISomeInterface interfaceArgument)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "interfaceFunction" }, interfaceArgument
                 }

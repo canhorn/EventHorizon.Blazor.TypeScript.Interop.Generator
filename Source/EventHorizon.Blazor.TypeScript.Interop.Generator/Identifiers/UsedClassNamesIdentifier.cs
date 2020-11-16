@@ -24,6 +24,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 && !type.IsLiteral
                 && !type.IsModifier
                 && !type.IsNullable
+                && !type.IsTypeAlias
             )
             {
                 // Using The Type get
@@ -54,6 +55,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             {
                 Identify(
                     genericType,
+                    list
+                );
+            }
+            if (type.IsTypeAlias)
+            {
+                Identify(
+                    type.AliasType,
                     list
                 );
             }

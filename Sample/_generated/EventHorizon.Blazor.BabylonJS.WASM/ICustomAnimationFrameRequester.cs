@@ -69,7 +69,7 @@ namespace BabylonJS
         public void renderFunction()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "renderFunction" }
                 }
@@ -79,7 +79,7 @@ namespace BabylonJS
         public void requestAnimationFrame()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "requestAnimationFrame" }
                 }

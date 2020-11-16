@@ -156,7 +156,7 @@ namespace BabylonJS
         public void init()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "init" }
                 }
@@ -166,7 +166,7 @@ namespace BabylonJS
         public void attach(ArcRotateCamera camera)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "attach" }, camera
                 }
@@ -176,7 +176,7 @@ namespace BabylonJS
         public void detach()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "detach" }
                 }

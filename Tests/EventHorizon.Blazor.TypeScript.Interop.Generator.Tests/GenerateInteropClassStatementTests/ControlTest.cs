@@ -754,7 +754,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                     new PublicPropertyStatement
                     {
                         Name = "metadata",
-                        Type = "CachedEntity".MakeTypeStatement(),
+                        Type = new TypeStatement
+                        {
+                            Name = "CachedEntity",
+                            IsLiteral = true,
+                        },
                     },
                     new PublicPropertyStatement
                     {

@@ -180,11 +180,22 @@ __OnPluginActivatedObservable = null;
         #endregion
 
         #region Static Methods
+        public static IRegisteredPluginCachedEntity GetDefaultPlugin()
+        {
+            return EventHorizonBlazorInterop.FuncClass<IRegisteredPluginCachedEntity>(
+                entity => new IRegisteredPluginCachedEntity() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "SceneLoader", "GetDefaultPlugin" }
+                }
+            );
+        }
+
         public static ISceneLoaderPluginCachedEntity GetPluginForExtension(string extension)
         {
             return EventHorizonBlazorInterop.FuncClass<ISceneLoaderPluginCachedEntity>(
                 entity => new ISceneLoaderPluginCachedEntity() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "SceneLoader", "GetPluginForExtension" }, extension
                 }
@@ -194,7 +205,7 @@ __OnPluginActivatedObservable = null;
         public static bool IsPluginForExtensionAvailable(string extension)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "SceneLoader", "IsPluginForExtensionAvailable" }, extension
                 }
@@ -204,113 +215,118 @@ __OnPluginActivatedObservable = null;
         public static void RegisterPlugin(ISceneLoaderPlugin plugin)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "SceneLoader", "RegisterPlugin" }, plugin
                 }
             );
         }
 
-        public static ISceneLoaderPluginCachedEntity ImportMesh(object meshNames, string rootUrl, string sceneFilename = null, Scene scene = null, ActionCallback<AbstractMesh[], IParticleSystem[], Skeleton[], AnimationGroup[]> onSuccess = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null, string pluginExtension = null)
+        public static ISceneLoaderPluginCachedEntity ImportMesh(object meshNames, string rootUrl, string sceneFilename = null, Scene scene = null, ActionCallback<AbstractMesh[], IParticleSystem[], Skeleton[], AnimationGroup[], TransformNode[], Geometry[], Light[]> onSuccess = null, ActionCallback<ISceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null, string pluginExtension = null)
         {
             return EventHorizonBlazorInterop.FuncClass<ISceneLoaderPluginCachedEntity>(
                 entity => new ISceneLoaderPluginCachedEntity() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "SceneLoader", "ImportMesh" }, meshNames, rootUrl, sceneFilename, scene, onSuccess, onProgress, onError, pluginExtension
                 }
             );
         }
 
-        public static void ImportMeshAsync(object meshNames, string rootUrl, string sceneFilename = null, Scene scene = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, string pluginExtension = null)
+        public static ValueTask<ISceneLoaderAsyncResultCachedEntity> ImportMeshAsync(object meshNames, string rootUrl, string sceneFilename = null, Scene scene = null, ActionCallback<ISceneLoaderProgressEvent> onProgress = null, string pluginExtension = null)
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+            return EventHorizonBlazorInterop.TaskClass<ISceneLoaderAsyncResultCachedEntity>(
+                entity => new ISceneLoaderAsyncResultCachedEntity() { ___guid = entity.___guid },
+                new object[]
                 {
                     new string[] { "BABYLON", "SceneLoader", "ImportMeshAsync" }, meshNames, rootUrl, sceneFilename, scene, onProgress, pluginExtension
                 }
             );
         }
 
-        public static ISceneLoaderPluginCachedEntity Load(string rootUrl, string sceneFilename = null, Engine engine = null, ActionCallback<Scene> onSuccess = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null, string pluginExtension = null)
+        public static ISceneLoaderPluginCachedEntity Load(string rootUrl, string sceneFilename = null, Engine engine = null, ActionCallback<Scene> onSuccess = null, ActionCallback<ISceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null, string pluginExtension = null)
         {
             return EventHorizonBlazorInterop.FuncClass<ISceneLoaderPluginCachedEntity>(
                 entity => new ISceneLoaderPluginCachedEntity() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "SceneLoader", "Load" }, rootUrl, sceneFilename, engine, onSuccess, onProgress, onError, pluginExtension
                 }
             );
         }
 
-        public static void LoadAsync(string rootUrl, string sceneFilename = null, Engine engine = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, string pluginExtension = null)
+        public static ValueTask<Scene> LoadAsync(string rootUrl, string sceneFilename = null, Engine engine = null, ActionCallback<ISceneLoaderProgressEvent> onProgress = null, string pluginExtension = null)
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+            return EventHorizonBlazorInterop.TaskClass<Scene>(
+                entity => new Scene() { ___guid = entity.___guid },
+                new object[]
                 {
                     new string[] { "BABYLON", "SceneLoader", "LoadAsync" }, rootUrl, sceneFilename, engine, onProgress, pluginExtension
                 }
             );
         }
 
-        public static ISceneLoaderPluginCachedEntity Append(string rootUrl, string sceneFilename = null, Scene scene = null, ActionCallback<Scene> onSuccess = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null, string pluginExtension = null)
+        public static ISceneLoaderPluginCachedEntity Append(string rootUrl, string sceneFilename = null, Scene scene = null, ActionCallback<Scene> onSuccess = null, ActionCallback<ISceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null, string pluginExtension = null)
         {
             return EventHorizonBlazorInterop.FuncClass<ISceneLoaderPluginCachedEntity>(
                 entity => new ISceneLoaderPluginCachedEntity() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "SceneLoader", "Append" }, rootUrl, sceneFilename, scene, onSuccess, onProgress, onError, pluginExtension
                 }
             );
         }
 
-        public static void AppendAsync(string rootUrl, string sceneFilename = null, Scene scene = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, string pluginExtension = null)
+        public static ValueTask<Scene> AppendAsync(string rootUrl, string sceneFilename = null, Scene scene = null, ActionCallback<ISceneLoaderProgressEvent> onProgress = null, string pluginExtension = null)
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+            return EventHorizonBlazorInterop.TaskClass<Scene>(
+                entity => new Scene() { ___guid = entity.___guid },
+                new object[]
                 {
                     new string[] { "BABYLON", "SceneLoader", "AppendAsync" }, rootUrl, sceneFilename, scene, onProgress, pluginExtension
                 }
             );
         }
 
-        public static ISceneLoaderPluginCachedEntity LoadAssetContainer(string rootUrl, string sceneFilename = null, Scene scene = null, ActionCallback<AssetContainer> onSuccess = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null, string pluginExtension = null)
+        public static ISceneLoaderPluginCachedEntity LoadAssetContainer(string rootUrl, string sceneFilename = null, Scene scene = null, ActionCallback<AssetContainer> onSuccess = null, ActionCallback<ISceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null, string pluginExtension = null)
         {
             return EventHorizonBlazorInterop.FuncClass<ISceneLoaderPluginCachedEntity>(
                 entity => new ISceneLoaderPluginCachedEntity() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "SceneLoader", "LoadAssetContainer" }, rootUrl, sceneFilename, scene, onSuccess, onProgress, onError, pluginExtension
                 }
             );
         }
 
-        public static void LoadAssetContainerAsync(string rootUrl, string sceneFilename = null, Scene scene = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, string pluginExtension = null)
+        public static ValueTask<AssetContainer> LoadAssetContainerAsync(string rootUrl, string sceneFilename = null, Scene scene = null, ActionCallback<ISceneLoaderProgressEvent> onProgress = null, string pluginExtension = null)
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+            return EventHorizonBlazorInterop.TaskClass<AssetContainer>(
+                entity => new AssetContainer() { ___guid = entity.___guid },
+                new object[]
                 {
                     new string[] { "BABYLON", "SceneLoader", "LoadAssetContainerAsync" }, rootUrl, sceneFilename, scene, onProgress, pluginExtension
                 }
             );
         }
 
-        public static void ImportAnimations(string rootUrl, string sceneFilename = null, Scene scene = null, System.Nullable<bool> overwriteAnimations = null, System.Nullable<int> animationGroupLoadingMode = null, ActionCallback<CachedEntity> targetConverter = null, ActionCallback<Scene> onSuccess = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null)
+        public static void ImportAnimations(string rootUrl, string sceneFilename = null, Scene scene = null, System.Nullable<bool> overwriteAnimations = null, System.Nullable<int> animationGroupLoadingMode = null, ActionCallback<CachedEntity> targetConverter = null, ActionCallback<Scene> onSuccess = null, ActionCallback<ISceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null, string pluginExtension = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "SceneLoader", "ImportAnimations" }, rootUrl, sceneFilename, scene, overwriteAnimations, animationGroupLoadingMode, targetConverter, onSuccess, onProgress, onError
+                    new string[] { "BABYLON", "SceneLoader", "ImportAnimations" }, rootUrl, sceneFilename, scene, overwriteAnimations, animationGroupLoadingMode, targetConverter, onSuccess, onProgress, onError, pluginExtension
                 }
             );
         }
 
-        public static void ImportAnimationsAsync(string rootUrl, string sceneFilename = null, Scene scene = null, System.Nullable<bool> overwriteAnimations = null, System.Nullable<int> animationGroupLoadingMode = null, ActionCallback<CachedEntity> targetConverter = null, ActionCallback<Scene> onSuccess = null, ActionCallback<SceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null)
+        public static ValueTask<Scene> ImportAnimationsAsync(string rootUrl, string sceneFilename = null, Scene scene = null, System.Nullable<bool> overwriteAnimations = null, System.Nullable<int> animationGroupLoadingMode = null, ActionCallback<CachedEntity> targetConverter = null, ActionCallback<Scene> onSuccess = null, ActionCallback<ISceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null, string pluginExtension = null)
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+            return EventHorizonBlazorInterop.TaskClass<Scene>(
+                entity => new Scene() { ___guid = entity.___guid },
+                new object[]
                 {
-                    new string[] { "BABYLON", "SceneLoader", "ImportAnimationsAsync" }, rootUrl, sceneFilename, scene, overwriteAnimations, animationGroupLoadingMode, targetConverter, onSuccess, onProgress, onError
+                    new string[] { "BABYLON", "SceneLoader", "ImportAnimationsAsync" }, rootUrl, sceneFilename, scene, overwriteAnimations, animationGroupLoadingMode, targetConverter, onSuccess, onProgress, onError, pluginExtension
                 }
             );
         }
@@ -325,7 +341,7 @@ __OnPluginActivatedObservable = null;
         #endregion
         
         #region Constructor
-        public SceneLoader() : base() { } 
+        public SceneLoader() : base() { }
 
         public SceneLoader(
             ICachedEntity entity

@@ -62,7 +62,7 @@ __disposeProperty = null;
         #endregion
         
         #region Constructor
-        public _IDisposable() : base() { } 
+        public _IDisposable() : base() { }
 
         public _IDisposable(
             ICachedEntity entity
@@ -79,7 +79,7 @@ __disposeProperty = null;
         {
             return EventHorizonBlazorInterop.FuncClass<_IDisposable>(
                 entity => new _IDisposable() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "disposeMethod" }, arg1
                 }

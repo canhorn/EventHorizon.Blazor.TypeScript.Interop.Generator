@@ -247,7 +247,7 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public StencilState() : base() { } 
+        public StencilState() : base() { }
 
         public StencilState(
             ICachedEntity entity
@@ -263,7 +263,7 @@ namespace BabylonJS
         public void reset()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "reset" }
                 }
@@ -273,7 +273,7 @@ namespace BabylonJS
         public void apply(WebGLRenderingContext gl)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "apply" }, gl
                 }

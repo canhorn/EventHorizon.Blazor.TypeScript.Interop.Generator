@@ -14,7 +14,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Rules
         )
         {
             return node.Kind == SyntaxKind.TypeLiteral
-                || node.Kind == SyntaxKind.LiteralType;
+                || node.Kind == SyntaxKind.LiteralType
+                || node.Kind == SyntaxKind.AnyKeyword;
         }
     }
 }

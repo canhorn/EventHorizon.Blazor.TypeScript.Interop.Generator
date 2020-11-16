@@ -129,7 +129,7 @@ namespace BabylonJS.GUI
         {
             return EventHorizonBlazorInterop.FuncClass<ValueAndUnit>(
                 entity => new ValueAndUnit() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getRowDefinition" }, index
                 }
@@ -140,7 +140,7 @@ namespace BabylonJS.GUI
         {
             return EventHorizonBlazorInterop.FuncClass<ValueAndUnit>(
                 entity => new ValueAndUnit() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getColumnDefinition" }, index
                 }
@@ -151,7 +151,7 @@ namespace BabylonJS.GUI
         {
             return EventHorizonBlazorInterop.FuncClass<Grid>(
                 entity => new Grid() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addRowDefinition" }, height, isPixel
                 }
@@ -162,7 +162,7 @@ namespace BabylonJS.GUI
         {
             return EventHorizonBlazorInterop.FuncClass<Grid>(
                 entity => new Grid() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addColumnDefinition" }, width, isPixel
                 }
@@ -173,7 +173,7 @@ namespace BabylonJS.GUI
         {
             return EventHorizonBlazorInterop.FuncClass<Grid>(
                 entity => new Grid() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setRowDefinition" }, index, height, isPixel
                 }
@@ -184,7 +184,7 @@ namespace BabylonJS.GUI
         {
             return EventHorizonBlazorInterop.FuncClass<Grid>(
                 entity => new Grid() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setColumnDefinition" }, index, width, isPixel
                 }
@@ -205,7 +205,7 @@ namespace BabylonJS.GUI
         public string getChildCellInfo(Control child)
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getChildCellInfo" }, child
                 }
@@ -216,7 +216,7 @@ namespace BabylonJS.GUI
         {
             return EventHorizonBlazorInterop.FuncClass<Grid>(
                 entity => new Grid() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removeColumnDefinition" }, index
                 }
@@ -227,7 +227,7 @@ namespace BabylonJS.GUI
         {
             return EventHorizonBlazorInterop.FuncClass<Grid>(
                 entity => new Grid() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removeRowDefinition" }, index
                 }
@@ -238,7 +238,7 @@ namespace BabylonJS.GUI
         {
             return EventHorizonBlazorInterop.FuncClass<Grid>(
                 entity => new Grid() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addControl" }, control, row, column
                 }
@@ -249,7 +249,7 @@ namespace BabylonJS.GUI
         {
             return EventHorizonBlazorInterop.FuncClass<Container>(
                 entity => new Container() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removeControl" }, control
                 }
@@ -259,7 +259,7 @@ namespace BabylonJS.GUI
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }
                 }

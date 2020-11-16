@@ -78,7 +78,7 @@ namespace BabylonJS
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getClassName" }
                 }

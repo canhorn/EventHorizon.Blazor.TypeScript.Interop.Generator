@@ -35,7 +35,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 var isArray = ArrayResponseIdentifier.Identify(
                     accessor.Type
                 );
-                var isEnum = accessor.Type.IsEnum;
+                var isEnum = TypeEnumIdentifier.Identify(
+                    accessor.Type
+                );
 
                 var template = templates.Accessor;
                 var propertyGetterResultType = templates.InteropGet;

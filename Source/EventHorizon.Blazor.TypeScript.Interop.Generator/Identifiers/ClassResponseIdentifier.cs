@@ -14,7 +14,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             var name = typeStatement.Name;
             if (typeStatement.IsArray
                 || typeStatement.IsModifier
-                || typeStatement.IsNullable)
+                || typeStatement.IsNullable
+                || typeStatement.IsTask)
             {
                 return Identify(
                     typeStatement.GenericTypes.First(),

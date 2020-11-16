@@ -1,0 +1,63 @@
+/// Generated - Do Not Edit
+namespace Static.Class
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter<ExampleClass>))]
+    public class ExampleClass : CachedEntityObject
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+        public static P[] GenericTypeOnArray<T, P>(T data, System.Nullable<decimal> start = null, System.Nullable<decimal> end = null) where T : CachedEntity, new() where P : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<P>(
+                entity => new P() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "Static", "Class", "ExampleClass", "GenericTypeOnArray" }, data, start, end
+                }
+            );
+        }
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { }
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+
+        #endregion
+
+        #region Methods
+
+        #endregion
+    }
+}

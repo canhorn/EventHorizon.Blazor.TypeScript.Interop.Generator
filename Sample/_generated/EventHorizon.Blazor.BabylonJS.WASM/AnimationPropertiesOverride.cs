@@ -96,7 +96,7 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public AnimationPropertiesOverride() : base() { } 
+        public AnimationPropertiesOverride() : base() { }
 
         public AnimationPropertiesOverride(
             ICachedEntity entity

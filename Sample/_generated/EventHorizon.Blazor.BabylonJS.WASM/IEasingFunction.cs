@@ -50,7 +50,7 @@ namespace BabylonJS
         public decimal ease(decimal gradient)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "ease" }, gradient
                 }

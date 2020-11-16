@@ -51,7 +51,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<T>(
                 entity => new T() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addBehavior" }, behavior
                 }
@@ -62,7 +62,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<T>(
                 entity => new T() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removeBehavior" }, behavior
                 }
@@ -73,7 +73,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<BehaviorCachedEntity<T>>(
                 entity => new BehaviorCachedEntity<T>() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getBehaviorByName" }, name
                 }

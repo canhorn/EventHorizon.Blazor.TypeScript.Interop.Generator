@@ -387,7 +387,7 @@ __onAfterRenderObservable = null;
         #endregion
         
         #region Constructor
-        public Layer() : base() { } 
+        public Layer() : base() { }
 
         public Layer(
             ICachedEntity entity
@@ -412,7 +412,7 @@ __onAfterRenderObservable = null;
         public void render()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "render" }
                 }
@@ -422,7 +422,7 @@ __onAfterRenderObservable = null;
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }
                 }

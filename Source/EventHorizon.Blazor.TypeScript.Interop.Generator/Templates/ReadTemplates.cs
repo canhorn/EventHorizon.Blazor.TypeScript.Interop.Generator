@@ -99,6 +99,19 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Templates
                 $"{templatesPath}.InteropGetClassTemplate.txt"
             );
 
+            var interopTaskTemplate = ReadAllText(
+                $"{templatesPath}.InteropTaskTemplate.txt"
+            );
+            var interopTaskArrayTemplate = ReadAllText(
+                $"{templatesPath}.InteropTaskArrayTemplate.txt"
+            );
+            var interopTaskClassTemplate = ReadAllText(
+                $"{templatesPath}.InteropTaskClassTemplate.txt"
+            );
+            var interopTaskArrayClassTemplate = ReadAllText(
+                $"{templatesPath}.InteropTaskArrayClassTemplate.txt"
+            );
+
             GeneratedTemplates = new ClassGenerationTemplates
             {
                 Class = classTemplate,
@@ -125,6 +138,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Templates
                 InteropGetClass = interopGetClassTemplate,
                 InteropGet = interopGetTemplate,
                 InteropSet = interopSetTemplate,
+
+                InteropTask = interopTaskTemplate,
+                InteropTaskClass = interopTaskClassTemplate,
+                InteropTaskArray = interopTaskArrayTemplate,
+                InteropTaskArrayClass = interopTaskArrayClassTemplate,
             };
 
             return GeneratedTemplates;

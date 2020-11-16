@@ -117,7 +117,7 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public PerformanceMonitor() : base() { } 
+        public PerformanceMonitor() : base() { }
 
         public PerformanceMonitor(
             ICachedEntity entity
@@ -142,7 +142,7 @@ namespace BabylonJS
         public void sampleFrame(System.Nullable<decimal> timeMs = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "sampleFrame" }, timeMs
                 }
@@ -152,7 +152,7 @@ namespace BabylonJS
         public void enable()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "enable" }
                 }
@@ -162,7 +162,7 @@ namespace BabylonJS
         public void disable()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "disable" }
                 }
@@ -172,7 +172,7 @@ namespace BabylonJS
         public void reset()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "reset" }
                 }

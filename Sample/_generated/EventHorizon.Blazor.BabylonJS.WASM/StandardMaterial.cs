@@ -37,6 +37,27 @@ namespace BabylonJS
         }
 
         
+        public static bool DetailTextureEnabled
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<bool>(
+                    "BABYLON",
+                    "StandardMaterial.DetailTextureEnabled"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    "BABYLON",
+                    "StandardMaterial.DetailTextureEnabled",
+                    value
+                );
+            }
+        }
+
+        
         public static bool AmbientTextureEnabled
         {
             get
@@ -256,7 +277,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<StandardMaterial>(
                 entity => new StandardMaterial() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "StandardMaterial", "Parse" }, source, scene, rootUrl
                 }
@@ -453,6 +474,18 @@ __cameraColorCurves = null;
                     this.___guid,
                     "cameraColorCurves",
                     value
+                );
+            }
+        }
+
+        
+        public bool canRenderToMRT
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "canRenderToMRT"
                 );
             }
         }
@@ -1475,6 +1508,46 @@ __emissiveFresnelParameters = null;
                 );
             }
         }
+
+        private PrePassConfiguration __prePassConfiguration;
+        public PrePassConfiguration prePassConfiguration
+        {
+            get
+            {
+            if(__prePassConfiguration == null)
+            {
+                __prePassConfiguration = EventHorizonBlazorInterop.GetClass<PrePassConfiguration>(
+                    this.___guid,
+                    "prePassConfiguration",
+                    (entity) =>
+                    {
+                        return new PrePassConfiguration() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __prePassConfiguration;
+            }
+        }
+
+        private DetailMapConfiguration __detailMap;
+        public DetailMapConfiguration detailMap
+        {
+            get
+            {
+            if(__detailMap == null)
+            {
+                __detailMap = EventHorizonBlazorInterop.GetClass<DetailMapConfiguration>(
+                    this.___guid,
+                    "detailMap",
+                    (entity) =>
+                    {
+                        return new DetailMapConfiguration() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __detailMap;
+            }
+        }
         #endregion
         
         #region Constructor
@@ -1499,63 +1572,10 @@ __emissiveFresnelParameters = null;
         #endregion
 
         #region Methods
-        #region customShaderNameResolve TODO: Get Comments as metadata identification
-        private bool _isCustomShaderNameResolveEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _customShaderNameResolveActionMap = new Dictionary<string, Func<Task>>();
-
-        public string customShaderNameResolve(
-            Func<Task> callback
-        )
-        {
-            SetupCustomShaderNameResolveLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _customShaderNameResolveActionMap.Add(
-                handle,
-                callback
-            );
-
-            return handle;
-        }
-
-        public bool customShaderNameResolve_Remove(
-            string handle
-        )
-        {
-            return _customShaderNameResolveActionMap.Remove(
-                handle
-            );
-        }
-
-        private void SetupCustomShaderNameResolveLoop()
-        {
-            if (_isCustomShaderNameResolveEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "customShaderNameResolve",
-                "CallCustomShaderNameResolveActions",
-                _invokableReference
-            );
-            _isCustomShaderNameResolveEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallCustomShaderNameResolveActions()
-        {
-            foreach (var action in _customShaderNameResolveActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getClassName" }
                 }
@@ -1565,7 +1585,7 @@ __emissiveFresnelParameters = null;
         public bool needAlphaBlending()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "needAlphaBlending" }
                 }
@@ -1575,7 +1595,7 @@ __emissiveFresnelParameters = null;
         public bool needAlphaTesting()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "needAlphaTesting" }
                 }
@@ -1586,7 +1606,7 @@ __emissiveFresnelParameters = null;
         {
             return EventHorizonBlazorInterop.FuncClass<BaseTexture>(
                 entity => new BaseTexture() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getAlphaTestTexture" }
                 }
@@ -1596,7 +1616,7 @@ __emissiveFresnelParameters = null;
         public bool isReadyForSubMesh(AbstractMesh mesh, SubMesh subMesh, System.Nullable<bool> useInstances = null)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "isReadyForSubMesh" }, mesh, subMesh, useInstances
                 }
@@ -1606,7 +1626,7 @@ __emissiveFresnelParameters = null;
         public void buildUniformLayout()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "buildUniformLayout" }
                 }
@@ -1616,7 +1636,7 @@ __emissiveFresnelParameters = null;
         public void unbind()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "unbind" }
                 }
@@ -1626,7 +1646,7 @@ __emissiveFresnelParameters = null;
         public void bindForSubMesh(Matrix world, Mesh mesh, SubMesh subMesh)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "bindForSubMesh" }, world, mesh, subMesh
                 }
@@ -1658,7 +1678,7 @@ __emissiveFresnelParameters = null;
         public bool hasTexture(BaseTexture texture)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "hasTexture" }, texture
                 }
@@ -1668,7 +1688,7 @@ __emissiveFresnelParameters = null;
         public void dispose(System.Nullable<bool> forceDisposeEffect = null, System.Nullable<bool> forceDisposeTextures = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }, forceDisposeEffect, forceDisposeTextures
                 }
@@ -1679,7 +1699,7 @@ __emissiveFresnelParameters = null;
         {
             return EventHorizonBlazorInterop.FuncClass<StandardMaterial>(
                 entity => new StandardMaterial() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "clone" }, name
                 }
@@ -1689,7 +1709,7 @@ __emissiveFresnelParameters = null;
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "serialize" }
                 }

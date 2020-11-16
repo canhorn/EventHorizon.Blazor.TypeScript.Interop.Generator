@@ -383,7 +383,7 @@ __remapData = null;
         #endregion
         
         #region Constructor
-        public Particle() : base() { } 
+        public Particle() : base() { }
 
         public Particle(
             ICachedEntity entity
@@ -408,7 +408,7 @@ __remapData = null;
         public void updateCellIndex()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "updateCellIndex" }
                 }
@@ -418,7 +418,7 @@ __remapData = null;
         public void copyTo(Particle other)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "copyTo" }, other
                 }

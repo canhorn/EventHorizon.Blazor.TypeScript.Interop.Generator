@@ -96,7 +96,7 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public AnimationRange() : base() { } 
+        public AnimationRange() : base() { }
 
         public AnimationRange(
             ICachedEntity entity
@@ -122,7 +122,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<AnimationRange>(
                 entity => new AnimationRange() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "clone" }
                 }

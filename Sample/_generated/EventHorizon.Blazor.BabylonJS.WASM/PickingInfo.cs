@@ -195,6 +195,27 @@ __pickedMesh = null;
         }
 
         
+        public decimal subMeshFaceId
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<decimal>(
+                    this.___guid,
+                    "subMeshFaceId"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "subMeshFaceId",
+                    value
+                );
+            }
+        }
+
+        
         public decimal subMeshId
         {
             get
@@ -239,6 +260,27 @@ __pickedSprite = null;
                 EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "pickedSprite",
+                    value
+                );
+            }
+        }
+
+        
+        public decimal thinInstanceIndex
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<decimal>(
+                    this.___guid,
+                    "thinInstanceIndex"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "thinInstanceIndex",
                     value
                 );
             }
@@ -304,7 +346,7 @@ __ray = null;
         #endregion
         
         #region Constructor
-        public PickingInfo() : base() { } 
+        public PickingInfo() : base() { }
 
         public PickingInfo(
             ICachedEntity entity
@@ -321,7 +363,7 @@ __ray = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getNormal" }, useWorldCoordinates, useVerticesNormals
                 }
@@ -332,7 +374,7 @@ __ray = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Vector2>(
                 entity => new Vector2() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getTextureCoordinates" }
                 }

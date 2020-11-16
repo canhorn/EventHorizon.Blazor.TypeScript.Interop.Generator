@@ -99,9 +99,13 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
-                    "DEBUGCANVASPOS"
+                    "DEBUGCANVASPOS",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
                 );
             }
             set
@@ -120,9 +124,13 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
-                    "DEBUGCANVASSIZE"
+                    "DEBUGCANVASSIZE",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
                 );
             }
             set
@@ -138,7 +146,7 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public Analyser() : base() { } 
+        public Analyser() : base() { }
 
         public Analyser(
             ICachedEntity entity
@@ -163,7 +171,7 @@ namespace BabylonJS
         public decimal getFrequencyBinCount()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getFrequencyBinCount" }
                 }
@@ -203,7 +211,7 @@ namespace BabylonJS
         public void drawDebugCanvas()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "drawDebugCanvas" }
                 }
@@ -213,7 +221,7 @@ namespace BabylonJS
         public void stopDebugCanvas()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "stopDebugCanvas" }
                 }
@@ -223,7 +231,7 @@ namespace BabylonJS
         public void connectAudioNodes(AudioNode inputAudioNode, AudioNode outputAudioNode)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "connectAudioNodes" }, inputAudioNode, outputAudioNode
                 }
@@ -233,7 +241,7 @@ namespace BabylonJS
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }
                 }

@@ -212,27 +212,6 @@ __boundingBoxSize = null;
 
         #region Properties
         
-        public bool isCube
-        {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isCube"
-                );
-            }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isCube",
-                    value
-                );
-            }
-        }
-
-        
         public bool renderParticles
         {
             get
@@ -269,27 +248,6 @@ __boundingBoxSize = null;
                 EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "renderSprites",
-                    value
-                );
-            }
-        }
-
-        
-        public decimal coordinatesMode
-        {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "coordinatesMode"
-                );
-            }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "coordinatesMode",
                     value
                 );
             }
@@ -673,6 +631,59 @@ __boundingBoxPosition = null;
         }
         #endregion
 
+        #region customIsReadyFunction TODO: Get Comments as metadata identification
+        private bool _isCustomIsReadyFunctionEnabled = false;
+        private readonly IDictionary<string, Func<Task>> _customIsReadyFunctionActionMap = new Dictionary<string, Func<Task>>();
+
+        public string customIsReadyFunction(
+            Func<Task> callback
+        )
+        {
+            SetupCustomIsReadyFunctionLoop();
+
+            var handle = Guid.NewGuid().ToString();
+            _customIsReadyFunctionActionMap.Add(
+                handle,
+                callback
+            );
+
+            return handle;
+        }
+
+        public bool customIsReadyFunction_Remove(
+            string handle
+        )
+        {
+            return _customIsReadyFunctionActionMap.Remove(
+                handle
+            );
+        }
+
+        private void SetupCustomIsReadyFunctionLoop()
+        {
+            if (_isCustomIsReadyFunctionEnabled)
+            {
+                return;
+            }
+            EventHorizonBlazorInterop.FuncCallback(
+                this,
+                "customIsReadyFunction",
+                "CallCustomIsReadyFunctionActions",
+                _invokableReference
+            );
+            _isCustomIsReadyFunctionEnabled = true;
+        }
+
+        [JSInvokable]
+        public async Task CallCustomIsReadyFunctionActions()
+        {
+            foreach (var action in _customIsReadyFunctionActionMap.Values)
+            {
+                await action();
+            }
+        }
+        #endregion
+
         #region customRenderFunction TODO: Get Comments as metadata identification
         private bool _isCustomRenderFunctionEnabled = false;
         private readonly IDictionary<string, Func<Task>> _customRenderFunctionActionMap = new Dictionary<string, Func<Task>>();
@@ -729,7 +740,7 @@ __boundingBoxPosition = null;
         public void createDepthStencilTexture(System.Nullable<decimal> comparisonFunction = null, System.Nullable<bool> bilinearFiltering = null, System.Nullable<bool> generateStencil = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "createDepthStencilTexture" }, comparisonFunction, bilinearFiltering, generateStencil
                 }
@@ -739,7 +750,7 @@ __boundingBoxPosition = null;
         public void resetRefreshCounter()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "resetRefreshCounter" }
                 }
@@ -749,7 +760,7 @@ __boundingBoxPosition = null;
         public void addPostProcess(PostProcess postProcess)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "addPostProcess" }, postProcess
                 }
@@ -759,7 +770,7 @@ __boundingBoxPosition = null;
         public void clearPostProcesses(System.Nullable<bool> dispose = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "clearPostProcesses" }, dispose
                 }
@@ -769,7 +780,7 @@ __boundingBoxPosition = null;
         public void removePostProcess(PostProcess postProcess)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "removePostProcess" }, postProcess
                 }
@@ -779,7 +790,7 @@ __boundingBoxPosition = null;
         public decimal getRenderSize()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getRenderSize" }
                 }
@@ -789,7 +800,7 @@ __boundingBoxPosition = null;
         public decimal getRenderWidth()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getRenderWidth" }
                 }
@@ -799,7 +810,7 @@ __boundingBoxPosition = null;
         public decimal getRenderHeight()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getRenderHeight" }
                 }
@@ -809,7 +820,7 @@ __boundingBoxPosition = null;
         public decimal getRenderLayers()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getRenderLayers" }
                 }
@@ -819,7 +830,7 @@ __boundingBoxPosition = null;
         public void scale(decimal ratio)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "scale" }, ratio
                 }
@@ -830,7 +841,7 @@ __boundingBoxPosition = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getReflectionTextureMatrix" }
                 }
@@ -840,7 +851,7 @@ __boundingBoxPosition = null;
         public void resize(decimal size)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "resize" }, size
                 }
@@ -850,7 +861,7 @@ __boundingBoxPosition = null;
         public void render(System.Nullable<bool> useCameraPostProcess = null, System.Nullable<bool> dumpForDebug = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "render" }, useCameraPostProcess, dumpForDebug
                 }
@@ -860,7 +871,7 @@ __boundingBoxPosition = null;
         public void setRenderingOrder(decimal renderingGroupId, ActionCallback<SubMesh, SubMesh> opaqueSortCompareFn = null, ActionCallback<SubMesh, SubMesh> alphaTestSortCompareFn = null, ActionCallback<SubMesh, SubMesh> transparentSortCompareFn = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setRenderingOrder" }, renderingGroupId, opaqueSortCompareFn, alphaTestSortCompareFn, transparentSortCompareFn
                 }
@@ -870,7 +881,7 @@ __boundingBoxPosition = null;
         public void setRenderingAutoClearDepthStencil(decimal renderingGroupId, bool autoClearDepthStencil)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setRenderingAutoClearDepthStencil" }, renderingGroupId, autoClearDepthStencil
                 }
@@ -881,7 +892,7 @@ __boundingBoxPosition = null;
         {
             return EventHorizonBlazorInterop.FuncClass<RenderTargetTexture>(
                 entity => new RenderTargetTexture() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "clone" }
                 }
@@ -891,7 +902,7 @@ __boundingBoxPosition = null;
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "serialize" }
                 }
@@ -901,7 +912,7 @@ __boundingBoxPosition = null;
         public void disposeFramebufferObjects()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "disposeFramebufferObjects" }
                 }
@@ -911,7 +922,7 @@ __boundingBoxPosition = null;
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }
                 }
@@ -921,7 +932,7 @@ __boundingBoxPosition = null;
         public void freeRenderingGroups()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "freeRenderingGroups" }
                 }
@@ -931,7 +942,7 @@ __boundingBoxPosition = null;
         public decimal getViewCount()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getViewCount" }
                 }

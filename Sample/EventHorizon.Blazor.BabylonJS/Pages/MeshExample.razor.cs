@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BabylonJS;
 using EventHorizon.Blazor.BabylonJS.Model;
+using EventHorizon.Blazor.Interop.Callbacks;
 
 namespace EventHorizon.Blazor.BabylonJS.Pages
 {
@@ -77,10 +78,11 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
             };
             scene.activeCamera = freeCamera;
             freeCamera.attachControl(
-                canvas,
                 false
             );
-            engine.runRenderLoop(() => Task.Run(() => scene.render(true, false)));
+            engine.runRenderLoop(new ActionCallback(
+                () => Task.Run(() => scene.render(true, false))
+            ));
 
             _engine = engine;
         }

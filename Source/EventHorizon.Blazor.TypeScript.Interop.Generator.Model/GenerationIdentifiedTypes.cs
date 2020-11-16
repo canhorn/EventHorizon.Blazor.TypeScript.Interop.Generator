@@ -16,6 +16,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model
         public const string Literal = "object-literal";
         public const string CachedEntity = "CachedEntity";
         public const string Object = "object";
+        public const string Any = "any";
         public const string String = "string";
         public const string Bool = "bool";
         public const string Number = "decimal";

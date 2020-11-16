@@ -19,6 +19,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
         {
             InterfaceResponseTypeIdentifier.DisableCache();
             EnumTypeIdentifier.DisableCache();
+            AliasTypeIdentifier.DisableCache();
         }
 
         public bool Run(

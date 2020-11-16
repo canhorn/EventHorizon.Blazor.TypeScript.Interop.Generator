@@ -117,7 +117,7 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public Viewport() : base() { } 
+        public Viewport() : base() { }
 
         public Viewport(
             ICachedEntity entity
@@ -143,7 +143,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Viewport>(
                 entity => new Viewport() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "toGlobal" }, renderWidth, renderHeight
                 }
@@ -154,7 +154,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Viewport>(
                 entity => new Viewport() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "toGlobalToRef" }, renderWidth, renderHeight, @ref
                 }
@@ -165,7 +165,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Viewport>(
                 entity => new Viewport() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "clone" }
                 }

@@ -35,7 +35,7 @@ namespace Static.Class
         #endregion
         
         #region Constructor
-        public ExampleClass() : base() { } 
+        public ExampleClass() : base() { }
 
         public ExampleClass(
             ICachedEntity entity
@@ -51,7 +51,7 @@ namespace Static.Class
         public void javaScriptApiFunctionClass()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "javaScriptApiFunctionClass" }
                 }
@@ -61,7 +61,7 @@ namespace Static.Class
         public void literalTypeArgument(object literal)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "literalTypeArgument" }, literal
                 }
@@ -71,7 +71,7 @@ namespace Static.Class
         public void makeObserverTopPriority(Observer<T> observer)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "makeObserverTopPriority" }, observer
                 }

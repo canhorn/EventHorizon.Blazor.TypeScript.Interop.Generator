@@ -254,7 +254,7 @@ namespace BabylonJS
         {
             return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "BABYLON", "Camera", "Parse" }, parsedCamera, scene
                 }
@@ -287,6 +287,35 @@ __position = null;
                 EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "position",
+                    value
+                );
+            }
+        }
+
+        private Vector3 __upVector;
+        public Vector3 upVector
+        {
+            get
+            {
+            if(__upVector == null)
+            {
+                __upVector = EventHorizonBlazorInterop.GetClass<Vector3>(
+                    this.___guid,
+                    "upVector",
+                    (entity) =>
+                    {
+                        return new Vector3() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __upVector;
+            }
+            set
+            {
+__upVector = null;
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "upVector",
                     value
                 );
             }
@@ -458,35 +487,6 @@ __inputs = null;
                 EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "inputs",
-                    value
-                );
-            }
-        }
-
-        private Vector3 __upVector;
-        public Vector3 upVector
-        {
-            get
-            {
-            if(__upVector == null)
-            {
-                __upVector = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "upVector",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __upVector;
-            }
-            set
-            {
-__upVector = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "upVector",
                     value
                 );
             }
@@ -1083,7 +1083,7 @@ __rigParent = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "storeState" }
                 }
@@ -1093,7 +1093,7 @@ __rigParent = null;
         public bool restoreState()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "restoreState" }
                 }
@@ -1103,7 +1103,7 @@ __rigParent = null;
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getClassName" }
                 }
@@ -1113,7 +1113,7 @@ __rigParent = null;
         public string toString(System.Nullable<bool> fullDetails = null)
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "toString" }, fullDetails
                 }
@@ -1124,7 +1124,7 @@ __rigParent = null;
         {
             return EventHorizonBlazorInterop.FuncClass<SmartArray<AbstractMesh>>(
                 entity => new SmartArray<AbstractMesh>() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getActiveMeshes" }
                 }
@@ -1134,7 +1134,7 @@ __rigParent = null;
         public bool isActiveMesh(Mesh mesh)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "isActiveMesh" }, mesh
                 }
@@ -1144,29 +1144,29 @@ __rigParent = null;
         public bool isReady(System.Nullable<bool> completeCheck = null)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "isReady" }, completeCheck
                 }
             );
         }
 
-        public void attachControl(object element, System.Nullable<bool> noPreventDefault = null)
+        public void attachControl(System.Nullable<bool> noPreventDefault = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "attachControl" }, element, noPreventDefault
+                    new string[] { this.___guid, "attachControl" }, noPreventDefault
                 }
             );
         }
 
-        public void detachControl(object element)
+        public void detachControl()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "detachControl" }, element
+                    new string[] { this.___guid, "detachControl" }
                 }
             );
         }
@@ -1174,7 +1174,7 @@ __rigParent = null;
         public void update()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "update" }
                 }
@@ -1184,7 +1184,7 @@ __rigParent = null;
         public decimal attachPostProcess(PostProcess postProcess, System.Nullable<decimal> insertAt = null)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "attachPostProcess" }, postProcess, insertAt
                 }
@@ -1194,7 +1194,7 @@ __rigParent = null;
         public void detachPostProcess(PostProcess postProcess)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "detachPostProcess" }, postProcess
                 }
@@ -1205,7 +1205,7 @@ __rigParent = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getWorldMatrix" }
                 }
@@ -1216,7 +1216,7 @@ __rigParent = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getViewMatrix" }, force
                 }
@@ -1226,7 +1226,7 @@ __rigParent = null;
         public void freezeProjectionMatrix(Matrix projection = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "freezeProjectionMatrix" }, projection
                 }
@@ -1236,7 +1236,7 @@ __rigParent = null;
         public void unfreezeProjectionMatrix()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "unfreezeProjectionMatrix" }
                 }
@@ -1247,7 +1247,7 @@ __rigParent = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getProjectionMatrix" }, force
                 }
@@ -1258,7 +1258,7 @@ __rigParent = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getTransformationMatrix" }
                 }
@@ -1268,7 +1268,7 @@ __rigParent = null;
         public bool isInFrustum(ICullable target, System.Nullable<bool> checkRigCameras = null)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "isInFrustum" }, target, checkRigCameras
                 }
@@ -1278,7 +1278,7 @@ __rigParent = null;
         public bool isCompletelyInFrustum(ICullable target)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "isCompletelyInFrustum" }, target
                 }
@@ -1289,9 +1289,20 @@ __rigParent = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Ray>(
                 entity => new Ray() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getForwardRay" }, length, transform, origin
+                }
+            );
+        }
+
+        public Ray getForwardRayToRef(Ray refRay, System.Nullable<decimal> length = null, Matrix transform = null, Vector3 origin = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Ray>(
+                entity => new Ray() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "getForwardRayToRef" }, refRay, length, transform, origin
                 }
             );
         }
@@ -1299,7 +1310,7 @@ __rigParent = null;
         public void dispose(System.Nullable<bool> doNotRecurse = null, System.Nullable<bool> disposeMaterialAndTextures = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "dispose" }, doNotRecurse, disposeMaterialAndTextures
                 }
@@ -1310,7 +1321,7 @@ __rigParent = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getLeftTarget" }
                 }
@@ -1321,7 +1332,7 @@ __rigParent = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getRightTarget" }
                 }
@@ -1331,7 +1342,7 @@ __rigParent = null;
         public void setCameraRigMode(decimal mode, object rigParams)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setCameraRigMode" }, mode, rigParams
                 }
@@ -1341,7 +1352,7 @@ __rigParent = null;
         public void setCameraRigParameter(string name, object value)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "setCameraRigParameter" }, name, value
                 }
@@ -1352,7 +1363,7 @@ __rigParent = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "createRigCamera" }, name, cameraIndex
                 }
@@ -1362,7 +1373,7 @@ __rigParent = null;
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "serialize" }
                 }
@@ -1373,7 +1384,7 @@ __rigParent = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "clone" }, name
                 }
@@ -1384,7 +1395,7 @@ __rigParent = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getDirection" }, localAxis
                 }
@@ -1394,7 +1405,7 @@ __rigParent = null;
         public void getDirectionToRef(Vector3 localAxis, Vector3 result)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getDirectionToRef" }, localAxis, result
                 }
@@ -1405,7 +1416,7 @@ __rigParent = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "computeWorldMatrix" }
                 }

@@ -57,9 +57,13 @@ namespace BabylonJS
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
-                    "scope"
+                    "scope",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
                 );
             }
             set
@@ -96,7 +100,7 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public Observer() : base() { } 
+        public Observer() : base() { }
 
         public Observer(
             ICachedEntity entity

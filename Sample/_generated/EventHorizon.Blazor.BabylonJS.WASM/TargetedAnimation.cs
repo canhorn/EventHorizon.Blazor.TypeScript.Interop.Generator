@@ -65,9 +65,13 @@ __animation = null;
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
-                    "target"
+                    "target",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
                 );
             }
             set
@@ -83,7 +87,7 @@ __animation = null;
         #endregion
         
         #region Constructor
-        public TargetedAnimation() : base() { } 
+        public TargetedAnimation() : base() { }
 
         public TargetedAnimation(
             ICachedEntity entity
@@ -96,10 +100,20 @@ __animation = null;
         #endregion
 
         #region Methods
+        public string getClassName()
+        {
+            return EventHorizonBlazorInterop.Func<string>(
+                new object[]
+                {
+                    new string[] { this.___guid, "getClassName" }
+                }
+            );
+        }
+
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "serialize" }
                 }

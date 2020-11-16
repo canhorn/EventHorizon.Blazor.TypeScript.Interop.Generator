@@ -27,7 +27,7 @@ namespace Static.Class
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { "Static", "Class", "ExampleClass", "FromArray" }, array, offset
                 }
@@ -44,7 +44,7 @@ namespace Static.Class
         #endregion
         
         #region Constructor
-        public ExampleClass() : base() { } 
+        public ExampleClass() : base() { }
 
         public ExampleClass(
             ICachedEntity entity

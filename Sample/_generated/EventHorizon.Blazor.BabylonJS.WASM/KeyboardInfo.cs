@@ -83,7 +83,7 @@ __event = null;
         #endregion
         
         #region Constructor
-        public KeyboardInfo() : base() { } 
+        public KeyboardInfo() : base() { }
 
         public KeyboardInfo(
             ICachedEntity entity

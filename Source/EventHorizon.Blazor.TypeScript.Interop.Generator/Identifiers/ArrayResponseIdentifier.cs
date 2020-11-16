@@ -12,7 +12,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         {
             var type = typeStatement;
             if (typeStatement.IsModifier
-                || typeStatement.IsNullable)
+                || typeStatement.IsNullable
+                || typeStatement.IsTask)
             {
                 if (typeStatement.GenericTypes.Any())
                 {
@@ -20,6 +21,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                         typeStatement.GenericTypes.First()
                     );
                 }
+            }
+            else if (typeStatement.IsTypeAlias)
+            {
+                return Identify(
+                    typeStatement.AliasType
+                );
             }
             return type.IsArray;
         }

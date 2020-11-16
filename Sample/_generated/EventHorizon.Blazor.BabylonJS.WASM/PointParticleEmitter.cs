@@ -106,7 +106,7 @@ __direction2 = null;
         public void startDirectionFunction(Matrix worldMatrix, Vector3 directionToUpdate, Particle particle, bool isLocal)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "startDirectionFunction" }, worldMatrix, directionToUpdate, particle, isLocal
                 }
@@ -116,7 +116,7 @@ __direction2 = null;
         public void startPositionFunction(Matrix worldMatrix, Vector3 positionToUpdate, Particle particle, bool isLocal)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "startPositionFunction" }, worldMatrix, positionToUpdate, particle, isLocal
                 }
@@ -127,7 +127,7 @@ __direction2 = null;
         {
             return EventHorizonBlazorInterop.FuncClass<PointParticleEmitter>(
                 entity => new PointParticleEmitter() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "clone" }
                 }
@@ -137,7 +137,7 @@ __direction2 = null;
         public void applyToShader(Effect effect)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "applyToShader" }, effect
                 }
@@ -147,7 +147,7 @@ __direction2 = null;
         public string getEffectDefines()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getEffectDefines" }
                 }
@@ -157,7 +157,7 @@ __direction2 = null;
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "getClassName" }
                 }
@@ -167,7 +167,7 @@ __direction2 = null;
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "serialize" }
                 }
@@ -177,7 +177,7 @@ __direction2 = null;
         public void parse(object serializationObject)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "parse" }, serializationObject
                 }

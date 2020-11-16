@@ -98,7 +98,7 @@ __normal = null;
         public void normalize()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
                     new string[] { this.___guid, "normalize" }
                 }

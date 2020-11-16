@@ -138,7 +138,7 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public IntersectionInfo() : base() { } 
+        public IntersectionInfo() : base() { }
 
         public IntersectionInfo(
             ICachedEntity entity

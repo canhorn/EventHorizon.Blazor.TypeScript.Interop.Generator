@@ -18,8 +18,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
     public static class EnumTypeIdentifier
     {
 
-        private static IEnumTypeIdentifier CACHED = new EnumTypeIdentifierCached();
-        private static IEnumTypeIdentifier NOT_CACHED = new EnumTypeIdentifierNotCached();
+        private static IEnumTypeIdentifier CACHED => new EnumTypeIdentifierCached();
+        private static IEnumTypeIdentifier NOT_CACHED => new EnumTypeIdentifierNotCached();
         private static IEnumTypeIdentifier ACTIVE = CACHED;
 
         public static void DisableCache()
@@ -59,26 +59,26 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
     public class EnumTypeIdentifierCached
         : EnumTypeIdentifierNotCached
     {
-        private readonly Dictionary<string, bool> _cache = new Dictionary<string, bool>();
+        private bool _isCachedSetup;
+        private readonly List<string> _cache = new List<string>();
 
         public override bool Identify(
             string identifierString,
             TypeScriptAST ast
         )
         {
-            if (_cache.TryGetValue(identifierString, out var value))
+            if (!_isCachedSetup)
             {
-                return value;
+                var declarations = ast.RootNode.OfKind(
+                    SyntaxKind.EnumDeclaration
+                );
+                foreach (var declaration in declarations)
+                {
+                    _cache.Add(declaration.IdentifierStr);
+                }
+                _isCachedSetup = true;
             }
-            var response = base.Identify(
-                identifierString,
-                ast
-            );
-            if (identifierString != null)
-            {
-                _cache[identifierString] = response;
-            }
-            return response;
+            return _cache.Contains(identifierString);
         }
     }
 }
