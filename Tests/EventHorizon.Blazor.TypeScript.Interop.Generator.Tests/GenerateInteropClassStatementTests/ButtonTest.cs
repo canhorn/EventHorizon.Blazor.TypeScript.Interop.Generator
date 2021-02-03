@@ -1,22 +1,22 @@
-using System.Collections.Generic;
-using System.IO;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
-using FluentAssertions;
-using Sdcb.TypeScript;
-using Xunit;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassStatementTests
 {
+    using System.Collections.Generic;
+    using System.IO;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.SdcdImpl;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
+    using FluentAssertions;
+    using Xunit;
+
     public class ButtonTest
     {
         [Fact]
+        [Trait("AST", "Sdcb")]
         public void ShoudlGenerateExpectedButton()
         {
             // Given
             var sourceFile = "babylon.gui.d.ts";
             var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
-            var ast = new TypeScriptAST(source, sourceFile);
+            var ast = new Sdcb_TypeScriptASTWrapper(source);
             var typeOverrideMap = new Dictionary<string, string>();
 
             // When

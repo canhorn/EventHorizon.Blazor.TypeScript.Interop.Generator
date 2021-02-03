@@ -1,14 +1,14 @@
-using System.Collections.Generic;
-using System.IO;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
-using FluentAssertions;
-using Sdcb.TypeScript;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
 {
+    using System.Collections.Generic;
+    using System.IO;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.SdcdImpl;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
+    using FluentAssertions;
+
     public class GenerateStringTestBase
     {
-        public void ValidateGenerateStrings(
+        public void ValidateGenerateStringsUsingSdcb(
             string path,
             string sourceFile,
             string expectedFile,
@@ -30,9 +30,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
                 sourcePath,
                 sourceFile
             ));
-            var ast = new TypeScriptAST(
-                source,
-                sourceFile
+            var ast = new Sdcb_TypeScriptASTWrapper(
+                source
             );
             var typeOverrideMap = new Dictionary<string, string>();
 
@@ -52,9 +51,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
             actual.Should().Be(
                 expected
             );
-
         }
-        public void ValidateGenerateWithTypeOverrideStrings(
+
+        public void ValidateGenerateWithTypeOverrideStringsUsingSdcb(
             string path,
             string sourceFile,
             IDictionary<string, string> typeOverrideMap,
@@ -76,9 +75,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
                 sourcePath,
                 sourceFile
             ));
-            var ast = new TypeScriptAST(
-                source,
-                sourceFile
+            var ast = new Sdcb_TypeScriptASTWrapper(
+                source
             );
 
             // When

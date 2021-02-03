@@ -1,13 +1,12 @@
-using System.Collections.Generic;
-using System.IO;
-using Xunit;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassStatementStringTests
 {
+    using Xunit;
+
     public class ClassStringGenerationTests : GenerateStringTestBase
     {
         [Theory(DisplayName = "Class")]
         [Trait("Category", "StringGeneration.Classes")]
+        [Trait("AST", "Sdcb")]
         [InlineData("ExtendsAndImplementsClass.ts", "Classes", "ExtendsAndImplementsClass.Expected.txt")]
         [InlineData("ExtendsInterface.ts", "Classes", "ExtendsInterface.Expected.txt")]
         [InlineData("InterfaceGenerics.ts", "Classes", "InterfaceGenerics.Expected.txt")]
@@ -17,7 +16,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             string sourceFile,
             string path,
             string expectedFile
-        ) => ValidateGenerateStrings(
+        ) => ValidateGenerateStringsUsingSdcb(
             path,
             sourceFile,
             expectedFile

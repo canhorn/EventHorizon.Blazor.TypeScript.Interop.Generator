@@ -1,16 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
-using Sdcb.TypeScript;
-using Sdcb.TypeScript.TsTypes;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
+
     public class GenericTypeIdentifier
     {
         private static IRule IsArrayResposneTypeRule => new IsArrayResponseType();
@@ -21,7 +19,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         public static TypeStatement Identify(
             Node node,
             ClassMetadata classMetadata,
-            TypeScriptAST ast,
+            AbstractSyntaxTree ast,
             TypeOverrideDetails typeOverrideDetails
         )
         {
@@ -45,11 +43,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 typeIdentifier
             );
             var genericTypes = new List<TypeStatement>();
-            if (node is TypeReferenceNode referenceNode
-                && referenceNode.TypeArguments != null
-                && referenceNode.TypeArguments.Any())
+            if (node.TypeArguments != null
+                && node.TypeArguments.Any())
             {
-                foreach (var typeArgument in referenceNode.TypeArguments)
+                foreach (var typeArgument in node.TypeArguments)
                 {
                     if (typeArgument is Node typeArgumentNode)
                     {
@@ -64,30 +61,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     }
                 }
             }
-            else if (node is ExpressionWithTypeArguments expressNode
-                && expressNode.TypeArguments != null
-                && expressNode.TypeArguments.Any())
+            else if (node.Parameters != null
+               && node.Parameters.Any())
             {
-                foreach (var typeArgument in expressNode.TypeArguments)
-                {
-                    if (typeArgument is Node typeArgumentNode)
-                    {
-                        genericTypes.Add(
-                            Identify(
-                                typeArgumentNode,
-                                classMetadata,
-                                ast,
-                                typeOverrideDetails
-                            )
-                        );
-                    }
-                }
-            }
-            else if (node is FunctionTypeNode functionTypeNode
-               && functionTypeNode.Parameters != null
-               && functionTypeNode.Parameters.Any())
-            {
-                foreach (var functionParamerter in functionTypeNode.Parameters)
+                foreach (var functionParamerter in node.Parameters)
                 {
                     if (functionParamerter is Node typeArgumentNode)
                     {
@@ -103,13 +80,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 }
             }
             else if (typeIdentifier == GenerationIdentifiedTypes.Array
-                && node is ParameterDeclaration parameterDeclaration
-                && parameterDeclaration.Type != null
-                && parameterDeclaration.Type is ArrayTypeNode arrayNode)
+                && node.Type != null
+                && node.Type.Kind == SyntaxKind.ArrayType)
             {
                 // This Type is an Array, so we will take the ElementType and use that as the result.
                 var resultType = Identify(
-                    arrayNode.ElementType as Node,
+                    node.Type.ElementType,
                     classMetadata,
                     ast,
                     typeOverrideDetails
@@ -147,11 +123,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             }
             else if (NullableTypeIdentifier.Identify(
                 typeIdentifier
-            ) && node is ParameterDeclaration nullableParameter
-                && nullableParameter.Type is TypeReferenceNode typeRefernce
-                && typeRefernce.TypeArguments != null
-                && typeRefernce.TypeArguments.Any()
-                && typeRefernce.TypeArguments.First() is Node typeArgumentFirst)
+            ) && node.Type is not null
+                && node.Type.TypeArguments is not null
+                && node.Type.TypeArguments.Any()
+                && node.Type.TypeArguments.First() is Node typeArgumentFirst)
             {
                 genericTypes.Add(
                     Identify(

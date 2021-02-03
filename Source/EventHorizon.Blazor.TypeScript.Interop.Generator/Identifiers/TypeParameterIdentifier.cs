@@ -1,12 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using Sdcb.TypeScript.TsTypes;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
+
     public class TypeParameterIdentifier
     {
         internal static IList<string> Identify(
@@ -14,25 +12,25 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         )
         {
             var list = default(IList<string>);
-            if (node is ClassDeclaration classDeclaration)
+            if (node.Kind == SyntaxKind.ClassDeclaration)
             {
-                list = classDeclaration
+                list = node
                     .TypeParameters
                     ?.Select(
                         typeParam => typeParam.IdentifierStr
                     ).ToList();
             }
-            if (node is InterfaceDeclaration interfaceDeclaration)
+            if (node.Kind == SyntaxKind.InterfaceDeclaration)
             {
-                list = interfaceDeclaration
+                list = node
                     .TypeParameters
                     ?.Select(
                         typeParam => typeParam.IdentifierStr
                     ).ToList();
             }
-            if (node is MethodDeclaration methodDeclaration)
+            if (node.Kind == SyntaxKind.MethodDeclaration)
             {
-                list = methodDeclaration
+                list = node
                     .TypeParameters
                     ?.Select(
                         typeParam => typeParam.IdentifierStr

@@ -1,19 +1,16 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
-using Sdcb.TypeScript;
-using Sdcb.TypeScript.TsTypes;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
+    using System.Linq;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
+
     public class ExtendedClassTypesIdentifier
     {
         public static TypeStatement Identify(
             Node node,
-            TypeScriptAST ast,
+            AbstractSyntaxTree ast,
             ClassMetadata classMetadata,
             TypeOverrideDetails typeOverrideDetails
         )
@@ -22,11 +19,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             var classesCache = ast.RootNode.OfKind(
                 SyntaxKind.ClassDeclaration
             );
-            if (node is ClassDeclaration classDeclaration
-                && classDeclaration.HeritageClauses != null
-                && classDeclaration.HeritageClauses.Any())
+            if (node.Kind == SyntaxKind.ClassDeclaration
+                && node.HeritageClauses != null
+                && node.HeritageClauses.Any())
             {
-                var herited = classDeclaration.HeritageClauses.First();
+                var herited = node.HeritageClauses.First();
                 if (herited != null)
                 {
                     var identifiedClass = GenericTypeIdentifier.Identify(

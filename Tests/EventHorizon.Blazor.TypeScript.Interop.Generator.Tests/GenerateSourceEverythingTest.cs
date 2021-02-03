@@ -1,19 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Threading.Tasks;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Writer;
-using FluentAssertions;
-using Moq;
-using Xunit;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
 {
+    using System.Collections.Generic;
+    using System.IO;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Writer;
+    using FluentAssertions;
+    using Moq;
+    using Xunit;
+
     public class GenerateSourceEverythingTest
     {
         [Fact]
+        [Trait("AST", "Sdcb")]
         public void ShouldGenerateSourceForEverythingDefinition()
         {
             // Given

@@ -1,14 +1,13 @@
-using System.Collections.Generic;
-using System.IO;
-using Xunit;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassStatementStringTests
 {
+    using Xunit;
+
     public class TypeAliasGenerationTests 
         : GenerateStringTestBase
     {
         [Theory(DisplayName = "TypeAlias")]
         [Trait("Category", "TypeAlias")]
+        [Trait("AST", "Sdcb")]
         [InlineData("NullableActionCallbackArgument.ts", "TypeAlias", "NullableActionCallbackArgument.Expected.txt")]
         [InlineData("NullableAliasActionCallbackArgument.ts", "TypeAlias", "NullableAliasActionCallbackArgument.Expected.txt")]
         [InlineData("NullableNumberArgument.ts", "TypeAlias", "NullableNumberArgument.Expected.txt")]
@@ -18,7 +17,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             string sourceFile,
             string path,
             string expectedFile
-        ) => ValidateGenerateStrings(
+        ) => ValidateGenerateStringsUsingSdcb(
             path,
             sourceFile,
             expectedFile

@@ -1,19 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Formatter;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Templates;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Writers;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Formatter;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Templates;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Writers;
+
     public static class GenerateClassStatementString
     {
         public static string Generate(

@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+
     public class PrimitiveTypeIdentifier
     {
         public static bool Identify(

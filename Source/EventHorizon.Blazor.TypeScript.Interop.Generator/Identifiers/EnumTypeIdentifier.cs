@@ -1,17 +1,15 @@
-using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using Sdcb.TypeScript;
-using Sdcb.TypeScript.TsTypes;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
+
     public interface IEnumTypeIdentifier
     {
         bool Identify(
             string identifierString,
-            TypeScriptAST ast
+            AbstractSyntaxTree ast
         );
     }
 
@@ -29,7 +27,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 
         public static bool Identify(
             string identifierString,
-            TypeScriptAST ast
+            AbstractSyntaxTree ast
         )
         {
             return ACTIVE.Identify(
@@ -44,7 +42,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
     {
         public virtual bool Identify(
             string identifierString,
-            TypeScriptAST ast
+            AbstractSyntaxTree ast
         )
         {
             var hasEnumDeclarations = ast.RootNode.OfKind(
@@ -64,7 +62,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 
         public override bool Identify(
             string identifierString,
-            TypeScriptAST ast
+            AbstractSyntaxTree ast
         )
         {
             if (!_isCachedSetup)

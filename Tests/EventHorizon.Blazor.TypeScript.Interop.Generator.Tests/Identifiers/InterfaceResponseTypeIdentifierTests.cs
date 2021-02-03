@@ -2,16 +2,17 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 {
     using System.Collections.Generic;
     using System.IO;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.SdcdImpl;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
     using FluentAssertions;
-    using Sdcb.TypeScript;
     using Xunit;
 
     public class InterfaceResponseTypeIdentifierTests
     {
         [Fact]
         [Trait("Category", "InterfaceResponseTypeIdentifier.NotCached.StandardUsage")]
+        [Trait("AST", "Sdcb")]
         public void ShouldReturnExpectedIdentificationOfInterfaceWhenUsingNotCachedInstance()
         {
             // Given
@@ -20,7 +21,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
             var sourceFile = "interface.ts";
             var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
-            var ast = new TypeScriptAST(source, sourceFile);
+            var ast = new Sdcb_TypeScriptASTWrapper(source);
 
             // When
             var notCachedInterfaceIdentifier = new InterfaceResponseTypeIdentifierNotCached();
@@ -36,6 +37,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
         [Fact]
         [Trait("Category", "InterfaceResponseTypeIdentifier.Cached.StandardUsage")]
+        [Trait("AST", "Sdcb")]
         public void ShouldReturnExpectedIdentificationOfInterfaceWhenUsingCachedInstance()
         {
             // Given
@@ -44,7 +46,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
             var sourceFile = "interface.ts";
             var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
-            var ast = new TypeScriptAST(source, sourceFile);
+            var ast = new Sdcb_TypeScriptASTWrapper(source);
 
             // When
             var cachedInterfaceIdentifier = new InterfaceResponseTypeIdentifierCached();
@@ -60,6 +62,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
         [Fact]
         [Trait("Category", "InterfaceResponseTypeIdentifier.Cached.MultipleCalls")]
+        [Trait("AST", "Sdcb")]
         public void ShouldReturnExpectedIdentificationOfInterfaceWhenCalledMultipleTimes()
         {
             // Given
@@ -67,7 +70,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
             var sourceFile = "interface.ts";
             var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
-            var ast = new TypeScriptAST(source, sourceFile);
+            var ast = new Sdcb_TypeScriptASTWrapper(source);
 
             // When
             var cachedInterfaceIdentifier = new InterfaceResponseTypeIdentifierCached();
@@ -88,6 +91,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
         [Theory]
         [Trait("Category", "InterfaceResponseTypeIdentifier.Cached.TypeStatementIdentification")]
+        [Trait("AST", "Sdcb")]
         [InlineData("Random", "ExampleInterface", true, false, false, true)]
         [InlineData("Random", "ExampleInterface", false, true, false, true)]
         [InlineData("Random", "ExampleInterface", false, false, true, true)]
@@ -120,7 +124,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
             var sourceFile = "interface.ts";
             var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
-            var ast = new TypeScriptAST(source, sourceFile);
+            var ast = new Sdcb_TypeScriptASTWrapper(source);
 
             // When
             var cachedInterfaceIdentifier = new InterfaceResponseTypeIdentifierCached();
@@ -136,6 +140,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
         [Theory]
         [Trait("Category", "InterfaceResponseTypeIdentifier.NotCached.TypeStatementIdentification")]
+        [Trait("AST", "Sdcb")]
         [InlineData("Random", "ExampleInterface", true, false, false, true)]
         [InlineData("Random", "ExampleInterface", false, true, false, true)]
         [InlineData("Random", "ExampleInterface", false, false, true, true)]
@@ -168,7 +173,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
             var sourceFile = "interface.ts";
             var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
-            var ast = new TypeScriptAST(source, sourceFile);
+            var ast = new Sdcb_TypeScriptASTWrapper(source);
 
             // When
             var cachedInterfaceIdentifier = new InterfaceResponseTypeIdentifierNotCached();

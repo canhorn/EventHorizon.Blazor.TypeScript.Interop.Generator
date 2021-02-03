@@ -1,15 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
-using Sdcb.TypeScript;
-using Sdcb.TypeScript.TsTypes;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
+    using System.Linq;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
+
     public class UnionTypeIdentifier
     {
         private static IRule IsUnionTypeRule = new IsUnionType();
@@ -17,7 +14,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         internal static bool Identify(
             Node parameter,
             ClassMetadata classMetadata,
-            TypeScriptAST ast,
+            AbstractSyntaxTree ast,
             TypeOverrideDetails typeOverrideDetails,
             out TypeStatement type
         )

@@ -1,14 +1,14 @@
-using System.Collections.Generic;
-using System.IO;
-using Xunit;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassStatementStringTests
 {
+    using System.IO;
+    using Xunit;
+
     public class AccessorsGenerationTests
         : GenerateStringTestBase
     {
         [Theory(DisplayName = "Accessors.Static")]
         [Trait("Category", "Accessors.Static")]
+        [Trait("AST", "Sdcb")]
         [InlineData("AccessorStaticClass.ts", "Accessors", "AccessorStaticClass.Expected.txt")]
         [InlineData("AccessorStaticClassArray.ts", "Accessors", "AccessorStaticClassArray.Expected.txt")]
         [InlineData("AccessorStaticPrimitive.ts", "Accessors", "AccessorStaticPrimitive.Expected.txt")]
@@ -17,7 +17,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             string sourceFile,
             string path,
             string expectedFile
-        ) => ValidateGenerateStrings(
+        ) => ValidateGenerateStringsUsingSdcb(
             path,
             sourceFile,
             expectedFile
@@ -25,6 +25,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
 
         [Theory(DisplayName = "Accessors")]
         [Trait("Category", "Accessors")]
+        [Trait("AST", "Sdcb")]
         [InlineData("AccessorClass.ts", "Accessors", "AccessorClass.Expected.txt")]
         [InlineData("AccessorClassArray.ts", "Accessors", "AccessorClassArray.Expected.txt")]
         [InlineData("AccessorPrimitive.ts", "Accessors", "AccessorPrimitive.Expected.txt")]
@@ -33,7 +34,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             string sourceFile,
             string path,
             string expectedFile
-        ) => ValidateGenerateStrings(
+        ) => ValidateGenerateStringsUsingSdcb(
             path,
             sourceFile,
             expectedFile
@@ -41,6 +42,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
 
         [Theory(DisplayName = "Accessors.Scenarios")]
         [Trait("Category", "Accessors.Scenarios")]
+        [Trait("AST", "Sdcb")]
         [InlineData("AccessorClassResponseType.ts", "Accessors", "Scenarios", "AccessorClassResponseType.Expected.txt")]
         [InlineData("AccessorSetNoGet.ts", "Accessors", "Scenarios", "AccessorSetNoGet.Expected.txt")]
         [InlineData("DotNetNormalized.ts", "Accessors", "Scenarios", "DotNetNormalized.Expected.txt")]
@@ -54,7 +56,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             string rootPath,
             string scenariosPath,
             string expectedFile
-        ) => ValidateGenerateStrings(
+        ) => ValidateGenerateStringsUsingSdcb(
             Path.Combine(rootPath, scenariosPath),
             sourceFile,
             expectedFile

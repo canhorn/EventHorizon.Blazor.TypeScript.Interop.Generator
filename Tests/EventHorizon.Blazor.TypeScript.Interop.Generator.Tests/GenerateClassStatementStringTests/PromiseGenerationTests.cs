@@ -7,6 +7,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
     {
         [Theory(DisplayName = "Promise")]
         [Trait("Category", "StandardPromises")]
+        [Trait("AST", "Sdcb")]
         [InlineData("ArrayTaskPromise.ts", "Promise", "ArrayTaskPromise.Expected.txt")]
         [InlineData("ClassArrayTaskPromise.ts", "Promise", "ClassArrayTaskPromise.Expected.txt")]
         [InlineData("ClassTaskPromise.ts", "Promise", "ClassTaskPromise.Expected.txt")]
@@ -16,7 +17,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             string sourceFile,
             string path,
             string expectedFile
-        ) => ValidateGenerateStrings(
+        ) => ValidateGenerateStringsUsingSdcb(
             path,
             sourceFile,
             expectedFile

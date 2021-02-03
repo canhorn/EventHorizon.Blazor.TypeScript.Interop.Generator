@@ -1,16 +1,15 @@
-using System.Collections.Generic;
-using System.Linq;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
-using Sdcb.TypeScript;
-using Sdcb.TypeScript.TsTypes;
-using System;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
+
     public static class GenerateInteropClassStatement
     {
         static readonly IRule IsObservablePropertyRule = new IsObservableProperty();
@@ -24,7 +23,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
         public static ClassStatement Generate(
             string projectAssembly,
             string classIdentifier,
-            TypeScriptAST ast,
+            AbstractSyntaxTree ast,
             IDictionary<string, string> typeOverrideMap
         )
         {
@@ -239,15 +238,15 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
         private static IList<TypeStatement> GetGenericTypes(
             Node node,
             ClassMetadata classMetadata,
-            TypeScriptAST ast,
+            AbstractSyntaxTree ast,
             TypeOverrideDetails typeOverrideDetails
         )
         {
-            if (node is ClassDeclaration classDeclaration
-                && classDeclaration.TypeParameters != null
+            if (node.Kind == SyntaxKind.ClassDeclaration
+                && node.TypeParameters != null
             )
             {
-                return classDeclaration.TypeParameters.Select(
+                return node.TypeParameters.Select(
                     typeParam => GenericTypeIdentifier.Identify(
                         typeParam,
                         classMetadata,
@@ -256,11 +255,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                    )
                 ).ToList();
             }
-            else if (node is InterfaceDeclaration interfaceDeclaration
-                && interfaceDeclaration.TypeParameters != null
+            else if (node.Kind == SyntaxKind.InterfaceDeclaration
+                && node.TypeParameters != null
             )
             {
-                return interfaceDeclaration.TypeParameters.Select(
+                return node.TypeParameters.Select(
                     typeParam => GenericTypeIdentifier.Identify(
                         typeParam,
                         classMetadata,
@@ -292,7 +291,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
 
         public static IList<AccessorStatement> FlattenAccessorStatements(
             this IEnumerable<Node> nodes,
-            TypeScriptAST ast,
+            AbstractSyntaxTree ast,
             ClassMetadata classMetadata,
             IDictionary<string, string> typeOverrideMap
         )
@@ -357,7 +356,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
 
 
         private static List<string> GetNamespace(
-            INode classDeclaration,
+            Node classDeclaration,
             List<string> namespaceText = null
         )
         {
@@ -367,10 +366,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             }
             if (classDeclaration.Kind == SyntaxKind.ModuleDeclaration)
             {
-                var classDeclarationTyped = (ModuleDeclaration)classDeclaration;
+                //var classDeclarationTyped = (ModuleDeclaration)classDeclaration;
                 namespaceText.Insert(
                     0, 
-                    classDeclarationTyped.IdentifierStr
+                    classDeclaration.IdentifierStr
                 );
             }
             if (classDeclaration.Parent == null)

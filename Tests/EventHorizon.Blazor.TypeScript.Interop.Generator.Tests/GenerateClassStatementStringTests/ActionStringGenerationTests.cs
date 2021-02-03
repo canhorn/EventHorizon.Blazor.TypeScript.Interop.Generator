@@ -1,13 +1,12 @@
-using System.Collections.Generic;
-using System.IO;
-using Xunit;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassStatementStringTests
 {
+    using Xunit;
+
     public class ActionStringGenerationTests : GenerateStringTestBase
     {
         [Theory(DisplayName = "Action")]
         [Trait("Category", "StringGeneration.Actions")]
+        [Trait("AST", "Sdcb")]
         [InlineData("ActionCallbackWithResult.ts", "Actions", "ActionCallbackWithResult.Expected.txt")]
         [InlineData("ActionTypeCallback.ts", "Actions", "ActionTypeCallback.Expected.txt")]
         [InlineData("TypedActionCallback.ts", "Actions", "TypedActionCallback.Expected.txt")]
@@ -17,7 +16,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             string sourceFile,
             string path,
             string expectedFile
-        ) => ValidateGenerateStrings(
+        ) => ValidateGenerateStringsUsingSdcb(
             path,
             sourceFile,
             expectedFile

@@ -1,9 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers
 {
+    using System.Collections.Generic;
+
     public static class DotNetNormalizer
     {
         private static readonly IList<string> NORMAILZE_LIST = new List<string>

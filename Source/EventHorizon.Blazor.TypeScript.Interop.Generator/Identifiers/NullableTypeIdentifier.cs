@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using Sdcb.TypeScript.TsTypes;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+
     public class NullableTypeIdentifier
     {
         public static bool Identify(

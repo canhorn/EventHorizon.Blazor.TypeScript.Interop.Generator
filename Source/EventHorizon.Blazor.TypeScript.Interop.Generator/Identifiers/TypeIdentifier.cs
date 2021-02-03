@@ -1,9 +1,10 @@
-using System.Linq;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using Sdcb.TypeScript.TsTypes;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
+    using System.Linq;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+
     public static class TypeIdentifier
     {
         public static string Identify(
@@ -30,7 +31,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 
         public static string GetFromNode(
             Node node,
-            SyntaxKind kind,
+            string kind,
             ClassMetadata classMetadata
         )
         {
@@ -112,19 +113,19 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             {
                 return classMetadata.Name;
             }
+            else if (node.Type is not null)
+            {
+                return GetFromNode(
+                    node.Type,
+                    node.Type.Kind,
+                    classMetadata
+                );
+            }
             else if (node.Kind == SyntaxKind.Parameter)
             {
-                if (node is ParameterDeclaration parameterDeclaration)
-                {
-                    return GetFromNode(
-                        parameterDeclaration.Type as Node,
-                        parameterDeclaration.Type.Kind,
-                        classMetadata
-                    );
-                }
                 return classMetadata.Name;
             }
-            else if (node.IdentifierStr != null)
+            else if (node.IdentifierStr is not null)
             {
                 return node.IdentifierStr;
             }
@@ -136,13 +137,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             Node node
         )
         {
-            if (node is TypeReferenceNode typedNode)
+            if (node.TypeArguments is not null
+                && node.TypeArguments.Any())
             {
-                if (typedNode.TypeArguments != null
-                    && typedNode.TypeArguments.Any())
-                {
-                    return typedNode.First.Last.IdentifierStr;
-                }
+                return node.First.Last.IdentifierStr;
             }
             return node.OfKind(
                 SyntaxKind.Identifier

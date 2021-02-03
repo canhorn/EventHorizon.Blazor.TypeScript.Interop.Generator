@@ -1,13 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
 {
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
+
     public class BaseConstructorSectionWriter
     {
         internal static string Write(

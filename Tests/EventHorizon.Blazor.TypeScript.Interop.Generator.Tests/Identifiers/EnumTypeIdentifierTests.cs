@@ -1,18 +1,16 @@
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 {
-    using System;
     using System.IO;
-    using System.Threading.Tasks;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.SdcdImpl;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
-    using EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassStatementStringTests;
     using FluentAssertions;
-    using Sdcb.TypeScript;
     using Xunit;
 
     public class EnumTypeIdentifierTests
     {
         [Fact]
         [Trait("Category", "EnumTypeIdentifier.NotCached.StandardUsage")]
+        [Trait("AST", "Sdcb")]
         public void ShouldReturnExpectedIdentificationOfEnumWhenUsingNotCachedInstance()
         {
             // Given
@@ -21,7 +19,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
             var sourceFile = "enum.ts";
             var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
-            var ast = new TypeScriptAST(source, sourceFile);
+            var ast = new Sdcb_TypeScriptASTWrapper(source);
 
             // When
             var notCachedEnumIdentifier = new EnumTypeIdentifierNotCached();
@@ -37,6 +35,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
         [Fact]
         [Trait("Category", "EnumTypeIdentifier.Cached.StandardUsage")]
+        [Trait("AST", "Sdcb")]
         public void ShouldReturnExpectedIdentificationOfEnumWhenUsingCachedInstance()
         {
             // Given
@@ -45,7 +44,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
             var sourceFile = "enum.ts";
             var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
-            var ast = new TypeScriptAST(source, sourceFile);
+            var ast = new Sdcb_TypeScriptASTWrapper(source);
 
             // When
             var notCachedEnumIdentifier = new EnumTypeIdentifierCached();
@@ -61,6 +60,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
         [Fact]
         [Trait("Category", "EnumTypeIdentifier.Cached.MultipleCalls")]
+        [Trait("AST", "Sdcb")]
         public void ShouldReturnExpectedIdentificationOfEnumWhenCalledMultipleTimes()
         {
             // Given
@@ -68,7 +68,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
             var sourceFile = "enum.ts";
             var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
-            var ast = new TypeScriptAST(source, sourceFile);
+            var ast = new Sdcb_TypeScriptASTWrapper(source);
 
             // When
             var notCachedEnumIdentifier = new EnumTypeIdentifierCached();

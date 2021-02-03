@@ -1,19 +1,23 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using Sdcb.TypeScript.TsTypes;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Rules
 {
+    using System.Linq;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+
     public class IsObservableProperty
         : IRule
     {
-        public bool Check(Node node)
+        public bool Check(
+            Node node
+        )
         {
             // Check the Response
-            if (IsCorrectResponseType(node.OfKind(SyntaxKind.TypeReference).FirstOrDefault()))
+            if (IsCorrectResponseType(
+                node.OfKind(
+                    SyntaxKind.TypeReference
+                ).FirstOrDefault()
+            ))
             {
                 return true;
             }
@@ -22,7 +26,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Rules
             return false;
         }
 
-        private static bool IsCorrectResponseType(Node node)
+        private static bool IsCorrectResponseType(
+            Node node
+        )
         {
             if (node == null)
             {
@@ -33,7 +39,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Rules
             {
                 foreach (var nodeChild in node.Children)
                 {
-                    if (IsCorrectResponseType(nodeChild))
+                    if (IsCorrectResponseType(
+                        nodeChild
+                    ))
                     {
                         return true;
                     }

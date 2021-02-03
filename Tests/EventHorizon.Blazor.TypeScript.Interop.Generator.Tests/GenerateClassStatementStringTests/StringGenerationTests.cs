@@ -1,13 +1,13 @@
-using System.Collections.Generic;
-using System.IO;
-using Xunit;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassStatementStringTests
 {
+    using System.Collections.Generic;
+    using Xunit;
+
     public class StringGenerationTests : GenerateStringTestBase
     {
         [Theory(DisplayName = "Constructor")]
         [Trait("Category", "StringGeneration.Constructors")]
+        [Trait("AST", "Sdcb")]
         [InlineData("DotNetNormalizedArguments.ts", "Constructors", "DotNetNormalizedArguments.Expected.txt")]
         [InlineData("MixedArguments.ts", "Constructors", "MixedArguments.Expected.txt")]
         [InlineData("NoConstructor.ts", "Constructors", "NoConstructor.Expected.txt")]
@@ -18,7 +18,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             string sourceFile,
             string path,
             string expectedFile
-        ) => ValidateGenerateStrings(
+        ) => ValidateGenerateStringsUsingSdcb(
             path,
             sourceFile,
             expectedFile
@@ -26,13 +26,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
 
         [Theory(DisplayName = "ArrayTypes")]
         [Trait("Category", "StringGeneration.ArrayTypes")]
+        [Trait("AST", "Sdcb")]
         [InlineData("MethodArrayTypes.ts", "Methods", "MethodArrayTypes.Expected.txt")]
         [InlineData("PropertyArrayTypes.ts", "Properties", "PropertyArrayTypes.Expected.txt")]
         public void ShouldGenerateArrayTypeStrings(
             string sourceFile,
             string path,
             string expectedFile
-        ) => ValidateGenerateStrings(
+        ) => ValidateGenerateStringsUsingSdcb(
             path,
             sourceFile,
             expectedFile
@@ -40,6 +41,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
 
         [Theory(DisplayName = "TypeOverride.Scenarios")]
         [Trait("Category", "StringGeneration.TypeOverride.Scenarios")]
+        [Trait("AST", "Sdcb")]
         [InlineData("AccessorOverride.ts", "TypeOverrides", "AccessorOverride.Expected.txt")]
         [InlineData("ConstructorOverride.ts", "TypeOverrides", "ConstructorOverride.Expected.txt")]
         [InlineData("MethodOverride.ts", "TypeOverrides", "MethodOverride.Expected.txt")]
@@ -48,7 +50,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             string sourceFile,
             string path,
             string expectedFile
-        ) => ValidateGenerateWithTypeOverrideStrings(
+        ) => ValidateGenerateWithTypeOverrideStringsUsingSdcb(
             path,
             sourceFile,
             new Dictionary<string, string>
@@ -73,6 +75,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
 
         [Theory(DisplayName = "Enums")]
         [Trait("Category", "StringGeneration.Enum")]
+        [Trait("AST", "Sdcb")]
         [InlineData("EnumAccessor.ts", "Enums", "EnumAccessor.Expected.txt")]
         [InlineData("EnumArgument.ts", "Enums", "EnumArgument.Expected.txt")]
         [InlineData("EnumProperty.ts", "Enums", "EnumProperty.Expected.txt")]
@@ -81,7 +84,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             string sourceFile,
             string rootPath,
             string expectedFile
-        ) => ValidateGenerateStrings(
+        ) => ValidateGenerateStringsUsingSdcb(
             rootPath,
             sourceFile,
             expectedFile

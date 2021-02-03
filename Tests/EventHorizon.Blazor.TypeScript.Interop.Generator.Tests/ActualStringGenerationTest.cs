@@ -14,6 +14,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
     {
         [Fact]
         [Trait("Category", "Multiple Generation")]
+        [Trait("AST", "Sdcb")]
         public void ShouldGenerateSourceForEverythingDefinition()
         {
             // Given
@@ -59,6 +60,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
 
         [Fact]
         [Trait("Category", "Writer")]
+        [Trait("AST", "Sdcb")]
         public void ShouldCallWriterWithGeneratedClassStatement()
         {
             // Given

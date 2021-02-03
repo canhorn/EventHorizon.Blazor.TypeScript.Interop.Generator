@@ -1,14 +1,15 @@
-using System.IO;
-using Xunit;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassStatementStringTests
 {
+    using System.IO;
+    using Xunit;
+
     public class MethodScenarioTests
         : GenerateStringTestBase
     {
 
         [Theory(DisplayName = "StaticMethods")]
         [Trait("Category", "Method.Static")]
+        [Trait("AST", "Sdcb")]
         [InlineData("MethodStaticClass.ts", "Methods", "MethodStaticClass.Expected.txt")]
         [InlineData("MethodStaticClassArray.ts", "Methods", "MethodStaticClassArray.Expected.txt")]
         [InlineData("MethodStaticPrimitive.ts", "Methods", "MethodStaticPrimitive.Expected.txt")]
@@ -18,7 +19,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             string sourceFile,
             string path,
             string expectedFile
-        ) => ValidateGenerateStrings(
+        ) => ValidateGenerateStringsUsingSdcb(
             path,
             sourceFile,
             expectedFile
@@ -26,6 +27,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
 
         [Theory(DisplayName = "StaticMethod.Scenarios")]
         [Trait("Category", "Method.Static.Scenarios")]
+        [Trait("AST", "Sdcb")]
         [InlineData("MethodStaticAction.ts", "Methods", "Scenarios", "MethodStaticAction.Expected.txt")]
         [InlineData("MethodStaticClassWithLiteralInArguments.ts", "Methods", "Scenarios", "MethodStaticClassWithLiteralInArguments.Expected.txt")]
         [InlineData("MethodStaticClassWithNullArgument.ts", "Methods", "Scenarios", "MethodStaticClassWithNullArgument.Expected.txt")]
@@ -36,7 +38,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             string rootPath,
             string scenariosPath,
             string expectedFile
-        ) => ValidateGenerateStrings(
+        ) => ValidateGenerateStringsUsingSdcb(
             Path.Combine(rootPath, scenariosPath),
             sourceFile,
             expectedFile
@@ -44,6 +46,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
 
         [Theory(DisplayName = "Method")]
         [Trait("Category", "Method")]
+        [Trait("AST", "Sdcb")]
         [InlineData("MethodClass.ts", "Methods", "MethodClass.Expected.txt")]
         [InlineData("MethodClassArray.ts", "Methods", "MethodClassArray.Expected.txt")]
         [InlineData("MethodPrimitive.ts", "Methods", "MethodPrimitive.Expected.txt")]
@@ -53,7 +56,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             string sourceFile,
             string path,
             string expectedFile
-        ) => ValidateGenerateStrings(
+        ) => ValidateGenerateStringsUsingSdcb(
             path,
             sourceFile,
             expectedFile
@@ -61,6 +64,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
 
         [Theory(DisplayName = "Method.Scenarios")]
         [Trait("Category", "Method.Scenarios")]
+        [Trait("AST", "Sdcb")]
         [InlineData("ActionWithArguments.ts", "Methods", "Scenarios", "ActionWithArguments.Expected.txt")]
         [InlineData("ActionWithInterfaceInArguments.ts", "Methods", "Scenarios", "ActionWithInterfaceInArguments.Expected.txt")]
         [InlineData("GenericsInArguments.ts", "Methods", "Scenarios", "GenericsInArguments.Expected.txt")]
@@ -76,7 +80,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             string rootPath,
             string scenariosPath,
             string expectedFile
-        ) => ValidateGenerateStrings(
+        ) => ValidateGenerateStringsUsingSdcb(
             Path.Combine(rootPath, scenariosPath),
             sourceFile,
             expectedFile
