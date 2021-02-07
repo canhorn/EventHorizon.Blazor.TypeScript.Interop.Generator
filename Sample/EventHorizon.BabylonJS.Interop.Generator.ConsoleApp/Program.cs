@@ -11,6 +11,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
     {
         static void Main(string[] args)
         {
+            Run(AstParser.Model.ASTParserType.NodeJS);
+            //Run(AstParser.Model.ASTParserType.Sdcb);
+        }
+        static void Run(AstParser.Model.ASTParserType type)
+        {
             var stopwatch = Stopwatch.StartNew();
             var projectAssembly = "EventHorizon.Blazor.BabylonJS.WASM";
             var projectGenerationLocation = Path.Combine(
@@ -29,38 +34,40 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
             );
             var sourceFiles = new List<string>
             {
-                "babylon.d.ts",
-                "babylon.gui.d.ts",
+                "testing.d.ts",
+                //"babylon.d.ts",
+                //"babylon.gui.d.ts",
             };
             var generationList = new List<string>
             {
-                "Scene",
-                "VertexBuffer",
-                "ICameraInput",
-                "AbstractActionManager",
-                "ICustomAnimationFrameRequester",
-                "IAction",
-                "Vector3",
-                "EventState",
-                "Observable",
-                "Container",
-                "Control",
-                "Button",
-                "UniversalCamera",
-                "ArcRotateCamera",
-                "PointLight",
-                "Grid",
-                "StackPanel",
-                "MeshBuilder",
-                "StandardMaterial",
-                "Texture",
-                "HemisphericLight",
-                "PointerInfo",
-                "PointerInfoBase",
-                "SceneLoader",
-                "ParticleHelper",
-                "Sound",
-                "Tools",
+                "Everything",
+                //"Scene",
+                //"VertexBuffer",
+                //"ICameraInput",
+                //"AbstractActionManager",
+                //"ICustomAnimationFrameRequester",
+                //"IAction",
+                //"Vector3",
+                //"EventState",
+                //"Observable",
+                //"Container",
+                //"Control",
+                //"Button",
+                //"UniversalCamera",
+                //"ArcRotateCamera",
+                //"PointLight",
+                //"Grid",
+                //"StackPanel",
+                //"MeshBuilder",
+                //"StandardMaterial",
+                //"Texture",
+                //"HemisphericLight",
+                //"PointerInfo",
+                //"PointerInfoBase",
+                //"SceneLoader",
+                //"ParticleHelper",
+                //"Sound",
+                //"Tools",
             };
 
             // Remove any already Generated Source.
@@ -89,12 +96,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
                 new Dictionary<string, string>
                 {
                     { "BABYLON.PointerInfoBase | type", "int" }
-                }
+                },
+                type
             );
             stopwatch.Stop();
             GlobalLogger.Info("Removed Generation Directory");
             GlobalLogger.Info($"Took {stopwatch.ElapsedMilliseconds}ms to generate.");
-
         }
     }
 }

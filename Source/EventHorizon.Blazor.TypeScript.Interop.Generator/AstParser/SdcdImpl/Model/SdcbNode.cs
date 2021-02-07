@@ -173,10 +173,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.SdcdImpl.Mo
                     && _node is HeritageClause heritageClause
                 )
                 {
-                    _heritageClauses = heritageClause.Types
+                    _types = heritageClause.Types
                         ?.Select(a => new SdcbNode(a));
                 }
-                return _heritageClauses;
+                return _types;
             }
         }
         #endregion
@@ -191,10 +191,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.SdcdImpl.Mo
                     && _node is FunctionTypeNode functionTypeNode
                 )
                 {
-                    _typeArguments = functionTypeNode.Parameters
+                    _parameters = functionTypeNode.Parameters
                         ?.Select(a => new SdcbNode(a));
                 }
-                return _typeArguments;
+                return _parameters;
             }
         }
         #endregion

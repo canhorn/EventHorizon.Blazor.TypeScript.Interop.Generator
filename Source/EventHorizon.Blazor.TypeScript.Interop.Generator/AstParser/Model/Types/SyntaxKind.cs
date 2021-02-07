@@ -38,6 +38,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types
         public const string AnyKeyword = nameof(AnyKeyword);
         public const string ThisType = nameof(ThisType);
         public const string Parameter = nameof(Parameter);
+        public const string TypeParameter = nameof(TypeParameter);
 
         // TODO: Sdcb Speical Types
         //public const string TypeReferenceNode = nameof(TypeReferenceNode);

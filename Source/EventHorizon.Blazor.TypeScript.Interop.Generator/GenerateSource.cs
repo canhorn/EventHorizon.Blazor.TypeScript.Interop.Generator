@@ -7,6 +7,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
     using System.Text;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
@@ -30,7 +31,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             IList<string> generationList,
             IWriter writer,
             TextFormatter textFormatter,
-            IDictionary<string, string> typeOverrideMap
+            IDictionary<string, string> typeOverrideMap,
+            ASTParserType parserType = ASTParserType.Sdcb
         )
         {
             var overallStopwatch = Stopwatch.StartNew();
@@ -46,7 +48,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             GlobalLogger.Info($"=== Generated AST");
             var ast = ASTParser.ParseText(
                 sourceFilesAsText,
-                new ASTParserOptions()
+                new ASTParserOptions
+                {
+                    ParserType = parserType,
+                }
             );
             GlobalLogger.Info($"=== Generated AST | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms");
             var notGeneratedClassNames = new List<string>();

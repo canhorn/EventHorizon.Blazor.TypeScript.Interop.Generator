@@ -2,17 +2,21 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
 {
     using System.Collections.Generic;
     using System.IO;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.SdcdImpl;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
     using FluentAssertions;
 
     public class GenerateStringTestBase
     {
-        public void ValidateGenerateStringsUsingSdcb(
+        public void ValidateGenerateStrings(
             string path,
             string sourceFile,
             string expectedFile,
-            string classIdentifier = "ExampleClass"
+            string classIdentifier = "ExampleClass",
+            ASTParserType parserType = ASTParserType.Sdcb
         )
         {
             // Given
@@ -30,7 +34,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
                 sourcePath,
                 sourceFile
             ));
-            var ast = new Sdcb_TypeScriptASTWrapper(
+            var ast = CreateParser(
+                parserType,
                 source
             );
             var typeOverrideMap = new Dictionary<string, string>();
@@ -53,11 +58,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
             );
         }
 
-        public void ValidateGenerateWithTypeOverrideStringsUsingSdcb(
+        public void ValidateGenerateWithTypeOverrideStrings(
             string path,
             string sourceFile,
             IDictionary<string, string> typeOverrideMap,
-            string expectedFile
+            string expectedFile,
+            ASTParserType parserType = ASTParserType.Sdcb
         )
         {
             // Given
@@ -75,7 +81,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
                 sourcePath,
                 sourceFile
             ));
-            var ast = new Sdcb_TypeScriptASTWrapper(
+            var ast = CreateParser(
+                parserType,
                 source
             );
 
@@ -95,7 +102,22 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
             actual.Should().Be(
                 expected
             );
+        }
 
+        private static AbstractSyntaxTree CreateParser(
+            ASTParserType parserType,
+            string source
+        )
+        {
+            return parserType switch
+            {
+                ASTParserType.NodeJS => new NodeJS_ASTWrapper(
+                    source
+                ),
+                _ => new Sdcb_TypeScriptASTWrapper(
+                    source
+                ),
+            };
         }
     }
 }

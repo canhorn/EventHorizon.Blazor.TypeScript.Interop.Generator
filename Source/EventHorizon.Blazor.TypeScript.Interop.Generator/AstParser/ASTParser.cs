@@ -1,6 +1,8 @@
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser
 {
     using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.SdcdImpl;
 
     public static class ASTParser
@@ -10,6 +12,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser
             ASTParserOptions options
         )
         {
+            if (options.ParserType == ASTParserType.NodeJS)
+            {
+                return new NodeJS_ASTWrapper(
+                    source
+                );
+            }
             return new Sdcb_TypeScriptASTWrapper(
                 source
             );
@@ -18,6 +26,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser
 
     public class ASTParserOptions
     {
-
+        public ASTParserType ParserType { get; set; } = ASTParserType.Sdcb;
     }
 }
