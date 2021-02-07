@@ -558,7 +558,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
                 default:
                     return type;
             };
-            return switchType;
         }
     }
 }
