@@ -37,18 +37,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl
             {
                 var cmdProcessInfo = new ProcessStartInfo
                 {
-                    FileName = "cmd",
-                    RedirectStandardInput = true,
-                    WorkingDirectory = nodeJSPath
+                    FileName = "npm",
+                    WorkingDirectory = nodeJSPath,
+                    UseShellExecute = true,
+                    Arguments = "install",
                 };
                 var cmdProcess = Process.Start(
                     cmdProcessInfo
-                );
-                cmdProcess.StandardInput.WriteLine(
-                    "npm install"
-                );
-                cmdProcess.StandardInput.WriteLine(
-                    "exit"
                 );
                 cmdProcess.WaitForExit();
             }
