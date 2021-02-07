@@ -21,10 +21,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             ).FirstOrDefault(
                 child => child.IdentifierStr == typeIdentifier
             );
-            if (node == null)
-            {
-                return null;
-            }
 
             return GenericTypeIdentifier.Identify(
                 node.Last,
