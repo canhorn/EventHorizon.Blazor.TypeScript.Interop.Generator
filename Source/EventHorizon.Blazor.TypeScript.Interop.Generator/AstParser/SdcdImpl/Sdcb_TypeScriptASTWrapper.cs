@@ -37,25 +37,5 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.SdcdImpl
 
             return new List<Node>();
         }
-
-    }
-
-    public static class TypeScriptASTExtensions
-    {
-
-        public static Sdcb_SyntaxKind ToSyntaxKind(
-            this string kindText
-        )
-        {
-            switch (kindText)
-            {
-                case SyntaxKind.ClassDeclaration:
-                    return Sdcb_SyntaxKind.ClassDeclaration;
-                case SyntaxKind.InterfaceDeclaration:
-                    return Sdcb_SyntaxKind.InterfaceDeclaration;
-                default:
-                    return Sdcb_SyntaxKind.Unknown;
-            }
-        }
     }
 }
