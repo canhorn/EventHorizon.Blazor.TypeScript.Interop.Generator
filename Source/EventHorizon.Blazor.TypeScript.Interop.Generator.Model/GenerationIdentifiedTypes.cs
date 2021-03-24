@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model
 {
     public class GenerationIdentifiedTypes
@@ -23,5 +19,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model
         public const string Int = "int";
         public const string Float = "float";
         public const string Array = "Array";
+        public const string TypeQuery = "TypeQuery";
     }
 }

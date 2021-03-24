@@ -16,7 +16,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
             ASTNode node,
             Node parent = null,
             bool typeReference = false,
-            string overrideKind = null
+            string overrideKind = null,
+            ASTNode typeParameters = null
         )
         {
             var children = new List<Node>();
@@ -25,7 +26,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
             // Look at moving all this logic into ad/hoc caching from the getters
             _node = node;
             IdentifierStr = node.Key?.Name;
-            if(IdentifierStr == "constructor")
+            if (IdentifierStr == "constructor")
             {
                 IdentifierStr = null;
             }
@@ -77,7 +78,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
             }
             if (node.ExprName is not null)
             {
-                IdentifierStr = node.ExprName.Name;
+                var exprNode = new NodeJS_Node(
+                    node.ExprName,
+                    parent: this
+                );
+                children.Add(
+                    exprNode
+                );
+                IdentifierStr = exprNode.IdentifierStr;
             }
             Parent = parent;
 
@@ -165,33 +173,33 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
                 node.Kind
             );
 
-            if (!string.IsNullOrWhiteSpace(
-                node.Accessibility
-            ))
-            {
-                var modiferKind = default(string);
-                switch(node.Accessibility)
-                {
-                    case "proected":
-                        modiferKind = SyntaxKind.ProtectedKeyword;
-                        break;
-                    case "private":
-                        modiferKind = SyntaxKind.PrivateKeyword;
-                        break;
-                    default:
-                        modiferKind = node.Accessibility;
-                        break;
-                }
-                modifiers.Add(
-                    new NodeJS_Node(
-                        NodeJSTypeMapper.NodeJSTypeToSyntaxKind(
-                            modiferKind,
-                            null
-                        ),
-                        this
-                    )
-                );
-            }
+            //if (!string.IsNullOrWhiteSpace(
+            //    node.Accessibility
+            //))
+            //{
+            //    var modiferKind = default(string);
+            //    switch (node.Accessibility)
+            //    {
+            //        case "protected":
+            //            modiferKind = SyntaxKind.ProtectedKeyword;
+            //            break;
+            //        case "private":
+            //            modiferKind = SyntaxKind.PrivateKeyword;
+            //            break;
+            //        default:
+            //            modiferKind = node.Accessibility;
+            //            break;
+            //    }
+            //    modifiers.Add(
+            //        new NodeJS_Node(
+            //            NodeJSTypeMapper.NodeJSTypeToSyntaxKind(
+            //                modiferKind,
+            //                null
+            //            ),
+            //            this
+            //        )
+            //    );
+            //}
 
             if (node.Static ?? false)
             {
@@ -221,7 +229,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
                 );
             }
 
-            
+
             if (!typeReference && IdentifierStr is not null)
             {
                 children.Add(
@@ -238,8 +246,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
             {
                 var superClassNode = new NodeJS_Node(
                     node.SuperClass,
+                    typeParameters: node.SuperTypeParameters,
                     parent: this
                 );
+
                 heritageClauses.Add(
                     new NodeJS_Node(
                         types: new List<Node>
@@ -271,6 +281,26 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
                 );
             }
 
+            if (node.ObjectType is not null)
+            {
+                children.Add(
+                    new NodeJS_Node(
+                        node.ObjectType,
+                        this
+                    )
+                );
+            }
+
+            if (node.IndexType is not null)
+            {
+                children.Add(
+                    new NodeJS_Node(
+                        node.IndexType,
+                        this
+                    )
+                );
+            }
+
             if (node.Implements is not null)
             {
                 foreach (var implementation in node.Implements)
@@ -293,6 +323,17 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
             if (heritageClauses.Any())
             {
                 HeritageClauses = heritageClauses;
+            }
+
+            if (node.TypeAnnotation is not null && node.TypeAnnotation.Type != "TSTypeAnnotation")
+            {
+                var type = new NodeJS_Node(
+                    node.TypeAnnotation,
+                    parent: this
+                );
+                children.Add(
+                    type
+                );
             }
 
             if (node.Params is not null)
@@ -341,6 +382,28 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
                 );
             }
 
+            if (typeParameters is not null)
+            {
+                var types = typeParameters.Params.Select(
+                    a => new NodeJS_Node(a, parent: this)
+                );
+                TypeArguments = types;
+                children.AddRange(
+                    types
+                );
+            }
+
+            if (node.ElementTypes is not null)
+            {
+                var types = node.ElementTypes.Select(
+                    a => new NodeJS_Node(a, parent: this)
+                );
+                //TypeArguments = types;
+                children.AddRange(
+                    types
+                );
+            }
+
             if (node.Types is not null)
             {
                 children.AddRange(
@@ -367,16 +430,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
                 //);
             }
 
-            if (node.ReturnType is not null)
-            {
-                children.Add(
-                    new NodeJS_Node(
-                        node.ReturnType.TypeAnnotation,
-                        parent: this
-                    )
-                );
-            }
-
             if (node.TypeAnnotation is not null && node.TypeAnnotation.Type == "TSTypeAnnotation")
             {
                 var type = new NodeJS_Node(
@@ -391,14 +444,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
                     type
                 );
             }
-            else if (node.TypeAnnotation is not null)
+
+            if (node.ReturnType is not null)
             {
-                var type = new NodeJS_Node(
-                    node.TypeAnnotation,
-                    parent: this
-                );
                 children.Add(
-                    type
+                    new NodeJS_Node(
+                        node.ReturnType.TypeAnnotation,
+                        parent: this
+                    )
                 );
             }
 
@@ -435,8 +488,31 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
         {
             var children = new List<Node>();
             Kind = identifier.Type;
-            IdentifierStr = identifier.Name;
             Parent = parent;
+
+            // Get Last Node
+            var leftNode = identifier.Left?.Right;
+            if (leftNode is not null)
+            {
+                children.Add(
+                    new NodeJS_Node(
+                        leftNode,
+                        parent: this
+                    )
+                );
+            }
+            var rightNode = identifier.Right;
+            if (rightNode is not null)
+            {
+                children.Add(
+                    new NodeJS_Node(
+                        rightNode,
+                        parent: this
+                    )
+                );
+            }
+
+            IdentifierStr = rightNode?.Name ?? identifier.Name;
 
             Children = children;
         }
@@ -475,7 +551,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
         public IEnumerable<Node> TypeArguments { get; }
         public IEnumerable<Node> Parameters { get; }
 
-        public IEnumerable<Node> Children { get; }
+        public IEnumerable<Node> Children { get; init; }
 
         public IEnumerable<Node> OfKind(
             string kind
@@ -523,7 +599,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
                 }
             }
 
-            switch(type)
+            switch (type)
             {
                 case "TSModuleDeclaration": return SyntaxKind.ModuleDeclaration;
                 case "TSInterfaceDeclaration": return SyntaxKind.InterfaceDeclaration;
@@ -532,6 +608,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
                 case "ClassProperty": return SyntaxKind.PropertyDeclaration;
                 case "TSPropertySignature": return SyntaxKind.PropertySignature;
                 case "TSDeclareMethod": return SyntaxKind.MethodDeclaration;
+                case "TSMethodSignature": return SyntaxKind.MethodSignature;
 
                 case "TSTypeAliasDeclaration": return SyntaxKind.TypeAliasDeclaration;
 
@@ -555,6 +632,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
                 case "TSAnyKeyword": return SyntaxKind.AnyKeyword;
                 case "TSThisType": return SyntaxKind.ThisType;
                 case "TSTypeParameter": return SyntaxKind.TypeParameter;
+                case "TSTypeQuery": return SyntaxKind.TypeQuery;
                 default:
                     return type;
             };

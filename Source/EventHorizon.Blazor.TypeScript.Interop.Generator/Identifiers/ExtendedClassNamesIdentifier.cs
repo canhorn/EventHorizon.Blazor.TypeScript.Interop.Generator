@@ -34,7 +34,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     );
                     if (classesCache.Any(a => a.IdentifierStr == identifiedClass.Name))
                     {
-                        return identifiedClass;
+                        return GenericTypeIdentifier.Identify(
+                            herited.First,
+                            classMetadata,
+                            ast,
+                            typeOverrideDetails
+                        );
                     }
                 }
             }

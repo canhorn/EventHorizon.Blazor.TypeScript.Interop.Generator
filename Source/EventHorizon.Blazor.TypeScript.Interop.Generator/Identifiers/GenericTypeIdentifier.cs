@@ -15,6 +15,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         private static IRule IsNumericArrayRule => new IsNumericArray();
         private static IRule IsTypeLiteralRule => new IsTypeLiteral();
         private static IRule IsVoidTypeRule => new IsVoidType();
+        private static IRule IsTypeQueryRule => new IsTypeQuery();
 
         public static TypeStatement Identify(
             Node node,
@@ -26,6 +27,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             var typeIdentifier = TypeIdentifier.Identify(
                 node,
                 classMetadata
+            );
+            var isTypeQuery = IsTypeQueryRule.Check(
+                node
             );
             var isTypeAlias = AliasTypeIdentifier.Identify(
                 node,
@@ -48,17 +52,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             {
                 foreach (var typeArgument in node.TypeArguments)
                 {
-                    if (typeArgument is Node typeArgumentNode)
-                    {
-                        genericTypes.Add(
-                            Identify(
-                                typeArgumentNode,
-                                classMetadata,
-                                ast,
-                                typeOverrideDetails
-                            )
-                        );
-                    }
+                    genericTypes.Add(
+                        Identify(
+                            typeArgument,
+                            classMetadata,
+                            ast,
+                            typeOverrideDetails
+                        )
+                    );
                 }
             }
             else if (node.Parameters != null
@@ -66,17 +67,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             {
                 foreach (var functionParamerter in node.Parameters)
                 {
-                    if (functionParamerter is Node typeArgumentNode)
-                    {
-                        genericTypes.Add(
-                            Identify(
-                                typeArgumentNode,
-                                classMetadata,
-                                ast,
-                                typeOverrideDetails
-                            )
-                        );
-                    }
+                    genericTypes.Add(
+                        Identify(
+                            functionParamerter,
+                            classMetadata,
+                            ast,
+                            typeOverrideDetails
+                        )
+                    );
                 }
             }
             else if (typeIdentifier == GenerationIdentifiedTypes.Array
@@ -190,6 +188,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     ast
                 ),
                 GenericTypes = genericTypes,
+                IsTypeQuery = isTypeQuery,
+                TypeQuery = TypeQueryIdentifier.Identify(
+                    node,
+                    classMetadata,
+                    ast,
+                    typeOverrideDetails
+                ),
                 Arguments = ArgumentIdentifier.Identify(
                     node,
                     classMetadata,

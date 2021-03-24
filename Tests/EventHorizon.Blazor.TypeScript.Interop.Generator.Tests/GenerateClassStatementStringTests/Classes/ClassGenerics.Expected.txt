@@ -1,0 +1,93 @@
+/// Generated - Do Not Edit
+namespace Examples
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter<ExampleClass>))]
+    public class ExampleClass : ExampleClassWithGeneric<Camera>
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { }
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+        }
+
+        public ExampleClass(
+            Camera camera
+        ) : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "Examples", "ExampleClass" },
+                camera
+            );
+            ___guid = entity.___guid;
+        }
+        #endregion
+
+        #region Methods
+        public Camera addMouseWheel()
+        {
+            return EventHorizonBlazorInterop.FuncClass<Camera>(
+                entity => new Camera() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "addMouseWheel" }
+                }
+            );
+        }
+
+        public Camera addPointers()
+        {
+            return EventHorizonBlazorInterop.FuncClass<Camera>(
+                entity => new Camera() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "addPointers" }
+                }
+            );
+        }
+
+        public Camera addKeyboard()
+        {
+            return EventHorizonBlazorInterop.FuncClass<Camera>(
+                entity => new Camera() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "addKeyboard" }
+                }
+            );
+        }
+        #endregion
+    }
+}

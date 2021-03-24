@@ -58,9 +58,7 @@ namespace BabylonJS
                     {
                         return new CSharpTextClass()
                         {___guid = entity.___guid};
-                    }
-
-                    );
+                    });
                 }
 
                 return __target;

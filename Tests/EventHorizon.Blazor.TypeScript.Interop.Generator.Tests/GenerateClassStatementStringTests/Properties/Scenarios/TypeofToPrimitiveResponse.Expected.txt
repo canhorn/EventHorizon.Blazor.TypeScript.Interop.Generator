@@ -1,5 +1,5 @@
 /// Generated - Do Not Edit
-namespace BabylonJS
+namespace Static.Primitive
 {
     using System;
     using System.Collections.Generic;
@@ -9,10 +9,10 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
-    public interface ExampleInterface<T> : ICachedEntity { }
     
-    [JsonConverter(typeof(CachedEntityConverter<ExampleInterfaceCachedEntity<CachedEntity>>))]
-    public class ExampleInterfaceCachedEntity<T> : CachedEntityObject, ExampleInterface<T> where T : CachedEntity, new()
+    
+    [JsonConverter(typeof(CachedEntityConverter<ExampleClass>))]
+    public class ExampleClass : CachedEntityObject
     {
         #region Static Accessors
 
@@ -31,31 +31,43 @@ namespace BabylonJS
         #endregion
 
         #region Properties
+        
+        public string typeofToPrimitive
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<string>(
+                    this.___guid,
+                    "typeofToPrimitive"
+                );
+            }
+            set
+            {
 
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "typeofToPrimitive",
+                    value
+                );
+            }
+        }
         #endregion
         
         #region Constructor
-        public ExampleInterfaceCachedEntity() : base() { }
+        public ExampleClass() : base() { }
 
-        public ExampleInterfaceCachedEntity(
+        public ExampleClass(
             ICachedEntity entity
         ) : base(entity)
         {
+            ___guid = entity.___guid;
         }
 
 
         #endregion
 
         #region Methods
-        public void action(T action)
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "action" }, action
-                }
-            );
-        }
+
         #endregion
     }
 }

@@ -56,6 +56,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
         [InlineData("PropertyParenthesized.ts", "Properties", "Scenarios", "PropertyParenthesized.Expected.txt", ASTParserType.Sdcb)]
         [InlineData("PropertyStaticRootNamespace.ts", "Properties", "Scenarios", "PropertyStaticRootNamespace.Expected.txt", ASTParserType.Sdcb)]
         [InlineData("TypeofResponse.ts", "Properties", "Scenarios", "TypeofResponse.Expected.txt", ASTParserType.Sdcb)]
+        [InlineData("TypeofToPrimitiveResponse.ts", "Properties", "Scenarios", "TypeofToPrimitiveResponse.Expected.txt", ASTParserType.Sdcb)]
         [InlineData("UnionLiteralPropertyType.ts", "Properties", "Scenarios", "UnionLiteralPropertyType.Expected.txt", ASTParserType.Sdcb)]
         public void ShouldGeneratePropertyScenarioStringsUsingSdcb(
             string sourceFile,
@@ -120,6 +121,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
         [InlineData("PropertyParenthesized.ts", "Properties", "Scenarios", "PropertyParenthesized.Expected.txt", ASTParserType.NodeJS)]
         [InlineData("PropertyStaticRootNamespace.ts", "Properties", "Scenarios", "PropertyStaticRootNamespace.Expected.txt", ASTParserType.NodeJS)]
         [InlineData("TypeofResponse.ts", "Properties", "Scenarios", "TypeofResponse.Expected.txt", ASTParserType.NodeJS)]
+        [InlineData("TypeofToPrimitiveResponse.ts", "Properties", "Scenarios", "TypeofToPrimitiveResponse.Expected.txt", ASTParserType.NodeJS)]
         [InlineData("UnionLiteralPropertyType.ts", "Properties", "Scenarios", "UnionLiteralPropertyType.Expected.txt", ASTParserType.NodeJS)]
         public void ShouldGeneratePropertyScenarioStringsUsingNodeJS(
             string sourceFile,

@@ -1,8 +1,8 @@
-using System.Collections.Generic;
-using System.Linq;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
     // TypeStatement.Name<...TypeStatement.GenericTypes>
     public class TypeStatement
     {
@@ -19,6 +19,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements
         public bool IsModifier { get; set; }
         public bool IsInterface { get; set; }
         public bool IsEnum { get; set; }
+
+        public bool IsTypeQuery { get; set; }
+        public TypeQueryStatement TypeQuery { get; set; }
 
         public override string ToString()
         {

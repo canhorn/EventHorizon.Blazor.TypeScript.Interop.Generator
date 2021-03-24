@@ -13,7 +13,7 @@
 
     <ItemGroup>
         <PackageReference Include="Jering.Javascript.NodeJS" Version="5.4.4" />
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.7.0" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.9.0" />
         <PackageReference Include="Sdcb.TypeScriptAST" Version="1.0.0" />
     </ItemGroup>
 

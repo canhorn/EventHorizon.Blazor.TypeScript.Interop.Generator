@@ -67,18 +67,25 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
 
         #region HeritageClauses
         public ASTNode SuperClass { get; set; }
+        public ASTNode SuperTypeParameters { get; set; }
         public List<ASTNode> Implements { get; set; }
         #endregion
 
         #region TypeReference
         public List<ASTNode> Types { get; set; }
         public ASTNode ElementType { get; set; }
+        public List<ASTNode> ElementTypes { get; set; }
         public List<ASTNode> Members { get; set; }
         #endregion
 
         #region Method
         public List<ASTNode> Params { get; set; }
         public List<ASTNode> Parameters { get; set; }
+        #endregion
+
+        #region indexType
+        public ASTNode ObjectType { get; set; }
+        public ASTNode IndexType { get; set; }
         #endregion
     }
 }

@@ -4,6 +4,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl
     using System.Collections.Generic;
     using System.Diagnostics;
     using System.IO;
+    using System.Reflection;
     using System.Text.Json;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Model;
@@ -17,7 +18,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl
         )
         {
             var nodeJSPath = Path.Combine(
-                ".",
+                Path.GetDirectoryName(
+                    Assembly.GetExecutingAssembly().Location
+                ),
                 "AstParser",
                 "NodeImpl",
                 "NodeJS"

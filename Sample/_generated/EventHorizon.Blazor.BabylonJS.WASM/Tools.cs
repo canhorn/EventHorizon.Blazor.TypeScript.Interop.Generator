@@ -246,27 +246,19 @@ namespace BabylonJS
             }
         }
 
-        private static GetDOMTextContent __GetDOMTextContent;
-        public static GetDOMTextContent GetDOMTextContent
+        
+        public static string GetDOMTextContent
         {
             get
             {
-            if(__GetDOMTextContent == null)
-            {
-                __GetDOMTextContent = EventHorizonBlazorInterop.GetClass<GetDOMTextContent>(
+            return EventHorizonBlazorInterop.Get<string>(
                     "BABYLON",
-                    "Tools.GetDOMTextContent",
-                    (entity) =>
-                    {
-                        return new GetDOMTextContent() { ___guid = entity.___guid };
-                    }
+                    "Tools.GetDOMTextContent"
                 );
-            }
-            return __GetDOMTextContent;
             }
             set
             {
-__GetDOMTextContent = null;
+
                 EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "Tools.GetDOMTextContent",
@@ -335,27 +327,19 @@ __GetDOMTextContent = null;
             }
         }
 
-        private static IsWindowObjectExist __IsWindowObjectExist;
-        public static IsWindowObjectExist IsWindowObjectExist
+        
+        public static bool IsWindowObjectExist
         {
             get
             {
-            if(__IsWindowObjectExist == null)
-            {
-                __IsWindowObjectExist = EventHorizonBlazorInterop.GetClass<IsWindowObjectExist>(
+            return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
-                    "Tools.IsWindowObjectExist",
-                    (entity) =>
-                    {
-                        return new IsWindowObjectExist() { ___guid = entity.___guid };
-                    }
+                    "Tools.IsWindowObjectExist"
                 );
-            }
-            return __IsWindowObjectExist;
             }
             set
             {
-__IsWindowObjectExist = null;
+
                 EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "Tools.IsWindowObjectExist",

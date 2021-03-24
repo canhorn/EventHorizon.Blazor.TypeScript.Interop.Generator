@@ -1,5 +1,5 @@
 /// Generated - Do Not Edit
-namespace BabylonJS
+namespace Examples
 {
     using System;
     using System.Collections.Generic;
@@ -9,10 +9,10 @@ namespace BabylonJS
     using EventHorizon.Blazor.Interop.Callbacks;
     using Microsoft.JSInterop;
 
-    public interface ExampleInterface<T> : ICachedEntity { }
     
-    [JsonConverter(typeof(CachedEntityConverter<ExampleInterfaceCachedEntity<CachedEntity>>))]
-    public class ExampleInterfaceCachedEntity<T> : CachedEntityObject, ExampleInterface<T> where T : CachedEntity, new()
+    
+    [JsonConverter(typeof(CachedEntityConverter<ExampleClass>))]
+    public class ExampleClass : CachedEntityObject
     {
         #region Static Accessors
 
@@ -23,7 +23,16 @@ namespace BabylonJS
         #endregion
 
         #region Static Methods
-
+        public static Ray CreateNewFromTo(Vector3 origin, Vector3 end, Matrix world = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Ray>(
+                entity => new Ray() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "Examples", "ExampleClass", "CreateNewFromTo" }, origin, end, world
+                }
+            );
+        }
         #endregion
 
         #region Accessors
@@ -35,27 +44,20 @@ namespace BabylonJS
         #endregion
         
         #region Constructor
-        public ExampleInterfaceCachedEntity() : base() { }
+        public ExampleClass() : base() { }
 
-        public ExampleInterfaceCachedEntity(
+        public ExampleClass(
             ICachedEntity entity
         ) : base(entity)
         {
+            ___guid = entity.___guid;
         }
 
 
         #endregion
 
         #region Methods
-        public void action(T action)
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "action" }, action
-                }
-            );
-        }
+
         #endregion
     }
 }
