@@ -2,11 +2,15 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 {
     using System.Collections.Generic;
     using System.IO;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.SdcdImpl;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
     using FluentAssertions;
+    using Moq;
     using Xunit;
 
     public class InterfaceResponseTypeIdentifierTests
@@ -364,6 +368,67 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
             // Then
             actual.Should()
                 .Be(expected);
+        }
+
+        [Theory]
+        [Trait("Category", "EdgeCase")]
+        [InlineData(SyntaxKind.ClassDeclaration, false)]
+        [InlineData(SyntaxKind.InterfaceDeclaration, true)]
+        public void ShouldValidateAgainstCacheWhenDeclarationTypeIsUsed(
+            string declarationType,
+            bool found
+        )
+        {
+            // Given
+            var expected = 1;
+            var identifierString = "identifier-string";
+            var mockNode = new NodeMock
+            {
+                IdentifierStr = identifierString,
+            };
+
+            var astMock = new Mock<AbstractSyntaxTree>();
+            var rootNodeMock = new Mock<Node>();
+
+            astMock.Setup(
+                mock => mock.RootNode
+            ).Returns(
+                rootNodeMock.Object
+            );
+
+            rootNodeMock.Setup(
+                mock => mock.OfKind(
+                    declarationType
+                )
+            ).Returns(
+                new List<Node>
+                {
+                    mockNode
+                }
+            );
+
+            // When
+            var alias = new InterfaceResponseTypeIdentifierCached();
+            var actual = alias.Identify(
+                identifierString,
+                astMock.Object
+            );
+            actual.Should().Be(found);
+
+            actual = alias.Identify(
+                identifierString,
+                astMock.Object
+            );
+
+            // Then
+            actual.Should().Be(found);
+
+            rootNodeMock.Verify(
+                mock => mock.OfKind(
+                    declarationType
+                ),
+                Times.Exactly(expected)
+            );
         }
     }
 }
