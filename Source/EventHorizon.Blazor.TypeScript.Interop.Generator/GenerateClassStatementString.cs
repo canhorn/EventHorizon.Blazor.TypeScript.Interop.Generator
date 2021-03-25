@@ -49,10 +49,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             var classGenerationTemplates = ReadTemplates.Read();
 
             // Generate Tokens
-            var namespaceReplaced = classStatement.Namespace.Replace("BABYLON", "BabylonJS");
+            var namespaceReplaced = classStatement.Namespace;
             if (string.IsNullOrWhiteSpace(namespaceReplaced))
             {
-                namespaceReplaced = "BabylonJS";
+                namespaceReplaced = "Generated";
             }
             classTokenMap["[[NAMESPACE]]"] = namespaceReplaced;
             classTokenMap["[[CLASS_NAME]]"] = classStatement.Name;

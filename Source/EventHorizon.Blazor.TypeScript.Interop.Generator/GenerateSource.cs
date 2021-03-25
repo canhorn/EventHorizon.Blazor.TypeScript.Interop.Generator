@@ -45,7 +45,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             GlobalLogger.Info($"=== Consolidated Source Files | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms");
 
             stopwatch.Restart();
-            GlobalLogger.Info($"=== Generated AST");
+            GlobalLogger.Info($"=== Generated AST - {parserType}");
             var ast = ASTParser.ParseText(
                 sourceFilesAsText,
                 new ASTParserOptions

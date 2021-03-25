@@ -1,18 +1,19 @@
-using System;
-using System.Collections.Generic;
-using System.CommandLine;
-using System.CommandLine.Invocation;
-using System.Diagnostics;
-using System.IO;
-using System.Net;
-using EventHorizon.Blazor.TypeScript.Interop.Generator;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project;
-using EventHorizon.Blazor.TypeScript.Interop.Tool.ToolException;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Tool
 {
+    using System;
+    using System.Collections.Generic;
+    using System.CommandLine;
+    using System.CommandLine.Invocation;
+    using System.Diagnostics;
+    using System.IO;
+    using System.Net;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project;
+    using EventHorizon.Blazor.TypeScript.Interop.Tool.ToolException;
+
     class Program
     {
         private static readonly string SOURCE_FILES_DIRECTORY_NAME = "_sourceFiles";
@@ -50,13 +51,18 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
                     new string[] { "--force", "-f" },
                     getDefaultValue: () => false,
                     description: "This will force generation, by deleting --project-generation-location"
-                )
+                ),
+                new Option<string>(
+                    new string[] { "--parser", "-p" },
+                    getDefaultValue: () => "dotnet",
+                    description: "The type of TypeScript parser to use, 'dotnet' will use the embedded .NET parser. 'nodejs' will use the TypeScript compiler through NodeJS (requires NodeJS installed)."
+                ),
             };
 
-            rootCommand.Description = "Generate a Blazor WASM project from a TypeScript definition file.";
+            rootCommand.Description = "Generate a Blazor Wasm project from a TypeScript definition file.";
 
             // Note that the parameters of the handler method are matched according to the names of the options
-            rootCommand.Handler = CommandHandler.Create<IList<string>, IList<string>, string, string, bool>(
+            rootCommand.Handler = CommandHandler.Create<IList<string>, IList<string>, string, string, bool, string>(
                 GenerateSources
             );
 
@@ -67,9 +73,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
         private static int GenerateSources(
             IList<string> source,
             IList<string> classToGenerate,
-            string projectAssembly = "Generated.WASM",
+            string projectAssembly = "Generated.Wasm",
             string projectGenerationLocation = "_generated",
-            bool force = false
+            bool force = false,
+            string parser = "dotnet"
         )
         {
             try
@@ -79,10 +86,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
                     source,
                     classToGenerate,
                     projectAssembly,
-                    projectGenerationLocation
+                    projectGenerationLocation,
+                    parser
                 );
                 GlobalLogger.Info($"projectAssembly: {projectAssembly}");
                 GlobalLogger.Info($"projectGenerationLocation: {projectGenerationLocation}");
+                GlobalLogger.Info($"parser: {parser}");
 
                 GlobalLogger.Info($"classToGenerate.Length: {classToGenerate.Count}");
                 foreach (var classToGenerateItem in classToGenerate)
@@ -154,8 +163,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
                     textFormatter,
                     new Dictionary<string, string>
                     {
-                    { "BABYLON.PointerInfoBase | type", "int" }
-                    }
+                    },
+                    GetParserType(parser)
                 );
                 stopwatch.Stop();
                 GlobalLogger.Success($"Took {stopwatch.ElapsedMilliseconds}ms to Generate Source Project.");
@@ -182,7 +191,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
             IList<string> sources,
             IList<string> classToGenerate,
             string projectAssembly,
-            string projectGenerationLocation
+            string projectGenerationLocation,
+            string parser
         )
         {
             if (sources == null || sources.Count == 0)
@@ -215,6 +225,15 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
                 throw new ToolArgumentException(
                     "--project-generation-location",
                     "Project Generation Location was null or empty."
+                );
+            }
+            if (string.IsNullOrWhiteSpace(
+                parser
+            ) || (parser.ToLower() != "dotnet" && parser.ToLower() != "nodejs"))
+            {
+                throw new ToolArgumentException(
+                    "--parser",
+                    "Invalid parser found. Valid Parsers: [dotnet, nodejs]"
                 );
             }
         }
@@ -305,5 +324,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
             string sourceFile
         ) => sourceFile.StartsWith("http://")
             || sourceFile.StartsWith("https://");
+
+        private static ASTParserType GetParserType(
+            string parserType
+        ) => parserType switch
+        {
+            "nodejs" => ASTParserType.NodeJS,
+            _ => ASTParserType.Sdcb,
+        };
     }
 }
