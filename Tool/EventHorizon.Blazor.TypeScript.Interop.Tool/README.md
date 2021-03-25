@@ -19,6 +19,18 @@ Identifier | Details | Required/Default
 -a, --project-assembly &lt;project-assembly&gt; | The project name of the Assembly that will be generated | Default: "Generated.WASM"
 -l, --project-generation-location &lt;project-generation-location&gt; | The directory where the Generated Project assembly will be saved | Default: "_generated"
 -f, --force | This will force generation, by deleting --project-generation-location | Default: (False)
+-p, --parser | The type of TypeScript parser to use, Supported values: ("dotnet","nodejs")  | Default: ("dotnet")
+
+## Parsers 
+
+The tool supports two types of parsers, one using the embedded .NET parser and one using NodeJS the TypeScript Complier. 
+
+These both have trade offs:
+
+Type | Details
+--- | ---
+dotnet | Has no external dependencies, and on average 3x faster than the nodejs parser. A con is that it does not support modern TypeScript syntax, but should coverage 90% of use-cases.
+nodejs | Requires NodeJS to function, supports modern TypeScript syntax. A con is that it is very slow relative to the dotnet parser.
 
 ## Usage
 

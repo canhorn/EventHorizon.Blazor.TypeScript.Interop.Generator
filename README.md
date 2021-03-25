@@ -28,6 +28,13 @@ The interop project can be found in the [canhorn/EventHorizon.Blazor.Interop](ht
 * [TypeScript](https://www.typescriptlang.org/)
 * [NodeJS](https://nodejs.org/)
 
+## TypeScript Parser
+
+The generation relies heavily the TypeScript Abstract Syntax Tree, and so the code includes ways to parse the source files into a AST representation for easier generation. 
+
+To do this the code has two supported parser types, .NET and NodeJS, to do realtime parse the code. Using a .NET library it is able to do very quick parsing, but since it has not been maintained it can not handle complex or modern TypeScript syntax.
+But with the NodeJS TypeScript parser it can do modern, more complex TypeScript syntax, but with the trade off of in speed. 
+
 ## Supported API's Generated
 
 Below is a list of API that will be generated.
