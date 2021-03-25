@@ -10,6 +10,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
     public class AliasTypeStatementIdentifierTests
     {
         [Fact]
+        [Trait("Category", "EdgeCase")]
         public void ShouldReturnNullWhenNodeIsNotFound()
         {
             // Given

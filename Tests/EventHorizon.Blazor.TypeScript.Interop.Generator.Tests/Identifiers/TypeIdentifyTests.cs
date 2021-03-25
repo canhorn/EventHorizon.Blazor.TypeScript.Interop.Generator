@@ -11,6 +11,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
     public class TypeIdentifyTests
     {
         [Fact]
+        [Trait("Category", "EdgeCase")]
         public void ShouldReturnClassMetadataNameWhenNodeIsKindParameter()
         {
             // Given
