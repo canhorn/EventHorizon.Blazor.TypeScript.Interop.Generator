@@ -1,16 +1,15 @@
-using System.Collections.Generic;
-using System.Linq;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
-using Sdcb.TypeScript;
-using Sdcb.TypeScript.TsTypes;
-using System;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
+
     public static class GenerateInteropClassStatement
     {
         static readonly IRule IsObservablePropertyRule = new IsObservableProperty();
@@ -24,24 +23,19 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
         public static ClassStatement Generate(
             string projectAssembly,
             string classIdentifier,
-            TypeScriptAST ast,
+            AbstractSyntaxTree ast,
             IDictionary<string, string> typeOverrideMap
         )
         {
-            //var namespaceIdentifier = string.Join(".", identifier.Take(identifier.Count - 1)); // "Bablyon";
-            var className = DotNetClassNormalizer.Denormalize(classIdentifier);
-
-            var toGenerateNode = ast.OfKind(SyntaxKind.ClassDeclaration)
-                .FirstOrDefault(a => a.IdentifierStr == className);
-            if (toGenerateNode == null)
+            var (found, className, toGenerateNode) = GetNode(
+                classIdentifier,
+                ast
+            );
+            if (!found)
             {
-                toGenerateNode = ast.OfKind(SyntaxKind.InterfaceDeclaration)
-                    .FirstOrDefault(a => a.IdentifierStr == className);
-                if (toGenerateNode == null)
-                {
-                    return null;
-                }
+                return null;
             }
+
             var namespaceIdentifier = string.Join(".", GetNamespace(toGenerateNode));
             var classMetadata = new ClassMetadata
             {
@@ -160,7 +154,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                         return new PublicPropertyStatement
                         {
                             Name = name,
-                            Type = NormalizeLiteralTypeStatement(type),
+                            Type = NormalizeLiteralTypeStatement(
+                                type,
+                                classMetadata,
+                                ast,
+                                typeOverrideDetails
+                            ),
                             IsStatic = isStatic,
                             IsInterfaceResponse = InterfaceResponseTypeIdentifier.Identify(
                                 type,
@@ -204,7 +203,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                         return new PublicMethodStatement
                         {
                             Name = name,
-                            Type = NormalizeLiteralTypeStatement(type),
+                            Type = NormalizeLiteralTypeStatement(
+                                type,
+                                classMetadata,
+                                ast,
+                                typeOverrideDetails
+                            ),
                             GenericTypes = DeclarationGenericTypesIdentifier.Identify(
                                 a
                             ),
@@ -236,18 +240,39 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             return classStatement;
         }
 
+        private static (bool found, string className, Node toGenerateNode) GetNode(
+            string classIdentifier,
+            AbstractSyntaxTree ast
+        )
+        {
+            var className = DotNetClassNormalizer.Denormalize(classIdentifier);
+
+            var toGenerateNode = ast.OfKind(SyntaxKind.ClassDeclaration)
+                .FirstOrDefault(a => a.IdentifierStr == className);
+            if (toGenerateNode == null)
+            {
+                toGenerateNode = ast.OfKind(SyntaxKind.InterfaceDeclaration)
+                    .FirstOrDefault(a => a.IdentifierStr == className);
+                if (toGenerateNode == null)
+                {
+                    return (false, className, toGenerateNode);
+                }
+            }
+            return (true, className, toGenerateNode);
+        }
+
         private static IList<TypeStatement> GetGenericTypes(
             Node node,
             ClassMetadata classMetadata,
-            TypeScriptAST ast,
+            AbstractSyntaxTree ast,
             TypeOverrideDetails typeOverrideDetails
         )
         {
-            if (node is ClassDeclaration classDeclaration
-                && classDeclaration.TypeParameters != null
+            if (node.Kind == SyntaxKind.ClassDeclaration
+                && node.TypeParameters != null
             )
             {
-                return classDeclaration.TypeParameters.Select(
+                return node.TypeParameters.Select(
                     typeParam => GenericTypeIdentifier.Identify(
                         typeParam,
                         classMetadata,
@@ -256,11 +281,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                    )
                 ).ToList();
             }
-            else if (node is InterfaceDeclaration interfaceDeclaration
-                && interfaceDeclaration.TypeParameters != null
+            else if (node.Kind == SyntaxKind.InterfaceDeclaration
+                && node.TypeParameters != null
             )
             {
-                return interfaceDeclaration.TypeParameters.Select(
+                return node.TypeParameters.Select(
                     typeParam => GenericTypeIdentifier.Identify(
                         typeParam,
                         classMetadata,
@@ -273,9 +298,39 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
         }
 
         private static TypeStatement NormalizeLiteralTypeStatement(
-            TypeStatement type
+            TypeStatement type,
+            ClassMetadata classMetadata,
+            AbstractSyntaxTree ast,
+            TypeOverrideDetails typeOverrideDetails
         )
         {
+            if (type.IsTypeQuery)
+            {
+                var (found, className, toGenerateNode) = GetNode(
+                    type.TypeQuery.Class,
+                    ast
+                );
+
+                if (!found)
+                {
+                    return type;
+                }
+
+                var typeNode = toGenerateNode.Children.FirstOrDefault(
+                    a => a.IdentifierStr == type.TypeQuery.Type
+                );
+                if (typeNode is not null)
+                {
+                    var typedType = GenericTypeIdentifier.Identify(
+                        typeNode.Last,
+                        classMetadata,
+                        ast,
+                        typeOverrideDetails
+                    );
+                    return typedType;
+                }
+            }
+
             if (type.IsLiteral)
             {
                 type.Name = GenerationIdentifiedTypes.CachedEntity;
@@ -292,7 +347,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
 
         public static IList<AccessorStatement> FlattenAccessorStatements(
             this IEnumerable<Node> nodes,
-            TypeScriptAST ast,
+            AbstractSyntaxTree ast,
             ClassMetadata classMetadata,
             IDictionary<string, string> typeOverrideMap
         )
@@ -329,7 +384,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                     return new AccessorStatement
                     {
                         Name = name,
-                        Type = NormalizeLiteralTypeStatement(type),
+                        Type = NormalizeLiteralTypeStatement(
+                            type,
+                            classMetadata,
+                            ast,
+                            typeOverrideDetails
+                        ),
                         IsStatic = isStatic,
                         IsInterfaceResponse = InterfaceResponseTypeIdentifier.Identify(
                             type,
@@ -357,7 +417,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
 
 
         private static List<string> GetNamespace(
-            INode classDeclaration,
+            Node classDeclaration,
             List<string> namespaceText = null
         )
         {
@@ -367,10 +427,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             }
             if (classDeclaration.Kind == SyntaxKind.ModuleDeclaration)
             {
-                var classDeclarationTyped = (ModuleDeclaration)classDeclaration;
+                //var classDeclarationTyped = (ModuleDeclaration)classDeclaration;
                 namespaceText.Insert(
-                    0, 
-                    classDeclarationTyped.IdentifierStr
+                    0,
+                    classDeclaration.IdentifierStr
                 );
             }
             if (classDeclaration.Parent == null)

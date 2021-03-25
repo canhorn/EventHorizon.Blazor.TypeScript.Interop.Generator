@@ -1,16 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
-using Sdcb.TypeScript.TsTypes;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using System.Diagnostics;
-using Sdcb.TypeScript;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
+
     public static class ArgumentIdentifier
     {
         private static readonly IRule IsOptionalRule = new IsOptional();
@@ -18,14 +15,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         internal static IList<ArgumentStatement> Identify(
             Node node,
             ClassMetadata classMetadata,
-            TypeScriptAST ast,
+            AbstractSyntaxTree ast,
             TypeOverrideDetails typeOverrideDetails
         )
         {
             var methodTypeParameters = TypeParameterIdentifier.Identify(node);
             var parameters = node.Children
                 .Where(childNode => childNode.Kind == SyntaxKind.Parameter)
-                .Cast<ParameterDeclaration>()
                 .Select(parameter =>
                 {
                     var type = GenericTypeIdentifier.Identify(

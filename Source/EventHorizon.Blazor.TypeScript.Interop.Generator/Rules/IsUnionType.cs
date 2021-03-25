@@ -1,8 +1,9 @@
-using System.Linq;
-using Sdcb.TypeScript.TsTypes;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Rules
 {
+    using System.Linq;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
+
     public class IsUnionType
         : IRule
     {
@@ -10,7 +11,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Rules
             Node node
         )
         {
-            return node.OfKind(SyntaxKind.UnionType).Any();
+            return node.OfKind(
+                SyntaxKind.UnionType
+            ).Any();
         }
     }
 }

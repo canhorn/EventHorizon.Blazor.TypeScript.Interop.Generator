@@ -1,12 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using Sdcb.TypeScript.TsTypes;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Rules
 {
+    using System.Linq;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+
     public class IsOptional
         : IRule
     {
@@ -26,7 +24,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Rules
             Node node
         ) => node.OfKind(
             SyntaxKind.TypeReference
-        ).LastOrDefault() is TypeReferenceNode typed
+        ).LastOrDefault() is Node typed
             && JavaScriptTypes.Nullable.Equals(
                 typed.IdentifierStr
             );

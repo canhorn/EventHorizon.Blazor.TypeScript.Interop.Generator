@@ -1,23 +1,22 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
-using FluentAssertions;
-using Sdcb.TypeScript;
-using Xunit;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassStatementTests
 {
+    using System.Collections.Generic;
+    using System.IO;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.SdcdImpl;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
+    using FluentAssertions;
+    using Xunit;
+
     public class ObserverableTest
     {
         [Fact]
+        [Trait("AST", "Sdcb")]
         public void Slim_ShouldGenerateExpectedObserverable()
         {
             // Given
             var sourceFile = "observable.ts";
             var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
-            var ast = new TypeScriptAST(source, sourceFile);
+            var ast = new Sdcb_TypeScriptASTWrapper(source);
             var typeOverrideMap = new Dictionary<string, string>();
 
             // When
@@ -30,13 +29,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
         }
 
         [Fact]
+        [Trait("AST", "Sdcb")]
         public void ShouldGenerateExpectedObserverable()
         {
             // Given
             //var sourceFile = "babylon.d.ts";
             var sourceFile = "observable.ts";
             var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
-            var ast = new TypeScriptAST(source, sourceFile);
+            var ast = new Sdcb_TypeScriptASTWrapper(source);
             var typeOverrideMap = new Dictionary<string, string>();
 
             // When
@@ -481,11 +481,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                 .Should().BeEmpty();
         }
     }
-}
+    public static class MakeTypeStatementExtension
+    {
+        public static TypeStatement MakeTypeStatement(
+            this string typeString
+        ) => new TypeStatement { Name = typeString };
+    }
 
-public static class MakeTypeStatementExtension
-{
-    public static TypeStatement MakeTypeStatement(
-        this string typeString
-    ) => new TypeStatement { Name = typeString };
 }

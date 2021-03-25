@@ -1,10 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+
     public class TaskTypeIdentifier
     {
         public static bool Identify(

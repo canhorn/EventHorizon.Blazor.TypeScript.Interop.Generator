@@ -6,6 +6,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
 		.github\workflows\dotnet-core.yml = .github\workflows\dotnet-core.yml
 		.github\workflows\dotnet-package.yml = .github\workflows\dotnet-package.yml
 		.github\workflows\main-tag-bump.yml = .github\workflows\main-tag-bump.yml
@@ -28,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.BabylonJS.Inte
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tool", "Tool", "{C261DE2D-65FB-4616-B02A-5A7461C6D767}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventHorizon.Blazor.TypeScript.Interop.Tool", "Tool\EventHorizon.Blazor.TypeScript.Interop.Tool\EventHorizon.Blazor.TypeScript.Interop.Tool.csproj", "{5893EDD4-24E7-4260-9A43-EFF21EE23F97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.TypeScript.Interop.Tool", "Tool\EventHorizon.Blazor.TypeScript.Interop.Tool\EventHorizon.Blazor.TypeScript.Interop.Tool.csproj", "{5893EDD4-24E7-4260-9A43-EFF21EE23F97}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,18 +1,17 @@
-using System;
-using System.Linq;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
-using Sdcb.TypeScript;
-using Sdcb.TypeScript.TsTypes;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
+    using System.Linq;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
+
     public class AliasTypeStatementIdentifier
     {
         public static TypeStatement Identify(
             string typeIdentifier,
             ClassMetadata classMetadata,
-            TypeScriptAST ast,
+            AbstractSyntaxTree ast,
             TypeOverrideDetails typeOverrideDetails
         )
         {
@@ -22,6 +21,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             ).FirstOrDefault(
                 child => child.IdentifierStr == typeIdentifier
             );
+
             if (node == null)
             {
                 return null;

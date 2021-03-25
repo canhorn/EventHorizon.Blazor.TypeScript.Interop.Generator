@@ -1,5 +1,5 @@
 /// Generated - Do Not Edit
-namespace BabylonJS
+namespace Generated
 {
     using System;
     using System.Collections.Generic;
@@ -58,9 +58,7 @@ namespace BabylonJS
                     {
                         return new CSharpTextClass()
                         {___guid = entity.___guid};
-                    }
-
-                    );
+                    });
                 }
 
                 return __target;

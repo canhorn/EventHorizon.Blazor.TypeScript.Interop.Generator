@@ -5,13 +5,15 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
     using System.IO;
     using System.Linq;
     using System.Text;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Formatter;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Writer;
-    using Sdcb.TypeScript;
 
     public class GenerateSource
     {
@@ -29,7 +31,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             IList<string> generationList,
             IWriter writer,
             TextFormatter textFormatter,
-            IDictionary<string, string> typeOverrideMap
+            IDictionary<string, string> typeOverrideMap,
+            ASTParserType parserType = ASTParserType.Sdcb
         )
         {
             var overallStopwatch = Stopwatch.StartNew();
@@ -42,10 +45,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             GlobalLogger.Info($"=== Consolidated Source Files | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms");
 
             stopwatch.Restart();
-            GlobalLogger.Info($"=== Generated AST");
-            var ast = new TypeScriptAST(
+            GlobalLogger.Info($"=== Generated AST - {parserType}");
+            var ast = ASTParser.ParseText(
                 sourceFilesAsText,
-                "source-combined.ts"
+                new ASTParserOptions
+                {
+                    ParserType = parserType,
+                }
             );
             GlobalLogger.Info($"=== Generated AST | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms");
             var notGeneratedClassNames = new List<string>();
@@ -151,7 +157,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
         }
 
         private static IList<ClassStatement> GenerateClassFromList(
-            TypeScriptAST ast,
+            AbstractSyntaxTree ast,
             string projectAssembly,
             IList<string> generationList,
             IList<string> notGeneratedClassNames,

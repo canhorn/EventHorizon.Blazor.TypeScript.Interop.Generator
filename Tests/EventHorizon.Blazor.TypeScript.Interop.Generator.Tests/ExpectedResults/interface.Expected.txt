@@ -1,5 +1,5 @@
 /// Generated - Do Not Edit
-namespace BabylonJS
+namespace Generated
 {
     using System;
     using System.Collections.Generic;
@@ -47,7 +47,15 @@ namespace BabylonJS
         #endregion
 
         #region Methods
-
+        public void action(T action)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "action" }, action
+                }
+            );
+        }
         #endregion
     }
 }

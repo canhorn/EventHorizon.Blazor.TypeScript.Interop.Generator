@@ -26,6 +26,7 @@ The interop project can be found in the [canhorn/EventHorizon.Blazor.Interop](ht
 
 * [.NET Core](https://dotnet.microsoft.com/)
 * [TypeScript](https://www.typescriptlang.org/)
+* [NodeJS](https://nodejs.org/)
 
 ## Supported API's Generated
 

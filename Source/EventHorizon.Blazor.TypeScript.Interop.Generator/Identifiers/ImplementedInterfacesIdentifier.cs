@@ -1,19 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
-using Sdcb.TypeScript;
-using Sdcb.TypeScript.TsTypes;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
+
     public class ImplementedInterfacesIdentifier
     {
         public static IList<TypeStatement> Identify(
             Node node,
-            TypeScriptAST ast,
+            AbstractSyntaxTree ast,
             ClassMetadata classMetadata,
             TypeOverrideDetails typeOverrideDetails
         )
@@ -23,11 +21,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             var interfaceCache = ast.RootNode.OfKind(
                 SyntaxKind.InterfaceDeclaration
             );
-            if (node is ClassDeclaration classDeclaration
-                && classDeclaration.HeritageClauses != null
-                && classDeclaration.HeritageClauses.Any())
+            if (node.Kind == SyntaxKind.ClassDeclaration
+                && node.HeritageClauses != null
+                && node.HeritageClauses.Any())
             {
-                foreach (var heritageClauses in classDeclaration.HeritageClauses)
+                foreach (var heritageClauses in node.HeritageClauses)
                 {
                     foreach (var heritageClauseType in heritageClauses.Types)
                     {

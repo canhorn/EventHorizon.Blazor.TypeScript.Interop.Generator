@@ -1,13 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Templates
 {
+    using System.IO;
+    using System.Text;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+
     public static class ReadTemplates
     {
         private static ClassGenerationTemplates GeneratedTemplates;

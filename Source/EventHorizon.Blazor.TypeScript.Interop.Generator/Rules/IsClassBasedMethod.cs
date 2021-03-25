@@ -1,12 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using Sdcb.TypeScript.TsTypes;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Rules
 {
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+
     class IsClassBasedMethod
         : IRule
     {
@@ -14,8 +10,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Rules
             Node node
         )
         {
-            var classId = node.IdentifierStr;
-            if (classId == JavaScriptTypes.Function)
+            if (node.IdentifierStr == JavaScriptTypes.Function)
             {
                 return true;
             }

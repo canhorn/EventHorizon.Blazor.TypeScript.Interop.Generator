@@ -1,27 +1,50 @@
-using System.Collections.Generic;
-using System.IO;
-using Xunit;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassStatementStringTests
 {
-    public class TypeAliasGenerationTests 
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model;
+    using Xunit;
+
+    public class TypeAliasGenerationTests
         : GenerateStringTestBase
     {
         [Theory(DisplayName = "TypeAlias")]
         [Trait("Category", "TypeAlias")]
-        [InlineData("NullableActionCallbackArgument.ts", "TypeAlias", "NullableActionCallbackArgument.Expected.txt")]
-        [InlineData("NullableAliasActionCallbackArgument.ts", "TypeAlias", "NullableAliasActionCallbackArgument.Expected.txt")]
-        [InlineData("NullableNumberArgument.ts", "TypeAlias", "NullableNumberArgument.Expected.txt")]
-        [InlineData("NullableTypeResponse.ts", "TypeAlias", "NullableTypeResponse.Expected.txt")]
-        [InlineData("ObjectTypeResponse.ts", "TypeAlias", "ObjectTypeResponse.Expected.txt")]
-        public void ShouldGenerateTypeAliasStrings(
+        [Trait("AST", "Sdcb")]
+        [InlineData("NullableActionCallbackArgument.ts", "TypeAlias", "NullableActionCallbackArgument.Expected.txt", ASTParserType.Sdcb)]
+        [InlineData("NullableAliasActionCallbackArgument.ts", "TypeAlias", "NullableAliasActionCallbackArgument.Expected.txt", ASTParserType.Sdcb)]
+        [InlineData("NullableNumberArgument.ts", "TypeAlias", "NullableNumberArgument.Expected.txt", ASTParserType.Sdcb)]
+        [InlineData("NullableTypeResponse.ts", "TypeAlias", "NullableTypeResponse.Expected.txt", ASTParserType.Sdcb)]
+        [InlineData("ObjectTypeResponse.ts", "TypeAlias", "ObjectTypeResponse.Expected.txt", ASTParserType.Sdcb)]
+        public void ShouldGenerateTypeAliasStringsUsingSdcb(
             string sourceFile,
             string path,
-            string expectedFile
+            string expectedFile,
+            ASTParserType parserType
         ) => ValidateGenerateStrings(
             path,
             sourceFile,
-            expectedFile
+            expectedFile,
+            parserType: parserType
+        );
+
+
+        [Theory(DisplayName = "TypeAlias")]
+        [Trait("Category", "TypeAlias")]
+        [Trait("AST", "NodeJS")]
+        [InlineData("NullableActionCallbackArgument.ts", "TypeAlias", "NullableActionCallbackArgument.Expected.txt", ASTParserType.NodeJS)]
+        [InlineData("NullableAliasActionCallbackArgument.ts", "TypeAlias", "NullableAliasActionCallbackArgument.Expected.txt", ASTParserType.NodeJS)]
+        [InlineData("NullableNumberArgument.ts", "TypeAlias", "NullableNumberArgument.Expected.txt", ASTParserType.NodeJS)]
+        [InlineData("NullableTypeResponse.ts", "TypeAlias", "NullableTypeResponse.Expected.txt", ASTParserType.NodeJS)]
+        [InlineData("ObjectTypeResponse.ts", "TypeAlias", "ObjectTypeResponse.Expected.txt", ASTParserType.NodeJS)]
+        public void ShouldGenerateTypeAliasStringsUsingNodeJS(
+            string sourceFile,
+            string path,
+            string expectedFile,
+            ASTParserType parserType
+        ) => ValidateGenerateStrings(
+            path,
+            sourceFile,
+            expectedFile,
+            parserType: parserType
         );
     }
 }

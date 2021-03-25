@@ -11,6 +11,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
     {
         static void Main(string[] args)
         {
+            //Run(AstParser.Model.ASTParserType.NodeJS); //  75084ms/71877ms to generate.
+            Run(AstParser.Model.ASTParserType.Sdcb);     //  22027ms/19835ms/18236ms to generate.
+        }
+        static void Run(AstParser.Model.ASTParserType type)
+        {
             var stopwatch = Stopwatch.StartNew();
             var projectAssembly = "EventHorizon.Blazor.BabylonJS.WASM";
             var projectGenerationLocation = Path.Combine(
@@ -29,11 +34,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
             );
             var sourceFiles = new List<string>
             {
+                //"testing.d.ts",
                 "babylon.d.ts",
                 "babylon.gui.d.ts",
             };
             var generationList = new List<string>
             {
+                //"Everything",
                 "Scene",
                 "VertexBuffer",
                 "ICameraInput",
@@ -89,12 +96,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
                 new Dictionary<string, string>
                 {
                     { "BABYLON.PointerInfoBase | type", "int" }
-                }
+                },
+                type
             );
             stopwatch.Stop();
             GlobalLogger.Info("Removed Generation Directory");
             GlobalLogger.Info($"Took {stopwatch.ElapsedMilliseconds}ms to generate.");
-
         }
     }
 }

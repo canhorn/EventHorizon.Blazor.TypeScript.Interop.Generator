@@ -1,16 +1,9 @@
-using System.Collections.Generic;
-using System.Linq;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
-using Sdcb.TypeScript;
-using Sdcb.TypeScript.TsTypes;
-using EventHorizon.Blazor.TypeScript.Interop.Generator.Templates;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator
 {
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Templates;
+
     public static class GenerateCachedEntityObject
     {
         public static ClassStatement GenerateClassStatement()

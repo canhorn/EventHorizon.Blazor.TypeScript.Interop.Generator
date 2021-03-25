@@ -1,9 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers
 {
+    using System.Collections.Generic;
+
     public class DotNetClassNormalizer
     {
         public static IList<string> DOTNET_NOT_SUPPORTED_LIST = new List<string>

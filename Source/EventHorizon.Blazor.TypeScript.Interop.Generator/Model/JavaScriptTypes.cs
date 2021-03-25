@@ -1,9 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model
 {
+    using System.Collections.Generic;
+
     public static class JavaScriptTypes
     {
         #region General Types - Types provided by the JavaScript framework

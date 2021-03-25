@@ -6,4 +6,5 @@ export class Vector3Typed<Vector3> {
 export class ExampleClass<T> {
 }
 export interface ExampleInterface<T> {
+    action(action: T): void;
 }
