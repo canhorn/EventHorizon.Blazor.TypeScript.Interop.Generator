@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EventHorizon.Blazor.Server.Interop" Version="0.1.0-preview0002" />
+  </ItemGroup>
+
+</Project>

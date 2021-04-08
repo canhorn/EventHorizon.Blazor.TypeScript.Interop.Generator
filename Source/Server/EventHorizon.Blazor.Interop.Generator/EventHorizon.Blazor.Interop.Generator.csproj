@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+
+        <AssemblyTitle>EventHorizon.Blazor.Interop.Generator</AssemblyTitle>
+        <AssemblyName>EventHorizon.Blazor.Interop.Generator</AssemblyName>
+        <PackageId>EventHorizon.Blazor.Interop.Generator</PackageId>
+
+        <Description>Parser for TypeScript definitions to create C# representations. This packages builds on top of the Wasm implementation by replacing the templates with ones that are Async first..</Description>
+        <PackageTags>Blazor, Server, Interop, Generation</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\EventHorizon.Blazor.TypeScript.Interop.Generator\EventHorizon.Blazor.TypeScript.Interop.Generator.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Templates\*" />
+    </ItemGroup>
+
+</Project>

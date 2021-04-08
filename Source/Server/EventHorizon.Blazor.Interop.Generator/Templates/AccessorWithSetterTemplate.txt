@@ -1,0 +1,10 @@
+        [[CACHE_SECTION]]
+        public [[STATIC]]async ValueTask<[[TYPE]]> get_[[NAME]]()
+        {
+[[PROPERTY_GETTER]]
+        }
+        public [[STATIC]]ValueTask set_[[NAME]]([[TYPE]] value)
+        {
+[[CACHE_SETTTER_SECTION]]
+[[PROPERTY_SETTER]]
+        }

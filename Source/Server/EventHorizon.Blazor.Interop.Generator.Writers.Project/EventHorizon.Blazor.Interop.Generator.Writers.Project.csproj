@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+
+        <AssemblyTitle>EventHorizon.Blazor.Interop.Generator.Writers.Project</AssemblyTitle> 
+        <AssemblyName>EventHorizon.Blazor.Interop.Generator.Writers.Project</AssemblyName>
+        <PackageId>EventHorizon.Blazor.Interop.Generator.Writers.Project</PackageId>
+
+        <Description>Includes a Writer implementation that will generate a C# Project. This should be used with the EventHorizon.Blazor.Interop.Generator project to write out the generated statements to a C# project.</Description>
+        <PackageTags>Blazor, WASM, Interop</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Templates\*" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="EventHorizon.Blazor.TypeScript.Interop.Generator" Version="0.1.9" />
+      <PackageReference Include="EventHorizon.Blazor.TypeScript.Interop.Generator.Model" Version="0.1.9" />
+    </ItemGroup>
+
+</Project>

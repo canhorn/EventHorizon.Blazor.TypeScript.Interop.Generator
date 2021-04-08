@@ -1,0 +1,42 @@
+        #region [[NAME]] TODO: Get Comments as metadata identification
+        private static bool Is[[NAME_CAPTIALIZED]]Enabled = false;
+        private static readonly IDictionary<string, Func<[[FUNCTION_GENERICS]]>> [[NAME]]ActionMap = new Dictionary<string, Func<[[FUNCTION_GENERICS]]>>();
+
+        public static async ValueTask<string> [[NAME]](
+            Func<[[FUNCTION_GENERICS]]> callback
+        )
+        {
+            await Setup[[NAME_CAPTIALIZED]]StaticLoop();
+
+            var handle = Guid.NewGuid().ToString();
+            [[NAME]]ActionMap.Add(
+                handle,
+                callback
+            );
+
+            return handle;
+        }
+
+        private static async ValueTask Setup[[NAME_CAPTIALIZED]]StaticLoop()
+        {
+            if (Is[[NAME_CAPTIALIZED]]Enabled)
+            {
+                return;
+            }
+            await EventHorizonBlazorInterop.AssemblyFuncCallback(
+                "[[ASSEMBLY]]",
+                "[[NAMESPACED_METHOD]]",
+                "Call[[NAME_CAPTIALIZED]]StaticActions"
+            );
+            Is[[NAME_CAPTIALIZED]]Enabled = true;
+        }
+
+        [JSInvokable]
+        public static async Task Call[[NAME_CAPTIALIZED]]StaticActions([[ARGUMENTS]])
+        {
+            foreach (var action in [[NAME]]ActionMap.Values)
+            {
+                await action([[PROPERTY_ARGUMENTS]]);
+            }
+        }
+        #endregion

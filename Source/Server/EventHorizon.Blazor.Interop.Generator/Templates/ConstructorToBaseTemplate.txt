@@ -1,0 +1,7 @@
+        public [[CLASS_NAME]][[INTERFACE_POSTFIX]]()[[BASE_CLASS_CALL]] { }
+
+        public [[CLASS_NAME]][[INTERFACE_POSTFIX]](
+            ICachedEntity entity
+        ) : base(entity)
+        {
+        }

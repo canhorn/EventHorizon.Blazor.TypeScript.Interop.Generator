@@ -1,19 +1,14 @@
-namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Templates
+namespace EventHorizon.Blazor.Interop.Generator.Templates
 {
     using System.IO;
     using System.Text;
-    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Templates;
 
-    public static class ReadTemplates
+    public static class ReadInteropTemplates
     {
-        private static ClassGenerationTemplates GeneratedTemplates;
-        public static ClassGenerationTemplates Read()
+        public static void SetReadTemplates()
         {
-            if (GeneratedTemplates != null)
-            {
-                return GeneratedTemplates;
-            }
-            var templatesPath = "EventHorizon.Blazor.TypeScript.Interop.Generator.Templates";
+            var templatesPath = "EventHorizon.Blazor.Interop.Generator.Templates";
 
             // Class Template
             var classTemplate = ReadAllText(
@@ -96,6 +91,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Templates
                 $"{templatesPath}.InteropGetClassTemplate.txt"
             );
 
+            // Promise/Tasks Interop 
             var interopTaskTemplate = ReadAllText(
                 $"{templatesPath}.InteropTaskTemplate.txt"
             );
@@ -109,51 +105,51 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Templates
                 $"{templatesPath}.InteropTaskArrayClassTemplate.txt"
             );
 
-            GeneratedTemplates = new ClassGenerationTemplates
-            {
-                Class = classTemplate,
-                ClassShim = classShimTemplate,
-                CachedEntityObject = cachedEntityObjectTemplate,
-                Accessor = accessorTemplate,
-                AccessorWithSetter = accessorWithSetterTemplate,
-                Constructor = constructorTemplate,
-                ConstructorToBase = constructorToBaseTemplate,
-                ConstructorWithArgumentsTemplate = constructorWithArgumentsTemplate,
-                Method = methodTemplate,
-                MethodActionTemplate = methodActionTemplate,
-                MethodStaticActionTemplate = methodStaticActionTemplate,
-                ReturnTypePrimitiveTemplate = returnTypePrimitiveTemplate,
-                ReturnTypeClass = returnTypeClassTemplate,
-                ReturnTypeVoidTemplate = returnTypeVoidTemplate,
+            var generatedTemplates = ReadTemplates.Read();
 
-                InteropFunc = interopFuncTemplate,
-                InteropFuncClass = interopFuncClassTemplate,
-                InteropFuncArray = interopFuncArrayTemplate,
-                InteropFuncArrayClass = interopFuncArrayClassTemplate,
-                InteropGetArrayClass = interopGetArrayClassTemplate,
-                InteropGetArray = interopGetArrayTemplate,
-                InteropGetClass = interopGetClassTemplate,
-                InteropGet = interopGetTemplate,
-                InteropSet = interopSetTemplate,
+            generatedTemplates.Class = classTemplate;
+            generatedTemplates.ClassShim = classShimTemplate;
+            generatedTemplates.CachedEntityObject = cachedEntityObjectTemplate;
 
-                InteropTask = interopTaskTemplate,
-                InteropTaskClass = interopTaskClassTemplate,
-                InteropTaskArray = interopTaskArrayTemplate,
-                InteropTaskArrayClass = interopTaskArrayClassTemplate,
-            };
+            generatedTemplates.Accessor = accessorTemplate;
+            generatedTemplates.AccessorWithSetter = accessorWithSetterTemplate;
 
-            return GeneratedTemplates;
+            generatedTemplates.Constructor = constructorTemplate;
+            generatedTemplates.ConstructorToBase = constructorToBaseTemplate;
+            generatedTemplates.ConstructorWithArgumentsTemplate = constructorWithArgumentsTemplate;
+
+            generatedTemplates.Method = methodTemplate;
+            generatedTemplates.MethodActionTemplate = methodActionTemplate;
+            generatedTemplates.MethodStaticActionTemplate = methodStaticActionTemplate;
+            generatedTemplates.ReturnTypePrimitiveTemplate = returnTypePrimitiveTemplate;
+            generatedTemplates.ReturnTypeClass = returnTypeClassTemplate;
+            generatedTemplates.ReturnTypeVoidTemplate = returnTypeVoidTemplate;
+
+            generatedTemplates.InteropGet = interopGetTemplate;
+            generatedTemplates.InteropSet = interopSetTemplate;
+            generatedTemplates.InteropFunc = interopFuncTemplate;
+            generatedTemplates.InteropFuncClass = interopFuncClassTemplate;
+            generatedTemplates.InteropFuncArray = interopFuncArrayTemplate;
+            generatedTemplates.InteropFuncArrayClass = interopFuncArrayClassTemplate;
+            generatedTemplates.InteropGetArrayClass = interopGetArrayClassTemplate;
+            generatedTemplates.InteropGetArray = interopGetArrayTemplate;
+            generatedTemplates.InteropGetClass = interopGetClassTemplate;
+
+            generatedTemplates.InteropTask = interopTaskTemplate;
+            generatedTemplates.InteropTaskClass = interopTaskClassTemplate;
+            generatedTemplates.InteropTaskArray = interopTaskArrayTemplate;
+            generatedTemplates.InteropTaskArrayClass = interopTaskArrayClassTemplate;
         }
         private static string ReadAllText(
             string templatePath
         )
         {
-            var assembly = typeof(ReadTemplates).Assembly;
+            var assembly = typeof(ReadInteropTemplates).Assembly;
             var resourceStream = assembly.GetManifestResourceStream(
                 templatePath
             );
             using var reader = new StreamReader(
-                resourceStream, 
+                resourceStream,
                 Encoding.UTF8
             );
             return reader.ReadToEnd();

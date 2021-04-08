@@ -1,0 +1,4 @@
+        public [[STATIC]]async ValueTask<[[TYPE]][[ARRAY]]> [[NAME]][[GENERIC_SECTION]]([[ARGUMENTS]])[[WHERE_CONSTRAINT]]
+        {
+[[BODY]]
+        }
