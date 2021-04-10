@@ -7,7 +7,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
 
     using ServerGenerator = Blazor.Interop.Generator.GenerateInteropSource;
-    using ServerProjectWriter = Blazor.Interop.Generator.Writers.Project.ProjectWriter;
+    using ServerProjectWriter = Blazor.Interop.Generator.Writers.Project.ServerProjectWriter;
     using WasmGenerator = GenerateSource;
     using WasmProjectWriter = Writers.Project.ProjectWriter;
 

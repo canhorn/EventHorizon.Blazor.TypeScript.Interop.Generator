@@ -1,7 +1,6 @@
 namespace EventHorizon.Blazor.Interop.Generator.Writers.Project
 {
     using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
@@ -11,13 +10,13 @@ namespace EventHorizon.Blazor.Interop.Generator.Writers.Project
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Writers;
     using Microsoft.CodeAnalysis;
 
-    public class ProjectWriter : IWriter
+    public class ServerProjectWriter : IWriter
     {
         private readonly string _projectPath;
         private readonly string _projectName;
         private readonly string _projectDirectory;
 
-        public ProjectWriter(
+        public ServerProjectWriter(
             string path,
             string name
         )
@@ -156,7 +155,7 @@ namespace EventHorizon.Blazor.Interop.Generator.Writers.Project
             string templatePath
         )
         {
-            var assembly = typeof(ProjectWriter).Assembly;
+            var assembly = typeof(ServerProjectWriter).Assembly;
             var resourceStream = assembly.GetManifestResourceStream(
                 templatePath
             );
