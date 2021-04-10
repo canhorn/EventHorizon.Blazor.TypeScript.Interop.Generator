@@ -1,0 +1,47 @@
+/// Generated - Do Not Edit
+namespace [[NAMESPACE]]
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Server.Interop;
+    using EventHorizon.Blazor.Server.Interop.Callbacks;
+    using Microsoft.JSInterop;
+
+    [[INTERFACE_SECTION]]
+    
+    [JsonConverter(typeof(CachedEntityConverter<[[CLASS_NAME]][[INTERFACE_POSTFIX]][[JSON_CONVERTER_CLASS_GENERICS]]>))]
+    public class [[CLASS_NAME]][[INTERFACE_POSTFIX]][[CLASS_GENERICS]][[EXTENDED_CLASSES_SECTION]][[WHERE_CONSTRAINT]]
+    {
+        #region Static Accessors
+[[STATIC_ACCESSORS]]
+        #endregion
+
+        #region Static Properties
+[[STATIC_PROPERTIES]]
+        #endregion
+
+        #region Static Methods
+[[STATIC_METHODS]]
+        #endregion
+
+        #region Accessors
+[[ACCESSORS]]
+        #endregion
+
+        #region Properties
+[[PROPERTIES]]
+        #endregion
+        
+        #region Constructor
+[[BASE_CONSTRUCTOR]]
+
+[[CONSTRUCTOR]]
+        #endregion
+
+        #region Methods
+[[METHODS]]
+        #endregion
+    }
+}

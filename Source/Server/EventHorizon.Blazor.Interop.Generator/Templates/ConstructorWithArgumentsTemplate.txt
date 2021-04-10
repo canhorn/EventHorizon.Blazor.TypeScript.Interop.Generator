@@ -1,0 +1,11 @@
+        public static async ValueTask<[[CLASS_NAME]][[INTERFACE_POSTFIX]][[CLASS_GENERICS]]> New[[CLASS_NAME]][[INTERFACE_POSTFIX]](
+            [[ARGUMENTS]]
+        )
+        {
+            var entity = await EventHorizonBlazorInterop.New(
+                new string[] { [[PROPERTY_NAMESPACE]], "[[CLASS_NAME]]" },
+                [[PROPERTY_ARGUMENTS]]
+            );
+
+            return new [[CLASS_NAME]][[INTERFACE_POSTFIX]][[CLASS_GENERICS]](entity);
+        }

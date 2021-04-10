@@ -31,7 +31,7 @@ jobs:
       uses: codecov/codecov-action@v1
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
-        file: ./Tests/EventHorizon.Blazor.TypeScript.Interop.Generator.Tests/coverage.opencover.xml
+        files: ./Tests/EventHorizon.Blazor.TypeScript.Interop.Generator.Tests/coverage.opencover.xml,./Tests/EventHorizon.Blazor.Interop.Generator.Tests/coverage.opencover.xml
     - name: .NET Publish
       run: dotnet publish --configuration Release -o published ./Sample/EventHorizon.Blazor.BabylonJS 
     - name: Publish Static Site

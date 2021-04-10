@@ -1,17 +1,15 @@
 /// Generated - Do Not Edit
-namespace Generated
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-    using EventHorizon.Blazor.Interop;
-    using EventHorizon.Blazor.Interop.Callbacks;
-    using Microsoft.JSInterop;
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using EventHorizon.Blazor.Interop;
+using EventHorizon.Blazor.Interop.Callbacks;
+using Microsoft.JSInterop;
 
-    [JsonConverter(typeof(CachedEntityConverter<CSharpTextClass>))]
-    public class CSharpTextClass : CachedEntityObject
-    {
+[JsonConverter(typeof(CachedEntityConverter<CSharpTextClass>))]
+public class CSharpTextClass : CachedEntityObject
+{
 #region Static Accessors
 #endregion
 #region Static Properties
@@ -21,106 +19,105 @@ namespace Generated
 #region Accessors
 #endregion
 #region Properties
-        public bool skipNextObservers
+    public bool skipNextObservers
+    {
+        get
         {
-            get
-            {
-                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "skipNextObservers");
-            }
-
-            set
-            {
-                EventHorizonBlazorInterop.Set(this.___guid, "skipNextObservers", value);
-            }
+            return EventHorizonBlazorInterop.Get<bool>(this.___guid, "skipNextObservers");
         }
 
-        public decimal mask
+        set
         {
-            get
-            {
-                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "mask");
-            }
+            EventHorizonBlazorInterop.Set(this.___guid, "skipNextObservers", value);
+        }
+    }
 
-            set
-            {
-                EventHorizonBlazorInterop.Set(this.___guid, "mask", value);
-            }
+    public decimal mask
+    {
+        get
+        {
+            return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "mask");
         }
 
-        private CSharpTextClass __target;
-        public CSharpTextClass target
+        set
         {
-            get
+            EventHorizonBlazorInterop.Set(this.___guid, "mask", value);
+        }
+    }
+
+    private CSharpTextClass __target;
+    public CSharpTextClass target
+    {
+        get
+        {
+            if (__target == null)
             {
-                if (__target == null)
+                __target = EventHorizonBlazorInterop.GetClass<CSharpTextClass>(this.___guid, "target", (entity) =>
                 {
-                    __target = EventHorizonBlazorInterop.GetClass<CSharpTextClass>(this.___guid, "target", (entity) =>
-                    {
-                        return new CSharpTextClass()
-                        {___guid = entity.___guid};
-                    });
-                }
-
-                return __target;
+                    return new CSharpTextClass()
+                    {___guid = entity.___guid};
+                });
             }
 
-            set
-            {
-                __target = null;
-                EventHorizonBlazorInterop.Set(this.___guid, "target", value);
-            }
+            return __target;
         }
 
-        public string[] currentTarget
+        set
         {
-            get
-            {
-                return EventHorizonBlazorInterop.GetArray<string>(this.___guid, "currentTarget");
-            }
-
-            set
-            {
-                EventHorizonBlazorInterop.Set(this.___guid, "currentTarget", value);
-            }
+            __target = null;
+            EventHorizonBlazorInterop.Set(this.___guid, "target", value);
         }
+    }
 
-        public decimal lastReturnValue
+    public string[] currentTarget
+    {
+        get
         {
-            get
-            {
-                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "lastReturnValue");
-            }
-
-            set
-            {
-                EventHorizonBlazorInterop.Set(this.___guid, "lastReturnValue", value);
-            }
+            return EventHorizonBlazorInterop.GetArray<string>(this.___guid, "currentTarget");
         }
+
+        set
+        {
+            EventHorizonBlazorInterop.Set(this.___guid, "currentTarget", value);
+        }
+    }
+
+    public decimal lastReturnValue
+    {
+        get
+        {
+            return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "lastReturnValue");
+        }
+
+        set
+        {
+            EventHorizonBlazorInterop.Set(this.___guid, "lastReturnValue", value);
+        }
+    }
 
 #endregion
 #region Constructor
-        public CSharpTextClass(): base()
-        {
-        }
+    public CSharpTextClass(): base()
+    {
+    }
 
-        public CSharpTextClass(ICachedEntity entity): base(entity)
-        {
-            ___guid = entity.___guid;
-        }
+    public CSharpTextClass(ICachedEntity entity): base(entity)
+    {
+        ___guid = entity.___guid;
+    }
 
-        public CSharpTextClass(object target = null)
-        {
-            var entity = EventHorizonBlazorInterop.New(new string[]{"", "CSharpTextClass"}, target);
-            ___guid = entity.___guid;
-        }
+    public CSharpTextClass(object target = null)
+    {
+        var entity = EventHorizonBlazorInterop.New(new string[]{"", "CSharpTextClass"}, target);
+        ___guid = entity.___guid;
+    }
 
 #endregion
 #region Methods
-        public CSharpTextClass initalize()
-        {
-            return EventHorizonBlazorInterop.FuncClass<CSharpTextClass>(entity => new CSharpTextClass()
-            {___guid = entity.___guid}, new object[]{new string[]{this.___guid, "initalize"}});
-        }
-#endregion
+    public CSharpTextClass initalize()
+    {
+        return EventHorizonBlazorInterop.FuncClass<CSharpTextClass>(entity => new CSharpTextClass()
+        {___guid = entity.___guid}, new object[]{new string[]{this.___guid, "initalize"}});
     }
+#endregion
 }

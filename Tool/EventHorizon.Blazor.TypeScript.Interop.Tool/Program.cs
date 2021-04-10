@@ -7,6 +7,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
     using System.Diagnostics;
     using System.IO;
     using System.Net;
+    using EventHorizon.Blazor.Interop.Generator;
+    using EventHorizon.Blazor.Interop.Generator.Writers.Project;
     using EventHorizon.Blazor.TypeScript.Interop.Generator;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
@@ -39,7 +41,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
                 },
                 new Option<string>(
                     new string[] { "--project-assembly", "-a" },
-                    getDefaultValue: () => "Generated.WASM",
+                    getDefaultValue: () => "Generated.Code",
                     description: "The project name of the Assembly that will be generated"
                 ),
                 new Option<string>(
@@ -57,12 +59,17 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
                     getDefaultValue: () => "dotnet",
                     description: "The type of TypeScript parser to use, 'dotnet' will use the embedded .NET parser. 'nodejs' will use the TypeScript compiler through NodeJS (requires NodeJS installed)."
                 ),
+                new Option<string>(
+                    new string[] { "--host-type", "-h" },
+                    getDefaultValue: () => "wasm",
+                    description: "The host type the source should be generator for. Is 'wasm' by default, will only work for Wasm hosted Blazor projects. Supports 'server' to generate a async first interop layer that works in both Blazor Server and Wasm hosted models."
+                ),
             };
 
-            rootCommand.Description = "Generate a Blazor Wasm project from a TypeScript definition file.";
+            rootCommand.Description = "Generate a Blazor Wasm or Server project from TypeScript definition files.";
 
             // Note that the parameters of the handler method are matched according to the names of the options
-            rootCommand.Handler = CommandHandler.Create<IList<string>, IList<string>, string, string, bool, string>(
+            rootCommand.Handler = CommandHandler.Create<IList<string>, IList<string>, string, string, bool, string, string>(
                 GenerateSources
             );
 
@@ -73,10 +80,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
         private static int GenerateSources(
             IList<string> source,
             IList<string> classToGenerate,
-            string projectAssembly = "Generated.Wasm",
+            string projectAssembly = "Generated.Code",
             string projectGenerationLocation = "_generated",
             bool force = false,
-            string parser = "dotnet"
+            string parser = "dotnet",
+            string hostType = "wasm"
         )
         {
             try
@@ -87,7 +95,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
                     classToGenerate,
                     projectAssembly,
                     projectGenerationLocation,
-                    parser
+                    parser,
+                    hostType
                 );
                 GlobalLogger.Info($"projectAssembly: {projectAssembly}");
                 GlobalLogger.Info($"projectGenerationLocation: {projectGenerationLocation}");
@@ -149,23 +158,46 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
                 }
 
                 var textFormatter = new NoFormattingTextFormatter();
-                var writer = new ProjectWriter(
-                    projectGenerationLocation,
-                    projectAssembly
-                );
 
-                new GenerateSource().Run(
-                    projectAssembly,
-                    sourceDirectory,
-                    sourceFiles,
-                    generationList,
-                    writer,
-                    textFormatter,
-                    new Dictionary<string, string>
-                    {
-                    },
-                    GetParserType(parser)
-                );
+                if (hostType == "server")
+                {
+                    var writer = new ServerProjectWriter(
+                        projectGenerationLocation,
+                        projectAssembly
+                    );
+                    new GenerateInteropSource().Run(
+                        projectAssembly,
+                        sourceDirectory,
+                        sourceFiles,
+                        generationList,
+                        writer,
+                        textFormatter,
+                        new Dictionary<string, string>
+                        {
+                        },
+                        GetParserType(parser)
+                    );
+                }
+                else if (hostType == "wasm")
+                {
+                    var writer = new ProjectWriter(
+                        projectGenerationLocation,
+                        projectAssembly
+                    );
+                    new GenerateSource().Run(
+                        projectAssembly,
+                        sourceDirectory,
+                        sourceFiles,
+                        generationList,
+                        writer,
+                        textFormatter,
+                        new Dictionary<string, string>
+                        {
+                        },
+                        GetParserType(parser)
+                    );
+                }
+
                 stopwatch.Stop();
                 GlobalLogger.Success($"Took {stopwatch.ElapsedMilliseconds}ms to Generate Source Project.");
 
@@ -192,7 +224,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
             IList<string> classToGenerate,
             string projectAssembly,
             string projectGenerationLocation,
-            string parser
+            string parser,
+            string hostType
         )
         {
             if (sources == null || sources.Count == 0)
@@ -234,6 +267,15 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
                 throw new ToolArgumentException(
                     "--parser",
                     "Invalid parser found. Valid Parsers: [dotnet, nodejs]"
+                );
+            }
+            if (string.IsNullOrWhiteSpace(
+                hostType
+            ) || (hostType.ToLower() != "server" && hostType.ToLower() != "wasm"))
+            {
+                throw new ToolArgumentException(
+                    "--host-type",
+                    "Invalid host type found. Valid Host Types: [wasm, server]"
                 );
             }
         }

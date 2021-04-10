@@ -1,5 +1,5 @@
 using System.Text.Json.Serialization;
-using BabylonJS;
+using BABYLON;
 using EventHorizon.Blazor.Interop;
 
 namespace EventHorizon.Blazor.BabylonJS.Model

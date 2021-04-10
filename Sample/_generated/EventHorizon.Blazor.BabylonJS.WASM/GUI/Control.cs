@@ -1,5 +1,5 @@
 /// Generated - Do Not Edit
-namespace BabylonJS.GUI
+namespace BABYLON.GUI
 {
     using System;
     using System.Collections.Generic;

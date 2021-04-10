@@ -1,0 +1,7 @@
+EventHorizonBlazorInterop.FuncArrayClass<[[ARRAY_TYPE]]>(
+                entity => new [[NEW_TYPE]]() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { [[PROPERTY_IDENTIFIER]], "[[PROPERTY]]" }[[PROPERTY_ARGUMENTS]]
+                }
+            )

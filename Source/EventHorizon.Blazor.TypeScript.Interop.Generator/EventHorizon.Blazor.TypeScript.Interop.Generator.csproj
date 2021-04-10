@@ -26,6 +26,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <None Remove="Templates\ClassWithNoNamespaceTemplate.txt" />
+    </ItemGroup>
+
+    <ItemGroup>
         <Content Include="AstParser\NodeImpl\NodeJS\index.js">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>

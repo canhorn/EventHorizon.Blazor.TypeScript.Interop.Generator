@@ -14,6 +14,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
         [InlineData("InterfaceGenerics.ts", "Classes", "InterfaceGenerics.Expected.txt", ASTParserType.Sdcb)]
         [InlineData("NamespaceExtendsClass.ts", "Classes", "NamespaceExtendsClass.Expected.txt", ASTParserType.Sdcb)]
         [InlineData("NamespaceImplementsInterface.ts", "Classes", "NamespaceImplementsInterface.Expected.txt", ASTParserType.Sdcb)]
+        [InlineData("NoNamespace.ts", "Classes", "NoNamespace.Expected.txt", ASTParserType.Sdcb)]
         public void ShouldGenerateConstructorStringsUsingSdcb(
             string sourceFile,
             string path,

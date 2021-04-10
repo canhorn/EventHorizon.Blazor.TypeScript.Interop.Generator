@@ -1,0 +1,8 @@
+EventHorizonBlazorInterop.GetClass<[[ARRAY_TYPE]]>(
+                    [[ROOT]],
+                    "[[PROPERTY]]",
+                    (entity) =>
+                    {
+                        return new [[NEW_TYPE]]() { ___guid = entity.___guid };
+                    }
+                )

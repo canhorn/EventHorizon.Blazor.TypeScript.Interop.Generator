@@ -26,6 +26,8 @@
     <ItemGroup>
         <ProjectReference Include="..\..\Source\EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project\EventHorizon.Blazor.TypeScript.Interop.Generator.Writers.Project.csproj" />
         <ProjectReference Include="..\..\Source\EventHorizon.Blazor.TypeScript.Interop.Generator\EventHorizon.Blazor.TypeScript.Interop.Generator.csproj" />
+        <ProjectReference Include="..\..\Source\Server\EventHorizon.Blazor.Interop.Generator.Writers.Project\EventHorizon.Blazor.Interop.Generator.Writers.Project.csproj" />
+        <ProjectReference Include="..\..\Source\Server\EventHorizon.Blazor.Interop.Generator\EventHorizon.Blazor.Interop.Generator.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,36 +1,34 @@
 /// Generated - Do Not Edit
-namespace BabylonJS
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using EventHorizon.Blazor.Interop;
+using EventHorizon.Blazor.Interop.Callbacks;
+using Microsoft.JSInterop;
+
+public interface HTMLCanvasElement : ICachedEntity { }
+
+[JsonConverter(typeof(CachedEntityConverter<HTMLCanvasElementCachedEntity>))]
+public class HTMLCanvasElementCachedEntity : CachedEntityObject, HTMLCanvasElement
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-    using EventHorizon.Blazor.Interop;
-    using EventHorizon.Blazor.Interop.Callbacks;
-    using Microsoft.JSInterop;
+    #region Static Accessors
 
-    public interface HTMLCanvasElement : ICachedEntity { }
-    
-    [JsonConverter(typeof(CachedEntityConverter<HTMLCanvasElementCachedEntity>))]
-    public class HTMLCanvasElementCachedEntity : CachedEntityObject, HTMLCanvasElement
-    {
-        #region Static Accessors
+    #endregion
 
-        #endregion
+    #region Static Properties
 
-        #region Static Properties
+    #endregion
 
-        #endregion
+    #region Static Methods
 
-        #region Static Methods
+    #endregion
 
-        #endregion
+    #region Accessors
 
-        #region Accessors
+    #endregion
 
-        #endregion
-
-        #region Properties
+    #region Properties
         
         public bool isRecording
         {
@@ -51,9 +49,9 @@ namespace BabylonJS
                 );
             }
         }
-        #endregion
-        
-        #region Constructor
+    #endregion
+    
+    #region Constructor
         public HTMLCanvasElementCachedEntity() : base() { }
 
         public HTMLCanvasElementCachedEntity(
@@ -63,9 +61,9 @@ namespace BabylonJS
         }
 
 
-        #endregion
+    #endregion
 
-        #region Methods
+    #region Methods
         public void requestPointerLock()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -116,6 +114,5 @@ namespace BabylonJS
                 }
             );
         }
-        #endregion
-    }
+    #endregion
 }

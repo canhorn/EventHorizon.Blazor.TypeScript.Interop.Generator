@@ -1,40 +1,38 @@
 /// Generated - Do Not Edit
-namespace BabylonJS
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using EventHorizon.Blazor.Interop;
+using EventHorizon.Blazor.Interop.Callbacks;
+using Microsoft.JSInterop;
+
+public interface Math : ICachedEntity { }
+
+[JsonConverter(typeof(CachedEntityConverter<MathCachedEntity>))]
+public class MathCachedEntity : CachedEntityObject, Math
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-    using EventHorizon.Blazor.Interop;
-    using EventHorizon.Blazor.Interop.Callbacks;
-    using Microsoft.JSInterop;
+    #region Static Accessors
 
-    public interface Math : ICachedEntity { }
+    #endregion
+
+    #region Static Properties
+
+    #endregion
+
+    #region Static Methods
+
+    #endregion
+
+    #region Accessors
+
+    #endregion
+
+    #region Properties
+
+    #endregion
     
-    [JsonConverter(typeof(CachedEntityConverter<MathCachedEntity>))]
-    public class MathCachedEntity : CachedEntityObject, Math
-    {
-        #region Static Accessors
-
-        #endregion
-
-        #region Static Properties
-
-        #endregion
-
-        #region Static Methods
-
-        #endregion
-
-        #region Accessors
-
-        #endregion
-
-        #region Properties
-
-        #endregion
-        
-        #region Constructor
+    #region Constructor
         public MathCachedEntity() : base() { }
 
         public MathCachedEntity(
@@ -44,9 +42,9 @@ namespace BabylonJS
         }
 
 
-        #endregion
+    #endregion
 
-        #region Methods
+    #region Methods
         public decimal fround(decimal x)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
@@ -66,6 +64,5 @@ namespace BabylonJS
                 }
             );
         }
-        #endregion
-    }
+    #endregion
 }

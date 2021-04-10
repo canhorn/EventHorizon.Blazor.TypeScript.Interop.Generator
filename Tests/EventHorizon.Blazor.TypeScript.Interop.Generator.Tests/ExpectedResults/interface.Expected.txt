@@ -1,40 +1,38 @@
 /// Generated - Do Not Edit
-namespace Generated
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using EventHorizon.Blazor.Interop;
+using EventHorizon.Blazor.Interop.Callbacks;
+using Microsoft.JSInterop;
+
+public interface ExampleInterface<T> : ICachedEntity { }
+
+[JsonConverter(typeof(CachedEntityConverter<ExampleInterfaceCachedEntity<CachedEntity>>))]
+public class ExampleInterfaceCachedEntity<T> : CachedEntityObject, ExampleInterface<T> where T : CachedEntity, new()
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-    using EventHorizon.Blazor.Interop;
-    using EventHorizon.Blazor.Interop.Callbacks;
-    using Microsoft.JSInterop;
+    #region Static Accessors
 
-    public interface ExampleInterface<T> : ICachedEntity { }
+    #endregion
+
+    #region Static Properties
+
+    #endregion
+
+    #region Static Methods
+
+    #endregion
+
+    #region Accessors
+
+    #endregion
+
+    #region Properties
+
+    #endregion
     
-    [JsonConverter(typeof(CachedEntityConverter<ExampleInterfaceCachedEntity<CachedEntity>>))]
-    public class ExampleInterfaceCachedEntity<T> : CachedEntityObject, ExampleInterface<T> where T : CachedEntity, new()
-    {
-        #region Static Accessors
-
-        #endregion
-
-        #region Static Properties
-
-        #endregion
-
-        #region Static Methods
-
-        #endregion
-
-        #region Accessors
-
-        #endregion
-
-        #region Properties
-
-        #endregion
-        
-        #region Constructor
+    #region Constructor
         public ExampleInterfaceCachedEntity() : base() { }
 
         public ExampleInterfaceCachedEntity(
@@ -44,9 +42,9 @@ namespace Generated
         }
 
 
-        #endregion
+    #endregion
 
-        #region Methods
+    #region Methods
         public void action(T action)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -56,6 +54,5 @@ namespace Generated
                 }
             );
         }
-        #endregion
-    }
+    #endregion
 }

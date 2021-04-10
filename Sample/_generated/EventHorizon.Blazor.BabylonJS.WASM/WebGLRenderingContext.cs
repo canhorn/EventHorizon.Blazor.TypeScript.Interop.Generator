@@ -1,36 +1,34 @@
 /// Generated - Do Not Edit
-namespace BabylonJS
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using EventHorizon.Blazor.Interop;
+using EventHorizon.Blazor.Interop.Callbacks;
+using Microsoft.JSInterop;
+
+public interface WebGLRenderingContext : ICachedEntity { }
+
+[JsonConverter(typeof(CachedEntityConverter<WebGLRenderingContextCachedEntity>))]
+public class WebGLRenderingContextCachedEntity : CachedEntityObject, WebGLRenderingContext
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-    using EventHorizon.Blazor.Interop;
-    using EventHorizon.Blazor.Interop.Callbacks;
-    using Microsoft.JSInterop;
+    #region Static Accessors
 
-    public interface WebGLRenderingContext : ICachedEntity { }
-    
-    [JsonConverter(typeof(CachedEntityConverter<WebGLRenderingContextCachedEntity>))]
-    public class WebGLRenderingContextCachedEntity : CachedEntityObject, WebGLRenderingContext
-    {
-        #region Static Accessors
+    #endregion
 
-        #endregion
+    #region Static Properties
 
-        #region Static Properties
+    #endregion
 
-        #endregion
+    #region Static Methods
 
-        #region Static Methods
+    #endregion
 
-        #endregion
+    #region Accessors
 
-        #region Accessors
+    #endregion
 
-        #endregion
-
-        #region Properties
+    #region Properties
         
         public decimal MAX_SAMPLES
         {
@@ -624,9 +622,9 @@ namespace BabylonJS
                 );
             }
         }
-        #endregion
-        
-        #region Constructor
+    #endregion
+    
+    #region Constructor
         public WebGLRenderingContextCachedEntity() : base() { }
 
         public WebGLRenderingContextCachedEntity(
@@ -636,9 +634,9 @@ namespace BabylonJS
         }
 
 
-        #endregion
+    #endregion
 
-        #region Methods
+    #region Methods
         public void drawArraysInstanced(decimal mode, decimal first, decimal count, decimal primcount)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -829,6 +827,5 @@ namespace BabylonJS
                 }
             );
         }
-        #endregion
-    }
+    #endregion
 }
