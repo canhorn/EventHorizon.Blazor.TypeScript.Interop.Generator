@@ -1,36 +1,34 @@
 /// Generated - Do Not Edit
-namespace BabylonJS
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using EventHorizon.Blazor.Interop;
+using EventHorizon.Blazor.Interop.Callbacks;
+using Microsoft.JSInterop;
+
+public interface Window : ICachedEntity { }
+
+[JsonConverter(typeof(CachedEntityConverter<WindowCachedEntity>))]
+public class WindowCachedEntity : CachedEntityObject, Window
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-    using EventHorizon.Blazor.Interop;
-    using EventHorizon.Blazor.Interop.Callbacks;
-    using Microsoft.JSInterop;
+    #region Static Accessors
 
-    public interface Window : ICachedEntity { }
-    
-    [JsonConverter(typeof(CachedEntityConverter<WindowCachedEntity>))]
-    public class WindowCachedEntity : CachedEntityObject, Window
-    {
-        #region Static Accessors
+    #endregion
 
-        #endregion
+    #region Static Properties
 
-        #region Static Properties
+    #endregion
 
-        #endregion
+    #region Static Methods
 
-        #region Static Methods
+    #endregion
 
-        #endregion
+    #region Accessors
 
-        #region Accessors
+    #endregion
 
-        #endregion
-
-        #region Properties
+    #region Properties
         private IDBFactory __mozIndexedDB;
         public IDBFactory mozIndexedDB
         {
@@ -507,9 +505,9 @@ __msURL = null;
                 );
             }
         }
-        #endregion
-        
-        #region Constructor
+    #endregion
+    
+    #region Constructor
         public WindowCachedEntity() : base() { }
 
         public WindowCachedEntity(
@@ -519,9 +517,9 @@ __msURL = null;
         }
 
 
-        #endregion
+    #endregion
 
-        #region Methods
+    #region Methods
         public decimal mozRequestAnimationFrame(FrameRequestCallback callback)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
@@ -551,6 +549,5 @@ __msURL = null;
                 }
             );
         }
-        #endregion
-    }
+    #endregion
 }

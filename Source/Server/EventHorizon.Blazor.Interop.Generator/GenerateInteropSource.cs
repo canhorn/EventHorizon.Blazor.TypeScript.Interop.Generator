@@ -4,6 +4,7 @@ namespace EventHorizon.Blazor.Interop.Generator
     using EventHorizon.Blazor.Interop.Generator.Templates;
     using EventHorizon.Blazor.TypeScript.Interop.Generator;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model;
+    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Formatter;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Writer;
 
@@ -20,6 +21,7 @@ namespace EventHorizon.Blazor.Interop.Generator
             ASTParserType parserType = ASTParserType.Sdcb
         )
         {
+            TypeStatementTemplates.TaskTemplate = "[[GENERIC_TYPES]]";
             ReadInteropTemplates.SetReadTemplates();
 
             return new GenerateSource()

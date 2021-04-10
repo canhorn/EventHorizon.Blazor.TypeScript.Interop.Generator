@@ -1,36 +1,34 @@
 /// Generated - Do Not Edit
-namespace BabylonJS
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using EventHorizon.Blazor.Interop;
+using EventHorizon.Blazor.Interop.Callbacks;
+using Microsoft.JSInterop;
+
+public interface EXT_disjoint_timer_query : ICachedEntity { }
+
+[JsonConverter(typeof(CachedEntityConverter<EXT_disjoint_timer_queryCachedEntity>))]
+public class EXT_disjoint_timer_queryCachedEntity : CachedEntityObject, EXT_disjoint_timer_query
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-    using EventHorizon.Blazor.Interop;
-    using EventHorizon.Blazor.Interop.Callbacks;
-    using Microsoft.JSInterop;
+    #region Static Accessors
 
-    public interface EXT_disjoint_timer_query : ICachedEntity { }
-    
-    [JsonConverter(typeof(CachedEntityConverter<EXT_disjoint_timer_queryCachedEntity>))]
-    public class EXT_disjoint_timer_queryCachedEntity : CachedEntityObject, EXT_disjoint_timer_query
-    {
-        #region Static Accessors
+    #endregion
 
-        #endregion
+    #region Static Properties
 
-        #region Static Properties
+    #endregion
 
-        #endregion
+    #region Static Methods
 
-        #region Static Methods
+    #endregion
 
-        #endregion
+    #region Accessors
 
-        #region Accessors
+    #endregion
 
-        #endregion
-
-        #region Properties
+    #region Properties
         
         public decimal QUERY_COUNTER_BITS_EXT
         {
@@ -156,9 +154,9 @@ namespace BabylonJS
                 );
             }
         }
-        #endregion
-        
-        #region Constructor
+    #endregion
+    
+    #region Constructor
         public EXT_disjoint_timer_queryCachedEntity() : base() { }
 
         public EXT_disjoint_timer_queryCachedEntity(
@@ -168,9 +166,9 @@ namespace BabylonJS
         }
 
 
-        #endregion
+    #endregion
 
-        #region Methods
+    #region Methods
         public void queryCounterEXT(WebGLQuery query, decimal target)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -231,6 +229,5 @@ namespace BabylonJS
                 }
             );
         }
-        #endregion
-    }
+    #endregion
 }

@@ -25,38 +25,38 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             var genericTypesAsString = string.Empty;
             // Observer -> PickerInfo -> PickerData
             // Observer<PickerInfo<PickerData>>   [[INTERFACE_POSTFIX]]
-            var standardTemplate = "[[NAME]]";
-            var actionVoidTemplate = "ActionCallback";
-            var actionTemplate = "ActionCallback<[[GENERIC_TYPES]]>";
-            var taskVoidTemplate = "ValueTask";
-            var taskTemplate = "ValueTask<[[GENERIC_TYPES]]>";
-            var rootTaskTemplate = "[[GENERIC_TYPES]]";
-            var standardArrayTemplate = "[[NAME]][]";
-            var standardPostfixTemplate = "[[NAME]][[INTERFACE_POSTFIX]]";
-            var genericTemplate = "[[NAME]]<[[GENERIC_TYPES]]>";
-            var genericPostfixTemplate = "[[NAME]][[INTERFACE_POSTFIX]]<[[GENERIC_TYPES]]>";
-            var arrayTemplate = "[[GENERIC_TYPES]][]";
-            var rootArrayTemplate = "[[GENERIC_TYPES]]";
-            var template = standardTemplate;
+            //var standardTemplate = "[[NAME]]";
+            //var actionVoidTemplate = "ActionCallback";
+            //var actionTemplate = "ActionCallback<[[GENERIC_TYPES]]>";
+            //var taskVoidTemplate = "ValueTask";
+            //var taskTemplate = "ValueTask<[[GENERIC_TYPES]]>";
+            //var rootTaskTemplate = "[[GENERIC_TYPES]]";
+            //var standardArrayTemplate = "[[NAME]][]";
+            //var standardPostfixTemplate = "[[NAME]][[INTERFACE_POSTFIX]]";
+            //var genericTemplate = "[[NAME]]<[[GENERIC_TYPES]]>";
+            //var genericPostfixTemplate = "[[NAME]][[INTERFACE_POSTFIX]]<[[GENERIC_TYPES]]>";
+            //var arrayTemplate = "[[GENERIC_TYPES]][]";
+            //var rootArrayTemplate = "[[GENERIC_TYPES]]";
+            var template = TypeStatementTemplates.StandardTemplate;
             if (type.IsInterface)
             {
-                template = standardPostfixTemplate;
+                template = TypeStatementTemplates.StandardPostfixTemplate;
             }
             if (type.IsArray)
             {
-                template = standardArrayTemplate;
+                template = TypeStatementTemplates.StandardArrayTemplate;
             }
 
             if (type.GenericTypes.Any())
             {
-                template = genericTemplate;
+                template = TypeStatementTemplates.GenericTemplate;
                 if (type.IsInterface)
                 {
-                    template = genericPostfixTemplate;
+                    template = TypeStatementTemplates.GenericPostfixTemplate;
                 }
                 if (type.IsArray)
                 {
-                    template = arrayTemplate;
+                    template = TypeStatementTemplates.ArrayTemplate;
                 }
                 var genericTypes = type.GenericTypes.Select(
                     a => Write(
@@ -76,32 +76,32 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 || (type.IsArray && type.GenericTypes.Any() && !includeArraySymbol)
             )
             {
-                template = rootArrayTemplate;
+                template = TypeStatementTemplates.RootArrayTemplate;
             }
             if (type.IsAction)
             {
-                template = actionTemplate;
+                template = TypeStatementTemplates.ActionTemplate;
 
                 if (!type.GenericTypes.Any())
                 {
-                    template = actionVoidTemplate;
+                    template = TypeStatementTemplates.ActionVoidTemplate;
                 }
             }
             if (type.IsTask)
             {
-                template = taskTemplate;
+                template = TypeStatementTemplates.TaskTemplate;
                 if (!includeArraySymbol)
                 {
-                    template = rootTaskTemplate;
+                    template = TypeStatementTemplates.RootTaskTemplate;
                 }
 
                 if (!type.GenericTypes.Any()
                     || type.GenericTypes.Any(type => type.Name == "void"))
                 {
-                    template = taskVoidTemplate;
+                    template = TypeStatementTemplates.TaskVoidTemplate;
                     if (!includeArraySymbol)
                     {
-                        template = rootTaskTemplate;
+                        template = TypeStatementTemplates.RootTaskTemplate;
                     }
                 }
             }

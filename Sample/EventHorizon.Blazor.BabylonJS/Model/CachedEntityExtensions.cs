@@ -13,7 +13,7 @@ namespace EventHorizon.Blazor.Interop
     }
 }
 
-namespace BabylonJS
+namespace BABYLON
 {
     public static class BabylonjsNodeExtensions
     {

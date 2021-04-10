@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BabylonJS;
+using BABYLON;
 using EventHorizon.Blazor.BabylonJS.Model;
 using EventHorizon.Blazor.Interop.Callbacks;
 

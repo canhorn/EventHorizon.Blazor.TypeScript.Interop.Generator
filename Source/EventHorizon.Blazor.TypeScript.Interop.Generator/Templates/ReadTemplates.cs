@@ -19,6 +19,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Templates
             var classTemplate = ReadAllText(
                 $"{templatesPath}.ClassTemplate.txt"
             );
+            // Class With No Namespace Template
+            var classWithNoNamespaceTemplate = ReadAllText(
+                $"{templatesPath}.ClassWithNoNamespaceTemplate.txt"
+            );
             // Class Shim Template
             var classShimTemplate = ReadAllText(
                 $"{templatesPath}.ClassShimTemplate.txt"
@@ -112,6 +116,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Templates
             GeneratedTemplates = new ClassGenerationTemplates
             {
                 Class = classTemplate,
+                ClassWithNoNamespace = classWithNoNamespaceTemplate,
                 ClassShim = classShimTemplate,
                 CachedEntityObject = cachedEntityObjectTemplate,
                 Accessor = accessorTemplate,

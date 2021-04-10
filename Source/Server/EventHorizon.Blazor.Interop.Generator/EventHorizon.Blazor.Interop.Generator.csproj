@@ -19,4 +19,8 @@
         <EmbeddedResource Include="Templates\*" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Templates\ClassWithNoNamespaceTemplate.txt" />
+    </ItemGroup>
+
 </Project>

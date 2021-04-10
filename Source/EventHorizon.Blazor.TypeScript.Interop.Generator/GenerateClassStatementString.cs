@@ -48,11 +48,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             // Templates
             var classGenerationTemplates = ReadTemplates.Read();
 
+            var classTemplate = classGenerationTemplates.Class;
+
             // Generate Tokens
             var namespaceReplaced = classStatement.Namespace;
             if (string.IsNullOrWhiteSpace(namespaceReplaced))
             {
-                namespaceReplaced = "Generated";
+                namespaceReplaced = string.Empty;
+                classTemplate = classGenerationTemplates.ClassWithNoNamespace;
             }
             classTokenMap["[[NAMESPACE]]"] = namespaceReplaced;
             classTokenMap["[[CLASS_NAME]]"] = classStatement.Name;
@@ -121,7 +124,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             );
 
             var classStringBuilder = new StringBuilder(
-                classGenerationTemplates.Class
+               classTemplate
             );
             classStringBuilder = classTokenMap.Aggregate(
                 classStringBuilder,

@@ -1,36 +1,34 @@
 /// Generated - Do Not Edit
-namespace BabylonJS
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using EventHorizon.Blazor.Interop;
+using EventHorizon.Blazor.Interop.Callbacks;
+using Microsoft.JSInterop;
+
+public interface CanvasRenderingContext2D : ICachedEntity { }
+
+[JsonConverter(typeof(CachedEntityConverter<CanvasRenderingContext2DCachedEntity>))]
+public class CanvasRenderingContext2DCachedEntity : CachedEntityObject, CanvasRenderingContext2D
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-    using EventHorizon.Blazor.Interop;
-    using EventHorizon.Blazor.Interop.Callbacks;
-    using Microsoft.JSInterop;
+    #region Static Accessors
 
-    public interface CanvasRenderingContext2D : ICachedEntity { }
-    
-    [JsonConverter(typeof(CachedEntityConverter<CanvasRenderingContext2DCachedEntity>))]
-    public class CanvasRenderingContext2DCachedEntity : CachedEntityObject, CanvasRenderingContext2D
-    {
-        #region Static Accessors
+    #endregion
 
-        #endregion
+    #region Static Properties
 
-        #region Static Properties
+    #endregion
 
-        #endregion
+    #region Static Methods
 
-        #region Static Methods
+    #endregion
 
-        #endregion
+    #region Accessors
 
-        #region Accessors
+    #endregion
 
-        #endregion
-
-        #region Properties
+    #region Properties
         
         public bool msImageSmoothingEnabled
         {
@@ -51,9 +49,9 @@ namespace BabylonJS
                 );
             }
         }
-        #endregion
-        
-        #region Constructor
+    #endregion
+    
+    #region Constructor
         public CanvasRenderingContext2DCachedEntity() : base() { }
 
         public CanvasRenderingContext2DCachedEntity(
@@ -63,10 +61,9 @@ namespace BabylonJS
         }
 
 
-        #endregion
+    #endregion
 
-        #region Methods
+    #region Methods
 
-        #endregion
-    }
+    #endregion
 }

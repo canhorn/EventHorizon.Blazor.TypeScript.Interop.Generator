@@ -14,6 +14,10 @@ namespace EventHorizon.Blazor.Interop.Generator.Templates
             var classTemplate = ReadAllText(
                 $"{templatesPath}.ClassTemplate.txt"
             );
+            // Class With No Namespace Template
+            var classWithNoNamespaceTemplate = ReadAllText(
+                $"{templatesPath}.ClassWithNoNamespaceTemplate.txt"
+            );
             // Class Shim Template
             var classShimTemplate = ReadAllText(
                 $"{templatesPath}.ClassShimTemplate.txt"
@@ -108,6 +112,7 @@ namespace EventHorizon.Blazor.Interop.Generator.Templates
             var generatedTemplates = ReadTemplates.Read();
 
             generatedTemplates.Class = classTemplate;
+            generatedTemplates.ClassWithNoNamespace = classWithNoNamespaceTemplate;
             generatedTemplates.ClassShim = classShimTemplate;
             generatedTemplates.CachedEntityObject = cachedEntityObjectTemplate;
 

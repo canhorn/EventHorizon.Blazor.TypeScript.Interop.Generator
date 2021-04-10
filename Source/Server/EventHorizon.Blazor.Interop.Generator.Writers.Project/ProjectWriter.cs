@@ -91,6 +91,18 @@ namespace EventHorizon.Blazor.Interop.Generator.Writers.Project
                 "ValueTask<void>",
                 "ValueTask"
             ).Replace(
+                "ValueTask<ValueTask>",
+                "ValueTask"
+            ).Replace(
+                "await await",
+                "await"
+            ).Replace(
+                "Task<void>",
+                "CachedEntity"
+            ).Replace(
+                "ValueTask<Task<void>>",
+                "ValueTask"
+            ).Replace(
                 "set_@",
                 "set_"
             ).Replace(

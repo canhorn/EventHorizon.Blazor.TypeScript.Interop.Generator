@@ -3,6 +3,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model
     public class ClassGenerationTemplates
     {
         public string Class { get; set; }
+        public string ClassWithNoNamespace { get; set; }
         public string ClassShim { get; set; }
         public string CachedEntityObject { get; set; }
         public string Accessor { get; set; }
