@@ -16,16 +16,16 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
         static void Main(string[] args)
         {
             //Run(AstParser.Model.ASTParserType.NodeJS, true); //  75084ms/71877ms to generate.
-            //Run(
-            //    AstParser.Model.ASTParserType.Sdcb,
-            //    true,
-            //    "EventHorizon.Blazor.BabylonJS.WASM"
-            //); //  22027ms/19835ms/18236ms to generate.
             Run(
                 AstParser.Model.ASTParserType.Sdcb,
-                false,
-                "EventHorizon.Blazor.BabylonJS.Server"
-            );
+                true,
+                "EventHorizon.Blazor.BabylonJS.WASM"
+            ); //  22027ms/19835ms/18236ms to generate.
+            //Run(
+            //    AstParser.Model.ASTParserType.Sdcb,
+            //    false,
+            //    "EventHorizon.Blazor.BabylonJS.Server"
+            //);
         }
         static void Run(
             AstParser.Model.ASTParserType type,
