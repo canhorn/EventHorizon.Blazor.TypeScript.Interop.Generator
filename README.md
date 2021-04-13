@@ -17,10 +17,10 @@ This project generates a C# Blazor Interop proxy using a TypeScript definition f
 
 ## Details
 
-The generated project can be used with Blazor WASM to interface with JavaScript from C#, this gives most JavaScript libraries an easy to use interface from C#. 
+The generated project can be used with Blazor Wasm/Server to interface with JavaScript from C#, this gives most JavaScript libraries an easy to use interface from C#. 
 It uses the JSRuntime to interop directly with the underlying JavaScript from C#, this is done with a custom interop abstraction. 
 
-The interop project can be found in the [canhorn/EventHorizon.Blazor.Interop](https://github.com/canhorn/EventHorizon.Blazor.Interop) repository, it gives the generated code access to a common set of access patterns it then uses to interface with the JavaScript.
+The Wasm interop project can be found in the [canhorn/EventHorizon.Blazor.Interop](https://github.com/canhorn/EventHorizon.Blazor.Interop) repository, it gives the generated code access to a common set of access patterns it then uses to interface with the JavaScript. The [canhorn/EventHorizon.Blazor.Server.Interop](https://github.com/canhorn/EventHorizon.Blazor.Server.Interop) repository contains the Blazor Server, async first, JavaScript access patterns.
 
 ## Tech Used
 
@@ -62,4 +62,4 @@ Notes on the framework, it might not have the exact API supplied by a TypeScript
 
 ## Example
 
-Checkout /Sample for a BabylonJS working example solution. The solution includes a BabylonJS generated proxy, with a working Blazor WASM site. You can also checkout the website on this repository for deployed website using the generated BabylonJS.
+Checkout /Sample for a BabylonJS working example solution. The solution includes a BabylonJS generated proxy, with a working Blazor Wasm site. You can also checkout the website on this repository for deployed website using the generated BabylonJS. The Sample also includes a Blazor Server project, showing the same example as the Wasm but using Async/Await patterns.
