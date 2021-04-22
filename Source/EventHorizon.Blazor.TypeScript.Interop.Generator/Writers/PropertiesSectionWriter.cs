@@ -116,6 +116,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     template = "// [[NAME]] is not supported by the platform yet";
                 }
 
+                if (entityNamespace == @"""")
+                {
+                    entityNamespace = string.Empty;
+                }
+
                 template = template
                     .Replace(
                         "[[PROPERTY_GETTER]]",

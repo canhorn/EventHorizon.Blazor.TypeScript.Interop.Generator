@@ -76,7 +76,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     }
                 }
 
-                if(isEnum)
+                if (isEnum)
                 {
                     propertyGetterResultType = templates.InteropGet;
                 }
@@ -94,6 +94,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 else if (isArray)
                 {
                     propertyGetterResultType = templates.InteropGetArray;
+                }
+
+                if (entityNamespace == @"""")
+                {
+                    entityNamespace = string.Empty;
                 }
 
                 template = template
