@@ -54,9 +54,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     classStatement.Namespace
                         .Split(".")
                         .Select(part => @$"""{part}""")
-                );
+                ) + ", ";
 
-                if (entityNamespace == @"""""")
+                if (entityNamespace == @""""", ")
                 {
                     entityNamespace = string.Empty;
                 }

@@ -60,17 +60,17 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl
             ).GetAwaiter().GetResult();
 
             // Use for testing the generated AST
-            File.WriteAllText(
-                Path.Combine(
-                    ".",
-                    "AstParser",
-                    "NodeImpl",
-                    "NodeJS",
-                    "_generated",
-                    "ast.json"
-                ),
-                result
-            );
+            //File.WriteAllText(
+            //    Path.Combine(
+            //        ".",
+            //        "AstParser",
+            //        "NodeImpl",
+            //        "NodeJS",
+            //        "_generated",
+            //        "ast.json"
+            //    ),
+            //    result
+            //);
             var ast = JsonSerializer.Deserialize<ASTModel>(
                 result,
                 new JsonSerializerOptions

@@ -52,7 +52,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 var entityNamespace = string.Join(
                     ", ",
                     namespaceParts.Select(part => @$"""{part}""")
-                );
+                ) + ", ";
                 var propertyIdentifier = property.Name;
                 var propertyGetterTemplate = templates.ReturnTypePrimitiveTemplate;
                 var cacheSection = string.Empty;
@@ -61,6 +61,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 if (property.IsReadonly)
                 {
                     template = templates.Accessor;
+                }
+
+                if (entityNamespace == @""""", ")
+                {
+                    entityNamespace = string.Empty;
                 }
 
                 if (property.IsStatic)
@@ -80,6 +85,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     else
                     {
                         propertyIdentifier = $"{classStatement.Name}.{property.Name}";
+                        if (entityNamespace == string.Empty)
+                        {
+                            root = $"\"{classStatement.Name}\"";
+                            propertyIdentifier = property.Name;
+                        }
                     }
                 }
 
@@ -114,11 +124,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 if (isNotSupported)
                 {
                     template = "// [[NAME]] is not supported by the platform yet";
-                }
-
-                if (entityNamespace == @"""")
-                {
-                    entityNamespace = string.Empty;
                 }
 
                 template = template

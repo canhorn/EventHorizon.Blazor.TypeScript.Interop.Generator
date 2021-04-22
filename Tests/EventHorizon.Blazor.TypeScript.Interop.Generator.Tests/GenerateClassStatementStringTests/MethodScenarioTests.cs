@@ -35,6 +35,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
         [InlineData("MethodStaticClassWithNullArgument.ts", "Methods", "Scenarios", "MethodStaticClassWithNullArgument.Expected.txt", ASTParserType.Sdcb)]
         [InlineData("MethodStaticClassWithUndefinedArgument.ts", "Methods", "Scenarios", "MethodStaticClassWithUndefinedArgument.Expected.txt", ASTParserType.Sdcb)]
         [InlineData("MethodStaticWithLiteralAsResult.ts", "Methods", "Scenarios", "MethodStaticWithLiteralAsResult.Expected.txt", ASTParserType.Sdcb)]
+        [InlineData("StaticNoNamespace.d.ts", "Methods", "Scenarios", "StaticNoNamespace.d.Expected.txt", ASTParserType.Sdcb)]
         public void ShouldGenerateStaticMethodScenarioStringsUsingSdcb(
             string sourceFile,
             string rootPath,
@@ -126,6 +127,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
         [InlineData("MethodStaticClassWithNullArgument.ts", "Methods", "Scenarios", "MethodStaticClassWithNullArgument.Expected.txt", ASTParserType.NodeJS)]
         [InlineData("MethodStaticClassWithUndefinedArgument.ts", "Methods", "Scenarios", "MethodStaticClassWithUndefinedArgument.Expected.txt", ASTParserType.NodeJS)]
         [InlineData("MethodStaticWithLiteralAsResult.ts", "Methods", "Scenarios", "MethodStaticWithLiteralAsResult.Expected.txt", ASTParserType.NodeJS)]
+        [InlineData("StaticNoNamespace.d.ts", "Methods", "Scenarios", "StaticNoNamespace.d.Expected.txt", ASTParserType.NodeJS)]
         public void ShouldGenerateStaticMethodScenarioStringsUsingNodeJS(
             string sourceFile,
             string rootPath,

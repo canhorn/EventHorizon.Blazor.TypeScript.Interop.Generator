@@ -46,7 +46,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 var entityNamespace = string.Join(
                     ", ",
                     namespaceParts.Select(part => @$"""{part}""")
-                );
+                ) + ", ";
                 var property = accessor.Name;
                 var propertyGetterTemplate = templates.ReturnTypePrimitiveTemplate;
                 var cacheSection = string.Empty;
@@ -55,6 +55,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 if (accessor.HasSetter)
                 {
                     template = templates.AccessorWithSetter;
+                }
+
+                if (entityNamespace == @""""", ")
+                {
+                    entityNamespace = string.Empty;
                 }
 
                 if (accessor.IsStatic)
@@ -73,6 +78,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     else
                     {
                         property = $"{classStatement.Name}.{accessor.Name}";
+                        if (entityNamespace == string.Empty)
+                        {
+                            root = $"\"{classStatement.Name}\"";
+                            property = accessor.Name;
+                        }
                     }
                 }
 
@@ -94,11 +104,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 else if (isArray)
                 {
                     propertyGetterResultType = templates.InteropGetArray;
-                }
-
-                if (entityNamespace == @"""")
-                {
-                    entityNamespace = string.Empty;
                 }
 
                 template = template

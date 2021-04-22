@@ -51,6 +51,8 @@ public class ExampleClass : CachedEntityObject
         {
             ___guid = entity.___guid;
         }
+
+
     #endregion
 
     #region Methods
