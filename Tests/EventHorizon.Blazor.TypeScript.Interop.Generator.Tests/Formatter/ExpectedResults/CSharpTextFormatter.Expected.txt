@@ -108,7 +108,7 @@ public class CSharpTextClass : CachedEntityObject
 
     public CSharpTextClass(object target = null)
     {
-        var entity = EventHorizonBlazorInterop.New(new string[]{"", "CSharpTextClass"}, target);
+        var entity = EventHorizonBlazorInterop.New(new string[]{"CSharpTextClass"}, target);
         ___guid = entity.___guid;
     }
 

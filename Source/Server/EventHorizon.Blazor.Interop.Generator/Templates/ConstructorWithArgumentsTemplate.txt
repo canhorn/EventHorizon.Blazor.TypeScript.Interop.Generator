@@ -3,7 +3,7 @@
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
-                new string[] { [[PROPERTY_NAMESPACE]], "[[CLASS_NAME]]" },
+                new string[] { [[PROPERTY_NAMESPACE]]"[[CLASS_NAME]]" },
                 [[PROPERTY_ARGUMENTS]]
             );
 

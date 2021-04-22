@@ -54,7 +54,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     classStatement.Namespace
                         .Split(".")
                         .Select(part => @$"""{part}""")
-                );
+                ) + ", ";
+
+                if (entityNamespace == @""""", ")
+                {
+                    entityNamespace = string.Empty;
+                }
 
                 return template.Replace(
                     "[[CLASS_NAME]]",

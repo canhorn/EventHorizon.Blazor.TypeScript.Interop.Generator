@@ -55,6 +55,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
         [InlineData("InterfaceResponse.ts", "Accessors", "Scenarios", "InterfaceResponse.Expected.txt", ASTParserType.Sdcb)]
         [InlineData("NamespacedTyping.ts", "Accessors", "Scenarios", "NamespacedTyping.Expected.txt", ASTParserType.Sdcb)]
         [InlineData("NullableTyping.ts", "Accessors", "Scenarios", "NullableTyping.Expected.txt", ASTParserType.Sdcb)]
+        [InlineData("StaticNoNamespace.d.ts", "Accessors", "Scenarios", "StaticNoNamespace.d.Expected.txt", ASTParserType.Sdcb)]
         [InlineData("StaticRootNamespace.ts", "Accessors", "Scenarios", "StaticRootNamespace.Expected.txt", ASTParserType.Sdcb)]
         public void ShouldGenerateAccessorScenarioStringsWithSdcb(
             string sourceFile,
@@ -117,6 +118,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
         [InlineData("InterfaceResponse.ts", "Accessors", "Scenarios", "InterfaceResponse.Expected.txt", ASTParserType.NodeJS)]
         [InlineData("NamespacedTyping.ts", "Accessors", "Scenarios", "NamespacedTyping.Expected.txt", ASTParserType.NodeJS)]
         [InlineData("NullableTyping.ts", "Accessors", "Scenarios", "NullableTyping.Expected.txt", ASTParserType.NodeJS)]
+        [InlineData("StaticNoNamespace.d.ts", "Accessors", "Scenarios", "StaticNoNamespace.d.Expected.txt", ASTParserType.NodeJS)]
         [InlineData("StaticRootNamespace.ts", "Accessors", "Scenarios", "StaticRootNamespace.Expected.txt", ASTParserType.NodeJS)]
         public void ShouldGenerateAccessorScenarioStringsWithNodeJS(
             string sourceFile,

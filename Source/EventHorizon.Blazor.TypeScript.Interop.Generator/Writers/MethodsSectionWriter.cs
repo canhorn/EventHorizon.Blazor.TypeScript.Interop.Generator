@@ -60,9 +60,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 var returnTypeContent = templates.InteropFunc;
                 var arguments = string.Empty;
                 var argumentStrings = new List<string>();
+                var classNamespace = classStatement.Namespace;
                 var namespacedMethod = string.Join(
                     ".",
-                    classStatement.Namespace,
+                    classNamespace,
                     classStatement.Name,
                     method.Name
                 );
@@ -77,6 +78,15 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 );
                 var taskAsync = string.Empty;
                 var taskAwait = string.Empty;
+
+                if (classNamespace == string.Empty)
+                {
+                    namespacedMethod = string.Join(
+                        ".",
+                        classStatement.Name,
+                        method.Name
+                    );
+                }
 
                 // Argument Generation
                 if (isAction)
@@ -223,12 +233,22 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
 
                 if (method.IsStatic)
                 {
+                    var classStatementIdentitiferList = new string[] {
+                        classStatement.Name,
+                    };
+                    if (classNamespace != string.Empty)
+                    {
+                        classStatementIdentitiferList = new string[]
+                        {
+                            classStatement.Namespace,
+                            classStatement.Name,
+                        };
+                    }
                     propertyIdentifier = string.Join(
                         ", ",
                         string.Join(
                             ".",
-                            classStatement.Namespace,
-                            classStatement.Name
+                            classStatementIdentitiferList
                         ).Split(".").Select(part => @$"""{part}""")
                     );
                 }
