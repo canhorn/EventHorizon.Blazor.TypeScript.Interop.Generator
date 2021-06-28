@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -324,7 +325,7 @@ __onAnimationLoopObservable = null;
         }
 
         public Animatable(
-            Scene scene, object target, System.Nullable<decimal> fromFrame = null, System.Nullable<decimal> toFrame = null, System.Nullable<bool> loopAnimation = null, System.Nullable<decimal> speedRatio = null, ActionCallback onAnimationEnd = null, Animation[] animations = null, ActionCallback onAnimationLoop = null, System.Nullable<bool> isAdditive = null
+            Scene scene, object target, System.Nullable<decimal> fromFrame = null, System.Nullable<decimal> toFrame = null, System.Nullable<bool> loopAnimation = null, System.Nullable<decimal> speedRatio = null, ActionResultCallback<ActionCallback> onAnimationEnd = null, Animation[] animations = null, ActionResultCallback<ActionCallback> onAnimationLoop = null, System.Nullable<bool> isAdditive = null
         )
         {
             var entity = EventHorizonBlazorInterop.New(
@@ -556,7 +557,7 @@ __onAnimationLoopObservable = null;
             );
         }
 
-        public void stop(string animationName = null, ActionCallback<object> targetMask = null)
+        public void stop(string animationName = null, ActionResultCallback<object, bool> targetMask = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]

@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     public interface ICustomShaderNameResolveOptions : ICachedEntity { }
@@ -32,11 +33,11 @@ namespace BABYLON
 
         #region Properties
         
-        public ActionCallback<string, string> processFinalCode
+        public ActionResultCallback<string, string, string> processFinalCode
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<ActionCallback<string, string>>(
+            return EventHorizonBlazorInterop.Get<ActionResultCallback<string, string, string>>(
                     this.___guid,
                     "processFinalCode"
                 );

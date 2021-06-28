@@ -7,6 +7,7 @@ namespace BABYLON.GUI
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -331,11 +332,11 @@ __onLinesReadyObservable = null;
         }
 
         
-        public ActionCallback<string> wordSplittingFunction
+        public ActionResultCallback<string, string[]> wordSplittingFunction
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<ActionCallback<string>>(
+            return EventHorizonBlazorInterop.Get<ActionResultCallback<string, string[]>>(
                     this.___guid,
                     "wordSplittingFunction"
                 );

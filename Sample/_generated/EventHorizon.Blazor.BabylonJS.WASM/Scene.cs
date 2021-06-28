@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -4433,7 +4434,7 @@ __actionManager = null;
             );
         }
 
-        public void stopAnimation(object target, string animationName = null, ActionCallback<object> targetMask = null)
+        public void stopAnimation(object target, string animationName = null, ActionResultCallback<object, bool> targetMask = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
@@ -5113,7 +5114,7 @@ __actionManager = null;
             );
         }
 
-        public T getOrAddExternalDataWithFactory<T>(string key, ActionCallback<string> factory) where T : CachedEntity, new()
+        public T getOrAddExternalDataWithFactory<T>(string key, ActionResultCallback<string, T> factory) where T : CachedEntity, new()
         {
             return EventHorizonBlazorInterop.FuncClass<T>(
                 entity => new T() { ___guid = entity.___guid },
@@ -5531,7 +5532,7 @@ __actionManager = null;
             );
         }
 
-        public CachedEntity getWorldExtends(ActionCallback<AbstractMesh> filterPredicate = null)
+        public CachedEntity getWorldExtends(ActionResultCallback<AbstractMesh, bool> filterPredicate = null)
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
@@ -5585,7 +5586,7 @@ __actionManager = null;
             );
         }
 
-        public PickingInfo pick(decimal x, decimal y, ActionCallback<AbstractMesh> predicate = null, System.Nullable<bool> fastCheck = null, Camera camera = null, ActionCallback<Vector3, Vector3, Vector3, Ray> trianglePredicate = null)
+        public PickingInfo pick(decimal x, decimal y, ActionResultCallback<AbstractMesh, bool> predicate = null, System.Nullable<bool> fastCheck = null, Camera camera = null, ActionResultCallback<Vector3, Vector3, Vector3, Ray, bool> trianglePredicate = null)
         {
             return EventHorizonBlazorInterop.FuncClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },
@@ -5596,7 +5597,7 @@ __actionManager = null;
             );
         }
 
-        public PickingInfo pickWithBoundingInfo(decimal x, decimal y, ActionCallback<AbstractMesh> predicate = null, System.Nullable<bool> fastCheck = null, Camera camera = null)
+        public PickingInfo pickWithBoundingInfo(decimal x, decimal y, ActionResultCallback<AbstractMesh, bool> predicate = null, System.Nullable<bool> fastCheck = null, Camera camera = null)
         {
             return EventHorizonBlazorInterop.FuncClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },
@@ -5607,7 +5608,7 @@ __actionManager = null;
             );
         }
 
-        public PickingInfo pickWithRay(Ray ray, ActionCallback<AbstractMesh> predicate = null, System.Nullable<bool> fastCheck = null, ActionCallback<Vector3, Vector3, Vector3, Ray> trianglePredicate = null)
+        public PickingInfo pickWithRay(Ray ray, ActionResultCallback<AbstractMesh, bool> predicate = null, System.Nullable<bool> fastCheck = null, ActionResultCallback<Vector3, Vector3, Vector3, Ray, bool> trianglePredicate = null)
         {
             return EventHorizonBlazorInterop.FuncClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },
@@ -5618,7 +5619,7 @@ __actionManager = null;
             );
         }
 
-        public PickingInfo[] multiPick(decimal x, decimal y, ActionCallback<AbstractMesh> predicate = null, Camera camera = null, ActionCallback<Vector3, Vector3, Vector3, Ray> trianglePredicate = null)
+        public PickingInfo[] multiPick(decimal x, decimal y, ActionResultCallback<AbstractMesh, bool> predicate = null, Camera camera = null, ActionResultCallback<Vector3, Vector3, Vector3, Ray, bool> trianglePredicate = null)
         {
             return EventHorizonBlazorInterop.FuncArrayClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },
@@ -5629,7 +5630,7 @@ __actionManager = null;
             );
         }
 
-        public PickingInfo[] multiPickWithRay(Ray ray, ActionCallback<AbstractMesh> predicate, ActionCallback<Vector3, Vector3, Vector3, Ray> trianglePredicate = null)
+        public PickingInfo[] multiPickWithRay(Ray ray, ActionResultCallback<AbstractMesh, bool> predicate, ActionResultCallback<Vector3, Vector3, Vector3, Ray, bool> trianglePredicate = null)
         {
             return EventHorizonBlazorInterop.FuncArrayClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },
@@ -5716,7 +5717,7 @@ __actionManager = null;
             );
         }
 
-        public void setRenderingOrder(decimal renderingGroupId, ActionCallback<SubMesh, SubMesh> opaqueSortCompareFn = null, ActionCallback<SubMesh, SubMesh> alphaTestSortCompareFn = null, ActionCallback<SubMesh, SubMesh> transparentSortCompareFn = null)
+        public void setRenderingOrder(decimal renderingGroupId, ActionResultCallback<SubMesh, SubMesh, decimal> opaqueSortCompareFn = null, ActionResultCallback<SubMesh, SubMesh, decimal> alphaTestSortCompareFn = null, ActionResultCallback<SubMesh, SubMesh, decimal> transparentSortCompareFn = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
@@ -5747,7 +5748,7 @@ __actionManager = null;
             );
         }
 
-        public void markAllMaterialsAsDirty(decimal flag, ActionCallback<Material> predicate = null)
+        public void markAllMaterialsAsDirty(decimal flag, ActionResultCallback<Material, bool> predicate = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]

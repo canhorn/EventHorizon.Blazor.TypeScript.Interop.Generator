@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -37,11 +38,11 @@ namespace BABYLON
         }
 
         
-        public static ActionCallback<string, WebRequest, decimal> DefaultRetryStrategy
+        public static ActionResultCallback<string, WebRequest, decimal, decimal> DefaultRetryStrategy
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<ActionCallback<string, WebRequest, decimal>>(
+            return EventHorizonBlazorInterop.Get<ActionResultCallback<string, WebRequest, decimal, decimal>>(
                     "BABYLON",
                     "Tools.DefaultRetryStrategy"
                 );
@@ -142,11 +143,11 @@ namespace BABYLON
         }
 
         
-        public static ActionCallback<string> PreprocessUrl
+        public static ActionResultCallback<string, string> PreprocessUrl
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<ActionCallback<string>>(
+            return EventHorizonBlazorInterop.Get<ActionResultCallback<string, string>>(
                     "BABYLON",
                     "Tools.PreprocessUrl"
                 );
@@ -601,7 +602,7 @@ namespace BABYLON
             );
         }
 
-        public static IFileRequestCachedEntity ReadFileAsDataURL(Blob fileToLoad, ActionCallback<object> callback, ActionCallback<ProgressEvent> progressCallback)
+        public static IFileRequestCachedEntity ReadFileAsDataURL(Blob fileToLoad, ActionCallback<object> callback, ActionResultCallback<ProgressEvent, CachedEntity> progressCallback)
         {
             return EventHorizonBlazorInterop.FuncClass<IFileRequestCachedEntity>(
                 entity => new IFileRequestCachedEntity() { ___guid = entity.___guid },
@@ -612,7 +613,7 @@ namespace BABYLON
             );
         }
 
-        public static IFileRequestCachedEntity ReadFile(File file, ActionCallback<object> onSuccess, ActionCallback<ProgressEvent> onProgress = null, System.Nullable<bool> useArrayBuffer = null, ActionCallback<ReadFileError> onError = null)
+        public static IFileRequestCachedEntity ReadFile(File file, ActionCallback<object> onSuccess, ActionResultCallback<ProgressEvent, CachedEntity> onProgress = null, System.Nullable<bool> useArrayBuffer = null, ActionCallback<ReadFileError> onError = null)
         {
             return EventHorizonBlazorInterop.FuncClass<IFileRequestCachedEntity>(
                 entity => new IFileRequestCachedEntity() { ___guid = entity.___guid },
@@ -1020,7 +1021,7 @@ namespace BABYLON
             );
         }
 
-        public static T First<T>(T[] array, ActionCallback<T> predicate) where T : CachedEntity, new()
+        public static T First<T>(T[] array, ActionResultCallback<T, bool> predicate) where T : CachedEntity, new()
         {
             return EventHorizonBlazorInterop.FuncClass<T>(
                 entity => new T() { ___guid = entity.___guid },

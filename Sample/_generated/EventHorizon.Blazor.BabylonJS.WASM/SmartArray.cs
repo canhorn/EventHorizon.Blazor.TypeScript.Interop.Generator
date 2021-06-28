@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -120,7 +121,7 @@ namespace BABYLON
             );
         }
 
-        public void sort(ActionCallback<T, T> compareFn)
+        public void sort(ActionResultCallback<T, T, decimal> compareFn)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]

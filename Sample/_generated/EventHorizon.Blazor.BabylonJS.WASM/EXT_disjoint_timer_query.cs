@@ -5,6 +5,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using EventHorizon.Blazor.Interop;
 using EventHorizon.Blazor.Interop.Callbacks;
+using EventHorizon.Blazor.Interop.ResultCallbacks;
 using Microsoft.JSInterop;
 
 public interface EXT_disjoint_timer_query : ICachedEntity { }

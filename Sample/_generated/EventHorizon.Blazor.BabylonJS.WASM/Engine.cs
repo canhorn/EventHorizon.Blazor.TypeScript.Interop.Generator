@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -1220,7 +1221,7 @@ __audioEngine = null;
         #endregion
 
         #region Static Methods
-        public static void MarkAllMaterialsAsDirty(decimal flag, ActionCallback<Material> predicate = null)
+        public static void MarkAllMaterialsAsDirty(decimal flag, ActionResultCallback<Material, bool> predicate = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]

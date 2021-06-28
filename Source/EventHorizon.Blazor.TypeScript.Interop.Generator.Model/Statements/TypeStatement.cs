@@ -22,6 +22,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements
 
         public bool IsTypeQuery { get; set; }
         public TypeQueryStatement TypeQuery { get; set; }
+        public TypeStatement ActionResultType { get; set; }
 
         public override string ToString()
         {

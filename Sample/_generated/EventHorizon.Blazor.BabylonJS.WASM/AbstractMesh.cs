@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -1646,7 +1647,7 @@ __onRebuildObservable = null;
             );
         }
 
-        public AbstractMesh normalizeToUnitCube(System.Nullable<bool> includeDescendants = null, System.Nullable<bool> ignoreRotation = null, ActionCallback<AbstractMesh> predicate = null)
+        public AbstractMesh normalizeToUnitCube(System.Nullable<bool> includeDescendants = null, System.Nullable<bool> ignoreRotation = null, ActionResultCallback<AbstractMesh, bool> predicate = null)
         {
             return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
                 entity => new AbstractMesh() { ___guid = entity.___guid },
@@ -1785,7 +1786,7 @@ __onRebuildObservable = null;
             );
         }
 
-        public PickingInfo intersects(Ray ray, System.Nullable<bool> fastCheck = null, ActionCallback<Vector3, Vector3, Vector3, Ray> trianglePredicate = null, System.Nullable<bool> onlyBoundingInfo = null, Matrix worldToUse = null, System.Nullable<bool> skipBoundingInfo = null)
+        public PickingInfo intersects(Ray ray, System.Nullable<bool> fastCheck = null, ActionResultCallback<Vector3, Vector3, Vector3, Ray, bool> trianglePredicate = null, System.Nullable<bool> onlyBoundingInfo = null, Matrix worldToUse = null, System.Nullable<bool> skipBoundingInfo = null)
         {
             return EventHorizonBlazorInterop.FuncClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },

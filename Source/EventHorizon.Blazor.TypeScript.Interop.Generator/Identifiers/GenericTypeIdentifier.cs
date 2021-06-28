@@ -28,6 +28,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 node,
                 classMetadata
             );
+            var isAction = ActionTypeIdentifier.Identify(
+                typeIdentifier
+            );
             var isTypeQuery = IsTypeQueryRule.Check(
                 node
             );
@@ -46,6 +49,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             ) || TypeLiteralIdentifier.Identify(
                 typeIdentifier
             );
+            var actionResultType = default(TypeStatement);
             var genericTypes = new List<TypeStatement>();
             if (node.TypeArguments != null
                 && node.TypeArguments.Any())
@@ -151,6 +155,16 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 genericTypes.Clear();
             }
 
+            if (isAction)
+            {
+                actionResultType = GenericTypeIdentifier.Identify(
+                    node.Last,
+                    classMetadata,
+                    ast,
+                    typeOverrideDetails
+                );
+            }
+
             if (isLiteral)
             {
                 typeIdentifier = GenerationIdentifiedTypes.CachedEntity;
@@ -169,9 +183,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 IsNullable = NullableTypeIdentifier.Identify(
                     typeIdentifier
                 ),
-                IsAction = ActionTypeIdentifier.Identify(
-                    typeIdentifier
-                ),
+                IsAction = isAction,
+                ActionResultType = actionResultType,
                 IsTask = TaskTypeIdentifier.Identify(
                     typeIdentifier
                 ),

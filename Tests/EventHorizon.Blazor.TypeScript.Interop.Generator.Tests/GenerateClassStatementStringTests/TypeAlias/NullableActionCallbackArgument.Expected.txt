@@ -7,6 +7,7 @@ namespace Examples
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -48,7 +49,7 @@ namespace Examples
         #endregion
 
         #region Methods
-        public PickingInfo nullablePredicate(decimal x, decimal y, ActionCallback<Vector3, Vector3, Vector3, Ray> predicate = null)
+        public PickingInfo nullablePredicate(decimal x, decimal y, ActionResultCallback<Vector3, Vector3, Vector3, Ray, bool> predicate = null)
         {
             return EventHorizonBlazorInterop.FuncClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },

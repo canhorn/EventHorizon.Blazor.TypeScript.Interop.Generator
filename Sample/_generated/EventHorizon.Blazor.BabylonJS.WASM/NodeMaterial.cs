@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -421,7 +422,7 @@ __onBuildObservable = null;
             );
         }
 
-        public NodeMaterialBlock getBlockByPredicate(ActionCallback<NodeMaterialBlock> predicate)
+        public NodeMaterialBlock getBlockByPredicate(ActionResultCallback<NodeMaterialBlock, bool> predicate)
         {
             return EventHorizonBlazorInterop.FuncClass<NodeMaterialBlock>(
                 entity => new NodeMaterialBlock() { ___guid = entity.___guid },
@@ -432,7 +433,7 @@ __onBuildObservable = null;
             );
         }
 
-        public InputBlock getInputBlockByPredicate(ActionCallback<InputBlock> predicate)
+        public InputBlock getInputBlockByPredicate(ActionResultCallback<InputBlock, bool> predicate)
         {
             return EventHorizonBlazorInterop.FuncClass<InputBlock>(
                 entity => new InputBlock() { ___guid = entity.___guid },
