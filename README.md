@@ -57,6 +57,7 @@ Get Instance Accessor | You can have access to the ***get*** accessor on an obje
 Set Instance Accessor | You can use the ***set*** accessor on an objects. | ```engine.onCanvasPointerOutObservable.add(() => doSomething())``` | :heavy_check_mark:
 Action Callback | You can run Async based code. | ```meshLoader.OnSuccess(new ActionCallback<Mesh>(mesh => { return Task.CompletedTask; }))``` | :heavy_check_mark:
 Action Callback in Literal | You can run Async based code. | ```new HeightMapMesh({ onReady = new ActionCallback<Mesh>(mesh => { return Task.CompletedTask; }) })``` | :heavy_check_mark:
+Action Result Callback | You can run an action with a result to the caller. | ```meshLoader.OnSuccess(new ActionResultCallback<Mesh, bool>(mesh => { return mesh != null; }))``` | :heavy_check_mark:
 
 Notes on the framework, it might not have the exact API supplied by a TypeScript definition file, in that it might transform the API into something more general and friendly to C#. I used C# as my main source of inspiration for the generated code.
 
