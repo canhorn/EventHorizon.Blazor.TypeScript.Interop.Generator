@@ -13,7 +13,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             bool ignorePrefix = false
         )
         {
-            if (type.IsTypeAlias 
+            if (type.IsTypeAlias
                 && !type.IsNullable
                 && !type.IsModifier
                 && !type.IsArray
@@ -23,21 +23,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             }
             var name = type.Name;
             var genericTypesAsString = string.Empty;
-            // Observer -> PickerInfo -> PickerData
-            // Observer<PickerInfo<PickerData>>   [[INTERFACE_POSTFIX]]
-            //var standardTemplate = "[[NAME]]";
-            //var actionVoidTemplate = "ActionCallback";
-            //var actionTemplate = "ActionCallback<[[GENERIC_TYPES]]>";
-            //var taskVoidTemplate = "ValueTask";
-            //var taskTemplate = "ValueTask<[[GENERIC_TYPES]]>";
-            //var rootTaskTemplate = "[[GENERIC_TYPES]]";
-            //var standardArrayTemplate = "[[NAME]][]";
-            //var standardPostfixTemplate = "[[NAME]][[INTERFACE_POSTFIX]]";
-            //var genericTemplate = "[[NAME]]<[[GENERIC_TYPES]]>";
-            //var genericPostfixTemplate = "[[NAME]][[INTERFACE_POSTFIX]]<[[GENERIC_TYPES]]>";
-            //var arrayTemplate = "[[GENERIC_TYPES]][]";
-            //var rootArrayTemplate = "[[GENERIC_TYPES]]";
+            var actionResultTypeAsStirng = string.Empty;
             var template = TypeStatementTemplates.StandardTemplate;
+            var interfacePostfix = ignorePrefix ? string.Empty : Constants.INTERFACE_POSTFIX;
             if (type.IsInterface)
             {
                 template = TypeStatementTemplates.StandardPostfixTemplate;
@@ -80,11 +68,29 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             }
             if (type.IsAction)
             {
-                template = TypeStatementTemplates.ActionTemplate;
-
-                if (!type.GenericTypes.Any())
+                if (type.ActionResultType.IsTask
+                    || type.ActionResultType.Name == GenerationIdentifiedTypes.Void)
                 {
-                    template = TypeStatementTemplates.ActionVoidTemplate;
+                    template = TypeStatementTemplates.ActionTemplate;
+
+                    if (!type.GenericTypes.Any())
+                    {
+                        template = TypeStatementTemplates.ActionVoidTemplate;
+                    }
+                } else
+                {
+                    template = TypeStatementTemplates.ActionResultTemplate;
+
+                    if (type.GenericTypes.Any())
+                    {
+                        template = TypeStatementTemplates.ActionResultArgsTemplate;
+                    }
+
+                    actionResultTypeAsStirng = Write(
+                        type.ActionResultType,
+                        includeArraySymbol,
+                        ignorePrefix
+                    );
                 }
             }
             if (type.IsTask)
@@ -96,7 +102,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 }
 
                 if (!type.GenericTypes.Any()
-                    || type.GenericTypes.Any(type => type.Name == "void"))
+                    || type.GenericTypes.Any(type => type.Name == GenerationIdentifiedTypes.Void))
                 {
                     template = TypeStatementTemplates.TaskVoidTemplate;
                     if (!includeArraySymbol)
@@ -120,8 +126,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 "[[GENERIC_TYPES]]",
                 genericTypesAsString
             ).Replace(
+                "[[ACTION_RESULT]]",
+                actionResultTypeAsStirng
+            ).Replace(
                 "[[INTERFACE_POSTFIX]]",
-                ignorePrefix ? string.Empty : Constants.INTERFACE_POSTFIX
+                interfacePostfix
             );
         }
     }

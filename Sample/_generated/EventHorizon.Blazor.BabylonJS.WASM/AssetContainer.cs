@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -83,7 +84,7 @@ __scene = null;
         #endregion
 
         #region Methods
-        public InstantiatedEntries instantiateModelsToScene(ActionCallback<string> nameFunction = null, System.Nullable<bool> cloneMaterials = null)
+        public InstantiatedEntries instantiateModelsToScene(ActionResultCallback<string, string> nameFunction = null, System.Nullable<bool> cloneMaterials = null)
         {
             return EventHorizonBlazorInterop.FuncClass<InstantiatedEntries>(
                 entity => new InstantiatedEntries() { ___guid = entity.___guid },
@@ -145,7 +146,7 @@ __scene = null;
             );
         }
 
-        public AnimationGroup[] mergeAnimationsTo(Animatable[] animatables, Scene scene = null, ActionCallback<CachedEntity> targetConverter = null)
+        public AnimationGroup[] mergeAnimationsTo(Animatable[] animatables, Scene scene = null, ActionResultCallback<CachedEntity, Node> targetConverter = null)
         {
             return EventHorizonBlazorInterop.FuncArrayClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },

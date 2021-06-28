@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -43,7 +44,7 @@ namespace BABYLON
             );
         }
 
-        public static void AddIndividualParser(string name, ActionCallback<CachedEntity, Scene, string> parser)
+        public static void AddIndividualParser(string name, ActionResultCallback<CachedEntity, Scene, string, CachedEntity> parser)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
@@ -53,9 +54,9 @@ namespace BABYLON
             );
         }
 
-        public static ActionCallback<CachedEntity, Scene, string> GetIndividualParser(string name)
+        public static ActionResultCallback<CachedEntity, Scene, string, CachedEntity> GetIndividualParser(string name)
         {
-            return EventHorizonBlazorInterop.Func<ActionCallback<CachedEntity, Scene, string>>(
+            return EventHorizonBlazorInterop.Func<ActionResultCallback<CachedEntity, Scene, string, CachedEntity>>(
                 new object[]
                 {
                     new string[] { "BABYLON", "AbstractScene", "GetIndividualParser" }, name

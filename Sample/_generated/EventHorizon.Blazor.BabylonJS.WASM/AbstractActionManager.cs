@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -227,7 +228,7 @@ namespace BABYLON
             );
         }
 
-        public bool hasSpecificTrigger(decimal trigger, ActionCallback<object> parameterPredicate = null)
+        public bool hasSpecificTrigger(decimal trigger, ActionResultCallback<object, bool> parameterPredicate = null)
         {
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]

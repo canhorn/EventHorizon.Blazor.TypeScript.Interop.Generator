@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -388,7 +389,7 @@ __materialDefines = null;
             );
         }
 
-        public IntersectionInfo intersects(Ray ray, Vector3[] positions, decimal[] indices, System.Nullable<bool> fastCheck = null, ActionCallback<Vector3, Vector3, Vector3, Ray> trianglePredicate = null)
+        public IntersectionInfo intersects(Ray ray, Vector3[] positions, decimal[] indices, System.Nullable<bool> fastCheck = null, ActionResultCallback<Vector3, Vector3, Vector3, Ray, bool> trianglePredicate = null)
         {
             return EventHorizonBlazorInterop.FuncClass<IntersectionInfo>(
                 entity => new IntersectionInfo() { ___guid = entity.___guid },

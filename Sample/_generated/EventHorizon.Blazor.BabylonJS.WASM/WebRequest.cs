@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -45,11 +46,11 @@ namespace BABYLON
         }
 
         
-        public static ActionCallback[] CustomRequestModifiers
+        public static ActionResultCallback<ActionCallback<XMLHttpRequest, string>>[] CustomRequestModifiers
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArray<ActionCallback>(
+            return EventHorizonBlazorInterop.GetArray<ActionResultCallback<ActionCallback<XMLHttpRequest, string>>>(
                     "BABYLON",
                     "WebRequest.CustomRequestModifiers"
                 );
@@ -72,11 +73,11 @@ namespace BABYLON
 
         #region Accessors
         
-        public ActionCallback onprogress
+        public ActionResultCallback<ActionResultCallback<XMLHttpRequest, ProgressEvent, CachedEntity>> onprogress
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<ActionCallback>(
+            return EventHorizonBlazorInterop.Get<ActionResultCallback<ActionResultCallback<XMLHttpRequest, ProgressEvent, CachedEntity>>>(
                     this.___guid,
                     "onprogress"
                 );
@@ -211,7 +212,7 @@ __responseType = null;
         #endregion
 
         #region Methods
-        public void addEventListener<K>(K type, ActionCallback<XMLHttpRequest, K> listener, System.Nullable<bool> options = null)
+        public void addEventListener<K>(K type, ActionResultCallback<XMLHttpRequest, K, CachedEntity> listener, System.Nullable<bool> options = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
@@ -221,7 +222,7 @@ __responseType = null;
             );
         }
 
-        public void removeEventListener<K>(K type, ActionCallback<XMLHttpRequest, K> listener, System.Nullable<bool> options = null)
+        public void removeEventListener<K>(K type, ActionResultCallback<XMLHttpRequest, K, CachedEntity> listener, System.Nullable<bool> options = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
