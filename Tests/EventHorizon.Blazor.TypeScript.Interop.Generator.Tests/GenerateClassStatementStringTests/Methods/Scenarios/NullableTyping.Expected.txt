@@ -7,6 +7,7 @@ namespace Static.Class
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -69,7 +70,7 @@ namespace Static.Class
             );
         }
 
-        public void orderNullArguments(Animatable[] animatables, Scene scene = null, ActionCallback<CachedEntity> targetConverter = null)
+        public void orderNullArguments(Animatable[] animatables, Scene scene = null, ActionResultCallback<CachedEntity, Node> targetConverter = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]

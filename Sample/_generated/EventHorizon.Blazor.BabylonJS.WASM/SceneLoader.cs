@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -310,7 +311,7 @@ __OnPluginActivatedObservable = null;
             );
         }
 
-        public static void ImportAnimations(string rootUrl, string sceneFilename = null, Scene scene = null, System.Nullable<bool> overwriteAnimations = null, System.Nullable<int> animationGroupLoadingMode = null, ActionCallback<CachedEntity> targetConverter = null, ActionCallback<Scene> onSuccess = null, ActionCallback<ISceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null, string pluginExtension = null)
+        public static void ImportAnimations(string rootUrl, string sceneFilename = null, Scene scene = null, System.Nullable<bool> overwriteAnimations = null, System.Nullable<int> animationGroupLoadingMode = null, ActionResultCallback<CachedEntity, CachedEntity> targetConverter = null, ActionCallback<Scene> onSuccess = null, ActionCallback<ISceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null, string pluginExtension = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
@@ -320,7 +321,7 @@ __OnPluginActivatedObservable = null;
             );
         }
 
-        public static ValueTask<Scene> ImportAnimationsAsync(string rootUrl, string sceneFilename = null, Scene scene = null, System.Nullable<bool> overwriteAnimations = null, System.Nullable<int> animationGroupLoadingMode = null, ActionCallback<CachedEntity> targetConverter = null, ActionCallback<Scene> onSuccess = null, ActionCallback<ISceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null, string pluginExtension = null)
+        public static ValueTask<Scene> ImportAnimationsAsync(string rootUrl, string sceneFilename = null, Scene scene = null, System.Nullable<bool> overwriteAnimations = null, System.Nullable<int> animationGroupLoadingMode = null, ActionResultCallback<CachedEntity, CachedEntity> targetConverter = null, ActionCallback<Scene> onSuccess = null, ActionCallback<ISceneLoaderProgressEvent> onProgress = null, ActionCallback<Scene, string, CachedEntity> onError = null, string pluginExtension = null)
         {
             return EventHorizonBlazorInterop.TaskClass<Scene>(
                 entity => new Scene() { ___guid = entity.___guid },

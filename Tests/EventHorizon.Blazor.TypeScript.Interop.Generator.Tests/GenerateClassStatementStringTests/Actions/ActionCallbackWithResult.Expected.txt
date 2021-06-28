@@ -7,6 +7,7 @@ namespace Examples
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -48,13 +49,42 @@ namespace Examples
         #endregion
 
         #region Methods
-        public Observer<T> add(ActionCallback<T> predicate)
+        public void classActionResult(ActionResultCallback<PredicateClass> predicate)
         {
-            return EventHorizonBlazorInterop.FuncClass<Observer<T>>(
-                entity => new Observer<T>() { ___guid = entity.___guid },
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "add" }, predicate
+                    new string[] { this.___guid, "classActionResult" }, predicate
+                }
+            );
+        }
+
+        public void arrayClassActionResult(ActionResultCallback<PredicateClass[]> predicate)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "arrayClassActionResult" }, predicate
+                }
+            );
+        }
+
+        public void primitiveActionResult(ActionResultCallback<string> predicate)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "primitiveActionResult" }, predicate
+                }
+            );
+        }
+
+        public void arrayActionResult(ActionResultCallback<string[]> predicate)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "arrayActionResult" }, predicate
                 }
             );
         }

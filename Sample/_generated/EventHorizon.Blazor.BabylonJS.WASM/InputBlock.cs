@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -81,11 +82,11 @@ namespace BABYLON
         }
 
         
-        public ActionCallback valueCallback
+        public ActionResultCallback<CachedEntity> valueCallback
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<ActionCallback>(
+            return EventHorizonBlazorInterop.Get<ActionResultCallback<CachedEntity>>(
                     this.___guid,
                     "valueCallback"
                 );

@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -23,7 +24,7 @@ namespace BABYLON
         #endregion
 
         #region Static Methods
-        public static void AddNodeConstructor(string type, ActionCallback<string, Scene, CachedEntity> constructorFunc)
+        public static void AddNodeConstructor(string type, ActionResultCallback<string, Scene, CachedEntity, ActionResultCallback<Node>> constructorFunc)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
@@ -33,9 +34,9 @@ namespace BABYLON
             );
         }
 
-        public static ActionCallback Construct(string type, string name, Scene scene, object options = null)
+        public static ActionResultCallback<Node> Construct(string type, string name, Scene scene, object options = null)
         {
-            return EventHorizonBlazorInterop.Func<ActionCallback>(
+            return EventHorizonBlazorInterop.Func<ActionResultCallback<Node>>(
                 new object[]
                 {
                     new string[] { "BABYLON", "Node", "Construct" }, type, name, scene, options
@@ -585,7 +586,7 @@ __onDisposeObservable = null;
             );
         }
 
-        public Node[] getDescendants(System.Nullable<bool> directDescendantsOnly = null, ActionCallback<Node> predicate = null)
+        public Node[] getDescendants(System.Nullable<bool> directDescendantsOnly = null, ActionResultCallback<Node, bool> predicate = null)
         {
             return EventHorizonBlazorInterop.FuncArrayClass<Node>(
                 entity => new Node() { ___guid = entity.___guid },
@@ -596,7 +597,7 @@ __onDisposeObservable = null;
             );
         }
 
-        public AbstractMesh[] getChildMeshes(System.Nullable<bool> directDescendantsOnly = null, ActionCallback<Node> predicate = null)
+        public AbstractMesh[] getChildMeshes(System.Nullable<bool> directDescendantsOnly = null, ActionResultCallback<Node, bool> predicate = null)
         {
             return EventHorizonBlazorInterop.FuncArrayClass<AbstractMesh>(
                 entity => new AbstractMesh() { ___guid = entity.___guid },
@@ -607,7 +608,7 @@ __onDisposeObservable = null;
             );
         }
 
-        public Node[] getChildren(ActionCallback<Node> predicate = null, System.Nullable<bool> directDescendantsOnly = null)
+        public Node[] getChildren(ActionResultCallback<Node, bool> predicate = null, System.Nullable<bool> directDescendantsOnly = null)
         {
             return EventHorizonBlazorInterop.FuncArrayClass<Node>(
                 entity => new Node() { ___guid = entity.___guid },
@@ -713,7 +714,7 @@ __onDisposeObservable = null;
             );
         }
 
-        public CachedEntity getHierarchyBoundingVectors(System.Nullable<bool> includeDescendants = null, ActionCallback<AbstractMesh> predicate = null)
+        public CachedEntity getHierarchyBoundingVectors(System.Nullable<bool> includeDescendants = null, ActionResultCallback<AbstractMesh, bool> predicate = null)
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]

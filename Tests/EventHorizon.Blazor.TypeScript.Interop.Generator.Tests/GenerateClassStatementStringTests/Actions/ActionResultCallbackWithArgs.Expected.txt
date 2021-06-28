@@ -1,5 +1,5 @@
 /// Generated - Do Not Edit
-namespace BABYLON
+namespace Examples
 {
     using System;
     using System.Collections.Generic;
@@ -12,8 +12,8 @@ namespace BABYLON
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter<EffectFallbacks>))]
-    public class EffectFallbacks : CachedEntityObject, IEffectFallbacks
+    [JsonConverter(typeof(CachedEntityConverter<ExampleClass<CachedEntity>>))]
+    public class ExampleClass<T> : CachedEntityObject where T : CachedEntity, new()
     {
         #region Static Accessors
 
@@ -28,17 +28,7 @@ namespace BABYLON
         #endregion
 
         #region Accessors
-        
-        public bool hasMoreFallbacks
-        {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "hasMoreFallbacks"
-                );
-            }
-        }
+
         #endregion
 
         #region Properties
@@ -46,54 +36,55 @@ namespace BABYLON
         #endregion
         
         #region Constructor
-        public EffectFallbacks() : base() { }
+        public ExampleClass() : base() { }
 
-        public EffectFallbacks(
+        public ExampleClass(
             ICachedEntity entity
         ) : base(entity)
         {
+            ___guid = entity.___guid;
         }
 
 
         #endregion
 
         #region Methods
-        public void unBindMesh()
+        public void classActionResult(ActionResultCallback<decimal, string, PredicateClass, PredicateClass> predicate)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "unBindMesh" }
+                    new string[] { this.___guid, "classActionResult" }, predicate
                 }
             );
         }
 
-        public void addFallback(decimal rank, string define)
+        public void arrayClassActionResult(ActionResultCallback<decimal, string, PredicateClass, PredicateClass[]> predicate)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "addFallback" }, rank, define
+                    new string[] { this.___guid, "arrayClassActionResult" }, predicate
                 }
             );
         }
 
-        public void addCPUSkinningFallback(decimal rank, AbstractMesh mesh)
+        public void primitiveActionResult(ActionResultCallback<decimal, string, PredicateClass, PredicateClass> predicate)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "addCPUSkinningFallback" }, rank, mesh
+                    new string[] { this.___guid, "primitiveActionResult" }, predicate
                 }
             );
         }
 
-        public string reduce(string currentDefines, Effect effect)
+        public void arrayActionResult(ActionResultCallback<decimal, string, PredicateClass, PredicateClass[]> predicate)
         {
-            return EventHorizonBlazorInterop.Func<string>(
+            EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "reduce" }, currentDefines, effect
+                    new string[] { this.___guid, "arrayActionResult" }, predicate
                 }
             );
         }

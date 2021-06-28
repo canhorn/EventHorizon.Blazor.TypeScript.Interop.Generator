@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -174,7 +175,7 @@ namespace BABYLON
         #endregion
 
         #region Static Methods
-        public static ShadowGenerator Parse(object parsedShadowGenerator, Scene scene, ActionCallback<decimal, IShadowLight> constr = null)
+        public static ShadowGenerator Parse(object parsedShadowGenerator, Scene scene, ActionResultCallback<decimal, IShadowLight, ShadowGenerator> constr = null)
         {
             return EventHorizonBlazorInterop.FuncClass<ShadowGenerator>(
                 entity => new ShadowGenerator() { ___guid = entity.___guid },

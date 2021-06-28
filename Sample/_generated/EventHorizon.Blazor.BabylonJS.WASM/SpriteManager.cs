@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Interop;
     using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -474,7 +475,7 @@ __onDisposeObservable = null;
             );
         }
 
-        public PickingInfo intersects(Ray ray, Camera camera, ActionCallback<Sprite> predicate = null, System.Nullable<bool> fastCheck = null)
+        public PickingInfo intersects(Ray ray, Camera camera, ActionResultCallback<Sprite, bool> predicate = null, System.Nullable<bool> fastCheck = null)
         {
             return EventHorizonBlazorInterop.FuncClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },
@@ -485,7 +486,7 @@ __onDisposeObservable = null;
             );
         }
 
-        public PickingInfo[] multiIntersects(Ray ray, Camera camera, ActionCallback<Sprite> predicate = null)
+        public PickingInfo[] multiIntersects(Ray ray, Camera camera, ActionResultCallback<Sprite, bool> predicate = null)
         {
             return EventHorizonBlazorInterop.FuncArrayClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },
