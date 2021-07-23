@@ -1,13 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BABYLON;
-using EventHorizon.Blazor.BabylonJS.Model;
-using EventHorizon.Blazor.Interop.Callbacks;
-
 namespace EventHorizon.Blazor.BabylonJS.Pages
 {
+    using System;
+    using System.Threading.Tasks;
+    using BABYLON;
+    using EventHorizon.Blazor.BabylonJS.Model;
+    using EventHorizon.Blazor.Interop.Callbacks;
+
     public partial class MeshExample : IDisposable
     {
         private Engine _engine;
@@ -54,12 +52,13 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
                 ),
                 scene
             );
+
             var house = SceneLoader.ImportMesh(
-                null,
-                "assets/",
-                "House.gltf",
-                scene
-            );
+                    null,
+                    "assets/",
+                    "House.gltf",
+                    scene
+                );
             var freeCamera = new FreeCamera(
                 "FreeCamera",
                 new Vector3(

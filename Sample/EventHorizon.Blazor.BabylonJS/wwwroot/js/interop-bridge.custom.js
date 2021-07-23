@@ -47,22 +47,28 @@
         return { [cacheKey]: newCacheKey };
     };
     /**
-     * Check argument for existing in argumentCache and if actionCallbackType.
+     * Check argument for existing in argumentCache and if actionResultCallbackType and if actionCallbackType.
      * Returns argValue if not part argumentCache or actionCallbackType.
      * 
      * @param {any} argValue
      */
     const convertArg = (argValue) => {
-        if (!argValue) {
-            return null;
+        if (argValue == null || argValue == undefined) {
+            return undefined;
         }
         if (argValue[cacheKey] && argumentCache.has(argValue[cacheKey])) {
             return argumentCache.get(argValue[cacheKey]);
+        } else if (argValue[typeKey] && argValue[typeKey] === actionResultCallbackType) {
+            const invokableReference = argValue["invokableReference"];
+            const method = argValue["method"];
+            return function () {
+                return invokableReference.invokeMethod(method, ...convertCallbackArguments(arguments));
+            };
         } else if (argValue[typeKey] && argValue[typeKey] === actionCallbackType) {
             const invokableReference = argValue["invokableReference"];
             const method = argValue["method"];
             return async function () {
-                await invokableReference.invokeMethodAsync(method, ...convertCallbackArguments(arguments));
+                return await invokableReference.invokeMethodAsync(method, ...convertCallbackArguments(arguments));
             };
         }
         return argValue;
@@ -77,22 +83,61 @@
         for (var i = 1; i < argumentArray.length; i++) {
             const arg = convertArg(argumentArray[i]);
 
-            if (arg && typeof (arg) === "object" && !arg[cacheKey] && !Array.isArray(arg)) {
-                // Object literal: { prop: "hi", prop2: { ___type: "action_callback" } }
-                const newArg = {};
-                for (const key in arg) {
-                    if (Object.prototype.hasOwnProperty.call(arg, key)) {
-                        const element = arg[key];
-                        newArg[key] = convertArg(element);
-                    }
-                }
-                args.push(newArg);
-            } else {
-                args.push(arg);
-            }
+            constructArgument(args, arg);
+
+            //if (arg && typeof (arg) === "object" && !arg[cacheKey] && !Array.isArray(arg)) {
+            //    // Object literal: { prop: "hi", prop2: { ___type: "action_callback" } }
+            //    const newArg = {};
+            //    for (const key in arg) {
+            //        if (Object.prototype.hasOwnProperty.call(arg, key)) {
+            //            const element = arg[key];
+            //            newArg[key] = convertArg(element);
+            //        }
+            //    }
+            //    args.push(newArg);
+            //} else if (arg && typeof (arg) === "object" && Array.isArray(arg)) {
+            //    // Array: [ { ___type: "action_callback" } ]
+            //    const newArg = [];
+            //    for (const item of arg) {
+            //        newArg.push(convertArg(item));
+            //    }
+            //    args.push(newArg);
+            //} else {
+            //    args.push(arg);
+            //}
         }
         return args;
     };
+
+    const constructArgument = (args, arg) => {
+        if (arg && typeof (arg) === "object" && !arg[cacheKey] && !Array.isArray(arg)) {
+            // Object literal: { prop: "hi", prop2: { ___type: "action_callback" } }
+            const newArg = {};
+            for (const key in arg) {
+                if (Object.prototype.hasOwnProperty.call(arg, key)) {
+                    const element = arg[key];
+                    if (Array.isArray(element)) {
+                        var arrayArgs = [];
+                        constructArgument(arrayArgs, element);
+                        newArg[key] = arrayArgs[0];
+                    } else {
+                        newArg[key] = convertArg(element);
+                    }
+                }
+            }
+            args.push(newArg);
+        } else if (arg && typeof (arg) === "object" && Array.isArray(arg)) {
+            // Array: [ { ___type: "action_callback" } ]
+            const newArg = [];
+            for (const item of arg) {
+                newArg.push(convertArg(item));
+            }
+            args.push(newArg);
+        } else {
+            args.push(arg);
+        }
+    }
+
     /**
      * Create a serialization safe set of arguments.
      * Taking into account arrays and objects
@@ -145,6 +190,7 @@
     const cacheKey = "___guid";
     const typeKey = "___type";
     const actionCallbackType = "action_callback";
+    const actionResultCallbackType = "action_result_callback";
     window["blazorInterop"] = {
         /**
          * This will call a function on a cached object.
@@ -173,7 +219,7 @@
                 }
                 return BINDING.js_to_mono_obj(value);
             } catch (ex) {
-                console.log("error", ex);
+                console.log("error", { ex, args });
             }
         },
         /**
@@ -206,7 +252,7 @@
 
                 return BINDING.js_to_mono_obj(value[cacheKey]);
             } catch (ex) {
-                console.log("error", ex);
+                console.log("error", { ex, args });
             }
         },
         /**
@@ -240,7 +286,7 @@
 
                 return BINDING.js_to_mono_obj(result);
             } catch (ex) {
-                console.log("error", ex);
+                console.log("error", { ex, args });
                 return BINDING.js_to_mono_obj([]);
             }
         },
@@ -273,7 +319,7 @@
 
                 return result;
             } catch (ex) {
-                console.log("error", ex);
+                console.log("error", { ex, root, identifier });
             }
         },
         /**
@@ -293,7 +339,7 @@
                 }
                 return values;
             } catch (ex) {
-                console.log("error", ex);
+                console.log("error", { ex, root, identifier });
             }
         },
         /**
@@ -314,13 +360,13 @@
                     obj = obj[identifier[i]];
                 }
 
-                if (argumentCache.has(value[cacheKey])) {
+                if (!!value && argumentCache.has(value[cacheKey])) {
                     value = argumentCache.get(value[cacheKey]);
                 }
 
                 obj[identifier[identifier.length - 1]] = value;
             } catch (ex) {
-                console.log("error", ex);
+                console.log("error", { ex, root, identifier, value });
             }
         },
         /**
@@ -350,7 +396,7 @@
                     }
                 }
             } catch (ex) {
-                console.log("error", ex);
+                console.log("error", { ex, arguments });
                 throw { message: "invalid_call", code: "invalid_call" };
             }
         },
@@ -370,11 +416,9 @@
                 var newObject = new createNew(...args);
                 newObject[cacheKey] = guid();
                 argumentCache.set(newObject[cacheKey], newObject);
-                return {
-                    [cacheKey]: newObject[cacheKey]
-                };
+                return newObject[cacheKey];
             } catch (ex) {
-                console.log("error", ex);
+                console.log("error", { ex, arguments });
             }
             throw { code: "invalid_call" };
         },
@@ -398,7 +442,7 @@
                 }
                 return createNew.call(context, ...args);
             } catch (ex) {
-                console.log("error", ex);
+                console.log("error", { ex, arguments });
             }
             return undefined;
         },
@@ -424,13 +468,16 @@
                 if (typeof (newObject) === "object"
                     && !Array.isArray(newObject)
                 ) {
-                    const newCacheKey = guid();
-                    newObject[cacheKey] = newCacheKey;
-                    argumentCache.set(newCacheKey, newObject);
-                    return newCacheKey;
+                    if (!argumentCache.has(newObject[cacheKey])) {
+                        // Add to cache
+                        const newCacheKey = guid();
+                        newObject[cacheKey] = newCacheKey;
+                        argumentCache.set(newCacheKey, newObject);
+                    }
+                    return newObject[cacheKey];
                 }
             } catch (ex) {
-                console.log("error", ex);
+                console.log("error", { ex, arguments });
             }
             return undefined;
         },
@@ -457,12 +504,15 @@
                     return result;
                 }
             } catch (ex) {
-                console.log("error", ex);
+                console.log("error", { ex, arguments });
             }
             return [];
         },
         /**
-         * This will call a through an identifier's a function from window as the root.
+         * This will call a function based on the identifier, with the arguments passed.
+         *
+         * - 'window' is root
+         *
          * arguments[0] = Identifier
          * arguments[1...n] = Function Arguments
          **/
@@ -494,7 +544,150 @@
 
                 return results;
             } catch (ex) {
-                console.log("error", ex);
+                console.log("error", { ex, arguments });
+            }
+            return [];
+        },
+        /**
+         * This will call a Promise based on the identifier, with the arguments passed.
+         *
+         * - 'window' is root
+         *
+         * arguments[0] = Identifier
+         * arguments[1...n] = Function Arguments
+         *
+         * @returns primitive
+         * */
+        task: async function () {
+            try {
+                var identifier = arguments[0];
+                var obj = window[identifier[0]];
+                if (argumentCache.has(identifier[0])) {
+                    obj = argumentCache.get(identifier[0]);
+                }
+                var args = convertArgs(arguments);
+                var context = window;
+                for (var i = 1; i < identifier.length; i++) {
+                    context = obj;
+                    obj = obj[identifier[i]];
+                }
+                return await obj.call(context, ...args);
+            } catch (ex) {
+                console.log("error", { ex, arguments });
+            }
+            return undefined;
+        },
+        /**
+         * This will call a Promise based on the identifier, with the arguments passed.
+         *
+         * - 'window' is root
+         *
+         * arguments[0] = Identifier
+         * arguments[1...n] = Function Arguments
+         *
+         * @returns Class Entity Identifier
+         * */
+        taskClass: async function () {
+            try {
+                var identifier = arguments[0];
+                var obj = window[identifier[0]];
+                if (argumentCache.has(identifier[0])) {
+                    obj = argumentCache.get(identifier[0]);
+                }
+                var args = convertArgs(arguments);
+                var context = window;
+                for (var i = 1; i < identifier.length; i++) {
+                    context = obj;
+                    obj = obj[identifier[i]];
+                }
+                var newObject = await obj.call(context, ...args);
+                if (typeof (newObject) === "object"
+                    && !Array.isArray(newObject)
+                ) {
+                    if (!argumentCache.has(newObject[cacheKey])) {
+                        // Add to cache
+                        const newCacheKey = guid();
+                        newObject[cacheKey] = newCacheKey;
+                        argumentCache.set(newCacheKey, newObject);
+                    }
+                    return newObject[cacheKey];
+                }
+            } catch (ex) {
+                console.log("error", { ex, arguments });
+            }
+            return undefined;
+        },
+        /**
+         * This will call a Promise based on the identifier, with the arguments passed.
+         *
+         * - 'window' is root
+         *
+         * arguments[0] = Identifier
+         * arguments[1...n] = Function Arguments
+         *
+         * @returns Array of primitives
+         * */
+        taskArray: async function () {
+            try {
+                var identifier = arguments[0];
+                var createNew = window[identifier[0]];
+                if (argumentCache.has(identifier[0])) {
+                    createNew = argumentCache.get(identifier[0]);
+                }
+                var args = convertArgs(arguments);
+                var context = window;
+                for (var i = 1; i < identifier.length; i++) {
+                    context = createNew;
+                    createNew = createNew[identifier[i]];
+                }
+                var result = await createNew.call(context, ...args);
+                if (Array.isArray(result)) {
+                    return result;
+                }
+            } catch (ex) {
+                console.log("error", { ex, arguments });
+            }
+            return [];
+        },
+        /**
+         * This will call a Promise based on the identifier, with the arguments passed.
+         *
+         * - 'window' is root
+         *
+         * arguments[0] = Identifier
+         * arguments[1...n] = Function Arguments
+         *
+         * @returns Array of Class Entities
+         * */
+        taskArrayClass: async function () {
+            try {
+                var identifier = arguments[0];
+                var createNew = window[identifier[0]];
+                if (argumentCache.has(identifier[0])) {
+                    createNew = argumentCache.get(identifier[0]);
+                }
+                var args = convertArgs(arguments);
+                var context = window;
+                for (var i = 1; i < identifier.length; i++) {
+                    context = createNew;
+                    createNew = createNew[identifier[i]];
+                }
+
+                var funcResults = await createNew.call(context, ...args);
+                const results = [];
+                for (var value of funcResults) {
+                    if (!argumentCache.has(value[cacheKey])) {
+                        // Add to cache
+                        const newCacheKey = guid();
+                        value[cacheKey] = newCacheKey;
+                        argumentCache.set(newCacheKey, value);
+                    }
+                    results.push(value[cacheKey]);
+                }
+
+                return results;
+            } catch (ex) {
+                console.log("error", { ex, arguments });
             }
             return [];
         },
@@ -563,38 +756,10 @@
             var newObject = cachedEntity[prop];
             newObject[cacheKey] = guid();
             argumentCache.set(newObject[cacheKey], newObject);
-            return {
-                [cacheKey]: newObject[cacheKey]
-            };
+            return newObject[cacheKey];
         },
-    };
-
-    // Custom Code HERE
-    window.taskClass = async function () {
-        try {
-            var identifier = arguments[0];
-            var obj = window[identifier[0]];
-            if (argumentCache.has(identifier[0])) {
-                obj = argumentCache.get(identifier[0]);
-            }
-            var args = convertArgs(arguments);
-            var context = window;
-            for (var i = 1; i < identifier.length; i++) {
-                context = obj;
-                obj = obj[identifier[i]];
-            }
-            var newObject = await obj.call(context, ...args);
-            if (typeof (newObject) === "object"
-                && !Array.isArray(newObject)
-            ) {
-                const newCacheKey = guid();
-                newObject[cacheKey] = newCacheKey;
-                argumentCache.set(newCacheKey, newObject);
-                return newCacheKey;
-            }
-        } catch (ex) {
-            console.log("error", ex);
-        }
-        return undefined;
+        removeEntity: (identifier) => {
+            argumentCache.delete(identifier);
+        },
     };
 })();
