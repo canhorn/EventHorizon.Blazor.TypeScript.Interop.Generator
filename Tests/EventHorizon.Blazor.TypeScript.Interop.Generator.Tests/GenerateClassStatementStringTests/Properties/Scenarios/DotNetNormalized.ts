@@ -7,5 +7,8 @@ declare module Examples {
         event: Vector3;
         bool: Vector3;
         virtual: Vector3;
+        string: Vector3;
+        this: Vector3;
+        params: Vector3;
     }
 }
