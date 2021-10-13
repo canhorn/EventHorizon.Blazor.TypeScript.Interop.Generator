@@ -14,7 +14,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers
             "bool",
             "virtual",
             "string",
-            "this"
+            "this",
+            "params"
         };
 
         public static string Normalize(
