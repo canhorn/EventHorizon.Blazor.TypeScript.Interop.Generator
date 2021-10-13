@@ -167,6 +167,66 @@ namespace Examples
             return __virtual;
             }
         }
+
+        private Vector3 __string;
+        public Vector3 @string
+        {
+            get
+            {
+            if(__string == null)
+            {
+                __string = EventHorizonBlazorInterop.GetClass<Vector3>(
+                    this.___guid,
+                    "string",
+                    (entity) =>
+                    {
+                        return new Vector3() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __string;
+            }
+        }
+
+        private Vector3 __this;
+        public Vector3 @this
+        {
+            get
+            {
+            if(__this == null)
+            {
+                __this = EventHorizonBlazorInterop.GetClass<Vector3>(
+                    this.___guid,
+                    "this",
+                    (entity) =>
+                    {
+                        return new Vector3() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __this;
+            }
+        }
+
+        private Vector3 __params;
+        public Vector3 @params
+        {
+            get
+            {
+            if(__params == null)
+            {
+                __params = EventHorizonBlazorInterop.GetClass<Vector3>(
+                    this.___guid,
+                    "params",
+                    (entity) =>
+                    {
+                        return new Vector3() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __params;
+            }
+        }
         #endregion
 
         #region Properties
