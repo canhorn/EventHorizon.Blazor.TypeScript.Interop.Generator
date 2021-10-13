@@ -46,12 +46,12 @@ namespace Examples
         }
 
         public ExampleClass(
-            string @ref, string @lock, string @unlock, string @object, string @event, string @bool, string @virtual
+            string @ref, string @lock, string @unlock, string @object, string @event, string @bool, string @virtual, string @string, string @params
         )
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "Examples", "ExampleClass" },
-                @ref, @lock, @unlock, @object, @event, @bool, @virtual
+                @ref, @lock, @unlock, @object, @event, @bool, @virtual, @string, @params
             );
             ___guid = entity.___guid;
         }
