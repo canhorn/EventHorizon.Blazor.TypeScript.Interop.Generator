@@ -6,6 +6,9 @@ declare module Examples {
             object: string,
             event: string,
             bool: string,
-            virtual: string);
+            virtual: string,
+            string: string,
+            params: string
+        );
     }
 }

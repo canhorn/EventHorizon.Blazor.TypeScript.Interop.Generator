@@ -7,5 +7,8 @@ declare module Examples {
         get event(): Vector3;
         get bool(): Vector3;
         get virtual(): Vector3;
+        get string(): Vector3;
+        get this(): Vector3;
+        get params(): Vector3;
     }
 }
