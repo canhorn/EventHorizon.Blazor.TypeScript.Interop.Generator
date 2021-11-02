@@ -1,0 +1,15 @@
+@page "/button"
+
+<div>
+    @if (ClickPosition != null)
+    {
+        @($"[{ClickPosition_X}, {ClickPosition_Y}]")
+    }
+    else
+    {
+        @("[click button]")
+    }
+    <canvas id="game-window" style="width:100%"></canvas>
+</div>
+
+<h1>Generated GUI!</h1>

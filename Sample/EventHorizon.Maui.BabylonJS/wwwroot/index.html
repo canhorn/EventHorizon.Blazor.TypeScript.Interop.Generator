@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>EventHorizon.Maui.BabylonJS</title>
+    <base href="/" />
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="css/app.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/pep/0.4.2/pep.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/BabylonJS/Babylon.js@4.2.0/dist/ammo.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/BabylonJS/Babylon.js@4.2.0/dist/cannon.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/BabylonJS/Babylon.js@4.2.0/dist/Oimo.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/BabylonJS/Babylon.js@4.2.0/dist/libktx.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/BabylonJS/Babylon.js@4.2.0/dist/earcut.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/BabylonJS/Babylon.js@4.2.0/dist/babylon.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/BabylonJS/Babylon.js@4.2.0/dist/materialsLibrary/babylonjs.materials.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/BabylonJS/Babylon.js@4.2.0/dist/proceduralTexturesLibrary/babylonjs.proceduralTextures.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/BabylonJS/Babylon.js@4.2.0/dist/postProcessesLibrary/babylonjs.postProcess.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/BabylonJS/Babylon.js@4.2.0/dist/loaders/babylonjs.loaders.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/BabylonJS/Babylon.js@4.2.0/dist/serializers/babylonjs.serializers.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/BabylonJS/Babylon.js@4.2.0/dist/gui/babylon.gui.min.js"></script>
+
+    <script src="js/NodeMetadata.js"></script>
+</head>
+
+<body>
+
+    <app></app>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+
+    <script src="_framework/blazor.webview.js" autostart="false"></script>
+    <script src="_content/EventHorizon.Blazor.Server.Interop/server-interop-bridge.js"></script>
+    <!--<script src="js/interop-bridge.custom.js"></script>-->
+
+    <script>
+        // There is a weird issue with Blazor and Maui that the blur events always trigger on clicks into the canvas.
+        // This causes the issue where BabylonJS will disable the input in most scenarios.
+        // This Nuckes all the blur events on the elementId and to the window passed in.
+        window.removeBlur = function (elementId) {
+            var listeners = listAllEventListeners([window, document.getElementById(elementId)]);
+            console.table(listeners);
+            listeners.filter(a => a.type == "blur").forEach(a => a.node.removeEventListener("blur", a.func));
+        }
+
+        // Below is a way to get all Event listeners for a given array of elements.
+        function listAllEventListeners(allElements) {
+            const types = [];
+
+            for (let ev in window) {
+                if (/^on/.test(ev)) types[types.length] = ev;
+            }
+
+            let elements = [];
+            for (let i = 0; i < allElements.length; i++) {
+                const currentElement = allElements[i];
+
+                // Events defined in attributes
+                for (let j = 0; j < types.length; j++) {
+
+                    if (typeof currentElement[types[j]] === 'function') {
+                        elements.push({
+                            "node": currentElement,
+                            "type": types[j],
+                            "func": currentElement[types[j]],
+                        });
+                    }
+                }
+
+                // Events defined with addEventListener
+                if (typeof currentElement._getEventListeners === 'function') {
+                    evts = currentElement._getEventListeners();
+                    if (Object.keys(evts).length > 0) {
+                        for (let evt of Object.keys(evts)) {
+                            for (k = 0; k < evts[evt].length; k++) {
+                                elements.push({
+                                    "node": currentElement,
+                                    "type": evt,
+                                    "func": evts[evt][k].listener
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+
+            return elements.sort();
+        }
+
+        Window.prototype._addEventListener = Window.prototype.addEventListener;
+
+        Window.prototype.addEventListener = function (a, b, c) {
+            if (c == undefined) c = false;
+            this._addEventListener(a, b, c);
+            if (!this.eventListenerList) this.eventListenerList = {};
+            if (!this.eventListenerList[a]) this.eventListenerList[a] = [];
+            this.eventListenerList[a].push({ listener: b, options: c });
+        };
+
+        EventTarget.prototype._addEventListener = EventTarget.prototype.addEventListener;
+
+        EventTarget.prototype.addEventListener = function (a, b, c) {
+            if (c == undefined) c = false;
+            this._addEventListener(a, b, c);
+            if (!this.eventListenerList) this.eventListenerList = {};
+            if (!this.eventListenerList[a]) this.eventListenerList[a] = [];
+            this.eventListenerList[a].push({ listener: b, options: c });
+        };
+
+        EventTarget.prototype._getEventListeners = function (a) {
+            if (!this.eventListenerList) this.eventListenerList = {};
+            if (a == undefined) { return this.eventListenerList; }
+            return this.eventListenerList[a];
+        };
+    </script>
+
+</body>
+
+</html>
