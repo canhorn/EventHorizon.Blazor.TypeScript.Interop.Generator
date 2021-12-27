@@ -7,6 +7,7 @@ namespace BABYLON.GUI
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Server.Interop;
     using EventHorizon.Blazor.Server.Interop.Callbacks;
+    using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -239,7 +240,7 @@ namespace BABYLON.GUI
             );
         }
 
-        public async ValueTask getDescendantsToRef(Control[] results, System.Nullable<bool> directDescendantsOnly = null, ActionCallback<Control> predicate = null)
+        public async ValueTask getDescendantsToRef(Control[] results, System.Nullable<bool> directDescendantsOnly = null, ActionResultCallback<Control, bool> predicate = null)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 

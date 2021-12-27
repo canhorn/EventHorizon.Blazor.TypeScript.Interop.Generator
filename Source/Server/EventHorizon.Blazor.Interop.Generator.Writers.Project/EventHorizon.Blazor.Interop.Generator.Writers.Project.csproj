@@ -1,7 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
 
         <AssemblyTitle>EventHorizon.Blazor.Interop.Generator.Writers.Project</AssemblyTitle>
         <AssemblyName>EventHorizon.Blazor.Interop.Generator.Writers.Project</AssemblyName>

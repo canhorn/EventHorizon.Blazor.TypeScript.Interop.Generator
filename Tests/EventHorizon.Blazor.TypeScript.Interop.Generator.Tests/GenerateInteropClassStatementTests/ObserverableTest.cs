@@ -56,33 +56,36 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                 .Should().BeNull();
             actual.AccessorStatements
                 .Should().BeEquivalentTo(
-                    new AccessorStatement
+                    new List<AccessorStatement>
                     {
-                        Name = "observers",
-                        Type = new TypeStatement
+                        new AccessorStatement
                         {
-                            Name = "Array",
-                            IsArray = true,
-                            GenericTypes = new List<TypeStatement>
+                            Name = "observers",
+                            Type = new TypeStatement
                             {
-                                new TypeStatement
+                                Name = "Array",
+                                IsArray = true,
+                                GenericTypes = new List<TypeStatement>
                                 {
-                                    Name = "Observer",
-                                    GenericTypes = new List<TypeStatement>
+                                    new TypeStatement
                                     {
-                                        new TypeStatement
+                                        Name = "Observer",
+                                        GenericTypes = new List<TypeStatement>
                                         {
-                                            Name = "T",
+                                            new TypeStatement
+                                            {
+                                                Name = "T",
+                                            },
                                         },
                                     },
                                 },
                             },
-                        },
-                        UsedClassNames = new List<string>
-                        {
-                            "Observer",
-                            "T",
-                        },
+                            UsedClassNames = new List<string>
+                            {
+                                "Observer",
+                                "T",
+                            },
+                        }
                     }
                 );
             actual.PublicMethodStatements

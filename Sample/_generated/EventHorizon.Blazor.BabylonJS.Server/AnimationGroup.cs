@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Server.Interop;
     using EventHorizon.Blazor.Server.Interop.Callbacks;
+    using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -525,7 +526,7 @@ __onAnimationGroupPlayObservable = null;
             );
         }
 
-        public async ValueTask<AnimationGroup> clone(string newName, ActionCallback<object> targetConverter = null)
+        public async ValueTask<AnimationGroup> clone(string newName, ActionResultCallback<object, CachedEntity> targetConverter = null)
         {
             return await EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },

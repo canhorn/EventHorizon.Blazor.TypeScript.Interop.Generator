@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Server.Interop;
     using EventHorizon.Blazor.Server.Interop.Callbacks;
+    using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -765,14 +766,14 @@ __shadowDepthWrapper = null;
         }
 
         
-        public async ValueTask<ActionCallback> get_getRenderTargetTextures()
+        public async ValueTask<ActionResultCallback<SmartArray<RenderTargetTexture>>> get_getRenderTargetTextures()
         {
-            return await EventHorizonBlazorInterop.Get<ActionCallback>(
+            return await EventHorizonBlazorInterop.Get<ActionResultCallback<SmartArray<RenderTargetTexture>>>(
                     this.___guid,
                     "getRenderTargetTextures"
                 );
         }
-        public ValueTask set_getRenderTargetTextures(ActionCallback value)
+        public ValueTask set_getRenderTargetTextures(ActionResultCallback<SmartArray<RenderTargetTexture>> value)
         {
 
                 return EventHorizonBlazorInterop.Set(

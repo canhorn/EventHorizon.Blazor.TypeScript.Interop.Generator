@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Server.Interop;
     using EventHorizon.Blazor.Server.Interop.Callbacks;
+    using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -42,14 +43,14 @@ namespace BABYLON
         }
 
         
-        public static async ValueTask<ActionCallback[]> get_CustomRequestModifiers()
+        public static async ValueTask<ActionResultCallback<ActionCallback<XMLHttpRequest, string>>[]> get_CustomRequestModifiers()
         {
-            return await EventHorizonBlazorInterop.GetArray<ActionCallback>(
+            return await EventHorizonBlazorInterop.GetArray<ActionResultCallback<ActionCallback<XMLHttpRequest, string>>>(
                     "BABYLON",
                     "WebRequest.CustomRequestModifiers"
                 );
         }
-        public static ValueTask set_CustomRequestModifiers(ActionCallback[] value)
+        public static ValueTask set_CustomRequestModifiers(ActionResultCallback<ActionCallback<XMLHttpRequest, string>>[] value)
         {
 
                 return EventHorizonBlazorInterop.Set(
@@ -66,14 +67,14 @@ namespace BABYLON
 
         #region Accessors
         
-        public async ValueTask<ActionCallback> get_onprogress()
+        public async ValueTask<ActionResultCallback<ActionResultCallback<XMLHttpRequest, ProgressEvent, CachedEntity>>> get_onprogress()
         {
-            return await EventHorizonBlazorInterop.Get<ActionCallback>(
+            return await EventHorizonBlazorInterop.Get<ActionResultCallback<ActionResultCallback<XMLHttpRequest, ProgressEvent, CachedEntity>>>(
                     this.___guid,
                     "onprogress"
                 );
         }
-        public ValueTask set_onprogress(ActionCallback value)
+        public ValueTask set_onprogress(ActionResultCallback<ActionResultCallback<XMLHttpRequest, ProgressEvent, CachedEntity>> value)
         {
 
                 return EventHorizonBlazorInterop.Set(
@@ -181,7 +182,7 @@ __responseType = null;
         #endregion
 
         #region Methods
-        public async ValueTask addEventListener<K>(K type, ActionCallback<XMLHttpRequest, K> listener, System.Nullable<bool> options = null)
+        public async ValueTask addEventListener<K>(K type, ActionResultCallback<XMLHttpRequest, K, CachedEntity> listener, System.Nullable<bool> options = null)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -191,7 +192,7 @@ __responseType = null;
             );
         }
 
-        public async ValueTask removeEventListener<K>(K type, ActionCallback<XMLHttpRequest, K> listener, System.Nullable<bool> options = null)
+        public async ValueTask removeEventListener<K>(K type, ActionResultCallback<XMLHttpRequest, K, CachedEntity> listener, System.Nullable<bool> options = null)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 

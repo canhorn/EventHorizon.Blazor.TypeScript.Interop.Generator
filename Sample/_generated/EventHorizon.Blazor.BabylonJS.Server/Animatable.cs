@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Server.Interop;
     using EventHorizon.Blazor.Server.Interop.Callbacks;
+    using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -285,7 +286,7 @@ __onAnimationLoopObservable = null;
         }
 
         public static async ValueTask<Animatable> NewAnimatable(
-            Scene scene, object target, System.Nullable<decimal> fromFrame = null, System.Nullable<decimal> toFrame = null, System.Nullable<bool> loopAnimation = null, System.Nullable<decimal> speedRatio = null, ActionCallback onAnimationEnd = null, Animation[] animations = null, ActionCallback onAnimationLoop = null, System.Nullable<bool> isAdditive = null
+            Scene scene, object target, System.Nullable<decimal> fromFrame = null, System.Nullable<decimal> toFrame = null, System.Nullable<bool> loopAnimation = null, System.Nullable<decimal> speedRatio = null, ActionResultCallback<ActionCallback> onAnimationEnd = null, Animation[] animations = null, ActionResultCallback<ActionCallback> onAnimationLoop = null, System.Nullable<bool> isAdditive = null
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
@@ -500,7 +501,7 @@ __onAnimationLoopObservable = null;
             );
         }
 
-        public async ValueTask stop(string animationName = null, ActionCallback<object> targetMask = null)
+        public async ValueTask stop(string animationName = null, ActionResultCallback<object, bool> targetMask = null)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 

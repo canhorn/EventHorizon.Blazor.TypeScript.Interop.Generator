@@ -98,11 +98,11 @@ public class CSharpTextClass : CachedEntityObject
 
 #endregion
 #region Constructor
-    public CSharpTextClass(): base()
+    public CSharpTextClass() : base()
     {
     }
 
-    public CSharpTextClass(ICachedEntity entity): base(entity)
+    public CSharpTextClass(ICachedEntity entity) : base(entity)
     {
         ___guid = entity.___guid;
     }

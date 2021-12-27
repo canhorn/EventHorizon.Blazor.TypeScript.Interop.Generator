@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Server.Interop;
     using EventHorizon.Blazor.Server.Interop.Callbacks;
+    using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -23,7 +24,7 @@ namespace BABYLON
         #endregion
 
         #region Static Methods
-        public static async ValueTask AddNodeConstructor(string type, ActionCallback<string, Scene, CachedEntity> constructorFunc)
+        public static async ValueTask AddNodeConstructor(string type, ActionResultCallback<string, Scene, CachedEntity, ActionResultCallback<Node>> constructorFunc)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 
@@ -33,9 +34,9 @@ namespace BABYLON
             );
         }
 
-        public static async ValueTask<ActionCallback> Construct(string type, string name, Scene scene, object options = null)
+        public static async ValueTask<ActionResultCallback<Node>> Construct(string type, string name, Scene scene, object options = null)
         {
-            return await EventHorizonBlazorInterop.Func<ActionCallback>(
+            return await EventHorizonBlazorInterop.Func<ActionResultCallback<Node>>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "Node", "Construct" }, type, name, scene, options
@@ -541,7 +542,7 @@ __onDisposeObservable = null;
             );
         }
 
-        public async ValueTask<Node[]> getDescendants(System.Nullable<bool> directDescendantsOnly = null, ActionCallback<Node> predicate = null)
+        public async ValueTask<Node[]> getDescendants(System.Nullable<bool> directDescendantsOnly = null, ActionResultCallback<Node, bool> predicate = null)
         {
             return await EventHorizonBlazorInterop.FuncArrayClass<Node>(
                 entity => new Node() { ___guid = entity.___guid },
@@ -552,7 +553,7 @@ __onDisposeObservable = null;
             );
         }
 
-        public async ValueTask<AbstractMesh[]> getChildMeshes(System.Nullable<bool> directDescendantsOnly = null, ActionCallback<Node> predicate = null)
+        public async ValueTask<AbstractMesh[]> getChildMeshes(System.Nullable<bool> directDescendantsOnly = null, ActionResultCallback<Node, bool> predicate = null)
         {
             return await EventHorizonBlazorInterop.FuncArrayClass<AbstractMesh>(
                 entity => new AbstractMesh() { ___guid = entity.___guid },
@@ -563,7 +564,7 @@ __onDisposeObservable = null;
             );
         }
 
-        public async ValueTask<Node[]> getChildren(ActionCallback<Node> predicate = null, System.Nullable<bool> directDescendantsOnly = null)
+        public async ValueTask<Node[]> getChildren(ActionResultCallback<Node, bool> predicate = null, System.Nullable<bool> directDescendantsOnly = null)
         {
             return await EventHorizonBlazorInterop.FuncArrayClass<Node>(
                 entity => new Node() { ___guid = entity.___guid },
@@ -669,7 +670,7 @@ __onDisposeObservable = null;
             );
         }
 
-        public async ValueTask<CachedEntity> getHierarchyBoundingVectors(System.Nullable<bool> includeDescendants = null, ActionCallback<AbstractMesh> predicate = null)
+        public async ValueTask<CachedEntity> getHierarchyBoundingVectors(System.Nullable<bool> includeDescendants = null, ActionResultCallback<AbstractMesh, bool> predicate = null)
         {
             return await EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 

@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Server.Interop;
     using EventHorizon.Blazor.Server.Interop.Callbacks;
+    using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -138,7 +139,7 @@ namespace BABYLON
         #endregion
 
         #region Static Methods
-        public static async ValueTask<ShadowGenerator> Parse(object parsedShadowGenerator, Scene scene, ActionCallback<decimal, IShadowLight> constr = null)
+        public static async ValueTask<ShadowGenerator> Parse(object parsedShadowGenerator, Scene scene, ActionResultCallback<decimal, IShadowLight, ShadowGenerator> constr = null)
         {
             return await EventHorizonBlazorInterop.FuncClass<ShadowGenerator>(
                 entity => new ShadowGenerator() { ___guid = entity.___guid },
