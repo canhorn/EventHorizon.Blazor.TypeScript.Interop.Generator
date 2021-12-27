@@ -55,44 +55,46 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                 });
             actual.AccessorStatements
                 .Should().BeEquivalentTo(
-                    new AccessorStatement
-                    {
-                        Name = "image",
-                        Type = new TypeStatement
+                    new List<AccessorStatement> {
+                        new AccessorStatement
                         {
-                            Name = "Nullable",
-                            IsNullable = true,
-                            GenericTypes = new List<TypeStatement>
+                            Name = "image",
+                            Type = new TypeStatement
                             {
-                                new TypeStatement
+                                Name = "Nullable",
+                                IsNullable = true,
+                                GenericTypes = new List<TypeStatement>
                                 {
-                                    Name = "Image"
+                                    new TypeStatement
+                                    {
+                                        Name = "Image"
+                                    }
                                 }
+                            },
+                            UsedClassNames = new List<string>
+                            {
+                                "Image",
                             }
                         },
-                        UsedClassNames = new List<string>
+                        new AccessorStatement
                         {
-                            "Image",
-                        }
-                    },
-                    new AccessorStatement
-                    {
-                        Name = "textBlock",
-                        Type = new TypeStatement
-                        {
-                            Name = "Nullable",
-                            IsNullable = true,
-                            GenericTypes = new List<TypeStatement>
+                            Name = "textBlock",
+                            Type = new TypeStatement
                             {
-                                new TypeStatement
+                                Name = "Nullable",
+                                IsNullable = true,
+                                GenericTypes = new List<TypeStatement>
                                 {
-                                    Name = "TextBlock"
+                                    new TypeStatement
+                                    {
+                                        Name = "TextBlock"
+                                    }
                                 }
+                            },
+                            UsedClassNames = new List<string>
+                            {
+                                "TextBlock",
                             }
-                        },
-                        UsedClassNames = new List<string>
-                        {
-                            "TextBlock",
                         }
                     }
                 );
@@ -246,15 +248,19 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                 );
             actual.PublicPropertyStatements
                 .Should().BeEquivalentTo(
-                    new PublicPropertyStatement
+                    new List<PublicPropertyStatement>
                     {
-                        Name = "name",
-                        Type = new TypeStatement { Name = "string" },
-                    },
-                    new PublicPropertyStatement
-                    {
-                        Name = "delegatePickingToChildren",
-                        Type = "bool".MakeTypeStatement(),
+
+                        new PublicPropertyStatement
+                        {
+                            Name = "name",
+                            Type = new TypeStatement { Name = "string" },
+                        },
+                        new PublicPropertyStatement
+                        {
+                            Name = "delegatePickingToChildren",
+                            Type = "bool".MakeTypeStatement(),
+                        }
                     }
                 );
         }

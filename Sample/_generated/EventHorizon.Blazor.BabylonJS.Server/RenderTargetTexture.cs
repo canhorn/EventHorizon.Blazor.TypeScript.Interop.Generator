@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Server.Interop;
     using EventHorizon.Blazor.Server.Interop.Callbacks;
+    using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -770,7 +771,7 @@ __boundingBoxPosition = null;
             );
         }
 
-        public async ValueTask setRenderingOrder(decimal renderingGroupId, ActionCallback<SubMesh, SubMesh> opaqueSortCompareFn = null, ActionCallback<SubMesh, SubMesh> alphaTestSortCompareFn = null, ActionCallback<SubMesh, SubMesh> transparentSortCompareFn = null)
+        public async ValueTask setRenderingOrder(decimal renderingGroupId, ActionResultCallback<SubMesh, SubMesh, decimal> opaqueSortCompareFn = null, ActionResultCallback<SubMesh, SubMesh, decimal> alphaTestSortCompareFn = null, ActionResultCallback<SubMesh, SubMesh, decimal> transparentSortCompareFn = null)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 

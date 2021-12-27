@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Server.Interop;
     using EventHorizon.Blazor.Server.Interop.Callbacks;
+    using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -115,7 +116,7 @@ namespace BABYLON
             );
         }
 
-        public async ValueTask sort(ActionCallback<T, T> compareFn)
+        public async ValueTask sort(ActionResultCallback<T, T, decimal> compareFn)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] 

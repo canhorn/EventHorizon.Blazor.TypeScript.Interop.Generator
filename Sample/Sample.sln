@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30309.148
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.BabylonJS.WASM", "_generated\EventHorizon.Blazor.BabylonJS.WASM\EventHorizon.Blazor.BabylonJS.WASM.csproj", "{59959313-8708-4A01-BF30-257F999DA16B}"
 EndProject
@@ -17,9 +17,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.BabylonJS.Interop.Generator.ConsoleApp", "EventHorizon.BabylonJS.Interop.Generator.ConsoleApp\EventHorizon.BabylonJS.Interop.Generator.ConsoleApp.csproj", "{5081122D-209B-490A-9929-60A879B18EFD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.BabylonJS.Server", "_generated\EventHorizon.Blazor.BabylonJS.Server\EventHorizon.Blazor.BabylonJS.Server.csproj", "{B98C5D82-DE43-4169-A5E4-6A59890F6B1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.Server.BabylonJS", "EventHorizon.Blazor.Server.BabylonJS\EventHorizon.Blazor.Server.BabylonJS.csproj", "{5A7F8107-FDA7-42DC-AE91-0A0D8A128526}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventHorizon.Blazor.Server.BabylonJS", "EventHorizon.Blazor.Server.BabylonJS\EventHorizon.Blazor.Server.BabylonJS.csproj", "{5A7F8107-FDA7-42DC-AE91-0A0D8A128526}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventHorizon.Blazor.BabylonJS.Server", "_generated\EventHorizon.Blazor.BabylonJS.Server\EventHorizon.Blazor.BabylonJS.Server.csproj", "{7DCFFDC3-7633-41A5-B09B-2ABAE571E721}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,14 +39,14 @@ Global
 		{5081122D-209B-490A-9929-60A879B18EFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5081122D-209B-490A-9929-60A879B18EFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5081122D-209B-490A-9929-60A879B18EFD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B98C5D82-DE43-4169-A5E4-6A59890F6B1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B98C5D82-DE43-4169-A5E4-6A59890F6B1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B98C5D82-DE43-4169-A5E4-6A59890F6B1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B98C5D82-DE43-4169-A5E4-6A59890F6B1E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5A7F8107-FDA7-42DC-AE91-0A0D8A128526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5A7F8107-FDA7-42DC-AE91-0A0D8A128526}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A7F8107-FDA7-42DC-AE91-0A0D8A128526}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A7F8107-FDA7-42DC-AE91-0A0D8A128526}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DCFFDC3-7633-41A5-B09B-2ABAE571E721}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DCFFDC3-7633-41A5-B09B-2ABAE571E721}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DCFFDC3-7633-41A5-B09B-2ABAE571E721}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DCFFDC3-7633-41A5-B09B-2ABAE571E721}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Server.Interop;
     using EventHorizon.Blazor.Server.Interop.Callbacks;
+    using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     public interface ICustomShaderNameResolveOptions : ICachedEntity { }
@@ -32,14 +33,14 @@ namespace BABYLON
 
         #region Properties
         
-        public async ValueTask<ActionCallback<string, string>> get_processFinalCode()
+        public async ValueTask<ActionResultCallback<string, string, string>> get_processFinalCode()
         {
-            return await EventHorizonBlazorInterop.Get<ActionCallback<string, string>>(
+            return await EventHorizonBlazorInterop.Get<ActionResultCallback<string, string, string>>(
                     this.___guid,
                     "processFinalCode"
                 );
         }
-        public ValueTask set_processFinalCode(ActionCallback<string, string> value)
+        public ValueTask set_processFinalCode(ActionResultCallback<string, string, string> value)
         {
 
                 return EventHorizonBlazorInterop.Set(

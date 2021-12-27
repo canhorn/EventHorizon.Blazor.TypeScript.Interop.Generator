@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Server.Interop;
     using EventHorizon.Blazor.Server.Interop.Callbacks;
+    using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -951,7 +952,7 @@ __onAfterWorldMatrixUpdateObservable = null;
             );
         }
 
-        public async ValueTask<TransformNode[]> getChildTransformNodes(System.Nullable<bool> directDescendantsOnly = null, ActionCallback<Node> predicate = null)
+        public async ValueTask<TransformNode[]> getChildTransformNodes(System.Nullable<bool> directDescendantsOnly = null, ActionResultCallback<Node, bool> predicate = null)
         {
             return await EventHorizonBlazorInterop.FuncArrayClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
@@ -972,7 +973,7 @@ __onAfterWorldMatrixUpdateObservable = null;
             );
         }
 
-        public async ValueTask<TransformNode> normalizeToUnitCube(System.Nullable<bool> includeDescendants = null, System.Nullable<bool> ignoreRotation = null, ActionCallback<AbstractMesh> predicate = null)
+        public async ValueTask<TransformNode> normalizeToUnitCube(System.Nullable<bool> includeDescendants = null, System.Nullable<bool> ignoreRotation = null, ActionResultCallback<AbstractMesh, bool> predicate = null)
         {
             return await EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },

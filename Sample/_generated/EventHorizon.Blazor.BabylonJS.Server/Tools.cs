@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Server.Interop;
     using EventHorizon.Blazor.Server.Interop.Callbacks;
+    using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -34,14 +35,14 @@ namespace BABYLON
         }
 
         
-        public static async ValueTask<ActionCallback<string, WebRequest, decimal>> get_DefaultRetryStrategy()
+        public static async ValueTask<ActionResultCallback<string, WebRequest, decimal, decimal>> get_DefaultRetryStrategy()
         {
-            return await EventHorizonBlazorInterop.Get<ActionCallback<string, WebRequest, decimal>>(
+            return await EventHorizonBlazorInterop.Get<ActionResultCallback<string, WebRequest, decimal, decimal>>(
                     "BABYLON",
                     "Tools.DefaultRetryStrategy"
                 );
         }
-        public static ValueTask set_DefaultRetryStrategy(ActionCallback<string, WebRequest, decimal> value)
+        public static ValueTask set_DefaultRetryStrategy(ActionResultCallback<string, WebRequest, decimal, decimal> value)
         {
 
                 return EventHorizonBlazorInterop.Set(
@@ -124,14 +125,14 @@ namespace BABYLON
         }
 
         
-        public static async ValueTask<ActionCallback<string>> get_PreprocessUrl()
+        public static async ValueTask<ActionResultCallback<string, string>> get_PreprocessUrl()
         {
-            return await EventHorizonBlazorInterop.Get<ActionCallback<string>>(
+            return await EventHorizonBlazorInterop.Get<ActionResultCallback<string, string>>(
                     "BABYLON",
                     "Tools.PreprocessUrl"
                 );
         }
-        public static ValueTask set_PreprocessUrl(ActionCallback<string> value)
+        public static ValueTask set_PreprocessUrl(ActionResultCallback<string, string> value)
         {
 
                 return EventHorizonBlazorInterop.Set(
@@ -535,7 +536,7 @@ namespace BABYLON
             );
         }
 
-        public static async ValueTask<IFileRequestCachedEntity> ReadFileAsDataURL(Blob fileToLoad, ActionCallback<object> callback, ActionCallback<ProgressEvent> progressCallback)
+        public static async ValueTask<IFileRequestCachedEntity> ReadFileAsDataURL(Blob fileToLoad, ActionCallback<object> callback, ActionResultCallback<ProgressEvent, CachedEntity> progressCallback)
         {
             return await EventHorizonBlazorInterop.FuncClass<IFileRequestCachedEntity>(
                 entity => new IFileRequestCachedEntity() { ___guid = entity.___guid },
@@ -546,7 +547,7 @@ namespace BABYLON
             );
         }
 
-        public static async ValueTask<IFileRequestCachedEntity> ReadFile(File file, ActionCallback<object> onSuccess, ActionCallback<ProgressEvent> onProgress = null, System.Nullable<bool> useArrayBuffer = null, ActionCallback<ReadFileError> onError = null)
+        public static async ValueTask<IFileRequestCachedEntity> ReadFile(File file, ActionCallback<object> onSuccess, ActionResultCallback<ProgressEvent, CachedEntity> onProgress = null, System.Nullable<bool> useArrayBuffer = null, ActionCallback<ReadFileError> onError = null)
         {
             return await EventHorizonBlazorInterop.FuncClass<IFileRequestCachedEntity>(
                 entity => new IFileRequestCachedEntity() { ___guid = entity.___guid },
@@ -927,7 +928,7 @@ namespace BABYLON
             );
         }
 
-        public static async ValueTask<T> First<T>(T[] array, ActionCallback<T> predicate) where T : CachedEntity, new()
+        public static async ValueTask<T> First<T>(T[] array, ActionResultCallback<T, bool> predicate) where T : CachedEntity, new()
         {
             return await EventHorizonBlazorInterop.FuncClass<T>(
                 entity => new T() { ___guid = entity.___guid },

@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Server.Interop;
     using EventHorizon.Blazor.Server.Interop.Callbacks;
+    using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     public interface ISpriteManager : ICachedEntity { }
@@ -227,7 +228,7 @@ __texture = null;
         #endregion
 
         #region Methods
-        public async ValueTask<PickingInfo> intersects(Ray ray, Camera camera, ActionCallback<Sprite> predicate = null, System.Nullable<bool> fastCheck = null)
+        public async ValueTask<PickingInfo> intersects(Ray ray, Camera camera, ActionResultCallback<Sprite, bool> predicate = null, System.Nullable<bool> fastCheck = null)
         {
             return await EventHorizonBlazorInterop.FuncClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },
@@ -238,7 +239,7 @@ __texture = null;
             );
         }
 
-        public async ValueTask<PickingInfo[]> multiIntersects(Ray ray, Camera camera, ActionCallback<Sprite> predicate = null)
+        public async ValueTask<PickingInfo[]> multiIntersects(Ray ray, Camera camera, ActionResultCallback<Sprite, bool> predicate = null)
         {
             return await EventHorizonBlazorInterop.FuncArrayClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },

@@ -7,6 +7,7 @@ namespace BABYLON
     using System.Threading.Tasks;
     using EventHorizon.Blazor.Server.Interop;
     using EventHorizon.Blazor.Server.Interop.Callbacks;
+    using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
     
@@ -175,9 +176,9 @@ namespace BABYLON
             );
         }
 
-        public static async ValueTask<ActionCallback> GetConstructorFromName(decimal type, string name, Scene scene)
+        public static async ValueTask<ActionResultCallback<Light>> GetConstructorFromName(decimal type, string name, Scene scene)
         {
-            return await EventHorizonBlazorInterop.Func<ActionCallback>(
+            return await EventHorizonBlazorInterop.Func<ActionResultCallback<Light>>(
                 new object[] 
                 {
                     new string[] { "BABYLON", "Light", "GetConstructorFromName" }, type, name, scene
