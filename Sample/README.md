@@ -4,7 +4,7 @@ This solution includes a few projects that display the usage of the Generator fu
 
 ## API Generation
 
-The EventHorizon.BabylonJS.Interop.Generator.ConsoleApp console project can generate the C# proxy project. It uses the BabylonJS TypeScript deinition for the API generation. 
+The EventHorizon.BabylonJS.Interop.Generator.ConsoleApp console project can generate the C# proxy project. It uses the BabylonJS TypeScript definition for the API generation. 
 
 Update the generationList variable in the Project.cs file to generate more Class/Interface API's.
 
