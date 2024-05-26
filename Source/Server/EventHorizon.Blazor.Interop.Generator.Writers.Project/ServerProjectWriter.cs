@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Formatter;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Writer;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Writers;
 using Microsoft.CodeAnalysis;
@@ -15,12 +16,14 @@ public class ServerProjectWriter : IWriter
     private readonly string _projectPath;
     private readonly string _projectName;
     private readonly string _projectDirectory;
+    private readonly TextFormatter _textFormatter;
 
-    public ServerProjectWriter(string path, string name)
+    public ServerProjectWriter(string path, string name, TextFormatter textFormatter)
     {
         _projectPath = path;
         _projectName = name;
         _projectDirectory = Path.Combine(_projectPath, _projectName);
+        _textFormatter = textFormatter;
     }
 
     public void Write(IList<GeneratedStatement> generatedStatementList)
@@ -44,16 +47,19 @@ public class ServerProjectWriter : IWriter
         var namespaceToPath = Path.Combine(
             generatedStatement.ClassStatement.Namespace.Split('.').Skip(1).ToArray()
         );
-        var namepacePath = Path.Combine(_projectDirectory, namespaceToPath);
-        var filePath = Path.Combine(namepacePath, $"{generatedStatement.ClassStatement.Name}.cs");
-        if (!Directory.Exists(namepacePath))
+        var namespacePath = Path.Combine(_projectDirectory, namespaceToPath);
+        var filePath = Path.Combine(namespacePath, $"{generatedStatement.ClassStatement.Name}.cs");
+        if (!Directory.Exists(namespacePath))
         {
-            Directory.CreateDirectory(namepacePath);
+            Directory.CreateDirectory(namespacePath);
         }
-        File.WriteAllText(filePath, CleanupGeneratedStatementString(generatedStatement));
+        File.WriteAllText(
+            filePath,
+            _textFormatter.Format(CleanupGeneratedStatementString(generatedStatement))
+        );
     }
 
-    private string CleanupGeneratedStatementString(GeneratedStatement generatedStatement)
+    private static string CleanupGeneratedStatementString(GeneratedStatement generatedStatement)
     {
         return generatedStatement
             .GeneratedString.Replace("ValueTask<void>", "ValueTask")
@@ -106,8 +112,8 @@ public class ServerProjectWriter : IWriter
         if (
             Directory.Exists(_projectDirectory)
             && (
-                Directory.GetFiles(_projectDirectory).Any()
-                || Directory.GetDirectories(_projectDirectory).Any()
+                Directory.GetFiles(_projectDirectory).Length != 0
+                || Directory.GetDirectories(_projectDirectory).Length != 0
             )
         )
         {

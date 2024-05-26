@@ -11,37 +11,40 @@ using Microsoft.JSInterop;
 [JsonConverter(typeof(CachedEntityConverter<CSharpTextClass>))]
 public class CSharpTextClass : CachedEntityObject
 {
-#region Static Accessors
-#endregion
-#region Static Properties
-#endregion
-#region Static Methods
-#endregion
-#region Accessors
-#endregion
-#region Properties
+    #region Static Accessors
+
+    #endregion
+
+    #region Static Properties
+
+    #endregion
+
+    #region Static Methods
+
+    #endregion
+
+    #region Accessors
+
+    #endregion
+
+    #region Properties
+
     public bool skipNextObservers
     {
-        get
-        {
-            return EventHorizonBlazorInterop.Get<bool>(this.___guid, "skipNextObservers");
-        }
-
+        get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "skipNextObservers"); }
         set
         {
+
             EventHorizonBlazorInterop.Set(this.___guid, "skipNextObservers", value);
         }
     }
 
     public decimal mask
     {
-        get
-        {
-            return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "mask");
-        }
-
+        get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "mask"); }
         set
         {
+
             EventHorizonBlazorInterop.Set(this.___guid, "mask", value);
         }
     }
@@ -53,16 +56,17 @@ public class CSharpTextClass : CachedEntityObject
         {
             if (__target == null)
             {
-                __target = EventHorizonBlazorInterop.GetClass<CSharpTextClass>(this.___guid, "target", (entity) =>
-                {
-                    return new CSharpTextClass()
-                    {___guid = entity.___guid};
-                });
+                __target = EventHorizonBlazorInterop.GetClass<CSharpTextClass>(
+                    this.___guid,
+                    "target",
+                    (entity) =>
+                    {
+                        return new CSharpTextClass() { ___guid = entity.___guid };
+                    }
+                );
             }
-
             return __target;
         }
-
         set
         {
             __target = null;
@@ -72,53 +76,49 @@ public class CSharpTextClass : CachedEntityObject
 
     public string[] currentTarget
     {
-        get
-        {
-            return EventHorizonBlazorInterop.GetArray<string>(this.___guid, "currentTarget");
-        }
-
+        get { return EventHorizonBlazorInterop.GetArray<string>(this.___guid, "currentTarget"); }
         set
         {
+
             EventHorizonBlazorInterop.Set(this.___guid, "currentTarget", value);
         }
     }
 
     public decimal lastReturnValue
     {
-        get
-        {
-            return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "lastReturnValue");
-        }
-
+        get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "lastReturnValue"); }
         set
         {
+
             EventHorizonBlazorInterop.Set(this.___guid, "lastReturnValue", value);
         }
     }
+    #endregion
 
-#endregion
-#region Constructor
-    public CSharpTextClass() : base()
-    {
-    }
+    #region Constructor
+    public CSharpTextClass()
+        : base() { }
 
-    public CSharpTextClass(ICachedEntity entity) : base(entity)
+    public CSharpTextClass(ICachedEntity entity)
+        : base(entity)
     {
         ___guid = entity.___guid;
     }
 
     public CSharpTextClass(object target = null)
     {
-        var entity = EventHorizonBlazorInterop.New(new string[]{"CSharpTextClass"}, target);
+        var entity = EventHorizonBlazorInterop.New(new string[] { "CSharpTextClass" }, target);
         ___guid = entity.___guid;
     }
+    #endregion
 
-#endregion
-#region Methods
+    #region Methods
     public CSharpTextClass initalize()
     {
-        return EventHorizonBlazorInterop.FuncClass<CSharpTextClass>(entity => new CSharpTextClass()
-        {___guid = entity.___guid}, new object[]{new string[]{this.___guid, "initalize"}});
+        return EventHorizonBlazorInterop.FuncClass<CSharpTextClass>(
+            entity => new CSharpTextClass() { ___guid = entity.___guid },
+            new object[] { new string[] { this.___guid, "initalize" } }
+        );
     }
-#endregion
+    #endregion
 }

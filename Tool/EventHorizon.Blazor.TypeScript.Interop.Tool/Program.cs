@@ -150,7 +150,11 @@ class Program
 
             if (hostType == "server")
             {
-                var writer = new ServerProjectWriter(projectGenerationLocation, projectAssembly);
+                var writer = new ServerProjectWriter(
+                    projectGenerationLocation,
+                    projectAssembly,
+                    textFormatter
+                );
                 new GenerateInteropSource().Run(
                     projectAssembly,
                     sourceDirectory,

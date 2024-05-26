@@ -14,13 +14,16 @@ public class Program
 {
     static void Main(string[] args)
     {
-        //Run(AstParser.Model.ASTParserType.NodeJS, true); //  75084ms/71877ms to generate.
-        Run(AstParser.Model.ASTParserType.Sdcb, true, "EventHorizon.Blazor.BabylonJS.WASM"); //  22027ms/19835ms/18236ms to generate.
-        //Run(
-        //    AstParser.Model.ASTParserType.Sdcb,
-        //    false,
-        //    "EventHorizon.Blazor.BabylonJS.Server"
-        //);
+        // pre-05/26/2024 - 75084ms/71877ms to generate.
+        // 05/26/2024 - 26662ms/27904ms/27486ms to generate.
+        Run(AstParser.Model.ASTParserType.NodeJS, true, "EventHorizon.Blazor.BabylonJS.NodeJS");
+
+        // pre-05/26/2024 - 22027ms/19835ms/18236ms to generate.
+        // 05/26/2024 - 10116ms/9721ms/9762ms to generate.
+        Run(AstParser.Model.ASTParserType.Sdcb, true, "EventHorizon.Blazor.BabylonJS.WASM");
+
+        // 05/26/2024 - 10545ms/10603ms/10318ms to generate.
+        Run(AstParser.Model.ASTParserType.Sdcb, false, "EventHorizon.Blazor.BabylonJS.Server");
     }
 
     static void Run(AstParser.Model.ASTParserType type, bool useWasm, string projectAssembly)
@@ -30,7 +33,7 @@ public class Program
         var projectGenerationLocation = Path.Combine("..", "_generated");
 
         var sourceDirectory = Path.Combine(".", "SourceFiles");
-        var textFormatter = new NoFormattingTextFormatter();
+        var textFormatter = new CSharpTextFormatter();
         var sourceFiles = new List<string>
         {
             //"testing.d.ts",
@@ -94,14 +97,21 @@ public class Program
         else
         {
             GlobalLogger.Info("Running Server Generator");
-            var writer = new ServerProjectWriter(projectGenerationLocation, projectAssembly);
+            // For the Server Generator, we don't want to format the text. So we use the NoFormattingTextFormatter.
+            // We want to let the Server Project Writer handle the formatting.
+            var noFormattingTextFormatter = new NoFormattingTextFormatter();
+            var writer = new ServerProjectWriter(
+                projectGenerationLocation,
+                projectAssembly,
+                textFormatter
+            );
             new ServerGenerator().Run(
                 projectAssembly,
                 sourceDirectory,
                 sourceFiles,
                 generationList,
                 writer,
-                textFormatter,
+                noFormattingTextFormatter,
                 new Dictionary<string, string> { { "BABYLON.PointerInfoBase | type", "int" } },
                 type
             );
