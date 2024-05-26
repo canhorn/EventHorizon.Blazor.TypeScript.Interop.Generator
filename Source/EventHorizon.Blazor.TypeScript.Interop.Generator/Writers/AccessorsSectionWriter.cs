@@ -32,21 +32,15 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     accessor.Type,
                     accessor.UsedClassNames
                 );
-                var isArray = ArrayResponseIdentifier.Identify(
-                    accessor.Type
-                );
-                var isEnum = TypeEnumIdentifier.Identify(
-                    accessor.Type
-                );
+                var isArray = ArrayResponseIdentifier.Identify(accessor.Type);
+                var isEnum = TypeEnumIdentifier.Identify(accessor.Type);
 
                 var template = templates.Accessor;
                 var propertyGetterResultType = templates.InteropGet;
                 var root = "this.___guid";
                 var namespaceParts = classStatement.Namespace.Split(".");
-                var entityNamespace = string.Join(
-                    ", ",
-                    namespaceParts.Select(part => @$"""{part}""")
-                ) + ", ";
+                var entityNamespace =
+                    string.Join(", ", namespaceParts.Select(part => @$"""{part}""")) + ", ";
                 var property = accessor.Name;
                 var propertyGetterTemplate = templates.ReturnTypePrimitiveTemplate;
                 var cacheSection = string.Empty;
@@ -65,12 +59,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 if (accessor.IsStatic)
                 {
                     root = $"\"{namespaceParts.FirstOrDefault()}\"";
-                    property = string.Join(
-                        ".",
-                        namespaceParts
-                            .Skip(1)
-                            .Select(part => @$"{part}")
-                    );
+                    property = string.Join(".", namespaceParts.Skip(1).Select(part => @$"{part}"));
                     if (property.Length > 0)
                     {
                         property += $".{classStatement.Name}.{accessor.Name}";
@@ -107,85 +96,32 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 }
 
                 template = template
+                    .Replace("[[PROPERTY_GETTER]]", propertyGetterTemplate)
+                    .Replace("[[PROPERTY_SETTER]]", templates.InteropSet)
+                    .Replace("[[RETURN_TYPE_CONTENT]]", propertyGetterResultType)
+                    .Replace("[[PROPERTY_NAMESPACE]]", entityNamespace)
+                    .Replace("[[CACHE_SECTION]]", cacheSection)
+                    .Replace("[[CACHE_SETTTER_SECTION]]", cacheSetterSection)
+                    .Replace("[[CACHE_NAME]]", accessor.Name)
+                    .Replace("[[PROPERTYTYPE]]", classStatement.Name)
+                    .Replace("[[STATIC]]", accessor.IsStatic ? "static " : string.Empty)
+                    .Replace("[[ARRAY]]", string.Empty)
+                    .Replace("[[NAME]]", DotNetNormalizer.Normalize(accessor.Name))
+                    .Replace("[[NAME_CAPTIALIZED]]", accessor.Name.Captialize())
+                    .Replace("[[TYPE]]", TypeStatementWriter.Write(accessor.Type))
+                    .Replace("[[ARRAY_TYPE]]", TypeStatementWriter.Write(accessor.Type, false))
+                    .Replace("[[NEW_TYPE]]", TypeStatementWriter.Write(accessor.Type, false))
+                    .Replace("[[PROPERTY]]", property)
+                    .Replace("[[PROPERTY_ARGUMENTS]]", string.Empty)
+                    .Replace("[[ROOT]]", root)
                     .Replace(
-                        "[[PROPERTY_GETTER]]",
-                        propertyGetterTemplate
-                    ).Replace(
-                        "[[PROPERTY_SETTER]]",
-                        templates.InteropSet
-                    ).Replace(
-                        "[[RETURN_TYPE_CONTENT]]",
-                        propertyGetterResultType
-                    ).Replace(
-                        "[[PROPERTY_NAMESPACE]]",
-                        entityNamespace
-                    ).Replace(
-                        "[[CACHE_SECTION]]",
-                        cacheSection
-                    ).Replace(
-                        "[[CACHE_SETTTER_SECTION]]",
-                        cacheSetterSection
-                    ).Replace(
-                        "[[CACHE_NAME]]",
-                        accessor.Name
-                    ).Replace(
-                        "[[PROPERTYTYPE]]",
-                        classStatement.Name
-                    ).Replace(
-                        "[[STATIC]]",
-                        accessor.IsStatic ? "static " : string.Empty
-                    ).Replace(
-                        "[[ARRAY]]",
-                        string.Empty
-                    ).Replace(
-                        "[[NAME]]",
-                        DotNetNormalizer.Normalize(
-                            accessor.Name
-                        )
-                    ).Replace(
-                        "[[NAME_CAPTIALIZED]]",
-                        accessor.Name.Captialize()
-                    ).Replace(
-                        "[[TYPE]]",
-                        TypeStatementWriter.Write(
-                            accessor.Type
-                        )
-                    ).Replace(
-                        "[[ARRAY_TYPE]]",
-                        TypeStatementWriter.Write(
-                            accessor.Type,
-                            false
-                        )
-                    ).Replace(
-                        "[[NEW_TYPE]]",
-                        TypeStatementWriter.Write(
-                            accessor.Type,
-                            false
-                        )
-                    ).Replace(
-                        "[[PROPERTY]]",
-                        property
-                    ).Replace(
-                        "[[PROPERTY_ARGUMENTS]]",
-                        string.Empty
-                    ).Replace(
-                        "[[ROOT]]",
-                        root
-                    ).Replace(
                         "[[INTERFACE_POSTFIX]]",
                         accessor.IsInterfaceResponse ? Constants.INTERFACE_POSTFIX : string.Empty
-                    )
-                ;
-                section.Append(
-                    template
-                );
+                    );
+                section.Append(template);
                 if (!isLast)
                 {
-                    section.Append(
-                        Environment.NewLine
-                    ).Append(
-                        Environment.NewLine
-                    );
+                    section.Append(Environment.NewLine).Append(Environment.NewLine);
                 }
                 current++;
             }

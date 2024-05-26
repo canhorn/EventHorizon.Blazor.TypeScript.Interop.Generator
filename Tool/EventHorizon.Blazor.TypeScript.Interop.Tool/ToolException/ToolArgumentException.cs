@@ -10,8 +10,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool.ToolException
     public class ToolArgumentException : ArgumentException
     {
         public ToolArgumentException(string paramName, string message)
-            : base(message, paramName)
-        {
-        }
+            : base(message, paramName) { }
     }
 }

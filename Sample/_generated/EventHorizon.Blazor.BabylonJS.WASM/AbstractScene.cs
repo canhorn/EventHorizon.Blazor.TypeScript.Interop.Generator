@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<AbstractScene>))]
     public class AbstractScene : CachedEntityObject
     {
@@ -24,52 +22,78 @@ namespace BABYLON
         #endregion
 
         #region Static Methods
-        public static void AddParser(string name, ActionCallback<CachedEntity, Scene, AssetContainer, string> parser)
+        public static void AddParser(
+            string name,
+            ActionCallback<CachedEntity, Scene, AssetContainer, string> parser
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "AbstractScene", "AddParser" }, name, parser
+                    new string[] { "BABYLON", "AbstractScene", "AddParser" },
+                    name,
+                    parser
                 }
             );
         }
 
-        public static ActionCallback<CachedEntity, Scene, AssetContainer, string> GetParser(string name)
+        public static ActionCallback<CachedEntity, Scene, AssetContainer, string> GetParser(
+            string name
+        )
         {
-            return EventHorizonBlazorInterop.Func<ActionCallback<CachedEntity, Scene, AssetContainer, string>>(
-                new object[]
-                {
-                    new string[] { "BABYLON", "AbstractScene", "GetParser" }, name
-                }
-            );
+            return EventHorizonBlazorInterop.Func<
+                ActionCallback<CachedEntity, Scene, AssetContainer, string>
+            >(new object[] { new string[] { "BABYLON", "AbstractScene", "GetParser" }, name });
         }
 
-        public static void AddIndividualParser(string name, ActionResultCallback<CachedEntity, Scene, string, CachedEntity> parser)
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { "BABYLON", "AbstractScene", "AddIndividualParser" }, name, parser
-                }
-            );
-        }
-
-        public static ActionResultCallback<CachedEntity, Scene, string, CachedEntity> GetIndividualParser(string name)
-        {
-            return EventHorizonBlazorInterop.Func<ActionResultCallback<CachedEntity, Scene, string, CachedEntity>>(
-                new object[]
-                {
-                    new string[] { "BABYLON", "AbstractScene", "GetIndividualParser" }, name
-                }
-            );
-        }
-
-        public static void Parse(object jsonData, Scene scene, AssetContainer container, string rootUrl)
+        public static void AddIndividualParser(
+            string name,
+            ActionResultCallback<CachedEntity, Scene, string, CachedEntity> parser
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "AbstractScene", "Parse" }, jsonData, scene, container, rootUrl
+                    new string[] { "BABYLON", "AbstractScene", "AddIndividualParser" },
+                    name,
+                    parser
+                }
+            );
+        }
+
+        public static ActionResultCallback<
+            CachedEntity,
+            Scene,
+            string,
+            CachedEntity
+        > GetIndividualParser(string name)
+        {
+            return EventHorizonBlazorInterop.Func<
+                ActionResultCallback<CachedEntity, Scene, string, CachedEntity>
+            >(
+                new object[]
+                {
+                    new string[] { "BABYLON", "AbstractScene", "GetIndividualParser" },
+                    name
+                }
+            );
+        }
+
+        public static void Parse(
+            object jsonData,
+            Scene scene,
+            AssetContainer container,
+            string rootUrl
+        )
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { "BABYLON", "AbstractScene", "Parse" },
+                    jsonData,
+                    scene,
+                    container,
+                    rootUrl
                 }
             );
         }
@@ -81,38 +105,34 @@ namespace BABYLON
         {
             get
             {
-            if(__environmentTexture == null)
-            {
-                __environmentTexture = EventHorizonBlazorInterop.GetClass<BaseTexture>(
-                    this.___guid,
-                    "environmentTexture",
-                    (entity) =>
-                    {
-                        return new BaseTexture() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __environmentTexture;
+                if (__environmentTexture == null)
+                {
+                    __environmentTexture = EventHorizonBlazorInterop.GetClass<BaseTexture>(
+                        this.___guid,
+                        "environmentTexture",
+                        (entity) =>
+                        {
+                            return new BaseTexture() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __environmentTexture;
             }
             set
             {
-__environmentTexture = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "environmentTexture",
-                    value
-                );
+                __environmentTexture = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "environmentTexture", value);
             }
         }
         #endregion
 
         #region Properties
-        
+
         public Node[] rootNodes
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<Node>(
+                return EventHorizonBlazorInterop.GetArrayClass<Node>(
                     this.___guid,
                     "rootNodes",
                     (entity) =>
@@ -124,20 +144,15 @@ __environmentTexture = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "rootNodes",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "rootNodes", value);
             }
         }
 
-        
         public Camera[] cameras
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<Camera>(
+                return EventHorizonBlazorInterop.GetArrayClass<Camera>(
                     this.___guid,
                     "cameras",
                     (entity) =>
@@ -149,20 +164,15 @@ __environmentTexture = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "cameras",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "cameras", value);
             }
         }
 
-        
         public Light[] lights
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<Light>(
+                return EventHorizonBlazorInterop.GetArrayClass<Light>(
                     this.___guid,
                     "lights",
                     (entity) =>
@@ -174,20 +184,15 @@ __environmentTexture = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "lights",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "lights", value);
             }
         }
 
-        
         public AbstractMesh[] meshes
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<AbstractMesh>(
+                return EventHorizonBlazorInterop.GetArrayClass<AbstractMesh>(
                     this.___guid,
                     "meshes",
                     (entity) =>
@@ -199,20 +204,15 @@ __environmentTexture = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "meshes",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "meshes", value);
             }
         }
 
-        
         public Skeleton[] skeletons
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<Skeleton>(
+                return EventHorizonBlazorInterop.GetArrayClass<Skeleton>(
                     this.___guid,
                     "skeletons",
                     (entity) =>
@@ -224,20 +224,15 @@ __environmentTexture = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "skeletons",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "skeletons", value);
             }
         }
 
-        
         public IParticleSystemCachedEntity[] particleSystems
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<IParticleSystemCachedEntity>(
+                return EventHorizonBlazorInterop.GetArrayClass<IParticleSystemCachedEntity>(
                     this.___guid,
                     "particleSystems",
                     (entity) =>
@@ -249,20 +244,15 @@ __environmentTexture = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "particleSystems",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "particleSystems", value);
             }
         }
 
-        
         public Animation[] animations
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<Animation>(
+                return EventHorizonBlazorInterop.GetArrayClass<Animation>(
                     this.___guid,
                     "animations",
                     (entity) =>
@@ -274,20 +264,15 @@ __environmentTexture = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "animations",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "animations", value);
             }
         }
 
-        
         public AnimationGroup[] animationGroups
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<AnimationGroup>(
+                return EventHorizonBlazorInterop.GetArrayClass<AnimationGroup>(
                     this.___guid,
                     "animationGroups",
                     (entity) =>
@@ -299,20 +284,15 @@ __environmentTexture = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "animationGroups",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "animationGroups", value);
             }
         }
 
-        
         public MultiMaterial[] multiMaterials
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<MultiMaterial>(
+                return EventHorizonBlazorInterop.GetArrayClass<MultiMaterial>(
                     this.___guid,
                     "multiMaterials",
                     (entity) =>
@@ -324,20 +304,15 @@ __environmentTexture = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "multiMaterials",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "multiMaterials", value);
             }
         }
 
-        
         public Material[] materials
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<Material>(
+                return EventHorizonBlazorInterop.GetArrayClass<Material>(
                     this.___guid,
                     "materials",
                     (entity) =>
@@ -349,20 +324,15 @@ __environmentTexture = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "materials",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "materials", value);
             }
         }
 
-        
         public MorphTargetManager[] morphTargetManagers
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<MorphTargetManager>(
+                return EventHorizonBlazorInterop.GetArrayClass<MorphTargetManager>(
                     this.___guid,
                     "morphTargetManagers",
                     (entity) =>
@@ -374,20 +344,15 @@ __environmentTexture = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "morphTargetManagers",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "morphTargetManagers", value);
             }
         }
 
-        
         public Geometry[] geometries
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<Geometry>(
+                return EventHorizonBlazorInterop.GetArrayClass<Geometry>(
                     this.___guid,
                     "geometries",
                     (entity) =>
@@ -399,20 +364,15 @@ __environmentTexture = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "geometries",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "geometries", value);
             }
         }
 
-        
         public TransformNode[] transformNodes
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<TransformNode>(
+                return EventHorizonBlazorInterop.GetArrayClass<TransformNode>(
                     this.___guid,
                     "transformNodes",
                     (entity) =>
@@ -424,20 +384,15 @@ __environmentTexture = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "transformNodes",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "transformNodes", value);
             }
         }
 
-        
         public AbstractActionManager[] actionManagers
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<AbstractActionManager>(
+                return EventHorizonBlazorInterop.GetArrayClass<AbstractActionManager>(
                     this.___guid,
                     "actionManagers",
                     (entity) =>
@@ -449,20 +404,15 @@ __environmentTexture = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "actionManagers",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "actionManagers", value);
             }
         }
 
-        
         public BaseTexture[] textures
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<BaseTexture>(
+                return EventHorizonBlazorInterop.GetArrayClass<BaseTexture>(
                     this.___guid,
                     "textures",
                     (entity) =>
@@ -474,20 +424,15 @@ __environmentTexture = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "textures",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "textures", value);
             }
         }
 
-        
         public PostProcess[] postProcesses
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<PostProcess>(
+                return EventHorizonBlazorInterop.GetArrayClass<PostProcess>(
                     this.___guid,
                     "postProcesses",
                     (entity) =>
@@ -499,25 +444,20 @@ __environmentTexture = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "postProcesses",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "postProcesses", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public AbstractScene() : base() { }
 
-        public AbstractScene(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public AbstractScene()
+            : base() { }
+
+        public AbstractScene(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
-
 
         #endregion
 
@@ -526,10 +466,7 @@ __environmentTexture = null;
         {
             return EventHorizonBlazorInterop.FuncArrayClass<Node>(
                 entity => new Node() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getNodes" }
-                }
+                new object[] { new string[] { this.___guid, "getNodes" } }
             );
         }
         #endregion

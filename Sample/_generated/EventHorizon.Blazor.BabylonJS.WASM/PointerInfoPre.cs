@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<PointerInfoPre>))]
     public class PointerInfoPre : PointerInfoBase
     {
@@ -37,27 +35,23 @@ namespace BABYLON
         {
             get
             {
-            if(__ray == null)
-            {
-                __ray = EventHorizonBlazorInterop.GetClass<Ray>(
-                    this.___guid,
-                    "ray",
-                    (entity) =>
-                    {
-                        return new Ray() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __ray;
+                if (__ray == null)
+                {
+                    __ray = EventHorizonBlazorInterop.GetClass<Ray>(
+                        this.___guid,
+                        "ray",
+                        (entity) =>
+                        {
+                            return new Ray() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __ray;
             }
             set
             {
-__ray = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "ray",
-                    value
-                );
+                __ray = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "ray", value);
             }
         }
 
@@ -66,68 +60,56 @@ __ray = null;
         {
             get
             {
-            if(__localPosition == null)
-            {
-                __localPosition = EventHorizonBlazorInterop.GetClass<Vector2>(
-                    this.___guid,
-                    "localPosition",
-                    (entity) =>
-                    {
-                        return new Vector2() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __localPosition;
+                if (__localPosition == null)
+                {
+                    __localPosition = EventHorizonBlazorInterop.GetClass<Vector2>(
+                        this.___guid,
+                        "localPosition",
+                        (entity) =>
+                        {
+                            return new Vector2() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __localPosition;
             }
             set
             {
-__localPosition = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "localPosition",
-                    value
-                );
+                __localPosition = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "localPosition", value);
             }
         }
 
-        
         public bool skipOnPointerObservable
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "skipOnPointerObservable"
-                );
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "skipOnPointerObservable");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "skipOnPointerObservable",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "skipOnPointerObservable", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public PointerInfoPre() : base() { }
+        public PointerInfoPre()
+            : base() { }
 
-        public PointerInfoPre(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public PointerInfoPre(ICachedEntity entity)
+            : base(entity) { }
 
-        public PointerInfoPre(
-            decimal type, PointerEvent @event, decimal localX, decimal localY
-        ) : base()
+        public PointerInfoPre(decimal type, PointerEvent @event, decimal localX, decimal localY)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "PointerInfoPre" },
-                type, @event, localX, localY
+                type,
+                @event,
+                localX,
+                localY
             );
             ___guid = entity.___guid;
         }

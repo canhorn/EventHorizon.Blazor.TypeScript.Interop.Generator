@@ -11,6 +11,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements
         public TypeStatement Type { get; set; }
         public bool IsStatic { get; set; }
         public bool IsInterfaceResponse { get; set; }
+
         //public bool IsArrayResponse { get; set; }
         public bool HasSetter { get; set; }
         public IList<string> UsedClassNames { get; set; } = new List<string>();

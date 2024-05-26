@@ -11,9 +11,10 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface Behavior<T> : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<BehaviorCachedEntity<CachedEntity>>))]
-    public class BehaviorCachedEntity<T> : CachedEntityObject, Behavior<T> where T : CachedEntity, new()
+    public class BehaviorCachedEntity<T> : CachedEntityObject, Behavior<T>
+        where T : CachedEntity, new()
     {
         #region Static Accessors
 
@@ -32,34 +33,24 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<string> get_name()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "name"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "name");
         }
+
         public ValueTask set_name(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "name",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "name", value);
         }
         #endregion
-        
+
         #region Constructor
-        public BehaviorCachedEntity() : base() { }
+        public BehaviorCachedEntity()
+            : base() { }
 
-        public BehaviorCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public BehaviorCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -67,30 +58,21 @@ namespace BABYLON
         public async ValueTask init()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "init" }
-                }
+                new object[] { new string[] { this.___guid, "init" } }
             );
         }
 
         public async ValueTask attach(T target)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "attach" }, target
-                }
+                new object[] { new string[] { this.___guid, "attach" }, target }
             );
         }
 
         public async ValueTask detach()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "detach" }
-                }
+                new object[] { new string[] { this.___guid, "detach" } }
             );
         }
         #endregion

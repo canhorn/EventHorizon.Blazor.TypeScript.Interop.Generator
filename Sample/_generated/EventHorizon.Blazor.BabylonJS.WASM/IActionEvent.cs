@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IActionEvent : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IActionEventCachedEntity>))]
     public class IActionEventCachedEntity : CachedEntityObject, IActionEvent
     {
@@ -32,12 +32,12 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public CachedEntity source
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "source",
                     (entity) =>
@@ -49,53 +49,27 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "source",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "source", value);
             }
         }
 
-        
         public decimal pointerX
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "pointerX"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "pointerX"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "pointerX",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "pointerX", value);
             }
         }
 
-        
         public decimal pointerY
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "pointerY"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "pointerY"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "pointerY",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "pointerY", value);
             }
         }
 
@@ -104,36 +78,31 @@ namespace BABYLON
         {
             get
             {
-            if(__meshUnderPointer == null)
-            {
-                __meshUnderPointer = EventHorizonBlazorInterop.GetClass<AbstractMesh>(
-                    this.___guid,
-                    "meshUnderPointer",
-                    (entity) =>
-                    {
-                        return new AbstractMesh() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __meshUnderPointer;
+                if (__meshUnderPointer == null)
+                {
+                    __meshUnderPointer = EventHorizonBlazorInterop.GetClass<AbstractMesh>(
+                        this.___guid,
+                        "meshUnderPointer",
+                        (entity) =>
+                        {
+                            return new AbstractMesh() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __meshUnderPointer;
             }
             set
             {
-__meshUnderPointer = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "meshUnderPointer",
-                    value
-                );
+                __meshUnderPointer = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "meshUnderPointer", value);
             }
         }
 
-        
         public CachedEntity sourceEvent
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "sourceEvent",
                     (entity) =>
@@ -145,20 +114,15 @@ __meshUnderPointer = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "sourceEvent",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "sourceEvent", value);
             }
         }
 
-        
         public CachedEntity additionalData
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "additionalData",
                     (entity) =>
@@ -170,24 +134,17 @@ __meshUnderPointer = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "additionalData",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "additionalData", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IActionEventCachedEntity() : base() { }
+        public IActionEventCachedEntity()
+            : base() { }
 
-        public IActionEventCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IActionEventCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

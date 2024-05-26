@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<MultiMaterial>))]
     public class MultiMaterial : Material
     {
@@ -30,19 +28,21 @@ namespace BABYLON
                 entity => new MultiMaterial() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MultiMaterial", "ParseMultiMaterial" }, parsedMultiMaterial, scene
+                    new string[] { "BABYLON", "MultiMaterial", "ParseMultiMaterial" },
+                    parsedMultiMaterial,
+                    scene
                 }
             );
         }
         #endregion
 
         #region Accessors
-        
+
         public Material[] subMaterials
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<Material>(
+                return EventHorizonBlazorInterop.GetArrayClass<Material>(
                     this.___guid,
                     "subMaterials",
                     (entity) =>
@@ -54,11 +54,7 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "subMaterials",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "subMaterials", value);
             }
         }
         #endregion
@@ -66,23 +62,21 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
+
         #region Constructor
-        public MultiMaterial() : base() { }
+        public MultiMaterial()
+            : base() { }
 
-        public MultiMaterial(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public MultiMaterial(ICachedEntity entity)
+            : base(entity) { }
 
-        public MultiMaterial(
-            string name, Scene scene
-        ) : base()
+        public MultiMaterial(string name, Scene scene)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "MultiMaterial" },
-                name, scene
+                name,
+                scene
             );
             ___guid = entity.___guid;
         }
@@ -93,10 +87,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncArrayClass<Material>(
                 entity => new Material() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getChildren" }
-                }
+                new object[] { new string[] { this.___guid, "getChildren" } }
             );
         }
 
@@ -104,10 +95,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Material>(
                 entity => new Material() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getSubMaterial" }, index
-                }
+                new object[] { new string[] { this.___guid, "getSubMaterial" }, index }
             );
         }
 
@@ -115,39 +103,37 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncArrayClass<BaseTexture>(
                 entity => new BaseTexture() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getActiveTextures" }
-                }
+                new object[] { new string[] { this.___guid, "getActiveTextures" } }
             );
         }
 
         public bool hasTexture(BaseTexture texture)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "hasTexture" }, texture
-                }
+                new object[] { new string[] { this.___guid, "hasTexture" }, texture }
             );
         }
 
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
-        public bool isReadyForSubMesh(AbstractMesh mesh, SubMesh subMesh, System.Nullable<bool> useInstances = null)
+        public bool isReadyForSubMesh(
+            AbstractMesh mesh,
+            SubMesh subMesh,
+            System.Nullable<bool> useInstances = null
+        )
         {
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
-                    new string[] { this.___guid, "isReadyForSubMesh" }, mesh, subMesh, useInstances
+                    new string[] { this.___guid, "isReadyForSubMesh" },
+                    mesh,
+                    subMesh,
+                    useInstances
                 }
             );
         }
@@ -156,29 +142,30 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<MultiMaterial>(
                 entity => new MultiMaterial() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "clone" }, name, cloneChildren
-                }
+                new object[] { new string[] { this.___guid, "clone" }, name, cloneChildren }
             );
         }
 
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "serialize" }
-                }
+                new object[] { new string[] { this.___guid, "serialize" } }
             );
         }
 
-        public void dispose(System.Nullable<bool> forceDisposeEffect = null, System.Nullable<bool> forceDisposeTextures = null, System.Nullable<bool> forceDisposeChildren = null)
+        public void dispose(
+            System.Nullable<bool> forceDisposeEffect = null,
+            System.Nullable<bool> forceDisposeTextures = null,
+            System.Nullable<bool> forceDisposeChildren = null
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "dispose" }, forceDisposeEffect, forceDisposeTextures, forceDisposeChildren
+                    new string[] { this.___guid, "dispose" },
+                    forceDisposeEffect,
+                    forceDisposeTextures,
+                    forceDisposeChildren
                 }
             );
         }

@@ -5,27 +5,19 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 
     public class ArrayResponseIdentifier
     {
-        public static bool Identify(
-            TypeStatement typeStatement
-        )
+        public static bool Identify(TypeStatement typeStatement)
         {
             var type = typeStatement;
-            if (typeStatement.IsModifier
-                || typeStatement.IsNullable
-                || typeStatement.IsTask)
+            if (typeStatement.IsModifier || typeStatement.IsNullable || typeStatement.IsTask)
             {
                 if (typeStatement.GenericTypes.Any())
                 {
-                    return Identify(
-                        typeStatement.GenericTypes.First()
-                    );
+                    return Identify(typeStatement.GenericTypes.First());
                 }
             }
             else if (typeStatement.IsTypeAlias)
             {
-                return Identify(
-                    typeStatement.AliasType
-                );
+                return Identify(typeStatement.AliasType);
             }
             return type.IsArray;
         }

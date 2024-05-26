@@ -11,9 +11,11 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IMaterialDetailMapDefines : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IMaterialDetailMapDefinesCachedEntity>))]
-    public class IMaterialDetailMapDefinesCachedEntity : CachedEntityObject, IMaterialDetailMapDefines
+    public class IMaterialDetailMapDefinesCachedEntity
+        : CachedEntityObject,
+            IMaterialDetailMapDefines
     {
         #region Static Accessors
 
@@ -32,54 +34,32 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public bool DETAIL
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "DETAIL"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "DETAIL"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "DETAIL",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "DETAIL", value);
             }
         }
 
-        
         public decimal DETAILDIRECTUV
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "DETAILDIRECTUV"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "DETAILDIRECTUV"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "DETAILDIRECTUV",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "DETAILDIRECTUV", value);
             }
         }
 
-        
         public decimal DETAIL_NORMALBLENDMETHOD
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "DETAIL_NORMALBLENDMETHOD"
                 );
@@ -87,24 +67,17 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "DETAIL_NORMALBLENDMETHOD",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "DETAIL_NORMALBLENDMETHOD", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IMaterialDetailMapDefinesCachedEntity() : base() { }
+        public IMaterialDetailMapDefinesCachedEntity()
+            : base() { }
 
-        public IMaterialDetailMapDefinesCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IMaterialDetailMapDefinesCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

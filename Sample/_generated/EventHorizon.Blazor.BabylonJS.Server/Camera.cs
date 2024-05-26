@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Camera>))]
     public class Camera : Node
     {
@@ -20,158 +18,132 @@ namespace BABYLON
         #endregion
 
         #region Static Properties
-        
+
         public static async ValueTask<decimal> get_PERSPECTIVE_CAMERA()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Camera.PERSPECTIVE_CAMERA"
-                );
+                "BABYLON",
+                "Camera.PERSPECTIVE_CAMERA"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_ORTHOGRAPHIC_CAMERA()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Camera.ORTHOGRAPHIC_CAMERA"
-                );
+                "BABYLON",
+                "Camera.ORTHOGRAPHIC_CAMERA"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_FOVMODE_VERTICAL_FIXED()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Camera.FOVMODE_VERTICAL_FIXED"
-                );
+                "BABYLON",
+                "Camera.FOVMODE_VERTICAL_FIXED"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_FOVMODE_HORIZONTAL_FIXED()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Camera.FOVMODE_HORIZONTAL_FIXED"
-                );
+                "BABYLON",
+                "Camera.FOVMODE_HORIZONTAL_FIXED"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_RIG_MODE_NONE()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Camera.RIG_MODE_NONE"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>("BABYLON", "Camera.RIG_MODE_NONE");
         }
 
-        
         public static async ValueTask<decimal> get_RIG_MODE_STEREOSCOPIC_ANAGLYPH()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Camera.RIG_MODE_STEREOSCOPIC_ANAGLYPH"
-                );
+                "BABYLON",
+                "Camera.RIG_MODE_STEREOSCOPIC_ANAGLYPH"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_RIG_MODE_STEREOSCOPIC_SIDEBYSIDE_PARALLEL()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Camera.RIG_MODE_STEREOSCOPIC_SIDEBYSIDE_PARALLEL"
-                );
+                "BABYLON",
+                "Camera.RIG_MODE_STEREOSCOPIC_SIDEBYSIDE_PARALLEL"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_RIG_MODE_STEREOSCOPIC_SIDEBYSIDE_CROSSEYED()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Camera.RIG_MODE_STEREOSCOPIC_SIDEBYSIDE_CROSSEYED"
-                );
+                "BABYLON",
+                "Camera.RIG_MODE_STEREOSCOPIC_SIDEBYSIDE_CROSSEYED"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_RIG_MODE_STEREOSCOPIC_OVERUNDER()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Camera.RIG_MODE_STEREOSCOPIC_OVERUNDER"
-                );
+                "BABYLON",
+                "Camera.RIG_MODE_STEREOSCOPIC_OVERUNDER"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_RIG_MODE_STEREOSCOPIC_INTERLACED()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Camera.RIG_MODE_STEREOSCOPIC_INTERLACED"
-                );
+                "BABYLON",
+                "Camera.RIG_MODE_STEREOSCOPIC_INTERLACED"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_RIG_MODE_VR()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Camera.RIG_MODE_VR"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>("BABYLON", "Camera.RIG_MODE_VR");
         }
 
-        
         public static async ValueTask<decimal> get_RIG_MODE_WEBVR()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Camera.RIG_MODE_WEBVR"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>("BABYLON", "Camera.RIG_MODE_WEBVR");
         }
 
-        
         public static async ValueTask<decimal> get_RIG_MODE_CUSTOM()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Camera.RIG_MODE_CUSTOM"
-                );
+                "BABYLON",
+                "Camera.RIG_MODE_CUSTOM"
+            );
         }
 
-        
         public static async ValueTask<bool> get_ForceAttachControlToAlwaysPreventDefault()
         {
             return await EventHorizonBlazorInterop.Get<bool>(
-                    "BABYLON",
-                    "Camera.ForceAttachControlToAlwaysPreventDefault"
-                );
+                "BABYLON",
+                "Camera.ForceAttachControlToAlwaysPreventDefault"
+            );
         }
+
         public static ValueTask set_ForceAttachControlToAlwaysPreventDefault(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    "BABYLON",
-                    "Camera.ForceAttachControlToAlwaysPreventDefault",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(
+                "BABYLON",
+                "Camera.ForceAttachControlToAlwaysPreventDefault",
+                value
+            );
         }
         #endregion
 
         #region Static Methods
         #region GetConstructorFromName TODO: Get Comments as metadata identification
         private static bool IsGetConstructorFromNameEnabled = false;
-        private static readonly IDictionary<string, Func<Task>> GetConstructorFromNameActionMap = new Dictionary<string, Func<Task>>();
+        private static readonly IDictionary<string, Func<Task>> GetConstructorFromNameActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public static async ValueTask<string> GetConstructorFromName(
-            Func<Task> callback
-        )
+        public static async ValueTask<string> GetConstructorFromName(Func<Task> callback)
         {
             await SetupGetConstructorFromNameStaticLoop();
 
             var handle = Guid.NewGuid().ToString();
-            GetConstructorFromNameActionMap.Add(
-                handle,
-                callback
-            );
+            GetConstructorFromNameActionMap.Add(handle, callback);
 
             return handle;
         }
@@ -204,19 +176,17 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Camera", "Parse" }, parsedCamera, scene
-                }
+                new object[] { new string[] { "BABYLON", "Camera", "Parse" }, parsedCamera, scene }
             );
         }
         #endregion
 
         #region Accessors
         private Vector3 __position;
+
         public async ValueTask<Vector3> get_position()
         {
-            if(__position == null)
+            if (__position == null)
             {
                 __position = await EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
@@ -229,20 +199,18 @@ namespace BABYLON
             }
             return __position;
         }
+
         public ValueTask set_position(Vector3 value)
         {
-__position = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "position",
-                    value
-                );
+            __position = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "position", value);
         }
 
         private Vector3 __upVector;
+
         public async ValueTask<Vector3> get_upVector()
         {
-            if(__upVector == null)
+            if (__upVector == null)
             {
                 __upVector = await EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
@@ -255,20 +223,18 @@ __position = null;
             }
             return __upVector;
         }
+
         public ValueTask set_upVector(Vector3 value)
         {
-__upVector = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "upVector",
-                    value
-                );
+            __upVector = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "upVector", value);
         }
 
         private Vector3 __globalPosition;
+
         public async ValueTask<Vector3> get_globalPosition()
         {
-            if(__globalPosition == null)
+            if (__globalPosition == null)
             {
                 __globalPosition = await EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
@@ -282,23 +248,23 @@ __upVector = null;
             return __globalPosition;
         }
 
-        
         public async ValueTask<Camera[]> get_rigCameras()
         {
             return await EventHorizonBlazorInterop.GetArrayClass<Camera>(
-                    this.___guid,
-                    "rigCameras",
-                    (entity) =>
-                    {
-                        return new Camera() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "rigCameras",
+                (entity) =>
+                {
+                    return new Camera() { ___guid = entity.___guid };
+                }
+            );
         }
 
         private PostProcess __rigPostProcess;
+
         public async ValueTask<PostProcess> get_rigPostProcess()
         {
-            if(__rigPostProcess == null)
+            if (__rigPostProcess == null)
             {
                 __rigPostProcess = await EventHorizonBlazorInterop.GetClass<PostProcess>(
                     this.___guid,
@@ -312,28 +278,21 @@ __upVector = null;
             return __rigPostProcess;
         }
 
-        
         public async ValueTask<bool> get_isLeftCamera()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isLeftCamera"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "isLeftCamera");
         }
 
-        
         public async ValueTask<bool> get_isRightCamera()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isRightCamera"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "isRightCamera");
         }
 
         private FreeCamera __leftCamera;
+
         public async ValueTask<FreeCamera> get_leftCamera()
         {
-            if(__leftCamera == null)
+            if (__leftCamera == null)
             {
                 __leftCamera = await EventHorizonBlazorInterop.GetClass<FreeCamera>(
                     this.___guid,
@@ -348,9 +307,10 @@ __upVector = null;
         }
 
         private FreeCamera __rightCamera;
+
         public async ValueTask<FreeCamera> get_rightCamera()
         {
-            if(__rightCamera == null)
+            if (__rightCamera == null)
             {
                 __rightCamera = await EventHorizonBlazorInterop.GetClass<FreeCamera>(
                     this.___guid,
@@ -365,9 +325,10 @@ __upVector = null;
         }
 
         private Quaternion __absoluteRotation;
+
         public async ValueTask<Quaternion> get_absoluteRotation()
         {
-            if(__absoluteRotation == null)
+            if (__absoluteRotation == null)
             {
                 __absoluteRotation = await EventHorizonBlazorInterop.GetClass<Quaternion>(
                     this.___guid,
@@ -384,9 +345,10 @@ __upVector = null;
 
         #region Properties
         private CameraInputsManager<Camera> __inputs;
+
         public async ValueTask<CameraInputsManager<Camera>> get_inputs()
         {
-            if(__inputs == null)
+            if (__inputs == null)
             {
                 __inputs = await EventHorizonBlazorInterop.GetClass<CameraInputsManager<Camera>>(
                     this.___guid,
@@ -399,200 +361,118 @@ __upVector = null;
             }
             return __inputs;
         }
+
         public ValueTask set_inputs(CameraInputsManager<Camera> value)
         {
-__inputs = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "inputs",
-                    value
-                );
+            __inputs = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "inputs", value);
         }
 
-        
         public async ValueTask<decimal> get_orthoLeft()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "orthoLeft"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "orthoLeft");
         }
+
         public ValueTask set_orthoLeft(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "orthoLeft",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "orthoLeft", value);
         }
 
-        
         public async ValueTask<decimal> get_orthoRight()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "orthoRight"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "orthoRight");
         }
+
         public ValueTask set_orthoRight(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "orthoRight",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "orthoRight", value);
         }
 
-        
         public async ValueTask<decimal> get_orthoBottom()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "orthoBottom"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "orthoBottom");
         }
+
         public ValueTask set_orthoBottom(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "orthoBottom",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "orthoBottom", value);
         }
 
-        
         public async ValueTask<decimal> get_orthoTop()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "orthoTop"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "orthoTop");
         }
+
         public ValueTask set_orthoTop(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "orthoTop",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "orthoTop", value);
         }
 
-        
         public async ValueTask<decimal> get_fov()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "fov"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "fov");
         }
+
         public ValueTask set_fov(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "fov",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "fov", value);
         }
 
-        
         public async ValueTask<decimal> get_minZ()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "minZ"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "minZ");
         }
+
         public ValueTask set_minZ(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "minZ",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "minZ", value);
         }
 
-        
         public async ValueTask<decimal> get_maxZ()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "maxZ"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "maxZ");
         }
+
         public ValueTask set_maxZ(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "maxZ",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "maxZ", value);
         }
 
-        
         public async ValueTask<decimal> get_inertia()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "inertia"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "inertia");
         }
+
         public ValueTask set_inertia(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "inertia",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "inertia", value);
         }
 
-        
         public async ValueTask<decimal> get_mode()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "mode"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "mode");
         }
+
         public ValueTask set_mode(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "mode",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "mode", value);
         }
 
-        
         public async ValueTask<bool> get_isIntermediate()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isIntermediate"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "isIntermediate");
         }
+
         public ValueTask set_isIntermediate(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isIntermediate",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "isIntermediate", value);
         }
 
         private Viewport __viewport;
+
         public async ValueTask<Viewport> get_viewport()
         {
-            if(__viewport == null)
+            if (__viewport == null)
             {
                 __viewport = await EventHorizonBlazorInterop.GetClass<Viewport>(
                     this.___guid,
@@ -605,160 +485,117 @@ __inputs = null;
             }
             return __viewport;
         }
+
         public ValueTask set_viewport(Viewport value)
         {
-__viewport = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "viewport",
-                    value
-                );
+            __viewport = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "viewport", value);
         }
 
-        
         public async ValueTask<decimal> get_layerMask()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "layerMask"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "layerMask");
         }
+
         public ValueTask set_layerMask(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "layerMask",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "layerMask", value);
         }
 
-        
         public async ValueTask<decimal> get_fovMode()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "fovMode"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "fovMode");
         }
+
         public ValueTask set_fovMode(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "fovMode",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "fovMode", value);
         }
 
-        
         public async ValueTask<decimal> get_cameraRigMode()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "cameraRigMode"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "cameraRigMode");
         }
+
         public ValueTask set_cameraRigMode(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "cameraRigMode",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "cameraRigMode", value);
         }
 
-        
         public async ValueTask<decimal> get_interaxialDistance()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "interaxialDistance"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "interaxialDistance");
         }
+
         public ValueTask set_interaxialDistance(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "interaxialDistance",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "interaxialDistance", value);
         }
 
-        
         public async ValueTask<bool> get_isStereoscopicSideBySide()
         {
             return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isStereoscopicSideBySide"
-                );
+                this.___guid,
+                "isStereoscopicSideBySide"
+            );
         }
+
         public ValueTask set_isStereoscopicSideBySide(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isStereoscopicSideBySide",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "isStereoscopicSideBySide", value);
         }
 
-        
         public async ValueTask<RenderTargetTexture[]> get_customRenderTargets()
         {
             return await EventHorizonBlazorInterop.GetArrayClass<RenderTargetTexture>(
-                    this.___guid,
-                    "customRenderTargets",
-                    (entity) =>
-                    {
-                        return new RenderTargetTexture() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "customRenderTargets",
+                (entity) =>
+                {
+                    return new RenderTargetTexture() { ___guid = entity.___guid };
+                }
+            );
         }
+
         public ValueTask set_customRenderTargets(RenderTargetTexture[] value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "customRenderTargets",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "customRenderTargets", value);
         }
 
         private RenderTargetTexture __outputRenderTarget;
+
         public async ValueTask<RenderTargetTexture> get_outputRenderTarget()
         {
-            if(__outputRenderTarget == null)
+            if (__outputRenderTarget == null)
             {
-                __outputRenderTarget = await EventHorizonBlazorInterop.GetClass<RenderTargetTexture>(
-                    this.___guid,
-                    "outputRenderTarget",
-                    (entity) =>
-                    {
-                        return new RenderTargetTexture() { ___guid = entity.___guid };
-                    }
-                );
+                __outputRenderTarget =
+                    await EventHorizonBlazorInterop.GetClass<RenderTargetTexture>(
+                        this.___guid,
+                        "outputRenderTarget",
+                        (entity) =>
+                        {
+                            return new RenderTargetTexture() { ___guid = entity.___guid };
+                        }
+                    );
             }
             return __outputRenderTarget;
         }
+
         public ValueTask set_outputRenderTarget(RenderTargetTexture value)
         {
-__outputRenderTarget = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "outputRenderTarget",
-                    value
-                );
+            __outputRenderTarget = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "outputRenderTarget", value);
         }
 
         private Observable<Camera> __onViewMatrixChangedObservable;
+
         public async ValueTask<Observable<Camera>> get_onViewMatrixChangedObservable()
         {
-            if(__onViewMatrixChangedObservable == null)
+            if (__onViewMatrixChangedObservable == null)
             {
-                __onViewMatrixChangedObservable = await EventHorizonBlazorInterop.GetClass<Observable<Camera>>(
+                __onViewMatrixChangedObservable = await EventHorizonBlazorInterop.GetClass<
+                    Observable<Camera>
+                >(
                     this.___guid,
                     "onViewMatrixChangedObservable",
                     (entity) =>
@@ -769,22 +606,26 @@ __outputRenderTarget = null;
             }
             return __onViewMatrixChangedObservable;
         }
+
         public ValueTask set_onViewMatrixChangedObservable(Observable<Camera> value)
         {
-__onViewMatrixChangedObservable = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onViewMatrixChangedObservable",
-                    value
-                );
+            __onViewMatrixChangedObservable = null;
+            return EventHorizonBlazorInterop.Set(
+                this.___guid,
+                "onViewMatrixChangedObservable",
+                value
+            );
         }
 
         private Observable<Camera> __onProjectionMatrixChangedObservable;
+
         public async ValueTask<Observable<Camera>> get_onProjectionMatrixChangedObservable()
         {
-            if(__onProjectionMatrixChangedObservable == null)
+            if (__onProjectionMatrixChangedObservable == null)
             {
-                __onProjectionMatrixChangedObservable = await EventHorizonBlazorInterop.GetClass<Observable<Camera>>(
+                __onProjectionMatrixChangedObservable = await EventHorizonBlazorInterop.GetClass<
+                    Observable<Camera>
+                >(
                     this.___guid,
                     "onProjectionMatrixChangedObservable",
                     (entity) =>
@@ -795,22 +636,26 @@ __onViewMatrixChangedObservable = null;
             }
             return __onProjectionMatrixChangedObservable;
         }
+
         public ValueTask set_onProjectionMatrixChangedObservable(Observable<Camera> value)
         {
-__onProjectionMatrixChangedObservable = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onProjectionMatrixChangedObservable",
-                    value
-                );
+            __onProjectionMatrixChangedObservable = null;
+            return EventHorizonBlazorInterop.Set(
+                this.___guid,
+                "onProjectionMatrixChangedObservable",
+                value
+            );
         }
 
         private Observable<Camera> __onAfterCheckInputsObservable;
+
         public async ValueTask<Observable<Camera>> get_onAfterCheckInputsObservable()
         {
-            if(__onAfterCheckInputsObservable == null)
+            if (__onAfterCheckInputsObservable == null)
             {
-                __onAfterCheckInputsObservable = await EventHorizonBlazorInterop.GetClass<Observable<Camera>>(
+                __onAfterCheckInputsObservable = await EventHorizonBlazorInterop.GetClass<
+                    Observable<Camera>
+                >(
                     this.___guid,
                     "onAfterCheckInputsObservable",
                     (entity) =>
@@ -821,22 +666,26 @@ __onProjectionMatrixChangedObservable = null;
             }
             return __onAfterCheckInputsObservable;
         }
+
         public ValueTask set_onAfterCheckInputsObservable(Observable<Camera> value)
         {
-__onAfterCheckInputsObservable = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onAfterCheckInputsObservable",
-                    value
-                );
+            __onAfterCheckInputsObservable = null;
+            return EventHorizonBlazorInterop.Set(
+                this.___guid,
+                "onAfterCheckInputsObservable",
+                value
+            );
         }
 
         private Observable<Camera> __onRestoreStateObservable;
+
         public async ValueTask<Observable<Camera>> get_onRestoreStateObservable()
         {
-            if(__onRestoreStateObservable == null)
+            if (__onRestoreStateObservable == null)
             {
-                __onRestoreStateObservable = await EventHorizonBlazorInterop.GetClass<Observable<Camera>>(
+                __onRestoreStateObservable = await EventHorizonBlazorInterop.GetClass<
+                    Observable<Camera>
+                >(
                     this.___guid,
                     "onRestoreStateObservable",
                     (entity) =>
@@ -847,38 +696,28 @@ __onAfterCheckInputsObservable = null;
             }
             return __onRestoreStateObservable;
         }
+
         public ValueTask set_onRestoreStateObservable(Observable<Camera> value)
         {
-__onRestoreStateObservable = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onRestoreStateObservable",
-                    value
-                );
+            __onRestoreStateObservable = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "onRestoreStateObservable", value);
         }
 
-        
         public async ValueTask<bool> get_isRigCamera()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isRigCamera"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "isRigCamera");
         }
+
         public ValueTask set_isRigCamera(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isRigCamera",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "isRigCamera", value);
         }
 
         private Camera __rigParent;
+
         public async ValueTask<Camera> get_rigParent()
         {
-            if(__rigParent == null)
+            if (__rigParent == null)
             {
                 __rigParent = await EventHorizonBlazorInterop.GetClass<Camera>(
                     this.___guid,
@@ -891,33 +730,34 @@ __onRestoreStateObservable = null;
             }
             return __rigParent;
         }
+
         public ValueTask set_rigParent(Camera value)
         {
-__rigParent = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "rigParent",
-                    value
-                );
+            __rigParent = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "rigParent", value);
         }
         #endregion
-        
-        #region Constructor
-        public Camera() : base() { }
 
-        public Camera(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        #region Constructor
+        public Camera()
+            : base() { }
+
+        public Camera(ICachedEntity entity)
+            : base(entity) { }
 
         public static async ValueTask<Camera> NewCamera(
-            string name, Vector3 position, Scene scene, System.Nullable<bool> setActiveOnSceneIfNoneActive = null
+            string name,
+            Vector3 position,
+            Scene scene,
+            System.Nullable<bool> setActiveOnSceneIfNoneActive = null
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Camera" },
-                name, position, scene, setActiveOnSceneIfNoneActive
+                name,
+                position,
+                scene,
+                setActiveOnSceneIfNoneActive
             );
 
             return new Camera(entity);
@@ -929,40 +769,28 @@ __rigParent = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "storeState" }
-                }
+                new object[] { new string[] { this.___guid, "storeState" } }
             );
         }
 
         public async ValueTask<bool> restoreState()
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "restoreState" }
-                }
+                new object[] { new string[] { this.___guid, "restoreState" } }
             );
         }
 
         public async ValueTask<string> getClassName()
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
         public async ValueTask<string> toString(System.Nullable<bool> fullDetails = null)
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "toString" }, fullDetails
-                }
+                new object[] { new string[] { this.___guid, "toString" }, fullDetails }
             );
         }
 
@@ -970,69 +798,56 @@ __rigParent = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<SmartArray<AbstractMesh>>(
                 entity => new SmartArray<AbstractMesh>() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getActiveMeshes" }
-                }
+                new object[] { new string[] { this.___guid, "getActiveMeshes" } }
             );
         }
 
         public async ValueTask<bool> isActiveMesh(Mesh mesh)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "isActiveMesh" }, mesh
-                }
+                new object[] { new string[] { this.___guid, "isActiveMesh" }, mesh }
             );
         }
 
         public async ValueTask<bool> isReady(System.Nullable<bool> completeCheck = null)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "isReady" }, completeCheck
-                }
+                new object[] { new string[] { this.___guid, "isReady" }, completeCheck }
             );
         }
 
         public async ValueTask attachControl(System.Nullable<bool> noPreventDefault = null)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "attachControl" }, noPreventDefault
-                }
+                new object[] { new string[] { this.___guid, "attachControl" }, noPreventDefault }
             );
         }
 
         public async ValueTask detachControl()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "detachControl" }
-                }
+                new object[] { new string[] { this.___guid, "detachControl" } }
             );
         }
 
         public async ValueTask update()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "update" }
-                }
+                new object[] { new string[] { this.___guid, "update" } }
             );
         }
 
-        public async ValueTask<decimal> attachPostProcess(PostProcess postProcess, System.Nullable<decimal> insertAt = null)
+        public async ValueTask<decimal> attachPostProcess(
+            PostProcess postProcess,
+            System.Nullable<decimal> insertAt = null
+        )
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "attachPostProcess" }, postProcess, insertAt
+                    new string[] { this.___guid, "attachPostProcess" },
+                    postProcess,
+                    insertAt
                 }
             );
         }
@@ -1040,10 +855,7 @@ __rigParent = null;
         public async ValueTask detachPostProcess(PostProcess postProcess)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "detachPostProcess" }, postProcess
-                }
+                new object[] { new string[] { this.___guid, "detachPostProcess" }, postProcess }
             );
         }
 
@@ -1051,10 +863,7 @@ __rigParent = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getWorldMatrix" }
-                }
+                new object[] { new string[] { this.___guid, "getWorldMatrix" } }
             );
         }
 
@@ -1062,30 +871,21 @@ __rigParent = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getViewMatrix" }, force
-                }
+                new object[] { new string[] { this.___guid, "getViewMatrix" }, force }
             );
         }
 
         public async ValueTask freezeProjectionMatrix(Matrix projection = null)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "freezeProjectionMatrix" }, projection
-                }
+                new object[] { new string[] { this.___guid, "freezeProjectionMatrix" }, projection }
             );
         }
 
         public async ValueTask unfreezeProjectionMatrix()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "unfreezeProjectionMatrix" }
-                }
+                new object[] { new string[] { this.___guid, "unfreezeProjectionMatrix" } }
             );
         }
 
@@ -1093,10 +893,7 @@ __rigParent = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getProjectionMatrix" }, force
-                }
+                new object[] { new string[] { this.___guid, "getProjectionMatrix" }, force }
             );
         }
 
@@ -1104,19 +901,21 @@ __rigParent = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getTransformationMatrix" }
-                }
+                new object[] { new string[] { this.___guid, "getTransformationMatrix" } }
             );
         }
 
-        public async ValueTask<bool> isInFrustum(ICullable target, System.Nullable<bool> checkRigCameras = null)
+        public async ValueTask<bool> isInFrustum(
+            ICullable target,
+            System.Nullable<bool> checkRigCameras = null
+        )
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "isInFrustum" }, target, checkRigCameras
+                    new string[] { this.___guid, "isInFrustum" },
+                    target,
+                    checkRigCameras
                 }
             );
         }
@@ -1124,41 +923,59 @@ __rigParent = null;
         public async ValueTask<bool> isCompletelyInFrustum(ICullable target)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "isCompletelyInFrustum" }, target
-                }
+                new object[] { new string[] { this.___guid, "isCompletelyInFrustum" }, target }
             );
         }
 
-        public async ValueTask<Ray> getForwardRay(System.Nullable<decimal> length = null, Matrix transform = null, Vector3 origin = null)
+        public async ValueTask<Ray> getForwardRay(
+            System.Nullable<decimal> length = null,
+            Matrix transform = null,
+            Vector3 origin = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Ray>(
                 entity => new Ray() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "getForwardRay" }, length, transform, origin
+                    new string[] { this.___guid, "getForwardRay" },
+                    length,
+                    transform,
+                    origin
                 }
             );
         }
 
-        public async ValueTask<Ray> getForwardRayToRef(Ray refRay, System.Nullable<decimal> length = null, Matrix transform = null, Vector3 origin = null)
+        public async ValueTask<Ray> getForwardRayToRef(
+            Ray refRay,
+            System.Nullable<decimal> length = null,
+            Matrix transform = null,
+            Vector3 origin = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Ray>(
                 entity => new Ray() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "getForwardRayToRef" }, refRay, length, transform, origin
+                    new string[] { this.___guid, "getForwardRayToRef" },
+                    refRay,
+                    length,
+                    transform,
+                    origin
                 }
             );
         }
 
-        public async ValueTask dispose(System.Nullable<bool> doNotRecurse = null, System.Nullable<bool> disposeMaterialAndTextures = null)
+        public async ValueTask dispose(
+            System.Nullable<bool> doNotRecurse = null,
+            System.Nullable<bool> disposeMaterialAndTextures = null
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "dispose" }, doNotRecurse, disposeMaterialAndTextures
+                    new string[] { this.___guid, "dispose" },
+                    doNotRecurse,
+                    disposeMaterialAndTextures
                 }
             );
         }
@@ -1167,10 +984,7 @@ __rigParent = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getLeftTarget" }
-                }
+                new object[] { new string[] { this.___guid, "getLeftTarget" } }
             );
         }
 
@@ -1178,30 +992,21 @@ __rigParent = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getRightTarget" }
-                }
+                new object[] { new string[] { this.___guid, "getRightTarget" } }
             );
         }
 
         public async ValueTask setCameraRigMode(decimal mode, object rigParams)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "setCameraRigMode" }, mode, rigParams
-                }
+                new object[] { new string[] { this.___guid, "setCameraRigMode" }, mode, rigParams }
             );
         }
 
         public async ValueTask setCameraRigParameter(string name, object value)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "setCameraRigParameter" }, name, value
-                }
+                new object[] { new string[] { this.___guid, "setCameraRigParameter" }, name, value }
             );
         }
 
@@ -1209,20 +1014,14 @@ __rigParent = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "createRigCamera" }, name, cameraIndex
-                }
+                new object[] { new string[] { this.___guid, "createRigCamera" }, name, cameraIndex }
             );
         }
 
         public async ValueTask<CachedEntity> serialize()
         {
             return await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "serialize" }
-                }
+                new object[] { new string[] { this.___guid, "serialize" } }
             );
         }
 
@@ -1230,10 +1029,7 @@ __rigParent = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "clone" }, name
-                }
+                new object[] { new string[] { this.___guid, "clone" }, name }
             );
         }
 
@@ -1241,19 +1037,18 @@ __rigParent = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getDirection" }, localAxis
-                }
+                new object[] { new string[] { this.___guid, "getDirection" }, localAxis }
             );
         }
 
         public async ValueTask getDirectionToRef(Vector3 localAxis, Vector3 result)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "getDirectionToRef" }, localAxis, result
+                    new string[] { this.___guid, "getDirectionToRef" },
+                    localAxis,
+                    result
                 }
             );
         }
@@ -1262,10 +1057,7 @@ __rigParent = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "computeWorldMatrix" }
-                }
+                new object[] { new string[] { this.___guid, "computeWorldMatrix" } }
             );
         }
         #endregion

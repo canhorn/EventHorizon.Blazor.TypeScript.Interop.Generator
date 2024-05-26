@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<PointerInfoBase>))]
     public class PointerInfoBase : CachedEntityObject
     {
@@ -32,28 +30,22 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<int> get_type()
         {
-            return await EventHorizonBlazorInterop.Get<int>(
-                    this.___guid,
-                    "type"
-                );
+            return await EventHorizonBlazorInterop.Get<int>(this.___guid, "type");
         }
+
         public ValueTask set_type(int value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "type",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "type", value);
         }
 
         private PointerEvent __event;
+
         public async ValueTask<PointerEvent> get_event()
         {
-            if(__event == null)
+            if (__event == null)
             {
                 __event = await EventHorizonBlazorInterop.GetClass<PointerEvent>(
                     this.___guid,
@@ -66,34 +58,33 @@ namespace BABYLON
             }
             return __event;
         }
+
         public ValueTask set_event(PointerEvent value)
         {
-__event = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "event",
-                    value
-                );
+            __event = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "event", value);
         }
         #endregion
-        
-        #region Constructor
-        public PointerInfoBase() : base() { } 
 
-        public PointerInfoBase(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public PointerInfoBase()
+            : base() { }
+
+        public PointerInfoBase(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
         public static async ValueTask<PointerInfoBase> NewPointerInfoBase(
-            decimal type, PointerEvent @event
+            decimal type,
+            PointerEvent @event
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "PointerInfoBase" },
-                type, @event
+                type,
+                @event
             );
 
             return new PointerInfoBase(entity);

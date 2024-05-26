@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<EffectFallbacks>))]
     public class EffectFallbacks : CachedEntityObject, IEffectFallbacks
     {
@@ -28,29 +26,23 @@ namespace BABYLON
         #endregion
 
         #region Accessors
-        
+
         public async ValueTask<bool> get_hasMoreFallbacks()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "hasMoreFallbacks"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "hasMoreFallbacks");
         }
         #endregion
 
         #region Properties
 
         #endregion
-        
+
         #region Constructor
-        public EffectFallbacks() : base() { }
+        public EffectFallbacks()
+            : base() { }
 
-        public EffectFallbacks(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public EffectFallbacks(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -58,40 +50,28 @@ namespace BABYLON
         public async ValueTask unBindMesh()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "unBindMesh" }
-                }
+                new object[] { new string[] { this.___guid, "unBindMesh" } }
             );
         }
 
         public async ValueTask addFallback(decimal rank, string define)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "addFallback" }, rank, define
-                }
+                new object[] { new string[] { this.___guid, "addFallback" }, rank, define }
             );
         }
 
         public async ValueTask addCPUSkinningFallback(decimal rank, AbstractMesh mesh)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "addCPUSkinningFallback" }, rank, mesh
-                }
+                new object[] { new string[] { this.___guid, "addCPUSkinningFallback" }, rank, mesh }
             );
         }
 
         public async ValueTask<string> reduce(string currentDefines, Effect effect)
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "reduce" }, currentDefines, effect
-                }
+                new object[] { new string[] { this.___guid, "reduce" }, currentDefines, effect }
             );
         }
         #endregion

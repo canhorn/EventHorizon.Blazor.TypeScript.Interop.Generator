@@ -28,8 +28,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
             );
 
             // Then
-            actual.AccessorStatements
-                .Should().BeEquivalentTo(
+            actual
+                .AccessorStatements.Should()
+                .BeEquivalentTo(
                     new List<AccessorStatement>
                     {
                         new AccessorStatement
@@ -64,23 +65,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                         new AccessorStatement
                         {
                             Name = "host",
-                            Type = new TypeStatement
-                            {
-                                Name = "AdvancedDynamicTexture",
-                            },
-                            UsedClassNames = new List<string>
-                            {
-                                "AdvancedDynamicTexture",
-                            },
+                            Type = new TypeStatement { Name = "AdvancedDynamicTexture", },
+                            UsedClassNames = new List<string> { "AdvancedDynamicTexture", },
                         },
                         new AccessorStatement
                         {
                             Name = "fontOffset",
-                            Type = new TypeStatement
-                            {
-                                Name = "CachedEntity",
-                                IsLiteral = true,
-                            },
+                            Type = new TypeStatement { Name = "CachedEntity", IsLiteral = true, },
                             HasSetter = true,
                         },
                         new AccessorStatement
@@ -353,17 +344,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 IsNullable = true,
                                 GenericTypes = new List<TypeStatement>
                                 {
-                                    new TypeStatement
-                                    {
-                                        Name = "Style",
-                                    }
+                                    new TypeStatement { Name = "Style", }
                                 }
                             },
                             HasSetter = true,
-                            UsedClassNames = new List<string>
-                            {
-                                "Style",
-                            },
+                            UsedClassNames = new List<string> { "Style", },
                         },
                         new AccessorStatement
                         {
@@ -374,16 +359,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 IsNullable = true,
                                 GenericTypes = new List<TypeStatement>
                                 {
-                                    new TypeStatement
-                                    {
-                                        Name = "AbstractMesh",
-                                    }
+                                    new TypeStatement { Name = "AbstractMesh", }
                                 }
                             },
-                            UsedClassNames = new List<string>
-                            {
-                                "AbstractMesh",
-                            },
+                            UsedClassNames = new List<string> { "AbstractMesh", },
                         },
                         new AccessorStatement
                         {
@@ -423,10 +402,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                         }
                     }
                 );
-            actual.ExtendedType
-                .Should().BeNull();
-            actual.PublicMethodStatements
-                .Should().BeEquivalentTo(
+            actual.ExtendedType.Should().BeNull();
+            actual
+                .PublicMethodStatements.Should()
+                .BeEquivalentTo(
                     new List<PublicMethodStatement>
                     {
                         new PublicMethodStatement
@@ -471,16 +450,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 IsNullable = true,
                                 GenericTypes = new List<TypeStatement>
                                 {
-                                    new TypeStatement
-                                    {
-                                        Name = "Control",
-                                    },
+                                    new TypeStatement { Name = "Control", },
                                 },
                             },
-                            UsedClassNames = new List<string>
-                            {
-                                "Control",
-                            },
+                            UsedClassNames = new List<string> { "Control", },
                             Arguments = new List<ArgumentStatement>
                             {
                                 new ArgumentStatement
@@ -602,16 +575,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                         IsNullable = true,
                                         GenericTypes = new List<TypeStatement>
                                         {
-                                            new TypeStatement
-                                            {
-                                                Name = "AbstractMesh",
-                                            }
+                                            new TypeStatement { Name = "AbstractMesh", }
                                         }
                                     },
-                                    UsedClassNames = new List<string>
-                                    {
-                                        "AbstractMesh",
-                                    },
+                                    UsedClassNames = new List<string> { "AbstractMesh", },
                                 },
                             },
                         },
@@ -653,16 +620,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                         IsArray = true,
                                         GenericTypes = new List<TypeStatement>
                                         {
-                                            new TypeStatement
-                                            {
-                                                Name = "Control",
-                                            },
+                                            new TypeStatement { Name = "Control", },
                                         },
                                     },
-                                    UsedClassNames = new List<string>
-                                    {
-                                        "Control",
-                                    },
+                                    UsedClassNames = new List<string> { "Control", },
                                 },
                                 new ArgumentStatement
                                 {
@@ -673,11 +634,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 new ArgumentStatement
                                 {
                                     Name = "predicate",
-                                    Type = new TypeStatement
-                                    {
-                                        Name = "action",
-                                        IsAction = true,
-                                    },
+                                    Type = new TypeStatement { Name = "action", IsAction = true, },
                                     IsOptional = true,
                                 },
                             },
@@ -691,16 +648,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 IsArray = true,
                                 GenericTypes = new List<TypeStatement>
                                 {
-                                    new TypeStatement
-                                    {
-                                        Name = "Control",
-                                    },
+                                    new TypeStatement { Name = "Control", },
                                 },
                             },
-                            UsedClassNames = new List<string>
-                            {
-                                "Control",
-                            },
+                            UsedClassNames = new List<string> { "Control", },
                             Arguments = new List<ArgumentStatement>
                             {
                                 new ArgumentStatement
@@ -712,11 +663,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 new ArgumentStatement
                                 {
                                     Name = "predicate",
-                                    Type = new TypeStatement
-                                    {
-                                        Name = "action",
-                                        IsAction = true,
-                                    },
+                                    Type = new TypeStatement { Name = "action", IsAction = true, },
                                     IsOptional = true,
                                 },
                             },
@@ -724,17 +671,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                         new PublicMethodStatement
                         {
                             Name = "AddHeader",
-                            Type = new TypeStatement
-                            {
-                                Name = "action",
-                                IsAction = true,
-                            },
+                            Type = new TypeStatement { Name = "action", IsAction = true, },
                             IsStatic = true,
                         },
                     }
                 );
-            actual.PublicPropertyStatements
-                .Should().BeEquivalentTo(
+            actual
+                .PublicPropertyStatements.Should()
+                .BeEquivalentTo(
                     new List<PublicPropertyStatement>
                     {
                         new PublicPropertyStatement
@@ -756,11 +700,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                         new PublicPropertyStatement
                         {
                             Name = "metadata",
-                            Type = new TypeStatement
-                            {
-                                Name = "CachedEntity",
-                                IsLiteral = true,
-                            },
+                            Type = new TypeStatement { Name = "CachedEntity", IsLiteral = true, },
                         },
                         new PublicPropertyStatement
                         {
@@ -805,17 +745,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 Name = "Observable",
                                 GenericTypes = new List<TypeStatement>
                                 {
-                                    new TypeStatement
-                                    {
-                                        Name = "Vector2",
-                                    },
+                                    new TypeStatement { Name = "Vector2", },
                                 },
                             },
-                            UsedClassNames = new List<string>
-                            {
-                                "Observable",
-                                "Vector2",
-                            },
+                            UsedClassNames = new List<string> { "Observable", "Vector2", },
                         },
                         new PublicPropertyStatement
                         {
@@ -825,17 +758,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 Name = "Observable",
                                 GenericTypes = new List<TypeStatement>
                                 {
-                                    new TypeStatement
-                                    {
-                                        Name = "Vector2",
-                                    },
+                                    new TypeStatement { Name = "Vector2", },
                                 },
                             },
-                            UsedClassNames = new List<string>
-                            {
-                                "Observable",
-                                "Vector2",
-                            },
+                            UsedClassNames = new List<string> { "Observable", "Vector2", },
                         },
                         new PublicPropertyStatement
                         {
@@ -845,17 +771,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 Name = "Observable",
                                 GenericTypes = new List<TypeStatement>
                                 {
-                                    new TypeStatement
-                                    {
-                                        Name = "Control",
-                                    },
+                                    new TypeStatement { Name = "Control", },
                                 },
                             },
-                            UsedClassNames = new List<string>
-                            {
-                                "Observable",
-                                "Control",
-                            },
+                            UsedClassNames = new List<string> { "Observable", "Control", },
                         },
                         new PublicPropertyStatement
                         {
@@ -865,17 +784,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 Name = "Observable",
                                 GenericTypes = new List<TypeStatement>
                                 {
-                                    new TypeStatement
-                                    {
-                                        Name = "Vector2WithInfo",
-                                    },
+                                    new TypeStatement { Name = "Vector2WithInfo", },
                                 },
                             },
-                            UsedClassNames = new List<string>
-                            {
-                                "Observable",
-                                "Vector2WithInfo",
-                            },
+                            UsedClassNames = new List<string> { "Observable", "Vector2WithInfo", },
                         },
                         new PublicPropertyStatement
                         {
@@ -885,17 +797,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 Name = "Observable",
                                 GenericTypes = new List<TypeStatement>
                                 {
-                                    new TypeStatement
-                                    {
-                                        Name = "Vector2WithInfo",
-                                    },
+                                    new TypeStatement { Name = "Vector2WithInfo", },
                                 },
                             },
-                            UsedClassNames = new List<string>
-                            {
-                                "Observable",
-                                "Vector2WithInfo",
-                            },
+                            UsedClassNames = new List<string> { "Observable", "Vector2WithInfo", },
                         },
                         new PublicPropertyStatement
                         {
@@ -905,17 +810,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 Name = "Observable",
                                 GenericTypes = new List<TypeStatement>
                                 {
-                                    new TypeStatement
-                                    {
-                                        Name = "Vector2WithInfo",
-                                    },
+                                    new TypeStatement { Name = "Vector2WithInfo", },
                                 },
                             },
-                            UsedClassNames = new List<string>
-                            {
-                                "Observable",
-                                "Vector2WithInfo",
-                            },
+                            UsedClassNames = new List<string> { "Observable", "Vector2WithInfo", },
                         },
                         new PublicPropertyStatement
                         {
@@ -925,17 +823,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 Name = "Observable",
                                 GenericTypes = new List<TypeStatement>
                                 {
-                                    new TypeStatement
-                                    {
-                                        Name = "Control",
-                                    },
+                                    new TypeStatement { Name = "Control", },
                                 },
                             },
-                            UsedClassNames = new List<string>
-                            {
-                                "Observable",
-                                "Control",
-                            },
+                            UsedClassNames = new List<string> { "Observable", "Control", },
                         },
                         new PublicPropertyStatement
                         {
@@ -945,17 +836,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 Name = "Observable",
                                 GenericTypes = new List<TypeStatement>
                                 {
-                                    new TypeStatement
-                                    {
-                                        Name = "Control",
-                                    },
+                                    new TypeStatement { Name = "Control", },
                                 },
                             },
-                            UsedClassNames = new List<string>
-                            {
-                                "Observable",
-                                "Control",
-                            },
+                            UsedClassNames = new List<string> { "Observable", "Control", },
                         },
                         new PublicPropertyStatement
                         {
@@ -965,17 +849,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 Name = "Observable",
                                 GenericTypes = new List<TypeStatement>
                                 {
-                                    new TypeStatement
-                                    {
-                                        Name = "Control",
-                                    },
+                                    new TypeStatement { Name = "Control", },
                                 },
                             },
-                            UsedClassNames = new List<string>
-                            {
-                                "Observable",
-                                "Control",
-                            },
+                            UsedClassNames = new List<string> { "Observable", "Control", },
                         },
                         new PublicPropertyStatement
                         {
@@ -985,17 +862,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 Name = "Observable",
                                 GenericTypes = new List<TypeStatement>
                                 {
-                                    new TypeStatement
-                                    {
-                                        Name = "Control",
-                                    },
+                                    new TypeStatement { Name = "Control", },
                                 },
                             },
-                            UsedClassNames = new List<string>
-                            {
-                                "Observable",
-                                "Control",
-                            },
+                            UsedClassNames = new List<string> { "Observable", "Control", },
                         },
                         new PublicPropertyStatement
                         {
@@ -1006,16 +876,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 IsNullable = true,
                                 GenericTypes = new List<TypeStatement>
                                 {
-                                    new TypeStatement
-                                    {
-                                        Name = "Container",
-                                    },
+                                    new TypeStatement { Name = "Container", },
                                 },
                             },
-                            UsedClassNames = new List<string>
-                            {
-                                "Container",
-                            },
+                            UsedClassNames = new List<string> { "Container", },
                         }
                     }
                 );

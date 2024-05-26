@@ -10,10 +10,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model
         public ClassStatement ClassStatement { get; }
         public string GeneratedString { get; }
 
-        public GeneratedStatement(
-            ClassStatement classStatement,
-            string generatedString
-        )
+        public GeneratedStatement(ClassStatement classStatement, string generatedString)
         {
             ClassStatement = classStatement;
             GeneratedString = generatedString;

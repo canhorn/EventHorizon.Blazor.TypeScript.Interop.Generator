@@ -30,14 +30,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
             // When
             var notCachedInterfaceIdentifier = new InterfaceResponseTypeIdentifierNotCached();
-            var actual = notCachedInterfaceIdentifier.Identify(
-                interfaceIdentifierString,
-                ast
-            );
+            var actual = notCachedInterfaceIdentifier.Identify(interfaceIdentifierString, ast);
 
             // Then
-            actual.Should()
-                .Be(expected);
+            actual.Should().Be(expected);
         }
 
         [Fact]
@@ -55,14 +51,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
             // When
             var cachedInterfaceIdentifier = new InterfaceResponseTypeIdentifierCached();
-            var actual = cachedInterfaceIdentifier.Identify(
-                interfaceIdentifierString,
-                ast
-            );
+            var actual = cachedInterfaceIdentifier.Identify(interfaceIdentifierString, ast);
 
             // Then
-            actual.Should()
-                .Be(expected);
+            actual.Should().Be(expected);
         }
 
         [Fact]
@@ -80,17 +72,15 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
             // When
             var cachedInterfaceIdentifier = new InterfaceResponseTypeIdentifierCached();
             // First Identify
-            cachedInterfaceIdentifier.Identify(
-                interfaceIdentifierString,
-                ast
-            ).Should() // Then
+            cachedInterfaceIdentifier
+                .Identify(interfaceIdentifierString, ast)
+                .Should() // Then
                 .BeTrue();
 
             // Second Identify
-            cachedInterfaceIdentifier.Identify(
-                interfaceIdentifierString,
-                ast
-            ).Should() // Then
+            cachedInterfaceIdentifier
+                .Identify(interfaceIdentifierString, ast)
+                .Should() // Then
                 .BeTrue();
         }
 
@@ -118,13 +108,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
                 IsModifier = isModifier,
                 IsArray = isArray,
                 IsNullable = isNullable,
-                GenericTypes = new List<TypeStatement>
-                {
-                    new TypeStatement
-                    {
-                        Name = genericName
-                    }
-                }
+                GenericTypes = new List<TypeStatement> { new TypeStatement { Name = genericName } }
             };
 
             var sourceFile = "interface.ts";
@@ -133,14 +117,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
             // When
             var cachedInterfaceIdentifier = new InterfaceResponseTypeIdentifierCached();
-            var actual = cachedInterfaceIdentifier.Identify(
-                type,
-                ast
-            );
+            var actual = cachedInterfaceIdentifier.Identify(type, ast);
 
             // Then
-            actual.Should()
-                .Be(expected);
+            actual.Should().Be(expected);
         }
 
         [Theory]
@@ -167,13 +147,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
                 IsModifier = isModifier,
                 IsArray = isArray,
                 IsNullable = isNullable,
-                GenericTypes = new List<TypeStatement>
-                {
-                    new TypeStatement
-                    {
-                        Name = genericName
-                    }
-                }
+                GenericTypes = new List<TypeStatement> { new TypeStatement { Name = genericName } }
             };
 
             var sourceFile = "interface.ts";
@@ -182,16 +156,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
             // When
             var cachedInterfaceIdentifier = new InterfaceResponseTypeIdentifierNotCached();
-            var actual = cachedInterfaceIdentifier.Identify(
-                type,
-                ast
-            );
+            var actual = cachedInterfaceIdentifier.Identify(type, ast);
 
             // Then
-            actual.Should()
-                .Be(expected);
+            actual.Should().Be(expected);
         }
-
 
         [Fact]
         [Trait("Category", "InterfaceResponseTypeIdentifier.NotCached.StandardUsage")]
@@ -208,14 +177,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
             // When
             var notCachedInterfaceIdentifier = new InterfaceResponseTypeIdentifierNotCached();
-            var actual = notCachedInterfaceIdentifier.Identify(
-                interfaceIdentifierString,
-                ast
-            );
+            var actual = notCachedInterfaceIdentifier.Identify(interfaceIdentifierString, ast);
 
             // Then
-            actual.Should()
-                .Be(expected);
+            actual.Should().Be(expected);
         }
 
         [Fact]
@@ -233,14 +198,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
             // When
             var cachedInterfaceIdentifier = new InterfaceResponseTypeIdentifierCached();
-            var actual = cachedInterfaceIdentifier.Identify(
-                interfaceIdentifierString,
-                ast
-            );
+            var actual = cachedInterfaceIdentifier.Identify(interfaceIdentifierString, ast);
 
             // Then
-            actual.Should()
-                .Be(expected);
+            actual.Should().Be(expected);
         }
 
         [Fact]
@@ -258,17 +219,15 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
             // When
             var cachedInterfaceIdentifier = new InterfaceResponseTypeIdentifierCached();
             // First Identify
-            cachedInterfaceIdentifier.Identify(
-                interfaceIdentifierString,
-                ast
-            ).Should() // Then
+            cachedInterfaceIdentifier
+                .Identify(interfaceIdentifierString, ast)
+                .Should() // Then
                 .BeTrue();
 
             // Second Identify
-            cachedInterfaceIdentifier.Identify(
-                interfaceIdentifierString,
-                ast
-            ).Should() // Then
+            cachedInterfaceIdentifier
+                .Identify(interfaceIdentifierString, ast)
+                .Should() // Then
                 .BeTrue();
         }
 
@@ -296,13 +255,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
                 IsModifier = isModifier,
                 IsArray = isArray,
                 IsNullable = isNullable,
-                GenericTypes = new List<TypeStatement>
-                {
-                    new TypeStatement
-                    {
-                        Name = genericName
-                    }
-                }
+                GenericTypes = new List<TypeStatement> { new TypeStatement { Name = genericName } }
             };
 
             var sourceFile = "interface.ts";
@@ -311,14 +264,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
             // When
             var cachedInterfaceIdentifier = new InterfaceResponseTypeIdentifierCached();
-            var actual = cachedInterfaceIdentifier.Identify(
-                type,
-                ast
-            );
+            var actual = cachedInterfaceIdentifier.Identify(type, ast);
 
             // Then
-            actual.Should()
-                .Be(expected);
+            actual.Should().Be(expected);
         }
 
         [Theory]
@@ -345,13 +294,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
                 IsModifier = isModifier,
                 IsArray = isArray,
                 IsNullable = isNullable,
-                GenericTypes = new List<TypeStatement>
-                {
-                    new TypeStatement
-                    {
-                        Name = genericName
-                    }
-                }
+                GenericTypes = new List<TypeStatement> { new TypeStatement { Name = genericName } }
             };
 
             var sourceFile = "interface.ts";
@@ -360,14 +303,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
             // When
             var cachedInterfaceIdentifier = new InterfaceResponseTypeIdentifierNotCached();
-            var actual = cachedInterfaceIdentifier.Identify(
-                type,
-                ast
-            );
+            var actual = cachedInterfaceIdentifier.Identify(type, ast);
 
             // Then
-            actual.Should()
-                .Be(expected);
+            actual.Should().Be(expected);
         }
 
         [Theory]
@@ -382,53 +321,28 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
             // Given
             var expected = 1;
             var identifierString = "identifier-string";
-            var mockNode = new NodeMock
-            {
-                IdentifierStr = identifierString,
-            };
+            var mockNode = new NodeMock { IdentifierStr = identifierString, };
 
             var astMock = new Mock<AbstractSyntaxTree>();
             var rootNodeMock = new Mock<Node>();
 
-            astMock.Setup(
-                mock => mock.RootNode
-            ).Returns(
-                rootNodeMock.Object
-            );
+            astMock.Setup(mock => mock.RootNode).Returns(rootNodeMock.Object);
 
-            rootNodeMock.Setup(
-                mock => mock.OfKind(
-                    declarationType
-                )
-            ).Returns(
-                new List<Node>
-                {
-                    mockNode
-                }
-            );
+            rootNodeMock
+                .Setup(mock => mock.OfKind(declarationType))
+                .Returns(new List<Node> { mockNode });
 
             // When
             var alias = new InterfaceResponseTypeIdentifierCached();
-            var actual = alias.Identify(
-                identifierString,
-                astMock.Object
-            );
+            var actual = alias.Identify(identifierString, astMock.Object);
             actual.Should().Be(found);
 
-            actual = alias.Identify(
-                identifierString,
-                astMock.Object
-            );
+            actual = alias.Identify(identifierString, astMock.Object);
 
             // Then
             actual.Should().Be(found);
 
-            rootNodeMock.Verify(
-                mock => mock.OfKind(
-                    declarationType
-                ),
-                Times.Exactly(expected)
-            );
+            rootNodeMock.Verify(mock => mock.OfKind(declarationType), Times.Exactly(expected));
         }
     }
 }

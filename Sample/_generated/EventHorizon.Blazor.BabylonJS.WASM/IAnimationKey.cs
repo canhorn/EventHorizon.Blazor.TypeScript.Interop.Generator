@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IAnimationKey : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IAnimationKeyCachedEntity>))]
     public class IAnimationKeyCachedEntity : CachedEntityObject, IAnimationKey
     {
@@ -32,33 +32,22 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public decimal frame
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "frame"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "frame"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "frame",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "frame", value);
             }
         }
 
-        
         public CachedEntity value
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "value",
                     (entity) =>
@@ -70,20 +59,15 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "value",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "value", value);
             }
         }
 
-        
         public CachedEntity inTangent
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "inTangent",
                     (entity) =>
@@ -95,20 +79,15 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "inTangent",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "inTangent", value);
             }
         }
 
-        
         public CachedEntity outTangent
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "outTangent",
                     (entity) =>
@@ -120,45 +99,27 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "outTangent",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "outTangent", value);
             }
         }
 
-        
         public int interpolation
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<int>(
-                    this.___guid,
-                    "interpolation"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<int>(this.___guid, "interpolation"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "interpolation",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "interpolation", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IAnimationKeyCachedEntity() : base() { }
+        public IAnimationKeyCachedEntity()
+            : base() { }
 
-        public IAnimationKeyCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IAnimationKeyCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

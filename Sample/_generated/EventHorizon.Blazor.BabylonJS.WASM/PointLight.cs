@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<PointLight>))]
     public class PointLight : ShadowLight
     {
@@ -28,24 +26,14 @@ namespace BABYLON
         #endregion
 
         #region Accessors
-        
+
         public decimal shadowAngle
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "shadowAngle"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "shadowAngle"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "shadowAngle",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "shadowAngle", value);
             }
         }
 
@@ -54,27 +42,23 @@ namespace BABYLON
         {
             get
             {
-            if(__direction == null)
-            {
-                __direction = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "direction",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __direction;
+                if (__direction == null)
+                {
+                    __direction = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "direction",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __direction;
             }
             set
             {
-__direction = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "direction",
-                    value
-                );
+                __direction = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "direction", value);
             }
         }
         #endregion
@@ -82,23 +66,22 @@ __direction = null;
         #region Properties
 
         #endregion
-        
+
         #region Constructor
-        public PointLight() : base() { }
+        public PointLight()
+            : base() { }
 
-        public PointLight(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public PointLight(ICachedEntity entity)
+            : base(entity) { }
 
-        public PointLight(
-            string name, Vector3 position, Scene scene
-        ) : base()
+        public PointLight(string name, Vector3 position, Scene scene)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "PointLight" },
-                name, position, scene
+                name,
+                position,
+                scene
             );
             ___guid = entity.___guid;
         }
@@ -108,30 +91,21 @@ __direction = null;
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
         public decimal getTypeID()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getTypeID" }
-                }
+                new object[] { new string[] { this.___guid, "getTypeID" } }
             );
         }
 
         public bool needCube()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "needCube" }
-                }
+                new object[] { new string[] { this.___guid, "needCube" } }
             );
         }
 
@@ -139,10 +113,7 @@ __direction = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getShadowDirection" }, faceIndex
-                }
+                new object[] { new string[] { this.___guid, "getShadowDirection" }, faceIndex }
             );
         }
 
@@ -152,7 +123,9 @@ __direction = null;
                 entity => new PointLight() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "transferToEffect" }, effect, lightIndex
+                    new string[] { this.___guid, "transferToEffect" },
+                    effect,
+                    lightIndex
                 }
             );
         }
@@ -163,7 +136,9 @@ __direction = null;
                 entity => new PointLight() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "transferToNodeMaterialEffect" }, effect, lightDataUniformName
+                    new string[] { this.___guid, "transferToNodeMaterialEffect" },
+                    effect,
+                    lightDataUniformName
                 }
             );
         }
@@ -173,7 +148,9 @@ __direction = null;
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "prepareLightSpecificDefines" }, defines, lightIndex
+                    new string[] { this.___guid, "prepareLightSpecificDefines" },
+                    defines,
+                    lightIndex
                 }
             );
         }

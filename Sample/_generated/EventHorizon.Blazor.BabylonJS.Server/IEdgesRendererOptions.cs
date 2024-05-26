@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IEdgesRendererOptions : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IEdgesRendererOptionsCachedEntity>))]
     public class IEdgesRendererOptionsCachedEntity : CachedEntityObject, IEdgesRendererOptions
     {
@@ -32,106 +32,70 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<bool> get_useAlternateEdgeFinder()
         {
             return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "useAlternateEdgeFinder"
-                );
+                this.___guid,
+                "useAlternateEdgeFinder"
+            );
         }
+
         public ValueTask set_useAlternateEdgeFinder(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "useAlternateEdgeFinder",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "useAlternateEdgeFinder", value);
         }
 
-        
         public async ValueTask<bool> get_useFastVertexMerger()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "useFastVertexMerger"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "useFastVertexMerger");
         }
+
         public ValueTask set_useFastVertexMerger(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "useFastVertexMerger",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "useFastVertexMerger", value);
         }
 
-        
         public async ValueTask<decimal> get_epsilonVertexMerge()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "epsilonVertexMerge"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "epsilonVertexMerge");
         }
+
         public ValueTask set_epsilonVertexMerge(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "epsilonVertexMerge",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "epsilonVertexMerge", value);
         }
 
-        
         public async ValueTask<bool> get_applyTessellation()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "applyTessellation"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "applyTessellation");
         }
+
         public ValueTask set_applyTessellation(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "applyTessellation",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "applyTessellation", value);
         }
 
-        
         public async ValueTask<decimal> get_epsilonVertexAligned()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "epsilonVertexAligned"
-                );
+                this.___guid,
+                "epsilonVertexAligned"
+            );
         }
+
         public ValueTask set_epsilonVertexAligned(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "epsilonVertexAligned",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "epsilonVertexAligned", value);
         }
         #endregion
-        
+
         #region Constructor
-        public IEdgesRendererOptionsCachedEntity() : base() { }
+        public IEdgesRendererOptionsCachedEntity()
+            : base() { }
 
-        public IEdgesRendererOptionsCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IEdgesRendererOptionsCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

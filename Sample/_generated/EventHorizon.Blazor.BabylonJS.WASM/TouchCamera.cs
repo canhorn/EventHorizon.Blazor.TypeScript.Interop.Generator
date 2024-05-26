@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<TouchCamera>))]
     public class TouchCamera : FreeCamera
     {
@@ -28,12 +26,12 @@ namespace BABYLON
         #endregion
 
         #region Accessors
-        
+
         public decimal touchAngularSensibility
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "touchAngularSensibility"
                 );
@@ -41,32 +39,20 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "touchAngularSensibility",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "touchAngularSensibility", value);
             }
         }
 
-        
         public decimal touchMoveSensibility
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "touchMoveSensibility"
-                );
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "touchMoveSensibility");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "touchMoveSensibility",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "touchMoveSensibility", value);
             }
         }
         #endregion
@@ -74,23 +60,22 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
+
         #region Constructor
-        public TouchCamera() : base() { }
+        public TouchCamera()
+            : base() { }
 
-        public TouchCamera(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public TouchCamera(ICachedEntity entity)
+            : base(entity) { }
 
-        public TouchCamera(
-            string name, Vector3 position, Scene scene
-        ) : base()
+        public TouchCamera(string name, Vector3 position, Scene scene)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "TouchCamera" },
-                name, position, scene
+                name,
+                position,
+                scene
             );
             ___guid = entity.___guid;
         }
@@ -100,10 +85,7 @@ namespace BABYLON
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
         #endregion

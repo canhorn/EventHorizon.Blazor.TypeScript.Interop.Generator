@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface EngineCapabilities : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<EngineCapabilitiesCachedEntity>))]
     public class EngineCapabilitiesCachedEntity : CachedEntityObject, EngineCapabilities
     {
@@ -32,12 +32,12 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public decimal maxTexturesImageUnits
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxTexturesImageUnits"
                 );
@@ -45,20 +45,15 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "maxTexturesImageUnits",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "maxTexturesImageUnits", value);
             }
         }
 
-        
         public decimal maxVertexTextureImageUnits
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxVertexTextureImageUnits"
                 );
@@ -66,20 +61,15 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "maxVertexTextureImageUnits",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "maxVertexTextureImageUnits", value);
             }
         }
 
-        
         public decimal maxCombinedTexturesImageUnits
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxCombinedTexturesImageUnits"
                 );
@@ -87,62 +77,35 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "maxCombinedTexturesImageUnits",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "maxCombinedTexturesImageUnits", value);
             }
         }
 
-        
         public decimal maxTextureSize
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "maxTextureSize"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "maxTextureSize"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "maxTextureSize",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "maxTextureSize", value);
             }
         }
 
-        
         public decimal maxSamples
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "maxSamples"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "maxSamples"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "maxSamples",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "maxSamples", value);
             }
         }
 
-        
         public decimal maxCubemapTextureSize
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxCubemapTextureSize"
                 );
@@ -150,83 +113,51 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "maxCubemapTextureSize",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "maxCubemapTextureSize", value);
             }
         }
 
-        
         public decimal maxRenderTextureSize
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "maxRenderTextureSize"
-                );
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "maxRenderTextureSize");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "maxRenderTextureSize",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "maxRenderTextureSize", value);
             }
         }
 
-        
         public decimal maxVertexAttribs
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "maxVertexAttribs"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "maxVertexAttribs"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "maxVertexAttribs",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "maxVertexAttribs", value);
             }
         }
 
-        
         public decimal maxVaryingVectors
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "maxVaryingVectors"
-                );
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "maxVaryingVectors");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "maxVaryingVectors",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "maxVaryingVectors", value);
             }
         }
 
-        
         public decimal maxVertexUniformVectors
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxVertexUniformVectors"
                 );
@@ -234,20 +165,15 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "maxVertexUniformVectors",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "maxVertexUniformVectors", value);
             }
         }
 
-        
         public decimal maxFragmentUniformVectors
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "maxFragmentUniformVectors"
                 );
@@ -255,32 +181,17 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "maxFragmentUniformVectors",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "maxFragmentUniformVectors", value);
             }
         }
 
-        
         public bool standardDerivatives
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "standardDerivatives"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "standardDerivatives"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "standardDerivatives",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "standardDerivatives", value);
             }
         }
 
@@ -289,36 +200,31 @@ namespace BABYLON
         {
             get
             {
-            if(__s3tc == null)
-            {
-                __s3tc = EventHorizonBlazorInterop.GetClass<WEBGL_compressed_texture_s3tc>(
-                    this.___guid,
-                    "s3tc",
-                    (entity) =>
-                    {
-                        return new WEBGL_compressed_texture_s3tc() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __s3tc;
+                if (__s3tc == null)
+                {
+                    __s3tc = EventHorizonBlazorInterop.GetClass<WEBGL_compressed_texture_s3tc>(
+                        this.___guid,
+                        "s3tc",
+                        (entity) =>
+                        {
+                            return new WEBGL_compressed_texture_s3tc() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __s3tc;
             }
             set
             {
-__s3tc = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "s3tc",
-                    value
-                );
+                __s3tc = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "s3tc", value);
             }
         }
 
-        
         public CachedEntity pvrtc
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "pvrtc",
                     (entity) =>
@@ -330,20 +236,15 @@ __s3tc = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "pvrtc",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "pvrtc", value);
             }
         }
 
-        
         public CachedEntity etc1
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "etc1",
                     (entity) =>
@@ -355,20 +256,15 @@ __s3tc = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "etc1",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "etc1", value);
             }
         }
 
-        
         public CachedEntity etc2
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "etc2",
                     (entity) =>
@@ -380,20 +276,15 @@ __s3tc = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "etc2",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "etc2", value);
             }
         }
 
-        
         public CachedEntity astc
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "astc",
                     (entity) =>
@@ -405,20 +296,15 @@ __s3tc = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "astc",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "astc", value);
             }
         }
 
-        
         public CachedEntity bptc
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "bptc",
                     (entity) =>
@@ -430,53 +316,27 @@ __s3tc = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "bptc",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "bptc", value);
             }
         }
 
-        
         public bool textureFloat
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "textureFloat"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "textureFloat"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "textureFloat",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "textureFloat", value);
             }
         }
 
-        
         public bool vertexArrayObject
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "vertexArrayObject"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "vertexArrayObject"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "vertexArrayObject",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "vertexArrayObject", value);
             }
         }
 
@@ -485,22 +345,26 @@ __s3tc = null;
         {
             get
             {
-            if(__textureAnisotropicFilterExtension == null)
-            {
-                __textureAnisotropicFilterExtension = EventHorizonBlazorInterop.GetClass<EXT_texture_filter_anisotropic>(
-                    this.___guid,
-                    "textureAnisotropicFilterExtension",
-                    (entity) =>
-                    {
-                        return new EXT_texture_filter_anisotropic() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __textureAnisotropicFilterExtension;
+                if (__textureAnisotropicFilterExtension == null)
+                {
+                    __textureAnisotropicFilterExtension =
+                        EventHorizonBlazorInterop.GetClass<EXT_texture_filter_anisotropic>(
+                            this.___guid,
+                            "textureAnisotropicFilterExtension",
+                            (entity) =>
+                            {
+                                return new EXT_texture_filter_anisotropic()
+                                {
+                                    ___guid = entity.___guid
+                                };
+                            }
+                        );
+                }
+                return __textureAnisotropicFilterExtension;
             }
             set
             {
-__textureAnisotropicFilterExtension = null;
+                __textureAnisotropicFilterExtension = null;
                 EventHorizonBlazorInterop.Set(
                     this.___guid,
                     "textureAnisotropicFilterExtension",
@@ -509,75 +373,41 @@ __textureAnisotropicFilterExtension = null;
             }
         }
 
-        
         public decimal maxAnisotropy
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "maxAnisotropy"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "maxAnisotropy"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "maxAnisotropy",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "maxAnisotropy", value);
             }
         }
 
-        
         public bool instancedArrays
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "instancedArrays"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "instancedArrays"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "instancedArrays",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "instancedArrays", value);
             }
         }
 
-        
         public bool uintIndices
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "uintIndices"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "uintIndices"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "uintIndices",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "uintIndices", value);
             }
         }
 
-        
         public bool highPrecisionShaderSupported
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
+                return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "highPrecisionShaderSupported"
                 );
@@ -585,41 +415,28 @@ __textureAnisotropicFilterExtension = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "highPrecisionShaderSupported",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "highPrecisionShaderSupported", value);
             }
         }
 
-        
         public bool fragmentDepthSupported
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "fragmentDepthSupported"
-                );
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "fragmentDepthSupported");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "fragmentDepthSupported",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "fragmentDepthSupported", value);
             }
         }
 
-        
         public bool textureFloatLinearFiltering
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
+                return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "textureFloatLinearFiltering"
                 );
@@ -627,62 +444,35 @@ __textureAnisotropicFilterExtension = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "textureFloatLinearFiltering",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "textureFloatLinearFiltering", value);
             }
         }
 
-        
         public bool textureFloatRender
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "textureFloatRender"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "textureFloatRender"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "textureFloatRender",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "textureFloatRender", value);
             }
         }
 
-        
         public bool textureHalfFloat
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "textureHalfFloat"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "textureHalfFloat"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "textureHalfFloat",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "textureHalfFloat", value);
             }
         }
 
-        
         public bool textureHalfFloatLinearFiltering
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
+                return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "textureHalfFloatLinearFiltering"
                 );
@@ -698,108 +488,62 @@ __textureAnisotropicFilterExtension = null;
             }
         }
 
-        
         public bool textureHalfFloatRender
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "textureHalfFloatRender"
-                );
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "textureHalfFloatRender");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "textureHalfFloatRender",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "textureHalfFloatRender", value);
             }
         }
 
-        
         public bool textureLOD
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "textureLOD"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "textureLOD"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "textureLOD",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "textureLOD", value);
             }
         }
 
-        
         public bool drawBuffersExtension
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "drawBuffersExtension"
-                );
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "drawBuffersExtension");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "drawBuffersExtension",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "drawBuffersExtension", value);
             }
         }
 
-        
         public bool depthTextureExtension
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "depthTextureExtension"
-                );
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "depthTextureExtension");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "depthTextureExtension",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "depthTextureExtension", value);
             }
         }
 
-        
         public bool colorBufferFloat
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "colorBufferFloat"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "colorBufferFloat"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "colorBufferFloat",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "colorBufferFloat", value);
             }
         }
 
@@ -808,36 +552,35 @@ __textureAnisotropicFilterExtension = null;
         {
             get
             {
-            if(__timerQuery == null)
-            {
-                __timerQuery = EventHorizonBlazorInterop.GetClass<EXT_disjoint_timer_queryCachedEntity>(
-                    this.___guid,
-                    "timerQuery",
-                    (entity) =>
-                    {
-                        return new EXT_disjoint_timer_queryCachedEntity() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __timerQuery;
+                if (__timerQuery == null)
+                {
+                    __timerQuery =
+                        EventHorizonBlazorInterop.GetClass<EXT_disjoint_timer_queryCachedEntity>(
+                            this.___guid,
+                            "timerQuery",
+                            (entity) =>
+                            {
+                                return new EXT_disjoint_timer_queryCachedEntity()
+                                {
+                                    ___guid = entity.___guid
+                                };
+                            }
+                        );
+                }
+                return __timerQuery;
             }
             set
             {
-__timerQuery = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "timerQuery",
-                    value
-                );
+                __timerQuery = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "timerQuery", value);
             }
         }
 
-        
         public bool canUseTimestampForTimerQuery
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
+                return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "canUseTimestampForTimerQuery"
                 );
@@ -845,20 +588,15 @@ __timerQuery = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "canUseTimestampForTimerQuery",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "canUseTimestampForTimerQuery", value);
             }
         }
 
-        
         public CachedEntity multiview
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "multiview",
                     (entity) =>
@@ -870,20 +608,15 @@ __timerQuery = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "multiview",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "multiview", value);
             }
         }
 
-        
         public CachedEntity oculusMultiview
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "oculusMultiview",
                     (entity) =>
@@ -895,20 +628,15 @@ __timerQuery = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "oculusMultiview",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "oculusMultiview", value);
             }
         }
 
-        
         public CachedEntity parallelShaderCompile
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "parallelShaderCompile",
                     (entity) =>
@@ -920,66 +648,37 @@ __timerQuery = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "parallelShaderCompile",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "parallelShaderCompile", value);
             }
         }
 
-        
         public decimal maxMSAASamples
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "maxMSAASamples"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "maxMSAASamples"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "maxMSAASamples",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "maxMSAASamples", value);
             }
         }
 
-        
         public bool blendMinMax
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "blendMinMax"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "blendMinMax"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "blendMinMax",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "blendMinMax", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public EngineCapabilitiesCachedEntity() : base() { }
+        public EngineCapabilitiesCachedEntity()
+            : base() { }
 
-        public EngineCapabilitiesCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public EngineCapabilitiesCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

@@ -20,8 +20,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         )
         {
             var methodTypeParameters = TypeParameterIdentifier.Identify(node);
-            var parameters = node.Children
-                .Where(childNode => childNode.Kind == SyntaxKind.Parameter)
+            var parameters = node
+                .Children.Where(childNode => childNode.Kind == SyntaxKind.Parameter)
                 .Select(parameter =>
                 {
                     var type = GenericTypeIdentifier.Identify(
@@ -30,13 +30,15 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                         ast,
                         typeOverrideDetails
                     );
-                    if (UnionTypeIdentifier.Identify(
-                        parameter,
-                        classMetadata,
-                        ast,
-                        typeOverrideDetails,
-                        out var unionType
-                    ))
+                    if (
+                        UnionTypeIdentifier.Identify(
+                            parameter,
+                            classMetadata,
+                            ast,
+                            typeOverrideDetails,
+                            out var unionType
+                        )
+                    )
                     {
                         type = unionType;
                     }
@@ -55,17 +57,19 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     {
                         methodOrConstructorName = Constants.TYPESCRIPT_CONSTRUCTOR_NAME;
                     }
-                    if (TypeOverrideIdentifier.Identify(
-                        TypeOverrideDeclarationIdentifier.IdentifyArgument(
-                            classMetadata,
-                            typeOverrideDetails.IsStatic,
-                            methodOrConstructorName,
-                            name
-                        ),
-                        typeOverrideDetails.TypeOverrideMap,
-                        type,
-                        out var overrideType
-                    ))
+                    if (
+                        TypeOverrideIdentifier.Identify(
+                            TypeOverrideDeclarationIdentifier.IdentifyArgument(
+                                classMetadata,
+                                typeOverrideDetails.IsStatic,
+                                methodOrConstructorName,
+                                name
+                            ),
+                            typeOverrideDetails.TypeOverrideMap,
+                            type,
+                            out var overrideType
+                        )
+                    )
                     {
                         type = overrideType;
                     }
@@ -74,14 +78,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                     {
                         Name = parameter.IdentifierStr,
                         Type = type,
-                        IsOptional = IsOptionalRule.Check(
-                            parameter
-                        ),
-                        UsedClassNames = UsedClassNamesIdentifier.Identify(
-                            type
-                        ),
+                        IsOptional = IsOptionalRule.Check(parameter),
+                        UsedClassNames = UsedClassNamesIdentifier.Identify(type),
                     };
-                }).ToList();
+                })
+                .ToList();
 
             return parameters;
         }

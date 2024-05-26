@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<BouncingBehavior>))]
     public class BouncingBehavior : CachedEntityObject, Behavior<ArcRotateCamera>
     {
@@ -25,36 +23,31 @@ namespace BABYLON
         {
             get
             {
-            if(__EasingFunction == null)
-            {
-                __EasingFunction = EventHorizonBlazorInterop.GetClass<BackEase>(
-                    "BABYLON",
-                    "BouncingBehavior.EasingFunction",
-                    (entity) =>
-                    {
-                        return new BackEase() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __EasingFunction;
+                if (__EasingFunction == null)
+                {
+                    __EasingFunction = EventHorizonBlazorInterop.GetClass<BackEase>(
+                        "BABYLON",
+                        "BouncingBehavior.EasingFunction",
+                        (entity) =>
+                        {
+                            return new BackEase() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __EasingFunction;
             }
             set
             {
-__EasingFunction = null;
-                EventHorizonBlazorInterop.Set(
-                    "BABYLON",
-                    "BouncingBehavior.EasingFunction",
-                    value
-                );
+                __EasingFunction = null;
+                EventHorizonBlazorInterop.Set("BABYLON", "BouncingBehavior.EasingFunction", value);
             }
         }
 
-        
         public static decimal EasingMode
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "BouncingBehavior.EasingMode"
                 );
@@ -62,11 +55,7 @@ __EasingFunction = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    "BABYLON",
-                    "BouncingBehavior.EasingMode",
-                    value
-                );
+                EventHorizonBlazorInterop.Set("BABYLON", "BouncingBehavior.EasingMode", value);
             }
         }
         #endregion
@@ -76,68 +65,43 @@ __EasingFunction = null;
         #endregion
 
         #region Accessors
-        
+
         public string name
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "name"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "name"); }
         }
 
-        
         public bool autoTransitionRange
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "autoTransitionRange"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "autoTransitionRange"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "autoTransitionRange",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "autoTransitionRange", value);
             }
         }
         #endregion
 
         #region Properties
-        
+
         public decimal transitionDuration
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "transitionDuration"
-                );
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "transitionDuration");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "transitionDuration",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "transitionDuration", value);
             }
         }
 
-        
         public decimal lowerRadiusTransitionRange
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "lowerRadiusTransitionRange"
                 );
@@ -145,20 +109,15 @@ __EasingFunction = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "lowerRadiusTransitionRange",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "lowerRadiusTransitionRange", value);
             }
         }
 
-        
         public decimal upperRadiusTransitionRange
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "upperRadiusTransitionRange"
                 );
@@ -166,24 +125,17 @@ __EasingFunction = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "upperRadiusTransitionRange",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "upperRadiusTransitionRange", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public BouncingBehavior() : base() { }
+        public BouncingBehavior()
+            : base() { }
 
-        public BouncingBehavior(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public BouncingBehavior(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -191,40 +143,28 @@ __EasingFunction = null;
         public void init()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "init" }
-                }
+                new object[] { new string[] { this.___guid, "init" } }
             );
         }
 
         public void attach(ArcRotateCamera camera)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "attach" }, camera
-                }
+                new object[] { new string[] { this.___guid, "attach" }, camera }
             );
         }
 
         public void detach()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "detach" }
-                }
+                new object[] { new string[] { this.___guid, "detach" } }
             );
         }
 
         public void stopAllAnimations()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "stopAllAnimations" }
-                }
+                new object[] { new string[] { this.___guid, "stopAllAnimations" } }
             );
         }
         #endregion

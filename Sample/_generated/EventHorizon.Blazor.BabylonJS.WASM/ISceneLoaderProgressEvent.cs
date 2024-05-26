@@ -11,9 +11,11 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface ISceneLoaderProgressEvent : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<ISceneLoaderProgressEventCachedEntity>))]
-    public class ISceneLoaderProgressEventCachedEntity : CachedEntityObject, ISceneLoaderProgressEvent
+    public class ISceneLoaderProgressEventCachedEntity
+        : CachedEntityObject,
+            ISceneLoaderProgressEvent
     {
         #region Static Accessors
 
@@ -32,52 +34,29 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public bool lengthComputable
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "lengthComputable"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "lengthComputable"); }
         }
 
-        
         public decimal loaded
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "loaded"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "loaded"); }
         }
 
-        
         public decimal total
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "total"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "total"); }
         }
         #endregion
-        
+
         #region Constructor
-        public ISceneLoaderProgressEventCachedEntity() : base() { }
+        public ISceneLoaderProgressEventCachedEntity()
+            : base() { }
 
-        public ISceneLoaderProgressEventCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public ISceneLoaderProgressEventCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

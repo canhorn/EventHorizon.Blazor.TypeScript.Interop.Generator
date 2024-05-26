@@ -41,9 +41,7 @@ namespace EventHorizon.Blazor.Interop.Generator.Tests
             );
 
             // Then
-            actual.Should().Be(
-                expected
-            );
+            actual.Should().Be(expected);
         }
     }
 }

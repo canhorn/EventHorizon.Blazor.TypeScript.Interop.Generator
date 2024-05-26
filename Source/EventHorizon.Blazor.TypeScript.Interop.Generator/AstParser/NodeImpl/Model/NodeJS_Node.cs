@@ -7,8 +7,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
     using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
     using Microsoft.CodeAnalysis;
 
-    public class NodeJS_Node
-        : Node
+    public class NodeJS_Node : Node
     {
         private readonly ASTNode _node;
 
@@ -50,41 +49,21 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
                 }
                 else
                 {
-                    children.Add(
-                        new NodeJS_Node(
-                            node.Expression
-                        )
-                    );
+                    children.Add(new NodeJS_Node(node.Expression));
                 }
-
             }
             if (node.Left is not null)
             {
-                children.Add(
-                    new NodeJS_Node(
-                        node.Left,
-                        parent: this
-                    )
-                );
+                children.Add(new NodeJS_Node(node.Left, parent: this));
             }
             if (node.Right is not null)
             {
-                children.Add(
-                    new NodeJS_Node(
-                        node.Right,
-                        parent: this
-                    )
-                );
+                children.Add(new NodeJS_Node(node.Right, parent: this));
             }
             if (node.ExprName is not null)
             {
-                var exprNode = new NodeJS_Node(
-                    node.ExprName,
-                    parent: this
-                );
-                children.Add(
-                    exprNode
-                );
+                var exprNode = new NodeJS_Node(node.ExprName, parent: this);
+                children.Add(exprNode);
                 IdentifierStr = exprNode.IdentifierStr;
             }
             Parent = parent;
@@ -94,21 +73,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
                 if (node.TypeName.Left is not null)
                 {
                     children.Add(
-                        new NodeJS_Node(
-                            SyntaxKind.Identifier,
-                            node.TypeName.Left.Name,
-                            this
-                        )
+                        new NodeJS_Node(SyntaxKind.Identifier, node.TypeName.Left.Name, this)
                     );
                 }
                 if (node.TypeName.Right is not null)
                 {
                     children.Add(
-                        new NodeJS_Node(
-                            SyntaxKind.Identifier,
-                            node.TypeName.Right.Name,
-                            this
-                        )
+                        new NodeJS_Node(SyntaxKind.Identifier, node.TypeName.Right.Name, this)
                     );
                 }
             }
@@ -116,26 +87,15 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
             // Declaration
             if (node.Declaration is not null)
             {
-                children.Add(
-                    new NodeJS_Node(
-                        node.Declaration,
-                        this
-                    )
-                );
+                children.Add(new NodeJS_Node(node.Declaration, this));
             }
             // Body as Node
             if (node.BodyNode is not null)
             {
-
-                var bodyNode = new NodeJS_Node(
-                    node.BodyNode,
-                    this
-                );
+                var bodyNode = new NodeJS_Node(node.BodyNode, this);
                 if (bodyNode.Kind == SyntaxKind.ModuleDeclaration)
                 {
-                    children.Add(
-                        bodyNode
-                    );
+                    children.Add(bodyNode);
                 }
                 else
                 {
@@ -146,32 +106,21 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
                     foreach (var child in bodyNodeChildren)
                     {
                         child.Parent = this;
-                        children.Add(
-                            child
-                        );
+                        children.Add(child);
                     }
                 }
-
             }
             // Body as Array
             if (node.BodyArray is not null)
             {
-                var bodyArrayChildren = node.BodyArray.Select(
-                    a => new NodeJS_Node(a, this)
-                );
+                var bodyArrayChildren = node.BodyArray.Select(a => new NodeJS_Node(a, this));
                 foreach (var bodyNode in bodyArrayChildren)
                 {
-                    children.Add(
-                        bodyNode
-                    );
+                    children.Add(bodyNode);
                 }
             }
 
-
-            Kind = overrideKind ?? NodeJSTypeMapper.NodeJSTypeToSyntaxKind(
-                node.Type,
-                node.Kind
-            );
+            Kind = overrideKind ?? NodeJSTypeMapper.NodeJSTypeToSyntaxKind(node.Type, node.Kind);
 
             //if (!string.IsNullOrWhiteSpace(
             //    node.Accessibility
@@ -203,44 +152,21 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
 
             if (node.Static ?? false)
             {
-                children.Add(
-                    new NodeJS_Node(
-                        SyntaxKind.StaticKeyword,
-                        this
-                    )
-                );
+                children.Add(new NodeJS_Node(SyntaxKind.StaticKeyword, this));
             }
             if (node.Readonly ?? false)
             {
-                children.Add(
-                    new NodeJS_Node(
-                        SyntaxKind.ReadonlyKeyword,
-                        this
-                    )
-                );
+                children.Add(new NodeJS_Node(SyntaxKind.ReadonlyKeyword, this));
             }
             if (node.Optional ?? false)
             {
-                children.Add(
-                    new NodeJS_Node(
-                        SyntaxKind.QuestionToken,
-                        this
-                    )
-                );
+                children.Add(new NodeJS_Node(SyntaxKind.QuestionToken, this));
             }
-
 
             if (!typeReference && IdentifierStr is not null)
             {
-                children.Add(
-                    new NodeJS_Node(
-                        SyntaxKind.Identifier,
-                        IdentifierStr,
-                        this
-                    )
-                );
+                children.Add(new NodeJS_Node(SyntaxKind.Identifier, IdentifierStr, this));
             }
-
 
             if (node.SuperClass is not null)
             {
@@ -251,72 +177,35 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
                 );
 
                 heritageClauses.Add(
-                    new NodeJS_Node(
-                        types: new List<Node>
-                        {
-                            superClassNode
-                        },
-                        this
-                    )
+                    new NodeJS_Node(types: new List<Node> { superClassNode }, this)
                 );
             }
             if (node.Object is not null)
             {
-                children.Add(
-                    new NodeJS_Node(
-                        SyntaxKind.Identifier,
-                        node.Object.Name,
-                        this
-                    )
-                );
+                children.Add(new NodeJS_Node(SyntaxKind.Identifier, node.Object.Name, this));
             }
             if (node.Property is not null)
             {
-                children.Add(
-                    new NodeJS_Node(
-                        SyntaxKind.Identifier,
-                        node.Property.Name,
-                        this
-                    )
-                );
+                children.Add(new NodeJS_Node(SyntaxKind.Identifier, node.Property.Name, this));
             }
 
             if (node.ObjectType is not null)
             {
-                children.Add(
-                    new NodeJS_Node(
-                        node.ObjectType,
-                        this
-                    )
-                );
+                children.Add(new NodeJS_Node(node.ObjectType, this));
             }
 
             if (node.IndexType is not null)
             {
-                children.Add(
-                    new NodeJS_Node(
-                        node.IndexType,
-                        this
-                    )
-                );
+                children.Add(new NodeJS_Node(node.IndexType, this));
             }
 
             if (node.Implements is not null)
             {
                 foreach (var implementation in node.Implements)
                 {
-                    var interfaceNode = new NodeJS_Node(
-                        implementation,
-                        parent: this
-                    );
+                    var interfaceNode = new NodeJS_Node(implementation, parent: this);
                     heritageClauses.Add(
-                        new NodeJS_Node(
-                            types: new List<Node>
-                            {
-                                interfaceNode
-                            },
-                            this
-                        )
+                        new NodeJS_Node(types: new List<Node> { interfaceNode }, this)
                     );
                 }
             }
@@ -327,48 +216,36 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
 
             if (node.TypeAnnotation is not null && node.TypeAnnotation.Type != "TSTypeAnnotation")
             {
-                var type = new NodeJS_Node(
-                    node.TypeAnnotation,
-                    parent: this
-                );
-                children.Add(
-                    type
-                );
+                var type = new NodeJS_Node(node.TypeAnnotation, parent: this);
+                children.Add(type);
             }
 
             if (node.Params is not null)
             {
-                Types = node.Params.Select(
-                    paramNode => new NodeJS_Node(
-                        paramNode,
-                        parent: this,
-                        overrideKind: SyntaxKind.Parameter
-                    )
-                );
-                children.AddRange(
-                    Types
-                );
+                Types = node.Params.Select(paramNode => new NodeJS_Node(
+                    paramNode,
+                    parent: this,
+                    overrideKind: SyntaxKind.Parameter
+                ));
+                children.AddRange(Types);
             }
 
             if (node.Parameters is not null)
             {
-                Parameters = node.Parameters.Select(
-                    paramNode => new NodeJS_Node(
-                        paramNode,
-                        parent: this,
-                        overrideKind: SyntaxKind.Parameter
-                    )
-                );
-                children.AddRange(
-                    Parameters
-                );
+                Parameters = node.Parameters.Select(paramNode => new NodeJS_Node(
+                    paramNode,
+                    parent: this,
+                    overrideKind: SyntaxKind.Parameter
+                ));
+                children.AddRange(Parameters);
             }
 
             if (node.TypeParameters is not null)
             {
-                var types = node.TypeParameters.Params.Select(
-                    a => new NodeJS_Node(a, parent: this)
-                );
+                var types = node.TypeParameters.Params.Select(a => new NodeJS_Node(
+                    a,
+                    parent: this
+                ));
                 if (types.Any(a => a.Kind == SyntaxKind.TypeParameter))
                 {
                     TypeParameters = types;
@@ -377,48 +254,31 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
                 {
                     TypeArguments = types;
                 }
-                children.AddRange(
-                    types
-                );
+                children.AddRange(types);
             }
 
             if (typeParameters is not null)
             {
-                var types = typeParameters.Params.Select(
-                    a => new NodeJS_Node(a, parent: this)
-                );
+                var types = typeParameters.Params.Select(a => new NodeJS_Node(a, parent: this));
                 TypeArguments = types;
-                children.AddRange(
-                    types
-                );
+                children.AddRange(types);
             }
 
             if (node.ElementTypes is not null)
             {
-                var types = node.ElementTypes.Select(
-                    a => new NodeJS_Node(a, parent: this)
-                );
+                var types = node.ElementTypes.Select(a => new NodeJS_Node(a, parent: this));
                 //TypeArguments = types;
-                children.AddRange(
-                    types
-                );
+                children.AddRange(types);
             }
 
             if (node.Types is not null)
             {
-                children.AddRange(
-                    node.Types.Select(
-                        a => new NodeJS_Node(a, this)
-                    )
-                );
+                children.AddRange(node.Types.Select(a => new NodeJS_Node(a, this)));
             }
 
             if (node.ElementType is not null)
             {
-                ElementType = new NodeJS_Node(
-                    node.ElementType,
-                    this
-                );
+                ElementType = new NodeJS_Node(node.ElementType, this);
                 children.Add(ElementType);
             }
 
@@ -432,48 +292,30 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
 
             if (node.TypeAnnotation is not null && node.TypeAnnotation.Type == "TSTypeAnnotation")
             {
-                var type = new NodeJS_Node(
-                    node.TypeAnnotation.TypeAnnotation,
-                    parent: this
-                );
+                var type = new NodeJS_Node(node.TypeAnnotation.TypeAnnotation, parent: this);
                 if (Kind == SyntaxKind.Parameter)
                 {
                     Type = type;
                 }
-                children.Add(
-                    type
-                );
+                children.Add(type);
             }
 
             if (node.ReturnType is not null)
             {
-                children.Add(
-                    new NodeJS_Node(
-                        node.ReturnType.TypeAnnotation,
-                        parent: this
-                    )
-                );
+                children.Add(new NodeJS_Node(node.ReturnType.TypeAnnotation, parent: this));
             }
 
             Children = children.ToList();
             Modifiers = modifiers.ToList();
         }
 
-        public NodeJS_Node(
-            Program program
-        )
+        public NodeJS_Node(Program program)
         {
             Kind = "Program";
-            Children = program.Body.Select(
-                a => new NodeJS_Node(a, this)
-            ).ToList();
+            Children = program.Body.Select(a => new NodeJS_Node(a, this)).ToList();
         }
 
-        public NodeJS_Node(
-            string kind,
-            string name,
-            Node parent
-        )
+        public NodeJS_Node(string kind, string name, Node parent)
         {
             Kind = kind;
             IdentifierStr = name;
@@ -481,10 +323,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
             Children = new List<Node>();
         }
 
-        public NodeJS_Node(
-            IdentifierModel identifier,
-            Node parent
-        )
+        public NodeJS_Node(IdentifierModel identifier, Node parent)
         {
             var children = new List<Node>();
             Kind = identifier.Type;
@@ -494,22 +333,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
             var leftNode = identifier.Left?.Right;
             if (leftNode is not null)
             {
-                children.Add(
-                    new NodeJS_Node(
-                        leftNode,
-                        parent: this
-                    )
-                );
+                children.Add(new NodeJS_Node(leftNode, parent: this));
             }
             var rightNode = identifier.Right;
             if (rightNode is not null)
             {
-                children.Add(
-                    new NodeJS_Node(
-                        rightNode,
-                        parent: this
-                    )
-                );
+                children.Add(new NodeJS_Node(rightNode, parent: this));
             }
 
             IdentifierStr = rightNode?.Name ?? identifier.Name;
@@ -517,20 +346,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
             Children = children;
         }
 
-        public NodeJS_Node(
-            string kind,
-            Node parent
-        )
+        public NodeJS_Node(string kind, Node parent)
         {
             Kind = kind;
             Parent = parent;
             Children = new List<Node>();
         }
 
-        public NodeJS_Node(
-            List<Node> types,
-            Node parent
-        )
+        public NodeJS_Node(List<Node> types, Node parent)
         {
             Types = types;
             Children = types;
@@ -553,9 +376,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
 
         public IEnumerable<Node> Children { get; init; }
 
-        public IEnumerable<Node> OfKind(
-            string kind
-        )
+        public IEnumerable<Node> OfKind(string kind)
         {
             var list = new List<Node>();
             foreach (var child in Children)
@@ -564,11 +385,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
                 {
                     list.Add(child);
                 }
-                list.AddRange(
-                    child.OfKind(
-                        kind
-                    )
-                );
+                list.AddRange(child.OfKind(kind));
             }
             return list;
         }
@@ -576,13 +393,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
 
     public static class NodeJSTypeMapper
     {
-        public static string NodeJSTypeToSyntaxKind(
-            string type,
-            string kind
-        )
+        public static string NodeJSTypeToSyntaxKind(string type, string kind)
         {
-            if (type == "TSDeclareMethod"
-                && !string.IsNullOrWhiteSpace(kind))
+            if (type == "TSDeclareMethod" && !string.IsNullOrWhiteSpace(kind))
             {
                 switch (kind)
                 {
@@ -601,41 +414,67 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
 
             switch (type)
             {
-                case "TSModuleDeclaration": return SyntaxKind.ModuleDeclaration;
-                case "TSInterfaceDeclaration": return SyntaxKind.InterfaceDeclaration;
-                case "TSEnumDeclaration": return SyntaxKind.EnumDeclaration;
+                case "TSModuleDeclaration":
+                    return SyntaxKind.ModuleDeclaration;
+                case "TSInterfaceDeclaration":
+                    return SyntaxKind.InterfaceDeclaration;
+                case "TSEnumDeclaration":
+                    return SyntaxKind.EnumDeclaration;
                 //case "Constructor": return SyntaxKind.Constructor;
-                case "ClassProperty": return SyntaxKind.PropertyDeclaration;
-                case "TSPropertySignature": return SyntaxKind.PropertySignature;
-                case "TSDeclareMethod": return SyntaxKind.MethodDeclaration;
-                case "TSMethodSignature": return SyntaxKind.MethodSignature;
+                case "ClassProperty":
+                    return SyntaxKind.PropertyDeclaration;
+                case "TSPropertySignature":
+                    return SyntaxKind.PropertySignature;
+                case "TSDeclareMethod":
+                    return SyntaxKind.MethodDeclaration;
+                case "TSMethodSignature":
+                    return SyntaxKind.MethodSignature;
 
-                case "TSTypeAliasDeclaration": return SyntaxKind.TypeAliasDeclaration;
+                case "TSTypeAliasDeclaration":
+                    return SyntaxKind.TypeAliasDeclaration;
 
-                case "TSTypeReference": return SyntaxKind.TypeReference;
-                case "TSArrayType": return SyntaxKind.ArrayType;
-                case "TSUnionType": return SyntaxKind.UnionType;
-                case "TSParenthesizedType": return SyntaxKind.ParenthesizedType;
-                case "TSFunctionType": return SyntaxKind.FunctionType;
-                case "TSStringKeyword": return SyntaxKind.StringKeyword;
-                case "TSVoidKeyword": return SyntaxKind.VoidKeyword;
-                case "TSBooleanKeyword": return SyntaxKind.BooleanKeyword;
-                case "TSNumberKeyword": return SyntaxKind.NumberKeyword;
-                case "TSObjectKeyword": return SyntaxKind.ObjectKeyword;
+                case "TSTypeReference":
+                    return SyntaxKind.TypeReference;
+                case "TSArrayType":
+                    return SyntaxKind.ArrayType;
+                case "TSUnionType":
+                    return SyntaxKind.UnionType;
+                case "TSParenthesizedType":
+                    return SyntaxKind.ParenthesizedType;
+                case "TSFunctionType":
+                    return SyntaxKind.FunctionType;
+                case "TSStringKeyword":
+                    return SyntaxKind.StringKeyword;
+                case "TSVoidKeyword":
+                    return SyntaxKind.VoidKeyword;
+                case "TSBooleanKeyword":
+                    return SyntaxKind.BooleanKeyword;
+                case "TSNumberKeyword":
+                    return SyntaxKind.NumberKeyword;
+                case "TSObjectKeyword":
+                    return SyntaxKind.ObjectKeyword;
                 //case "StaticKeyword": return SyntaxKind.StaticKeyword;
                 //case "ReadonlyKeyword": return SyntaxKind.ReadonlyKeyword;
                 //case "LiteralType": return SyntaxKind.LiteralType;
                 //case "TSTypeLiteral": return SyntaxKind.TypeLiteral;
-                case "TSTypeLiteral": return SyntaxKind.TypeLiteral;
-                case "TSNullKeyword": return SyntaxKind.NullKeyword;
-                case "TSUndefinedKeyword": return SyntaxKind.UndefinedKeyword;
-                case "TSAnyKeyword": return SyntaxKind.AnyKeyword;
-                case "TSThisType": return SyntaxKind.ThisType;
-                case "TSTypeParameter": return SyntaxKind.TypeParameter;
-                case "TSTypeQuery": return SyntaxKind.TypeQuery;
+                case "TSTypeLiteral":
+                    return SyntaxKind.TypeLiteral;
+                case "TSNullKeyword":
+                    return SyntaxKind.NullKeyword;
+                case "TSUndefinedKeyword":
+                    return SyntaxKind.UndefinedKeyword;
+                case "TSAnyKeyword":
+                    return SyntaxKind.AnyKeyword;
+                case "TSThisType":
+                    return SyntaxKind.ThisType;
+                case "TSTypeParameter":
+                    return SyntaxKind.TypeParameter;
+                case "TSTypeQuery":
+                    return SyntaxKind.TypeQuery;
                 default:
                     return type;
-            };
+            }
+            ;
         }
     }
 }

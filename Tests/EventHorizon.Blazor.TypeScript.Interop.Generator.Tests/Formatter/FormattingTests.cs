@@ -17,7 +17,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             // Given
             var sourceFile = "CSharpTextFormatter.d.ts";
             var source = File.ReadAllText($"./Formatter/SourceFiles/{sourceFile}");
-            var expected = File.ReadAllText($"./Formatter/ExpectedResults/CSharpTextFormatter.Expected.txt");
+            var expected = File.ReadAllText(
+                $"./Formatter/ExpectedResults/CSharpTextFormatter.Expected.txt"
+            );
             var ast = new Sdcb_TypeScriptASTWrapper(source);
             var typeOverrideMap = new Dictionary<string, string>();
 
@@ -34,9 +36,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             );
 
             // Then
-            actual.Should().Be(
-                expected
-            );
+            actual.Should().Be(expected);
         }
     }
 }

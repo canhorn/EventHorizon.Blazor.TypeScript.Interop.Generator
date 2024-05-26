@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Interop;
 
 public class PointerEventInit : CachedEntity
 {
-    public PointerEventInit()
-    {
-    }
+    public PointerEventInit() { }
 
-    public PointerEventInit(
-        ICachedEntity entity
-    )
+    public PointerEventInit(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

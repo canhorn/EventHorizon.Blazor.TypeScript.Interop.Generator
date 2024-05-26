@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IPlaneLike : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IPlaneLikeCachedEntity>))]
     public class IPlaneLikeCachedEntity : CachedEntityObject, IPlaneLike
     {
@@ -37,61 +37,43 @@ namespace BABYLON
         {
             get
             {
-            if(__normal == null)
-            {
-                __normal = EventHorizonBlazorInterop.GetClass<IVector3LikeCachedEntity>(
-                    this.___guid,
-                    "normal",
-                    (entity) =>
-                    {
-                        return new IVector3LikeCachedEntity() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __normal;
+                if (__normal == null)
+                {
+                    __normal = EventHorizonBlazorInterop.GetClass<IVector3LikeCachedEntity>(
+                        this.___guid,
+                        "normal",
+                        (entity) =>
+                        {
+                            return new IVector3LikeCachedEntity() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __normal;
             }
             set
             {
-__normal = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "normal",
-                    value
-                );
+                __normal = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "normal", value);
             }
         }
 
-        
         public decimal d
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "d"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "d"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "d",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "d", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IPlaneLikeCachedEntity() : base() { }
+        public IPlaneLikeCachedEntity()
+            : base() { }
 
-        public IPlaneLikeCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IPlaneLikeCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -99,10 +81,7 @@ __normal = null;
         public void normalize()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "normalize" }
-                }
+                new object[] { new string[] { this.___guid, "normalize" } }
             );
         }
         #endregion

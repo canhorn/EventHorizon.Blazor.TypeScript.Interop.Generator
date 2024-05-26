@@ -13,10 +13,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         )
         {
             type = currentType;
-            if (typeOverrideMap.TryGetValue(
-                typeDeclaration,
-                out var overrideType
-            ))
+            if (typeOverrideMap.TryGetValue(typeDeclaration, out var overrideType))
             {
                 type.Name = overrideType;
                 return true;

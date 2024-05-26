@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Server.Interop;
 
 public class TextWrapping : CachedEntity
 {
-    public TextWrapping()
-    {
-    }
+    public TextWrapping() { }
 
-    public TextWrapping(
-        ICachedEntity entity
-    )
+    public TextWrapping(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

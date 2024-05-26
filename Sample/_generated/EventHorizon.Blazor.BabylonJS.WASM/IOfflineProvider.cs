@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IOfflineProvider : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IOfflineProviderCachedEntity>))]
     public class IOfflineProviderCachedEntity : CachedEntityObject, IOfflineProvider
     {
@@ -32,58 +32,37 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public bool enableSceneOffline
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "enableSceneOffline"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "enableSceneOffline"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "enableSceneOffline",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "enableSceneOffline", value);
             }
         }
 
-        
         public bool enableTexturesOffline
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "enableTexturesOffline"
-                );
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "enableTexturesOffline");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "enableTexturesOffline",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "enableTexturesOffline", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IOfflineProviderCachedEntity() : base() { }
+        public IOfflineProviderCachedEntity()
+            : base() { }
 
-        public IOfflineProviderCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IOfflineProviderCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -93,7 +72,9 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "open" }, successCallback, errorCallback
+                    new string[] { this.___guid, "open" },
+                    successCallback,
+                    errorCallback
                 }
             );
         }
@@ -101,19 +82,27 @@ namespace BABYLON
         public void loadImage(string url, HTMLImageElement image)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "loadImage" }, url, image
-                }
+                new object[] { new string[] { this.___guid, "loadImage" }, url, image }
             );
         }
 
-        public void loadFile(string url, ActionCallback<object> sceneLoaded, ActionCallback<object> progressCallBack = null, ActionCallback errorCallback = null, System.Nullable<bool> useArrayBuffer = null)
+        public void loadFile(
+            string url,
+            ActionCallback<object> sceneLoaded,
+            ActionCallback<object> progressCallBack = null,
+            ActionCallback errorCallback = null,
+            System.Nullable<bool> useArrayBuffer = null
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "loadFile" }, url, sceneLoaded, progressCallBack, errorCallback, useArrayBuffer
+                    new string[] { this.___guid, "loadFile" },
+                    url,
+                    sceneLoaded,
+                    progressCallBack,
+                    errorCallback,
+                    useArrayBuffer
                 }
             );
         }

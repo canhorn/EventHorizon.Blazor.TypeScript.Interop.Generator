@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<DetailMapConfiguration>))]
     public class DetailMapConfiguration : CachedEntityObject
     {
@@ -29,7 +27,8 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "DetailMapConfiguration", "AddUniforms" }, uniforms
+                    new string[] { "BABYLON", "DetailMapConfiguration", "AddUniforms" },
+                    uniforms
                 }
             );
         }
@@ -39,7 +38,8 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "DetailMapConfiguration", "AddSamplers" }, samplers
+                    new string[] { "BABYLON", "DetailMapConfiguration", "AddSamplers" },
+                    samplers
                 }
             );
         }
@@ -49,7 +49,8 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "DetailMapConfiguration", "PrepareUniformBuffer" }, uniformBuffer
+                    new string[] { "BABYLON", "DetailMapConfiguration", "PrepareUniformBuffer" },
+                    uniformBuffer
                 }
             );
         }
@@ -65,149 +66,97 @@ namespace BABYLON
         {
             get
             {
-            if(__texture == null)
-            {
-                __texture = EventHorizonBlazorInterop.GetClass<BaseTexture>(
-                    this.___guid,
-                    "texture",
-                    (entity) =>
-                    {
-                        return new BaseTexture() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __texture;
+                if (__texture == null)
+                {
+                    __texture = EventHorizonBlazorInterop.GetClass<BaseTexture>(
+                        this.___guid,
+                        "texture",
+                        (entity) =>
+                        {
+                            return new BaseTexture() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __texture;
             }
             set
             {
-__texture = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "texture",
-                    value
-                );
+                __texture = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "texture", value);
             }
         }
 
-        
         public decimal diffuseBlendLevel
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "diffuseBlendLevel"
-                );
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "diffuseBlendLevel");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "diffuseBlendLevel",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "diffuseBlendLevel", value);
             }
         }
 
-        
         public decimal roughnessBlendLevel
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "roughnessBlendLevel"
-                );
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "roughnessBlendLevel");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "roughnessBlendLevel",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "roughnessBlendLevel", value);
             }
         }
 
-        
         public decimal bumpLevel
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "bumpLevel"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "bumpLevel"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "bumpLevel",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "bumpLevel", value);
             }
         }
 
-        
         public decimal normalBlendMethod
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "normalBlendMethod"
-                );
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "normalBlendMethod");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "normalBlendMethod",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "normalBlendMethod", value);
             }
         }
 
-        
         public bool isEnabled
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isEnabled"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isEnabled"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isEnabled",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "isEnabled", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public DetailMapConfiguration() : base() { }
 
-        public DetailMapConfiguration(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public DetailMapConfiguration()
+            : base() { }
+
+        public DetailMapConfiguration(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
-        public DetailMapConfiguration(
-            ActionCallback markAllSubMeshesAsTexturesDirty
-        )
+        public DetailMapConfiguration(ActionCallback markAllSubMeshesAsTexturesDirty)
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "DetailMapConfiguration" },
@@ -221,20 +170,14 @@ __texture = null;
         public bool isReadyForSubMesh(IMaterialDetailMapDefines defines, Scene scene)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "isReadyForSubMesh" }, defines, scene
-                }
+                new object[] { new string[] { this.___guid, "isReadyForSubMesh" }, defines, scene }
             );
         }
 
         public void prepareDefines(IMaterialDetailMapDefines defines, Scene scene)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "prepareDefines" }, defines, scene
-                }
+                new object[] { new string[] { this.___guid, "prepareDefines" }, defines, scene }
             );
         }
 
@@ -243,7 +186,10 @@ __texture = null;
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "bindForSubMesh" }, uniformBuffer, scene, isFrozen
+                    new string[] { this.___guid, "bindForSubMesh" },
+                    uniformBuffer,
+                    scene,
+                    isFrozen
                 }
             );
         }
@@ -251,80 +197,56 @@ __texture = null;
         public bool hasTexture(BaseTexture texture)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "hasTexture" }, texture
-                }
+                new object[] { new string[] { this.___guid, "hasTexture" }, texture }
             );
         }
 
         public void getActiveTextures(BaseTexture[] activeTextures)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getActiveTextures" }, activeTextures
-                }
+                new object[] { new string[] { this.___guid, "getActiveTextures" }, activeTextures }
             );
         }
 
         public void getAnimatables(IAnimatable[] animatables)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getAnimatables" }, animatables
-                }
+                new object[] { new string[] { this.___guid, "getAnimatables" }, animatables }
             );
         }
 
         public void dispose(System.Nullable<bool> forceDisposeTextures = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "dispose" }, forceDisposeTextures
-                }
+                new object[] { new string[] { this.___guid, "dispose" }, forceDisposeTextures }
             );
         }
 
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
         public void copyTo(DetailMapConfiguration detailMap)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "copyTo" }, detailMap
-                }
+                new object[] { new string[] { this.___guid, "copyTo" }, detailMap }
             );
         }
 
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "serialize" }
-                }
+                new object[] { new string[] { this.___guid, "serialize" } }
             );
         }
 
         public void parse(object source, Scene scene, string rootUrl)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "parse" }, source, scene, rootUrl
-                }
+                new object[] { new string[] { this.___guid, "parse" }, source, scene, rootUrl }
             );
         }
         #endregion

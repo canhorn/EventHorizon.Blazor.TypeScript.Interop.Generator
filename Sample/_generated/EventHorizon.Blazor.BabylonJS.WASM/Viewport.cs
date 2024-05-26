@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Viewport>))]
     public class Viewport : CachedEntityObject
     {
@@ -32,108 +30,66 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public decimal x
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "x"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "x"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "x",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "x", value);
             }
         }
 
-        
         public decimal y
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "y"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "y"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "y",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "y", value);
             }
         }
 
-        
         public decimal width
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "width"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "width"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "width",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "width", value);
             }
         }
 
-        
         public decimal height
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "height"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "height"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "height",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "height", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public Viewport() : base() { }
 
-        public Viewport(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public Viewport()
+            : base() { }
+
+        public Viewport(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
-        public Viewport(
-            decimal x, decimal y, decimal width, decimal height
-        )
+        public Viewport(decimal x, decimal y, decimal width, decimal height)
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Viewport" },
-                x, y, width, height
+                x,
+                y,
+                width,
+                height
             );
             ___guid = entity.___guid;
         }
@@ -146,7 +102,9 @@ namespace BABYLON
                 entity => new Viewport() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "toGlobal" }, renderWidth, renderHeight
+                    new string[] { this.___guid, "toGlobal" },
+                    renderWidth,
+                    renderHeight
                 }
             );
         }
@@ -157,7 +115,10 @@ namespace BABYLON
                 entity => new Viewport() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "toGlobalToRef" }, renderWidth, renderHeight, @ref
+                    new string[] { this.___guid, "toGlobalToRef" },
+                    renderWidth,
+                    renderHeight,
+                    @ref
                 }
             );
         }
@@ -166,10 +127,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Viewport>(
                 entity => new Viewport() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "clone" }
-                }
+                new object[] { new string[] { this.___guid, "clone" } }
             );
         }
         #endregion

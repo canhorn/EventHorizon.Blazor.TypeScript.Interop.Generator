@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<VertexData>))]
     public class VertexData : CachedEntityObject
     {
@@ -20,74 +18,70 @@ namespace BABYLON
         #endregion
 
         #region Static Properties
-        
+
         public static decimal FRONTSIDE
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "VertexData.FRONTSIDE"
-                );
+                return EventHorizonBlazorInterop.Get<decimal>("BABYLON", "VertexData.FRONTSIDE");
             }
         }
 
-        
         public static decimal BACKSIDE
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "VertexData.BACKSIDE"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>("BABYLON", "VertexData.BACKSIDE"); }
         }
 
-        
         public static decimal DOUBLESIDE
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "VertexData.DOUBLESIDE"
-                );
+                return EventHorizonBlazorInterop.Get<decimal>("BABYLON", "VertexData.DOUBLESIDE");
             }
         }
 
-        
         public static decimal DEFAULTSIDE
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "VertexData.DEFAULTSIDE"
-                );
+                return EventHorizonBlazorInterop.Get<decimal>("BABYLON", "VertexData.DEFAULTSIDE");
             }
         }
         #endregion
 
         #region Static Methods
-        public static VertexData ExtractFromMesh(Mesh mesh, System.Nullable<bool> copyWhenShared = null, System.Nullable<bool> forceCopy = null)
+        public static VertexData ExtractFromMesh(
+            Mesh mesh,
+            System.Nullable<bool> copyWhenShared = null,
+            System.Nullable<bool> forceCopy = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "VertexData", "ExtractFromMesh" }, mesh, copyWhenShared, forceCopy
+                    new string[] { "BABYLON", "VertexData", "ExtractFromMesh" },
+                    mesh,
+                    copyWhenShared,
+                    forceCopy
                 }
             );
         }
 
-        public static VertexData ExtractFromGeometry(Geometry geometry, System.Nullable<bool> copyWhenShared = null, System.Nullable<bool> forceCopy = null)
+        public static VertexData ExtractFromGeometry(
+            Geometry geometry,
+            System.Nullable<bool> copyWhenShared = null,
+            System.Nullable<bool> forceCopy = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "VertexData", "ExtractFromGeometry" }, geometry, copyWhenShared, forceCopy
+                    new string[] { "BABYLON", "VertexData", "ExtractFromGeometry" },
+                    geometry,
+                    copyWhenShared,
+                    forceCopy
                 }
             );
         }
@@ -96,10 +90,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "VertexData", "CreateRibbon" }, options
-                }
+                new object[] { new string[] { "BABYLON", "VertexData", "CreateRibbon" }, options }
             );
         }
 
@@ -107,10 +98,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "VertexData", "CreateBox" }, options
-                }
+                new object[] { new string[] { "BABYLON", "VertexData", "CreateBox" }, options }
             );
         }
 
@@ -118,10 +106,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "VertexData", "CreateTiledBox" }, options
-                }
+                new object[] { new string[] { "BABYLON", "VertexData", "CreateTiledBox" }, options }
             );
         }
 
@@ -131,7 +116,8 @@ namespace BABYLON
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "VertexData", "CreateTiledPlane" }, options
+                    new string[] { "BABYLON", "VertexData", "CreateTiledPlane" },
+                    options
                 }
             );
         }
@@ -140,10 +126,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "VertexData", "CreateSphere" }, options
-                }
+                new object[] { new string[] { "BABYLON", "VertexData", "CreateSphere" }, options }
             );
         }
 
@@ -151,10 +134,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "VertexData", "CreateCylinder" }, options
-                }
+                new object[] { new string[] { "BABYLON", "VertexData", "CreateCylinder" }, options }
             );
         }
 
@@ -162,10 +142,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "VertexData", "CreateTorus" }, options
-                }
+                new object[] { new string[] { "BABYLON", "VertexData", "CreateTorus" }, options }
             );
         }
 
@@ -175,7 +152,8 @@ namespace BABYLON
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "VertexData", "CreateLineSystem" }, options
+                    new string[] { "BABYLON", "VertexData", "CreateLineSystem" },
+                    options
                 }
             );
         }
@@ -186,7 +164,8 @@ namespace BABYLON
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "VertexData", "CreateDashedLines" }, options
+                    new string[] { "BABYLON", "VertexData", "CreateDashedLines" },
+                    options
                 }
             );
         }
@@ -195,10 +174,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "VertexData", "CreateGround" }, options
-                }
+                new object[] { new string[] { "BABYLON", "VertexData", "CreateGround" }, options }
             );
         }
 
@@ -208,7 +184,8 @@ namespace BABYLON
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "VertexData", "CreateTiledGround" }, options
+                    new string[] { "BABYLON", "VertexData", "CreateTiledGround" },
+                    options
                 }
             );
         }
@@ -219,7 +196,8 @@ namespace BABYLON
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "VertexData", "CreateGroundFromHeightMap" }, options
+                    new string[] { "BABYLON", "VertexData", "CreateGroundFromHeightMap" },
+                    options
                 }
             );
         }
@@ -228,10 +206,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "VertexData", "CreatePlane" }, options
-                }
+                new object[] { new string[] { "BABYLON", "VertexData", "CreatePlane" }, options }
             );
         }
 
@@ -239,20 +214,32 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "VertexData", "CreateDisc" }, options
-                }
+                new object[] { new string[] { "BABYLON", "VertexData", "CreateDisc" }, options }
             );
         }
 
-        public static VertexData CreatePolygon(Mesh polygon, decimal sideOrientation, Vector4[] fUV = null, Color4[] fColors = null, Vector4 frontUVs = null, Vector4 backUVs = null, System.Nullable<bool> wrap = null)
+        public static VertexData CreatePolygon(
+            Mesh polygon,
+            decimal sideOrientation,
+            Vector4[] fUV = null,
+            Color4[] fColors = null,
+            Vector4 frontUVs = null,
+            Vector4 backUVs = null,
+            System.Nullable<bool> wrap = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "VertexData", "CreatePolygon" }, polygon, sideOrientation, fUV, fColors, frontUVs, backUVs, wrap
+                    new string[] { "BABYLON", "VertexData", "CreatePolygon" },
+                    polygon,
+                    sideOrientation,
+                    fUV,
+                    fColors,
+                    frontUVs,
+                    backUVs,
+                    wrap
                 }
             );
         }
@@ -263,7 +250,8 @@ namespace BABYLON
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "VertexData", "CreateIcoSphere" }, options
+                    new string[] { "BABYLON", "VertexData", "CreateIcoSphere" },
+                    options
                 }
             );
         }
@@ -274,7 +262,8 @@ namespace BABYLON
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "VertexData", "CreatePolyhedron" }, options
+                    new string[] { "BABYLON", "VertexData", "CreatePolyhedron" },
+                    options
                 }
             );
         }
@@ -283,10 +272,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "VertexData", "CreateCapsule" }, options
-                }
+                new object[] { new string[] { "BABYLON", "VertexData", "CreateCapsule" }, options }
             );
         }
 
@@ -296,17 +282,27 @@ namespace BABYLON
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "VertexData", "CreateTorusKnot" }, options
+                    new string[] { "BABYLON", "VertexData", "CreateTorusKnot" },
+                    options
                 }
             );
         }
 
-        public static void ComputeNormals(object positions, object indices, object normals, object options = null)
+        public static void ComputeNormals(
+            object positions,
+            object indices,
+            object normals,
+            object options = null
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "VertexData", "ComputeNormals" }, positions, indices, normals, options
+                    new string[] { "BABYLON", "VertexData", "ComputeNormals" },
+                    positions,
+                    indices,
+                    normals,
+                    options
                 }
             );
         }
@@ -316,7 +312,9 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "VertexData", "ImportVertexData" }, parsedVertexData, geometry
+                    new string[] { "BABYLON", "VertexData", "ImportVertexData" },
+                    parsedVertexData,
+                    geometry
                 }
             );
         }
@@ -327,264 +325,138 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public decimal[] positions
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<decimal>(
-                    this.___guid,
-                    "positions"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "positions"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "positions",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "positions", value);
             }
         }
 
-        
         public decimal[] normals
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<decimal>(
-                    this.___guid,
-                    "normals"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "normals"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "normals",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "normals", value);
             }
         }
 
-        
         public decimal[] tangents
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<decimal>(
-                    this.___guid,
-                    "tangents"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "tangents"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "tangents",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "tangents", value);
             }
         }
 
-        
         public decimal[] uvs
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<decimal>(
-                    this.___guid,
-                    "uvs"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "uvs"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "uvs",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "uvs", value);
             }
         }
 
-        
         public decimal[] uvs2
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<decimal>(
-                    this.___guid,
-                    "uvs2"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "uvs2"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "uvs2",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "uvs2", value);
             }
         }
 
-        
         public decimal[] uvs3
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<decimal>(
-                    this.___guid,
-                    "uvs3"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "uvs3"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "uvs3",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "uvs3", value);
             }
         }
 
-        
         public decimal[] uvs4
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<decimal>(
-                    this.___guid,
-                    "uvs4"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "uvs4"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "uvs4",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "uvs4", value);
             }
         }
 
-        
         public decimal[] uvs5
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<decimal>(
-                    this.___guid,
-                    "uvs5"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "uvs5"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "uvs5",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "uvs5", value);
             }
         }
 
-        
         public decimal[] uvs6
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<decimal>(
-                    this.___guid,
-                    "uvs6"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "uvs6"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "uvs6",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "uvs6", value);
             }
         }
 
-        
         public decimal[] colors
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<decimal>(
-                    this.___guid,
-                    "colors"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "colors"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "colors",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "colors", value);
             }
         }
 
-        
         public decimal[] matricesIndices
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArray<decimal>(
-                    this.___guid,
-                    "matricesIndices"
-                );
+                return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "matricesIndices");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "matricesIndices",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "matricesIndices", value);
             }
         }
 
-        
         public decimal[] matricesWeights
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArray<decimal>(
-                    this.___guid,
-                    "matricesWeights"
-                );
+                return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "matricesWeights");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "matricesWeights",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "matricesWeights", value);
             }
         }
 
-        
         public decimal[] matricesIndicesExtra
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArray<decimal>(
+                return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "matricesIndicesExtra"
                 );
@@ -592,20 +464,15 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "matricesIndicesExtra",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "matricesIndicesExtra", value);
             }
         }
 
-        
         public decimal[] matricesWeightsExtra
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArray<decimal>(
+                return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "matricesWeightsExtra"
                 );
@@ -613,46 +480,30 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "matricesWeightsExtra",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "matricesWeightsExtra", value);
             }
         }
 
-        
         public decimal[] indices
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<decimal>(
-                    this.___guid,
-                    "indices"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "indices"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "indices",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "indices", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public VertexData() : base() { }
 
-        public VertexData(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public VertexData()
+            : base() { }
+
+        public VertexData(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
-
 
         #endregion
 
@@ -660,10 +511,7 @@ namespace BABYLON
         public void set(decimal[] data, string kind)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "set" }, data, kind
-                }
+                new object[] { new string[] { this.___guid, "set" }, data, kind }
             );
         }
 
@@ -671,10 +519,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "applyToMesh" }, mesh, updatable
-                }
+                new object[] { new string[] { this.___guid, "applyToMesh" }, mesh, updatable }
             );
         }
 
@@ -684,7 +529,9 @@ namespace BABYLON
                 entity => new VertexData() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "applyToGeometry" }, geometry, updatable
+                    new string[] { this.___guid, "applyToGeometry" },
+                    geometry,
+                    updatable
                 }
             );
         }
@@ -693,10 +540,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "updateMesh" }, mesh
-                }
+                new object[] { new string[] { this.___guid, "updateMesh" }, mesh }
             );
         }
 
@@ -704,10 +548,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "updateGeometry" }, geometry
-                }
+                new object[] { new string[] { this.___guid, "updateGeometry" }, geometry }
             );
         }
 
@@ -715,10 +556,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "transform" }, matrix
-                }
+                new object[] { new string[] { this.___guid, "transform" }, matrix }
             );
         }
 
@@ -726,20 +564,14 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "merge" }, other, use32BitsIndices
-                }
+                new object[] { new string[] { this.___guid, "merge" }, other, use32BitsIndices }
             );
         }
 
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "serialize" }
-                }
+                new object[] { new string[] { this.___guid, "serialize" } }
             );
         }
         #endregion

@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Vector4>))]
     public class Vector4 : CachedEntityObject
     {
@@ -28,10 +26,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "Vector4", "FromArray" }, array, offset
-                }
+                new object[] { new string[] { "BABYLON", "Vector4", "FromArray" }, array, offset }
             );
         }
 
@@ -40,7 +35,10 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "Vector4", "FromArrayToRef" }, array, offset, result
+                    new string[] { "BABYLON", "Vector4", "FromArrayToRef" },
+                    array,
+                    offset,
+                    result
                 }
             );
         }
@@ -50,17 +48,31 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "Vector4", "FromFloatArrayToRef" }, array, offset, result
+                    new string[] { "BABYLON", "Vector4", "FromFloatArrayToRef" },
+                    array,
+                    offset,
+                    result
                 }
             );
         }
 
-        public static void FromFloatsToRef(decimal x, decimal y, decimal z, decimal w, Vector4 result)
+        public static void FromFloatsToRef(
+            decimal x,
+            decimal y,
+            decimal z,
+            decimal w,
+            Vector4 result
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "Vector4", "FromFloatsToRef" }, x, y, z, w, result
+                    new string[] { "BABYLON", "Vector4", "FromFloatsToRef" },
+                    x,
+                    y,
+                    z,
+                    w,
+                    result
                 }
             );
         }
@@ -69,10 +81,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "Vector4", "Zero" }
-                }
+                new object[] { new string[] { "BABYLON", "Vector4", "Zero" } }
             );
         }
 
@@ -80,10 +89,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "Vector4", "One" }
-                }
+                new object[] { new string[] { "BABYLON", "Vector4", "One" } }
             );
         }
 
@@ -91,10 +97,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "Vector4", "Normalize" }, vector
-                }
+                new object[] { new string[] { "BABYLON", "Vector4", "Normalize" }, vector }
             );
         }
 
@@ -103,7 +106,9 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "Vector4", "NormalizeToRef" }, vector, result
+                    new string[] { "BABYLON", "Vector4", "NormalizeToRef" },
+                    vector,
+                    result
                 }
             );
         }
@@ -112,10 +117,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "Vector4", "Minimize" }, left, right
-                }
+                new object[] { new string[] { "BABYLON", "Vector4", "Minimize" }, left, right }
             );
         }
 
@@ -123,20 +125,14 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "Vector4", "Maximize" }, left, right
-                }
+                new object[] { new string[] { "BABYLON", "Vector4", "Maximize" }, left, right }
             );
         }
 
         public static decimal Distance(Vector4 value1, Vector4 value2)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[]
-                {
-                    new string[] { "BABYLON", "Vector4", "Distance" }, value1, value2
-                }
+                new object[] { new string[] { "BABYLON", "Vector4", "Distance" }, value1, value2 }
             );
         }
 
@@ -145,7 +141,9 @@ namespace BABYLON
             return EventHorizonBlazorInterop.Func<decimal>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "Vector4", "DistanceSquared" }, value1, value2
+                    new string[] { "BABYLON", "Vector4", "DistanceSquared" },
+                    value1,
+                    value2
                 }
             );
         }
@@ -154,10 +152,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "Vector4", "Center" }, value1, value2
-                }
+                new object[] { new string[] { "BABYLON", "Vector4", "Center" }, value1, value2 }
             );
         }
 
@@ -167,27 +162,49 @@ namespace BABYLON
                 entity => new Vector4() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "Vector4", "TransformNormal" }, vector, transformation
+                    new string[] { "BABYLON", "Vector4", "TransformNormal" },
+                    vector,
+                    transformation
                 }
             );
         }
 
-        public static void TransformNormalToRef(Vector4 vector, Matrix transformation, Vector4 result)
+        public static void TransformNormalToRef(
+            Vector4 vector,
+            Matrix transformation,
+            Vector4 result
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "Vector4", "TransformNormalToRef" }, vector, transformation, result
+                    new string[] { "BABYLON", "Vector4", "TransformNormalToRef" },
+                    vector,
+                    transformation,
+                    result
                 }
             );
         }
 
-        public static void TransformNormalFromFloatsToRef(decimal x, decimal y, decimal z, decimal w, Matrix transformation, Vector4 result)
+        public static void TransformNormalFromFloatsToRef(
+            decimal x,
+            decimal y,
+            decimal z,
+            decimal w,
+            Matrix transformation,
+            Vector4 result
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "Vector4", "TransformNormalFromFloatsToRef" }, x, y, z, w, transformation, result
+                    new string[] { "BABYLON", "Vector4", "TransformNormalFromFloatsToRef" },
+                    x,
+                    y,
+                    z,
+                    w,
+                    transformation,
+                    result
                 }
             );
         }
@@ -196,10 +213,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "Vector4", "FromVector3" }, source, w
-                }
+                new object[] { new string[] { "BABYLON", "Vector4", "FromVector3" }, source, w }
             );
         }
         #endregion
@@ -209,108 +223,66 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public decimal x
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "x"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "x"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "x",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "x", value);
             }
         }
 
-        
         public decimal y
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "y"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "y"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "y",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "y", value);
             }
         }
 
-        
         public decimal z
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "z"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "z"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "z",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "z", value);
             }
         }
 
-        
         public decimal w
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "w"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "w"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "w",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "w", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public Vector4() : base() { }
 
-        public Vector4(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public Vector4()
+            : base() { }
+
+        public Vector4(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
-        public Vector4(
-            decimal x, decimal y, decimal z, decimal w
-        )
+        public Vector4(decimal x, decimal y, decimal z, decimal w)
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Vector4" },
-                x, y, z, w
+                x,
+                y,
+                z,
+                w
             );
             ___guid = entity.___guid;
         }
@@ -320,40 +292,28 @@ namespace BABYLON
         public string toString()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "toString" }
-                }
+                new object[] { new string[] { this.___guid, "toString" } }
             );
         }
 
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
         public decimal getHashCode()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getHashCode" }
-                }
+                new object[] { new string[] { this.___guid, "getHashCode" } }
             );
         }
 
         public decimal[] asArray()
         {
             return EventHorizonBlazorInterop.FuncArray<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "asArray" }
-                }
+                new object[] { new string[] { this.___guid, "asArray" } }
             );
         }
 
@@ -361,10 +321,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "toArray" }, array, index
-                }
+                new object[] { new string[] { this.___guid, "toArray" }, array, index }
             );
         }
 
@@ -372,10 +329,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "fromArray" }, array, index
-                }
+                new object[] { new string[] { this.___guid, "fromArray" }, array, index }
             );
         }
 
@@ -383,10 +337,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "addInPlace" }, otherVector
-                }
+                new object[] { new string[] { this.___guid, "addInPlace" }, otherVector }
             );
         }
 
@@ -394,10 +345,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "add" }, otherVector
-                }
+                new object[] { new string[] { this.___guid, "add" }, otherVector }
             );
         }
 
@@ -405,10 +353,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "addToRef" }, otherVector, result
-                }
+                new object[] { new string[] { this.___guid, "addToRef" }, otherVector, result }
             );
         }
 
@@ -416,10 +361,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "subtractInPlace" }, otherVector
-                }
+                new object[] { new string[] { this.___guid, "subtractInPlace" }, otherVector }
             );
         }
 
@@ -427,10 +369,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "subtract" }, otherVector
-                }
+                new object[] { new string[] { this.___guid, "subtract" }, otherVector }
             );
         }
 
@@ -438,10 +377,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "subtractToRef" }, otherVector, result
-                }
+                new object[] { new string[] { this.___guid, "subtractToRef" }, otherVector, result }
             );
         }
 
@@ -449,20 +385,28 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "subtractFromFloats" }, x, y, z, w
-                }
+                new object[] { new string[] { this.___guid, "subtractFromFloats" }, x, y, z, w }
             );
         }
 
-        public Vector4 subtractFromFloatsToRef(decimal x, decimal y, decimal z, decimal w, Vector4 result)
+        public Vector4 subtractFromFloatsToRef(
+            decimal x,
+            decimal y,
+            decimal z,
+            decimal w,
+            Vector4 result
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "subtractFromFloatsToRef" }, x, y, z, w, result
+                    new string[] { this.___guid, "subtractFromFloatsToRef" },
+                    x,
+                    y,
+                    z,
+                    w,
+                    result
                 }
             );
         }
@@ -471,10 +415,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "negate" }
-                }
+                new object[] { new string[] { this.___guid, "negate" } }
             );
         }
 
@@ -482,10 +423,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "negateInPlace" }
-                }
+                new object[] { new string[] { this.___guid, "negateInPlace" } }
             );
         }
 
@@ -493,10 +431,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "negateToRef" }, result
-                }
+                new object[] { new string[] { this.___guid, "negateToRef" }, result }
             );
         }
 
@@ -504,10 +439,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "scaleInPlace" }, scale
-                }
+                new object[] { new string[] { this.___guid, "scaleInPlace" }, scale }
             );
         }
 
@@ -515,10 +447,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "scale" }, scale
-                }
+                new object[] { new string[] { this.___guid, "scale" }, scale }
             );
         }
 
@@ -526,10 +455,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "scaleToRef" }, scale, result
-                }
+                new object[] { new string[] { this.___guid, "scaleToRef" }, scale, result }
             );
         }
 
@@ -537,20 +463,14 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "scaleAndAddToRef" }, scale, result
-                }
+                new object[] { new string[] { this.___guid, "scaleAndAddToRef" }, scale, result }
             );
         }
 
         public bool equals(Vector4 otherVector)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "equals" }, otherVector
-                }
+                new object[] { new string[] { this.___guid, "equals" }, otherVector }
             );
         }
 
@@ -559,7 +479,9 @@ namespace BABYLON
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
-                    new string[] { this.___guid, "equalsWithEpsilon" }, otherVector, epsilon
+                    new string[] { this.___guid, "equalsWithEpsilon" },
+                    otherVector,
+                    epsilon
                 }
             );
         }
@@ -567,10 +489,7 @@ namespace BABYLON
         public bool equalsToFloats(decimal x, decimal y, decimal z, decimal w)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "equalsToFloats" }, x, y, z, w
-                }
+                new object[] { new string[] { this.___guid, "equalsToFloats" }, x, y, z, w }
             );
         }
 
@@ -578,10 +497,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "multiplyInPlace" }, otherVector
-                }
+                new object[] { new string[] { this.___guid, "multiplyInPlace" }, otherVector }
             );
         }
 
@@ -589,10 +505,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "multiply" }, otherVector
-                }
+                new object[] { new string[] { this.___guid, "multiply" }, otherVector }
             );
         }
 
@@ -600,10 +513,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "multiplyToRef" }, otherVector, result
-                }
+                new object[] { new string[] { this.___guid, "multiplyToRef" }, otherVector, result }
             );
         }
 
@@ -611,10 +521,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "multiplyByFloats" }, x, y, z, w
-                }
+                new object[] { new string[] { this.___guid, "multiplyByFloats" }, x, y, z, w }
             );
         }
 
@@ -622,10 +529,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "divide" }, otherVector
-                }
+                new object[] { new string[] { this.___guid, "divide" }, otherVector }
             );
         }
 
@@ -633,10 +537,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "divideToRef" }, otherVector, result
-                }
+                new object[] { new string[] { this.___guid, "divideToRef" }, otherVector, result }
             );
         }
 
@@ -644,10 +545,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "divideInPlace" }, otherVector
-                }
+                new object[] { new string[] { this.___guid, "divideInPlace" }, otherVector }
             );
         }
 
@@ -655,10 +553,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "minimizeInPlace" }, other
-                }
+                new object[] { new string[] { this.___guid, "minimizeInPlace" }, other }
             );
         }
 
@@ -666,10 +561,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "maximizeInPlace" }, other
-                }
+                new object[] { new string[] { this.___guid, "maximizeInPlace" }, other }
             );
         }
 
@@ -677,10 +569,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "floor" }
-                }
+                new object[] { new string[] { this.___guid, "floor" } }
             );
         }
 
@@ -688,30 +577,21 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "fract" }
-                }
+                new object[] { new string[] { this.___guid, "fract" } }
             );
         }
 
         public decimal length()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "length" }
-                }
+                new object[] { new string[] { this.___guid, "length" } }
             );
         }
 
         public decimal lengthSquared()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "lengthSquared" }
-                }
+                new object[] { new string[] { this.___guid, "lengthSquared" } }
             );
         }
 
@@ -719,10 +599,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "normalize" }
-                }
+                new object[] { new string[] { this.___guid, "normalize" } }
             );
         }
 
@@ -730,10 +607,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "toVector3" }
-                }
+                new object[] { new string[] { this.___guid, "toVector3" } }
             );
         }
 
@@ -741,10 +615,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "clone" }
-                }
+                new object[] { new string[] { this.___guid, "clone" } }
             );
         }
 
@@ -752,10 +623,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "copyFrom" }, source
-                }
+                new object[] { new string[] { this.___guid, "copyFrom" }, source }
             );
         }
 
@@ -763,10 +631,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "copyFromFloats" }, x, y, z, w
-                }
+                new object[] { new string[] { this.___guid, "copyFromFloats" }, x, y, z, w }
             );
         }
 
@@ -774,10 +639,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "set" }, x, y, z, w
-                }
+                new object[] { new string[] { this.___guid, "set" }, x, y, z, w }
             );
         }
 
@@ -785,10 +647,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "setAll" }, v
-                }
+                new object[] { new string[] { this.___guid, "setAll" }, v }
             );
         }
         #endregion

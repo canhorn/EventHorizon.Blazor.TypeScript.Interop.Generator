@@ -11,9 +11,11 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface INodeMaterialEditorOptions : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<INodeMaterialEditorOptionsCachedEntity>))]
-    public class INodeMaterialEditorOptionsCachedEntity : CachedEntityObject, INodeMaterialEditorOptions
+    public class INodeMaterialEditorOptionsCachedEntity
+        : CachedEntityObject,
+            INodeMaterialEditorOptions
     {
         #region Static Accessors
 
@@ -32,37 +34,24 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public string editorURL
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "editorURL"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "editorURL"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "editorURL",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "editorURL", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public INodeMaterialEditorOptionsCachedEntity() : base() { }
+        public INodeMaterialEditorOptionsCachedEntity()
+            : base() { }
 
-        public INodeMaterialEditorOptionsCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public INodeMaterialEditorOptionsCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

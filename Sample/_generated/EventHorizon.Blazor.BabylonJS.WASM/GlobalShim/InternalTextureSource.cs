@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Interop;
 
 public class InternalTextureSource : CachedEntity
 {
-    public InternalTextureSource()
-    {
-    }
+    public InternalTextureSource() { }
 
-    public InternalTextureSource(
-        ICachedEntity entity
-    )
+    public InternalTextureSource(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

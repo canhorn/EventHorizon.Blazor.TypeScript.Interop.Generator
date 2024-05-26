@@ -24,14 +24,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
             // When
             var notCachedEnumIdentifier = new EnumTypeIdentifierNotCached();
-            var actual = notCachedEnumIdentifier.Identify(
-                enumIdentifierString,
-                ast
-            );
+            var actual = notCachedEnumIdentifier.Identify(enumIdentifierString, ast);
 
             // Then
-            actual.Should()
-                .Be(expected);
+            actual.Should().Be(expected);
         }
 
         [Fact]
@@ -49,14 +45,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
             // When
             var notCachedEnumIdentifier = new EnumTypeIdentifierCached();
-            var actual = notCachedEnumIdentifier.Identify(
-                enumIdentifierString,
-                ast
-            );
+            var actual = notCachedEnumIdentifier.Identify(enumIdentifierString, ast);
 
             // Then
-            actual.Should()
-                .Be(expected);
+            actual.Should().Be(expected);
         }
 
         [Fact]
@@ -74,20 +66,17 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
             // When
             var notCachedEnumIdentifier = new EnumTypeIdentifierCached();
             // First Identify
-            notCachedEnumIdentifier.Identify(
-                enumIdentifierString,
-                ast
-            ).Should() // Then
+            notCachedEnumIdentifier
+                .Identify(enumIdentifierString, ast)
+                .Should() // Then
                 .BeTrue();
 
             // Second Identify
-            notCachedEnumIdentifier.Identify(
-                enumIdentifierString,
-                ast
-            ).Should() // Then
+            notCachedEnumIdentifier
+                .Identify(enumIdentifierString, ast)
+                .Should() // Then
                 .BeTrue();
         }
-
 
         [Fact]
         [Trait("Category", "EnumTypeIdentifier.NotCached.StandardUsage")]
@@ -104,14 +93,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
             // When
             var notCachedEnumIdentifier = new EnumTypeIdentifierNotCached();
-            var actual = notCachedEnumIdentifier.Identify(
-                enumIdentifierString,
-                ast
-            );
+            var actual = notCachedEnumIdentifier.Identify(enumIdentifierString, ast);
 
             // Then
-            actual.Should()
-                .Be(expected);
+            actual.Should().Be(expected);
         }
 
         [Fact]
@@ -129,14 +114,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
 
             // When
             var notCachedEnumIdentifier = new EnumTypeIdentifierCached();
-            var actual = notCachedEnumIdentifier.Identify(
-                enumIdentifierString,
-                ast
-            );
+            var actual = notCachedEnumIdentifier.Identify(enumIdentifierString, ast);
 
             // Then
-            actual.Should()
-                .Be(expected);
+            actual.Should().Be(expected);
         }
 
         [Fact]
@@ -154,17 +135,15 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
             // When
             var notCachedEnumIdentifier = new EnumTypeIdentifierCached();
             // First Identify
-            notCachedEnumIdentifier.Identify(
-                enumIdentifierString,
-                ast
-            ).Should() // Then
+            notCachedEnumIdentifier
+                .Identify(enumIdentifierString, ast)
+                .Should() // Then
                 .BeTrue();
 
             // Second Identify
-            notCachedEnumIdentifier.Identify(
-                enumIdentifierString,
-                ast
-            ).Should() // Then
+            notCachedEnumIdentifier
+                .Identify(enumIdentifierString, ast)
+                .Should() // Then
                 .BeTrue();
         }
     }

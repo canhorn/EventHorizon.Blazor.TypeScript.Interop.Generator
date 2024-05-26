@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface ICollisionCoordinator : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<ICollisionCoordinatorCachedEntity>))]
     public class ICollisionCoordinatorCachedEntity : CachedEntityObject, ICollisionCoordinator
     {
@@ -34,16 +34,13 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
+
         #region Constructor
-        public ICollisionCoordinatorCachedEntity() : base() { }
+        public ICollisionCoordinatorCachedEntity()
+            : base() { }
 
-        public ICollisionCoordinatorCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public ICollisionCoordinatorCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -52,19 +49,31 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Collider>(
                 entity => new Collider() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "createCollider" }
-                }
+                new object[] { new string[] { this.___guid, "createCollider" } }
             );
         }
 
-        public void getNewPosition(Vector3 position, Vector3 displacement, Collider collider, decimal maximumRetry, AbstractMesh excludedMesh, ActionCallback<decimal, Vector3, AbstractMesh> onNewPosition, decimal collisionIndex)
+        public void getNewPosition(
+            Vector3 position,
+            Vector3 displacement,
+            Collider collider,
+            decimal maximumRetry,
+            AbstractMesh excludedMesh,
+            ActionCallback<decimal, Vector3, AbstractMesh> onNewPosition,
+            decimal collisionIndex
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "getNewPosition" }, position, displacement, collider, maximumRetry, excludedMesh, onNewPosition, collisionIndex
+                    new string[] { this.___guid, "getNewPosition" },
+                    position,
+                    displacement,
+                    collider,
+                    maximumRetry,
+                    excludedMesh,
+                    onNewPosition,
+                    collisionIndex
                 }
             );
         }
@@ -72,10 +81,7 @@ namespace BABYLON
         public void init(Scene scene)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "init" }, scene
-                }
+                new object[] { new string[] { this.___guid, "init" }, scene }
             );
         }
         #endregion

@@ -28,34 +28,31 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
             );
 
             // Then
-            actual.Name
-                .Should().Be("Button");
-            actual.Namespace
-                .Should().Be("BABYLON.GUI");
-            actual.ExtendedType
-                .Should().BeEquivalentTo(
-                    new TypeStatement
+            actual.Name.Should().Be("Button");
+            actual.Namespace.Should().Be("BABYLON.GUI");
+            actual.ExtendedType.Should().BeEquivalentTo(new TypeStatement { Name = "Rectangle" });
+            actual
+                .ConstructorStatement.Should()
+                .BeEquivalentTo(
+                    new ConstructorStatement
                     {
-                        Name = "Rectangle"
-                    }
-                );
-            actual.ConstructorStatement
-                .Should().BeEquivalentTo(new ConstructorStatement
-                {
-                    NeedsInvokableReference = false,
-                    Arguments = new List<ArgumentStatement>
-                    {
-                        new ArgumentStatement
+                        NeedsInvokableReference = false,
+                        Arguments = new List<ArgumentStatement>
                         {
-                            Name = "name",
-                            Type = new TypeStatement { Name = "string" },
-                            IsOptional = true,
+                            new ArgumentStatement
+                            {
+                                Name = "name",
+                                Type = new TypeStatement { Name = "string" },
+                                IsOptional = true,
+                            }
                         }
                     }
-                });
-            actual.AccessorStatements
-                .Should().BeEquivalentTo(
-                    new List<AccessorStatement> {
+                );
+            actual
+                .AccessorStatements.Should()
+                .BeEquivalentTo(
+                    new List<AccessorStatement>
+                    {
                         new AccessorStatement
                         {
                             Name = "image",
@@ -65,16 +62,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 IsNullable = true,
                                 GenericTypes = new List<TypeStatement>
                                 {
-                                    new TypeStatement
-                                    {
-                                        Name = "Image"
-                                    }
+                                    new TypeStatement { Name = "Image" }
                                 }
                             },
-                            UsedClassNames = new List<string>
-                            {
-                                "Image",
-                            }
+                            UsedClassNames = new List<string> { "Image", }
                         },
                         new AccessorStatement
                         {
@@ -85,58 +76,37 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 IsNullable = true,
                                 GenericTypes = new List<TypeStatement>
                                 {
-                                    new TypeStatement
-                                    {
-                                        Name = "TextBlock"
-                                    }
+                                    new TypeStatement { Name = "TextBlock" }
                                 }
                             },
-                            UsedClassNames = new List<string>
-                            {
-                                "TextBlock",
-                            }
+                            UsedClassNames = new List<string> { "TextBlock", }
                         }
                     }
                 );
-            actual.PublicMethodStatements
-                .Should().BeEquivalentTo(
+            actual
+                .PublicMethodStatements.Should()
+                .BeEquivalentTo(
                     new List<PublicMethodStatement>
                     {
                         new PublicMethodStatement
                         {
                             Name = "pointerEnterAnimation",
-                            Type = new TypeStatement
-                            {
-                                Name = "action",
-                                IsAction = true,
-                            },
+                            Type = new TypeStatement { Name = "action", IsAction = true, },
                         },
                         new PublicMethodStatement
                         {
                             Name = "pointerOutAnimation",
-                            Type = new TypeStatement
-                            {
-                                Name = "action",
-                                IsAction = true,
-                            },
+                            Type = new TypeStatement { Name = "action", IsAction = true, },
                         },
                         new PublicMethodStatement
                         {
                             Name = "pointerDownAnimation",
-                            Type = new TypeStatement
-                            {
-                                Name = "action",
-                                IsAction = true,
-                            },
+                            Type = new TypeStatement { Name = "action", IsAction = true, },
                         },
                         new PublicMethodStatement
                         {
                             Name = "pointerUpAnimation",
-                            Type = new TypeStatement
-                            {
-                                Name = "action",
-                                IsAction = true,
-                            },
+                            Type = new TypeStatement { Name = "action", IsAction = true, },
                         },
                         new PublicMethodStatement
                         {
@@ -246,11 +216,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                         },
                     }
                 );
-            actual.PublicPropertyStatements
-                .Should().BeEquivalentTo(
+            actual
+                .PublicPropertyStatements.Should()
+                .BeEquivalentTo(
                     new List<PublicPropertyStatement>
                     {
-
                         new PublicPropertyStatement
                         {
                             Name = "name",

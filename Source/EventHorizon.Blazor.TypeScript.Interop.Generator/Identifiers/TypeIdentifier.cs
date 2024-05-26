@@ -7,20 +7,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 
     public static class TypeIdentifier
     {
-        public static string Identify(
-            Node node,
-            ClassMetadata classMetadata
-        )
+        public static string Identify(Node node, ClassMetadata classMetadata)
         {
-            var type = GetFromNode(
-                node,
-                node.Kind,
-                classMetadata
-            );
-            if (JavaScriptProvidedApiIdentifier.Identify(
-                type,
-                out var jsType
-            ))
+            var type = GetFromNode(node, node.Kind, classMetadata);
+            if (JavaScriptProvidedApiIdentifier.Identify(type, out var jsType))
             {
                 type = jsType;
             }
@@ -28,25 +18,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             return type;
         }
 
-
-        public static string GetFromNode(
-            Node node,
-            string kind,
-            ClassMetadata classMetadata
-        )
+        public static string GetFromNode(Node node, string kind, ClassMetadata classMetadata)
         {
             switch (kind)
             {
                 case SyntaxKind.UnionType:
-                    return UnionTypeCheck(
-                        node,
-                        classMetadata
-                    );
+                    return UnionTypeCheck(node, classMetadata);
                 case SyntaxKind.ParenthesizedType:
-                    return ParenthesizedTypeCheck(
-                        node,
-                        classMetadata
-                    );
+                    return ParenthesizedTypeCheck(node, classMetadata);
                 case SyntaxKind.FunctionType:
                     return GenerationIdentifiedTypes.Action;
                 case SyntaxKind.VoidKeyword:
@@ -65,45 +44,25 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 case SyntaxKind.ArrayType:
                     return GenerationIdentifiedTypes.Array;
                 default:
-                    return AllOtherTypeChecks(
-                        node,
-                        classMetadata
-                    );
+                    return AllOtherTypeChecks(node, classMetadata);
             }
         }
 
-        private static string UnionTypeCheck(
-            Node node,
-            ClassMetadata classMetadata
-        )
+        private static string UnionTypeCheck(Node node, ClassMetadata classMetadata)
         {
-            var firstNode = node.Children.FirstOrDefault(
-                childNode => childNode.Kind != SyntaxKind.NullKeyword
-                    && childNode.Kind != SyntaxKind.UndefinedKeyword
+            var firstNode = node.Children.FirstOrDefault(childNode =>
+                childNode.Kind != SyntaxKind.NullKeyword
+                && childNode.Kind != SyntaxKind.UndefinedKeyword
             );
-            return GetFromNode(
-                firstNode,
-                firstNode.Kind,
-                classMetadata
-            );
+            return GetFromNode(firstNode, firstNode.Kind, classMetadata);
         }
 
-        private static string ParenthesizedTypeCheck(
-            Node node,
-            ClassMetadata classMetadata
-        )
+        private static string ParenthesizedTypeCheck(Node node, ClassMetadata classMetadata)
         {
-            return GetFromNode(
-                node.First,
-                node.First.Kind,
-                classMetadata
-            );
+            return GetFromNode(node.First, node.First.Kind, classMetadata);
         }
 
-        private static string AllOtherTypeChecks(
-            Node node,
-            ClassMetadata classMetadata
-        )
+        private static string AllOtherTypeChecks(Node node, ClassMetadata classMetadata)
         {
             if (node.Kind == SyntaxKind.AnyKeyword)
             {
@@ -115,11 +74,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             }
             else if (node.Type is not null)
             {
-                return GetFromNode(
-                    node.Type,
-                    node.Type.Kind,
-                    classMetadata
-                );
+                return GetFromNode(node.Type, node.Type.Kind, classMetadata);
             }
             else if (node.Kind == SyntaxKind.Parameter)
             {
@@ -133,18 +88,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             return GetNamespacesType(node);
         }
 
-        private static string GetNamespacesType(
-            Node node
-        )
+        private static string GetNamespacesType(Node node)
         {
-            if (node.TypeArguments is not null
-                && node.TypeArguments.Any())
+            if (node.TypeArguments is not null && node.TypeArguments.Any())
             {
                 return node.First.Last.IdentifierStr;
             }
-            return node.OfKind(
-                SyntaxKind.Identifier
-            ).LastOrDefault()?.IdentifierStr ?? GenerationIdentifiedTypes.Unknown;
+            return node.OfKind(SyntaxKind.Identifier).LastOrDefault()?.IdentifierStr
+                ?? GenerationIdentifiedTypes.Unknown;
         }
     }
 }

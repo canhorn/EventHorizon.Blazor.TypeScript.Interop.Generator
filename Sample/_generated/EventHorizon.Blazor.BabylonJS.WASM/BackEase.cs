@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<BackEase>))]
     public class BackEase : EasingFunction, IEasingFunction
     {
@@ -32,40 +30,27 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public decimal amplitude
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "amplitude"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "amplitude"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "amplitude",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "amplitude", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public BackEase() : base() { }
+        public BackEase()
+            : base() { }
 
-        public BackEase(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public BackEase(ICachedEntity entity)
+            : base(entity) { }
 
-        public BackEase(
-            System.Nullable<decimal> amplitude = null
-        ) : base()
+        public BackEase(System.Nullable<decimal> amplitude = null)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "BackEase" },
@@ -79,10 +64,7 @@ namespace BABYLON
         public decimal easeInCore(decimal gradient)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "easeInCore" }, gradient
-                }
+                new object[] { new string[] { this.___guid, "easeInCore" }, gradient }
             );
         }
         #endregion

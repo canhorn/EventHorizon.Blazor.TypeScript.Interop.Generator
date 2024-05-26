@@ -8,10 +8,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
     public class JavaScriptProvidedApiIdentifier
     {
-        public static bool Identify(
-            string typeAsString,
-            out string jsProvidedApiType
-        )
+        public static bool Identify(string typeAsString, out string jsProvidedApiType)
         {
             jsProvidedApiType = typeAsString;
             if (typeAsString == JavaScriptTypes.Promise)
@@ -49,9 +46,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 jsProvidedApiType = GenerationIdentifiedTypes.CachedEntity;
                 return true;
             }
-            else if (JavaScriptTypes.NumberArrayTypes.Any(
-                a => a == typeAsString
-            ))
+            else if (JavaScriptTypes.NumberArrayTypes.Any(a => a == typeAsString))
             {
                 jsProvidedApiType = GenerationIdentifiedTypes.Array;
                 return true;

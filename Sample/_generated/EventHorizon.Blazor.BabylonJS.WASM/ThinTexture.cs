@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<ThinTexture>))]
     public class ThinTexture : CachedEntityObject
     {
@@ -28,152 +26,80 @@ namespace BABYLON
         #endregion
 
         #region Accessors
-        
+
         public decimal wrapU
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "wrapU"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "wrapU"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "wrapU",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "wrapU", value);
             }
         }
 
-        
         public decimal wrapV
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "wrapV"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "wrapV"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "wrapV",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "wrapV", value);
             }
         }
 
-        
         public decimal coordinatesMode
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "coordinatesMode"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "coordinatesMode"); }
         }
 
-        
         public bool isCube
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isCube"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isCube"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isCube",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "isCube", value);
             }
         }
 
-        
         public bool is3D
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "is3D"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "is3D"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "is3D",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "is3D", value);
             }
         }
 
-        
         public bool is2DArray
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "is2DArray"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "is2DArray"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "is2DArray",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "is2DArray", value);
             }
         }
         #endregion
 
         #region Properties
-        
+
         public decimal wrapR
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "wrapR"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "wrapR"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "wrapR",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "wrapR", value);
             }
         }
 
-        
         public decimal anisotropicFilteringLevel
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "anisotropicFilteringLevel"
                 );
@@ -181,49 +107,32 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "anisotropicFilteringLevel",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "anisotropicFilteringLevel", value);
             }
         }
 
-        
         public decimal delayLoadState
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "delayLoadState"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "delayLoadState"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "delayLoadState",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "delayLoadState", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public ThinTexture() : base() { }
 
-        public ThinTexture(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public ThinTexture()
+            : base() { }
+
+        public ThinTexture(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
-        public ThinTexture(
-            InternalTexture internalTexture
-        )
+        public ThinTexture(InternalTexture internalTexture)
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "ThinTexture" },
@@ -237,30 +146,21 @@ namespace BABYLON
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
         public bool isReady()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "isReady" }
-                }
+                new object[] { new string[] { this.___guid, "isReady" } }
             );
         }
 
         public void delayLoad()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "delayLoad" }
-                }
+                new object[] { new string[] { this.___guid, "delayLoad" } }
             );
         }
 
@@ -268,10 +168,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<InternalTexture>(
                 entity => new InternalTexture() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getInternalTexture" }
-                }
+                new object[] { new string[] { this.___guid, "getInternalTexture" } }
             );
         }
 
@@ -279,10 +176,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<ISizeCachedEntity>(
                 entity => new ISizeCachedEntity() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getSize" }
-                }
+                new object[] { new string[] { this.___guid, "getSize" } }
             );
         }
 
@@ -290,40 +184,28 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<ISizeCachedEntity>(
                 entity => new ISizeCachedEntity() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getBaseSize" }
-                }
+                new object[] { new string[] { this.___guid, "getBaseSize" } }
             );
         }
 
         public void updateSamplingMode(decimal samplingMode)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "updateSamplingMode" }, samplingMode
-                }
+                new object[] { new string[] { this.___guid, "updateSamplingMode" }, samplingMode }
             );
         }
 
         public void releaseInternalTexture()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "releaseInternalTexture" }
-                }
+                new object[] { new string[] { this.___guid, "releaseInternalTexture" } }
             );
         }
 
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
         #endregion

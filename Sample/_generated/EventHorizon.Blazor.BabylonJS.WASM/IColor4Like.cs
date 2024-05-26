@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IColor4Like : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IColor4LikeCachedEntity>))]
     public class IColor4LikeCachedEntity : CachedEntityObject, IColor4Like
     {
@@ -32,100 +32,54 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public decimal r
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "r"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "r"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "r",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "r", value);
             }
         }
 
-        
         public decimal g
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "g"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "g"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "g",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "g", value);
             }
         }
 
-        
         public decimal b
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "b"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "b"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "b",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "b", value);
             }
         }
 
-        
         public decimal a
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "a"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "a"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "a",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "a", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IColor4LikeCachedEntity() : base() { }
+        public IColor4LikeCachedEntity()
+            : base() { }
 
-        public IColor4LikeCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IColor4LikeCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

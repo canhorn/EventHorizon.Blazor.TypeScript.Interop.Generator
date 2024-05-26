@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Interop;
 
 public class NodeMaterialConnectionPointCompatibilityStates : CachedEntity
 {
-    public NodeMaterialConnectionPointCompatibilityStates()
-    {
-    }
+    public NodeMaterialConnectionPointCompatibilityStates() { }
 
-    public NodeMaterialConnectionPointCompatibilityStates(
-        ICachedEntity entity
-    )
+    public NodeMaterialConnectionPointCompatibilityStates(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

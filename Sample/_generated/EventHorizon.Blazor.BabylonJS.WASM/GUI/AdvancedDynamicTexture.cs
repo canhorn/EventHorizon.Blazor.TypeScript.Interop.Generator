@@ -10,8 +10,6 @@ namespace BABYLON.GUI
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<AdvancedDynamicTexture>))]
     public class AdvancedDynamicTexture : DynamicTexture
     {
@@ -24,201 +22,160 @@ namespace BABYLON.GUI
         #endregion
 
         #region Static Methods
-        public static AdvancedDynamicTexture CreateForMesh(AbstractMesh mesh, System.Nullable<decimal> width = null, System.Nullable<decimal> height = null, System.Nullable<bool> supportPointerMove = null, System.Nullable<bool> onlyAlphaTesting = null, System.Nullable<bool> invertY = null)
+        public static AdvancedDynamicTexture CreateForMesh(
+            AbstractMesh mesh,
+            System.Nullable<decimal> width = null,
+            System.Nullable<decimal> height = null,
+            System.Nullable<bool> supportPointerMove = null,
+            System.Nullable<bool> onlyAlphaTesting = null,
+            System.Nullable<bool> invertY = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<AdvancedDynamicTexture>(
                 entity => new AdvancedDynamicTexture() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "GUI", "AdvancedDynamicTexture", "CreateForMesh" }, mesh, width, height, supportPointerMove, onlyAlphaTesting, invertY
+                    new string[] { "BABYLON", "GUI", "AdvancedDynamicTexture", "CreateForMesh" },
+                    mesh,
+                    width,
+                    height,
+                    supportPointerMove,
+                    onlyAlphaTesting,
+                    invertY
                 }
             );
         }
 
-        public static AdvancedDynamicTexture CreateForMeshTexture(AbstractMesh mesh, System.Nullable<decimal> width = null, System.Nullable<decimal> height = null, System.Nullable<bool> supportPointerMove = null, System.Nullable<bool> invertY = null)
+        public static AdvancedDynamicTexture CreateForMeshTexture(
+            AbstractMesh mesh,
+            System.Nullable<decimal> width = null,
+            System.Nullable<decimal> height = null,
+            System.Nullable<bool> supportPointerMove = null,
+            System.Nullable<bool> invertY = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<AdvancedDynamicTexture>(
                 entity => new AdvancedDynamicTexture() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "GUI", "AdvancedDynamicTexture", "CreateForMeshTexture" }, mesh, width, height, supportPointerMove, invertY
+                    new string[]
+                    {
+                        "BABYLON",
+                        "GUI",
+                        "AdvancedDynamicTexture",
+                        "CreateForMeshTexture"
+                    },
+                    mesh,
+                    width,
+                    height,
+                    supportPointerMove,
+                    invertY
                 }
             );
         }
 
-        public static AdvancedDynamicTexture CreateFullscreenUI(string name, System.Nullable<bool> foreground = null, Scene scene = null, System.Nullable<decimal> sampling = null)
+        public static AdvancedDynamicTexture CreateFullscreenUI(
+            string name,
+            System.Nullable<bool> foreground = null,
+            Scene scene = null,
+            System.Nullable<decimal> sampling = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<AdvancedDynamicTexture>(
                 entity => new AdvancedDynamicTexture() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "GUI", "AdvancedDynamicTexture", "CreateFullscreenUI" }, name, foreground, scene, sampling
+                    new string[]
+                    {
+                        "BABYLON",
+                        "GUI",
+                        "AdvancedDynamicTexture",
+                        "CreateFullscreenUI"
+                    },
+                    name,
+                    foreground,
+                    scene,
+                    sampling
                 }
             );
         }
         #endregion
 
         #region Accessors
-        
+
         public decimal numLayoutCalls
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "numLayoutCalls"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "numLayoutCalls"); }
         }
 
-        
         public decimal numRenderCalls
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "numRenderCalls"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "numRenderCalls"); }
         }
 
-        
         public decimal renderScale
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "renderScale"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "renderScale"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "renderScale",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "renderScale", value);
             }
         }
 
-        
         public string background
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "background"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "background"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "background",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "background", value);
             }
         }
 
-        
         public decimal idealWidth
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "idealWidth"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "idealWidth"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "idealWidth",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "idealWidth", value);
             }
         }
 
-        
         public decimal idealHeight
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "idealHeight"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "idealHeight"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "idealHeight",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "idealHeight", value);
             }
         }
 
-        
         public bool useSmallestIdeal
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "useSmallestIdeal"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "useSmallestIdeal"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "useSmallestIdeal",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "useSmallestIdeal", value);
             }
         }
 
-        
         public bool renderAtIdealSize
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "renderAtIdealSize"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "renderAtIdealSize"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "renderAtIdealSize",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "renderAtIdealSize", value);
             }
         }
 
-        
         public decimal idealRatio
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "idealRatio"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "idealRatio"); }
         }
 
         private Layer __layer;
@@ -226,18 +183,18 @@ namespace BABYLON.GUI
         {
             get
             {
-            if(__layer == null)
-            {
-                __layer = EventHorizonBlazorInterop.GetClass<Layer>(
-                    this.___guid,
-                    "layer",
-                    (entity) =>
-                    {
-                        return new Layer() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __layer;
+                if (__layer == null)
+                {
+                    __layer = EventHorizonBlazorInterop.GetClass<Layer>(
+                        this.___guid,
+                        "layer",
+                        (entity) =>
+                        {
+                            return new Layer() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __layer;
             }
         }
 
@@ -246,18 +203,18 @@ namespace BABYLON.GUI
         {
             get
             {
-            if(__rootContainer == null)
-            {
-                __rootContainer = EventHorizonBlazorInterop.GetClass<Container>(
-                    this.___guid,
-                    "rootContainer",
-                    (entity) =>
-                    {
-                        return new Container() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __rootContainer;
+                if (__rootContainer == null)
+                {
+                    __rootContainer = EventHorizonBlazorInterop.GetClass<Container>(
+                        this.___guid,
+                        "rootContainer",
+                        (entity) =>
+                        {
+                            return new Container() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __rootContainer;
             }
         }
 
@@ -266,78 +223,55 @@ namespace BABYLON.GUI
         {
             get
             {
-            if(__focusedControl == null)
-            {
-                __focusedControl = EventHorizonBlazorInterop.GetClass<IFocusableControlCachedEntity>(
-                    this.___guid,
-                    "focusedControl",
-                    (entity) =>
-                    {
-                        return new IFocusableControlCachedEntity() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __focusedControl;
+                if (__focusedControl == null)
+                {
+                    __focusedControl =
+                        EventHorizonBlazorInterop.GetClass<IFocusableControlCachedEntity>(
+                            this.___guid,
+                            "focusedControl",
+                            (entity) =>
+                            {
+                                return new IFocusableControlCachedEntity()
+                                {
+                                    ___guid = entity.___guid
+                                };
+                            }
+                        );
+                }
+                return __focusedControl;
             }
             set
             {
-__focusedControl = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "focusedControl",
-                    value
-                );
+                __focusedControl = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "focusedControl", value);
             }
         }
 
-        
         public bool isForeground
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isForeground"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isForeground"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isForeground",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "isForeground", value);
             }
         }
 
-        
         public string clipboardData
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "clipboardData"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "clipboardData"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "clipboardData",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "clipboardData", value);
             }
         }
 
-        
         public bool useInvalidateRectOptimization
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
+                return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useInvalidateRectOptimization"
                 );
@@ -345,11 +279,7 @@ __focusedControl = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "useInvalidateRectOptimization",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "useInvalidateRectOptimization", value);
             }
         }
         #endregion
@@ -360,27 +290,25 @@ __focusedControl = null;
         {
             get
             {
-            if(__onClipboardObservable == null)
-            {
-                __onClipboardObservable = EventHorizonBlazorInterop.GetClass<Observable<ClipboardInfo>>(
-                    this.___guid,
-                    "onClipboardObservable",
-                    (entity) =>
-                    {
-                        return new Observable<ClipboardInfo>() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __onClipboardObservable;
+                if (__onClipboardObservable == null)
+                {
+                    __onClipboardObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<ClipboardInfo>
+                    >(
+                        this.___guid,
+                        "onClipboardObservable",
+                        (entity) =>
+                        {
+                            return new Observable<ClipboardInfo>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __onClipboardObservable;
             }
             set
             {
-__onClipboardObservable = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onClipboardObservable",
-                    value
-                );
+                __onClipboardObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onClipboardObservable", value);
             }
         }
 
@@ -389,27 +317,25 @@ __onClipboardObservable = null;
         {
             get
             {
-            if(__onControlPickedObservable == null)
-            {
-                __onControlPickedObservable = EventHorizonBlazorInterop.GetClass<Observable<Control>>(
-                    this.___guid,
-                    "onControlPickedObservable",
-                    (entity) =>
-                    {
-                        return new Observable<Control>() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __onControlPickedObservable;
+                if (__onControlPickedObservable == null)
+                {
+                    __onControlPickedObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<Control>
+                    >(
+                        this.___guid,
+                        "onControlPickedObservable",
+                        (entity) =>
+                        {
+                            return new Observable<Control>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __onControlPickedObservable;
             }
             set
             {
-__onControlPickedObservable = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onControlPickedObservable",
-                    value
-                );
+                __onControlPickedObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onControlPickedObservable", value);
             }
         }
 
@@ -418,27 +344,28 @@ __onControlPickedObservable = null;
         {
             get
             {
-            if(__onBeginLayoutObservable == null)
-            {
-                __onBeginLayoutObservable = EventHorizonBlazorInterop.GetClass<Observable<AdvancedDynamicTexture>>(
-                    this.___guid,
-                    "onBeginLayoutObservable",
-                    (entity) =>
-                    {
-                        return new Observable<AdvancedDynamicTexture>() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __onBeginLayoutObservable;
+                if (__onBeginLayoutObservable == null)
+                {
+                    __onBeginLayoutObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<AdvancedDynamicTexture>
+                    >(
+                        this.___guid,
+                        "onBeginLayoutObservable",
+                        (entity) =>
+                        {
+                            return new Observable<AdvancedDynamicTexture>()
+                            {
+                                ___guid = entity.___guid
+                            };
+                        }
+                    );
+                }
+                return __onBeginLayoutObservable;
             }
             set
             {
-__onBeginLayoutObservable = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onBeginLayoutObservable",
-                    value
-                );
+                __onBeginLayoutObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onBeginLayoutObservable", value);
             }
         }
 
@@ -447,27 +374,28 @@ __onBeginLayoutObservable = null;
         {
             get
             {
-            if(__onEndLayoutObservable == null)
-            {
-                __onEndLayoutObservable = EventHorizonBlazorInterop.GetClass<Observable<AdvancedDynamicTexture>>(
-                    this.___guid,
-                    "onEndLayoutObservable",
-                    (entity) =>
-                    {
-                        return new Observable<AdvancedDynamicTexture>() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __onEndLayoutObservable;
+                if (__onEndLayoutObservable == null)
+                {
+                    __onEndLayoutObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<AdvancedDynamicTexture>
+                    >(
+                        this.___guid,
+                        "onEndLayoutObservable",
+                        (entity) =>
+                        {
+                            return new Observable<AdvancedDynamicTexture>()
+                            {
+                                ___guid = entity.___guid
+                            };
+                        }
+                    );
+                }
+                return __onEndLayoutObservable;
             }
             set
             {
-__onEndLayoutObservable = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onEndLayoutObservable",
-                    value
-                );
+                __onEndLayoutObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onEndLayoutObservable", value);
             }
         }
 
@@ -476,27 +404,28 @@ __onEndLayoutObservable = null;
         {
             get
             {
-            if(__onBeginRenderObservable == null)
-            {
-                __onBeginRenderObservable = EventHorizonBlazorInterop.GetClass<Observable<AdvancedDynamicTexture>>(
-                    this.___guid,
-                    "onBeginRenderObservable",
-                    (entity) =>
-                    {
-                        return new Observable<AdvancedDynamicTexture>() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __onBeginRenderObservable;
+                if (__onBeginRenderObservable == null)
+                {
+                    __onBeginRenderObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<AdvancedDynamicTexture>
+                    >(
+                        this.___guid,
+                        "onBeginRenderObservable",
+                        (entity) =>
+                        {
+                            return new Observable<AdvancedDynamicTexture>()
+                            {
+                                ___guid = entity.___guid
+                            };
+                        }
+                    );
+                }
+                return __onBeginRenderObservable;
             }
             set
             {
-__onBeginRenderObservable = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onBeginRenderObservable",
-                    value
-                );
+                __onBeginRenderObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onBeginRenderObservable", value);
             }
         }
 
@@ -505,89 +434,82 @@ __onBeginRenderObservable = null;
         {
             get
             {
-            if(__onEndRenderObservable == null)
-            {
-                __onEndRenderObservable = EventHorizonBlazorInterop.GetClass<Observable<AdvancedDynamicTexture>>(
-                    this.___guid,
-                    "onEndRenderObservable",
-                    (entity) =>
-                    {
-                        return new Observable<AdvancedDynamicTexture>() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __onEndRenderObservable;
+                if (__onEndRenderObservable == null)
+                {
+                    __onEndRenderObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<AdvancedDynamicTexture>
+                    >(
+                        this.___guid,
+                        "onEndRenderObservable",
+                        (entity) =>
+                        {
+                            return new Observable<AdvancedDynamicTexture>()
+                            {
+                                ___guid = entity.___guid
+                            };
+                        }
+                    );
+                }
+                return __onEndRenderObservable;
             }
             set
             {
-__onEndRenderObservable = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onEndRenderObservable",
-                    value
-                );
+                __onEndRenderObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onEndRenderObservable", value);
             }
         }
 
-        
         public bool premulAlpha
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "premulAlpha"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "premulAlpha"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "premulAlpha",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "premulAlpha", value);
             }
         }
 
-        
         public bool applyYInversionOnUpdate
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "applyYInversionOnUpdate"
-                );
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "applyYInversionOnUpdate");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "applyYInversionOnUpdate",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "applyYInversionOnUpdate", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public AdvancedDynamicTexture() : base() { }
+        public AdvancedDynamicTexture()
+            : base() { }
+
+        public AdvancedDynamicTexture(ICachedEntity entity)
+            : base(entity) { }
 
         public AdvancedDynamicTexture(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
-        public AdvancedDynamicTexture(
-            string name, Scene scene, System.Nullable<decimal> width = null, System.Nullable<decimal> height = null, System.Nullable<bool> generateMipMaps = null, System.Nullable<decimal> samplingMode = null, System.Nullable<bool> invertY = null
-        ) : base()
+            string name,
+            Scene scene,
+            System.Nullable<decimal> width = null,
+            System.Nullable<decimal> height = null,
+            System.Nullable<bool> generateMipMaps = null,
+            System.Nullable<decimal> samplingMode = null,
+            System.Nullable<bool> invertY = null
+        )
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GUI", "AdvancedDynamicTexture" },
-                name, width, height, scene, generateMipMaps, samplingMode, invertY
+                name,
+                width,
+                height,
+                scene,
+                generateMipMaps,
+                samplingMode,
+                invertY
             );
             ___guid = entity.___guid;
         }
@@ -598,20 +520,22 @@ __onEndRenderObservable = null;
         {
             return EventHorizonBlazorInterop.FuncArrayClass<Container>(
                 entity => new Container() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getChildren" }
-                }
+                new object[] { new string[] { this.___guid, "getChildren" } }
             );
         }
 
-        public Control[] getDescendants(System.Nullable<bool> directDescendantsOnly = null, ActionResultCallback<Control, bool> predicate = null)
+        public Control[] getDescendants(
+            System.Nullable<bool> directDescendantsOnly = null,
+            ActionResultCallback<Control, bool> predicate = null
+        )
         {
             return EventHorizonBlazorInterop.FuncArrayClass<Control>(
                 entity => new Control() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "getDescendants" }, directDescendantsOnly, predicate
+                    new string[] { this.___guid, "getDescendants" },
+                    directDescendantsOnly,
+                    predicate
                 }
             );
         }
@@ -619,10 +543,7 @@ __onEndRenderObservable = null;
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
@@ -631,17 +552,28 @@ __onEndRenderObservable = null;
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "executeOnAllControls" }, func, container
+                    new string[] { this.___guid, "executeOnAllControls" },
+                    func,
+                    container
                 }
             );
         }
 
-        public void invalidateRect(decimal invalidMinX, decimal invalidMinY, decimal invalidMaxX, decimal invalidMaxY)
+        public void invalidateRect(
+            decimal invalidMinX,
+            decimal invalidMinY,
+            decimal invalidMaxX,
+            decimal invalidMaxY
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "invalidateRect" }, invalidMinX, invalidMinY, invalidMaxX, invalidMaxY
+                    new string[] { this.___guid, "invalidateRect" },
+                    invalidMinX,
+                    invalidMinY,
+                    invalidMaxX,
+                    invalidMaxY
                 }
             );
         }
@@ -649,10 +581,7 @@ __onEndRenderObservable = null;
         public void markAsDirty()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "markAsDirty" }
-                }
+                new object[] { new string[] { this.___guid, "markAsDirty" } }
             );
         }
 
@@ -660,10 +589,7 @@ __onEndRenderObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Style>(
                 entity => new Style() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "createStyle" }
-                }
+                new object[] { new string[] { this.___guid, "createStyle" } }
             );
         }
 
@@ -671,10 +597,7 @@ __onEndRenderObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<AdvancedDynamicTexture>(
                 entity => new AdvancedDynamicTexture() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "addControl" }, control
-                }
+                new object[] { new string[] { this.___guid, "addControl" }, control }
             );
         }
 
@@ -682,20 +605,14 @@ __onEndRenderObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<AdvancedDynamicTexture>(
                 entity => new AdvancedDynamicTexture() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "removeControl" }, control
-                }
+                new object[] { new string[] { this.___guid, "removeControl" }, control }
             );
         }
 
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
 
@@ -705,7 +622,9 @@ __onEndRenderObservable = null;
                 entity => new Vector2() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "getProjectedPosition" }, position, worldMatrix
+                    new string[] { this.___guid, "getProjectedPosition" },
+                    position,
+                    worldMatrix
                 }
             );
         }
@@ -716,7 +635,9 @@ __onEndRenderObservable = null;
                 entity => new Vector3() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "getProjectedPositionWithZ" }, position, worldMatrix
+                    new string[] { this.___guid, "getProjectedPositionWithZ" },
+                    position,
+                    worldMatrix
                 }
             );
         }
@@ -724,30 +645,21 @@ __onEndRenderObservable = null;
         public void attach()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "attach" }
-                }
+                new object[] { new string[] { this.___guid, "attach" } }
             );
         }
 
         public void registerClipboardEvents()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "registerClipboardEvents" }
-                }
+                new object[] { new string[] { this.___guid, "registerClipboardEvents" } }
             );
         }
 
         public void unRegisterClipboardEvents()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "unRegisterClipboardEvents" }
-                }
+                new object[] { new string[] { this.___guid, "unRegisterClipboardEvents" } }
             );
         }
 
@@ -756,7 +668,9 @@ __onEndRenderObservable = null;
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "attachToMesh" }, mesh, supportPointerMove
+                    new string[] { this.___guid, "attachToMesh" },
+                    mesh,
+                    supportPointerMove
                 }
             );
         }
@@ -764,10 +678,7 @@ __onEndRenderObservable = null;
         public void moveFocusToControl(IFocusableControl control)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "moveFocusToControl" }, control
-                }
+                new object[] { new string[] { this.___guid, "moveFocusToControl" }, control }
             );
         }
         #endregion

@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface ILoadingScreen : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<ILoadingScreenCachedEntity>))]
     public class ILoadingScreenCachedEntity : CachedEntityObject, ILoadingScreen
     {
@@ -32,12 +32,12 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public string loadingUIBackgroundColor
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<string>(
+                return EventHorizonBlazorInterop.Get<string>(
                     this.___guid,
                     "loadingUIBackgroundColor"
                 );
@@ -45,75 +45,49 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "loadingUIBackgroundColor",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "loadingUIBackgroundColor", value);
             }
         }
 
-        
         public string loadingUIText
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "loadingUIText"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "loadingUIText"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "loadingUIText",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "loadingUIText", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public ILoadingScreenCachedEntity() : base() { }
+        public ILoadingScreenCachedEntity()
+            : base() { }
 
-        public ILoadingScreenCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public ILoadingScreenCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
         #region Methods
         #region displayLoadingUI TODO: Get Comments as metadata identification
         private bool _isDisplayLoadingUIEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _displayLoadingUIActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _displayLoadingUIActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string displayLoadingUI(
-            Func<Task> callback
-        )
+        public string displayLoadingUI(Func<Task> callback)
         {
             SetupDisplayLoadingUILoop();
 
             var handle = Guid.NewGuid().ToString();
-            _displayLoadingUIActionMap.Add(
-                handle,
-                callback
-            );
+            _displayLoadingUIActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool displayLoadingUI_Remove(
-            string handle
-        )
+        public bool displayLoadingUI_Remove(string handle)
         {
-            return _displayLoadingUIActionMap.Remove(
-                handle
-            );
+            return _displayLoadingUIActionMap.Remove(handle);
         }
 
         private void SetupDisplayLoadingUILoop()
@@ -143,30 +117,22 @@ namespace BABYLON
 
         #region hideLoadingUI TODO: Get Comments as metadata identification
         private bool _isHideLoadingUIEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _hideLoadingUIActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _hideLoadingUIActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string hideLoadingUI(
-            Func<Task> callback
-        )
+        public string hideLoadingUI(Func<Task> callback)
         {
             SetupHideLoadingUILoop();
 
             var handle = Guid.NewGuid().ToString();
-            _hideLoadingUIActionMap.Add(
-                handle,
-                callback
-            );
+            _hideLoadingUIActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool hideLoadingUI_Remove(
-            string handle
-        )
+        public bool hideLoadingUI_Remove(string handle)
         {
-            return _hideLoadingUIActionMap.Remove(
-                handle
-            );
+            return _hideLoadingUIActionMap.Remove(handle);
         }
 
         private void SetupHideLoadingUILoop()

@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Interop;
 
 public class AnimationKeyInterpolation : CachedEntity
 {
-    public AnimationKeyInterpolation()
-    {
-    }
+    public AnimationKeyInterpolation() { }
 
-    public AnimationKeyInterpolation(
-        ICachedEntity entity
-    )
+    public AnimationKeyInterpolation(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

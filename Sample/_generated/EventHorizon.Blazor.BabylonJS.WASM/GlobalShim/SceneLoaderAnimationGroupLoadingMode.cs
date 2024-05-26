@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Interop;
 
 public class SceneLoaderAnimationGroupLoadingMode : CachedEntity
 {
-    public SceneLoaderAnimationGroupLoadingMode()
-    {
-    }
+    public SceneLoaderAnimationGroupLoadingMode() { }
 
-    public SceneLoaderAnimationGroupLoadingMode(
-        ICachedEntity entity
-    )
+    public SceneLoaderAnimationGroupLoadingMode(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

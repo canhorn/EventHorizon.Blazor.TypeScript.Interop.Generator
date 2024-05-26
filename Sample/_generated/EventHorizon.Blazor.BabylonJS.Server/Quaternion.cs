@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Quaternion>))]
     public class Quaternion : CachedEntityObject
     {
@@ -28,9 +26,10 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Quaternion", "FromRotationMatrix" }, matrix
+                    new string[] { "BABYLON", "Quaternion", "FromRotationMatrix" },
+                    matrix
                 }
             );
         }
@@ -38,9 +37,11 @@ namespace BABYLON
         public static async ValueTask FromRotationMatrixToRef(Matrix matrix, Quaternion result)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Quaternion", "FromRotationMatrixToRef" }, matrix, result
+                    new string[] { "BABYLON", "Quaternion", "FromRotationMatrixToRef" },
+                    matrix,
+                    result
                 }
             );
         }
@@ -48,20 +49,14 @@ namespace BABYLON
         public static async ValueTask<decimal> Dot(Quaternion left, Quaternion right)
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Quaternion", "Dot" }, left, right
-                }
+                new object[] { new string[] { "BABYLON", "Quaternion", "Dot" }, left, right }
             );
         }
 
         public static async ValueTask<bool> AreClose(Quaternion quat0, Quaternion quat1)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Quaternion", "AreClose" }, quat0, quat1
-                }
+                new object[] { new string[] { "BABYLON", "Quaternion", "AreClose" }, quat0, quat1 }
             );
         }
 
@@ -69,10 +64,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Quaternion", "Zero" }
-                }
+                new object[] { new string[] { "BABYLON", "Quaternion", "Zero" } }
             );
         }
 
@@ -80,10 +72,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Quaternion", "Inverse" }, q
-                }
+                new object[] { new string[] { "BABYLON", "Quaternion", "Inverse" }, q }
             );
         }
 
@@ -91,10 +80,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Quaternion", "InverseToRef" }, q, result
-                }
+                new object[] { new string[] { "BABYLON", "Quaternion", "InverseToRef" }, q, result }
             );
         }
 
@@ -102,20 +88,14 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Quaternion", "Identity" }
-                }
+                new object[] { new string[] { "BABYLON", "Quaternion", "Identity" } }
             );
         }
 
         public static async ValueTask<bool> IsIdentity(Quaternion quaternion)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Quaternion", "IsIdentity" }, quaternion
-                }
+                new object[] { new string[] { "BABYLON", "Quaternion", "IsIdentity" }, quaternion }
             );
         }
 
@@ -123,41 +103,62 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Quaternion", "RotationAxis" }, axis, angle
+                    new string[] { "BABYLON", "Quaternion", "RotationAxis" },
+                    axis,
+                    angle
                 }
             );
         }
 
-        public static async ValueTask<Quaternion> RotationAxisToRef(Vector3 axis, decimal angle, Quaternion result)
+        public static async ValueTask<Quaternion> RotationAxisToRef(
+            Vector3 axis,
+            decimal angle,
+            Quaternion result
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Quaternion", "RotationAxisToRef" }, axis, angle, result
+                    new string[] { "BABYLON", "Quaternion", "RotationAxisToRef" },
+                    axis,
+                    angle,
+                    result
                 }
             );
         }
 
-        public static async ValueTask<Quaternion> FromArray(decimal[] array, System.Nullable<decimal> offset = null)
+        public static async ValueTask<Quaternion> FromArray(
+            decimal[] array,
+            System.Nullable<decimal> offset = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Quaternion", "FromArray" }, array, offset
+                    new string[] { "BABYLON", "Quaternion", "FromArray" },
+                    array,
+                    offset
                 }
             );
         }
 
-        public static async ValueTask FromArrayToRef(decimal[] array, decimal offset, Quaternion result)
+        public static async ValueTask FromArrayToRef(
+            decimal[] array,
+            decimal offset,
+            Quaternion result
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Quaternion", "FromArrayToRef" }, array, offset, result
+                    new string[] { "BABYLON", "Quaternion", "FromArrayToRef" },
+                    array,
+                    offset,
+                    result
                 }
             );
         }
@@ -166,20 +167,32 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Quaternion", "FromEulerAngles" }, x, y, z
+                    new string[] { "BABYLON", "Quaternion", "FromEulerAngles" },
+                    x,
+                    y,
+                    z
                 }
             );
         }
 
-        public static async ValueTask<Quaternion> FromEulerAnglesToRef(decimal x, decimal y, decimal z, Quaternion result)
+        public static async ValueTask<Quaternion> FromEulerAnglesToRef(
+            decimal x,
+            decimal y,
+            decimal z,
+            Quaternion result
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Quaternion", "FromEulerAnglesToRef" }, x, y, z, result
+                    new string[] { "BABYLON", "Quaternion", "FromEulerAnglesToRef" },
+                    x,
+                    y,
+                    z,
+                    result
                 }
             );
         }
@@ -188,215 +201,267 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Quaternion", "FromEulerVector" }, vec
-                }
+                new object[] { new string[] { "BABYLON", "Quaternion", "FromEulerVector" }, vec }
             );
         }
 
-        public static async ValueTask<Quaternion> FromEulerVectorToRef(Vector3 vec, Quaternion result)
+        public static async ValueTask<Quaternion> FromEulerVectorToRef(
+            Vector3 vec,
+            Quaternion result
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Quaternion", "FromEulerVectorToRef" }, vec, result
+                    new string[] { "BABYLON", "Quaternion", "FromEulerVectorToRef" },
+                    vec,
+                    result
                 }
             );
         }
 
-        public static async ValueTask<Quaternion> RotationYawPitchRoll(decimal yaw, decimal pitch, decimal roll)
+        public static async ValueTask<Quaternion> RotationYawPitchRoll(
+            decimal yaw,
+            decimal pitch,
+            decimal roll
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Quaternion", "RotationYawPitchRoll" }, yaw, pitch, roll
+                    new string[] { "BABYLON", "Quaternion", "RotationYawPitchRoll" },
+                    yaw,
+                    pitch,
+                    roll
                 }
             );
         }
 
-        public static async ValueTask RotationYawPitchRollToRef(decimal yaw, decimal pitch, decimal roll, Quaternion result)
+        public static async ValueTask RotationYawPitchRollToRef(
+            decimal yaw,
+            decimal pitch,
+            decimal roll,
+            Quaternion result
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Quaternion", "RotationYawPitchRollToRef" }, yaw, pitch, roll, result
+                    new string[] { "BABYLON", "Quaternion", "RotationYawPitchRollToRef" },
+                    yaw,
+                    pitch,
+                    roll,
+                    result
                 }
             );
         }
 
-        public static async ValueTask<Quaternion> RotationAlphaBetaGamma(decimal alpha, decimal beta, decimal gamma)
+        public static async ValueTask<Quaternion> RotationAlphaBetaGamma(
+            decimal alpha,
+            decimal beta,
+            decimal gamma
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Quaternion", "RotationAlphaBetaGamma" }, alpha, beta, gamma
+                    new string[] { "BABYLON", "Quaternion", "RotationAlphaBetaGamma" },
+                    alpha,
+                    beta,
+                    gamma
                 }
             );
         }
 
-        public static async ValueTask RotationAlphaBetaGammaToRef(decimal alpha, decimal beta, decimal gamma, Quaternion result)
+        public static async ValueTask RotationAlphaBetaGammaToRef(
+            decimal alpha,
+            decimal beta,
+            decimal gamma,
+            Quaternion result
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Quaternion", "RotationAlphaBetaGammaToRef" }, alpha, beta, gamma, result
+                    new string[] { "BABYLON", "Quaternion", "RotationAlphaBetaGammaToRef" },
+                    alpha,
+                    beta,
+                    gamma,
+                    result
                 }
             );
         }
 
-        public static async ValueTask<Quaternion> RotationQuaternionFromAxis(Vector3 axis1, Vector3 axis2, Vector3 axis3)
+        public static async ValueTask<Quaternion> RotationQuaternionFromAxis(
+            Vector3 axis1,
+            Vector3 axis2,
+            Vector3 axis3
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Quaternion", "RotationQuaternionFromAxis" }, axis1, axis2, axis3
+                    new string[] { "BABYLON", "Quaternion", "RotationQuaternionFromAxis" },
+                    axis1,
+                    axis2,
+                    axis3
                 }
             );
         }
 
-        public static async ValueTask RotationQuaternionFromAxisToRef(Vector3 axis1, Vector3 axis2, Vector3 axis3, Quaternion @ref)
+        public static async ValueTask RotationQuaternionFromAxisToRef(
+            Vector3 axis1,
+            Vector3 axis2,
+            Vector3 axis3,
+            Quaternion @ref
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Quaternion", "RotationQuaternionFromAxisToRef" }, axis1, axis2, axis3, @ref
+                    new string[] { "BABYLON", "Quaternion", "RotationQuaternionFromAxisToRef" },
+                    axis1,
+                    axis2,
+                    axis3,
+                    @ref
                 }
             );
         }
 
-        public static async ValueTask<Quaternion> Slerp(Quaternion left, Quaternion right, decimal amount)
+        public static async ValueTask<Quaternion> Slerp(
+            Quaternion left,
+            Quaternion right,
+            decimal amount
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Quaternion", "Slerp" }, left, right, amount
+                    new string[] { "BABYLON", "Quaternion", "Slerp" },
+                    left,
+                    right,
+                    amount
                 }
             );
         }
 
-        public static async ValueTask SlerpToRef(Quaternion left, Quaternion right, decimal amount, Quaternion result)
+        public static async ValueTask SlerpToRef(
+            Quaternion left,
+            Quaternion right,
+            decimal amount,
+            Quaternion result
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Quaternion", "SlerpToRef" }, left, right, amount, result
+                    new string[] { "BABYLON", "Quaternion", "SlerpToRef" },
+                    left,
+                    right,
+                    amount,
+                    result
                 }
             );
         }
 
-        public static async ValueTask<Quaternion> Hermite(Quaternion value1, Quaternion tangent1, Quaternion value2, Quaternion tangent2, decimal amount)
+        public static async ValueTask<Quaternion> Hermite(
+            Quaternion value1,
+            Quaternion tangent1,
+            Quaternion value2,
+            Quaternion tangent2,
+            decimal amount
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Quaternion", "Hermite" }, value1, tangent1, value2, tangent2, amount
+                    new string[] { "BABYLON", "Quaternion", "Hermite" },
+                    value1,
+                    tangent1,
+                    value2,
+                    tangent2,
+                    amount
                 }
             );
         }
         #endregion
 
         #region Accessors
-        
+
         public async ValueTask<decimal> get_x()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "x"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "x");
         }
+
         public ValueTask set_x(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "x",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "x", value);
         }
 
-        
         public async ValueTask<decimal> get_y()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "y"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "y");
         }
+
         public ValueTask set_y(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "y",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "y", value);
         }
 
-        
         public async ValueTask<decimal> get_z()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "z"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "z");
         }
+
         public ValueTask set_z(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "z",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "z", value);
         }
 
-        
         public async ValueTask<decimal> get_w()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "w"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "w");
         }
+
         public ValueTask set_w(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "w",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "w", value);
         }
         #endregion
 
         #region Properties
 
         #endregion
-        
-        #region Constructor
-        public Quaternion() : base() { } 
 
-        public Quaternion(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public Quaternion()
+            : base() { }
+
+        public Quaternion(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
         public static async ValueTask<Quaternion> NewQuaternion(
-            System.Nullable<decimal> x = null, System.Nullable<decimal> y = null, System.Nullable<decimal> z = null, System.Nullable<decimal> w = null
+            System.Nullable<decimal> x = null,
+            System.Nullable<decimal> y = null,
+            System.Nullable<decimal> z = null,
+            System.Nullable<decimal> w = null
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Quaternion" },
-                x, y, z, w
+                x,
+                y,
+                z,
+                w
             );
 
             return new Quaternion(entity);
@@ -407,59 +472,49 @@ namespace BABYLON
         public async ValueTask<string> toString()
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "toString" }
-                }
+                new object[] { new string[] { this.___guid, "toString" } }
             );
         }
 
         public async ValueTask<string> getClassName()
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
         public async ValueTask<decimal> getHashCode()
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getHashCode" }
-                }
+                new object[] { new string[] { this.___guid, "getHashCode" } }
             );
         }
 
         public async ValueTask<decimal[]> asArray()
         {
             return await EventHorizonBlazorInterop.FuncArray<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "asArray" }
-                }
+                new object[] { new string[] { this.___guid, "asArray" } }
             );
         }
 
         public async ValueTask<bool> equals(Quaternion otherQuaternion)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "equals" }, otherQuaternion
-                }
+                new object[] { new string[] { this.___guid, "equals" }, otherQuaternion }
             );
         }
 
-        public async ValueTask<bool> equalsWithEpsilon(Quaternion otherQuaternion, System.Nullable<decimal> epsilon = null)
+        public async ValueTask<bool> equalsWithEpsilon(
+            Quaternion otherQuaternion,
+            System.Nullable<decimal> epsilon = null
+        )
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "equalsWithEpsilon" }, otherQuaternion, epsilon
+                    new string[] { this.___guid, "equalsWithEpsilon" },
+                    otherQuaternion,
+                    epsilon
                 }
             );
         }
@@ -468,10 +523,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "clone" }
-                }
+                new object[] { new string[] { this.___guid, "clone" } }
             );
         }
 
@@ -479,21 +531,20 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "copyFrom" }, other
-                }
+                new object[] { new string[] { this.___guid, "copyFrom" }, other }
             );
         }
 
-        public async ValueTask<Quaternion> copyFromFloats(decimal x, decimal y, decimal z, decimal w)
+        public async ValueTask<Quaternion> copyFromFloats(
+            decimal x,
+            decimal y,
+            decimal z,
+            decimal w
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "copyFromFloats" }, x, y, z, w
-                }
+                new object[] { new string[] { this.___guid, "copyFromFloats" }, x, y, z, w }
             );
         }
 
@@ -501,10 +552,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "set" }, x, y, z, w
-                }
+                new object[] { new string[] { this.___guid, "set" }, x, y, z, w }
             );
         }
 
@@ -512,10 +560,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "add" }, other
-                }
+                new object[] { new string[] { this.___guid, "add" }, other }
             );
         }
 
@@ -523,10 +568,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "addInPlace" }, other
-                }
+                new object[] { new string[] { this.___guid, "addInPlace" }, other }
             );
         }
 
@@ -534,10 +576,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "subtract" }, other
-                }
+                new object[] { new string[] { this.___guid, "subtract" }, other }
             );
         }
 
@@ -545,10 +584,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "scale" }, value
-                }
+                new object[] { new string[] { this.___guid, "scale" }, value }
             );
         }
 
@@ -556,10 +592,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "scaleToRef" }, scale, result
-                }
+                new object[] { new string[] { this.___guid, "scaleToRef" }, scale, result }
             );
         }
 
@@ -567,10 +600,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "scaleInPlace" }, value
-                }
+                new object[] { new string[] { this.___guid, "scaleInPlace" }, value }
             );
         }
 
@@ -578,10 +608,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "scaleAndAddToRef" }, scale, result
-                }
+                new object[] { new string[] { this.___guid, "scaleAndAddToRef" }, scale, result }
             );
         }
 
@@ -589,10 +616,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "multiply" }, q1
-                }
+                new object[] { new string[] { this.___guid, "multiply" }, q1 }
             );
         }
 
@@ -600,10 +624,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "multiplyToRef" }, q1, result
-                }
+                new object[] { new string[] { this.___guid, "multiplyToRef" }, q1, result }
             );
         }
 
@@ -611,10 +632,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "multiplyInPlace" }, q1
-                }
+                new object[] { new string[] { this.___guid, "multiplyInPlace" }, q1 }
             );
         }
 
@@ -622,10 +640,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "conjugateToRef" }, @ref
-                }
+                new object[] { new string[] { this.___guid, "conjugateToRef" }, @ref }
             );
         }
 
@@ -633,10 +648,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "conjugateInPlace" }
-                }
+                new object[] { new string[] { this.___guid, "conjugateInPlace" } }
             );
         }
 
@@ -644,20 +656,14 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "conjugate" }
-                }
+                new object[] { new string[] { this.___guid, "conjugate" } }
             );
         }
 
         public async ValueTask<decimal> length()
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "length" }
-                }
+                new object[] { new string[] { this.___guid, "length" } }
             );
         }
 
@@ -665,10 +671,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "normalize" }
-                }
+                new object[] { new string[] { this.___guid, "normalize" } }
             );
         }
 
@@ -676,10 +679,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "toEulerAngles" }, order
-                }
+                new object[] { new string[] { this.___guid, "toEulerAngles" }, order }
             );
         }
 
@@ -687,10 +687,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "toEulerAnglesToRef" }, result
-                }
+                new object[] { new string[] { this.___guid, "toEulerAnglesToRef" }, result }
             );
         }
 
@@ -698,10 +695,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "toRotationMatrix" }, result
-                }
+                new object[] { new string[] { this.___guid, "toRotationMatrix" }, result }
             );
         }
 
@@ -709,10 +703,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "fromRotationMatrix" }, matrix
-                }
+                new object[] { new string[] { this.___guid, "fromRotationMatrix" }, matrix }
             );
         }
         #endregion

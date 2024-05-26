@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<RenderingGroupInfo>))]
     public class RenderingGroupInfo : CachedEntityObject
     {
@@ -37,27 +35,23 @@ namespace BABYLON
         {
             get
             {
-            if(__scene == null)
-            {
-                __scene = EventHorizonBlazorInterop.GetClass<Scene>(
-                    this.___guid,
-                    "scene",
-                    (entity) =>
-                    {
-                        return new Scene() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __scene;
+                if (__scene == null)
+                {
+                    __scene = EventHorizonBlazorInterop.GetClass<Scene>(
+                        this.___guid,
+                        "scene",
+                        (entity) =>
+                        {
+                            return new Scene() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __scene;
             }
             set
             {
-__scene = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "scene",
-                    value
-                );
+                __scene = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "scene", value);
             }
         }
 
@@ -66,62 +60,46 @@ __scene = null;
         {
             get
             {
-            if(__camera == null)
-            {
-                __camera = EventHorizonBlazorInterop.GetClass<Camera>(
-                    this.___guid,
-                    "camera",
-                    (entity) =>
-                    {
-                        return new Camera() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __camera;
+                if (__camera == null)
+                {
+                    __camera = EventHorizonBlazorInterop.GetClass<Camera>(
+                        this.___guid,
+                        "camera",
+                        (entity) =>
+                        {
+                            return new Camera() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __camera;
             }
             set
             {
-__camera = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "camera",
-                    value
-                );
+                __camera = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "camera", value);
             }
         }
 
-        
         public decimal renderingGroupId
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "renderingGroupId"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "renderingGroupId"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "renderingGroupId",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "renderingGroupId", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public RenderingGroupInfo() : base() { }
 
-        public RenderingGroupInfo(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public RenderingGroupInfo()
+            : base() { }
+
+        public RenderingGroupInfo(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
-
 
         #endregion
 

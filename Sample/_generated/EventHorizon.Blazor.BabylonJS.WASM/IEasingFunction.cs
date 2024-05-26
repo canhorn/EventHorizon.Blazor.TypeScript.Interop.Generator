@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IEasingFunction : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IEasingFunctionCachedEntity>))]
     public class IEasingFunctionCachedEntity : CachedEntityObject, IEasingFunction
     {
@@ -34,16 +34,13 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
+
         #region Constructor
-        public IEasingFunctionCachedEntity() : base() { }
+        public IEasingFunctionCachedEntity()
+            : base() { }
 
-        public IEasingFunctionCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IEasingFunctionCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -51,10 +48,7 @@ namespace BABYLON
         public decimal ease(decimal gradient)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "ease" }, gradient
-                }
+                new object[] { new string[] { this.___guid, "ease" }, gradient }
             );
         }
         #endregion

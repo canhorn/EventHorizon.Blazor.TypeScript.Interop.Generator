@@ -21,13 +21,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 template = templates.ConstructorToBase;
             }
 
-            return template.Replace(
-                "[[CLASS_NAME]]",
-                classStatement.Name
-            ).Replace(
-                "[[BASE_CLASS_CALL]]",
-                extendsClass ? " : base()" : string.Empty
-            );
+            return template
+                .Replace("[[CLASS_NAME]]", classStatement.Name)
+                .Replace("[[BASE_CLASS_CALL]]", extendsClass ? " : base()" : string.Empty);
         }
     }
 }

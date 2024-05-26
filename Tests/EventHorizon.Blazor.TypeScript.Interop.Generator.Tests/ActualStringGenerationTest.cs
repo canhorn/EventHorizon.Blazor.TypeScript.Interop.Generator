@@ -21,22 +21,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             var projectAssembly = "ProjectAssembly";
             var sourceDirectory = "";
             var sourceFileName = "MultipleGeneration.d.ts";
-            var sourceFile = Path.Combine(
-                ".",
-                "SourceFiles",
-                sourceFileName
-            );
-            var sourceFiles = new List<string>
-            {
-                sourceFile
-            };
-            var generationList = new List<string>
-            {
-                "Mesh",
-                "Mesh",
-                "Engine",
-                "Vector3",
-            };
+            var sourceFile = Path.Combine(".", "SourceFiles", sourceFileName);
+            var sourceFiles = new List<string> { sourceFile };
+            var generationList = new List<string> { "Mesh", "Mesh", "Engine", "Vector3", };
             var typeOverrideMap = new Dictionary<string, string>();
 
             var writerMock = new Mock<IWriter>();
@@ -53,7 +40,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
                 typeOverrideMap
             );
 
-
             // Then
             actual.Should().BeTrue();
         }
@@ -67,19 +53,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             var projectAssembly = "ProjectAssembly";
             var sourceDirectory = "";
             var sourceFileName = "MultipleGeneration.d.ts";
-            var sourceFile = Path.Combine(
-                ".",
-                "SourceFiles",
-                sourceFileName
-            );
-            var sourceFiles = new List<string>
-            {
-                sourceFile
-            };
-            var generationList = new List<string>
-            {
-                "Vector3",
-            };
+            var sourceFile = Path.Combine(".", "SourceFiles", sourceFileName);
+            var sourceFiles = new List<string> { sourceFile };
+            var generationList = new List<string> { "Vector3", };
             var typeOverrideMap = new Dictionary<string, string>();
 
             var writerMock = new Mock<IWriter>();
@@ -87,16 +63,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             // When
             var generateSource = new GenerateSource();
             var actual = default(IList<GeneratedStatement>);
-            writerMock.Setup(
-                mock => mock.Write(
-                    It.IsAny<IList<GeneratedStatement>>()
-                )
-            ).Callback<IList<GeneratedStatement>>(
-                (generatedStatement) =>
-                {
-                    actual = generatedStatement;
-                }
-            );
+            writerMock
+                .Setup(mock => mock.Write(It.IsAny<IList<GeneratedStatement>>()))
+                .Callback<IList<GeneratedStatement>>(
+                    (generatedStatement) =>
+                    {
+                        actual = generatedStatement;
+                    }
+                );
 
             generateSource.Run(
                 projectAssembly,
@@ -107,7 +81,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
                 new NoFormattingTextFormatter(),
                 typeOverrideMap
             );
-
 
             // Then
             actual.Should().NotBeNull();

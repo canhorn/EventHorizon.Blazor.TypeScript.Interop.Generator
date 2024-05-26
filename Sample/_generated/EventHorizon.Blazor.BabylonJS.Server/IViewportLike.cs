@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IViewportLike : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IViewportLikeCachedEntity>))]
     public class IViewportLikeCachedEntity : CachedEntityObject, IViewportLike
     {
@@ -32,88 +32,54 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<decimal> get_x()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "x"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "x");
         }
+
         public ValueTask set_x(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "x",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "x", value);
         }
 
-        
         public async ValueTask<decimal> get_y()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "y"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "y");
         }
+
         public ValueTask set_y(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "y",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "y", value);
         }
 
-        
         public async ValueTask<decimal> get_width()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "width"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "width");
         }
+
         public ValueTask set_width(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "width",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "width", value);
         }
 
-        
         public async ValueTask<decimal> get_height()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "height"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "height");
         }
+
         public ValueTask set_height(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "height",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "height", value);
         }
         #endregion
-        
+
         #region Constructor
-        public IViewportLikeCachedEntity() : base() { }
+        public IViewportLikeCachedEntity()
+            : base() { }
 
-        public IViewportLikeCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IViewportLikeCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

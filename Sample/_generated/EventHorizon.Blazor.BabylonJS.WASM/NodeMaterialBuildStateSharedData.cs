@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<NodeMaterialBuildStateSharedData>))]
     public class NodeMaterialBuildStateSharedData : CachedEntityObject
     {
@@ -32,75 +30,45 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public string[] temps
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<string>(
-                    this.___guid,
-                    "temps"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<string>(this.___guid, "temps"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "temps",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "temps", value);
             }
         }
 
-        
         public string[] varyings
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<string>(
-                    this.___guid,
-                    "varyings"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<string>(this.___guid, "varyings"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "varyings",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "varyings", value);
             }
         }
 
-        
         public string varyingDeclaration
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "varyingDeclaration"
-                );
+                return EventHorizonBlazorInterop.Get<string>(this.___guid, "varyingDeclaration");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "varyingDeclaration",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "varyingDeclaration", value);
             }
         }
 
-        
         public InputBlock[] inputBlocks
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<InputBlock>(
+                return EventHorizonBlazorInterop.GetArrayClass<InputBlock>(
                     this.___guid,
                     "inputBlocks",
                     (entity) =>
@@ -112,20 +80,15 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "inputBlocks",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "inputBlocks", value);
             }
         }
 
-        
         public TextureBlock[] textureBlocks
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<TextureBlock>(
+                return EventHorizonBlazorInterop.GetArrayClass<TextureBlock>(
                     this.___guid,
                     "textureBlocks",
                     (entity) =>
@@ -137,20 +100,15 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "textureBlocks",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "textureBlocks", value);
             }
         }
 
-        
         public NodeMaterialBlock[] bindableBlocks
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<NodeMaterialBlock>(
+                return EventHorizonBlazorInterop.GetArrayClass<NodeMaterialBlock>(
                     this.___guid,
                     "bindableBlocks",
                     (entity) =>
@@ -162,20 +120,15 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "bindableBlocks",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "bindableBlocks", value);
             }
         }
 
-        
         public NodeMaterialBlock[] blocksWithFallbacks
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<NodeMaterialBlock>(
+                return EventHorizonBlazorInterop.GetArrayClass<NodeMaterialBlock>(
                     this.___guid,
                     "blocksWithFallbacks",
                     (entity) =>
@@ -187,20 +140,15 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "blocksWithFallbacks",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "blocksWithFallbacks", value);
             }
         }
 
-        
         public NodeMaterialBlock[] blocksWithDefines
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<NodeMaterialBlock>(
+                return EventHorizonBlazorInterop.GetArrayClass<NodeMaterialBlock>(
                     this.___guid,
                     "blocksWithDefines",
                     (entity) =>
@@ -212,20 +160,15 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "blocksWithDefines",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "blocksWithDefines", value);
             }
         }
 
-        
         public NodeMaterialBlock[] repeatableContentBlocks
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<NodeMaterialBlock>(
+                return EventHorizonBlazorInterop.GetArrayClass<NodeMaterialBlock>(
                     this.___guid,
                     "repeatableContentBlocks",
                     (entity) =>
@@ -237,20 +180,15 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "repeatableContentBlocks",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "repeatableContentBlocks", value);
             }
         }
 
-        
         public NodeMaterialBlock[] dynamicUniformBlocks
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<NodeMaterialBlock>(
+                return EventHorizonBlazorInterop.GetArrayClass<NodeMaterialBlock>(
                     this.___guid,
                     "dynamicUniformBlocks",
                     (entity) =>
@@ -262,20 +200,15 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "dynamicUniformBlocks",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "dynamicUniformBlocks", value);
             }
         }
 
-        
         public NodeMaterialBlock[] blockingBlocks
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<NodeMaterialBlock>(
+                return EventHorizonBlazorInterop.GetArrayClass<NodeMaterialBlock>(
                     this.___guid,
                     "blockingBlocks",
                     (entity) =>
@@ -287,20 +220,15 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "blockingBlocks",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "blockingBlocks", value);
             }
         }
 
-        
         public InputBlock[] animatedInputs
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<InputBlock>(
+                return EventHorizonBlazorInterop.GetArrayClass<InputBlock>(
                     this.___guid,
                     "animatedInputs",
                     (entity) =>
@@ -312,41 +240,25 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "animatedInputs",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "animatedInputs", value);
             }
         }
 
-        
         public decimal buildId
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "buildId"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "buildId"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "buildId",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "buildId", value);
             }
         }
 
-        
         public CachedEntity variableNames
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "variableNames",
                     (entity) =>
@@ -358,20 +270,15 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "variableNames",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "variableNames", value);
             }
         }
 
-        
         public CachedEntity defineNames
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "defineNames",
                     (entity) =>
@@ -383,53 +290,27 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "defineNames",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "defineNames", value);
             }
         }
 
-        
         public bool emitComments
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "emitComments"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "emitComments"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "emitComments",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "emitComments", value);
             }
         }
 
-        
         public bool verbose
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "verbose"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "verbose"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "verbose",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "verbose", value);
             }
         }
 
@@ -438,36 +319,31 @@ namespace BABYLON
         {
             get
             {
-            if(__scene == null)
-            {
-                __scene = EventHorizonBlazorInterop.GetClass<Scene>(
-                    this.___guid,
-                    "scene",
-                    (entity) =>
-                    {
-                        return new Scene() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __scene;
+                if (__scene == null)
+                {
+                    __scene = EventHorizonBlazorInterop.GetClass<Scene>(
+                        this.___guid,
+                        "scene",
+                        (entity) =>
+                        {
+                            return new Scene() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __scene;
             }
             set
             {
-__scene = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "scene",
-                    value
-                );
+                __scene = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "scene", value);
             }
         }
 
-        
         public CachedEntity hints
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "hints",
                     (entity) =>
@@ -479,20 +355,15 @@ __scene = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "hints",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "hints", value);
             }
         }
 
-        
         public CachedEntity checks
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "checks",
                     (entity) =>
@@ -504,46 +375,33 @@ __scene = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "checks",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "checks", value);
             }
         }
 
-        
         public bool allowEmptyVertexProgram
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "allowEmptyVertexProgram"
-                );
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "allowEmptyVertexProgram");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "allowEmptyVertexProgram",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "allowEmptyVertexProgram", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public NodeMaterialBuildStateSharedData() : base() { }
 
-        public NodeMaterialBuildStateSharedData(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public NodeMaterialBuildStateSharedData()
+            : base() { }
+
+        public NodeMaterialBuildStateSharedData(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
-
 
         #endregion
 
@@ -551,10 +409,7 @@ __scene = null;
         public void emitErrors()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "emitErrors" }
-                }
+                new object[] { new string[] { this.___guid, "emitErrors" } }
             );
         }
         #endregion

@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<KeepAssets>))]
     public class KeepAssets : AbstractScene
     {
@@ -34,16 +32,13 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
+
         #region Constructor
-        public KeepAssets() : base() { }
+        public KeepAssets()
+            : base() { }
 
-        public KeepAssets(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public KeepAssets(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

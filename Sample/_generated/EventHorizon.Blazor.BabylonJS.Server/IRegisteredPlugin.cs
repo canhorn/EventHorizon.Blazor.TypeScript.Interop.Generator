@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IRegisteredPlugin : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IRegisteredPluginCachedEntity>))]
     public class IRegisteredPluginCachedEntity : CachedEntityObject, IRegisteredPlugin
     {
@@ -33,9 +33,10 @@ namespace BABYLON
 
         #region Properties
         private ISceneLoaderPluginCachedEntity __plugin;
+
         public async ValueTask<ISceneLoaderPluginCachedEntity> get_plugin()
         {
-            if(__plugin == null)
+            if (__plugin == null)
             {
                 __plugin = await EventHorizonBlazorInterop.GetClass<ISceneLoaderPluginCachedEntity>(
                     this.___guid,
@@ -48,44 +49,30 @@ namespace BABYLON
             }
             return __plugin;
         }
+
         public ValueTask set_plugin(ISceneLoaderPluginCachedEntity value)
         {
-__plugin = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "plugin",
-                    value
-                );
+            __plugin = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "plugin", value);
         }
 
-        
         public async ValueTask<bool> get_isBinary()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isBinary"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "isBinary");
         }
+
         public ValueTask set_isBinary(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isBinary",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "isBinary", value);
         }
         #endregion
-        
+
         #region Constructor
-        public IRegisteredPluginCachedEntity() : base() { }
+        public IRegisteredPluginCachedEntity()
+            : base() { }
 
-        public IRegisteredPluginCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IRegisteredPluginCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

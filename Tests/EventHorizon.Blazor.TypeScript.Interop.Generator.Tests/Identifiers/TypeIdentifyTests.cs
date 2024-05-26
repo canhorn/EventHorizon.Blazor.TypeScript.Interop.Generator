@@ -21,22 +21,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
             var expected = classMetadataName;
 
             var nodeMock = new Mock<Node>();
-            var classMetadata = new ClassMetadata
-            {
-                Name = classMetadataName,
-            };
+            var classMetadata = new ClassMetadata { Name = classMetadataName, };
 
-            nodeMock.SetupGet(
-                mock => mock.Kind
-            ).Returns(
-                nodeKind
-            );
+            nodeMock.SetupGet(mock => mock.Kind).Returns(nodeKind);
 
             // When
-            var actual = TypeIdentifier.Identify(
-                nodeMock.Object,
-                classMetadata
-            );
+            var actual = TypeIdentifier.Identify(nodeMock.Object, classMetadata);
 
             // Then
             actual.Should().Be(expected);

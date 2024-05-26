@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Ray>))]
     public class Ray : CachedEntityObject
     {
@@ -28,20 +26,32 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Ray>(
                 entity => new Ray() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "Ray", "Zero" }
-                }
+                new object[] { new string[] { "BABYLON", "Ray", "Zero" } }
             );
         }
 
-        public static Ray CreateNew(decimal x, decimal y, decimal viewportWidth, decimal viewportHeight, Matrix world, Matrix view, Matrix projection)
+        public static Ray CreateNew(
+            decimal x,
+            decimal y,
+            decimal viewportWidth,
+            decimal viewportHeight,
+            Matrix world,
+            Matrix view,
+            Matrix projection
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<Ray>(
                 entity => new Ray() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "Ray", "CreateNew" }, x, y, viewportWidth, viewportHeight, world, view, projection
+                    new string[] { "BABYLON", "Ray", "CreateNew" },
+                    x,
+                    y,
+                    viewportWidth,
+                    viewportHeight,
+                    world,
+                    view,
+                    projection
                 }
             );
         }
@@ -52,7 +62,10 @@ namespace BABYLON
                 entity => new Ray() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "Ray", "CreateNewFromTo" }, origin, end, world
+                    new string[] { "BABYLON", "Ray", "CreateNewFromTo" },
+                    origin,
+                    end,
+                    world
                 }
             );
         }
@@ -61,10 +74,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Ray>(
                 entity => new Ray() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "Ray", "Transform" }, ray, matrix
-                }
+                new object[] { new string[] { "BABYLON", "Ray", "Transform" }, ray, matrix }
             );
         }
 
@@ -73,7 +83,10 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "Ray", "TransformToRef" }, ray, matrix, result
+                    new string[] { "BABYLON", "Ray", "TransformToRef" },
+                    ray,
+                    matrix,
+                    result
                 }
             );
         }
@@ -89,27 +102,23 @@ namespace BABYLON
         {
             get
             {
-            if(__origin == null)
-            {
-                __origin = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "origin",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __origin;
+                if (__origin == null)
+                {
+                    __origin = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "origin",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __origin;
             }
             set
             {
-__origin = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "origin",
-                    value
-                );
+                __origin = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "origin", value);
             }
         }
 
@@ -118,112 +127,121 @@ __origin = null;
         {
             get
             {
-            if(__direction == null)
-            {
-                __direction = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "direction",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __direction;
+                if (__direction == null)
+                {
+                    __direction = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "direction",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __direction;
             }
             set
             {
-__direction = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "direction",
-                    value
-                );
+                __direction = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "direction", value);
             }
         }
 
-        
         public decimal length
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "length"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "length"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "length",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "length", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public Ray() : base() { }
 
-        public Ray(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public Ray()
+            : base() { }
+
+        public Ray(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
-        public Ray(
-            Vector3 origin, Vector3 direction, System.Nullable<decimal> length = null
-        )
+        public Ray(Vector3 origin, Vector3 direction, System.Nullable<decimal> length = null)
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Ray" },
-                origin, direction, length
+                origin,
+                direction,
+                length
             );
             ___guid = entity.___guid;
         }
         #endregion
 
         #region Methods
-        public bool intersectsBoxMinMax(Vector3 minimum, Vector3 maximum, System.Nullable<decimal> intersectionTreshold = null)
+        public bool intersectsBoxMinMax(
+            Vector3 minimum,
+            Vector3 maximum,
+            System.Nullable<decimal> intersectionTreshold = null
+        )
         {
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
-                    new string[] { this.___guid, "intersectsBoxMinMax" }, minimum, maximum, intersectionTreshold
+                    new string[] { this.___guid, "intersectsBoxMinMax" },
+                    minimum,
+                    maximum,
+                    intersectionTreshold
                 }
             );
         }
 
-        public bool intersectsBox(BoundingBox box, System.Nullable<decimal> intersectionTreshold = null)
+        public bool intersectsBox(
+            BoundingBox box,
+            System.Nullable<decimal> intersectionTreshold = null
+        )
         {
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
-                    new string[] { this.___guid, "intersectsBox" }, box, intersectionTreshold
+                    new string[] { this.___guid, "intersectsBox" },
+                    box,
+                    intersectionTreshold
                 }
             );
         }
 
-        public bool intersectsSphere(BoundingSphere sphere, System.Nullable<decimal> intersectionTreshold = null)
+        public bool intersectsSphere(
+            BoundingSphere sphere,
+            System.Nullable<decimal> intersectionTreshold = null
+        )
         {
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
-                    new string[] { this.___guid, "intersectsSphere" }, sphere, intersectionTreshold
+                    new string[] { this.___guid, "intersectsSphere" },
+                    sphere,
+                    intersectionTreshold
                 }
             );
         }
 
-        public IntersectionInfo intersectsTriangle(Vector3 vertex0, Vector3 vertex1, Vector3 vertex2)
+        public IntersectionInfo intersectsTriangle(
+            Vector3 vertex0,
+            Vector3 vertex1,
+            Vector3 vertex2
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<IntersectionInfo>(
                 entity => new IntersectionInfo() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "intersectsTriangle" }, vertex0, vertex1, vertex2
+                    new string[] { this.___guid, "intersectsTriangle" },
+                    vertex0,
+                    vertex1,
+                    vertex2
                 }
             );
         }
@@ -231,10 +249,7 @@ __direction = null;
         public decimal intersectsPlane(Plane plane)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "intersectsPlane" }, plane
-                }
+                new object[] { new string[] { this.___guid, "intersectsPlane" }, plane }
             );
         }
 
@@ -242,10 +257,7 @@ __direction = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "intersectsAxis" }, axis, offset
-                }
+                new object[] { new string[] { this.___guid, "intersectsAxis" }, axis, offset }
             );
         }
 
@@ -253,20 +265,24 @@ __direction = null;
         {
             return EventHorizonBlazorInterop.FuncClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "intersectsMesh" }, mesh, fastCheck
-                }
+                new object[] { new string[] { this.___guid, "intersectsMesh" }, mesh, fastCheck }
             );
         }
 
-        public PickingInfo[] intersectsMeshes(AbstractMesh[] meshes, System.Nullable<bool> fastCheck = null, PickingInfo[] results = null)
+        public PickingInfo[] intersectsMeshes(
+            AbstractMesh[] meshes,
+            System.Nullable<bool> fastCheck = null,
+            PickingInfo[] results = null
+        )
         {
             return EventHorizonBlazorInterop.FuncArrayClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "intersectsMeshes" }, meshes, fastCheck, results
+                    new string[] { this.___guid, "intersectsMeshes" },
+                    meshes,
+                    fastCheck,
+                    results
                 }
             );
         }
@@ -276,28 +292,61 @@ __direction = null;
             return EventHorizonBlazorInterop.Func<decimal>(
                 new object[]
                 {
-                    new string[] { this.___guid, "intersectionSegment" }, sega, segb, threshold
+                    new string[] { this.___guid, "intersectionSegment" },
+                    sega,
+                    segb,
+                    threshold
                 }
             );
         }
 
-        public Ray update(decimal x, decimal y, decimal viewportWidth, decimal viewportHeight, Matrix world, Matrix view, Matrix projection)
+        public Ray update(
+            decimal x,
+            decimal y,
+            decimal viewportWidth,
+            decimal viewportHeight,
+            Matrix world,
+            Matrix view,
+            Matrix projection
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<Ray>(
                 entity => new Ray() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "update" }, x, y, viewportWidth, viewportHeight, world, view, projection
+                    new string[] { this.___guid, "update" },
+                    x,
+                    y,
+                    viewportWidth,
+                    viewportHeight,
+                    world,
+                    view,
+                    projection
                 }
             );
         }
 
-        public void unprojectRayToRef(decimal sourceX, decimal sourceY, decimal viewportWidth, decimal viewportHeight, Matrix world, Matrix view, Matrix projection)
+        public void unprojectRayToRef(
+            decimal sourceX,
+            decimal sourceY,
+            decimal viewportWidth,
+            decimal viewportHeight,
+            Matrix world,
+            Matrix view,
+            Matrix projection
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "unprojectRayToRef" }, sourceX, sourceY, viewportWidth, viewportHeight, world, view, projection
+                    new string[] { this.___guid, "unprojectRayToRef" },
+                    sourceX,
+                    sourceY,
+                    viewportWidth,
+                    viewportHeight,
+                    world,
+                    view,
+                    projection
                 }
             );
         }

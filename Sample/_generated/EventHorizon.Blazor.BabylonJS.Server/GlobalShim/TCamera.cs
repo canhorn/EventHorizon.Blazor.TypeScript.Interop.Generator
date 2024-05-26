@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Server.Interop;
 
 public class TCamera : CachedEntity
 {
-    public TCamera()
-    {
-    }
+    public TCamera() { }
 
-    public TCamera(
-        ICachedEntity entity
-    )
+    public TCamera(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

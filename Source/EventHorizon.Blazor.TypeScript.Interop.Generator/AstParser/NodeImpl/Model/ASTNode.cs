@@ -14,10 +14,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
                 {
                     return JsonSerializer.Deserialize<ASTNode>(
                         Body.GetRawText(),
-                        new JsonSerializerOptions
-                        {
-                            PropertyNameCaseInsensitive = true,
-                        }
+                        new JsonSerializerOptions { PropertyNameCaseInsensitive = true, }
                     );
                 }
                 return null;
@@ -31,10 +28,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
                 {
                     return JsonSerializer.Deserialize<List<ASTNode>>(
                         Body.GetRawText(),
-                        new JsonSerializerOptions
-                        {
-                            PropertyNameCaseInsensitive = true,
-                        }
+                        new JsonSerializerOptions { PropertyNameCaseInsensitive = true, }
                     );
                 }
                 return null;

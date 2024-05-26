@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<GroundMesh>))]
     public class GroundMesh : Mesh
     {
@@ -30,89 +28,59 @@ namespace BABYLON
                 entity => new GroundMesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "GroundMesh", "Parse" }, parsedMesh, scene
+                    new string[] { "BABYLON", "GroundMesh", "Parse" },
+                    parsedMesh,
+                    scene
                 }
             );
         }
         #endregion
 
         #region Accessors
-        
+
         public decimal subdivisions
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "subdivisions"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "subdivisions"); }
         }
 
-        
         public decimal subdivisionsX
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "subdivisionsX"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "subdivisionsX"); }
         }
 
-        
         public decimal subdivisionsY
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "subdivisionsY"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "subdivisionsY"); }
         }
         #endregion
 
         #region Properties
-        
+
         public bool generateOctree
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "generateOctree"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "generateOctree"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "generateOctree",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "generateOctree", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public GroundMesh() : base() { }
+        public GroundMesh()
+            : base() { }
 
-        public GroundMesh(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public GroundMesh(ICachedEntity entity)
+            : base(entity) { }
 
-        public GroundMesh(
-            string name, Scene scene
-        ) : base()
+        public GroundMesh(string name, Scene scene)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GroundMesh" },
-                name, scene
+                name,
+                scene
             );
             ___guid = entity.___guid;
         }
@@ -122,10 +90,7 @@ namespace BABYLON
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
@@ -134,7 +99,9 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "optimize" }, chunksCount, octreeBlocksSize
+                    new string[] { this.___guid, "optimize" },
+                    chunksCount,
+                    octreeBlocksSize
                 }
             );
         }
@@ -142,10 +109,7 @@ namespace BABYLON
         public decimal getHeightAtCoordinates(decimal x, decimal z)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getHeightAtCoordinates" }, x, z
-                }
+                new object[] { new string[] { this.___guid, "getHeightAtCoordinates" }, x, z }
             );
         }
 
@@ -153,10 +117,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getNormalAtCoordinates" }, x, z
-                }
+                new object[] { new string[] { this.___guid, "getNormalAtCoordinates" }, x, z }
             );
         }
 
@@ -166,7 +127,10 @@ namespace BABYLON
                 entity => new GroundMesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "getNormalAtCoordinatesToRef" }, x, z, @ref
+                    new string[] { this.___guid, "getNormalAtCoordinatesToRef" },
+                    x,
+                    z,
+                    @ref
                 }
             );
         }
@@ -175,20 +139,14 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<GroundMesh>(
                 entity => new GroundMesh() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "updateCoordinateHeights" }
-                }
+                new object[] { new string[] { this.___guid, "updateCoordinateHeights" } }
             );
         }
 
         public void serialize(object serializationObject)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "serialize" }, serializationObject
-                }
+                new object[] { new string[] { this.___guid, "serialize" }, serializationObject }
             );
         }
         #endregion

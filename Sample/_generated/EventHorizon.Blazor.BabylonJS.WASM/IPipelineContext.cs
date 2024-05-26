@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IPipelineContext : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IPipelineContextCachedEntity>))]
     public class IPipelineContextCachedEntity : CachedEntityObject, IPipelineContext
     {
@@ -32,58 +32,34 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public bool isAsync
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isAsync"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isAsync"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isAsync",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "isAsync", value);
             }
         }
 
-        
         public bool isReady
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isReady"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isReady"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isReady",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "isReady", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IPipelineContextCachedEntity() : base() { }
+        public IPipelineContextCachedEntity()
+            : base() { }
 
-        public IPipelineContextCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IPipelineContextCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IValueGradient : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IValueGradientCachedEntity>))]
     public class IValueGradientCachedEntity : CachedEntityObject, IValueGradient
     {
@@ -32,37 +32,24 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public decimal gradient
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "gradient"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "gradient"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "gradient",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "gradient", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IValueGradientCachedEntity() : base() { }
+        public IValueGradientCachedEntity()
+            : base() { }
 
-        public IValueGradientCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IValueGradientCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

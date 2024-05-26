@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Server.Interop;
 
 public class AnimatedInputBlockTypes : CachedEntity
 {
-    public AnimatedInputBlockTypes()
-    {
-    }
+    public AnimatedInputBlockTypes() { }
 
-    public AnimatedInputBlockTypes(
-        ICachedEntity entity
-    )
+    public AnimatedInputBlockTypes(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

@@ -10,8 +10,6 @@ namespace BABYLON.GUI
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Rectangle>))]
     public class Rectangle : Container
     {
@@ -28,84 +26,50 @@ namespace BABYLON.GUI
         #endregion
 
         #region Accessors
-        
+
         public decimal thickness
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "thickness"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "thickness"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "thickness",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "thickness", value);
             }
         }
 
-        
         public decimal cornerRadius
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "cornerRadius"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "cornerRadius"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "cornerRadius",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "cornerRadius", value);
             }
         }
         #endregion
 
         #region Properties
-        
+
         public string name
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "name"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "name"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "name",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "name", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public Rectangle() : base() { }
+        public Rectangle()
+            : base() { }
 
-        public Rectangle(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public Rectangle(ICachedEntity entity)
+            : base(entity) { }
 
-        public Rectangle(
-            string name = null
-        ) : base()
+        public Rectangle(string name = null)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GUI", "Rectangle" },

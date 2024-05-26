@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Interop;
 
 public class IArguments : CachedEntity
 {
-    public IArguments()
-    {
-    }
+    public IArguments() { }
 
-    public IArguments(
-        ICachedEntity entity
-    )
+    public IArguments(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

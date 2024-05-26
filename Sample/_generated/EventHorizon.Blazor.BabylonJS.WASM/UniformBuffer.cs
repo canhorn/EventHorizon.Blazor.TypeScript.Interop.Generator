@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<UniformBuffer>))]
     public class UniformBuffer : CachedEntityObject
     {
@@ -28,52 +26,43 @@ namespace BABYLON
         #endregion
 
         #region Accessors
-        
+
         public bool useUbo
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "useUbo"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "useUbo"); }
         }
 
-        
         public bool isSync
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isSync"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isSync"); }
         }
         #endregion
 
         #region Properties
 
         #endregion
-        
-        #region Constructor
-        public UniformBuffer() : base() { }
 
-        public UniformBuffer(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public UniformBuffer()
+            : base() { }
+
+        public UniformBuffer(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
         public UniformBuffer(
-            Engine engine, decimal[] data = null, System.Nullable<bool> dynamic = null
+            Engine engine,
+            decimal[] data = null,
+            System.Nullable<bool> dynamic = null
         )
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "UniformBuffer" },
-                engine, data, dynamic
+                engine,
+                data,
+                dynamic
             );
             ___guid = entity.___guid;
         }
@@ -82,30 +71,22 @@ namespace BABYLON
         #region Methods
         #region updateMatrix3x3 TODO: Get Comments as metadata identification
         private bool _isUpdateMatrix3x3Enabled = false;
-        private readonly IDictionary<string, Func<Task>> _updateMatrix3x3ActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _updateMatrix3x3ActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string updateMatrix3x3(
-            Func<Task> callback
-        )
+        public string updateMatrix3x3(Func<Task> callback)
         {
             SetupUpdateMatrix3x3Loop();
 
             var handle = Guid.NewGuid().ToString();
-            _updateMatrix3x3ActionMap.Add(
-                handle,
-                callback
-            );
+            _updateMatrix3x3ActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool updateMatrix3x3_Remove(
-            string handle
-        )
+        public bool updateMatrix3x3_Remove(string handle)
         {
-            return _updateMatrix3x3ActionMap.Remove(
-                handle
-            );
+            return _updateMatrix3x3ActionMap.Remove(handle);
         }
 
         private void SetupUpdateMatrix3x3Loop()
@@ -135,30 +116,22 @@ namespace BABYLON
 
         #region updateMatrix2x2 TODO: Get Comments as metadata identification
         private bool _isUpdateMatrix2x2Enabled = false;
-        private readonly IDictionary<string, Func<Task>> _updateMatrix2x2ActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _updateMatrix2x2ActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string updateMatrix2x2(
-            Func<Task> callback
-        )
+        public string updateMatrix2x2(Func<Task> callback)
         {
             SetupUpdateMatrix2x2Loop();
 
             var handle = Guid.NewGuid().ToString();
-            _updateMatrix2x2ActionMap.Add(
-                handle,
-                callback
-            );
+            _updateMatrix2x2ActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool updateMatrix2x2_Remove(
-            string handle
-        )
+        public bool updateMatrix2x2_Remove(string handle)
         {
-            return _updateMatrix2x2ActionMap.Remove(
-                handle
-            );
+            return _updateMatrix2x2ActionMap.Remove(handle);
         }
 
         private void SetupUpdateMatrix2x2Loop()
@@ -188,30 +161,22 @@ namespace BABYLON
 
         #region updateFloat TODO: Get Comments as metadata identification
         private bool _isUpdateFloatEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _updateFloatActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _updateFloatActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string updateFloat(
-            Func<Task> callback
-        )
+        public string updateFloat(Func<Task> callback)
         {
             SetupUpdateFloatLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _updateFloatActionMap.Add(
-                handle,
-                callback
-            );
+            _updateFloatActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool updateFloat_Remove(
-            string handle
-        )
+        public bool updateFloat_Remove(string handle)
         {
-            return _updateFloatActionMap.Remove(
-                handle
-            );
+            return _updateFloatActionMap.Remove(handle);
         }
 
         private void SetupUpdateFloatLoop()
@@ -241,30 +206,22 @@ namespace BABYLON
 
         #region updateFloat2 TODO: Get Comments as metadata identification
         private bool _isUpdateFloat2Enabled = false;
-        private readonly IDictionary<string, Func<Task>> _updateFloat2ActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _updateFloat2ActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string updateFloat2(
-            Func<Task> callback
-        )
+        public string updateFloat2(Func<Task> callback)
         {
             SetupUpdateFloat2Loop();
 
             var handle = Guid.NewGuid().ToString();
-            _updateFloat2ActionMap.Add(
-                handle,
-                callback
-            );
+            _updateFloat2ActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool updateFloat2_Remove(
-            string handle
-        )
+        public bool updateFloat2_Remove(string handle)
         {
-            return _updateFloat2ActionMap.Remove(
-                handle
-            );
+            return _updateFloat2ActionMap.Remove(handle);
         }
 
         private void SetupUpdateFloat2Loop()
@@ -294,30 +251,22 @@ namespace BABYLON
 
         #region updateFloat3 TODO: Get Comments as metadata identification
         private bool _isUpdateFloat3Enabled = false;
-        private readonly IDictionary<string, Func<Task>> _updateFloat3ActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _updateFloat3ActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string updateFloat3(
-            Func<Task> callback
-        )
+        public string updateFloat3(Func<Task> callback)
         {
             SetupUpdateFloat3Loop();
 
             var handle = Guid.NewGuid().ToString();
-            _updateFloat3ActionMap.Add(
-                handle,
-                callback
-            );
+            _updateFloat3ActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool updateFloat3_Remove(
-            string handle
-        )
+        public bool updateFloat3_Remove(string handle)
         {
-            return _updateFloat3ActionMap.Remove(
-                handle
-            );
+            return _updateFloat3ActionMap.Remove(handle);
         }
 
         private void SetupUpdateFloat3Loop()
@@ -347,30 +296,22 @@ namespace BABYLON
 
         #region updateFloat4 TODO: Get Comments as metadata identification
         private bool _isUpdateFloat4Enabled = false;
-        private readonly IDictionary<string, Func<Task>> _updateFloat4ActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _updateFloat4ActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string updateFloat4(
-            Func<Task> callback
-        )
+        public string updateFloat4(Func<Task> callback)
         {
             SetupUpdateFloat4Loop();
 
             var handle = Guid.NewGuid().ToString();
-            _updateFloat4ActionMap.Add(
-                handle,
-                callback
-            );
+            _updateFloat4ActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool updateFloat4_Remove(
-            string handle
-        )
+        public bool updateFloat4_Remove(string handle)
         {
-            return _updateFloat4ActionMap.Remove(
-                handle
-            );
+            return _updateFloat4ActionMap.Remove(handle);
         }
 
         private void SetupUpdateFloat4Loop()
@@ -400,30 +341,22 @@ namespace BABYLON
 
         #region updateMatrix TODO: Get Comments as metadata identification
         private bool _isUpdateMatrixEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _updateMatrixActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _updateMatrixActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string updateMatrix(
-            Func<Task> callback
-        )
+        public string updateMatrix(Func<Task> callback)
         {
             SetupUpdateMatrixLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _updateMatrixActionMap.Add(
-                handle,
-                callback
-            );
+            _updateMatrixActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool updateMatrix_Remove(
-            string handle
-        )
+        public bool updateMatrix_Remove(string handle)
         {
-            return _updateMatrixActionMap.Remove(
-                handle
-            );
+            return _updateMatrixActionMap.Remove(handle);
         }
 
         private void SetupUpdateMatrixLoop()
@@ -453,30 +386,22 @@ namespace BABYLON
 
         #region updateVector3 TODO: Get Comments as metadata identification
         private bool _isUpdateVector3Enabled = false;
-        private readonly IDictionary<string, Func<Task>> _updateVector3ActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _updateVector3ActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string updateVector3(
-            Func<Task> callback
-        )
+        public string updateVector3(Func<Task> callback)
         {
             SetupUpdateVector3Loop();
 
             var handle = Guid.NewGuid().ToString();
-            _updateVector3ActionMap.Add(
-                handle,
-                callback
-            );
+            _updateVector3ActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool updateVector3_Remove(
-            string handle
-        )
+        public bool updateVector3_Remove(string handle)
         {
-            return _updateVector3ActionMap.Remove(
-                handle
-            );
+            return _updateVector3ActionMap.Remove(handle);
         }
 
         private void SetupUpdateVector3Loop()
@@ -506,30 +431,22 @@ namespace BABYLON
 
         #region updateVector4 TODO: Get Comments as metadata identification
         private bool _isUpdateVector4Enabled = false;
-        private readonly IDictionary<string, Func<Task>> _updateVector4ActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _updateVector4ActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string updateVector4(
-            Func<Task> callback
-        )
+        public string updateVector4(Func<Task> callback)
         {
             SetupUpdateVector4Loop();
 
             var handle = Guid.NewGuid().ToString();
-            _updateVector4ActionMap.Add(
-                handle,
-                callback
-            );
+            _updateVector4ActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool updateVector4_Remove(
-            string handle
-        )
+        public bool updateVector4_Remove(string handle)
         {
-            return _updateVector4ActionMap.Remove(
-                handle
-            );
+            return _updateVector4ActionMap.Remove(handle);
         }
 
         private void SetupUpdateVector4Loop()
@@ -559,30 +476,22 @@ namespace BABYLON
 
         #region updateColor3 TODO: Get Comments as metadata identification
         private bool _isUpdateColor3Enabled = false;
-        private readonly IDictionary<string, Func<Task>> _updateColor3ActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _updateColor3ActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string updateColor3(
-            Func<Task> callback
-        )
+        public string updateColor3(Func<Task> callback)
         {
             SetupUpdateColor3Loop();
 
             var handle = Guid.NewGuid().ToString();
-            _updateColor3ActionMap.Add(
-                handle,
-                callback
-            );
+            _updateColor3ActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool updateColor3_Remove(
-            string handle
-        )
+        public bool updateColor3_Remove(string handle)
         {
-            return _updateColor3ActionMap.Remove(
-                handle
-            );
+            return _updateColor3ActionMap.Remove(handle);
         }
 
         private void SetupUpdateColor3Loop()
@@ -612,30 +521,22 @@ namespace BABYLON
 
         #region updateColor4 TODO: Get Comments as metadata identification
         private bool _isUpdateColor4Enabled = false;
-        private readonly IDictionary<string, Func<Task>> _updateColor4ActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _updateColor4ActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string updateColor4(
-            Func<Task> callback
-        )
+        public string updateColor4(Func<Task> callback)
         {
             SetupUpdateColor4Loop();
 
             var handle = Guid.NewGuid().ToString();
-            _updateColor4ActionMap.Add(
-                handle,
-                callback
-            );
+            _updateColor4ActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool updateColor4_Remove(
-            string handle
-        )
+        public bool updateColor4_Remove(string handle)
         {
-            return _updateColor4ActionMap.Remove(
-                handle
-            );
+            return _updateColor4ActionMap.Remove(handle);
         }
 
         private void SetupUpdateColor4Loop()
@@ -666,20 +567,14 @@ namespace BABYLON
         public bool isDynamic()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "isDynamic" }
-                }
+                new object[] { new string[] { this.___guid, "isDynamic" } }
             );
         }
 
         public decimal[] getData()
         {
             return EventHorizonBlazorInterop.FuncArray<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getData" }
-                }
+                new object[] { new string[] { this.___guid, "getData" } }
             );
         }
 
@@ -687,120 +582,84 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<DataBuffer>(
                 entity => new DataBuffer() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getBuffer" }
-                }
+                new object[] { new string[] { this.___guid, "getBuffer" } }
             );
         }
 
         public void addUniform(string name, decimal size)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "addUniform" }, name, size
-                }
+                new object[] { new string[] { this.___guid, "addUniform" }, name, size }
             );
         }
 
         public void addMatrix(string name, Matrix mat)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "addMatrix" }, name, mat
-                }
+                new object[] { new string[] { this.___guid, "addMatrix" }, name, mat }
             );
         }
 
         public void addFloat2(string name, decimal x, decimal y)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "addFloat2" }, name, x, y
-                }
+                new object[] { new string[] { this.___guid, "addFloat2" }, name, x, y }
             );
         }
 
         public void addFloat3(string name, decimal x, decimal y, decimal z)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "addFloat3" }, name, x, y, z
-                }
+                new object[] { new string[] { this.___guid, "addFloat3" }, name, x, y, z }
             );
         }
 
         public void addColor3(string name, Color3 color)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "addColor3" }, name, color
-                }
+                new object[] { new string[] { this.___guid, "addColor3" }, name, color }
             );
         }
 
         public void addColor4(string name, Color3 color, decimal alpha)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "addColor4" }, name, color, alpha
-                }
+                new object[] { new string[] { this.___guid, "addColor4" }, name, color, alpha }
             );
         }
 
         public void addVector3(string name, Vector3 vector)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "addVector3" }, name, vector
-                }
+                new object[] { new string[] { this.___guid, "addVector3" }, name, vector }
             );
         }
 
         public void addMatrix3x3(string name)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "addMatrix3x3" }, name
-                }
+                new object[] { new string[] { this.___guid, "addMatrix3x3" }, name }
             );
         }
 
         public void addMatrix2x2(string name)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "addMatrix2x2" }, name
-                }
+                new object[] { new string[] { this.___guid, "addMatrix2x2" }, name }
             );
         }
 
         public void create()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "create" }
-                }
+                new object[] { new string[] { this.___guid, "create" } }
             );
         }
 
         public void update()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "update" }
-                }
+                new object[] { new string[] { this.___guid, "update" } }
             );
         }
 
@@ -809,7 +668,10 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "updateUniform" }, uniformName, data, size
+                    new string[] { this.___guid, "updateUniform" },
+                    uniformName,
+                    data,
+                    size
                 }
             );
         }
@@ -817,10 +679,7 @@ namespace BABYLON
         public void setTexture(string name, BaseTexture texture)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "setTexture" }, name, texture
-                }
+                new object[] { new string[] { this.___guid, "setTexture" }, name, texture }
             );
         }
 
@@ -829,7 +688,9 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "updateUniformDirectly" }, uniformName, data
+                    new string[] { this.___guid, "updateUniformDirectly" },
+                    uniformName,
+                    data
                 }
             );
         }
@@ -837,20 +698,14 @@ namespace BABYLON
         public void bindToEffect(Effect effect, string name)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "bindToEffect" }, effect, name
-                }
+                new object[] { new string[] { this.___guid, "bindToEffect" }, effect, name }
             );
         }
 
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
         #endregion

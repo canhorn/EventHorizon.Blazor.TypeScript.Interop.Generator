@@ -10,10 +10,9 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Observer<CachedEntity>>))]
-    public class Observer<T> : CachedEntityObject where T : CachedEntity, new()
+    public class Observer<T> : CachedEntityObject
+        where T : CachedEntity, new()
     {
         #region Static Accessors
 
@@ -32,33 +31,22 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public decimal mask
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "mask"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "mask"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "mask",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "mask", value);
             }
         }
 
-        
         public CachedEntity scope
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "scope",
                     (entity) =>
@@ -70,53 +58,41 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "scope",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "scope", value);
             }
         }
 
-        
         public bool unregisterOnNextCall
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "unregisterOnNextCall"
-                );
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "unregisterOnNextCall");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "unregisterOnNextCall",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "unregisterOnNextCall", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public Observer() : base() { }
 
-        public Observer(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public Observer()
+            : base() { }
+
+        public Observer(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
-        public Observer(
-            ActionCallback<T, EventState> callback, decimal mask, object scope = null
-        )
+        public Observer(ActionCallback<T, EventState> callback, decimal mask, object scope = null)
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Observer" },
-                callback, mask, scope
+                callback,
+                mask,
+                scope
             );
             ___guid = entity.___guid;
         }
@@ -125,30 +101,22 @@ namespace BABYLON
         #region Methods
         #region callback TODO: Get Comments as metadata identification
         private bool _isCallbackEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _callbackActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _callbackActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string callback(
-            Func<Task> callback
-        )
+        public string callback(Func<Task> callback)
         {
             SetupCallbackLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _callbackActionMap.Add(
-                handle,
-                callback
-            );
+            _callbackActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool callback_Remove(
-            string handle
-        )
+        public bool callback_Remove(string handle)
         {
-            return _callbackActionMap.Remove(
-                handle
-            );
+            return _callbackActionMap.Remove(handle);
         }
 
         private void SetupCallbackLoop()

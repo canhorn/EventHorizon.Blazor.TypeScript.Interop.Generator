@@ -13,34 +13,27 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
     /// </summary>
     class InvokableReferenceIdentifier
     {
-        internal static bool Identify(
-            ClassStatement classStatement
-        )
+        internal static bool Identify(ClassStatement classStatement)
         {
             var methodArgumentUsedClasses = classStatement.PublicMethodStatements.Aggregate(
                 new List<string>(),
-                (acc, method) => acc.Concat(
-                    method.Arguments.Aggregate(
-                        new List<string>(),
-                        (argAcc, arg) => argAcc.Concat(
-                            new List<string> { arg.Type.Name }
-                        ).ToList()
-                    )
-                ).ToList()
+                (acc, method) =>
+                    acc.Concat(
+                            method.Arguments.Aggregate(
+                                new List<string>(),
+                                (argAcc, arg) =>
+                                    argAcc.Concat(new List<string> { arg.Type.Name }).ToList()
+                            )
+                        )
+                        .ToList()
             );
             var constructorUsedClasses = classStatement.ConstructorStatement.Arguments.Aggregate(
                 new List<string>(),
-                (argAcc, arg) => argAcc.Concat(
-                    new List<string> { arg.Type.Name }
-                ).ToList()
+                (argAcc, arg) => argAcc.Concat(new List<string> { arg.Type.Name }).ToList()
             );
-            var argumentUsedClasses = methodArgumentUsedClasses.Concat(
-                constructorUsedClasses
-            );
+            var argumentUsedClasses = methodArgumentUsedClasses.Concat(constructorUsedClasses);
 
-            return argumentUsedClasses.Any(
-                a => a == GenerationIdentifiedTypes.Action
-            );
+            return argumentUsedClasses.Any(a => a == GenerationIdentifiedTypes.Action);
         }
     }
 }

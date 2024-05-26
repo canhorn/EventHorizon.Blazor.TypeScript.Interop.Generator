@@ -6,16 +6,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 
     public static class UsedClassNamesIdentifier
     {
-        public static IList<string> Identify(
-            TypeStatement type,
-            IList<string> list = null
-        )
+        public static IList<string> Identify(TypeStatement type, IList<string> list = null)
         {
             if (list == null)
             {
                 list = new List<string>();
             }
-            if (!type.IsAction
+            if (
+                !type.IsAction
                 && !type.IsArray
                 && !type.IsLiteral
                 && !type.IsModifier
@@ -49,17 +47,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             }
             foreach (var genericType in type.GenericTypes)
             {
-                Identify(
-                    genericType,
-                    list
-                );
+                Identify(genericType, list);
             }
             if (type.IsTypeAlias)
             {
-                Identify(
-                    type.AliasType,
-                    list
-                );
+                Identify(type.AliasType, list);
             }
 
             return list;

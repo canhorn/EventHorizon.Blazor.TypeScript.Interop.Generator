@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Interop;
 
 public class IsWindowObjectExist : CachedEntity
 {
-    public IsWindowObjectExist()
-    {
-    }
+    public IsWindowObjectExist() { }
 
-    public IsWindowObjectExist(
-        ICachedEntity entity
-    )
+    public IsWindowObjectExist(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

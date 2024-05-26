@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<ShadowDepthWrapper>))]
     public class ShadowDepthWrapper : CachedEntityObject
     {
@@ -28,16 +26,10 @@ namespace BABYLON
         #endregion
 
         #region Accessors
-        
+
         public bool standalone
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "standalone"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "standalone"); }
         }
 
         private Material __baseMaterial;
@@ -45,18 +37,18 @@ namespace BABYLON
         {
             get
             {
-            if(__baseMaterial == null)
-            {
-                __baseMaterial = EventHorizonBlazorInterop.GetClass<Material>(
-                    this.___guid,
-                    "baseMaterial",
-                    (entity) =>
-                    {
-                        return new Material() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __baseMaterial;
+                if (__baseMaterial == null)
+                {
+                    __baseMaterial = EventHorizonBlazorInterop.GetClass<Material>(
+                        this.___guid,
+                        "baseMaterial",
+                        (entity) =>
+                        {
+                            return new Material() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __baseMaterial;
             }
         }
         #endregion
@@ -64,24 +56,28 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
-        #region Constructor
-        public ShadowDepthWrapper() : base() { }
 
-        public ShadowDepthWrapper(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public ShadowDepthWrapper()
+            : base() { }
+
+        public ShadowDepthWrapper(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
         public ShadowDepthWrapper(
-            Material baseMaterial, Scene scene, IIOptionShadowDepthMaterial options = null
+            Material baseMaterial,
+            Scene scene,
+            IIOptionShadowDepthMaterial options = null
         )
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "ShadowDepthWrapper" },
-                baseMaterial, scene, options
+                baseMaterial,
+                scene,
+                options
             );
             ___guid = entity.___guid;
         }
@@ -94,17 +90,28 @@ namespace BABYLON
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "getEffect" }, subMesh, shadowGenerator
+                    new string[] { this.___guid, "getEffect" },
+                    subMesh,
+                    shadowGenerator
                 }
             );
         }
 
-        public bool isReadyForSubMesh(SubMesh subMesh, string[] defines, ShadowGenerator shadowGenerator, bool useInstances)
+        public bool isReadyForSubMesh(
+            SubMesh subMesh,
+            string[] defines,
+            ShadowGenerator shadowGenerator,
+            bool useInstances
+        )
         {
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
-                    new string[] { this.___guid, "isReadyForSubMesh" }, subMesh, defines, shadowGenerator, useInstances
+                    new string[] { this.___guid, "isReadyForSubMesh" },
+                    subMesh,
+                    defines,
+                    shadowGenerator,
+                    useInstances
                 }
             );
         }
@@ -112,10 +119,7 @@ namespace BABYLON
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
         #endregion

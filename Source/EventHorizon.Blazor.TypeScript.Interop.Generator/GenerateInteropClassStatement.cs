@@ -27,10 +27,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             IDictionary<string, string> typeOverrideMap
         )
         {
-            var (found, className, toGenerateNode) = GetNode(
-                classIdentifier,
-                ast
-            );
+            var (found, className, toGenerateNode) = GetNode(classIdentifier, ast);
             if (!found)
             {
                 return null;
@@ -42,7 +39,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                 Namespace = namespaceIdentifier,
                 Name = className,
             };
-
 
             var typeOverrideDetails = new TypeOverrideDetails
             {
@@ -65,47 +61,36 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             );
 
             // Public Properties
-            var publicProperties = toGenerateNode
-                .Children.Where(
-                    child => IsNotPrivate(child) && IsPropertyType(child, classMetadata)
-                );
+            var publicProperties = toGenerateNode.Children.Where(child =>
+                IsNotPrivate(child) && IsPropertyType(child, classMetadata)
+            );
 
             // Public Methods/Functions
-            var publicMethods = toGenerateNode
-                .Children.Where(
-                    child => IsNotPrivate(child) && IsMethodType(child, classMetadata)
-                );
+            var publicMethods = toGenerateNode.Children.Where(child =>
+                IsNotPrivate(child) && IsMethodType(child, classMetadata)
+            );
 
             // Get/Set Accessors
-            var accessorMethods = toGenerateNode
-                .Children.Where(
-                    child => IsNotPrivate(child) && IsAccessorType(child)
-                );
+            var accessorMethods = toGenerateNode.Children.Where(child =>
+                IsNotPrivate(child) && IsAccessorType(child)
+            );
 
             // Is Observer Method/Function
-            var observalbleMethods = publicProperties.Where(
-                a => IsObservablePropertyRule.Check(a)
-            ).ToList();
+            var observalbleMethods = publicProperties
+                .Where(a => IsObservablePropertyRule.Check(a))
+                .ToList();
 
             var classStatement = new ClassStatement
             {
                 ProjectAssembly = projectAssembly,
                 Namespace = namespaceIdentifier,
-                Name = DotNetClassNormalizer.Normalize(
-                    className
-                ),
-                IsInterface = IsInterfaceRule.Check(
-                    toGenerateNode
-                ),
+                Name = DotNetClassNormalizer.Normalize(className),
+                IsInterface = IsInterfaceRule.Check(toGenerateNode),
                 GenericTypes = GetGenericTypes(
                     toGenerateNode,
                     classMetadata,
                     ast,
-                    new TypeOverrideDetails
-                    {
-                        IsStatic = false,
-                        TypeOverrideMap = typeOverrideMap,
-                    }
+                    new TypeOverrideDetails { IsStatic = false, TypeOverrideMap = typeOverrideMap, }
                 ),
                 ExtendedType = extendedClassType,
                 ImplementedInterfaces = implementedInterfaces,
@@ -122,8 +107,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                         }
                     ),
                 },
-                PublicPropertyStatements = publicProperties.ToList().Select(
-                    a =>
+                PublicPropertyStatements = publicProperties
+                    .ToList()
+                    .Select(a =>
                     {
                         var name = a.IdentifierStr;
                         var isStatic = IsStaticRule.Check(a);
@@ -138,16 +124,18 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                             ast,
                             typeOverrideDetails
                         );
-                        if (TypeOverrideIdentifier.Identify(
-                            TypeOverrideDeclarationIdentifier.Identify(
-                                classMetadata,
-                                typeOverrideDetails.IsStatic,
-                                name
-                            ),
-                            typeOverrideDetails.TypeOverrideMap,
-                            type,
-                            out var overrideType
-                        ))
+                        if (
+                            TypeOverrideIdentifier.Identify(
+                                TypeOverrideDeclarationIdentifier.Identify(
+                                    classMetadata,
+                                    typeOverrideDetails.IsStatic,
+                                    name
+                                ),
+                                typeOverrideDetails.TypeOverrideMap,
+                                type,
+                                out var overrideType
+                            )
+                        )
                         {
                             type = overrideType;
                         }
@@ -169,10 +157,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                             IsReadonly = IsReadonlyRule.Check(a),
                             UsedClassNames = UsedClassNamesIdentifier.Identify(type),
                         };
-                    }
-                ).ToList(),
-                PublicMethodStatements = publicMethods.ToList().Select(
-                    a =>
+                    })
+                    .ToList(),
+                PublicMethodStatements = publicMethods
+                    .ToList()
+                    .Select(a =>
                     {
                         var name = a.IdentifierStr;
                         var isStatic = IsStaticRule.Check(a);
@@ -187,16 +176,18 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                             ast,
                             typeOverrideDetails
                         );
-                        if (TypeOverrideIdentifier.Identify(
-                            TypeOverrideDeclarationIdentifier.Identify(
-                                classMetadata,
-                                typeOverrideDetails.IsStatic,
-                                name
-                            ),
-                            typeOverrideDetails.TypeOverrideMap,
-                            type,
-                            out var overrideType
-                        ))
+                        if (
+                            TypeOverrideIdentifier.Identify(
+                                TypeOverrideDeclarationIdentifier.Identify(
+                                    classMetadata,
+                                    typeOverrideDetails.IsStatic,
+                                    name
+                                ),
+                                typeOverrideDetails.TypeOverrideMap,
+                                type,
+                                out var overrideType
+                            )
+                        )
                         {
                             type = overrideType;
                         }
@@ -209,9 +200,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                                 ast,
                                 typeOverrideDetails
                             ),
-                            GenericTypes = DeclarationGenericTypesIdentifier.Identify(
-                                a
-                            ),
+                            GenericTypes = DeclarationGenericTypesIdentifier.Identify(a),
                             Arguments = ArgumentIdentifier.Identify(
                                 a,
                                 classMetadata,
@@ -225,17 +214,17 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                             ),
                             UsedClassNames = UsedClassNamesIdentifier.Identify(type),
                         };
-                    }
-                ).Distinct().ToList(),
+                    })
+                    .Distinct()
+                    .ToList(),
                 AccessorStatements = accessorMethods.FlattenAccessorStatements(
                     ast,
                     classMetadata,
                     typeOverrideMap
                 ),
             };
-            classStatement.ConstructorStatement.NeedsInvokableReference = InvokableReferenceIdentifier.Identify(
-                classStatement
-            );
+            classStatement.ConstructorStatement.NeedsInvokableReference =
+                InvokableReferenceIdentifier.Identify(classStatement);
 
             return classStatement;
         }
@@ -268,31 +257,31 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             TypeOverrideDetails typeOverrideDetails
         )
         {
-            if (node.Kind == SyntaxKind.ClassDeclaration
-                && node.TypeParameters != null
-            )
+            if (node.Kind == SyntaxKind.ClassDeclaration && node.TypeParameters != null)
             {
-                return node.TypeParameters.Select(
-                    typeParam => GenericTypeIdentifier.Identify(
-                        typeParam,
-                        classMetadata,
-                        ast,
-                        typeOverrideDetails
-                   )
-                ).ToList();
+                return node
+                    .TypeParameters.Select(typeParam =>
+                        GenericTypeIdentifier.Identify(
+                            typeParam,
+                            classMetadata,
+                            ast,
+                            typeOverrideDetails
+                        )
+                    )
+                    .ToList();
             }
-            else if (node.Kind == SyntaxKind.InterfaceDeclaration
-                && node.TypeParameters != null
-            )
+            else if (node.Kind == SyntaxKind.InterfaceDeclaration && node.TypeParameters != null)
             {
-                return node.TypeParameters.Select(
-                    typeParam => GenericTypeIdentifier.Identify(
-                        typeParam,
-                        classMetadata,
-                        ast,
-                        typeOverrideDetails
-                   )
-                ).ToList();
+                return node
+                    .TypeParameters.Select(typeParam =>
+                        GenericTypeIdentifier.Identify(
+                            typeParam,
+                            classMetadata,
+                            ast,
+                            typeOverrideDetails
+                        )
+                    )
+                    .ToList();
             }
             return new List<TypeStatement>();
         }
@@ -306,18 +295,15 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
         {
             if (type.IsTypeQuery)
             {
-                var (found, className, toGenerateNode) = GetNode(
-                    type.TypeQuery.Class,
-                    ast
-                );
+                var (found, className, toGenerateNode) = GetNode(type.TypeQuery.Class, ast);
 
                 if (!found)
                 {
                     return type;
                 }
 
-                var typeNode = toGenerateNode.Children.FirstOrDefault(
-                    a => a.IdentifierStr == type.TypeQuery.Type
+                var typeNode = toGenerateNode.Children.FirstOrDefault(a =>
+                    a.IdentifierStr == type.TypeQuery.Type
                 );
                 if (typeNode is not null)
                 {
@@ -335,9 +321,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             {
                 type.Name = GenerationIdentifiedTypes.CachedEntity;
             }
-            var literalGenericTypes = type.GenericTypes.Where(
-                a => a.IsLiteral
-            );
+            var literalGenericTypes = type.GenericTypes.Where(a => a.IsLiteral);
             foreach (var genericType in literalGenericTypes)
             {
                 genericType.Name = GenerationIdentifiedTypes.CachedEntity;
@@ -352,8 +336,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             IDictionary<string, string> typeOverrideMap
         )
         {
-            var flattenedAccessorList = nodes.Where(a => IsGetterRule.Check(a)).Select(
-                accessor =>
+            var flattenedAccessorList = nodes
+                .Where(a => IsGetterRule.Check(a))
+                .Select(accessor =>
                 {
                     var name = accessor.IdentifierStr;
                     var isStatic = IsStaticRule.Check(accessor);
@@ -368,16 +353,18 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                         ast,
                         typeOverrideDetails
                     );
-                    if (TypeOverrideIdentifier.Identify(
-                        TypeOverrideDeclarationIdentifier.Identify(
-                            classMetadata,
-                            isStatic,
-                            name
-                        ),
-                        typeOverrideMap,
-                        type,
-                        out var overrideType
-                    ))
+                    if (
+                        TypeOverrideIdentifier.Identify(
+                            TypeOverrideDeclarationIdentifier.Identify(
+                                classMetadata,
+                                isStatic,
+                                name
+                            ),
+                            typeOverrideMap,
+                            type,
+                            out var overrideType
+                        )
+                    )
                     {
                         type = overrideType;
                     }
@@ -391,21 +378,18 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                             typeOverrideDetails
                         ),
                         IsStatic = isStatic,
-                        IsInterfaceResponse = InterfaceResponseTypeIdentifier.Identify(
-                            type,
-                            ast
-                        ),
+                        IsInterfaceResponse = InterfaceResponseTypeIdentifier.Identify(type, ast),
                         HasSetter = IsSetterRule.Check(accessor),
                         //IsArrayResponse = IsArrayResposneTypeRule.Check(accessor),
                         UsedClassNames = UsedClassNamesIdentifier.Identify(type),
                     };
-                }
-            ).ToList();
+                })
+                .ToList();
             // Loop through Setters and on the setter flat as HasSetter
             foreach (var node in nodes.Where(a => IsSetterRule.Check(a)))
             {
-                var getNode = flattenedAccessorList.FirstOrDefault(
-                    a => a.Name == node.IdentifierStr
+                var getNode = flattenedAccessorList.FirstOrDefault(a =>
+                    a.Name == node.IdentifierStr
                 );
                 if (getNode != null)
                 {
@@ -414,7 +398,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             }
             return flattenedAccessorList;
         }
-
 
         private static List<string> GetNamespace(
             Node classDeclaration,
@@ -428,10 +411,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             if (classDeclaration.Kind == SyntaxKind.ModuleDeclaration)
             {
                 //var classDeclarationTyped = (ModuleDeclaration)classDeclaration;
-                namespaceText.Insert(
-                    0,
-                    classDeclaration.IdentifierStr
-                );
+                namespaceText.Insert(0, classDeclaration.IdentifierStr);
             }
             if (classDeclaration.Parent == null)
             {
@@ -440,53 +420,46 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             return GetNamespace(classDeclaration.Parent, namespaceText);
         }
 
-        private static bool IsPropertyType(
-            Node child,
-            ClassMetadata classMetadata
-        )
+        private static bool IsPropertyType(Node child, ClassMetadata classMetadata)
         {
-            return (child.Kind == SyntaxKind.PropertyDeclaration || child.Kind == SyntaxKind.PropertySignature)
-                && TypeIdentifier
-                    .Identify(
-                        child.Last,
-                        classMetadata
-                    ) != GenerationIdentifiedTypes.Action
+            return (
+                    child.Kind == SyntaxKind.PropertyDeclaration
+                    || child.Kind == SyntaxKind.PropertySignature
+                )
+                && TypeIdentifier.Identify(child.Last, classMetadata)
+                    != GenerationIdentifiedTypes.Action
                 && !IsClassBasedMethodRule.Check(child.Last);
         }
 
-        private static bool IsMethodType(
-            Node child,
-            ClassMetadata classMetadata
-        )
+        private static bool IsMethodType(Node child, ClassMetadata classMetadata)
         {
             return !IsAccessorType(child)
-                && ((child.Kind == SyntaxKind.MethodDeclaration || child.Kind == SyntaxKind.MethodSignature)
-                || TypeIdentifier
-                    .Identify(
-                        child.Last,
-                        classMetadata
-                    ) == GenerationIdentifiedTypes.Action
-                || TypeIdentifier
-                    .Identify(
-                        child.Last,
-                        classMetadata
-                    ) == GenerationIdentifiedTypes.Void
-                || IsClassBasedMethodRule.Check(child));
+                && (
+                    (
+                        child.Kind == SyntaxKind.MethodDeclaration
+                        || child.Kind == SyntaxKind.MethodSignature
+                    )
+                    || TypeIdentifier.Identify(child.Last, classMetadata)
+                        == GenerationIdentifiedTypes.Action
+                    || TypeIdentifier.Identify(child.Last, classMetadata)
+                        == GenerationIdentifiedTypes.Void
+                    || IsClassBasedMethodRule.Check(child)
+                );
         }
 
         private static bool IsAccessorType(Node child)
         {
-            return child.Kind == SyntaxKind.GetAccessor
-                || child.Kind == SyntaxKind.SetAccessor;
+            return child.Kind == SyntaxKind.GetAccessor || child.Kind == SyntaxKind.SetAccessor;
         }
 
         private static bool IsNotPrivate(Node child)
         {
-            return child.Modifiers?.Count(
-                modifier => modifier.Kind == SyntaxKind.PrivateKeyword) == 0
-            && child.Modifiers?.Count(
-                modifier => modifier.Kind == SyntaxKind.ProtectedKeyword) == 0
-            && child.IdentifierStr != null && !child.IdentifierStr.StartsWith("_");
+            return child.Modifiers?.Count(modifier => modifier.Kind == SyntaxKind.PrivateKeyword)
+                    == 0
+                && child.Modifiers?.Count(modifier => modifier.Kind == SyntaxKind.ProtectedKeyword)
+                    == 0
+                && child.IdentifierStr != null
+                && !child.IdentifierStr.StartsWith("_");
         }
     }
 }

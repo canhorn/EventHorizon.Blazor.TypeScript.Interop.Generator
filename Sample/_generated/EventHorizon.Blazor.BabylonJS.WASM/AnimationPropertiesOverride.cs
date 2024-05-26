@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<AnimationPropertiesOverride>))]
     public class AnimationPropertiesOverride : CachedEntityObject
     {
@@ -32,80 +30,47 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public bool enableBlending
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "enableBlending"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "enableBlending"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "enableBlending",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "enableBlending", value);
             }
         }
 
-        
         public decimal blendingSpeed
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "blendingSpeed"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "blendingSpeed"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "blendingSpeed",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "blendingSpeed", value);
             }
         }
 
-        
         public decimal loopMode
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "loopMode"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "loopMode"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "loopMode",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "loopMode", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public AnimationPropertiesOverride() : base() { }
 
-        public AnimationPropertiesOverride(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public AnimationPropertiesOverride()
+            : base() { }
+
+        public AnimationPropertiesOverride(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
-
 
         #endregion
 

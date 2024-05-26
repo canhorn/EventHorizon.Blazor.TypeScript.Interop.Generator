@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<PointerInfo>))]
     public class PointerInfo : PointerInfoBase
     {
@@ -37,47 +35,42 @@ namespace BABYLON
         {
             get
             {
-            if(__pickInfo == null)
-            {
-                __pickInfo = EventHorizonBlazorInterop.GetClass<PickingInfo>(
-                    this.___guid,
-                    "pickInfo",
-                    (entity) =>
-                    {
-                        return new PickingInfo() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __pickInfo;
+                if (__pickInfo == null)
+                {
+                    __pickInfo = EventHorizonBlazorInterop.GetClass<PickingInfo>(
+                        this.___guid,
+                        "pickInfo",
+                        (entity) =>
+                        {
+                            return new PickingInfo() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __pickInfo;
             }
             set
             {
-__pickInfo = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "pickInfo",
-                    value
-                );
+                __pickInfo = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "pickInfo", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public PointerInfo() : base() { }
+        public PointerInfo()
+            : base() { }
 
-        public PointerInfo(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public PointerInfo(ICachedEntity entity)
+            : base(entity) { }
 
-        public PointerInfo(
-            decimal type, PointerEvent @event, PickingInfo pickInfo
-        ) : base()
+        public PointerInfo(decimal type, PointerEvent @event, PickingInfo pickInfo)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "PointerInfo" },
-                type, @event, pickInfo
+                type,
+                @event,
+                pickInfo
             );
             ___guid = entity.___guid;
         }

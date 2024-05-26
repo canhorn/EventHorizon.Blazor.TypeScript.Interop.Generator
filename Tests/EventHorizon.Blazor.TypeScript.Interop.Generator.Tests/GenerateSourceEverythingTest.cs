@@ -19,19 +19,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
             var projectAssembly = "ProjectAssembly";
             var sourceDirectory = "";
             var sourceFileName = "Everything.ts";
-            var sourceFile = Path.Combine(
-                ".",
-                "SourceFiles",
-                sourceFileName
-            );
-            var sourceFiles = new List<string>
-            {
-                sourceFile
-            };
-            var generationList = new List<string>
-            {
-                "Everything",
-            };
+            var sourceFile = Path.Combine(".", "SourceFiles", sourceFileName);
+            var sourceFiles = new List<string> { sourceFile };
+            var generationList = new List<string> { "Everything", };
             var typeOverrideMap = new Dictionary<string, string>();
 
             var writerMock = new Mock<IWriter>();
@@ -60,19 +50,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
             var projectAssembly = "ProjectAssembly";
             var sourceDirectory = "";
             var sourceFileName = "Everything.ts";
-            var sourceFile = Path.Combine(
-                ".",
-                "SourceFiles",
-                sourceFileName
-            );
-            var sourceFiles = new List<string>
-            {
-                sourceFile
-            };
-            var generationList = new List<string>
-            {
-                "Everything",
-            };
+            var sourceFile = Path.Combine(".", "SourceFiles", sourceFileName);
+            var sourceFiles = new List<string> { sourceFile };
+            var generationList = new List<string> { "Everything", };
             var typeOverrideMap = new Dictionary<string, string>();
 
             var writerMock = new Mock<IWriter>();

@@ -12,37 +12,26 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
     /// </summary>
     public class NotSupportedIdentifier
     {
-        public static bool Identify(
-            PublicMethodStatement statement
-        )
+        public static bool Identify(PublicMethodStatement statement)
         {
-            return Identify(
-                statement.Type
-            );
+            return Identify(statement.Type);
         }
 
-        public static bool Identify(
-            PublicPropertyStatement statement
-        )
+        public static bool Identify(PublicPropertyStatement statement)
         {
-            return Identify(
-                statement.Type
-            );
+            return Identify(statement.Type);
         }
 
-        public static bool Identify(
-            TypeStatement typeStatement
-        )
+        public static bool Identify(TypeStatement typeStatement)
         {
             // Check for supported Response Type
-            if (!typeStatement.IsArray
+            if (
+                !typeStatement.IsArray
                 && !typeStatement.IsNullable
                 && !typeStatement.IsAction
                 && !typeStatement.IsTask
                 && typeStatement.GenericTypes.Any()
-                && PrimitiveTypeIdentifier.Identify(
-                    typeStatement.GenericTypes.First().Name
-                )
+                && PrimitiveTypeIdentifier.Identify(typeStatement.GenericTypes.First().Name)
             )
             {
                 return true;
@@ -56,9 +45,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             return false;
         }
 
-        private static bool HasAnArrayInArray(
-            TypeStatement typeStatement
-        )
+        private static bool HasAnArrayInArray(TypeStatement typeStatement)
         {
             if (typeStatement.IsArray)
             {
@@ -69,9 +56,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             }
             foreach (var genericType in typeStatement.GenericTypes)
             {
-                return HasAnArrayInArray(
-                    genericType
-                );
+                return HasAnArrayInArray(genericType);
             }
             return false;
         }

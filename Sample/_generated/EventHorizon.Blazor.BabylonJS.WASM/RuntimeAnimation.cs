@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<RuntimeAnimation>))]
     public class RuntimeAnimation : CachedEntityObject
     {
@@ -28,76 +26,38 @@ namespace BABYLON
         #endregion
 
         #region Accessors
-        
+
         public decimal currentFrame
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "currentFrame"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "currentFrame"); }
         }
 
-        
         public decimal weight
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "weight"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "weight"); }
         }
 
-        
         public CachedEntity currentValue
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
-                    this.___guid,
-                    "currentValue"
-                );
+                return EventHorizonBlazorInterop.Get<CachedEntity>(this.___guid, "currentValue");
             }
         }
 
-        
         public string targetPath
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "targetPath"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "targetPath"); }
         }
 
-        
         public CachedEntity target
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
-                    this.___guid,
-                    "target"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<CachedEntity>(this.___guid, "target"); }
         }
 
-        
         public bool isAdditive
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isAdditive"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isAdditive"); }
         }
 
         private Animation __animation;
@@ -105,18 +65,18 @@ namespace BABYLON
         {
             get
             {
-            if(__animation == null)
-            {
-                __animation = EventHorizonBlazorInterop.GetClass<Animation>(
-                    this.___guid,
-                    "animation",
-                    (entity) =>
-                    {
-                        return new Animation() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __animation;
+                if (__animation == null)
+                {
+                    __animation = EventHorizonBlazorInterop.GetClass<Animation>(
+                        this.___guid,
+                        "animation",
+                        (entity) =>
+                        {
+                            return new Animation() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __animation;
             }
         }
         #endregion
@@ -124,24 +84,25 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
-        #region Constructor
-        public RuntimeAnimation() : base() { }
 
-        public RuntimeAnimation(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public RuntimeAnimation()
+            : base() { }
+
+        public RuntimeAnimation(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
-        public RuntimeAnimation(
-            object target, Animation animation, Scene scene, Animatable host
-        )
+        public RuntimeAnimation(object target, Animation animation, Scene scene, Animatable host)
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "RuntimeAnimation" },
-                target, animation, scene, host
+                target,
+                animation,
+                scene,
+                host
             );
             ___guid = entity.___guid;
         }
@@ -151,59 +112,57 @@ namespace BABYLON
         public void reset(System.Nullable<bool> restoreOriginal = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "reset" }, restoreOriginal
-                }
+                new object[] { new string[] { this.___guid, "reset" }, restoreOriginal }
             );
         }
 
         public bool isStopped()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "isStopped" }
-                }
+                new object[] { new string[] { this.___guid, "isStopped" } }
             );
         }
 
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
 
         public void setValue(object currentValue, decimal weight)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "setValue" }, currentValue, weight
-                }
+                new object[] { new string[] { this.___guid, "setValue" }, currentValue, weight }
             );
         }
 
         public void goToFrame(decimal frame)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "goToFrame" }, frame
-                }
+                new object[] { new string[] { this.___guid, "goToFrame" }, frame }
             );
         }
 
-        public bool animate(decimal delay, decimal from, decimal to, bool loop, decimal speedRatio, System.Nullable<decimal> weight = null)
+        public bool animate(
+            decimal delay,
+            decimal from,
+            decimal to,
+            bool loop,
+            decimal speedRatio,
+            System.Nullable<decimal> weight = null
+        )
         {
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
-                    new string[] { this.___guid, "animate" }, delay, from, to, loop, speedRatio, weight
+                    new string[] { this.___guid, "animate" },
+                    delay,
+                    from,
+                    to,
+                    loop,
+                    speedRatio,
+                    weight
                 }
             );
         }

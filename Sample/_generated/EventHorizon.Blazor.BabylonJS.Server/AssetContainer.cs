@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<AssetContainer>))]
     public class AssetContainer : AbstractScene
     {
@@ -33,9 +31,10 @@ namespace BABYLON
 
         #region Properties
         private Scene __scene;
+
         public async ValueTask<Scene> get_scene()
         {
-            if(__scene == null)
+            if (__scene == null)
             {
                 __scene = await EventHorizonBlazorInterop.GetClass<Scene>(
                     this.___guid,
@@ -48,29 +47,22 @@ namespace BABYLON
             }
             return __scene;
         }
+
         public ValueTask set_scene(Scene value)
         {
-__scene = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "scene",
-                    value
-                );
+            __scene = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "scene", value);
         }
         #endregion
-        
+
         #region Constructor
-        public AssetContainer() : base() { }
+        public AssetContainer()
+            : base() { }
 
-        public AssetContainer(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public AssetContainer(ICachedEntity entity)
+            : base(entity) { }
 
-        public static async ValueTask<AssetContainer> NewAssetContainer(
-            Scene scene
-        )
+        public static async ValueTask<AssetContainer> NewAssetContainer(Scene scene)
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "AssetContainer" },
@@ -82,13 +74,18 @@ __scene = null;
         #endregion
 
         #region Methods
-        public async ValueTask<InstantiatedEntries> instantiateModelsToScene(ActionResultCallback<string, string> nameFunction = null, System.Nullable<bool> cloneMaterials = null)
+        public async ValueTask<InstantiatedEntries> instantiateModelsToScene(
+            ActionResultCallback<string, string> nameFunction = null,
+            System.Nullable<bool> cloneMaterials = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<InstantiatedEntries>(
                 entity => new InstantiatedEntries() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "instantiateModelsToScene" }, nameFunction, cloneMaterials
+                    new string[] { this.___guid, "instantiateModelsToScene" },
+                    nameFunction,
+                    cloneMaterials
                 }
             );
         }
@@ -96,40 +93,28 @@ __scene = null;
         public async ValueTask addAllToScene()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "addAllToScene" }
-                }
+                new object[] { new string[] { this.___guid, "addAllToScene" } }
             );
         }
 
         public async ValueTask removeAllFromScene()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "removeAllFromScene" }
-                }
+                new object[] { new string[] { this.___guid, "removeAllFromScene" } }
             );
         }
 
         public async ValueTask dispose()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
 
         public async ValueTask moveAllFromScene(KeepAssets keepAssets = null)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "moveAllFromScene" }, keepAssets
-                }
+                new object[] { new string[] { this.___guid, "moveAllFromScene" }, keepAssets }
             );
         }
 
@@ -137,20 +122,24 @@ __scene = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "createRootMesh" }
-                }
+                new object[] { new string[] { this.___guid, "createRootMesh" } }
             );
         }
 
-        public async ValueTask<AnimationGroup[]> mergeAnimationsTo(Animatable[] animatables, Scene scene = null, ActionResultCallback<CachedEntity, Node> targetConverter = null)
+        public async ValueTask<AnimationGroup[]> mergeAnimationsTo(
+            Animatable[] animatables,
+            Scene scene = null,
+            ActionResultCallback<CachedEntity, Node> targetConverter = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncArrayClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "mergeAnimationsTo" }, scene, animatables, targetConverter
+                    new string[] { this.___guid, "mergeAnimationsTo" },
+                    scene,
+                    animatables,
+                    targetConverter
                 }
             );
         }

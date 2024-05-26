@@ -7,17 +7,14 @@ namespace EventHorizon.Blazor.Server.BabylonJS.Model
     [JsonConverter(typeof(CachedEntityConverter<Canvas>))]
     public class Canvas : HTMLCanvasElementCachedEntity
     {
-        public static async ValueTask<Canvas> GetElementById(
-            string elementId
-        ) => await EventHorizonBlazorInterop.FuncClass(
-            entity => new Canvas(entity),
-            new string[] { "document", "getElementById" },
-            elementId
-        );
+        public static async ValueTask<Canvas> GetElementById(string elementId) =>
+            await EventHorizonBlazorInterop.FuncClass(
+                entity => new Canvas(entity),
+                new string[] { "document", "getElementById" },
+                elementId
+            );
 
-        private Canvas(
-            ICachedEntity entity
-        )
+        private Canvas(ICachedEntity entity)
         {
             ___guid = entity.___guid;
         }

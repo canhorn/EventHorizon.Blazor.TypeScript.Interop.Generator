@@ -6,6 +6,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements
     {
         public string Name { get; set; }
         public TypeStatement Type { get; set; }
+
         //public bool IsArrayResponse { get; set; }
         public bool IsOptional { get; set; }
         public IList<string> UsedClassNames { get; set; } = new List<string>();

@@ -13,62 +13,39 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
         [Trait("Category", "EdgeCase")]
         [InlineData(SyntaxKind.ClassDeclaration)]
         [InlineData(SyntaxKind.InterfaceDeclaration)]
-        public void ShouldReturnListOfTypeParametersOnNodeWhenKindIsSyntaxKind(
-            string kind
-        )
+        public void ShouldReturnListOfTypeParametersOnNodeWhenKindIsSyntaxKind(string kind)
         {
             // Given
             var typeParameterIdentifierStr = "identifier-str";
             var typeParemters = new List<Node>
             {
-                new NodeMock
-                {
-                    IdentifierStr = typeParameterIdentifierStr,
-                },
+                new NodeMock { IdentifierStr = typeParameterIdentifierStr, },
             };
 
-            var expected = new List<string>
-            {
-                typeParameterIdentifierStr,
-            };
+            var expected = new List<string> { typeParameterIdentifierStr, };
 
-            var node = new NodeMock
-            {
-                Kind = kind,
-                TypeParameters = typeParemters,
-            };
+            var node = new NodeMock { Kind = kind, TypeParameters = typeParemters, };
 
             // When
-            var actual = TypeParameterIdentifier.Identify(
-                node
-            );
+            var actual = TypeParameterIdentifier.Identify(node);
 
             // Then
-            actual.Should()
-                .BeEquivalentTo(expected);
+            actual.Should().BeEquivalentTo(expected);
         }
 
         [Theory]
         [Trait("Category", "EdgeCase")]
         [InlineData(SyntaxKind.ClassDeclaration)]
         [InlineData(SyntaxKind.InterfaceDeclaration)]
-        public void ShouldReturnEmptyListWhenTypeParametersAreNull(
-            string kind
-        )
+        public void ShouldReturnEmptyListWhenTypeParametersAreNull(string kind)
         {
             // Given
             var typeParemters = default(List<Node>);
 
-            var node = new NodeMock
-            {
-                Kind = kind,
-                TypeParameters = typeParemters,
-            };
+            var node = new NodeMock { Kind = kind, TypeParameters = typeParemters, };
 
             // When
-            var actual = TypeParameterIdentifier.Identify(
-                node
-            );
+            var actual = TypeParameterIdentifier.Identify(node);
 
             // Then
             actual.Should().BeEmpty();

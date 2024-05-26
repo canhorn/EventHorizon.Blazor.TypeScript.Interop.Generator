@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<ParticleSystemSet>))]
     public class ParticleSystemSet : CachedEntityObject, _IDisposable
     {
@@ -20,12 +18,12 @@ namespace BABYLON
         #endregion
 
         #region Static Properties
-        
+
         public static string BaseAssetsUrl
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<string>(
+                return EventHorizonBlazorInterop.Get<string>(
                     "BABYLON",
                     "ParticleSystemSet.BaseAssetsUrl"
                 );
@@ -33,23 +31,26 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    "BABYLON",
-                    "ParticleSystemSet.BaseAssetsUrl",
-                    value
-                );
+                EventHorizonBlazorInterop.Set("BABYLON", "ParticleSystemSet.BaseAssetsUrl", value);
             }
         }
         #endregion
 
         #region Static Methods
-        public static ParticleSystemSet Parse(object data, Scene scene, System.Nullable<bool> gpu = null)
+        public static ParticleSystemSet Parse(
+            object data,
+            Scene scene,
+            System.Nullable<bool> gpu = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<ParticleSystemSet>(
                 entity => new ParticleSystemSet() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "ParticleSystemSet", "Parse" }, data, scene, gpu
+                    new string[] { "BABYLON", "ParticleSystemSet", "Parse" },
+                    data,
+                    scene,
+                    gpu
                 }
             );
         }
@@ -61,29 +62,29 @@ namespace BABYLON
         {
             get
             {
-            if(__emitterNode == null)
-            {
-                __emitterNode = EventHorizonBlazorInterop.GetClass<TransformNode>(
-                    this.___guid,
-                    "emitterNode",
-                    (entity) =>
-                    {
-                        return new TransformNode() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __emitterNode;
+                if (__emitterNode == null)
+                {
+                    __emitterNode = EventHorizonBlazorInterop.GetClass<TransformNode>(
+                        this.___guid,
+                        "emitterNode",
+                        (entity) =>
+                        {
+                            return new TransformNode() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __emitterNode;
             }
         }
         #endregion
 
         #region Properties
-        
+
         public IParticleSystemCachedEntity[] systems
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<IParticleSystemCachedEntity>(
+                return EventHorizonBlazorInterop.GetArrayClass<IParticleSystemCachedEntity>(
                     this.___guid,
                     "systems",
                     (entity) =>
@@ -95,24 +96,17 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "systems",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "systems", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public ParticleSystemSet() : base() { }
+        public ParticleSystemSet()
+            : base() { }
 
-        public ParticleSystemSet(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public ParticleSystemSet(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -122,7 +116,10 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "setEmitterAsSphere" }, options, renderingGroupId, scene
+                    new string[] { this.___guid, "setEmitterAsSphere" },
+                    options,
+                    renderingGroupId,
+                    scene
                 }
             );
         }
@@ -130,30 +127,21 @@ namespace BABYLON
         public void start(AbstractMesh emitter = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "start" }, emitter
-                }
+                new object[] { new string[] { this.___guid, "start" }, emitter }
             );
         }
 
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
 
         public CachedEntity serialize(System.Nullable<bool> serializeTexture = null)
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "serialize" }, serializeTexture
-                }
+                new object[] { new string[] { this.___guid, "serialize" }, serializeTexture }
             );
         }
         #endregion

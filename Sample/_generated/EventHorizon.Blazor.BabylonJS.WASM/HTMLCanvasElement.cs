@@ -30,90 +30,62 @@ public class HTMLCanvasElementCachedEntity : CachedEntityObject, HTMLCanvasEleme
     #endregion
 
     #region Properties
-        
-        public bool isRecording
-        {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isRecording"
-                );
-            }
-            set
-            {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isRecording",
-                    value
-                );
-            }
+    public bool isRecording
+    {
+        get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isRecording"); }
+        set
+        {
+
+            EventHorizonBlazorInterop.Set(this.___guid, "isRecording", value);
         }
+    }
     #endregion
-    
+
     #region Constructor
-        public HTMLCanvasElementCachedEntity() : base() { }
+    public HTMLCanvasElementCachedEntity()
+        : base() { }
 
-        public HTMLCanvasElementCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+    public HTMLCanvasElementCachedEntity(ICachedEntity entity)
+        : base(entity) { }
 
     #endregion
 
     #region Methods
-        public void requestPointerLock()
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "requestPointerLock" }
-                }
-            );
-        }
+    public void requestPointerLock()
+    {
+        EventHorizonBlazorInterop.Func<CachedEntity>(
+            new object[] { new string[] { this.___guid, "requestPointerLock" } }
+        );
+    }
 
-        public void msRequestPointerLock()
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "msRequestPointerLock" }
-                }
-            );
-        }
+    public void msRequestPointerLock()
+    {
+        EventHorizonBlazorInterop.Func<CachedEntity>(
+            new object[] { new string[] { this.___guid, "msRequestPointerLock" } }
+        );
+    }
 
-        public void mozRequestPointerLock()
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "mozRequestPointerLock" }
-                }
-            );
-        }
+    public void mozRequestPointerLock()
+    {
+        EventHorizonBlazorInterop.Func<CachedEntity>(
+            new object[] { new string[] { this.___guid, "mozRequestPointerLock" } }
+        );
+    }
 
-        public void webkitRequestPointerLock()
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "webkitRequestPointerLock" }
-                }
-            );
-        }
+    public void webkitRequestPointerLock()
+    {
+        EventHorizonBlazorInterop.Func<CachedEntity>(
+            new object[] { new string[] { this.___guid, "webkitRequestPointerLock" } }
+        );
+    }
 
-        public MediaStream captureStream(System.Nullable<decimal> fps = null)
-        {
-            return EventHorizonBlazorInterop.FuncClass<MediaStream>(
-                entity => new MediaStream() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "captureStream" }, fps
-                }
-            );
-        }
+    public MediaStream captureStream(System.Nullable<decimal> fps = null)
+    {
+        return EventHorizonBlazorInterop.FuncClass<MediaStream>(
+            entity => new MediaStream() { ___guid = entity.___guid },
+            new object[] { new string[] { this.___guid, "captureStream" }, fps }
+        );
+    }
     #endregion
 }

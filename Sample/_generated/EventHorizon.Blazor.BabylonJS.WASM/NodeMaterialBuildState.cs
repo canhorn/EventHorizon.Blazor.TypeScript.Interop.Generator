@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<NodeMaterialBuildState>))]
     public class NodeMaterialBuildState : CachedEntityObject
     {
@@ -32,117 +30,65 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public bool supportUniformBuffers
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "supportUniformBuffers"
-                );
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "supportUniformBuffers");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "supportUniformBuffers",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "supportUniformBuffers", value);
             }
         }
 
-        
         public string[] attributes
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<string>(
-                    this.___guid,
-                    "attributes"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<string>(this.___guid, "attributes"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "attributes",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "attributes", value);
             }
         }
 
-        
         public string[] uniforms
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<string>(
-                    this.___guid,
-                    "uniforms"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<string>(this.___guid, "uniforms"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "uniforms",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "uniforms", value);
             }
         }
 
-        
         public string[] constants
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<string>(
-                    this.___guid,
-                    "constants"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<string>(this.___guid, "constants"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "constants",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "constants", value);
             }
         }
 
-        
         public string[] samplers
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<string>(
-                    this.___guid,
-                    "samplers"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<string>(this.___guid, "samplers"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "samplers",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "samplers", value);
             }
         }
 
-        
         public CachedEntity functions
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "functions",
                     (entity) =>
@@ -154,20 +100,15 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "functions",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "functions", value);
             }
         }
 
-        
         public CachedEntity extensions
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "extensions",
                     (entity) =>
@@ -179,41 +120,25 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "extensions",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "extensions", value);
             }
         }
 
-        
         public int target
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<int>(
-                    this.___guid,
-                    "target"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<int>(this.___guid, "target"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "target",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "target", value);
             }
         }
 
-        
         public CachedEntity counters
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "counters",
                     (entity) =>
@@ -225,11 +150,7 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "counters",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "counters", value);
             }
         }
 
@@ -238,62 +159,50 @@ namespace BABYLON
         {
             get
             {
-            if(__sharedData == null)
-            {
-                __sharedData = EventHorizonBlazorInterop.GetClass<NodeMaterialBuildStateSharedData>(
-                    this.___guid,
-                    "sharedData",
-                    (entity) =>
-                    {
-                        return new NodeMaterialBuildStateSharedData() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __sharedData;
+                if (__sharedData == null)
+                {
+                    __sharedData =
+                        EventHorizonBlazorInterop.GetClass<NodeMaterialBuildStateSharedData>(
+                            this.___guid,
+                            "sharedData",
+                            (entity) =>
+                            {
+                                return new NodeMaterialBuildStateSharedData()
+                                {
+                                    ___guid = entity.___guid
+                                };
+                            }
+                        );
+                }
+                return __sharedData;
             }
             set
             {
-__sharedData = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "sharedData",
-                    value
-                );
+                __sharedData = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "sharedData", value);
             }
         }
 
-        
         public string compilationString
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "compilationString"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "compilationString"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "compilationString",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "compilationString", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public NodeMaterialBuildState() : base() { }
 
-        public NodeMaterialBuildState(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public NodeMaterialBuildState()
+            : base() { }
+
+        public NodeMaterialBuildState(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
-
 
         #endregion
 
@@ -301,10 +210,7 @@ __sharedData = null;
         public void finalize(NodeMaterialBuildState state)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "finalize" }, state
-                }
+                new object[] { new string[] { this.___guid, "finalize" }, state }
             );
         }
         #endregion

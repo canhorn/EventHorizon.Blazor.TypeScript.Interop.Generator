@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<SphereParticleEmitter>))]
     public class SphereParticleEmitter : CachedEntityObject, IParticleEmitterType
     {
@@ -32,108 +30,100 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public decimal radius
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "radius"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "radius"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "radius",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "radius", value);
             }
         }
 
-        
         public decimal radiusRange
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "radiusRange"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "radiusRange"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "radiusRange",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "radiusRange", value);
             }
         }
 
-        
         public decimal directionRandomizer
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "directionRandomizer"
-                );
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "directionRandomizer");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "directionRandomizer",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "directionRandomizer", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public SphereParticleEmitter() : base() { }
+        public SphereParticleEmitter()
+            : base() { }
+
+        public SphereParticleEmitter(ICachedEntity entity)
+            : base(entity) { }
 
         public SphereParticleEmitter(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
-        public SphereParticleEmitter(
-            System.Nullable<decimal> radius = null, System.Nullable<decimal> radiusRange = null, System.Nullable<decimal> directionRandomizer = null
-        ) : base()
+            System.Nullable<decimal> radius = null,
+            System.Nullable<decimal> radiusRange = null,
+            System.Nullable<decimal> directionRandomizer = null
+        )
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "SphereParticleEmitter" },
-                radius, radiusRange, directionRandomizer
+                radius,
+                radiusRange,
+                directionRandomizer
             );
             ___guid = entity.___guid;
         }
         #endregion
 
         #region Methods
-        public void startDirectionFunction(Matrix worldMatrix, Vector3 directionToUpdate, Particle particle, bool isLocal)
+        public void startDirectionFunction(
+            Matrix worldMatrix,
+            Vector3 directionToUpdate,
+            Particle particle,
+            bool isLocal
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "startDirectionFunction" }, worldMatrix, directionToUpdate, particle, isLocal
+                    new string[] { this.___guid, "startDirectionFunction" },
+                    worldMatrix,
+                    directionToUpdate,
+                    particle,
+                    isLocal
                 }
             );
         }
 
-        public void startPositionFunction(Matrix worldMatrix, Vector3 positionToUpdate, Particle particle, bool isLocal)
+        public void startPositionFunction(
+            Matrix worldMatrix,
+            Vector3 positionToUpdate,
+            Particle particle,
+            bool isLocal
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "startPositionFunction" }, worldMatrix, positionToUpdate, particle, isLocal
+                    new string[] { this.___guid, "startPositionFunction" },
+                    worldMatrix,
+                    positionToUpdate,
+                    particle,
+                    isLocal
                 }
             );
         }
@@ -142,60 +132,42 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<SphereParticleEmitter>(
                 entity => new SphereParticleEmitter() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "clone" }
-                }
+                new object[] { new string[] { this.___guid, "clone" } }
             );
         }
 
         public void applyToShader(Effect effect)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "applyToShader" }, effect
-                }
+                new object[] { new string[] { this.___guid, "applyToShader" }, effect }
             );
         }
 
         public string getEffectDefines()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getEffectDefines" }
-                }
+                new object[] { new string[] { this.___guid, "getEffectDefines" } }
             );
         }
 
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "serialize" }
-                }
+                new object[] { new string[] { this.___guid, "serialize" } }
             );
         }
 
         public void parse(object serializationObject)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "parse" }, serializationObject
-                }
+                new object[] { new string[] { this.___guid, "parse" }, serializationObject }
             );
         }
         #endregion

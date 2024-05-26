@@ -11,9 +11,11 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface ICustomShaderNameResolveOptions : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<ICustomShaderNameResolveOptionsCachedEntity>))]
-    public class ICustomShaderNameResolveOptionsCachedEntity : CachedEntityObject, ICustomShaderNameResolveOptions
+    public class ICustomShaderNameResolveOptionsCachedEntity
+        : CachedEntityObject,
+            ICustomShaderNameResolveOptions
     {
         #region Static Accessors
 
@@ -32,12 +34,12 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public ActionResultCallback<string, string, string> processFinalCode
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<ActionResultCallback<string, string, string>>(
+                return EventHorizonBlazorInterop.Get<ActionResultCallback<string, string, string>>(
                     this.___guid,
                     "processFinalCode"
                 );
@@ -45,24 +47,17 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "processFinalCode",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "processFinalCode", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public ICustomShaderNameResolveOptionsCachedEntity() : base() { }
+        public ICustomShaderNameResolveOptionsCachedEntity()
+            : base() { }
 
-        public ICustomShaderNameResolveOptionsCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public ICustomShaderNameResolveOptionsCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

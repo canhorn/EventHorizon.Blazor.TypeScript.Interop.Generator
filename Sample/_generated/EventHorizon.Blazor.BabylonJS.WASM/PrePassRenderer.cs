@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<PrePassRenderer>))]
     public class PrePassRenderer : CachedEntityObject
     {
@@ -28,45 +26,27 @@ namespace BABYLON
         #endregion
 
         #region Accessors
-        
+
         public bool enabled
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "enabled"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "enabled"); }
         }
 
-        
         public decimal samples
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "samples"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "samples"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "samples",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "samples", value);
             }
         }
 
-        
         public bool useGeometryBufferFallback
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
+                return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "useGeometryBufferFallback"
                 );
@@ -74,34 +54,23 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "useGeometryBufferFallback",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "useGeometryBufferFallback", value);
             }
         }
 
-        
         public bool isSupported
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isSupported"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isSupported"); }
         }
         #endregion
 
         #region Properties
-        
+
         public AbstractMesh[] excludedSkinnedMesh
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<AbstractMesh>(
+                return EventHorizonBlazorInterop.GetArrayClass<AbstractMesh>(
                     this.___guid,
                     "excludedSkinnedMesh",
                     (entity) =>
@@ -113,20 +82,15 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "excludedSkinnedMesh",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "excludedSkinnedMesh", value);
             }
         }
 
-        
         public Material[] excludedMaterials
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<Material>(
+                return EventHorizonBlazorInterop.GetArrayClass<Material>(
                     this.___guid,
                     "excludedMaterials",
                     (entity) =>
@@ -138,32 +102,17 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "excludedMaterials",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "excludedMaterials", value);
             }
         }
 
-        
         public decimal mrtCount
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "mrtCount"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "mrtCount"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "mrtCount",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "mrtCount", value);
             }
         }
 
@@ -172,27 +121,23 @@ namespace BABYLON
         {
             get
             {
-            if(__prePassRT == null)
-            {
-                __prePassRT = EventHorizonBlazorInterop.GetClass<MultiRenderTarget>(
-                    this.___guid,
-                    "prePassRT",
-                    (entity) =>
-                    {
-                        return new MultiRenderTarget() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __prePassRT;
+                if (__prePassRT == null)
+                {
+                    __prePassRT = EventHorizonBlazorInterop.GetClass<MultiRenderTarget>(
+                        this.___guid,
+                        "prePassRT",
+                        (entity) =>
+                        {
+                            return new MultiRenderTarget() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __prePassRT;
             }
             set
             {
-__prePassRT = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "prePassRT",
-                    value
-                );
+                __prePassRT = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "prePassRT", value);
             }
         }
 
@@ -201,65 +146,55 @@ __prePassRT = null;
         {
             get
             {
-            if(__imageProcessingPostProcess == null)
-            {
-                __imageProcessingPostProcess = EventHorizonBlazorInterop.GetClass<ImageProcessingPostProcess>(
-                    this.___guid,
-                    "imageProcessingPostProcess",
-                    (entity) =>
-                    {
-                        return new ImageProcessingPostProcess() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __imageProcessingPostProcess;
+                if (__imageProcessingPostProcess == null)
+                {
+                    __imageProcessingPostProcess =
+                        EventHorizonBlazorInterop.GetClass<ImageProcessingPostProcess>(
+                            this.___guid,
+                            "imageProcessingPostProcess",
+                            (entity) =>
+                            {
+                                return new ImageProcessingPostProcess()
+                                {
+                                    ___guid = entity.___guid
+                                };
+                            }
+                        );
+                }
+                return __imageProcessingPostProcess;
             }
             set
             {
-__imageProcessingPostProcess = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "imageProcessingPostProcess",
-                    value
-                );
+                __imageProcessingPostProcess = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "imageProcessingPostProcess", value);
             }
         }
 
-        
         public bool disableGammaTransform
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "disableGammaTransform"
-                );
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "disableGammaTransform");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "disableGammaTransform",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "disableGammaTransform", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public PrePassRenderer() : base() { }
 
-        public PrePassRenderer(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public PrePassRenderer()
+            : base() { }
+
+        public PrePassRenderer(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
-        public PrePassRenderer(
-            Scene scene
-        )
+        public PrePassRenderer(Scene scene)
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "PrePassRenderer" },
@@ -275,7 +210,9 @@ __imageProcessingPostProcess = null;
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "bindAttachmentsForEffect" }, effect, subMesh
+                    new string[] { this.___guid, "bindAttachmentsForEffect" },
+                    effect,
+                    subMesh
                 }
             );
         }
@@ -283,61 +220,45 @@ __imageProcessingPostProcess = null;
         public void restoreAttachments()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "restoreAttachments" }
-                }
+                new object[] { new string[] { this.___guid, "restoreAttachments" } }
             );
         }
 
         public void clear()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "clear" }
-                }
+                new object[] { new string[] { this.___guid, "clear" } }
             );
         }
 
-        public PrePassEffectConfigurationCachedEntity addEffectConfiguration(PrePassEffectConfiguration cfg)
+        public PrePassEffectConfigurationCachedEntity addEffectConfiguration(
+            PrePassEffectConfiguration cfg
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<PrePassEffectConfigurationCachedEntity>(
                 entity => new PrePassEffectConfigurationCachedEntity() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "addEffectConfiguration" }, cfg
-                }
+                new object[] { new string[] { this.___guid, "addEffectConfiguration" }, cfg }
             );
         }
 
         public decimal getIndex(decimal type)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getIndex" }, type
-                }
+                new object[] { new string[] { this.___guid, "getIndex" }, type }
             );
         }
 
         public void markAsDirty()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "markAsDirty" }
-                }
+                new object[] { new string[] { this.___guid, "markAsDirty" } }
             );
         }
 
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
         #endregion

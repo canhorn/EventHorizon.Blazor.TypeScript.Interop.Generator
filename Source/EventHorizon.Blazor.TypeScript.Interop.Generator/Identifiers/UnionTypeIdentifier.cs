@@ -19,22 +19,22 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             out TypeStatement type
         )
         {
-            type = new TypeStatement
-            {
-                Name = GenerationIdentifiedTypes.Unknown,
-            };
+            type = new TypeStatement { Name = GenerationIdentifiedTypes.Unknown, };
             if (IsUnionTypeRule.Check(parameter))
             {
-                var unionNode = parameter.OfKind(
-                    SyntaxKind.UnionType
-                ).FirstOrDefault()
-                .Children.Where(
-                    // Make sure does not contain undefined
-                    a => a.Kind != SyntaxKind.UndefinedKeyword
+                var unionNode = parameter
+                    .OfKind(SyntaxKind.UnionType)
+                    .FirstOrDefault()
+                    .Children.Where(
+                        // Make sure does not contain undefined
+                        a =>
+                        a.Kind != SyntaxKind.UndefinedKeyword
                         && a.Kind != SyntaxKind.NullKeyword
                         && a.Kind != SyntaxKind.TypeLiteral
                         && a.Kind != SyntaxKind.LiteralType
-                ).ToList().FirstOrDefault();
+                    )
+                    .ToList()
+                    .FirstOrDefault();
 
                 if (unionNode != null)
                 {

@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<BaseTexture>))]
     public class BaseTexture : ThinTexture, IAnimatable
     {
@@ -20,12 +18,12 @@ namespace BABYLON
         #endregion
 
         #region Static Properties
-        
+
         public static decimal DEFAULT_ANISOTROPIC_FILTERING_LEVEL
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "BaseTexture.DEFAULT_ANISOTROPIC_FILTERING_LEVEL"
                 );
@@ -48,274 +46,144 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "BaseTexture", "WhenAllReady" }, textures, callback
+                    new string[] { "BABYLON", "BaseTexture", "WhenAllReady" },
+                    textures,
+                    callback
                 }
             );
         }
         #endregion
 
         #region Accessors
-        
+
         public bool hasAlpha
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "hasAlpha"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "hasAlpha"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "hasAlpha",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "hasAlpha", value);
             }
         }
 
-        
         public decimal coordinatesMode
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "coordinatesMode"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "coordinatesMode"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "coordinatesMode",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "coordinatesMode", value);
             }
         }
 
-        
         public decimal wrapU
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "wrapU"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "wrapU"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "wrapU",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "wrapU", value);
             }
         }
 
-        
         public decimal wrapV
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "wrapV"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "wrapV"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "wrapV",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "wrapV", value);
             }
         }
 
-        
         public bool isCube
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isCube"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isCube"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isCube",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "isCube", value);
             }
         }
 
-        
         public bool is3D
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "is3D"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "is3D"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "is3D",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "is3D", value);
             }
         }
 
-        
         public bool is2DArray
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "is2DArray"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "is2DArray"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "is2DArray",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "is2DArray", value);
             }
         }
 
-        
         public bool gammaSpace
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "gammaSpace"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "gammaSpace"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "gammaSpace",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "gammaSpace", value);
             }
         }
 
-        
         public bool isRGBD
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isRGBD"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isRGBD"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isRGBD",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "isRGBD", value);
             }
         }
 
-        
         public bool noMipmap
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "noMipmap"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "noMipmap"); }
         }
 
-        
         public decimal lodGenerationOffset
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "lodGenerationOffset"
-                );
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "lodGenerationOffset");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "lodGenerationOffset",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "lodGenerationOffset", value);
             }
         }
 
-        
         public decimal lodGenerationScale
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "lodGenerationScale"
-                );
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "lodGenerationScale");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "lodGenerationScale",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "lodGenerationScale", value);
             }
         }
 
-        
         public bool linearSpecularLOD
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "linearSpecularLOD"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "linearSpecularLOD"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "linearSpecularLOD",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "linearSpecularLOD", value);
             }
         }
 
@@ -324,140 +192,79 @@ namespace BABYLON
         {
             get
             {
-            if(__irradianceTexture == null)
-            {
-                __irradianceTexture = EventHorizonBlazorInterop.GetClass<BaseTexture>(
-                    this.___guid,
-                    "irradianceTexture",
-                    (entity) =>
-                    {
-                        return new BaseTexture() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __irradianceTexture;
+                if (__irradianceTexture == null)
+                {
+                    __irradianceTexture = EventHorizonBlazorInterop.GetClass<BaseTexture>(
+                        this.___guid,
+                        "irradianceTexture",
+                        (entity) =>
+                        {
+                            return new BaseTexture() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __irradianceTexture;
             }
             set
             {
-__irradianceTexture = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "irradianceTexture",
-                    value
-                );
+                __irradianceTexture = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "irradianceTexture", value);
             }
         }
 
-        
         public string uid
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "uid"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "uid"); }
         }
 
-        
         public bool isBlocking
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isBlocking"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isBlocking"); }
         }
 
-        
         public bool canRescale
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "canRescale"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "canRescale"); }
         }
 
-        
         public decimal textureType
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "textureType"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "textureType"); }
         }
 
-        
         public decimal textureFormat
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "textureFormat"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "textureFormat"); }
         }
         #endregion
 
         #region Properties
-        
+
         public decimal uniqueId
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "uniqueId"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "uniqueId"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "uniqueId",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "uniqueId", value);
             }
         }
 
-        
         public string name
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "name"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "name"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "name",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "name", value);
             }
         }
 
-        
         public CachedEntity metadata
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "metadata",
                     (entity) =>
@@ -469,20 +276,15 @@ __irradianceTexture = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "metadata",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "metadata", value);
             }
         }
 
-        
         public CachedEntity reservedDataStore
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "reservedDataStore",
                     (entity) =>
@@ -494,104 +296,55 @@ __irradianceTexture = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "reservedDataStore",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "reservedDataStore", value);
             }
         }
 
-        
         public bool getAlphaFromRGB
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "getAlphaFromRGB"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "getAlphaFromRGB"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "getAlphaFromRGB",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "getAlphaFromRGB", value);
             }
         }
 
-        
         public decimal level
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "level"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "level"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "level",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "level", value);
             }
         }
 
-        
         public decimal coordinatesIndex
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "coordinatesIndex"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "coordinatesIndex"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "coordinatesIndex",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "coordinatesIndex", value);
             }
         }
 
-        
         public decimal wrapR
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "wrapR"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "wrapR"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "wrapR",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "wrapR", value);
             }
         }
 
-        
         public decimal anisotropicFilteringLevel
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "anisotropicFilteringLevel"
                 );
@@ -599,83 +352,45 @@ __irradianceTexture = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "anisotropicFilteringLevel",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "anisotropicFilteringLevel", value);
             }
         }
 
-        
         public bool invertZ
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "invertZ"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "invertZ"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "invertZ",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "invertZ", value);
             }
         }
 
-        
         public bool lodLevelInAlpha
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "lodLevelInAlpha"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "lodLevelInAlpha"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "lodLevelInAlpha",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "lodLevelInAlpha", value);
             }
         }
 
-        
         public bool isRenderTarget
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isRenderTarget"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isRenderTarget"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isRenderTarget",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "isRenderTarget", value);
             }
         }
 
-        
         public Animation[] animations
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<Animation>(
+                return EventHorizonBlazorInterop.GetArrayClass<Animation>(
                     this.___guid,
                     "animations",
                     (entity) =>
@@ -687,11 +402,7 @@ __irradianceTexture = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "animations",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "animations", value);
             }
         }
 
@@ -700,43 +411,38 @@ __irradianceTexture = null;
         {
             get
             {
-            if(__onDisposeObservable == null)
-            {
-                __onDisposeObservable = EventHorizonBlazorInterop.GetClass<Observable<BaseTexture>>(
-                    this.___guid,
-                    "onDisposeObservable",
-                    (entity) =>
-                    {
-                        return new Observable<BaseTexture>() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __onDisposeObservable;
+                if (__onDisposeObservable == null)
+                {
+                    __onDisposeObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<BaseTexture>
+                    >(
+                        this.___guid,
+                        "onDisposeObservable",
+                        (entity) =>
+                        {
+                            return new Observable<BaseTexture>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __onDisposeObservable;
             }
             set
             {
-__onDisposeObservable = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onDisposeObservable",
-                    value
-                );
+                __onDisposeObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onDisposeObservable", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public BaseTexture() : base() { }
+        public BaseTexture()
+            : base() { }
 
-        public BaseTexture(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public BaseTexture(ICachedEntity entity)
+            : base(entity) { }
 
-        public BaseTexture(
-            Scene sceneOrEngine
-        ) : base()
+        public BaseTexture(Scene sceneOrEngine)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "BaseTexture" },
@@ -750,20 +456,14 @@ __onDisposeObservable = null;
         public string toString()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "toString" }
-                }
+                new object[] { new string[] { this.___guid, "toString" } }
             );
         }
 
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
@@ -771,10 +471,7 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Scene>(
                 entity => new Scene() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getScene" }
-                }
+                new object[] { new string[] { this.___guid, "getScene" } }
             );
         }
 
@@ -783,7 +480,8 @@ __onDisposeObservable = null;
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
-                    new string[] { this.___guid, "checkTransformsAreIdentical" }, texture
+                    new string[] { this.___guid, "checkTransformsAreIdentical" },
+                    texture
                 }
             );
         }
@@ -792,10 +490,7 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getTextureMatrix" }
-                }
+                new object[] { new string[] { this.___guid, "getTextureMatrix" } }
             );
         }
 
@@ -803,30 +498,21 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getReflectionTextureMatrix" }
-                }
+                new object[] { new string[] { this.___guid, "getReflectionTextureMatrix" } }
             );
         }
 
         public bool isReadyOrNotBlocking()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "isReadyOrNotBlocking" }
-                }
+                new object[] { new string[] { this.___guid, "isReadyOrNotBlocking" } }
             );
         }
 
         public void scale(decimal ratio)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "scale" }, ratio
-                }
+                new object[] { new string[] { this.___guid, "scale" }, ratio }
             );
         }
 
@@ -834,20 +520,24 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<BaseTexture>(
                 entity => new BaseTexture() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "clone" }
-                }
+                new object[] { new string[] { this.___guid, "clone" } }
             );
         }
 
-        public ArrayBufferView readPixels(System.Nullable<decimal> faceIndex = null, System.Nullable<decimal> level = null, ArrayBufferView buffer = null)
+        public ArrayBufferView readPixels(
+            System.Nullable<decimal> faceIndex = null,
+            System.Nullable<decimal> level = null,
+            ArrayBufferView buffer = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<ArrayBufferView>(
                 entity => new ArrayBufferView() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "readPixels" }, faceIndex, level, buffer
+                    new string[] { this.___guid, "readPixels" },
+                    faceIndex,
+                    level,
+                    buffer
                 }
             );
         }
@@ -855,20 +545,14 @@ __onDisposeObservable = null;
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
 
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "serialize" }
-                }
+                new object[] { new string[] { this.___guid, "serialize" } }
             );
         }
         #endregion

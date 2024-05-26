@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Effect>))]
     public class Effect : CachedEntityObject, _IDisposable
     {
@@ -20,94 +18,86 @@ namespace BABYLON
         #endregion
 
         #region Static Properties
-        
+
         public static async ValueTask<string> get_ShadersRepository()
         {
             return await EventHorizonBlazorInterop.Get<string>(
-                    "BABYLON",
-                    "Effect.ShadersRepository"
-                );
+                "BABYLON",
+                "Effect.ShadersRepository"
+            );
         }
+
         public static ValueTask set_ShadersRepository(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    "BABYLON",
-                    "Effect.ShadersRepository",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set("BABYLON", "Effect.ShadersRepository", value);
         }
 
-        
         public static async ValueTask<bool> get_LogShaderCodeOnCompilationError()
         {
             return await EventHorizonBlazorInterop.Get<bool>(
-                    "BABYLON",
-                    "Effect.LogShaderCodeOnCompilationError"
-                );
+                "BABYLON",
+                "Effect.LogShaderCodeOnCompilationError"
+            );
         }
+
         public static ValueTask set_LogShaderCodeOnCompilationError(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    "BABYLON",
-                    "Effect.LogShaderCodeOnCompilationError",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(
+                "BABYLON",
+                "Effect.LogShaderCodeOnCompilationError",
+                value
+            );
         }
 
-        
         public static async ValueTask<CachedEntity> get_ShadersStore()
         {
             return await EventHorizonBlazorInterop.GetClass<CachedEntity>(
-                    "BABYLON",
-                    "Effect.ShadersStore",
-                    (entity) =>
-                    {
-                        return new CachedEntity() { ___guid = entity.___guid };
-                    }
-                );
+                "BABYLON",
+                "Effect.ShadersStore",
+                (entity) =>
+                {
+                    return new CachedEntity() { ___guid = entity.___guid };
+                }
+            );
         }
+
         public static ValueTask set_ShadersStore(CachedEntity value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    "BABYLON",
-                    "Effect.ShadersStore",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set("BABYLON", "Effect.ShadersStore", value);
         }
 
-        
         public static async ValueTask<CachedEntity> get_IncludesShadersStore()
         {
             return await EventHorizonBlazorInterop.GetClass<CachedEntity>(
-                    "BABYLON",
-                    "Effect.IncludesShadersStore",
-                    (entity) =>
-                    {
-                        return new CachedEntity() { ___guid = entity.___guid };
-                    }
-                );
+                "BABYLON",
+                "Effect.IncludesShadersStore",
+                (entity) =>
+                {
+                    return new CachedEntity() { ___guid = entity.___guid };
+                }
+            );
         }
+
         public static ValueTask set_IncludesShadersStore(CachedEntity value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    "BABYLON",
-                    "Effect.IncludesShadersStore",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set("BABYLON", "Effect.IncludesShadersStore", value);
         }
         #endregion
 
         #region Static Methods
-        public static async ValueTask RegisterShader(string name, string pixelShader = null, string vertexShader = null)
+        public static async ValueTask RegisterShader(
+            string name,
+            string pixelShader = null,
+            string vertexShader = null
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Effect", "RegisterShader" }, name, pixelShader, vertexShader
+                    new string[] { "BABYLON", "Effect", "RegisterShader" },
+                    name,
+                    pixelShader,
+                    vertexShader
                 }
             );
         }
@@ -115,19 +105,17 @@ namespace BABYLON
         public static async ValueTask ResetCache()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Effect", "ResetCache" }
-                }
+                new object[] { new string[] { "BABYLON", "Effect", "ResetCache" } }
             );
         }
         #endregion
 
         #region Accessors
         private Observable<Effect> __onBindObservable;
+
         public async ValueTask<Observable<Effect>> get_onBindObservable()
         {
-            if(__onBindObservable == null)
+            if (__onBindObservable == null)
             {
                 __onBindObservable = await EventHorizonBlazorInterop.GetClass<Observable<Effect>>(
                     this.___guid,
@@ -141,180 +129,127 @@ namespace BABYLON
             return __onBindObservable;
         }
 
-        
         public async ValueTask<string> get_key()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "key"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "key");
         }
 
-        
         public async ValueTask<string> get_vertexSourceCode()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "vertexSourceCode"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "vertexSourceCode");
         }
 
-        
         public async ValueTask<string> get_fragmentSourceCode()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "fragmentSourceCode"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "fragmentSourceCode");
         }
 
-        
         public async ValueTask<string> get_rawVertexSourceCode()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "rawVertexSourceCode"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "rawVertexSourceCode");
         }
 
-        
         public async ValueTask<string> get_rawFragmentSourceCode()
         {
             return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "rawFragmentSourceCode"
-                );
+                this.___guid,
+                "rawFragmentSourceCode"
+            );
         }
 
-        
         public async ValueTask<bool> get_isSupported()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isSupported"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "isSupported");
         }
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<CachedEntity> get_name()
         {
             return await EventHorizonBlazorInterop.GetClass<CachedEntity>(
-                    this.___guid,
-                    "name",
-                    (entity) =>
-                    {
-                        return new CachedEntity() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "name",
+                (entity) =>
+                {
+                    return new CachedEntity() { ___guid = entity.___guid };
+                }
+            );
         }
+
         public ValueTask set_name(CachedEntity value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "name",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "name", value);
         }
 
-        
         public async ValueTask<string> get_defines()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "defines"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "defines");
         }
+
         public ValueTask set_defines(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "defines",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "defines", value);
         }
 
-        
         public async ValueTask<ActionCallback<Effect>> get_onCompiled()
         {
             return await EventHorizonBlazorInterop.Get<ActionCallback<Effect>>(
-                    this.___guid,
-                    "onCompiled"
-                );
+                this.___guid,
+                "onCompiled"
+            );
         }
+
         public ValueTask set_onCompiled(ActionCallback<Effect> value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onCompiled",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "onCompiled", value);
         }
 
-        
         public async ValueTask<ActionCallback<Effect, string>> get_onError()
         {
             return await EventHorizonBlazorInterop.Get<ActionCallback<Effect, string>>(
-                    this.___guid,
-                    "onError"
-                );
+                this.___guid,
+                "onError"
+            );
         }
+
         public ValueTask set_onError(ActionCallback<Effect, string> value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onError",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "onError", value);
         }
 
-        
         public async ValueTask<ActionCallback<Effect>> get_onBind()
         {
             return await EventHorizonBlazorInterop.Get<ActionCallback<Effect>>(
-                    this.___guid,
-                    "onBind"
-                );
+                this.___guid,
+                "onBind"
+            );
         }
+
         public ValueTask set_onBind(ActionCallback<Effect> value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onBind",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "onBind", value);
         }
 
-        
         public async ValueTask<decimal> get_uniqueId()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "uniqueId"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "uniqueId");
         }
+
         public ValueTask set_uniqueId(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "uniqueId",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "uniqueId", value);
         }
 
         private Observable<Effect> __onCompileObservable;
+
         public async ValueTask<Observable<Effect>> get_onCompileObservable()
         {
-            if(__onCompileObservable == null)
+            if (__onCompileObservable == null)
             {
-                __onCompileObservable = await EventHorizonBlazorInterop.GetClass<Observable<Effect>>(
+                __onCompileObservable = await EventHorizonBlazorInterop.GetClass<
+                    Observable<Effect>
+                >(
                     this.___guid,
                     "onCompileObservable",
                     (entity) =>
@@ -325,20 +260,18 @@ namespace BABYLON
             }
             return __onCompileObservable;
         }
+
         public ValueTask set_onCompileObservable(Observable<Effect> value)
         {
-__onCompileObservable = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onCompileObservable",
-                    value
-                );
+            __onCompileObservable = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "onCompileObservable", value);
         }
 
         private Observable<Effect> __onErrorObservable;
+
         public async ValueTask<Observable<Effect>> get_onErrorObservable()
         {
-            if(__onErrorObservable == null)
+            if (__onErrorObservable == null)
             {
                 __onErrorObservable = await EventHorizonBlazorInterop.GetClass<Observable<Effect>>(
                     this.___guid,
@@ -351,33 +284,46 @@ __onCompileObservable = null;
             }
             return __onErrorObservable;
         }
+
         public ValueTask set_onErrorObservable(Observable<Effect> value)
         {
-__onErrorObservable = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onErrorObservable",
-                    value
-                );
+            __onErrorObservable = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "onErrorObservable", value);
         }
         #endregion
-        
-        #region Constructor
-        public Effect() : base() { }
 
-        public Effect(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        #region Constructor
+        public Effect()
+            : base() { }
+
+        public Effect(ICachedEntity entity)
+            : base(entity) { }
 
         public static async ValueTask<Effect> NewEffect(
-            object baseName, string[] attributesNamesOrOptions, string[] uniformsNamesOrEngine, string[] samplers = null, ThinEngine engine = null, string defines = null, IEffectFallbacks fallbacks = null, ActionCallback<Effect> onCompiled = null, ActionCallback<Effect, string> onError = null, object indexParameters = null
+            object baseName,
+            string[] attributesNamesOrOptions,
+            string[] uniformsNamesOrEngine,
+            string[] samplers = null,
+            ThinEngine engine = null,
+            string defines = null,
+            IEffectFallbacks fallbacks = null,
+            ActionCallback<Effect> onCompiled = null,
+            ActionCallback<Effect, string> onError = null,
+            object indexParameters = null
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Effect" },
-                baseName, attributesNamesOrOptions, uniformsNamesOrEngine, samplers, engine, defines, fallbacks, onCompiled, onError, indexParameters
+                baseName,
+                attributesNamesOrOptions,
+                uniformsNamesOrEngine,
+                samplers,
+                engine,
+                defines,
+                fallbacks,
+                onCompiled,
+                onError,
+                indexParameters
             );
 
             return new Effect(entity);
@@ -388,10 +334,7 @@ __onErrorObservable = null;
         public async ValueTask<bool> isReady()
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "isReady" }
-                }
+                new object[] { new string[] { this.___guid, "isReady" } }
             );
         }
 
@@ -399,10 +342,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Engine>(
                 entity => new Engine() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getEngine" }
-                }
+                new object[] { new string[] { this.___guid, "getEngine" } }
             );
         }
 
@@ -410,60 +350,42 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<IPipelineContextCachedEntity>(
                 entity => new IPipelineContextCachedEntity() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getPipelineContext" }
-                }
+                new object[] { new string[] { this.___guid, "getPipelineContext" } }
             );
         }
 
         public async ValueTask<string[]> getAttributesNames()
         {
             return await EventHorizonBlazorInterop.FuncArray<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getAttributesNames" }
-                }
+                new object[] { new string[] { this.___guid, "getAttributesNames" } }
             );
         }
 
         public async ValueTask<decimal> getAttributeLocation(decimal index)
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getAttributeLocation" }, index
-                }
+                new object[] { new string[] { this.___guid, "getAttributeLocation" }, index }
             );
         }
 
         public async ValueTask<decimal> getAttributeLocationByName(string name)
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getAttributeLocationByName" }, name
-                }
+                new object[] { new string[] { this.___guid, "getAttributeLocationByName" }, name }
             );
         }
 
         public async ValueTask<decimal> getAttributesCount()
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getAttributesCount" }
-                }
+                new object[] { new string[] { this.___guid, "getAttributesCount" } }
             );
         }
 
         public async ValueTask<decimal> getUniformIndex(string uniformName)
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getUniformIndex" }, uniformName
-                }
+                new object[] { new string[] { this.___guid, "getUniformIndex" }, uniformName }
             );
         }
 
@@ -471,99 +393,74 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<WebGLUniformLocationCachedEntity>(
                 entity => new WebGLUniformLocationCachedEntity() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getUniform" }, uniformName
-                }
+                new object[] { new string[] { this.___guid, "getUniform" }, uniformName }
             );
         }
 
         public async ValueTask<string[]> getSamplers()
         {
             return await EventHorizonBlazorInterop.FuncArray<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getSamplers" }
-                }
+                new object[] { new string[] { this.___guid, "getSamplers" } }
             );
         }
 
         public async ValueTask<string[]> getUniformNames()
         {
             return await EventHorizonBlazorInterop.FuncArray<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getUniformNames" }
-                }
+                new object[] { new string[] { this.___guid, "getUniformNames" } }
             );
         }
 
         public async ValueTask<string[]> getUniformBuffersNames()
         {
             return await EventHorizonBlazorInterop.FuncArray<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getUniformBuffersNames" }
-                }
+                new object[] { new string[] { this.___guid, "getUniformBuffersNames" } }
             );
         }
 
         public async ValueTask<CachedEntity> getIndexParameters()
         {
             return await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getIndexParameters" }
-                }
+                new object[] { new string[] { this.___guid, "getIndexParameters" } }
             );
         }
 
         public async ValueTask<string> getCompilationError()
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getCompilationError" }
-                }
+                new object[] { new string[] { this.___guid, "getCompilationError" } }
             );
         }
 
         public async ValueTask<bool> allFallbacksProcessed()
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "allFallbacksProcessed" }
-                }
+                new object[] { new string[] { this.___guid, "allFallbacksProcessed" } }
             );
         }
 
         public async ValueTask executeWhenCompiled(ActionCallback<Effect> func)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "executeWhenCompiled" }, func
-                }
+                new object[] { new string[] { this.___guid, "executeWhenCompiled" }, func }
             );
         }
 
         public async ValueTask setTexture(string channel, ThinTexture texture)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "setTexture" }, channel, texture
-                }
+                new object[] { new string[] { this.___guid, "setTexture" }, channel, texture }
             );
         }
 
         public async ValueTask setDepthStencilTexture(string channel, RenderTargetTexture texture)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "setDepthStencilTexture" }, channel, texture
+                    new string[] { this.___guid, "setDepthStencilTexture" },
+                    channel,
+                    texture
                 }
             );
         }
@@ -571,29 +468,33 @@ __onErrorObservable = null;
         public async ValueTask setTextureArray(string channel, ThinTexture[] textures)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "setTextureArray" }, channel, textures
-                }
+                new object[] { new string[] { this.___guid, "setTextureArray" }, channel, textures }
             );
         }
 
         public async ValueTask setTextureFromPostProcess(string channel, PostProcess postProcess)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "setTextureFromPostProcess" }, channel, postProcess
+                    new string[] { this.___guid, "setTextureFromPostProcess" },
+                    channel,
+                    postProcess
                 }
             );
         }
 
-        public async ValueTask setTextureFromPostProcessOutput(string channel, PostProcess postProcess)
+        public async ValueTask setTextureFromPostProcessOutput(
+            string channel,
+            PostProcess postProcess
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "setTextureFromPostProcessOutput" }, channel, postProcess
+                    new string[] { this.___guid, "setTextureFromPostProcessOutput" },
+                    channel,
+                    postProcess
                 }
             );
         }
@@ -601,20 +502,14 @@ __onErrorObservable = null;
         public async ValueTask bindUniformBuffer(DataBuffer buffer, string name)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "bindUniformBuffer" }, buffer, name
-                }
+                new object[] { new string[] { this.___guid, "bindUniformBuffer" }, buffer, name }
             );
         }
 
         public async ValueTask bindUniformBlock(string blockName, decimal index)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "bindUniformBlock" }, blockName, index
-                }
+                new object[] { new string[] { this.___guid, "bindUniformBlock" }, blockName, index }
             );
         }
 
@@ -622,10 +517,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setInt" }, uniformName, value
-                }
+                new object[] { new string[] { this.___guid, "setInt" }, uniformName, value }
             );
         }
 
@@ -633,10 +525,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setIntArray" }, uniformName, array
-                }
+                new object[] { new string[] { this.___guid, "setIntArray" }, uniformName, array }
             );
         }
 
@@ -644,10 +533,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setIntArray2" }, uniformName, array
-                }
+                new object[] { new string[] { this.___guid, "setIntArray2" }, uniformName, array }
             );
         }
 
@@ -655,10 +541,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setIntArray3" }, uniformName, array
-                }
+                new object[] { new string[] { this.___guid, "setIntArray3" }, uniformName, array }
             );
         }
 
@@ -666,10 +549,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setIntArray4" }, uniformName, array
-                }
+                new object[] { new string[] { this.___guid, "setIntArray4" }, uniformName, array }
             );
         }
 
@@ -677,10 +557,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setFloatArray" }, uniformName, array
-                }
+                new object[] { new string[] { this.___guid, "setFloatArray" }, uniformName, array }
             );
         }
 
@@ -688,10 +565,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setFloatArray2" }, uniformName, array
-                }
+                new object[] { new string[] { this.___guid, "setFloatArray2" }, uniformName, array }
             );
         }
 
@@ -699,10 +573,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setFloatArray3" }, uniformName, array
-                }
+                new object[] { new string[] { this.___guid, "setFloatArray3" }, uniformName, array }
             );
         }
 
@@ -710,10 +581,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setFloatArray4" }, uniformName, array
-                }
+                new object[] { new string[] { this.___guid, "setFloatArray4" }, uniformName, array }
             );
         }
 
@@ -721,10 +589,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setArray" }, uniformName, array
-                }
+                new object[] { new string[] { this.___guid, "setArray" }, uniformName, array }
             );
         }
 
@@ -732,10 +597,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setArray2" }, uniformName, array
-                }
+                new object[] { new string[] { this.___guid, "setArray2" }, uniformName, array }
             );
         }
 
@@ -743,10 +605,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setArray3" }, uniformName, array
-                }
+                new object[] { new string[] { this.___guid, "setArray3" }, uniformName, array }
             );
         }
 
@@ -754,10 +613,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setArray4" }, uniformName, array
-                }
+                new object[] { new string[] { this.___guid, "setArray4" }, uniformName, array }
             );
         }
 
@@ -765,10 +621,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setMatrices" }, uniformName, matrices
-                }
+                new object[] { new string[] { this.___guid, "setMatrices" }, uniformName, matrices }
             );
         }
 
@@ -776,10 +629,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setMatrix" }, uniformName, matrix
-                }
+                new object[] { new string[] { this.___guid, "setMatrix" }, uniformName, matrix }
             );
         }
 
@@ -787,10 +637,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setMatrix3x3" }, uniformName, matrix
-                }
+                new object[] { new string[] { this.___guid, "setMatrix3x3" }, uniformName, matrix }
             );
         }
 
@@ -798,10 +645,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setMatrix2x2" }, uniformName, matrix
-                }
+                new object[] { new string[] { this.___guid, "setMatrix2x2" }, uniformName, matrix }
             );
         }
 
@@ -809,10 +653,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setFloat" }, uniformName, value
-                }
+                new object[] { new string[] { this.___guid, "setFloat" }, uniformName, value }
             );
         }
 
@@ -820,10 +661,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setBool" }, uniformName, @bool
-                }
+                new object[] { new string[] { this.___guid, "setBool" }, uniformName, @bool }
             );
         }
 
@@ -831,10 +669,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setVector2" }, uniformName, vector2
-                }
+                new object[] { new string[] { this.___guid, "setVector2" }, uniformName, vector2 }
             );
         }
 
@@ -842,10 +677,7 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setFloat2" }, uniformName, x, y
-                }
+                new object[] { new string[] { this.___guid, "setFloat2" }, uniformName, x, y }
             );
         }
 
@@ -853,21 +685,20 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setVector3" }, uniformName, vector3
-                }
+                new object[] { new string[] { this.___guid, "setVector3" }, uniformName, vector3 }
             );
         }
 
-        public async ValueTask<Effect> setFloat3(string uniformName, decimal x, decimal y, decimal z)
+        public async ValueTask<Effect> setFloat3(
+            string uniformName,
+            decimal x,
+            decimal y,
+            decimal z
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setFloat3" }, uniformName, x, y, z
-                }
+                new object[] { new string[] { this.___guid, "setFloat3" }, uniformName, x, y, z }
             );
         }
 
@@ -875,21 +706,21 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setVector4" }, uniformName, vector4
-                }
+                new object[] { new string[] { this.___guid, "setVector4" }, uniformName, vector4 }
             );
         }
 
-        public async ValueTask<Effect> setFloat4(string uniformName, decimal x, decimal y, decimal z, decimal w)
+        public async ValueTask<Effect> setFloat4(
+            string uniformName,
+            decimal x,
+            decimal y,
+            decimal z,
+            decimal w
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setFloat4" }, uniformName, x, y, z, w
-                }
+                new object[] { new string[] { this.___guid, "setFloat4" }, uniformName, x, y, z, w }
             );
         }
 
@@ -897,20 +728,24 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setColor3" }, uniformName, color3
-                }
+                new object[] { new string[] { this.___guid, "setColor3" }, uniformName, color3 }
             );
         }
 
-        public async ValueTask<Effect> setColor4(string uniformName, IColor3Like color3, decimal alpha)
+        public async ValueTask<Effect> setColor4(
+            string uniformName,
+            IColor3Like color3,
+            decimal alpha
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "setColor4" }, uniformName, color3, alpha
+                    new string[] { this.___guid, "setColor4" },
+                    uniformName,
+                    color3,
+                    alpha
                 }
             );
         }
@@ -919,9 +754,11 @@ __onErrorObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "setDirectColor4" }, uniformName, color4
+                    new string[] { this.___guid, "setDirectColor4" },
+                    uniformName,
+                    color4
                 }
             );
         }
@@ -929,10 +766,7 @@ __onErrorObservable = null;
         public async ValueTask dispose()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
         #endregion

@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IColor3Like : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IColor3LikeCachedEntity>))]
     public class IColor3LikeCachedEntity : CachedEntityObject, IColor3Like
     {
@@ -32,70 +32,44 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<decimal> get_r()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "r"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "r");
         }
+
         public ValueTask set_r(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "r",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "r", value);
         }
 
-        
         public async ValueTask<decimal> get_g()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "g"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "g");
         }
+
         public ValueTask set_g(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "g",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "g", value);
         }
 
-        
         public async ValueTask<decimal> get_b()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "b"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "b");
         }
+
         public ValueTask set_b(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "b",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "b", value);
         }
         #endregion
-        
+
         #region Constructor
-        public IColor3LikeCachedEntity() : base() { }
+        public IColor3LikeCachedEntity()
+            : base() { }
 
-        public IColor3LikeCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IColor3LikeCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

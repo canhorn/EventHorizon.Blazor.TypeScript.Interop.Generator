@@ -32,16 +32,13 @@ public class WebGLProgramCachedEntity : CachedEntityObject, WebGLProgram
     #region Properties
 
     #endregion
-    
+
     #region Constructor
-        public WebGLProgramCachedEntity() : base() { }
+    public WebGLProgramCachedEntity()
+        : base() { }
 
-        public WebGLProgramCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+    public WebGLProgramCachedEntity(ICachedEntity entity)
+        : base(entity) { }
 
     #endregion
 

@@ -10,8 +10,6 @@ namespace BABYLON.GUI
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Button>))]
     public class Button : Rectangle
     {
@@ -24,13 +22,20 @@ namespace BABYLON.GUI
         #endregion
 
         #region Static Methods
-        public static async ValueTask<Button> CreateImageButton(string name, string text, string imageUrl)
+        public static async ValueTask<Button> CreateImageButton(
+            string name,
+            string text,
+            string imageUrl
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Button>(
                 entity => new Button() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "GUI", "Button", "CreateImageButton" }, name, text, imageUrl
+                    new string[] { "BABYLON", "GUI", "Button", "CreateImageButton" },
+                    name,
+                    text,
+                    imageUrl
                 }
             );
         }
@@ -39,9 +44,11 @@ namespace BABYLON.GUI
         {
             return await EventHorizonBlazorInterop.FuncClass<Button>(
                 entity => new Button() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "GUI", "Button", "CreateImageOnlyButton" }, name, imageUrl
+                    new string[] { "BABYLON", "GUI", "Button", "CreateImageOnlyButton" },
+                    name,
+                    imageUrl
                 }
             );
         }
@@ -50,20 +57,29 @@ namespace BABYLON.GUI
         {
             return await EventHorizonBlazorInterop.FuncClass<Button>(
                 entity => new Button() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "GUI", "Button", "CreateSimpleButton" }, name, text
+                    new string[] { "BABYLON", "GUI", "Button", "CreateSimpleButton" },
+                    name,
+                    text
                 }
             );
         }
 
-        public static async ValueTask<Button> CreateImageWithCenterTextButton(string name, string text, string imageUrl)
+        public static async ValueTask<Button> CreateImageWithCenterTextButton(
+            string name,
+            string text,
+            string imageUrl
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Button>(
                 entity => new Button() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "GUI", "Button", "CreateImageWithCenterTextButton" }, name, text, imageUrl
+                    new string[] { "BABYLON", "GUI", "Button", "CreateImageWithCenterTextButton" },
+                    name,
+                    text,
+                    imageUrl
                 }
             );
         }
@@ -71,9 +87,10 @@ namespace BABYLON.GUI
 
         #region Accessors
         private Image __image;
+
         public async ValueTask<Image> get_image()
         {
-            if(__image == null)
+            if (__image == null)
             {
                 __image = await EventHorizonBlazorInterop.GetClass<Image>(
                     this.___guid,
@@ -88,9 +105,10 @@ namespace BABYLON.GUI
         }
 
         private TextBlock __textBlock;
+
         public async ValueTask<TextBlock> get_textBlock()
         {
-            if(__textBlock == null)
+            if (__textBlock == null)
             {
                 __textBlock = await EventHorizonBlazorInterop.GetClass<TextBlock>(
                     this.___guid,
@@ -106,55 +124,39 @@ namespace BABYLON.GUI
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<string> get_name()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "name"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "name");
         }
+
         public ValueTask set_name(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "name",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "name", value);
         }
 
-        
         public async ValueTask<bool> get_delegatePickingToChildren()
         {
             return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "delegatePickingToChildren"
-                );
+                this.___guid,
+                "delegatePickingToChildren"
+            );
         }
+
         public ValueTask set_delegatePickingToChildren(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "delegatePickingToChildren",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "delegatePickingToChildren", value);
         }
         #endregion
-        
+
         #region Constructor
-        public Button() : base() { }
+        public Button()
+            : base() { }
 
-        public Button(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public Button(ICachedEntity entity)
+            : base(entity) { }
 
-        public static async ValueTask<Button> NewButton(
-            string name = null
-        )
+        public static async ValueTask<Button> NewButton(string name = null)
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GUI", "Button" },
@@ -168,19 +170,15 @@ namespace BABYLON.GUI
         #region Methods
         #region pointerEnterAnimation TODO: Get Comments as metadata identification
         private bool _isPointerEnterAnimationEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _pointerEnterAnimationActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _pointerEnterAnimationActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public async ValueTask<string> pointerEnterAnimation(
-            Func<Task> callback
-        )
+        public async ValueTask<string> pointerEnterAnimation(Func<Task> callback)
         {
             await SetupPointerEnterAnimationLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _pointerEnterAnimationActionMap.Add(
-                handle,
-                callback
-            );
+            _pointerEnterAnimationActionMap.Add(handle, callback);
 
             return handle;
         }
@@ -212,19 +210,15 @@ namespace BABYLON.GUI
 
         #region pointerOutAnimation TODO: Get Comments as metadata identification
         private bool _isPointerOutAnimationEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _pointerOutAnimationActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _pointerOutAnimationActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public async ValueTask<string> pointerOutAnimation(
-            Func<Task> callback
-        )
+        public async ValueTask<string> pointerOutAnimation(Func<Task> callback)
         {
             await SetupPointerOutAnimationLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _pointerOutAnimationActionMap.Add(
-                handle,
-                callback
-            );
+            _pointerOutAnimationActionMap.Add(handle, callback);
 
             return handle;
         }
@@ -256,19 +250,15 @@ namespace BABYLON.GUI
 
         #region pointerDownAnimation TODO: Get Comments as metadata identification
         private bool _isPointerDownAnimationEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _pointerDownAnimationActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _pointerDownAnimationActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public async ValueTask<string> pointerDownAnimation(
-            Func<Task> callback
-        )
+        public async ValueTask<string> pointerDownAnimation(Func<Task> callback)
         {
             await SetupPointerDownAnimationLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _pointerDownAnimationActionMap.Add(
-                handle,
-                callback
-            );
+            _pointerDownAnimationActionMap.Add(handle, callback);
 
             return handle;
         }
@@ -300,19 +290,15 @@ namespace BABYLON.GUI
 
         #region pointerUpAnimation TODO: Get Comments as metadata identification
         private bool _isPointerUpAnimationEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _pointerUpAnimationActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _pointerUpAnimationActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public async ValueTask<string> pointerUpAnimation(
-            Func<Task> callback
-        )
+        public async ValueTask<string> pointerUpAnimation(Func<Task> callback)
         {
             await SetupPointerUpAnimationLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _pointerUpAnimationActionMap.Add(
-                handle,
-                callback
-            );
+            _pointerUpAnimationActionMap.Add(handle, callback);
 
             return handle;
         }

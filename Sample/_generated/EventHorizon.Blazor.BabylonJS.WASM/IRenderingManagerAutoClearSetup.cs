@@ -11,9 +11,11 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IRenderingManagerAutoClearSetup : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IRenderingManagerAutoClearSetupCachedEntity>))]
-    public class IRenderingManagerAutoClearSetupCachedEntity : CachedEntityObject, IRenderingManagerAutoClearSetup
+    public class IRenderingManagerAutoClearSetupCachedEntity
+        : CachedEntityObject,
+            IRenderingManagerAutoClearSetup
     {
         #region Static Accessors
 
@@ -32,79 +34,44 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public bool autoClear
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "autoClear"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "autoClear"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "autoClear",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "autoClear", value);
             }
         }
 
-        
         public bool depth
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "depth"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "depth"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "depth",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "depth", value);
             }
         }
 
-        
         public bool stencil
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "stencil"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "stencil"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "stencil",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "stencil", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IRenderingManagerAutoClearSetupCachedEntity() : base() { }
+        public IRenderingManagerAutoClearSetupCachedEntity()
+            : base() { }
 
-        public IRenderingManagerAutoClearSetupCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IRenderingManagerAutoClearSetupCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

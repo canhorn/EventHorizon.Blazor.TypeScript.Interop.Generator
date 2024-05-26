@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface SceneOptions : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<SceneOptionsCachedEntity>))]
     public class SceneOptionsCachedEntity : CachedEntityObject, SceneOptions
     {
@@ -32,88 +32,57 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<bool> get_useGeometryUniqueIdsMap()
         {
             return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "useGeometryUniqueIdsMap"
-                );
+                this.___guid,
+                "useGeometryUniqueIdsMap"
+            );
         }
+
         public ValueTask set_useGeometryUniqueIdsMap(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "useGeometryUniqueIdsMap",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "useGeometryUniqueIdsMap", value);
         }
 
-        
         public async ValueTask<bool> get_useMaterialMeshMap()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "useMaterialMeshMap"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "useMaterialMeshMap");
         }
+
         public ValueTask set_useMaterialMeshMap(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "useMaterialMeshMap",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "useMaterialMeshMap", value);
         }
 
-        
         public async ValueTask<bool> get_useClonedMeshMap()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "useClonedMeshMap"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "useClonedMeshMap");
         }
+
         public ValueTask set_useClonedMeshMap(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "useClonedMeshMap",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "useClonedMeshMap", value);
         }
 
-        
         public async ValueTask<bool> get_virtual()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "virtual"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "virtual");
         }
+
         public ValueTask set_virtual(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "virtual",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "virtual", value);
         }
         #endregion
-        
+
         #region Constructor
-        public SceneOptionsCachedEntity() : base() { }
+        public SceneOptionsCachedEntity()
+            : base() { }
 
-        public SceneOptionsCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public SceneOptionsCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

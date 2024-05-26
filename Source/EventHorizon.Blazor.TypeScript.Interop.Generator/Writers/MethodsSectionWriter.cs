@@ -33,27 +33,17 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     method.Type,
                     method.UsedClassNames
                 );
-                var isArray = ArrayResponseIdentifier.Identify(
-                    method.Type
-                );
+                var isArray = ArrayResponseIdentifier.Identify(method.Type);
                 var template = templates.Method;
                 var methodType = method.Type;
-                var type = TypeStatementWriter.Write(
-                    methodType
-                );
-                var typeNoModifier = TypeStatementWriter.Write(
-                    methodType,
-                    false
-                );
+                var type = TypeStatementWriter.Write(methodType);
+                var typeNoModifier = TypeStatementWriter.Write(methodType, false);
                 var propertyArguments = string.Empty;
-                var isNotSupported = NotSupportedIdentifier.Identify(
-                    method
-                );
+                var isNotSupported = NotSupportedIdentifier.Identify(method);
                 var isTask = method.Type.IsTask;
-                var isEnum = TypeEnumIdentifier.Identify(
-                    method.Type
-                );
-                var isAction = method.Type.Name == GenerationIdentifiedTypes.Action
+                var isEnum = TypeEnumIdentifier.Identify(method.Type);
+                var isAction =
+                    method.Type.Name == GenerationIdentifiedTypes.Action
                     || (method.Arguments.Take(1).Any(a => a.Type.IsAction && a.Name == "callback"));
 
                 var bodyTemplate = templates.ReturnTypePrimitiveTemplate;
@@ -72,43 +62,35 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 var functionGenerics = string.Empty;
                 var genericSection = string.Empty;
                 var whereConstraint = string.Empty;
-                var taskType = TypeStatementWriter.Write(
-                    methodType,
-                    false
-                );
+                var taskType = TypeStatementWriter.Write(methodType, false);
                 var taskAsync = string.Empty;
                 var taskAwait = string.Empty;
 
                 if (classNamespace == string.Empty)
                 {
-                    namespacedMethod = string.Join(
-                        ".",
-                        classStatement.Name,
-                        method.Name
-                    );
+                    namespacedMethod = string.Join(".", classStatement.Name, method.Name);
                 }
 
                 // Argument Generation
                 if (isAction)
                 {
                     var functionGenericsStrings = new List<string>();
-                    var actionArgument = method.Arguments.FirstOrDefault(
-                        argument => argument.Type.Name == GenerationIdentifiedTypes.Action
+                    var actionArgument = method.Arguments.FirstOrDefault(argument =>
+                        argument.Type.Name == GenerationIdentifiedTypes.Action
                     );
                     if (actionArgument != null)
                     {
                         foreach (var genericType in actionArgument.Type.GenericTypes)
                         {
                             functionGenericsStrings.Add(
-                                TypeStatementWriter.Write(
-                                    genericType,
-                                    ignorePrefix: true
-                                )
+                                TypeStatementWriter.Write(genericType, ignorePrefix: true)
                             );
                         }
 
                         // [[ARGUMENTS]] = arguments = T eventData, EventState eventState
-                        foreach (var argument in actionArgument.Type.Arguments.OrderBy(a => a.IsOptional))
+                        foreach (
+                            var argument in actionArgument.Type.Arguments.OrderBy(a => a.IsOptional)
+                        )
                         {
                             argumentStrings.Add(
                                 ArgumentWriter.Write(
@@ -122,57 +104,40 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                         // [[PROPERTY_ARGUMENTS]] = propertyArguments = eventData, eventState
                         propertyArguments = string.Join(
                             ", ",
-                            actionArgument.Type.Arguments.Select(
-                                argument => DotNetNormalizer.Normalize(argument.Name)
+                            actionArgument.Type.Arguments.Select(argument =>
+                                DotNetNormalizer.Normalize(argument.Name)
                             )
                         );
                     }
 
-                    functionGenericsStrings.Add(
-                        "Task"
-                    );
-                    functionGenerics = string.Join(
-                        ", ",
-                        functionGenericsStrings
-                    );
+                    functionGenericsStrings.Add("Task");
+                    functionGenerics = string.Join(", ", functionGenericsStrings);
                 }
                 else
                 {
                     // TODO: [Re-factor] : Move to Writer
                     foreach (var argument in method.Arguments.OrderBy(a => a.IsOptional))
                     {
-                        argumentStrings.Add(
-                            ArgumentWriter.Write(
-                                argument,
-                                true,
-                                " = null"
-                            )
-                        );
+                        argumentStrings.Add(ArgumentWriter.Write(argument, true, " = null"));
                     }
                     propertyArguments = method.Arguments.Any()
-                        ? ", " +
-                            string.Join(
+                        ? ", "
+                            + string.Join(
                                 ", ",
-                                method.Arguments.Select(
-                                    argument => DotNetNormalizer.Normalize(argument.Name)
+                                method.Arguments.Select(argument =>
+                                    DotNetNormalizer.Normalize(argument.Name)
                                 )
                             )
                         : string.Empty;
 
                     if (VoidArgumentIdenfifier.Identify(method.Arguments))
                     {
-                        GlobalLogger.Error(
-                            $"Found void argument in method: {method.Name}"
-                        );
+                        GlobalLogger.Error($"Found void argument in method: {method.Name}");
                         continue;
                     }
                 }
 
-                arguments = string.Join(
-                    ", ",
-                    argumentStrings
-                );
-
+                arguments = string.Join(", ", argumentStrings);
 
                 // Template/ReturnTypeContent Dictation
                 if (isAction)
@@ -211,8 +176,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     {
                         returnTypeContent = templates.InteropTaskArrayClass;
                     }
-                    else if (isClassResponse
-                        || taskType == GenerationIdentifiedTypes.CachedEntity)
+                    else if (isClassResponse || taskType == GenerationIdentifiedTypes.CachedEntity)
                     {
                         returnTypeContent = templates.InteropTaskClass;
                     }
@@ -233,9 +197,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
 
                 if (method.IsStatic)
                 {
-                    var classStatementIdentitiferList = new string[] {
-                        classStatement.Name,
-                    };
+                    var classStatementIdentitiferList = new string[] { classStatement.Name, };
                     if (classNamespace != string.Empty)
                     {
                         classStatementIdentitiferList = new string[]
@@ -246,10 +208,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     }
                     propertyIdentifier = string.Join(
                         ", ",
-                        string.Join(
-                            ".",
-                            classStatementIdentitiferList
-                        ).Split(".").Select(part => @$"""{part}""")
+                        string.Join(".", classStatementIdentitiferList)
+                            .Split(".")
+                            .Select(part => @$"""{part}""")
                     );
                 }
 
@@ -258,35 +219,27 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 if (method.Type.Name == GenerationIdentifiedTypes.Void)
                 {
                     bodyTemplate = templates.ReturnTypeVoidTemplate;
-                    returnTypeContent = returnTypeContent.Replace(
-                        "[[ARRAY_TYPE]]",
-                        GenerationIdentifiedTypes.CachedEntity
-                    ).Replace(
-                        "[[NEW_TYPE]]",
-                        GenerationIdentifiedTypes.CachedEntity
-                    );
+                    returnTypeContent = returnTypeContent
+                        .Replace("[[ARRAY_TYPE]]", GenerationIdentifiedTypes.CachedEntity)
+                        .Replace("[[NEW_TYPE]]", GenerationIdentifiedTypes.CachedEntity);
                 }
 
                 if (method.GenericTypes.Any())
                 {
-                    var genericTypeString = string.Join(
-                        ", ",
-                        method.GenericTypes
-                    );
+                    var genericTypeString = string.Join(", ", method.GenericTypes);
                     // TODO: [Template] : Move to templates
                     genericSection = $"<{genericTypeString}>";
 
-                    if (isClassResponse
-                        && method.GenericTypes.Any(
-                            genericType => genericType == typeNoModifier
-                        )
+                    if (
+                        isClassResponse
+                        && method.GenericTypes.Any(genericType => genericType == typeNoModifier)
                     )
                     {
                         // TODO: [Template] : Move to templates
                         whereConstraint = string.Join(
                             "",
-                            method.GenericTypes.Select(
-                                genericType => $" where {genericType} : CachedEntity, new()"
+                            method.GenericTypes.Select(genericType =>
+                                $" where {genericType} : CachedEntity, new()"
                             )
                         );
                     }
@@ -297,105 +250,45 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     template = "// [[NAME]] is not supported by the platform yet";
                 }
 
-                template = template.Replace(
-                    "[[BODY]]",
-                    bodyTemplate
-                ).Replace(
-                    "[[RETURN_TYPE_CONTENT]]",
-                    returnTypeContent
-                ).Replace(
-                    "[[NAMESPACED_METHOD]]",
-                    namespacedMethod
-                )
-                //.Replace(
-                //    "[[CACHE_SECTION]]",
-                //    string.Empty
-                //).Replace(
-                //    "[[CACHE_SETTTER_SECTION]]",
-                //    string.Empty
-                //)
-                .Replace(
-                    "[[ARRAY]]",
-                    string.Empty
-                ).Replace(
-                    "[[STATIC]]",
-                    method.IsStatic ? "static " : string.Empty
-                ).Replace(
-                    "[[NAME]]",
-                    DotNetNormalizer.Normalize(
-                        method.Name
+                template = template
+                    .Replace("[[BODY]]", bodyTemplate)
+                    .Replace("[[RETURN_TYPE_CONTENT]]", returnTypeContent)
+                    .Replace("[[NAMESPACED_METHOD]]", namespacedMethod)
+                    //.Replace(
+                    //    "[[CACHE_SECTION]]",
+                    //    string.Empty
+                    //).Replace(
+                    //    "[[CACHE_SETTTER_SECTION]]",
+                    //    string.Empty
+                    //)
+                    .Replace("[[ARRAY]]", string.Empty)
+                    .Replace("[[STATIC]]", method.IsStatic ? "static " : string.Empty)
+                    .Replace("[[NAME]]", DotNetNormalizer.Normalize(method.Name))
+                    .Replace("[[NAME_CAPTIALIZED]]", method.Name.Captialize())
+                    .Replace("[[CLASS_NAME]]", classStatement.Name)
+                    .Replace("[[TYPE]]", TypeStatementWriter.Write(methodType))
+                    .Replace("[[ARRAY_TYPE]]", TypeStatementWriter.Write(methodType, false))
+                    .Replace("[[NEW_TYPE]]", TypeStatementWriter.Write(methodType, false))
+                    .Replace("[[TASK_TYPE]]", taskType)
+                    .Replace("[[GENERIC_SECTION]]", genericSection)
+                    .Replace("[[ARGUMENTS]]", arguments)
+                    .Replace("[[WHERE_CONSTRAINT]]", whereConstraint)
+                    .Replace("[[PROPERTY_IDENTIFIER]]", propertyIdentifier)
+                    .Replace("[[PROPERTY]]", DotNetNormalizer.Normalize(method.Name))
+                    .Replace("[[PROPERTY_ARGUMENTS]]", propertyArguments)
+                    .Replace(
+                        "[[INTERFACE_POSTFIX]]",
+                        method.IsInterfaceResponse ? Constants.INTERFACE_POSTFIX : string.Empty
                     )
-                ).Replace(
-                    "[[NAME_CAPTIALIZED]]",
-                    method.Name.Captialize()
-                ).Replace(
-                    "[[CLASS_NAME]]",
-                    classStatement.Name
-                ).Replace(
-                    "[[TYPE]]",
-                    TypeStatementWriter.Write(
-                        methodType
-                    )
-                ).Replace(
-                    "[[ARRAY_TYPE]]",
-                    TypeStatementWriter.Write(
-                        methodType,
-                        false
-                    )
-                ).Replace(
-                    "[[NEW_TYPE]]",
-                    TypeStatementWriter.Write(
-                        methodType,
-                        false
-                    )
-                ).Replace(
-                    "[[TASK_TYPE]]",
-                    taskType
-                ).Replace(
-                    "[[GENERIC_SECTION]]",
-                    genericSection
-                ).Replace(
-                    "[[ARGUMENTS]]",
-                    arguments
-                ).Replace(
-                    "[[WHERE_CONSTRAINT]]",
-                    whereConstraint
-                ).Replace(
-                    "[[PROPERTY_IDENTIFIER]]",
-                    propertyIdentifier
-                ).Replace(
-                    "[[PROPERTY]]",
-                    DotNetNormalizer.Normalize(
-                        method.Name
-                    )
-                ).Replace(
-                    "[[PROPERTY_ARGUMENTS]]",
-                    propertyArguments
-                ).Replace(
-                    "[[INTERFACE_POSTFIX]]",
-                    method.IsInterfaceResponse ? Constants.INTERFACE_POSTFIX : string.Empty
-                ).Replace(
-                    "[[FUNCTION_GENERICS]]",
-                    functionGenerics
-                ).Replace(
-                    "[[TASK_ASYNC]]",
-                    taskAsync
-                ).Replace(
-                    "[[TASK_AWAIT]]",
-                    taskAwait
-                );
+                    .Replace("[[FUNCTION_GENERICS]]", functionGenerics)
+                    .Replace("[[TASK_ASYNC]]", taskAsync)
+                    .Replace("[[TASK_AWAIT]]", taskAwait);
 
-                section.Append(
-                    template
-                );
+                section.Append(template);
 
                 if (!isLast)
                 {
-                    section.Append(
-                        Environment.NewLine
-                    ).Append(
-                        Environment.NewLine
-                    );
+                    section.Append(Environment.NewLine).Append(Environment.NewLine);
                 }
                 current++;
             }

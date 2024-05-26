@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IViewportOwnerLike : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IViewportOwnerLikeCachedEntity>))]
     public class IViewportOwnerLikeCachedEntity : CachedEntityObject, IViewportOwnerLike
     {
@@ -37,40 +37,33 @@ namespace BABYLON
         {
             get
             {
-            if(__viewport == null)
-            {
-                __viewport = EventHorizonBlazorInterop.GetClass<IViewportLikeCachedEntity>(
-                    this.___guid,
-                    "viewport",
-                    (entity) =>
-                    {
-                        return new IViewportLikeCachedEntity() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __viewport;
+                if (__viewport == null)
+                {
+                    __viewport = EventHorizonBlazorInterop.GetClass<IViewportLikeCachedEntity>(
+                        this.___guid,
+                        "viewport",
+                        (entity) =>
+                        {
+                            return new IViewportLikeCachedEntity() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __viewport;
             }
             set
             {
-__viewport = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "viewport",
-                    value
-                );
+                __viewport = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "viewport", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IViewportOwnerLikeCachedEntity() : base() { }
+        public IViewportOwnerLikeCachedEntity()
+            : base() { }
 
-        public IViewportOwnerLikeCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IViewportOwnerLikeCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<NodeMaterialBuildState>))]
     public class NodeMaterialBuildState : CachedEntityObject
     {
@@ -32,235 +30,166 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<bool> get_supportUniformBuffers()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "supportUniformBuffers"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "supportUniformBuffers");
         }
+
         public ValueTask set_supportUniformBuffers(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "supportUniformBuffers",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "supportUniformBuffers", value);
         }
 
-        
         public async ValueTask<string[]> get_attributes()
         {
-            return await EventHorizonBlazorInterop.GetArray<string>(
-                    this.___guid,
-                    "attributes"
-                );
+            return await EventHorizonBlazorInterop.GetArray<string>(this.___guid, "attributes");
         }
+
         public ValueTask set_attributes(string[] value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "attributes",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "attributes", value);
         }
 
-        
         public async ValueTask<string[]> get_uniforms()
         {
-            return await EventHorizonBlazorInterop.GetArray<string>(
-                    this.___guid,
-                    "uniforms"
-                );
+            return await EventHorizonBlazorInterop.GetArray<string>(this.___guid, "uniforms");
         }
+
         public ValueTask set_uniforms(string[] value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "uniforms",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "uniforms", value);
         }
 
-        
         public async ValueTask<string[]> get_constants()
         {
-            return await EventHorizonBlazorInterop.GetArray<string>(
-                    this.___guid,
-                    "constants"
-                );
+            return await EventHorizonBlazorInterop.GetArray<string>(this.___guid, "constants");
         }
+
         public ValueTask set_constants(string[] value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "constants",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "constants", value);
         }
 
-        
         public async ValueTask<string[]> get_samplers()
         {
-            return await EventHorizonBlazorInterop.GetArray<string>(
-                    this.___guid,
-                    "samplers"
-                );
+            return await EventHorizonBlazorInterop.GetArray<string>(this.___guid, "samplers");
         }
+
         public ValueTask set_samplers(string[] value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "samplers",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "samplers", value);
         }
 
-        
         public async ValueTask<CachedEntity> get_functions()
         {
             return await EventHorizonBlazorInterop.GetClass<CachedEntity>(
-                    this.___guid,
-                    "functions",
-                    (entity) =>
-                    {
-                        return new CachedEntity() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "functions",
+                (entity) =>
+                {
+                    return new CachedEntity() { ___guid = entity.___guid };
+                }
+            );
         }
+
         public ValueTask set_functions(CachedEntity value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "functions",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "functions", value);
         }
 
-        
         public async ValueTask<CachedEntity> get_extensions()
         {
             return await EventHorizonBlazorInterop.GetClass<CachedEntity>(
-                    this.___guid,
-                    "extensions",
-                    (entity) =>
-                    {
-                        return new CachedEntity() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "extensions",
+                (entity) =>
+                {
+                    return new CachedEntity() { ___guid = entity.___guid };
+                }
+            );
         }
+
         public ValueTask set_extensions(CachedEntity value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "extensions",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "extensions", value);
         }
 
-        
         public async ValueTask<int> get_target()
         {
-            return await EventHorizonBlazorInterop.Get<int>(
-                    this.___guid,
-                    "target"
-                );
+            return await EventHorizonBlazorInterop.Get<int>(this.___guid, "target");
         }
+
         public ValueTask set_target(int value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "target",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "target", value);
         }
 
-        
         public async ValueTask<CachedEntity> get_counters()
         {
             return await EventHorizonBlazorInterop.GetClass<CachedEntity>(
-                    this.___guid,
-                    "counters",
-                    (entity) =>
-                    {
-                        return new CachedEntity() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "counters",
+                (entity) =>
+                {
+                    return new CachedEntity() { ___guid = entity.___guid };
+                }
+            );
         }
+
         public ValueTask set_counters(CachedEntity value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "counters",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "counters", value);
         }
 
         private NodeMaterialBuildStateSharedData __sharedData;
+
         public async ValueTask<NodeMaterialBuildStateSharedData> get_sharedData()
         {
-            if(__sharedData == null)
+            if (__sharedData == null)
             {
-                __sharedData = await EventHorizonBlazorInterop.GetClass<NodeMaterialBuildStateSharedData>(
-                    this.___guid,
-                    "sharedData",
-                    (entity) =>
-                    {
-                        return new NodeMaterialBuildStateSharedData() { ___guid = entity.___guid };
-                    }
-                );
+                __sharedData =
+                    await EventHorizonBlazorInterop.GetClass<NodeMaterialBuildStateSharedData>(
+                        this.___guid,
+                        "sharedData",
+                        (entity) =>
+                        {
+                            return new NodeMaterialBuildStateSharedData()
+                            {
+                                ___guid = entity.___guid
+                            };
+                        }
+                    );
             }
             return __sharedData;
         }
+
         public ValueTask set_sharedData(NodeMaterialBuildStateSharedData value)
         {
-__sharedData = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "sharedData",
-                    value
-                );
+            __sharedData = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "sharedData", value);
         }
 
-        
         public async ValueTask<string> get_compilationString()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "compilationString"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "compilationString");
         }
+
         public ValueTask set_compilationString(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "compilationString",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "compilationString", value);
         }
         #endregion
-        
-        #region Constructor
-        public NodeMaterialBuildState() : base() { } 
 
-        public NodeMaterialBuildState(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public NodeMaterialBuildState()
+            : base() { }
+
+        public NodeMaterialBuildState(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
-
 
         #endregion
 
@@ -268,10 +197,7 @@ __sharedData = null;
         public async ValueTask finalize(NodeMaterialBuildState state)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "finalize" }, state
-                }
+                new object[] { new string[] { this.___guid, "finalize" }, state }
             );
         }
         #endregion

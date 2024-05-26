@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IScreenshotSize : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IScreenshotSizeCachedEntity>))]
     public class IScreenshotSizeCachedEntity : CachedEntityObject, IScreenshotSize
     {
@@ -32,70 +32,44 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<decimal> get_height()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "height"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "height");
         }
+
         public ValueTask set_height(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "height",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "height", value);
         }
 
-        
         public async ValueTask<decimal> get_precision()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "precision"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "precision");
         }
+
         public ValueTask set_precision(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "precision",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "precision", value);
         }
 
-        
         public async ValueTask<decimal> get_width()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "width"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "width");
         }
+
         public ValueTask set_width(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "width",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "width", value);
         }
         #endregion
-        
+
         #region Constructor
-        public IScreenshotSizeCachedEntity() : base() { }
+        public IScreenshotSizeCachedEntity()
+            : base() { }
 
-        public IScreenshotSizeCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IScreenshotSizeCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

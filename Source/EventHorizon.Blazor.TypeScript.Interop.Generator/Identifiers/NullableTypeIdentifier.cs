@@ -4,13 +4,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 
     public class NullableTypeIdentifier
     {
-        public static bool Identify(
-            string type
-        )
+        public static bool Identify(string type)
         {
-            return JavaScriptTypes.Nullable.Equals(
-                type
-            );
+            return JavaScriptTypes.Nullable.Equals(type);
         }
     }
 }

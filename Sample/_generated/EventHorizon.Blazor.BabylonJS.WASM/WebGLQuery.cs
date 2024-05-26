@@ -32,16 +32,13 @@ public class WebGLQueryCachedEntity : CachedEntityObject, WebGLQuery
     #region Properties
 
     #endregion
-    
+
     #region Constructor
-        public WebGLQueryCachedEntity() : base() { }
+    public WebGLQueryCachedEntity()
+        : base() { }
 
-        public WebGLQueryCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+    public WebGLQueryCachedEntity(ICachedEntity entity)
+        : base(entity) { }
 
     #endregion
 

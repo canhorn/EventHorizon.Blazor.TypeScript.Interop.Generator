@@ -10,10 +10,9 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<SmartArray<CachedEntity>>))]
-    public class SmartArray<T> : CachedEntityObject, ISmartArrayLike<T> where T : CachedEntity, new()
+    public class SmartArray<T> : CachedEntityObject, ISmartArrayLike<T>
+        where T : CachedEntity, new()
     {
         #region Static Accessors
 
@@ -32,12 +31,12 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public T[] data
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<T>(
+                return EventHorizonBlazorInterop.GetArrayClass<T>(
                     this.___guid,
                     "data",
                     (entity) =>
@@ -49,48 +48,30 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "data",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "data", value);
             }
         }
 
-        
         public decimal length
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "length"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "length"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "length",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "length", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public SmartArray() : base() { }
+        public SmartArray()
+            : base() { }
 
-        public SmartArray(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public SmartArray(ICachedEntity entity)
+            : base(entity) { }
 
-        public SmartArray(
-            decimal capacity
-        ) : base()
+        public SmartArray(decimal capacity)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "SmartArray" },
@@ -104,80 +85,56 @@ namespace BABYLON
         public void push(T value)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "push" }, value
-                }
+                new object[] { new string[] { this.___guid, "push" }, value }
             );
         }
 
         public void forEach(ActionCallback<T> func)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "forEach" }, func
-                }
+                new object[] { new string[] { this.___guid, "forEach" }, func }
             );
         }
 
         public void sort(ActionResultCallback<T, T, decimal> compareFn)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "sort" }, compareFn
-                }
+                new object[] { new string[] { this.___guid, "sort" }, compareFn }
             );
         }
 
         public void reset()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "reset" }
-                }
+                new object[] { new string[] { this.___guid, "reset" } }
             );
         }
 
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
 
         public void concat(object array)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "concat" }, array
-                }
+                new object[] { new string[] { this.___guid, "concat" }, array }
             );
         }
 
         public decimal indexOf(T value)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "indexOf" }, value
-                }
+                new object[] { new string[] { this.___guid, "indexOf" }, value }
             );
         }
 
         public bool contains(T value)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "contains" }, value
-                }
+                new object[] { new string[] { this.___guid, "contains" }, value }
             );
         }
         #endregion

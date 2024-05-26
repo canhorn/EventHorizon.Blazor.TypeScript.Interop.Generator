@@ -10,8 +10,6 @@ namespace BABYLON.GUI
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Grid>))]
     public class Grid : Container
     {
@@ -28,36 +26,22 @@ namespace BABYLON.GUI
         #endregion
 
         #region Accessors
-        
+
         public decimal columnCount
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "columnCount"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "columnCount"); }
         }
 
-        
         public decimal rowCount
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "rowCount"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "rowCount"); }
         }
 
-        
         public Control[] children
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<Control>(
+                return EventHorizonBlazorInterop.GetArrayClass<Control>(
                     this.___guid,
                     "children",
                     (entity) =>
@@ -68,54 +52,34 @@ namespace BABYLON.GUI
             }
         }
 
-        
         public CachedEntity cells
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
-                    this.___guid,
-                    "cells"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<CachedEntity>(this.___guid, "cells"); }
         }
         #endregion
 
         #region Properties
-        
+
         public string name
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "name"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "name"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "name",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "name", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public Grid() : base() { }
+        public Grid()
+            : base() { }
 
-        public Grid(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public Grid(ICachedEntity entity)
+            : base(entity) { }
 
-        public Grid(
-            string name = null
-        ) : base()
+        public Grid(string name = null)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GUI", "Grid" },
@@ -130,10 +94,7 @@ namespace BABYLON.GUI
         {
             return EventHorizonBlazorInterop.FuncClass<ValueAndUnit>(
                 entity => new ValueAndUnit() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getRowDefinition" }, index
-                }
+                new object[] { new string[] { this.___guid, "getRowDefinition" }, index }
             );
         }
 
@@ -141,10 +102,7 @@ namespace BABYLON.GUI
         {
             return EventHorizonBlazorInterop.FuncClass<ValueAndUnit>(
                 entity => new ValueAndUnit() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getColumnDefinition" }, index
-                }
+                new object[] { new string[] { this.___guid, "getColumnDefinition" }, index }
             );
         }
 
@@ -152,10 +110,7 @@ namespace BABYLON.GUI
         {
             return EventHorizonBlazorInterop.FuncClass<Grid>(
                 entity => new Grid() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "addRowDefinition" }, height, isPixel
-                }
+                new object[] { new string[] { this.___guid, "addRowDefinition" }, height, isPixel }
             );
         }
 
@@ -165,29 +120,45 @@ namespace BABYLON.GUI
                 entity => new Grid() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "addColumnDefinition" }, width, isPixel
+                    new string[] { this.___guid, "addColumnDefinition" },
+                    width,
+                    isPixel
                 }
             );
         }
 
-        public Grid setRowDefinition(decimal index, decimal height, System.Nullable<bool> isPixel = null)
+        public Grid setRowDefinition(
+            decimal index,
+            decimal height,
+            System.Nullable<bool> isPixel = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<Grid>(
                 entity => new Grid() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "setRowDefinition" }, index, height, isPixel
+                    new string[] { this.___guid, "setRowDefinition" },
+                    index,
+                    height,
+                    isPixel
                 }
             );
         }
 
-        public Grid setColumnDefinition(decimal index, decimal width, System.Nullable<bool> isPixel = null)
+        public Grid setColumnDefinition(
+            decimal index,
+            decimal width,
+            System.Nullable<bool> isPixel = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<Grid>(
                 entity => new Grid() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "setColumnDefinition" }, index, width, isPixel
+                    new string[] { this.___guid, "setColumnDefinition" },
+                    index,
+                    width,
+                    isPixel
                 }
             );
         }
@@ -196,20 +167,14 @@ namespace BABYLON.GUI
         {
             return EventHorizonBlazorInterop.FuncArrayClass<Control>(
                 entity => new Control() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getChildrenAt" }, row, column
-                }
+                new object[] { new string[] { this.___guid, "getChildrenAt" }, row, column }
             );
         }
 
         public string getChildCellInfo(Control child)
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getChildCellInfo" }, child
-                }
+                new object[] { new string[] { this.___guid, "getChildCellInfo" }, child }
             );
         }
 
@@ -217,10 +182,7 @@ namespace BABYLON.GUI
         {
             return EventHorizonBlazorInterop.FuncClass<Grid>(
                 entity => new Grid() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "removeColumnDefinition" }, index
-                }
+                new object[] { new string[] { this.___guid, "removeColumnDefinition" }, index }
             );
         }
 
@@ -228,21 +190,19 @@ namespace BABYLON.GUI
         {
             return EventHorizonBlazorInterop.FuncClass<Grid>(
                 entity => new Grid() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "removeRowDefinition" }, index
-                }
+                new object[] { new string[] { this.___guid, "removeRowDefinition" }, index }
             );
         }
 
-        public Grid addControl(Control control, System.Nullable<decimal> row = null, System.Nullable<decimal> column = null)
+        public Grid addControl(
+            Control control,
+            System.Nullable<decimal> row = null,
+            System.Nullable<decimal> column = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<Grid>(
                 entity => new Grid() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "addControl" }, control, row, column
-                }
+                new object[] { new string[] { this.___guid, "addControl" }, control, row, column }
             );
         }
 
@@ -250,20 +210,14 @@ namespace BABYLON.GUI
         {
             return EventHorizonBlazorInterop.FuncClass<Container>(
                 entity => new Container() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "removeControl" }, control
-                }
+                new object[] { new string[] { this.___guid, "removeControl" }, control }
             );
         }
 
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
         #endregion

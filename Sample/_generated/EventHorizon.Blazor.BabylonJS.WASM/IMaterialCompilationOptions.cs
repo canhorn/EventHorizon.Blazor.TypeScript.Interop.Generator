@@ -11,9 +11,11 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IMaterialCompilationOptions : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IMaterialCompilationOptionsCachedEntity>))]
-    public class IMaterialCompilationOptionsCachedEntity : CachedEntityObject, IMaterialCompilationOptions
+    public class IMaterialCompilationOptionsCachedEntity
+        : CachedEntityObject,
+            IMaterialCompilationOptions
     {
         #region Static Accessors
 
@@ -32,58 +34,34 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public bool clipPlane
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "clipPlane"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "clipPlane"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "clipPlane",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "clipPlane", value);
             }
         }
 
-        
         public bool useInstances
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "useInstances"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "useInstances"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "useInstances",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "useInstances", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IMaterialCompilationOptionsCachedEntity() : base() { }
+        public IMaterialCompilationOptionsCachedEntity()
+            : base() { }
 
-        public IMaterialCompilationOptionsCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IMaterialCompilationOptionsCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

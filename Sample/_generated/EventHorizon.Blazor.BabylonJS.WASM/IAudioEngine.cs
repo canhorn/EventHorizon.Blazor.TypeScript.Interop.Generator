@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IAudioEngine : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IAudioEngineCachedEntity>))]
     public class IAudioEngineCachedEntity : CachedEntityObject, IAudioEngine
     {
@@ -32,16 +32,10 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public bool canUseWebAudio
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "canUseWebAudio"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "canUseWebAudio"); }
         }
 
         private AudioContext __audioContext;
@@ -49,18 +43,18 @@ namespace BABYLON
         {
             get
             {
-            if(__audioContext == null)
-            {
-                __audioContext = EventHorizonBlazorInterop.GetClass<AudioContext>(
-                    this.___guid,
-                    "audioContext",
-                    (entity) =>
-                    {
-                        return new AudioContext() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __audioContext;
+                if (__audioContext == null)
+                {
+                    __audioContext = EventHorizonBlazorInterop.GetClass<AudioContext>(
+                        this.___guid,
+                        "audioContext",
+                        (entity) =>
+                        {
+                            return new AudioContext() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __audioContext;
             }
         }
 
@@ -69,51 +63,36 @@ namespace BABYLON
         {
             get
             {
-            if(__masterGain == null)
-            {
-                __masterGain = EventHorizonBlazorInterop.GetClass<GainNode>(
-                    this.___guid,
-                    "masterGain",
-                    (entity) =>
-                    {
-                        return new GainNode() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __masterGain;
+                if (__masterGain == null)
+                {
+                    __masterGain = EventHorizonBlazorInterop.GetClass<GainNode>(
+                        this.___guid,
+                        "masterGain",
+                        (entity) =>
+                        {
+                            return new GainNode() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __masterGain;
             }
         }
 
-        
         public bool isMP3supported
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isMP3supported"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isMP3supported"); }
         }
 
-        
         public bool isOGGsupported
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isOGGsupported"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isOGGsupported"); }
         }
 
-        
         public bool WarnedWebAudioUnsupported
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
+                return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "WarnedWebAudioUnsupported"
                 );
@@ -121,45 +100,26 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "WarnedWebAudioUnsupported",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "WarnedWebAudioUnsupported", value);
             }
         }
 
-        
         public bool useCustomUnlockedButton
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "useCustomUnlockedButton"
-                );
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "useCustomUnlockedButton");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "useCustomUnlockedButton",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "useCustomUnlockedButton", value);
             }
         }
 
-        
         public bool unlocked
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "unlocked"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "unlocked"); }
         }
 
         private Observable<IAudioEngineCachedEntity> __onAudioUnlockedObservable;
@@ -167,27 +127,28 @@ namespace BABYLON
         {
             get
             {
-            if(__onAudioUnlockedObservable == null)
-            {
-                __onAudioUnlockedObservable = EventHorizonBlazorInterop.GetClass<Observable<IAudioEngineCachedEntity>>(
-                    this.___guid,
-                    "onAudioUnlockedObservable",
-                    (entity) =>
-                    {
-                        return new Observable<IAudioEngineCachedEntity>() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __onAudioUnlockedObservable;
+                if (__onAudioUnlockedObservable == null)
+                {
+                    __onAudioUnlockedObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<IAudioEngineCachedEntity>
+                    >(
+                        this.___guid,
+                        "onAudioUnlockedObservable",
+                        (entity) =>
+                        {
+                            return new Observable<IAudioEngineCachedEntity>()
+                            {
+                                ___guid = entity.___guid
+                            };
+                        }
+                    );
+                }
+                return __onAudioUnlockedObservable;
             }
             set
             {
-__onAudioUnlockedObservable = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onAudioUnlockedObservable",
-                    value
-                );
+                __onAudioUnlockedObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onAudioUnlockedObservable", value);
             }
         }
 
@@ -196,40 +157,38 @@ __onAudioUnlockedObservable = null;
         {
             get
             {
-            if(__onAudioLockedObservable == null)
-            {
-                __onAudioLockedObservable = EventHorizonBlazorInterop.GetClass<Observable<IAudioEngineCachedEntity>>(
-                    this.___guid,
-                    "onAudioLockedObservable",
-                    (entity) =>
-                    {
-                        return new Observable<IAudioEngineCachedEntity>() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __onAudioLockedObservable;
+                if (__onAudioLockedObservable == null)
+                {
+                    __onAudioLockedObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<IAudioEngineCachedEntity>
+                    >(
+                        this.___guid,
+                        "onAudioLockedObservable",
+                        (entity) =>
+                        {
+                            return new Observable<IAudioEngineCachedEntity>()
+                            {
+                                ___guid = entity.___guid
+                            };
+                        }
+                    );
+                }
+                return __onAudioLockedObservable;
             }
             set
             {
-__onAudioLockedObservable = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onAudioLockedObservable",
-                    value
-                );
+                __onAudioLockedObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onAudioLockedObservable", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IAudioEngineCachedEntity() : base() { }
+        public IAudioEngineCachedEntity()
+            : base() { }
 
-        public IAudioEngineCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IAudioEngineCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -237,50 +196,35 @@ __onAudioLockedObservable = null;
         public void @lock()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "@lock" }
-                }
+                new object[] { new string[] { this.___guid, "@lock" } }
             );
         }
 
         public void @unlock()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "@unlock" }
-                }
+                new object[] { new string[] { this.___guid, "@unlock" } }
             );
         }
 
         public decimal getGlobalVolume()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getGlobalVolume" }
-                }
+                new object[] { new string[] { this.___guid, "getGlobalVolume" } }
             );
         }
 
         public void setGlobalVolume(decimal newVolume)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "setGlobalVolume" }, newVolume
-                }
+                new object[] { new string[] { this.___guid, "setGlobalVolume" }, newVolume }
             );
         }
 
         public void connectToAnalyser(Analyser analyser)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "connectToAnalyser" }, analyser
-                }
+                new object[] { new string[] { this.___guid, "connectToAnalyser" }, analyser }
             );
         }
         #endregion

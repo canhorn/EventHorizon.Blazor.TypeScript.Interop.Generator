@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Interop;
 
 public class GetDOMTextContent : CachedEntity
 {
-    public GetDOMTextContent()
-    {
-    }
+    public GetDOMTextContent() { }
 
-    public GetDOMTextContent(
-        ICachedEntity entity
-    )
+    public GetDOMTextContent(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

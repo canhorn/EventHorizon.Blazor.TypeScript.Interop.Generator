@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Analyser>))]
     public class Analyser : CachedEntityObject
     {
@@ -32,75 +30,45 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public decimal SMOOTHING
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "SMOOTHING"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "SMOOTHING"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "SMOOTHING",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "SMOOTHING", value);
             }
         }
 
-        
         public decimal FFT_SIZE
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "FFT_SIZE"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "FFT_SIZE"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "FFT_SIZE",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "FFT_SIZE", value);
             }
         }
 
-        
         public decimal BARGRAPHAMPLITUDE
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "BARGRAPHAMPLITUDE"
-                );
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "BARGRAPHAMPLITUDE");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "BARGRAPHAMPLITUDE",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "BARGRAPHAMPLITUDE", value);
             }
         }
 
-        
         public CachedEntity DEBUGCANVASPOS
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "DEBUGCANVASPOS",
                     (entity) =>
@@ -112,20 +80,15 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "DEBUGCANVASPOS",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "DEBUGCANVASPOS", value);
             }
         }
 
-        
         public CachedEntity DEBUGCANVASSIZE
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "DEBUGCANVASSIZE",
                     (entity) =>
@@ -137,28 +100,22 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "DEBUGCANVASSIZE",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "DEBUGCANVASSIZE", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public Analyser() : base() { }
 
-        public Analyser(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public Analyser()
+            : base() { }
+
+        public Analyser(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
-        public Analyser(
-            Scene scene
-        )
+        public Analyser(Scene scene)
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Analyser" },
@@ -172,60 +129,42 @@ namespace BABYLON
         public decimal getFrequencyBinCount()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getFrequencyBinCount" }
-                }
+                new object[] { new string[] { this.___guid, "getFrequencyBinCount" } }
             );
         }
 
         public decimal[] getByteFrequencyData()
         {
             return EventHorizonBlazorInterop.FuncArray<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getByteFrequencyData" }
-                }
+                new object[] { new string[] { this.___guid, "getByteFrequencyData" } }
             );
         }
 
         public decimal[] getByteTimeDomainData()
         {
             return EventHorizonBlazorInterop.FuncArray<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getByteTimeDomainData" }
-                }
+                new object[] { new string[] { this.___guid, "getByteTimeDomainData" } }
             );
         }
 
         public decimal[] getFloatFrequencyData()
         {
             return EventHorizonBlazorInterop.FuncArray<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getFloatFrequencyData" }
-                }
+                new object[] { new string[] { this.___guid, "getFloatFrequencyData" } }
             );
         }
 
         public void drawDebugCanvas()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "drawDebugCanvas" }
-                }
+                new object[] { new string[] { this.___guid, "drawDebugCanvas" } }
             );
         }
 
         public void stopDebugCanvas()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "stopDebugCanvas" }
-                }
+                new object[] { new string[] { this.___guid, "stopDebugCanvas" } }
             );
         }
 
@@ -234,7 +173,9 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "connectAudioNodes" }, inputAudioNode, outputAudioNode
+                    new string[] { this.___guid, "connectAudioNodes" },
+                    inputAudioNode,
+                    outputAudioNode
                 }
             );
         }
@@ -242,10 +183,7 @@ namespace BABYLON
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
         #endregion

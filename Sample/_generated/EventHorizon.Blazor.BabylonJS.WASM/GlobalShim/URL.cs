@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Interop;
 
 public class URL : CachedEntity
 {
-    public URL()
-    {
-    }
+    public URL() { }
 
-    public URL(
-        ICachedEntity entity
-    )
+    public URL(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

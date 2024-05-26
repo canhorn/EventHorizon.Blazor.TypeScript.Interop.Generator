@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<RenderingGroupInfo>))]
     public class RenderingGroupInfo : CachedEntityObject
     {
@@ -33,9 +31,10 @@ namespace BABYLON
 
         #region Properties
         private Scene __scene;
+
         public async ValueTask<Scene> get_scene()
         {
-            if(__scene == null)
+            if (__scene == null)
             {
                 __scene = await EventHorizonBlazorInterop.GetClass<Scene>(
                     this.___guid,
@@ -48,20 +47,18 @@ namespace BABYLON
             }
             return __scene;
         }
+
         public ValueTask set_scene(Scene value)
         {
-__scene = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "scene",
-                    value
-                );
+            __scene = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "scene", value);
         }
 
         private Camera __camera;
+
         public async ValueTask<Camera> get_camera()
         {
-            if(__camera == null)
+            if (__camera == null)
             {
                 __camera = await EventHorizonBlazorInterop.GetClass<Camera>(
                     this.___guid,
@@ -74,45 +71,33 @@ __scene = null;
             }
             return __camera;
         }
+
         public ValueTask set_camera(Camera value)
         {
-__camera = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "camera",
-                    value
-                );
+            __camera = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "camera", value);
         }
 
-        
         public async ValueTask<decimal> get_renderingGroupId()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "renderingGroupId"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "renderingGroupId");
         }
+
         public ValueTask set_renderingGroupId(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "renderingGroupId",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "renderingGroupId", value);
         }
         #endregion
-        
-        #region Constructor
-        public RenderingGroupInfo() : base() { } 
 
-        public RenderingGroupInfo(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public RenderingGroupInfo()
+            : base() { }
+
+        public RenderingGroupInfo(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
-
 
         #endregion
 

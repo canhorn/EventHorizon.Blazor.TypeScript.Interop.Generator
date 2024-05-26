@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface InstancingAttributeInfo : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<InstancingAttributeInfoCachedEntity>))]
     public class InstancingAttributeInfoCachedEntity : CachedEntityObject, InstancingAttributeInfo
     {
@@ -32,142 +32,84 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<string> get_attributeName()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "attributeName"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "attributeName");
         }
+
         public ValueTask set_attributeName(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "attributeName",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "attributeName", value);
         }
 
-        
         public async ValueTask<decimal> get_index()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "index"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "index");
         }
+
         public ValueTask set_index(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "index",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "index", value);
         }
 
-        
         public async ValueTask<decimal> get_attributeSize()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "attributeSize"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "attributeSize");
         }
+
         public ValueTask set_attributeSize(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "attributeSize",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "attributeSize", value);
         }
 
-        
         public async ValueTask<decimal> get_offset()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "offset"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "offset");
         }
+
         public ValueTask set_offset(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "offset",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "offset", value);
         }
 
-        
         public async ValueTask<decimal> get_divisor()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "divisor"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "divisor");
         }
+
         public ValueTask set_divisor(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "divisor",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "divisor", value);
         }
 
-        
         public async ValueTask<decimal> get_attributeType()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "attributeType"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "attributeType");
         }
+
         public ValueTask set_attributeType(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "attributeType",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "attributeType", value);
         }
 
-        
         public async ValueTask<bool> get_normalized()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "normalized"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "normalized");
         }
+
         public ValueTask set_normalized(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "normalized",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "normalized", value);
         }
         #endregion
-        
+
         #region Constructor
-        public InstancingAttributeInfoCachedEntity() : base() { }
+        public InstancingAttributeInfoCachedEntity()
+            : base() { }
 
-        public InstancingAttributeInfoCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public InstancingAttributeInfoCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

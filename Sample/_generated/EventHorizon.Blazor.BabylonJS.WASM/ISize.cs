@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface ISize : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<ISizeCachedEntity>))]
     public class ISizeCachedEntity : CachedEntityObject, ISize
     {
@@ -32,58 +32,34 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public decimal width
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "width"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "width"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "width",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "width", value);
             }
         }
 
-        
         public decimal height
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "height"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "height"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "height",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "height", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public ISizeCachedEntity() : base() { }
+        public ISizeCachedEntity()
+            : base() { }
 
-        public ISizeCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public ISizeCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

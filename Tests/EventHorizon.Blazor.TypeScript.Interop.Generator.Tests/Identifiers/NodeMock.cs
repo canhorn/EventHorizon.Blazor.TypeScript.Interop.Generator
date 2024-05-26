@@ -4,8 +4,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
     using System.Collections.Generic;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
 
-    public class NodeMock
-        : Node
+    public class NodeMock : Node
     {
         public Node Parent { get; }
         public Node First { get; }

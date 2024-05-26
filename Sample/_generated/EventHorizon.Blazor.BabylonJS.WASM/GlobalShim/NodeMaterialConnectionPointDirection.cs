@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Interop;
 
 public class NodeMaterialConnectionPointDirection : CachedEntity
 {
-    public NodeMaterialConnectionPointDirection()
-    {
-    }
+    public NodeMaterialConnectionPointDirection() { }
 
-    public NodeMaterialConnectionPointDirection(
-        ICachedEntity entity
-    )
+    public NodeMaterialConnectionPointDirection(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

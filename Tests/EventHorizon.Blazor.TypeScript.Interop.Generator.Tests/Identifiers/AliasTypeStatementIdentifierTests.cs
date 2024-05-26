@@ -22,11 +22,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
             var astMock = new Mock<AbstractSyntaxTree>();
             var typeOverrideDetails = new TypeOverrideDetails();
 
-            astMock.Setup(
-                mock => mock.RootNode
-            ).Returns(
-                rootNode.Object
-            );
+            astMock.Setup(mock => mock.RootNode).Returns(rootNode.Object);
 
             // When
             var actual = AliasTypeStatementIdentifier.Identify(

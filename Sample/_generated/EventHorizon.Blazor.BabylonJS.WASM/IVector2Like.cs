@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IVector2Like : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IVector2LikeCachedEntity>))]
     public class IVector2LikeCachedEntity : CachedEntityObject, IVector2Like
     {
@@ -32,58 +32,34 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public decimal x
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "x"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "x"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "x",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "x", value);
             }
         }
 
-        
         public decimal y
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "y"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "y"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "y",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "y", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IVector2LikeCachedEntity() : base() { }
+        public IVector2LikeCachedEntity()
+            : base() { }
 
-        public IVector2LikeCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IVector2LikeCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

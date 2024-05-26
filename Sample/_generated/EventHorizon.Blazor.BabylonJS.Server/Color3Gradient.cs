@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Color3Gradient>))]
     public class Color3Gradient : CachedEntityObject, IValueGradient
     {
@@ -32,28 +30,22 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<decimal> get_gradient()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "gradient"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "gradient");
         }
+
         public ValueTask set_gradient(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "gradient",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "gradient", value);
         }
 
         private Color3 __color;
+
         public async ValueTask<Color3> get_color()
         {
-            if(__color == null)
+            if (__color == null)
             {
                 __color = await EventHorizonBlazorInterop.GetClass<Color3>(
                     this.___guid,
@@ -66,33 +58,30 @@ namespace BABYLON
             }
             return __color;
         }
+
         public ValueTask set_color(Color3 value)
         {
-__color = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "color",
-                    value
-                );
+            __color = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "color", value);
         }
         #endregion
-        
-        #region Constructor
-        public Color3Gradient() : base() { }
 
-        public Color3Gradient(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        #region Constructor
+        public Color3Gradient()
+            : base() { }
+
+        public Color3Gradient(ICachedEntity entity)
+            : base(entity) { }
 
         public static async ValueTask<Color3Gradient> NewColor3Gradient(
-            decimal gradient, Color3 color
+            decimal gradient,
+            Color3 color
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Color3Gradient" },
-                gradient, color
+                gradient,
+                color
             );
 
             return new Color3Gradient(entity);

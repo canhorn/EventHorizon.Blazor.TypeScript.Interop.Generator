@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IShadowGenerator : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IShadowGeneratorCachedEntity>))]
     public class IShadowGeneratorCachedEntity : CachedEntityObject, IShadowGenerator
     {
@@ -32,37 +32,24 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public string id
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "id"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "id"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "id",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "id", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IShadowGeneratorCachedEntity() : base() { }
+        public IShadowGeneratorCachedEntity()
+            : base() { }
 
-        public IShadowGeneratorCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IShadowGeneratorCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -71,10 +58,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<RenderTargetTexture>(
                 entity => new RenderTargetTexture() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getShadowMap" }
-                }
+                new object[] { new string[] { this.___guid, "getShadowMap" } }
             );
         }
 
@@ -83,7 +67,10 @@ namespace BABYLON
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
-                    new string[] { this.___guid, "isReady" }, subMesh, useInstances, isTransparent
+                    new string[] { this.___guid, "isReady" },
+                    subMesh,
+                    useInstances,
+                    isTransparent
                 }
             );
         }
@@ -93,7 +80,9 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "prepareDefines" }, defines, lightIndex
+                    new string[] { this.___guid, "prepareDefines" },
+                    defines,
+                    lightIndex
                 }
             );
         }
@@ -103,7 +92,9 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "bindShadowLight" }, lightIndex, effect
+                    new string[] { this.___guid, "bindShadowLight" },
+                    lightIndex,
+                    effect
                 }
             );
         }
@@ -112,29 +103,28 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getTransformMatrix" }
-                }
+                new object[] { new string[] { this.___guid, "getTransformMatrix" } }
             );
         }
 
         public void recreateShadowMap()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "recreateShadowMap" }
-                }
+                new object[] { new string[] { this.___guid, "recreateShadowMap" } }
             );
         }
 
-        public void forceCompilation(ActionCallback<IShadowGenerator> onCompiled = null, CachedEntity options = null)
+        public void forceCompilation(
+            ActionCallback<IShadowGenerator> onCompiled = null,
+            CachedEntity options = null
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "forceCompilation" }, onCompiled, options
+                    new string[] { this.___guid, "forceCompilation" },
+                    onCompiled,
+                    options
                 }
             );
         }
@@ -142,30 +132,21 @@ namespace BABYLON
         public async ValueTask forceCompilationAsync(CachedEntity options = null)
         {
             await EventHorizonBlazorInterop.Task<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "forceCompilationAsync" }, options
-                }
+                new object[] { new string[] { this.___guid, "forceCompilationAsync" }, options }
             );
         }
 
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "serialize" }
-                }
+                new object[] { new string[] { this.___guid, "serialize" } }
             );
         }
 
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
         #endregion

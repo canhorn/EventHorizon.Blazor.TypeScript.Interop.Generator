@@ -7,20 +7,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser
 
     public static class ASTParser
     {
-        public static AbstractSyntaxTree ParseText(
-            string source,
-            ASTParserOptions options
-        )
+        public static AbstractSyntaxTree ParseText(string source, ASTParserOptions options)
         {
             if (options.ParserType == ASTParserType.NodeJS)
             {
-                return new NodeJS_ASTWrapper(
-                    source
-                );
+                return new NodeJS_ASTWrapper(source);
             }
-            return new Sdcb_TypeScriptASTWrapper(
-                source
-            );
+            return new Sdcb_TypeScriptASTWrapper(source);
         }
     }
 

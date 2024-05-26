@@ -32,38 +32,29 @@ public class MathCachedEntity : CachedEntityObject, Math
     #region Properties
 
     #endregion
-    
+
     #region Constructor
-        public MathCachedEntity() : base() { }
+    public MathCachedEntity()
+        : base() { }
 
-        public MathCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+    public MathCachedEntity(ICachedEntity entity)
+        : base(entity) { }
 
     #endregion
 
     #region Methods
-        public async ValueTask<decimal> fround(decimal x)
-        {
-            return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "fround" }, x
-                }
-            );
-        }
+    public async ValueTask<decimal> fround(decimal x)
+    {
+        return await EventHorizonBlazorInterop.Func<decimal>(
+            new object[] { new string[] { this.___guid, "fround" }, x }
+        );
+    }
 
-        public async ValueTask<decimal> imul(decimal a, decimal b)
-        {
-            return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "imul" }, a, b
-                }
-            );
-        }
+    public async ValueTask<decimal> imul(decimal a, decimal b)
+    {
+        return await EventHorizonBlazorInterop.Func<decimal>(
+            new object[] { new string[] { this.___guid, "imul" }, a, b }
+        );
+    }
     #endregion
 }

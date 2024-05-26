@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Interop;
 
 public class InspectableType : CachedEntity
 {
-    public InspectableType()
-    {
-    }
+    public InspectableType() { }
 
-    public InspectableType(
-        ICachedEntity entity
-    )
+    public InspectableType(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

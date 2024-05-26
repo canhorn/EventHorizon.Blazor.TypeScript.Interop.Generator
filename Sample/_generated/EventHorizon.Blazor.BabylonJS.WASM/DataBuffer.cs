@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<DataBuffer>))]
     public class DataBuffer : CachedEntityObject
     {
@@ -28,12 +26,12 @@ namespace BABYLON
         #endregion
 
         #region Accessors
-        
+
         public CachedEntity underlyingResource
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<CachedEntity>(
+                return EventHorizonBlazorInterop.Get<CachedEntity>(
                     this.___guid,
                     "underlyingResource"
                 );
@@ -42,80 +40,47 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public decimal references
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "references"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "references"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "references",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "references", value);
             }
         }
 
-        
         public decimal capacity
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "capacity"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "capacity"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "capacity",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "capacity", value);
             }
         }
 
-        
         public bool is32Bits
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "is32Bits"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "is32Bits"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "is32Bits",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "is32Bits", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public DataBuffer() : base() { }
 
-        public DataBuffer(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public DataBuffer()
+            : base() { }
+
+        public DataBuffer(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
-
 
         #endregion
 

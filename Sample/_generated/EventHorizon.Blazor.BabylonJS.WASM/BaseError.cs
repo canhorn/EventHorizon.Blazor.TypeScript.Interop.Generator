@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<BaseError>))]
     public class BaseError : CachedEntityObject
     {
@@ -34,17 +32,16 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
-        #region Constructor
-        public BaseError() : base() { }
 
-        public BaseError(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public BaseError()
+            : base() { }
+
+        public BaseError(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
-
 
         #endregion
 

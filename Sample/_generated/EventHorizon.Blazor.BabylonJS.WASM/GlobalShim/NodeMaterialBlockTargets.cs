@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Interop;
 
 public class NodeMaterialBlockTargets : CachedEntity
 {
-    public NodeMaterialBlockTargets()
-    {
-    }
+    public NodeMaterialBlockTargets() { }
 
-    public NodeMaterialBlockTargets(
-        ICachedEntity entity
-    )
+    public NodeMaterialBlockTargets(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

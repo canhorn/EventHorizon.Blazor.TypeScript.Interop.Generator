@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<ExponentialEase>))]
     public class ExponentialEase : EasingFunction, IEasingFunction
     {
@@ -32,40 +30,27 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public decimal exponent
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "exponent"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "exponent"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "exponent",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "exponent", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public ExponentialEase() : base() { }
+        public ExponentialEase()
+            : base() { }
 
-        public ExponentialEase(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public ExponentialEase(ICachedEntity entity)
+            : base(entity) { }
 
-        public ExponentialEase(
-            System.Nullable<decimal> exponent = null
-        ) : base()
+        public ExponentialEase(System.Nullable<decimal> exponent = null)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "ExponentialEase" },
@@ -79,10 +64,7 @@ namespace BABYLON
         public decimal easeInCore(decimal gradient)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "easeInCore" }, gradient
-                }
+                new object[] { new string[] { this.___guid, "easeInCore" }, gradient }
             );
         }
         #endregion

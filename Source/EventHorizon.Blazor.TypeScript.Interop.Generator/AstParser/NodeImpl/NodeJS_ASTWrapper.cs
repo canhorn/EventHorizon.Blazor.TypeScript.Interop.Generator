@@ -10,33 +10,20 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl
     using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Model;
     using Jering.Javascript.NodeJS;
 
-    public class NodeJS_ASTWrapper
-        : AbstractSyntaxTree
+    public class NodeJS_ASTWrapper : AbstractSyntaxTree
     {
-        public NodeJS_ASTWrapper(
-            string source
-        )
+        public NodeJS_ASTWrapper(string source)
         {
             var nodeJSPath = Path.Combine(
-                Path.GetDirectoryName(
-                    Assembly.GetExecutingAssembly().Location
-                ),
+                Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
                 "AstParser",
                 "NodeImpl",
                 "NodeJS"
             );
-            var nodeModulesPath = Path.Combine(
-                nodeJSPath,
-                "node_modules"
-            );
-            var indexJSPath = Path.Combine(
-                nodeJSPath,
-                "index.js"
-            );
+            var nodeModulesPath = Path.Combine(nodeJSPath, "node_modules");
+            var indexJSPath = Path.Combine(nodeJSPath, "index.js");
             // Check for existing node_modules, install if needed
-            if (!Directory.Exists(
-                nodeModulesPath
-            ))
+            if (!Directory.Exists(nodeModulesPath))
             {
                 var cmdProcessInfo = new ProcessStartInfo
                 {
@@ -45,19 +32,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl
                     UseShellExecute = true,
                     Arguments = "install",
                 };
-                var cmdProcess = Process.Start(
-                    cmdProcessInfo
-                );
+                var cmdProcess = Process.Start(cmdProcessInfo);
                 cmdProcess.WaitForExit();
             }
 
-            var result = StaticNodeJSService.InvokeFromFileAsync<string>(
-                indexJSPath,
-                args: new object[]
-                {
-                    source
-                }
-            ).GetAwaiter().GetResult();
+            var result = StaticNodeJSService
+                .InvokeFromFileAsync<string>(indexJSPath, args: new object[] { source })
+                .GetAwaiter()
+                .GetResult();
 
             // Use for testing the generated AST
             //File.WriteAllText(
@@ -73,22 +55,15 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl
             //);
             var ast = JsonSerializer.Deserialize<ASTModel>(
                 result,
-                new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true,
-                }
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true, }
             );
 
-            RootNode = new NodeJS_Node(
-                ast.Program
-            );
+            RootNode = new NodeJS_Node(ast.Program);
         }
 
         public Node RootNode { get; }
 
-        public IEnumerable<Node> OfKind(
-            string kind
-        )
+        public IEnumerable<Node> OfKind(string kind)
         {
             return RootNode.OfKind(kind);
         }

@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<PushMaterial>))]
     public class PushMaterial : Material
     {
@@ -34,23 +32,21 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
+
         #region Constructor
-        public PushMaterial() : base() { }
+        public PushMaterial()
+            : base() { }
 
-        public PushMaterial(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public PushMaterial(ICachedEntity entity)
+            : base(entity) { }
 
-        public PushMaterial(
-            string name, Scene scene
-        ) : base()
+        public PushMaterial(string name, Scene scene)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "PushMaterial" },
-                name, scene
+                name,
+                scene
             );
             ___guid = entity.___guid;
         }
@@ -61,50 +57,35 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getEffect" }
-                }
+                new object[] { new string[] { this.___guid, "getEffect" } }
             );
         }
 
         public bool isReady(AbstractMesh mesh = null, System.Nullable<bool> useInstances = null)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "isReady" }, mesh, useInstances
-                }
+                new object[] { new string[] { this.___guid, "isReady" }, mesh, useInstances }
             );
         }
 
         public void bindOnlyWorldMatrix(Matrix world)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "bindOnlyWorldMatrix" }, world
-                }
+                new object[] { new string[] { this.___guid, "bindOnlyWorldMatrix" }, world }
             );
         }
 
         public void bindOnlyNormalMatrix(Matrix normalMatrix)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "bindOnlyNormalMatrix" }, normalMatrix
-                }
+                new object[] { new string[] { this.___guid, "bindOnlyNormalMatrix" }, normalMatrix }
             );
         }
 
         public void bind(Matrix world, Mesh mesh = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "bind" }, world, mesh
-                }
+                new object[] { new string[] { this.___guid, "bind" }, world, mesh }
             );
         }
         #endregion

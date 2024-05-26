@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IShadowLight : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IShadowLightCachedEntity>))]
     public class IShadowLightCachedEntity : CachedEntityObject, IShadowLight
     {
@@ -32,24 +32,14 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public string id
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "id"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "id"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "id",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "id", value);
             }
         }
 
@@ -58,27 +48,23 @@ namespace BABYLON
         {
             get
             {
-            if(__position == null)
-            {
-                __position = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "position",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __position;
+                if (__position == null)
+                {
+                    __position = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "position",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __position;
             }
             set
             {
-__position = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "position",
-                    value
-                );
+                __position = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "position", value);
             }
         }
 
@@ -87,27 +73,23 @@ __position = null;
         {
             get
             {
-            if(__direction == null)
-            {
-                __direction = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "direction",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __direction;
+                if (__direction == null)
+                {
+                    __direction = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "direction",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __direction;
             }
             set
             {
-__direction = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "direction",
-                    value
-                );
+                __direction = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "direction", value);
             }
         }
 
@@ -116,27 +98,23 @@ __direction = null;
         {
             get
             {
-            if(__transformedPosition == null)
-            {
-                __transformedPosition = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "transformedPosition",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __transformedPosition;
+                if (__transformedPosition == null)
+                {
+                    __transformedPosition = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "transformedPosition",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __transformedPosition;
             }
             set
             {
-__transformedPosition = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "transformedPosition",
-                    value
-                );
+                __transformedPosition = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "transformedPosition", value);
             }
         }
 
@@ -145,103 +123,63 @@ __transformedPosition = null;
         {
             get
             {
-            if(__transformedDirection == null)
-            {
-                __transformedDirection = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "transformedDirection",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __transformedDirection;
+                if (__transformedDirection == null)
+                {
+                    __transformedDirection = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "transformedDirection",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __transformedDirection;
             }
             set
             {
-__transformedDirection = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "transformedDirection",
-                    value
-                );
+                __transformedDirection = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "transformedDirection", value);
             }
         }
 
-        
         public string name
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "name"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "name"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "name",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "name", value);
             }
         }
 
-        
         public decimal shadowMinZ
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "shadowMinZ"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "shadowMinZ"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "shadowMinZ",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "shadowMinZ", value);
             }
         }
 
-        
         public decimal shadowMaxZ
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "shadowMaxZ"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "shadowMaxZ"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "shadowMaxZ",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "shadowMaxZ", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IShadowLightCachedEntity() : base() { }
+        public IShadowLightCachedEntity()
+            : base() { }
 
-        public IShadowLightCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IShadowLightCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -249,10 +187,7 @@ __transformedDirection = null;
         public bool computeTransformedInformation()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "computeTransformedInformation" }
-                }
+                new object[] { new string[] { this.___guid, "computeTransformedInformation" } }
             );
         }
 
@@ -260,39 +195,28 @@ __transformedDirection = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Scene>(
                 entity => new Scene() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getScene" }
-                }
+                new object[] { new string[] { this.___guid, "getScene" } }
             );
         }
 
         #region customProjectionMatrixBuilder TODO: Get Comments as metadata identification
         private bool _isCustomProjectionMatrixBuilderEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _customProjectionMatrixBuilderActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _customProjectionMatrixBuilderActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string customProjectionMatrixBuilder(
-            Func<Task> callback
-        )
+        public string customProjectionMatrixBuilder(Func<Task> callback)
         {
             SetupCustomProjectionMatrixBuilderLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _customProjectionMatrixBuilderActionMap.Add(
-                handle,
-                callback
-            );
+            _customProjectionMatrixBuilderActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool customProjectionMatrixBuilder_Remove(
-            string handle
-        )
+        public bool customProjectionMatrixBuilder_Remove(string handle)
         {
-            return _customProjectionMatrixBuilderActionMap.Remove(
-                handle
-            );
+            return _customProjectionMatrixBuilderActionMap.Remove(handle);
         }
 
         private void SetupCustomProjectionMatrixBuilderLoop()
@@ -320,13 +244,20 @@ __transformedDirection = null;
         }
         #endregion
 
-        public IShadowLightCachedEntity setShadowProjectionMatrix(Matrix matrix, Matrix viewMatrix, AbstractMesh[] renderList)
+        public IShadowLightCachedEntity setShadowProjectionMatrix(
+            Matrix matrix,
+            Matrix viewMatrix,
+            AbstractMesh[] renderList
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<IShadowLightCachedEntity>(
                 entity => new IShadowLightCachedEntity() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "setShadowProjectionMatrix" }, matrix, viewMatrix, renderList
+                    new string[] { this.___guid, "setShadowProjectionMatrix" },
+                    matrix,
+                    viewMatrix,
+                    renderList
                 }
             );
         }
@@ -334,40 +265,28 @@ __transformedDirection = null;
         public decimal getDepthScale()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getDepthScale" }
-                }
+                new object[] { new string[] { this.___guid, "getDepthScale" } }
             );
         }
 
         public bool needCube()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "needCube" }
-                }
+                new object[] { new string[] { this.___guid, "needCube" } }
             );
         }
 
         public bool needProjectionMatrixCompute()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "needProjectionMatrixCompute" }
-                }
+                new object[] { new string[] { this.___guid, "needProjectionMatrixCompute" } }
             );
         }
 
         public void forceProjectionMatrixCompute()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "forceProjectionMatrixCompute" }
-                }
+                new object[] { new string[] { this.___guid, "forceProjectionMatrixCompute" } }
             );
         }
 
@@ -375,30 +294,21 @@ __transformedDirection = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getShadowDirection" }, faceIndex
-                }
+                new object[] { new string[] { this.___guid, "getShadowDirection" }, faceIndex }
             );
         }
 
         public decimal getDepthMinZ(Camera activeCamera)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getDepthMinZ" }, activeCamera
-                }
+                new object[] { new string[] { this.___guid, "getDepthMinZ" }, activeCamera }
             );
         }
 
         public decimal getDepthMaxZ(Camera activeCamera)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getDepthMaxZ" }, activeCamera
-                }
+                new object[] { new string[] { this.___guid, "getDepthMaxZ" }, activeCamera }
             );
         }
         #endregion

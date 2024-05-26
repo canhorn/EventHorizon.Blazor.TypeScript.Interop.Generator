@@ -11,33 +11,25 @@ namespace EventHorizon.Blazor.Interop.Generator.Templates
             var templatesPath = "EventHorizon.Blazor.Interop.Generator.Templates";
 
             // Class Template
-            var classTemplate = ReadAllText(
-                $"{templatesPath}.ClassTemplate.txt"
-            );
+            var classTemplate = ReadAllText($"{templatesPath}.ClassTemplate.txt");
             // Class With No Namespace Template
             var classWithNoNamespaceTemplate = ReadAllText(
                 $"{templatesPath}.ClassWithNoNamespaceTemplate.txt"
             );
             // Class Shim Template
-            var classShimTemplate = ReadAllText(
-                $"{templatesPath}.ClassShimTemplate.txt"
-            );
+            var classShimTemplate = ReadAllText($"{templatesPath}.ClassShimTemplate.txt");
             // Cached Entity Object Template
             var cachedEntityObjectTemplate = ReadAllText(
                 $"{templatesPath}.CachedEntityObjectTemplate.txt"
             );
             // Accessor/Property Template
-            var accessorTemplate = ReadAllText(
-                $"{templatesPath}.AccessorTemplate.txt"
-            );
+            var accessorTemplate = ReadAllText($"{templatesPath}.AccessorTemplate.txt");
             // Accessor/Property With Setter Template
             var accessorWithSetterTemplate = ReadAllText(
                 $"{templatesPath}.AccessorWithSetterTemplate.txt"
             );
             // Constructor Template
-            var constructorTemplate = ReadAllText(
-                $"{templatesPath}.ConstructorTemplate.txt"
-            );
+            var constructorTemplate = ReadAllText($"{templatesPath}.ConstructorTemplate.txt");
             // Constructor To Base Template
             var constructorToBaseTemplate = ReadAllText(
                 $"{templatesPath}.ConstructorToBaseTemplate.txt"
@@ -47,12 +39,8 @@ namespace EventHorizon.Blazor.Interop.Generator.Templates
                 $"{templatesPath}.ConstructorWithArgumentsTemplate.txt"
             );
             // Method Template
-            var methodTemplate = ReadAllText(
-                $"{templatesPath}.MethodTemplate.txt"
-            );
-            var methodActionTemplate = ReadAllText(
-                $"{templatesPath}.MethodActionTemplate.txt"
-            );
+            var methodTemplate = ReadAllText($"{templatesPath}.MethodTemplate.txt");
+            var methodActionTemplate = ReadAllText($"{templatesPath}.MethodActionTemplate.txt");
             var methodStaticActionTemplate = ReadAllText(
                 $"{templatesPath}.MethodStaticActionTemplate.txt"
             );
@@ -60,22 +48,14 @@ namespace EventHorizon.Blazor.Interop.Generator.Templates
                 $"{templatesPath}.ReturnTypePrimitiveTemplate.txt"
             );
             var returnTypeClassTemplate = ReadAllText(
-                $"{templatesPath}.ReturnTypeClassTemplate.txt")
-            ;
-            var returnTypeVoidTemplate = ReadAllText(
-                $"{templatesPath}.ReturnTypeVoidTemplate.txt"
+                $"{templatesPath}.ReturnTypeClassTemplate.txt"
             );
+            var returnTypeVoidTemplate = ReadAllText($"{templatesPath}.ReturnTypeVoidTemplate.txt");
 
             // Interop Templates
-            var interopGetTemplate = ReadAllText(
-                $"{templatesPath}.InteropGetTemplate.txt"
-            );
-            var interopSetTemplate = ReadAllText(
-                $"{templatesPath}.InteropSetTemplate.txt"
-            );
-            var interopFuncTemplate = ReadAllText(
-                $"{templatesPath}.InteropFuncTemplate.txt"
-            );
+            var interopGetTemplate = ReadAllText($"{templatesPath}.InteropGetTemplate.txt");
+            var interopSetTemplate = ReadAllText($"{templatesPath}.InteropSetTemplate.txt");
+            var interopFuncTemplate = ReadAllText($"{templatesPath}.InteropFuncTemplate.txt");
             var interopFuncArrayTemplate = ReadAllText(
                 $"{templatesPath}.InteropFuncArrayTemplate.txt"
             );
@@ -95,10 +75,8 @@ namespace EventHorizon.Blazor.Interop.Generator.Templates
                 $"{templatesPath}.InteropGetClassTemplate.txt"
             );
 
-            // Promise/Tasks Interop 
-            var interopTaskTemplate = ReadAllText(
-                $"{templatesPath}.InteropTaskTemplate.txt"
-            );
+            // Promise/Tasks Interop
+            var interopTaskTemplate = ReadAllText($"{templatesPath}.InteropTaskTemplate.txt");
             var interopTaskArrayTemplate = ReadAllText(
                 $"{templatesPath}.InteropTaskArrayTemplate.txt"
             );
@@ -145,18 +123,12 @@ namespace EventHorizon.Blazor.Interop.Generator.Templates
             generatedTemplates.InteropTaskArray = interopTaskArrayTemplate;
             generatedTemplates.InteropTaskArrayClass = interopTaskArrayClassTemplate;
         }
-        private static string ReadAllText(
-            string templatePath
-        )
+
+        private static string ReadAllText(string templatePath)
         {
             var assembly = typeof(ReadInteropTemplates).Assembly;
-            var resourceStream = assembly.GetManifestResourceStream(
-                templatePath
-            );
-            using var reader = new StreamReader(
-                resourceStream,
-                Encoding.UTF8
-            );
+            var resourceStream = assembly.GetManifestResourceStream(templatePath);
+            using var reader = new StreamReader(resourceStream, Encoding.UTF8);
             return reader.ReadToEnd();
         }
     }

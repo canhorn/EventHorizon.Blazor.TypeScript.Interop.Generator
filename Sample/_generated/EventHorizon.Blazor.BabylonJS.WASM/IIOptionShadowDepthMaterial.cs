@@ -11,9 +11,11 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IIOptionShadowDepthMaterial : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IIOptionShadowDepthMaterialCachedEntity>))]
-    public class IIOptionShadowDepthMaterialCachedEntity : CachedEntityObject, IIOptionShadowDepthMaterial
+    public class IIOptionShadowDepthMaterialCachedEntity
+        : CachedEntityObject,
+            IIOptionShadowDepthMaterial
     {
         #region Static Accessors
 
@@ -32,12 +34,12 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public string[] remappedVariables
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArray<string>(
+                return EventHorizonBlazorInterop.GetArray<string>(
                     this.___guid,
                     "remappedVariables"
                 );
@@ -45,45 +47,27 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "remappedVariables",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "remappedVariables", value);
             }
         }
 
-        
         public bool standalone
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "standalone"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "standalone"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "standalone",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "standalone", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IIOptionShadowDepthMaterialCachedEntity() : base() { }
+        public IIOptionShadowDepthMaterialCachedEntity()
+            : base() { }
 
-        public IIOptionShadowDepthMaterialCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IIOptionShadowDepthMaterialCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

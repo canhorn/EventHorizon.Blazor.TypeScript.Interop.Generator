@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IWebRequest : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IWebRequestCachedEntity>))]
     public class IWebRequestCachedEntity : CachedEntityObject, IWebRequest
     {
@@ -32,79 +32,44 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public string responseURL
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "responseURL"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "responseURL"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "responseURL",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "responseURL", value);
             }
         }
 
-        
         public decimal status
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "status"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "status"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "status",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "status", value);
             }
         }
 
-        
         public string statusText
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "statusText"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "statusText"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "statusText",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "statusText", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IWebRequestCachedEntity() : base() { }
+        public IWebRequestCachedEntity()
+            : base() { }
 
-        public IWebRequestCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IWebRequestCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

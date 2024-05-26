@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<MaterialDefines>))]
     public class MaterialDefines : CachedEntityObject
     {
@@ -28,30 +26,26 @@ namespace BABYLON
         #endregion
 
         #region Accessors
-        
+
         public async ValueTask<bool> get_isDirty()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isDirty"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "isDirty");
         }
         #endregion
 
         #region Properties
 
         #endregion
-        
-        #region Constructor
-        public MaterialDefines() : base() { } 
 
-        public MaterialDefines(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public MaterialDefines()
+            : base() { }
+
+        public MaterialDefines(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
-
 
         #endregion
 
@@ -59,150 +53,105 @@ namespace BABYLON
         public async ValueTask markAsProcessed()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "markAsProcessed" }
-                }
+                new object[] { new string[] { this.___guid, "markAsProcessed" } }
             );
         }
 
         public async ValueTask markAsUnprocessed()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "markAsUnprocessed" }
-                }
+                new object[] { new string[] { this.___guid, "markAsUnprocessed" } }
             );
         }
 
         public async ValueTask markAllAsDirty()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "markAllAsDirty" }
-                }
+                new object[] { new string[] { this.___guid, "markAllAsDirty" } }
             );
         }
 
         public async ValueTask markAsImageProcessingDirty()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "markAsImageProcessingDirty" }
-                }
+                new object[] { new string[] { this.___guid, "markAsImageProcessingDirty" } }
             );
         }
 
         public async ValueTask markAsLightDirty(System.Nullable<bool> disposed = null)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "markAsLightDirty" }, disposed
-                }
+                new object[] { new string[] { this.___guid, "markAsLightDirty" }, disposed }
             );
         }
 
         public async ValueTask markAsAttributesDirty()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "markAsAttributesDirty" }
-                }
+                new object[] { new string[] { this.___guid, "markAsAttributesDirty" } }
             );
         }
 
         public async ValueTask markAsTexturesDirty()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "markAsTexturesDirty" }
-                }
+                new object[] { new string[] { this.___guid, "markAsTexturesDirty" } }
             );
         }
 
         public async ValueTask markAsFresnelDirty()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "markAsFresnelDirty" }
-                }
+                new object[] { new string[] { this.___guid, "markAsFresnelDirty" } }
             );
         }
 
         public async ValueTask markAsMiscDirty()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "markAsMiscDirty" }
-                }
+                new object[] { new string[] { this.___guid, "markAsMiscDirty" } }
             );
         }
 
         public async ValueTask markAsPrePassDirty()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "markAsPrePassDirty" }
-                }
+                new object[] { new string[] { this.___guid, "markAsPrePassDirty" } }
             );
         }
 
         public async ValueTask rebuild()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "rebuild" }
-                }
+                new object[] { new string[] { this.___guid, "rebuild" } }
             );
         }
 
         public async ValueTask<bool> isEqual(MaterialDefines other)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "isEqual" }, other
-                }
+                new object[] { new string[] { this.___guid, "isEqual" }, other }
             );
         }
 
         public async ValueTask cloneTo(MaterialDefines other)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "cloneTo" }, other
-                }
+                new object[] { new string[] { this.___guid, "cloneTo" }, other }
             );
         }
 
         public async ValueTask reset()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "reset" }
-                }
+                new object[] { new string[] { this.___guid, "reset" } }
             );
         }
 
         public async ValueTask<string> toString()
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "toString" }
-                }
+                new object[] { new string[] { this.___guid, "toString" } }
             );
         }
         #endregion

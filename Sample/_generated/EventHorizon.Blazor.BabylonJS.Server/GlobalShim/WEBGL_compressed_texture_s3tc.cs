@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Server.Interop;
 
 public class WEBGL_compressed_texture_s3tc : CachedEntity
 {
-    public WEBGL_compressed_texture_s3tc()
-    {
-    }
+    public WEBGL_compressed_texture_s3tc() { }
 
-    public WEBGL_compressed_texture_s3tc(
-        ICachedEntity entity
-    )
+    public WEBGL_compressed_texture_s3tc(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

@@ -16,12 +16,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         )
         {
             // Check if Class
-            var classesCache = ast.RootNode.OfKind(
-                SyntaxKind.ClassDeclaration
-            );
-            if (node.Kind == SyntaxKind.ClassDeclaration
+            var classesCache = ast.RootNode.OfKind(SyntaxKind.ClassDeclaration);
+            if (
+                node.Kind == SyntaxKind.ClassDeclaration
                 && node.HeritageClauses != null
-                && node.HeritageClauses.Any())
+                && node.HeritageClauses.Any()
+            )
             {
                 var herited = node.HeritageClauses.First();
                 if (herited != null)

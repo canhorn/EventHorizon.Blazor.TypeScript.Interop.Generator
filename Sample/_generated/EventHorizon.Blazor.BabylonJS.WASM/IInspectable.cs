@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IInspectable : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IInspectableCachedEntity>))]
     public class IInspectableCachedEntity : CachedEntityObject, IInspectable
     {
@@ -32,142 +32,74 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public string label
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "label"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "label"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "label",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "label", value);
             }
         }
 
-        
         public string propertyName
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "propertyName"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "propertyName"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "propertyName",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "propertyName", value);
             }
         }
 
-        
         public int type
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<int>(
-                    this.___guid,
-                    "type"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<int>(this.___guid, "type"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "type",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "type", value);
             }
         }
 
-        
         public decimal min
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "min"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "min"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "min",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "min", value);
             }
         }
 
-        
         public decimal max
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "max"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "max"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "max",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "max", value);
             }
         }
 
-        
         public decimal step
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "step"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "step"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "step",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "step", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IInspectableCachedEntity() : base() { }
+        public IInspectableCachedEntity()
+            : base() { }
 
-        public IInspectableCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IInspectableCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

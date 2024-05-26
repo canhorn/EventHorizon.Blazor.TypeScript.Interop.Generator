@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface EngineOptions : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<EngineOptionsCachedEntity>))]
     public class EngineOptionsCachedEntity : CachedEntityObject, EngineOptions
     {
@@ -32,264 +32,150 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public decimal limitDeviceRatio
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "limitDeviceRatio"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "limitDeviceRatio"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "limitDeviceRatio",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "limitDeviceRatio", value);
             }
         }
 
-        
         public bool autoEnableWebVR
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "autoEnableWebVR"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "autoEnableWebVR"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "autoEnableWebVR",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "autoEnableWebVR", value);
             }
         }
 
-        
         public bool disableWebGL2Support
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "disableWebGL2Support"
-                );
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "disableWebGL2Support");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "disableWebGL2Support",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "disableWebGL2Support", value);
             }
         }
 
-        
         public bool audioEngine
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "audioEngine"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "audioEngine"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "audioEngine",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "audioEngine", value);
             }
         }
 
-        
         public bool deterministicLockstep
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "deterministicLockstep"
-                );
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "deterministicLockstep");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "deterministicLockstep",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "deterministicLockstep", value);
             }
         }
 
-        
         public decimal lockstepMaxSteps
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "lockstepMaxSteps"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "lockstepMaxSteps"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "lockstepMaxSteps",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "lockstepMaxSteps", value);
             }
         }
 
-        
         public decimal timeStep
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "timeStep"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "timeStep"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "timeStep",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "timeStep", value);
             }
         }
 
-        
         public bool doNotHandleContextLost
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "doNotHandleContextLost"
-                );
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "doNotHandleContextLost");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "doNotHandleContextLost",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "doNotHandleContextLost", value);
             }
         }
 
-        
         public bool doNotHandleTouchAction
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "doNotHandleTouchAction"
-                );
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "doNotHandleTouchAction");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "doNotHandleTouchAction",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "doNotHandleTouchAction", value);
             }
         }
 
-        
         public bool useHighPrecisionFloats
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "useHighPrecisionFloats"
-                );
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "useHighPrecisionFloats");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "useHighPrecisionFloats",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "useHighPrecisionFloats", value);
             }
         }
 
-        
         public bool xrCompatible
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "xrCompatible"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "xrCompatible"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "xrCompatible",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "xrCompatible", value);
             }
         }
 
-        
         public bool useHighPrecisionMatrix
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "useHighPrecisionMatrix"
-                );
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "useHighPrecisionMatrix");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "useHighPrecisionMatrix",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "useHighPrecisionMatrix", value);
             }
         }
 
-        
         public bool failIfMajorPerformanceCaveat
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
+                return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "failIfMajorPerformanceCaveat"
                 );
@@ -297,24 +183,17 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "failIfMajorPerformanceCaveat",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "failIfMajorPerformanceCaveat", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public EngineOptionsCachedEntity() : base() { }
+        public EngineOptionsCachedEntity()
+            : base() { }
 
-        public EngineOptionsCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public EngineOptionsCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

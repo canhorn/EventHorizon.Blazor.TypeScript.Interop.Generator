@@ -11,9 +11,10 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface ISmartArrayLike<T> : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<ISmartArrayLikeCachedEntity<CachedEntity>>))]
-    public class ISmartArrayLikeCachedEntity<T> : CachedEntityObject, ISmartArrayLike<T> where T : CachedEntity, new()
+    public class ISmartArrayLikeCachedEntity<T> : CachedEntityObject, ISmartArrayLike<T>
+        where T : CachedEntity, new()
     {
         #region Static Accessors
 
@@ -32,12 +33,12 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public T[] data
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<T>(
+                return EventHorizonBlazorInterop.GetArrayClass<T>(
                     this.___guid,
                     "data",
                     (entity) =>
@@ -49,45 +50,27 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "data",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "data", value);
             }
         }
 
-        
         public decimal length
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "length"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "length"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "length",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "length", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public ISmartArrayLikeCachedEntity() : base() { }
+        public ISmartArrayLikeCachedEntity()
+            : base() { }
 
-        public ISmartArrayLikeCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public ISmartArrayLikeCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

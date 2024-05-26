@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Interop;
 
 public class ClipboardEvent : CachedEntity
 {
-    public ClipboardEvent()
-    {
-    }
+    public ClipboardEvent() { }
 
-    public ClipboardEvent(
-        ICachedEntity entity
-    )
+    public ClipboardEvent(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

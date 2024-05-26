@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<BoundingBox>))]
     public class BoundingBox : CachedEntityObject, ICullable
     {
@@ -27,19 +25,25 @@ namespace BABYLON
         public static bool Intersects(BoundingBox box0, BoundingBox box1)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { "BABYLON", "BoundingBox", "Intersects" }, box0, box1
-                }
+                new object[] { new string[] { "BABYLON", "BoundingBox", "Intersects" }, box0, box1 }
             );
         }
 
-        public static bool IntersectsSphere(Vector3 minPoint, Vector3 maxPoint, Vector3 sphereCenter, decimal sphereRadius)
+        public static bool IntersectsSphere(
+            Vector3 minPoint,
+            Vector3 maxPoint,
+            Vector3 sphereCenter,
+            decimal sphereRadius
+        )
         {
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "BoundingBox", "IntersectsSphere" }, minPoint, maxPoint, sphereCenter, sphereRadius
+                    new string[] { "BABYLON", "BoundingBox", "IntersectsSphere" },
+                    minPoint,
+                    maxPoint,
+                    sphereCenter,
+                    sphereRadius
                 }
             );
         }
@@ -49,7 +53,9 @@ namespace BABYLON
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "BoundingBox", "IsCompletelyInFrustum" }, boundingVectors, frustumPlanes
+                    new string[] { "BABYLON", "BoundingBox", "IsCompletelyInFrustum" },
+                    boundingVectors,
+                    frustumPlanes
                 }
             );
         }
@@ -59,7 +65,9 @@ namespace BABYLON
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "BoundingBox", "IsInFrustum" }, boundingVectors, frustumPlanes
+                    new string[] { "BABYLON", "BoundingBox", "IsInFrustum" },
+                    boundingVectors,
+                    frustumPlanes
                 }
             );
         }
@@ -70,12 +78,12 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public Vector3[] vectors
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<Vector3>(
+                return EventHorizonBlazorInterop.GetArrayClass<Vector3>(
                     this.___guid,
                     "vectors",
                     (entity) =>
@@ -91,18 +99,18 @@ namespace BABYLON
         {
             get
             {
-            if(__center == null)
-            {
-                __center = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "center",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __center;
+                if (__center == null)
+                {
+                    __center = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "center",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __center;
             }
         }
 
@@ -111,18 +119,18 @@ namespace BABYLON
         {
             get
             {
-            if(__centerWorld == null)
-            {
-                __centerWorld = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "centerWorld",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __centerWorld;
+                if (__centerWorld == null)
+                {
+                    __centerWorld = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "centerWorld",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __centerWorld;
             }
         }
 
@@ -131,18 +139,18 @@ namespace BABYLON
         {
             get
             {
-            if(__extendSize == null)
-            {
-                __extendSize = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "extendSize",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __extendSize;
+                if (__extendSize == null)
+                {
+                    __extendSize = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "extendSize",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __extendSize;
             }
         }
 
@@ -151,27 +159,26 @@ namespace BABYLON
         {
             get
             {
-            if(__extendSizeWorld == null)
-            {
-                __extendSizeWorld = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "extendSizeWorld",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __extendSizeWorld;
+                if (__extendSizeWorld == null)
+                {
+                    __extendSizeWorld = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "extendSizeWorld",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __extendSizeWorld;
             }
         }
 
-        
         public Vector3[] directions
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<Vector3>(
+                return EventHorizonBlazorInterop.GetArrayClass<Vector3>(
                     this.___guid,
                     "directions",
                     (entity) =>
@@ -182,12 +189,11 @@ namespace BABYLON
             }
         }
 
-        
         public Vector3[] vectorsWorld
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<Vector3>(
+                return EventHorizonBlazorInterop.GetArrayClass<Vector3>(
                     this.___guid,
                     "vectorsWorld",
                     (entity) =>
@@ -203,18 +209,18 @@ namespace BABYLON
         {
             get
             {
-            if(__minimumWorld == null)
-            {
-                __minimumWorld = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "minimumWorld",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __minimumWorld;
+                if (__minimumWorld == null)
+                {
+                    __minimumWorld = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "minimumWorld",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __minimumWorld;
             }
         }
 
@@ -223,18 +229,18 @@ namespace BABYLON
         {
             get
             {
-            if(__maximumWorld == null)
-            {
-                __maximumWorld = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "maximumWorld",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __maximumWorld;
+                if (__maximumWorld == null)
+                {
+                    __maximumWorld = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "maximumWorld",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __maximumWorld;
             }
         }
 
@@ -243,18 +249,18 @@ namespace BABYLON
         {
             get
             {
-            if(__minimum == null)
-            {
-                __minimum = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "minimum",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __minimum;
+                if (__minimum == null)
+                {
+                    __minimum = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "minimum",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __minimum;
             }
         }
 
@@ -263,38 +269,37 @@ namespace BABYLON
         {
             get
             {
-            if(__maximum == null)
-            {
-                __maximum = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "maximum",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __maximum;
+                if (__maximum == null)
+                {
+                    __maximum = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "maximum",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __maximum;
             }
         }
         #endregion
-        
+
         #region Constructor
-        public BoundingBox() : base() { }
+        public BoundingBox()
+            : base() { }
 
-        public BoundingBox(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public BoundingBox(ICachedEntity entity)
+            : base(entity) { }
 
-        public BoundingBox(
-            Vector3 min, Vector3 max, Matrix worldMatrix = null
-        ) : base()
+        public BoundingBox(Vector3 min, Vector3 max, Matrix worldMatrix = null)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "BoundingBox" },
-                min, max, worldMatrix
+                min,
+                max,
+                worldMatrix
             );
             ___guid = entity.___guid;
         }
@@ -304,10 +309,7 @@ namespace BABYLON
         public void reConstruct(Vector3 min, Vector3 max, Matrix worldMatrix = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "reConstruct" }, min, max, worldMatrix
-                }
+                new object[] { new string[] { this.___guid, "reConstruct" }, min, max, worldMatrix }
             );
         }
 
@@ -315,10 +317,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<BoundingBox>(
                 entity => new BoundingBox() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "scale" }, factor
-                }
+                new object[] { new string[] { this.___guid, "scale" }, factor }
             );
         }
 
@@ -326,20 +325,14 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getWorldMatrix" }
-                }
+                new object[] { new string[] { this.___guid, "getWorldMatrix" } }
             );
         }
 
         public bool isInFrustum(Plane[] frustumPlanes)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "isInFrustum" }, frustumPlanes
-                }
+                new object[] { new string[] { this.___guid, "isInFrustum" }, frustumPlanes }
             );
         }
 
@@ -348,7 +341,8 @@ namespace BABYLON
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
-                    new string[] { this.___guid, "isCompletelyInFrustum" }, frustumPlanes
+                    new string[] { this.___guid, "isCompletelyInFrustum" },
+                    frustumPlanes
                 }
             );
         }
@@ -356,30 +350,21 @@ namespace BABYLON
         public bool intersectsPoint(Vector3 point)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "intersectsPoint" }, point
-                }
+                new object[] { new string[] { this.___guid, "intersectsPoint" }, point }
             );
         }
 
         public bool intersectsSphere(BoundingSphere sphere)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "intersectsSphere" }, sphere
-                }
+                new object[] { new string[] { this.___guid, "intersectsSphere" }, sphere }
             );
         }
 
         public bool intersectsMinMax(Vector3 min, Vector3 max)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "intersectsMinMax" }, min, max
-                }
+                new object[] { new string[] { this.___guid, "intersectsMinMax" }, min, max }
             );
         }
         #endregion

@@ -24,17 +24,16 @@ namespace EventHorizon.Blazor.Interop.Generator
             TypeStatementTemplates.TaskTemplate = "[[GENERIC_TYPES]]";
             ReadInteropTemplates.SetReadTemplates();
 
-            return new GenerateSource()
-                .Run(
-                    projectAssembly,
-                    sourceDirectory,
-                    sourceFiles,
-                    generationList,
-                    writer,
-                    textFormatter,
-                    typeOverrideMap,
-                    parserType
-                );
+            return new GenerateSource().Run(
+                projectAssembly,
+                sourceDirectory,
+                sourceFiles,
+                generationList,
+                writer,
+                textFormatter,
+                typeOverrideMap,
+                parserType
+            );
         }
     }
 }

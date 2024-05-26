@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface ICullable : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<ICullableCachedEntity>))]
     public class ICullableCachedEntity : CachedEntityObject, ICullable
     {
@@ -34,16 +34,13 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
+
         #region Constructor
-        public ICullableCachedEntity() : base() { }
+        public ICullableCachedEntity()
+            : base() { }
 
-        public ICullableCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public ICullableCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -51,10 +48,7 @@ namespace BABYLON
         public bool isInFrustum(Plane[] frustumPlanes)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "isInFrustum" }, frustumPlanes
-                }
+                new object[] { new string[] { this.___guid, "isInFrustum" }, frustumPlanes }
             );
         }
 
@@ -63,7 +57,8 @@ namespace BABYLON
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
-                    new string[] { this.___guid, "isCompletelyInFrustum" }, frustumPlanes
+                    new string[] { this.___guid, "isCompletelyInFrustum" },
+                    frustumPlanes
                 }
             );
         }

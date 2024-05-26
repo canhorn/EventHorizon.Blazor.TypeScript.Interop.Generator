@@ -4,9 +4,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 
     public class PrimitiveTypeIdentifier
     {
-        public static bool Identify(
-            string type
-        )
+        public static bool Identify(string type)
         {
             switch (type)
             {
@@ -15,7 +13,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 case GenerationIdentifiedTypes.Number:
                 case GenerationIdentifiedTypes.Int:
                 case GenerationIdentifiedTypes.Float:
-                //case GenerationIdentifiedTypes.Array:
+                    //case GenerationIdentifiedTypes.Array:
                     return true;
                 default:
                     break;

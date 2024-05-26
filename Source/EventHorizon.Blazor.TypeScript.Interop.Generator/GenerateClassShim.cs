@@ -6,22 +6,16 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
 
     public static class GenerateClassShim
     {
-        public static ClassStatement GenerateClassStatement(
-            string classIdentifier
-        )
+        public static ClassStatement GenerateClassStatement(string classIdentifier)
         {
             return new ClassStatement
             {
                 Namespace = "global.GlobalShim",
-                Name = DotNetClassNormalizer.Normalize(
-                    classIdentifier
-                ),
+                Name = DotNetClassNormalizer.Normalize(classIdentifier),
             };
         }
 
-        public static string GenerateString(
-            ClassStatement classStatement
-        )
+        public static string GenerateString(ClassStatement classStatement)
         {
             // Templates
             var classGenerationTemplates = ReadTemplates.Read();

@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Server.Interop;
 
 public class XMLHttpRequest : CachedEntity
 {
-    public XMLHttpRequest()
-    {
-    }
+    public XMLHttpRequest() { }
 
-    public XMLHttpRequest(
-        ICachedEntity entity
-    )
+    public XMLHttpRequest(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<PointerInfoBase>))]
     public class PointerInfoBase : CachedEntityObject
     {
@@ -32,24 +30,14 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public int type
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<int>(
-                    this.___guid,
-                    "type"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<int>(this.___guid, "type"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "type",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "type", value);
             }
         }
 
@@ -58,48 +46,43 @@ namespace BABYLON
         {
             get
             {
-            if(__event == null)
-            {
-                __event = EventHorizonBlazorInterop.GetClass<PointerEvent>(
-                    this.___guid,
-                    "event",
-                    (entity) =>
-                    {
-                        return new PointerEvent() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __event;
+                if (__event == null)
+                {
+                    __event = EventHorizonBlazorInterop.GetClass<PointerEvent>(
+                        this.___guid,
+                        "event",
+                        (entity) =>
+                        {
+                            return new PointerEvent() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __event;
             }
             set
             {
-__event = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "event",
-                    value
-                );
+                __event = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "event", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public PointerInfoBase() : base() { }
 
-        public PointerInfoBase(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public PointerInfoBase()
+            : base() { }
+
+        public PointerInfoBase(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
-        public PointerInfoBase(
-            decimal type, PointerEvent @event
-        )
+        public PointerInfoBase(decimal type, PointerEvent @event)
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "PointerInfoBase" },
-                type, @event
+                type,
+                @event
             );
             ___guid = entity.___guid;
         }

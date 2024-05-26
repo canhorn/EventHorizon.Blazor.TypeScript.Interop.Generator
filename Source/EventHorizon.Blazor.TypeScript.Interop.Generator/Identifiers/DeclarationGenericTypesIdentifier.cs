@@ -7,18 +7,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 
     public class DeclarationGenericTypesIdentifier
     {
-        public static IList<string> Identify(
-            Node node
-        )
+        public static IList<string> Identify(Node node)
         {
             var list = default(IList<string>);
             if (node.Kind == SyntaxKind.MethodDeclaration)
             {
-                list = node
-                    .TypeParameters
-                    ?.Select(
-                        a => a.IdentifierStr
-                    ).ToList();
+                list = node.TypeParameters?.Select(a => a.IdentifierStr).ToList();
             }
             if (list == null)
             {

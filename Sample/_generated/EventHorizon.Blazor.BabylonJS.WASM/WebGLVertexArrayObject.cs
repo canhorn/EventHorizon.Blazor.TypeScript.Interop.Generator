@@ -32,16 +32,13 @@ public class WebGLVertexArrayObjectCachedEntity : CachedEntityObject, WebGLVerte
     #region Properties
 
     #endregion
-    
+
     #region Constructor
-        public WebGLVertexArrayObjectCachedEntity() : base() { }
+    public WebGLVertexArrayObjectCachedEntity()
+        : base() { }
 
-        public WebGLVertexArrayObjectCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+    public WebGLVertexArrayObjectCachedEntity(ICachedEntity entity)
+        : base(entity) { }
 
     #endregion
 

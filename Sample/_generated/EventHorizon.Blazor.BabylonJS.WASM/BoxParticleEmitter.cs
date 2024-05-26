@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<BoxParticleEmitter>))]
     public class BoxParticleEmitter : CachedEntityObject, IParticleEmitterType
     {
@@ -37,27 +35,23 @@ namespace BABYLON
         {
             get
             {
-            if(__direction1 == null)
-            {
-                __direction1 = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "direction1",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __direction1;
+                if (__direction1 == null)
+                {
+                    __direction1 = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "direction1",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __direction1;
             }
             set
             {
-__direction1 = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "direction1",
-                    value
-                );
+                __direction1 = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "direction1", value);
             }
         }
 
@@ -66,27 +60,23 @@ __direction1 = null;
         {
             get
             {
-            if(__direction2 == null)
-            {
-                __direction2 = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "direction2",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __direction2;
+                if (__direction2 == null)
+                {
+                    __direction2 = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "direction2",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __direction2;
             }
             set
             {
-__direction2 = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "direction2",
-                    value
-                );
+                __direction2 = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "direction2", value);
             }
         }
 
@@ -95,27 +85,23 @@ __direction2 = null;
         {
             get
             {
-            if(__minEmitBox == null)
-            {
-                __minEmitBox = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "minEmitBox",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __minEmitBox;
+                if (__minEmitBox == null)
+                {
+                    __minEmitBox = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "minEmitBox",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __minEmitBox;
             }
             set
             {
-__minEmitBox = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "minEmitBox",
-                    value
-                );
+                __minEmitBox = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "minEmitBox", value);
             }
         }
 
@@ -124,60 +110,71 @@ __minEmitBox = null;
         {
             get
             {
-            if(__maxEmitBox == null)
-            {
-                __maxEmitBox = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "maxEmitBox",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __maxEmitBox;
+                if (__maxEmitBox == null)
+                {
+                    __maxEmitBox = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "maxEmitBox",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __maxEmitBox;
             }
             set
             {
-__maxEmitBox = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "maxEmitBox",
-                    value
-                );
+                __maxEmitBox = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "maxEmitBox", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public BoxParticleEmitter() : base() { }
+        public BoxParticleEmitter()
+            : base() { }
 
-        public BoxParticleEmitter(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public BoxParticleEmitter(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
         #region Methods
-        public void startDirectionFunction(Matrix worldMatrix, Vector3 directionToUpdate, Particle particle, bool isLocal)
+        public void startDirectionFunction(
+            Matrix worldMatrix,
+            Vector3 directionToUpdate,
+            Particle particle,
+            bool isLocal
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "startDirectionFunction" }, worldMatrix, directionToUpdate, particle, isLocal
+                    new string[] { this.___guid, "startDirectionFunction" },
+                    worldMatrix,
+                    directionToUpdate,
+                    particle,
+                    isLocal
                 }
             );
         }
 
-        public void startPositionFunction(Matrix worldMatrix, Vector3 positionToUpdate, Particle particle, bool isLocal)
+        public void startPositionFunction(
+            Matrix worldMatrix,
+            Vector3 positionToUpdate,
+            Particle particle,
+            bool isLocal
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "startPositionFunction" }, worldMatrix, positionToUpdate, particle, isLocal
+                    new string[] { this.___guid, "startPositionFunction" },
+                    worldMatrix,
+                    positionToUpdate,
+                    particle,
+                    isLocal
                 }
             );
         }
@@ -186,60 +183,42 @@ __maxEmitBox = null;
         {
             return EventHorizonBlazorInterop.FuncClass<BoxParticleEmitter>(
                 entity => new BoxParticleEmitter() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "clone" }
-                }
+                new object[] { new string[] { this.___guid, "clone" } }
             );
         }
 
         public void applyToShader(Effect effect)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "applyToShader" }, effect
-                }
+                new object[] { new string[] { this.___guid, "applyToShader" }, effect }
             );
         }
 
         public string getEffectDefines()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getEffectDefines" }
-                }
+                new object[] { new string[] { this.___guid, "getEffectDefines" } }
             );
         }
 
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "serialize" }
-                }
+                new object[] { new string[] { this.___guid, "serialize" } }
             );
         }
 
         public void parse(object serializationObject)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "parse" }, serializationObject
-                }
+                new object[] { new string[] { this.___guid, "parse" }, serializationObject }
             );
         }
         #endregion

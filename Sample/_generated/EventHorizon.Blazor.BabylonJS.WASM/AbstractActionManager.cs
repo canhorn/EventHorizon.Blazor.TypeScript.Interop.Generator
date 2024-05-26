@@ -10,30 +10,27 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<AbstractActionManager>))]
     public class AbstractActionManager : CachedEntityObject, _IDisposable
     {
         #region Static Accessors
-        
+
         public static bool HasTriggers
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
+                return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "AbstractActionManager.HasTriggers"
                 );
             }
         }
 
-        
         public static bool HasPickTriggers
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
+                return EventHorizonBlazorInterop.Get<bool>(
                     "BABYLON",
                     "AbstractActionManager.HasPickTriggers"
                 );
@@ -42,12 +39,12 @@ namespace BABYLON
         #endregion
 
         #region Static Properties
-        
+
         public static CachedEntity Triggers
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     "BABYLON",
                     "AbstractActionManager.Triggers",
                     (entity) =>
@@ -59,11 +56,7 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    "BABYLON",
-                    "AbstractActionManager.Triggers",
-                    value
-                );
+                EventHorizonBlazorInterop.Set("BABYLON", "AbstractActionManager.Triggers", value);
             }
         }
         #endregion
@@ -74,66 +67,43 @@ namespace BABYLON
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "AbstractActionManager", "HasSpecificTrigger" }, trigger
+                    new string[] { "BABYLON", "AbstractActionManager", "HasSpecificTrigger" },
+                    trigger
                 }
             );
         }
         #endregion
 
         #region Accessors
-        
+
         public bool hasPointerTriggers
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "hasPointerTriggers"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "hasPointerTriggers"); }
         }
 
-        
         public bool hasPickTriggers
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "hasPickTriggers"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "hasPickTriggers"); }
         }
         #endregion
 
         #region Properties
-        
+
         public string hoverCursor
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "hoverCursor"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "hoverCursor"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "hoverCursor",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "hoverCursor", value);
             }
         }
 
-        
         public IActionCachedEntity[] actions
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<IActionCachedEntity>(
+                return EventHorizonBlazorInterop.GetArrayClass<IActionCachedEntity>(
                     this.___guid,
                     "actions",
                     (entity) =>
@@ -145,45 +115,27 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "actions",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "actions", value);
             }
         }
 
-        
         public bool isRecursive
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isRecursive"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isRecursive"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isRecursive",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "isRecursive", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public AbstractActionManager() : base() { }
+        public AbstractActionManager()
+            : base() { }
 
-        public AbstractActionManager(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public AbstractActionManager(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -191,30 +143,21 @@ namespace BABYLON
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
 
         public void processTrigger(decimal trigger, IActionEvent evt = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "processTrigger" }, trigger, evt
-                }
+                new object[] { new string[] { this.___guid, "processTrigger" }, trigger, evt }
             );
         }
 
         public bool hasSpecificTriggers(decimal[] triggers)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "hasSpecificTriggers" }, triggers
-                }
+                new object[] { new string[] { this.___guid, "hasSpecificTriggers" }, triggers }
             );
         }
 
@@ -223,17 +166,24 @@ namespace BABYLON
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
-                    new string[] { this.___guid, "hasSpecificTriggers2" }, triggerA, triggerB
+                    new string[] { this.___guid, "hasSpecificTriggers2" },
+                    triggerA,
+                    triggerB
                 }
             );
         }
 
-        public bool hasSpecificTrigger(decimal trigger, ActionResultCallback<object, bool> parameterPredicate = null)
+        public bool hasSpecificTrigger(
+            decimal trigger,
+            ActionResultCallback<object, bool> parameterPredicate = null
+        )
         {
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
-                    new string[] { this.___guid, "hasSpecificTrigger" }, trigger, parameterPredicate
+                    new string[] { this.___guid, "hasSpecificTrigger" },
+                    trigger,
+                    parameterPredicate
                 }
             );
         }
@@ -241,10 +191,7 @@ namespace BABYLON
         public CachedEntity serialize(string name)
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "serialize" }, name
-                }
+                new object[] { new string[] { this.___guid, "serialize" }, name }
             );
         }
 
@@ -252,20 +199,14 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<IActionCachedEntity>(
                 entity => new IActionCachedEntity() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "registerAction" }, action
-                }
+                new object[] { new string[] { this.___guid, "registerAction" }, action }
             );
         }
 
         public bool unregisterAction(IAction action)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "unregisterAction" }, action
-                }
+                new object[] { new string[] { this.___guid, "unregisterAction" }, action }
             );
         }
         #endregion

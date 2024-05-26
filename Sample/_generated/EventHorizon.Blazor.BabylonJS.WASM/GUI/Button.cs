@@ -10,8 +10,6 @@ namespace BABYLON.GUI
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Button>))]
     public class Button : Rectangle
     {
@@ -30,7 +28,10 @@ namespace BABYLON.GUI
                 entity => new Button() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "GUI", "Button", "CreateImageButton" }, name, text, imageUrl
+                    new string[] { "BABYLON", "GUI", "Button", "CreateImageButton" },
+                    name,
+                    text,
+                    imageUrl
                 }
             );
         }
@@ -41,7 +42,9 @@ namespace BABYLON.GUI
                 entity => new Button() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "GUI", "Button", "CreateImageOnlyButton" }, name, imageUrl
+                    new string[] { "BABYLON", "GUI", "Button", "CreateImageOnlyButton" },
+                    name,
+                    imageUrl
                 }
             );
         }
@@ -52,18 +55,27 @@ namespace BABYLON.GUI
                 entity => new Button() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "GUI", "Button", "CreateSimpleButton" }, name, text
+                    new string[] { "BABYLON", "GUI", "Button", "CreateSimpleButton" },
+                    name,
+                    text
                 }
             );
         }
 
-        public static Button CreateImageWithCenterTextButton(string name, string text, string imageUrl)
+        public static Button CreateImageWithCenterTextButton(
+            string name,
+            string text,
+            string imageUrl
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<Button>(
                 entity => new Button() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "GUI", "Button", "CreateImageWithCenterTextButton" }, name, text, imageUrl
+                    new string[] { "BABYLON", "GUI", "Button", "CreateImageWithCenterTextButton" },
+                    name,
+                    text,
+                    imageUrl
                 }
             );
         }
@@ -75,18 +87,18 @@ namespace BABYLON.GUI
         {
             get
             {
-            if(__image == null)
-            {
-                __image = EventHorizonBlazorInterop.GetClass<Image>(
-                    this.___guid,
-                    "image",
-                    (entity) =>
-                    {
-                        return new Image() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __image;
+                if (__image == null)
+                {
+                    __image = EventHorizonBlazorInterop.GetClass<Image>(
+                        this.___guid,
+                        "image",
+                        (entity) =>
+                        {
+                            return new Image() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __image;
             }
         }
 
@@ -95,50 +107,39 @@ namespace BABYLON.GUI
         {
             get
             {
-            if(__textBlock == null)
-            {
-                __textBlock = EventHorizonBlazorInterop.GetClass<TextBlock>(
-                    this.___guid,
-                    "textBlock",
-                    (entity) =>
-                    {
-                        return new TextBlock() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __textBlock;
+                if (__textBlock == null)
+                {
+                    __textBlock = EventHorizonBlazorInterop.GetClass<TextBlock>(
+                        this.___guid,
+                        "textBlock",
+                        (entity) =>
+                        {
+                            return new TextBlock() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __textBlock;
             }
         }
         #endregion
 
         #region Properties
-        
+
         public string name
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "name"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "name"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "name",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "name", value);
             }
         }
 
-        
         public bool delegatePickingToChildren
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
+                return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "delegatePickingToChildren"
                 );
@@ -146,27 +147,20 @@ namespace BABYLON.GUI
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "delegatePickingToChildren",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "delegatePickingToChildren", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public Button() : base() { }
+        public Button()
+            : base() { }
 
-        public Button(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public Button(ICachedEntity entity)
+            : base(entity) { }
 
-        public Button(
-            string name = null
-        ) : base()
+        public Button(string name = null)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GUI", "Button" },
@@ -179,30 +173,22 @@ namespace BABYLON.GUI
         #region Methods
         #region pointerEnterAnimation TODO: Get Comments as metadata identification
         private bool _isPointerEnterAnimationEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _pointerEnterAnimationActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _pointerEnterAnimationActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string pointerEnterAnimation(
-            Func<Task> callback
-        )
+        public string pointerEnterAnimation(Func<Task> callback)
         {
             SetupPointerEnterAnimationLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _pointerEnterAnimationActionMap.Add(
-                handle,
-                callback
-            );
+            _pointerEnterAnimationActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool pointerEnterAnimation_Remove(
-            string handle
-        )
+        public bool pointerEnterAnimation_Remove(string handle)
         {
-            return _pointerEnterAnimationActionMap.Remove(
-                handle
-            );
+            return _pointerEnterAnimationActionMap.Remove(handle);
         }
 
         private void SetupPointerEnterAnimationLoop()
@@ -232,30 +218,22 @@ namespace BABYLON.GUI
 
         #region pointerOutAnimation TODO: Get Comments as metadata identification
         private bool _isPointerOutAnimationEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _pointerOutAnimationActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _pointerOutAnimationActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string pointerOutAnimation(
-            Func<Task> callback
-        )
+        public string pointerOutAnimation(Func<Task> callback)
         {
             SetupPointerOutAnimationLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _pointerOutAnimationActionMap.Add(
-                handle,
-                callback
-            );
+            _pointerOutAnimationActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool pointerOutAnimation_Remove(
-            string handle
-        )
+        public bool pointerOutAnimation_Remove(string handle)
         {
-            return _pointerOutAnimationActionMap.Remove(
-                handle
-            );
+            return _pointerOutAnimationActionMap.Remove(handle);
         }
 
         private void SetupPointerOutAnimationLoop()
@@ -285,30 +263,22 @@ namespace BABYLON.GUI
 
         #region pointerDownAnimation TODO: Get Comments as metadata identification
         private bool _isPointerDownAnimationEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _pointerDownAnimationActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _pointerDownAnimationActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string pointerDownAnimation(
-            Func<Task> callback
-        )
+        public string pointerDownAnimation(Func<Task> callback)
         {
             SetupPointerDownAnimationLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _pointerDownAnimationActionMap.Add(
-                handle,
-                callback
-            );
+            _pointerDownAnimationActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool pointerDownAnimation_Remove(
-            string handle
-        )
+        public bool pointerDownAnimation_Remove(string handle)
         {
-            return _pointerDownAnimationActionMap.Remove(
-                handle
-            );
+            return _pointerDownAnimationActionMap.Remove(handle);
         }
 
         private void SetupPointerDownAnimationLoop()
@@ -338,30 +308,22 @@ namespace BABYLON.GUI
 
         #region pointerUpAnimation TODO: Get Comments as metadata identification
         private bool _isPointerUpAnimationEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _pointerUpAnimationActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _pointerUpAnimationActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string pointerUpAnimation(
-            Func<Task> callback
-        )
+        public string pointerUpAnimation(Func<Task> callback)
         {
             SetupPointerUpAnimationLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _pointerUpAnimationActionMap.Add(
-                handle,
-                callback
-            );
+            _pointerUpAnimationActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool pointerUpAnimation_Remove(
-            string handle
-        )
+        public bool pointerUpAnimation_Remove(string handle)
         {
-            return _pointerUpAnimationActionMap.Remove(
-                handle
-            );
+            return _pointerUpAnimationActionMap.Remove(handle);
         }
 
         private void SetupPointerUpAnimationLoop()

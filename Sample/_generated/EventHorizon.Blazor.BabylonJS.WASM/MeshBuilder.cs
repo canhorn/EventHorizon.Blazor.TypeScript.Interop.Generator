@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<MeshBuilder>))]
     public class MeshBuilder : CachedEntityObject
     {
@@ -30,7 +28,10 @@ namespace BABYLON
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreateBox" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "CreateBox" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
@@ -41,7 +42,10 @@ namespace BABYLON
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreateTiledBox" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "CreateTiledBox" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
@@ -52,7 +56,10 @@ namespace BABYLON
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreateSphere" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "CreateSphere" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
@@ -63,7 +70,10 @@ namespace BABYLON
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreateDisc" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "CreateDisc" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
@@ -74,7 +84,10 @@ namespace BABYLON
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreateIcoSphere" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "CreateIcoSphere" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
@@ -85,7 +98,10 @@ namespace BABYLON
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreateRibbon" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "CreateRibbon" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
@@ -96,7 +112,10 @@ namespace BABYLON
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreateCylinder" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "CreateCylinder" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
@@ -107,7 +126,10 @@ namespace BABYLON
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreateTorus" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "CreateTorus" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
@@ -118,7 +140,10 @@ namespace BABYLON
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreateTorusKnot" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "CreateTorusKnot" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
@@ -129,7 +154,10 @@ namespace BABYLON
                 entity => new LinesMesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreateLineSystem" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "CreateLineSystem" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
@@ -140,7 +168,10 @@ namespace BABYLON
                 entity => new LinesMesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreateLines" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "CreateLines" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
@@ -151,7 +182,10 @@ namespace BABYLON
                 entity => new LinesMesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreateDashedLines" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "CreateDashedLines" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
@@ -162,7 +196,10 @@ namespace BABYLON
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "ExtrudeShape" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "ExtrudeShape" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
@@ -173,7 +210,10 @@ namespace BABYLON
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "ExtrudeShapeCustom" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "ExtrudeShapeCustom" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
@@ -184,7 +224,10 @@ namespace BABYLON
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreateLathe" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "CreateLathe" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
@@ -195,7 +238,10 @@ namespace BABYLON
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreateTiledPlane" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "CreateTiledPlane" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
@@ -206,7 +252,10 @@ namespace BABYLON
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreatePlane" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "CreatePlane" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
@@ -217,7 +266,10 @@ namespace BABYLON
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreateGround" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "CreateGround" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
@@ -228,40 +280,70 @@ namespace BABYLON
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreateTiledGround" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "CreateTiledGround" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
 
-        public static GroundMesh CreateGroundFromHeightMap(string name, string url, object options, Scene scene = null)
+        public static GroundMesh CreateGroundFromHeightMap(
+            string name,
+            string url,
+            object options,
+            Scene scene = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<GroundMesh>(
                 entity => new GroundMesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreateGroundFromHeightMap" }, name, url, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "CreateGroundFromHeightMap" },
+                    name,
+                    url,
+                    options,
+                    scene
                 }
             );
         }
 
-        public static Mesh CreatePolygon(string name, object options, Scene scene = null, object earcutInjection = null)
+        public static Mesh CreatePolygon(
+            string name,
+            object options,
+            Scene scene = null,
+            object earcutInjection = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreatePolygon" }, name, options, scene, earcutInjection
+                    new string[] { "BABYLON", "MeshBuilder", "CreatePolygon" },
+                    name,
+                    options,
+                    scene,
+                    earcutInjection
                 }
             );
         }
 
-        public static Mesh ExtrudePolygon(string name, object options, Scene scene = null, object earcutInjection = null)
+        public static Mesh ExtrudePolygon(
+            string name,
+            object options,
+            Scene scene = null,
+            object earcutInjection = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "ExtrudePolygon" }, name, options, scene, earcutInjection
+                    new string[] { "BABYLON", "MeshBuilder", "ExtrudePolygon" },
+                    name,
+                    options,
+                    scene,
+                    earcutInjection
                 }
             );
         }
@@ -272,7 +354,10 @@ namespace BABYLON
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreateTube" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "CreateTube" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
@@ -283,7 +368,10 @@ namespace BABYLON
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreatePolyhedron" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "CreatePolyhedron" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
@@ -294,18 +382,28 @@ namespace BABYLON
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreateDecal" }, name, sourceMesh, options
+                    new string[] { "BABYLON", "MeshBuilder", "CreateDecal" },
+                    name,
+                    sourceMesh,
+                    options
                 }
             );
         }
 
-        public static Mesh CreateCapsule(string name, ICreateCapsuleOptions options = null, Scene scene = null)
+        public static Mesh CreateCapsule(
+            string name,
+            ICreateCapsuleOptions options = null,
+            Scene scene = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MeshBuilder", "CreateCapsule" }, name, options, scene
+                    new string[] { "BABYLON", "MeshBuilder", "CreateCapsule" },
+                    name,
+                    options,
+                    scene
                 }
             );
         }
@@ -318,17 +416,16 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
-        #region Constructor
-        public MeshBuilder() : base() { }
 
-        public MeshBuilder(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public MeshBuilder()
+            : base() { }
+
+        public MeshBuilder(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
-
 
         #endregion
 

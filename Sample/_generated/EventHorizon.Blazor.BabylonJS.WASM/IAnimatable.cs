@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IAnimatable : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IAnimatableCachedEntity>))]
     public class IAnimatableCachedEntity : CachedEntityObject, IAnimatable
     {
@@ -32,12 +32,12 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public Animation[] animations
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<Animation>(
+                return EventHorizonBlazorInterop.GetArrayClass<Animation>(
                     this.___guid,
                     "animations",
                     (entity) =>
@@ -49,24 +49,17 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "animations",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "animations", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IAnimatableCachedEntity() : base() { }
+        public IAnimatableCachedEntity()
+            : base() { }
 
-        public IAnimatableCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IAnimatableCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

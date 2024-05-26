@@ -32,16 +32,13 @@ public class WebGLUniformLocationCachedEntity : CachedEntityObject, WebGLUniform
     #region Properties
 
     #endregion
-    
+
     #region Constructor
-        public WebGLUniformLocationCachedEntity() : base() { }
+    public WebGLUniformLocationCachedEntity()
+        : base() { }
 
-        public WebGLUniformLocationCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+    public WebGLUniformLocationCachedEntity(ICachedEntity entity)
+        : base(entity) { }
 
     #endregion
 

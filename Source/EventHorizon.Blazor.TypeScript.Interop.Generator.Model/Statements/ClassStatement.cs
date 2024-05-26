@@ -14,9 +14,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements
         public TypeStatement ExtendedType { get; set; }
         public IList<TypeStatement> ImplementedInterfaces { get; set; } = new List<TypeStatement>();
         public ConstructorStatement ConstructorStatement { get; set; } = new ConstructorStatement();
-        public IList<PublicPropertyStatement> PublicPropertyStatements { get; set; } = new List<PublicPropertyStatement>();
-        public IList<PublicMethodStatement> PublicMethodStatements { get; set; } = new List<PublicMethodStatement>();
-        public IList<AccessorStatement> AccessorStatements { get; set; } = new List<AccessorStatement>();
+        public IList<PublicPropertyStatement> PublicPropertyStatements { get; set; } =
+            new List<PublicPropertyStatement>();
+        public IList<PublicMethodStatement> PublicMethodStatements { get; set; } =
+            new List<PublicMethodStatement>();
+        public IList<AccessorStatement> AccessorStatements { get; set; } =
+            new List<AccessorStatement>();
 
         public override string ToString()
         {

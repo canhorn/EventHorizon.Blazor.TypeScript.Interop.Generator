@@ -21,9 +21,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
             };
 
             // When
-            var actual = ArrayResponseIdentifier.Identify(
-                typeStatement
-            );
+            var actual = ArrayResponseIdentifier.Identify(typeStatement);
 
             // Then
             actual.Should().BeTrue();

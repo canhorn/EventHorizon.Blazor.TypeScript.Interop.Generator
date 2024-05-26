@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface ICustomShaderOptions : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<ICustomShaderOptionsCachedEntity>))]
     public class ICustomShaderOptionsCachedEntity : CachedEntityObject, ICustomShaderOptions
     {
@@ -32,121 +32,64 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public string shaderName
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "shaderName"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "shaderName"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "shaderName",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "shaderName", value);
             }
         }
 
-        
         public string[] attributes
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<string>(
-                    this.___guid,
-                    "attributes"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<string>(this.___guid, "attributes"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "attributes",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "attributes", value);
             }
         }
 
-        
         public string[] uniforms
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<string>(
-                    this.___guid,
-                    "uniforms"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<string>(this.___guid, "uniforms"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "uniforms",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "uniforms", value);
             }
         }
 
-        
         public string[] samplers
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<string>(
-                    this.___guid,
-                    "samplers"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<string>(this.___guid, "samplers"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "samplers",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "samplers", value);
             }
         }
 
-        
         public string[] defines
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<string>(
-                    this.___guid,
-                    "defines"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<string>(this.___guid, "defines"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "defines",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "defines", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public ICustomShaderOptionsCachedEntity() : base() { }
+        public ICustomShaderOptionsCachedEntity()
+            : base() { }
 
-        public ICustomShaderOptionsCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public ICustomShaderOptionsCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

@@ -30,37 +30,24 @@ public class CanvasRenderingContext2DCachedEntity : CachedEntityObject, CanvasRe
     #endregion
 
     #region Properties
-        
-        public bool msImageSmoothingEnabled
-        {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "msImageSmoothingEnabled"
-                );
-            }
-            set
-            {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "msImageSmoothingEnabled",
-                    value
-                );
-            }
+    public bool msImageSmoothingEnabled
+    {
+        get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "msImageSmoothingEnabled"); }
+        set
+        {
+
+            EventHorizonBlazorInterop.Set(this.___guid, "msImageSmoothingEnabled", value);
         }
+    }
     #endregion
-    
+
     #region Constructor
-        public CanvasRenderingContext2DCachedEntity() : base() { }
+    public CanvasRenderingContext2DCachedEntity()
+        : base() { }
 
-        public CanvasRenderingContext2DCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+    public CanvasRenderingContext2DCachedEntity(ICachedEntity entity)
+        : base(entity) { }
 
     #endregion
 

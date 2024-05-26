@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<RenderTargetCreationOptions>))]
     public class RenderTargetCreationOptions : CachedEntityObject
     {
@@ -32,125 +30,77 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<bool> get_generateMipMaps()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "generateMipMaps"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "generateMipMaps");
         }
+
         public ValueTask set_generateMipMaps(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "generateMipMaps",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "generateMipMaps", value);
         }
 
-        
         public async ValueTask<bool> get_generateDepthBuffer()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "generateDepthBuffer"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "generateDepthBuffer");
         }
+
         public ValueTask set_generateDepthBuffer(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "generateDepthBuffer",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "generateDepthBuffer", value);
         }
 
-        
         public async ValueTask<bool> get_generateStencilBuffer()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "generateStencilBuffer"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "generateStencilBuffer");
         }
+
         public ValueTask set_generateStencilBuffer(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "generateStencilBuffer",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "generateStencilBuffer", value);
         }
 
-        
         public async ValueTask<decimal> get_type()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "type"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "type");
         }
+
         public ValueTask set_type(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "type",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "type", value);
         }
 
-        
         public async ValueTask<decimal> get_samplingMode()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "samplingMode"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "samplingMode");
         }
+
         public ValueTask set_samplingMode(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "samplingMode",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "samplingMode", value);
         }
 
-        
         public async ValueTask<decimal> get_format()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "format"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "format");
         }
+
         public ValueTask set_format(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "format",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "format", value);
         }
         #endregion
-        
-        #region Constructor
-        public RenderTargetCreationOptions() : base() { } 
 
-        public RenderTargetCreationOptions(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public RenderTargetCreationOptions()
+            : base() { }
+
+        public RenderTargetCreationOptions(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
-
 
         #endregion
 

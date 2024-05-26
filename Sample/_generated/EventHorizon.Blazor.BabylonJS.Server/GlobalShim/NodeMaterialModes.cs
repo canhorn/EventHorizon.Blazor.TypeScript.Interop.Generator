@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Server.Interop;
 
 public class NodeMaterialModes : CachedEntity
 {
-    public NodeMaterialModes()
-    {
-    }
+    public NodeMaterialModes() { }
 
-    public NodeMaterialModes(
-        ICachedEntity entity
-    )
+    public NodeMaterialModes(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

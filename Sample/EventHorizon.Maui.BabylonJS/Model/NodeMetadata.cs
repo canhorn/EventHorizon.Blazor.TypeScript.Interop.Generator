@@ -5,16 +5,12 @@ namespace EventHorizon.Maui.BabylonJS.Model
     using EventHorizon.Blazor.Server.Interop;
 
     [JsonConverter(typeof(CachedEntityConverter<NodeMetadata>))]
-    public class NodeMetadata
-        : CachedEntityObject
+    public class NodeMetadata : CachedEntityObject
     {
-        public NodeMetadata()
-        {
+        public NodeMetadata() { }
 
-        }
-        public NodeMetadata(
-            ICachedEntity entity
-        ) : base(entity)
+        public NodeMetadata(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
@@ -22,10 +18,7 @@ namespace EventHorizon.Maui.BabylonJS.Model
         public static async ValueTask<NodeMetadata> NewNodeMetadata()
         {
             var entity = await EventHorizonBlazorInterop.New(
-                new object[]
-                {
-                    new string[] { "NodeMetadata" }
-                }
+                new object[] { new string[] { "NodeMetadata" } }
             );
 
             return new NodeMetadata(entity);
@@ -33,18 +26,12 @@ namespace EventHorizon.Maui.BabylonJS.Model
 
         public async ValueTask<string> get_name()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                this.___guid,
-                "name"
-            );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "name");
         }
+
         public ValueTask set_name(string value)
         {
-            return EventHorizonBlazorInterop.Set(
-                this.___guid,
-                "name",
-                value
-            );
+            return EventHorizonBlazorInterop.Set(this.___guid, "name", value);
         }
     }
 }

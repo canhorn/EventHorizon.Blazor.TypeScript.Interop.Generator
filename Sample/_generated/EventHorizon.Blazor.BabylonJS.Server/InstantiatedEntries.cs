@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<InstantiatedEntries>))]
     public class InstantiatedEntries : CachedEntityObject
     {
@@ -32,83 +30,68 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<TransformNode[]> get_rootNodes()
         {
             return await EventHorizonBlazorInterop.GetArrayClass<TransformNode>(
-                    this.___guid,
-                    "rootNodes",
-                    (entity) =>
-                    {
-                        return new TransformNode() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "rootNodes",
+                (entity) =>
+                {
+                    return new TransformNode() { ___guid = entity.___guid };
+                }
+            );
         }
+
         public ValueTask set_rootNodes(TransformNode[] value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "rootNodes",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "rootNodes", value);
         }
 
-        
         public async ValueTask<Skeleton[]> get_skeletons()
         {
             return await EventHorizonBlazorInterop.GetArrayClass<Skeleton>(
-                    this.___guid,
-                    "skeletons",
-                    (entity) =>
-                    {
-                        return new Skeleton() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "skeletons",
+                (entity) =>
+                {
+                    return new Skeleton() { ___guid = entity.___guid };
+                }
+            );
         }
+
         public ValueTask set_skeletons(Skeleton[] value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "skeletons",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "skeletons", value);
         }
 
-        
         public async ValueTask<AnimationGroup[]> get_animationGroups()
         {
             return await EventHorizonBlazorInterop.GetArrayClass<AnimationGroup>(
-                    this.___guid,
-                    "animationGroups",
-                    (entity) =>
-                    {
-                        return new AnimationGroup() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "animationGroups",
+                (entity) =>
+                {
+                    return new AnimationGroup() { ___guid = entity.___guid };
+                }
+            );
         }
+
         public ValueTask set_animationGroups(AnimationGroup[] value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "animationGroups",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "animationGroups", value);
         }
         #endregion
-        
-        #region Constructor
-        public InstantiatedEntries() : base() { } 
 
-        public InstantiatedEntries(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public InstantiatedEntries()
+            : base() { }
+
+        public InstantiatedEntries(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
-
 
         #endregion
 

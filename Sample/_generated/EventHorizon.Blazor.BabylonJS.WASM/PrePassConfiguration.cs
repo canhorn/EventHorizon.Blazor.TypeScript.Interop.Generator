@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<PrePassConfiguration>))]
     public class PrePassConfiguration : CachedEntityObject
     {
@@ -29,7 +27,8 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "PrePassConfiguration", "AddUniforms" }, uniforms
+                    new string[] { "BABYLON", "PrePassConfiguration", "AddUniforms" },
+                    uniforms
                 }
             );
         }
@@ -39,7 +38,8 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "PrePassConfiguration", "AddSamplers" }, samplers
+                    new string[] { "BABYLON", "PrePassConfiguration", "AddSamplers" },
+                    samplers
                 }
             );
         }
@@ -50,12 +50,12 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public CachedEntity previousWorldMatrices
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "previousWorldMatrices",
                     (entity) =>
@@ -67,11 +67,7 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "previousWorldMatrices",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "previousWorldMatrices", value);
             }
         }
 
@@ -80,36 +76,31 @@ namespace BABYLON
         {
             get
             {
-            if(__previousViewProjection == null)
-            {
-                __previousViewProjection = EventHorizonBlazorInterop.GetClass<Matrix>(
-                    this.___guid,
-                    "previousViewProjection",
-                    (entity) =>
-                    {
-                        return new Matrix() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __previousViewProjection;
+                if (__previousViewProjection == null)
+                {
+                    __previousViewProjection = EventHorizonBlazorInterop.GetClass<Matrix>(
+                        this.___guid,
+                        "previousViewProjection",
+                        (entity) =>
+                        {
+                            return new Matrix() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __previousViewProjection;
             }
             set
             {
-__previousViewProjection = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "previousViewProjection",
-                    value
-                );
+                __previousViewProjection = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "previousViewProjection", value);
             }
         }
 
-        
         public CachedEntity previousBones
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "previousBones",
                     (entity) =>
@@ -121,35 +112,41 @@ __previousViewProjection = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "previousBones",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "previousBones", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public PrePassConfiguration() : base() { }
 
-        public PrePassConfiguration(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public PrePassConfiguration()
+            : base() { }
+
+        public PrePassConfiguration(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
-
         #endregion
 
         #region Methods
-        public void bindForSubMesh(Effect effect, Scene scene, Mesh mesh, Matrix world, bool isFrozen)
+        public void bindForSubMesh(
+            Effect effect,
+            Scene scene,
+            Mesh mesh,
+            Matrix world,
+            bool isFrozen
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "bindForSubMesh" }, effect, scene, mesh, world, isFrozen
+                    new string[] { this.___guid, "bindForSubMesh" },
+                    effect,
+                    scene,
+                    mesh,
+                    world,
+                    isFrozen
                 }
             );
         }

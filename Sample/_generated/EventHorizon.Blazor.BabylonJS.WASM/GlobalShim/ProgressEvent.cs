@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Interop;
 
 public class ProgressEvent : CachedEntity
 {
-    public ProgressEvent()
-    {
-    }
+    public ProgressEvent() { }
 
-    public ProgressEvent(
-        ICachedEntity entity
-    )
+    public ProgressEvent(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

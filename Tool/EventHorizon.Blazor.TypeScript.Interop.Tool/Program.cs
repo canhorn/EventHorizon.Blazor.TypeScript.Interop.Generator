@@ -66,12 +66,19 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
                 ),
             };
 
-            rootCommand.Description = "Generate a Blazor Wasm or Server project from TypeScript definition files.";
+            rootCommand.Description =
+                "Generate a Blazor Wasm or Server project from TypeScript definition files.";
 
             // Note that the parameters of the handler method are matched according to the names of the options
-            rootCommand.Handler = CommandHandler.Create<IList<string>, IList<string>, string, string, bool, string, string>(
-                GenerateSources
-            );
+            rootCommand.Handler = CommandHandler.Create<
+                IList<string>,
+                IList<string>,
+                string,
+                string,
+                bool,
+                string,
+                string
+            >(GenerateSources);
 
             // Parse the incoming args and invoke the handler
             return rootCommand.InvokeAsync(args).Result;
@@ -114,18 +121,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
                     GlobalLogger.Info($"sourceFile: {sourceFileItem}");
                 }
 
-                projectGenerationLocation = Path.Combine(
-                    ".",
-                    projectGenerationLocation
-                );
+                projectGenerationLocation = Path.Combine(".", projectGenerationLocation);
 
-                var sourceDirectory = Path.Combine(
-                    ".",
-                    SOURCE_FILES_DIRECTORY_NAME
-                );
-                var sourceFiles = CopyAndDownloadSourceFiles(
-                    source
-                );
+                var sourceDirectory = Path.Combine(".", SOURCE_FILES_DIRECTORY_NAME);
+                var sourceFiles = CopyAndDownloadSourceFiles(source);
                 var generationList = classToGenerate;
 
                 // Check for already Generated Source.
@@ -133,28 +132,21 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
                     projectGenerationLocation,
                     projectAssembly
                 );
-                if (Directory.Exists(
-                    projectAssemblyDirectory
-                ))
+                if (Directory.Exists(projectAssemblyDirectory))
                 {
                     if (!force)
                     {
                         GlobalLogger.Error(
                             $"Project Assembly Directory was not empty: {projectAssemblyDirectory}"
                         );
-                        GlobalLogger.Error(
-                            $"Use --force to replace directory."
-                        );
+                        GlobalLogger.Error($"Use --force to replace directory.");
                         return 502;
                     }
 
                     GlobalLogger.Warning(
                         $"Deleting existing projectAssemblyDirectory: {projectAssemblyDirectory}"
                     );
-                    Directory.Delete(
-                        projectAssemblyDirectory,
-                        true
-                    );
+                    Directory.Delete(projectAssemblyDirectory, true);
                 }
 
                 var textFormatter = new NoFormattingTextFormatter();
@@ -172,18 +164,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
                         generationList,
                         writer,
                         textFormatter,
-                        new Dictionary<string, string>
-                        {
-                        },
+                        new Dictionary<string, string> { },
                         GetParserType(parser)
                     );
                 }
                 else if (hostType == "wasm")
                 {
-                    var writer = new ProjectWriter(
-                        projectGenerationLocation,
-                        projectAssembly
-                    );
+                    var writer = new ProjectWriter(projectGenerationLocation, projectAssembly);
                     new GenerateSource().Run(
                         projectAssembly,
                         sourceDirectory,
@@ -191,30 +178,26 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
                         generationList,
                         writer,
                         textFormatter,
-                        new Dictionary<string, string>
-                        {
-                        },
+                        new Dictionary<string, string> { },
                         GetParserType(parser)
                     );
                 }
 
                 stopwatch.Stop();
-                GlobalLogger.Success($"Took {stopwatch.ElapsedMilliseconds}ms to Generate Source Project.");
+                GlobalLogger.Success(
+                    $"Took {stopwatch.ElapsedMilliseconds}ms to Generate Source Project."
+                );
 
                 return 0;
             }
             catch (ArgumentException ex)
             {
-                GlobalLogger.Error(
-                    $"Argument failure: {ex.ParamName} -> {ex.Message}"
-                );
+                GlobalLogger.Error($"Argument failure: {ex.ParamName} -> {ex.Message}");
                 return 404;
             }
             catch (InvalidSourceFileException ex)
             {
-                GlobalLogger.Error(
-                    $"Invalid Source File Exception: {ex.Message}"
-                );
+                GlobalLogger.Error($"Invalid Source File Exception: {ex.Message}");
                 return 501;
             }
         }
@@ -230,10 +213,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
         {
             if (sources == null || sources.Count == 0)
             {
-                throw new ToolArgumentException(
-                    "--source",
-                    "No sources found."
-                );
+                throw new ToolArgumentException("--source", "No sources found.");
             }
             if (classToGenerate == null || classToGenerate.Count == 0)
             {
@@ -242,36 +222,34 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
                     "Did not found any classes to generate."
                 );
             }
-            if (string.IsNullOrWhiteSpace(
-                projectAssembly
-            ))
+            if (string.IsNullOrWhiteSpace(projectAssembly))
             {
                 throw new ToolArgumentException(
                     "--project-assembly",
                     "Project assembly was null or empty."
                 );
             }
-            if (string.IsNullOrWhiteSpace(
-                projectGenerationLocation
-            ))
+            if (string.IsNullOrWhiteSpace(projectGenerationLocation))
             {
                 throw new ToolArgumentException(
                     "--project-generation-location",
                     "Project Generation Location was null or empty."
                 );
             }
-            if (string.IsNullOrWhiteSpace(
-                parser
-            ) || (parser.ToLower() != "dotnet" && parser.ToLower() != "nodejs"))
+            if (
+                string.IsNullOrWhiteSpace(parser)
+                || (parser.ToLower() != "dotnet" && parser.ToLower() != "nodejs")
+            )
             {
                 throw new ToolArgumentException(
                     "--parser",
                     "Invalid parser found. Valid Parsers: [dotnet, nodejs]"
                 );
             }
-            if (string.IsNullOrWhiteSpace(
-                hostType
-            ) || (hostType.ToLower() != "server" && hostType.ToLower() != "wasm"))
+            if (
+                string.IsNullOrWhiteSpace(hostType)
+                || (hostType.ToLower() != "server" && hostType.ToLower() != "wasm")
+            )
             {
                 throw new ToolArgumentException(
                     "--host-type",
@@ -285,67 +263,39 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
         /// </summary>
         /// <param name="sourceFileList">The path or URL to a list of files to use as the Source.</param>
         /// <returns>The filenames of the copied and URLs.</returns>
-        private static IList<string> CopyAndDownloadSourceFiles(
-            IList<string> sourceFileList
-        )
+        private static IList<string> CopyAndDownloadSourceFiles(IList<string> sourceFileList)
         {
             using var client = new WebClient();
             var filesFound = new List<string>();
-            var sourcesFileDirectoryFullName = Path.Combine(
-                ".",
-                SOURCE_FILES_DIRECTORY_NAME
-            );
+            var sourcesFileDirectoryFullName = Path.Combine(".", SOURCE_FILES_DIRECTORY_NAME);
             // Create SOURCE_FILES_DIRECTORY_NAME
-            if (!Directory.Exists(
-                sourcesFileDirectoryFullName
-            ))
+            if (!Directory.Exists(sourcesFileDirectoryFullName))
             {
-                Directory.CreateDirectory(
-                    sourcesFileDirectoryFullName
-                );
+                Directory.CreateDirectory(sourcesFileDirectoryFullName);
             }
 
             foreach (var sourceFile in sourceFileList)
             {
-                var sourceFileName = new FileInfo(
-                    sourceFile
-                ).Name;
-                var sourceFileFullName = Path.Combine(
-                    sourcesFileDirectoryFullName,
-                    sourceFileName
-                );
+                var sourceFileName = new FileInfo(sourceFile).Name;
+                var sourceFileFullName = Path.Combine(sourcesFileDirectoryFullName, sourceFileName);
 
                 // Remove the file if already existing
-                if (File.Exists(
-                    sourceFileFullName
-                ))
+                if (File.Exists(sourceFileFullName))
                 {
-                    File.Delete(
-                        sourceFileFullName
-                    );
+                    File.Delete(sourceFileFullName);
                 }
 
                 // If URL
-                if (IsUrl(
-                    sourceFile
-                ))
+                if (IsUrl(sourceFile))
                 {
                     // Download file, and place into SOURCE_FILES_DIRECTORY_NAME directory
-                    client.DownloadFile(
-                        sourceFile,
-                        sourceFileFullName
-                    );
+                    client.DownloadFile(sourceFile, sourceFileFullName);
                 }
                 // If FileSystem
-                else if (File.Exists(
-                    sourceFile
-                ))
+                else if (File.Exists(sourceFile))
                 {
                     // Copy file into SOURCE_FILES_DIRECTORY_NAME directory, override already existing.
-                    File.Copy(
-                        sourceFile,
-                        sourceFileFullName
-                    );
+                    File.Copy(sourceFile, sourceFileFullName);
                 }
                 // If not either, source was not found throw exception
                 else
@@ -354,25 +304,20 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Tool
                         $"Invalid source file, was not URL or existing on FileSystem: {sourceFile}"
                     );
                 }
-                filesFound.Add(
-                    sourceFileName
-                );
+                filesFound.Add(sourceFileName);
             }
 
             return filesFound;
         }
 
-        private static bool IsUrl(
-            string sourceFile
-        ) => sourceFile.StartsWith("http://")
-            || sourceFile.StartsWith("https://");
+        private static bool IsUrl(string sourceFile) =>
+            sourceFile.StartsWith("http://") || sourceFile.StartsWith("https://");
 
-        private static ASTParserType GetParserType(
-            string parserType
-        ) => parserType switch
-        {
-            "nodejs" => ASTParserType.NodeJS,
-            _ => ASTParserType.Sdcb,
-        };
+        private static ASTParserType GetParserType(string parserType) =>
+            parserType switch
+            {
+                "nodejs" => ASTParserType.NodeJS,
+                _ => ASTParserType.Sdcb,
+            };
     }
 }

@@ -11,7 +11,7 @@ namespace BABYLON.GUI
     using Microsoft.JSInterop;
 
     public interface IFocusableControl : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IFocusableControlCachedEntity>))]
     public class IFocusableControlCachedEntity : CachedEntityObject, IFocusableControl
     {
@@ -34,16 +34,13 @@ namespace BABYLON.GUI
         #region Properties
 
         #endregion
-        
+
         #region Constructor
-        public IFocusableControlCachedEntity() : base() { }
+        public IFocusableControlCachedEntity()
+            : base() { }
 
-        public IFocusableControlCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IFocusableControlCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -51,30 +48,21 @@ namespace BABYLON.GUI
         public void onFocus()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "onFocus" }
-                }
+                new object[] { new string[] { this.___guid, "onFocus" } }
             );
         }
 
         public void onBlur()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "onBlur" }
-                }
+                new object[] { new string[] { this.___guid, "onBlur" } }
             );
         }
 
         public void processKeyboard(KeyboardEvent evt)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "processKeyboard" }, evt
-                }
+                new object[] { new string[] { this.___guid, "processKeyboard" }, evt }
             );
         }
 
@@ -82,10 +70,7 @@ namespace BABYLON.GUI
         {
             return EventHorizonBlazorInterop.FuncArrayClass<Control>(
                 entity => new Control() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "keepsFocusWith" }
-                }
+                new object[] { new string[] { this.___guid, "keepsFocusWith" } }
             );
         }
         #endregion

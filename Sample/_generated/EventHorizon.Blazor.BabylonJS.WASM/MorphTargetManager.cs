@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<MorphTargetManager>))]
     public class MorphTargetManager : CachedEntityObject
     {
@@ -30,188 +28,107 @@ namespace BABYLON
                 entity => new MorphTargetManager() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "MorphTargetManager", "Parse" }, serializationObject, scene
+                    new string[] { "BABYLON", "MorphTargetManager", "Parse" },
+                    serializationObject,
+                    scene
                 }
             );
         }
         #endregion
 
         #region Accessors
-        
+
         public decimal uniqueId
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "uniqueId"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "uniqueId"); }
         }
 
-        
         public decimal vertexCount
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "vertexCount"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "vertexCount"); }
         }
 
-        
         public bool supportsNormals
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "supportsNormals"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "supportsNormals"); }
         }
 
-        
         public bool supportsTangents
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "supportsTangents"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "supportsTangents"); }
         }
 
-        
         public bool supportsUVs
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "supportsUVs"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "supportsUVs"); }
         }
 
-        
         public decimal numTargets
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "numTargets"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "numTargets"); }
         }
 
-        
         public decimal numInfluencers
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "numInfluencers"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "numInfluencers"); }
         }
 
-        
         public decimal[] influences
         {
-            get
-            {
-            return EventHorizonBlazorInterop.GetArray<decimal>(
-                    this.___guid,
-                    "influences"
-                );
-            }
+            get { return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "influences"); }
         }
         #endregion
 
         #region Properties
-        
+
         public bool enableNormalMorphing
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "enableNormalMorphing"
-                );
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "enableNormalMorphing");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "enableNormalMorphing",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "enableNormalMorphing", value);
             }
         }
 
-        
         public bool enableTangentMorphing
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "enableTangentMorphing"
-                );
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "enableTangentMorphing");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "enableTangentMorphing",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "enableTangentMorphing", value);
             }
         }
 
-        
         public bool enableUVMorphing
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "enableUVMorphing"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "enableUVMorphing"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "enableUVMorphing",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "enableUVMorphing", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public MorphTargetManager() : base() { }
 
-        public MorphTargetManager(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public MorphTargetManager()
+            : base() { }
+
+        public MorphTargetManager(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
-        public MorphTargetManager(
-            Scene scene = null
-        )
+        public MorphTargetManager(Scene scene = null)
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "MorphTargetManager" },
@@ -226,10 +143,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<MorphTarget>(
                 entity => new MorphTarget() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getActiveTarget" }, index
-                }
+                new object[] { new string[] { this.___guid, "getActiveTarget" }, index }
             );
         }
 
@@ -237,30 +151,21 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<MorphTarget>(
                 entity => new MorphTarget() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getTarget" }, index
-                }
+                new object[] { new string[] { this.___guid, "getTarget" }, index }
             );
         }
 
         public void addTarget(MorphTarget target)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "addTarget" }, target
-                }
+                new object[] { new string[] { this.___guid, "addTarget" }, target }
             );
         }
 
         public void removeTarget(MorphTarget target)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "removeTarget" }, target
-                }
+                new object[] { new string[] { this.___guid, "removeTarget" }, target }
             );
         }
 
@@ -268,30 +173,21 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<MorphTargetManager>(
                 entity => new MorphTargetManager() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "clone" }
-                }
+                new object[] { new string[] { this.___guid, "clone" } }
             );
         }
 
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "serialize" }
-                }
+                new object[] { new string[] { this.___guid, "serialize" } }
             );
         }
 
         public void synchronize()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "synchronize" }
-                }
+                new object[] { new string[] { this.___guid, "synchronize" } }
             );
         }
         #endregion

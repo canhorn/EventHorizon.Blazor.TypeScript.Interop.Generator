@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface ISceneLoaderAsyncResult : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<ISceneLoaderAsyncResultCachedEntity>))]
     public class ISceneLoaderAsyncResultCachedEntity : CachedEntityObject, ISceneLoaderAsyncResult
     {
@@ -32,12 +32,12 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public AbstractMesh[] meshes
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<AbstractMesh>(
+                return EventHorizonBlazorInterop.GetArrayClass<AbstractMesh>(
                     this.___guid,
                     "meshes",
                     (entity) =>
@@ -48,12 +48,11 @@ namespace BABYLON
             }
         }
 
-        
         public IParticleSystemCachedEntity[] particleSystems
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<IParticleSystemCachedEntity>(
+                return EventHorizonBlazorInterop.GetArrayClass<IParticleSystemCachedEntity>(
                     this.___guid,
                     "particleSystems",
                     (entity) =>
@@ -64,12 +63,11 @@ namespace BABYLON
             }
         }
 
-        
         public Skeleton[] skeletons
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<Skeleton>(
+                return EventHorizonBlazorInterop.GetArrayClass<Skeleton>(
                     this.___guid,
                     "skeletons",
                     (entity) =>
@@ -80,12 +78,11 @@ namespace BABYLON
             }
         }
 
-        
         public AnimationGroup[] animationGroups
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<AnimationGroup>(
+                return EventHorizonBlazorInterop.GetArrayClass<AnimationGroup>(
                     this.___guid,
                     "animationGroups",
                     (entity) =>
@@ -96,12 +93,11 @@ namespace BABYLON
             }
         }
 
-        
         public TransformNode[] transformNodes
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<TransformNode>(
+                return EventHorizonBlazorInterop.GetArrayClass<TransformNode>(
                     this.___guid,
                     "transformNodes",
                     (entity) =>
@@ -112,12 +108,11 @@ namespace BABYLON
             }
         }
 
-        
         public Geometry[] geometries
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<Geometry>(
+                return EventHorizonBlazorInterop.GetArrayClass<Geometry>(
                     this.___guid,
                     "geometries",
                     (entity) =>
@@ -128,12 +123,11 @@ namespace BABYLON
             }
         }
 
-        
         public Light[] lights
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<Light>(
+                return EventHorizonBlazorInterop.GetArrayClass<Light>(
                     this.___guid,
                     "lights",
                     (entity) =>
@@ -144,16 +138,13 @@ namespace BABYLON
             }
         }
         #endregion
-        
+
         #region Constructor
-        public ISceneLoaderAsyncResultCachedEntity() : base() { }
+        public ISceneLoaderAsyncResultCachedEntity()
+            : base() { }
 
-        public ISceneLoaderAsyncResultCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public ISceneLoaderAsyncResultCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

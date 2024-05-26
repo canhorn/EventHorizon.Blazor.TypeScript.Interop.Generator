@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<NodeMaterialOptimizer>))]
     public class NodeMaterialOptimizer : CachedEntityObject
     {
@@ -34,27 +32,31 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
-        #region Constructor
-        public NodeMaterialOptimizer() : base() { }
 
-        public NodeMaterialOptimizer(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public NodeMaterialOptimizer()
+            : base() { }
+
+        public NodeMaterialOptimizer(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
-
         #endregion
 
         #region Methods
-        public void optimize(NodeMaterialBlock[] vertexOutputNodes, NodeMaterialBlock[] fragmentOutputNodes)
+        public void optimize(
+            NodeMaterialBlock[] vertexOutputNodes,
+            NodeMaterialBlock[] fragmentOutputNodes
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "optimize" }, vertexOutputNodes, fragmentOutputNodes
+                    new string[] { this.___guid, "optimize" },
+                    vertexOutputNodes,
+                    fragmentOutputNodes
                 }
             );
         }

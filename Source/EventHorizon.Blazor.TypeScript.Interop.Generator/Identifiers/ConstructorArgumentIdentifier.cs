@@ -10,6 +10,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
     public static class ConstructorArgumentIdentifier
     {
         private static IList<ArgumentStatement> EMPTY => new List<ArgumentStatement>().AsReadOnly();
+
         internal static IList<ArgumentStatement> Identify(
             Node classDeclaration,
             ClassMetadata classMetadata,
@@ -17,9 +18,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             TypeOverrideDetails typeOverrideDetails
         )
         {
-            var constructor = classDeclaration
-                .OfKind(SyntaxKind.Constructor)
-                .FirstOrDefault();
+            var constructor = classDeclaration.OfKind(SyntaxKind.Constructor).FirstOrDefault();
             if (constructor != null)
             {
                 return ArgumentIdentifier.Identify(

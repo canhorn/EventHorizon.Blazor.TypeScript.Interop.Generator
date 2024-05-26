@@ -14,8 +14,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             TypeOverrideDetails typeOverrideDetails
         )
         {
-            if (node.Kind != GenerationIdentifiedTypes.TypeQuery
-                || node.First?.First == null)
+            if (node.Kind != GenerationIdentifiedTypes.TypeQuery || node.First?.First == null)
             {
                 return null;
             }
@@ -23,14 +22,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 
             return new TypeQueryStatement
             {
-                Class = TypeIdentifier.Identify(
-                    firstNode.First,
-                    classMetadata
-                ),
-                Type = TypeIdentifier.Identify(
-                    firstNode.Last,
-                    classMetadata
-                )
+                Class = TypeIdentifier.Identify(firstNode.First, classMetadata),
+                Type = TypeIdentifier.Identify(firstNode.Last, classMetadata)
             };
         }
     }

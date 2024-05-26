@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<WebRequest>))]
     public class WebRequest : CachedEntityObject, IWebRequest
     {
@@ -20,44 +18,46 @@ namespace BABYLON
         #endregion
 
         #region Static Properties
-        
+
         public static async ValueTask<CachedEntity> get_CustomRequestHeaders()
         {
             return await EventHorizonBlazorInterop.GetClass<CachedEntity>(
-                    "BABYLON",
-                    "WebRequest.CustomRequestHeaders",
-                    (entity) =>
-                    {
-                        return new CachedEntity() { ___guid = entity.___guid };
-                    }
-                );
+                "BABYLON",
+                "WebRequest.CustomRequestHeaders",
+                (entity) =>
+                {
+                    return new CachedEntity() { ___guid = entity.___guid };
+                }
+            );
         }
+
         public static ValueTask set_CustomRequestHeaders(CachedEntity value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    "BABYLON",
-                    "WebRequest.CustomRequestHeaders",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(
+                "BABYLON",
+                "WebRequest.CustomRequestHeaders",
+                value
+            );
         }
 
-        
-        public static async ValueTask<ActionResultCallback<ActionCallback<XMLHttpRequest, string>>[]> get_CustomRequestModifiers()
+        public static async ValueTask<ActionResultCallback<
+            ActionCallback<XMLHttpRequest, string>
+        >[]> get_CustomRequestModifiers()
         {
-            return await EventHorizonBlazorInterop.GetArray<ActionResultCallback<ActionCallback<XMLHttpRequest, string>>>(
-                    "BABYLON",
-                    "WebRequest.CustomRequestModifiers"
-                );
+            return await EventHorizonBlazorInterop.GetArray<
+                ActionResultCallback<ActionCallback<XMLHttpRequest, string>>
+            >("BABYLON", "WebRequest.CustomRequestModifiers");
         }
-        public static ValueTask set_CustomRequestModifiers(ActionResultCallback<ActionCallback<XMLHttpRequest, string>>[] value)
-        {
 
-                return EventHorizonBlazorInterop.Set(
-                    "BABYLON",
-                    "WebRequest.CustomRequestModifiers",
-                    value
-                );
+        public static ValueTask set_CustomRequestModifiers(
+            ActionResultCallback<ActionCallback<XMLHttpRequest, string>>[] value
+        )
+        {
+            return EventHorizonBlazorInterop.Set(
+                "BABYLON",
+                "WebRequest.CustomRequestModifiers",
+                value
+            );
         }
         #endregion
 
@@ -66,138 +66,127 @@ namespace BABYLON
         #endregion
 
         #region Accessors
-        
-        public async ValueTask<ActionResultCallback<ActionResultCallback<XMLHttpRequest, ProgressEvent, CachedEntity>>> get_onprogress()
-        {
-            return await EventHorizonBlazorInterop.Get<ActionResultCallback<ActionResultCallback<XMLHttpRequest, ProgressEvent, CachedEntity>>>(
-                    this.___guid,
-                    "onprogress"
-                );
-        }
-        public ValueTask set_onprogress(ActionResultCallback<ActionResultCallback<XMLHttpRequest, ProgressEvent, CachedEntity>> value)
-        {
 
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onprogress",
-                    value
-                );
+        public async ValueTask<
+            ActionResultCallback<ActionResultCallback<XMLHttpRequest, ProgressEvent, CachedEntity>>
+        > get_onprogress()
+        {
+            return await EventHorizonBlazorInterop.Get<
+                ActionResultCallback<
+                    ActionResultCallback<XMLHttpRequest, ProgressEvent, CachedEntity>
+                >
+            >(this.___guid, "onprogress");
         }
 
-        
+        public ValueTask set_onprogress(
+            ActionResultCallback<
+                ActionResultCallback<XMLHttpRequest, ProgressEvent, CachedEntity>
+            > value
+        )
+        {
+            return EventHorizonBlazorInterop.Set(this.___guid, "onprogress", value);
+        }
+
         public async ValueTask<decimal> get_readyState()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "readyState"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "readyState");
         }
 
-        
         public async ValueTask<decimal> get_status()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "status"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "status");
         }
 
-        
         public async ValueTask<string> get_statusText()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "statusText"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "statusText");
         }
 
-        
         public async ValueTask<CachedEntity> get_response()
         {
-            return await EventHorizonBlazorInterop.Get<CachedEntity>(
-                    this.___guid,
-                    "response"
-                );
+            return await EventHorizonBlazorInterop.Get<CachedEntity>(this.___guid, "response");
         }
 
-        
         public async ValueTask<string> get_responseURL()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "responseURL"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "responseURL");
         }
 
-        
         public async ValueTask<string> get_responseText()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "responseText"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "responseText");
         }
 
         private XMLHttpRequestResponseType __responseType;
+
         public async ValueTask<XMLHttpRequestResponseType> get_responseType()
         {
-            if(__responseType == null)
+            if (__responseType == null)
             {
-                __responseType = await EventHorizonBlazorInterop.GetClass<XMLHttpRequestResponseType>(
-                    this.___guid,
-                    "responseType",
-                    (entity) =>
-                    {
-                        return new XMLHttpRequestResponseType() { ___guid = entity.___guid };
-                    }
-                );
+                __responseType =
+                    await EventHorizonBlazorInterop.GetClass<XMLHttpRequestResponseType>(
+                        this.___guid,
+                        "responseType",
+                        (entity) =>
+                        {
+                            return new XMLHttpRequestResponseType() { ___guid = entity.___guid };
+                        }
+                    );
             }
             return __responseType;
         }
+
         public ValueTask set_responseType(XMLHttpRequestResponseType value)
         {
-__responseType = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "responseType",
-                    value
-                );
+            __responseType = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "responseType", value);
         }
         #endregion
 
         #region Properties
 
         #endregion
-        
+
         #region Constructor
-        public WebRequest() : base() { }
+        public WebRequest()
+            : base() { }
 
-        public WebRequest(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public WebRequest(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
         #region Methods
-        public async ValueTask addEventListener<K>(K type, ActionResultCallback<XMLHttpRequest, K, CachedEntity> listener, System.Nullable<bool> options = null)
+        public async ValueTask addEventListener<K>(
+            K type,
+            ActionResultCallback<XMLHttpRequest, K, CachedEntity> listener,
+            System.Nullable<bool> options = null
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "addEventListener" }, type, listener, options
+                    new string[] { this.___guid, "addEventListener" },
+                    type,
+                    listener,
+                    options
                 }
             );
         }
 
-        public async ValueTask removeEventListener<K>(K type, ActionResultCallback<XMLHttpRequest, K, CachedEntity> listener, System.Nullable<bool> options = null)
+        public async ValueTask removeEventListener<K>(
+            K type,
+            ActionResultCallback<XMLHttpRequest, K, CachedEntity> listener,
+            System.Nullable<bool> options = null
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "removeEventListener" }, type, listener, options
+                    new string[] { this.___guid, "removeEventListener" },
+                    type,
+                    listener,
+                    options
                 }
             );
         }
@@ -205,50 +194,35 @@ __responseType = null;
         public async ValueTask abort()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "abort" }
-                }
+                new object[] { new string[] { this.___guid, "abort" } }
             );
         }
 
         public async ValueTask send(Document body = null)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "send" }, body
-                }
+                new object[] { new string[] { this.___guid, "send" }, body }
             );
         }
 
         public async ValueTask open(string method, string url)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "open" }, method, url
-                }
+                new object[] { new string[] { this.___guid, "open" }, method, url }
             );
         }
 
         public async ValueTask setRequestHeader(string name, string value)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "setRequestHeader" }, name, value
-                }
+                new object[] { new string[] { this.___guid, "setRequestHeader" }, name, value }
             );
         }
 
         public async ValueTask<string> getResponseHeader(string name)
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getResponseHeader" }, name
-                }
+                new object[] { new string[] { this.___guid, "getResponseHeader" }, name }
             );
         }
         #endregion

@@ -48,14 +48,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
             );
 
             // Then
-            actual.Namespace
-                .Should().Be("BABYLON");
-            actual.Name
-                .Should().Be("Observable");
-            actual.ExtendedType
-                .Should().BeNull();
-            actual.AccessorStatements
-                .Should().BeEquivalentTo(
+            actual.Namespace.Should().Be("BABYLON");
+            actual.Name.Should().Be("Observable");
+            actual.ExtendedType.Should().BeNull();
+            actual
+                .AccessorStatements.Should()
+                .BeEquivalentTo(
                     new List<AccessorStatement>
                     {
                         new AccessorStatement
@@ -72,33 +70,24 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                         Name = "Observer",
                                         GenericTypes = new List<TypeStatement>
                                         {
-                                            new TypeStatement
-                                            {
-                                                Name = "T",
-                                            },
+                                            new TypeStatement { Name = "T", },
                                         },
                                     },
                                 },
                             },
-                            UsedClassNames = new List<string>
-                            {
-                                "Observer",
-                                "T",
-                            },
+                            UsedClassNames = new List<string> { "Observer", "T", },
                         }
                     }
                 );
-            actual.PublicMethodStatements
-                .Should().BeEquivalentTo(
+            actual
+                .PublicMethodStatements.Should()
+                .BeEquivalentTo(
                     new List<PublicMethodStatement>
                     {
                         new PublicMethodStatement
                         {
                             Name = "notifyObserversWithPromise",
-                            Type = new TypeStatement
-                            {
-                                Name = "void",
-                            },
+                            Type = new TypeStatement { Name = "void", },
                             //UsedClassNames = new List<string>
                             //{
                             //    "Task",
@@ -109,10 +98,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 {
                                     Name = "eventData",
                                     Type = "T".MakeTypeStatement(),
-                                    UsedClassNames = new List<string>
-                                    {
-                                        "T",
-                                    },
+                                    UsedClassNames = new List<string> { "T", },
                                 },
                                 new ArgumentStatement
                                 {
@@ -148,29 +134,18 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                         Name = "Observer",
                                         GenericTypes = new List<TypeStatement>
                                         {
-                                            new TypeStatement
-                                            {
-                                                Name = "T",
-                                            },
+                                            new TypeStatement { Name = "T", },
                                         },
                                     },
                                 },
                             },
-                            UsedClassNames = new List<string>
-                            {
-                                "Observer",
-                                "T",
-                            },
+                            UsedClassNames = new List<string> { "Observer", "T", },
                             Arguments = new List<ArgumentStatement>
                             {
                                 new ArgumentStatement
                                 {
                                     Name = "callback",
-                                    Type = new TypeStatement
-                                    {
-                                        Name = "action",
-                                        IsAction = true,
-                                    },
+                                    Type = new TypeStatement { Name = "action", IsAction = true, },
                                 },
                                 new ArgumentStatement
                                 {
@@ -212,29 +187,18 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                         Name = "Observer",
                                         GenericTypes = new List<TypeStatement>
                                         {
-                                            new TypeStatement
-                                            {
-                                                Name = "T",
-                                            },
+                                            new TypeStatement { Name = "T", },
                                         },
                                     },
                                 },
                             },
-                            UsedClassNames = new List<string>
-                            {
-                                "Observer",
-                                "T",
-                            },
+                            UsedClassNames = new List<string> { "Observer", "T", },
                             Arguments = new List<ArgumentStatement>
                             {
                                 new ArgumentStatement
                                 {
                                     Name = "callback",
-                                    Type = new TypeStatement
-                                    {
-                                        Name = "action",
-                                        IsAction = true,
-                                    },
+                                    Type = new TypeStatement { Name = "action", IsAction = true, },
                                 },
                             }
                         },
@@ -258,19 +222,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                                 Name = "Observer",
                                                 GenericTypes = new List<TypeStatement>
                                                 {
-                                                    new TypeStatement
-                                                    {
-                                                        Name = "T",
-                                                    },
+                                                    new TypeStatement { Name = "T", },
                                                 },
                                             },
                                         },
                                     },
-                                    UsedClassNames = new List<string>
-                                    {
-                                        "Observer",
-                                        "T",
-                                    },
+                                    UsedClassNames = new List<string> { "Observer", "T", },
                                 },
                             },
                         },
@@ -283,11 +240,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 new ArgumentStatement
                                 {
                                     Name = "callback",
-                                    Type = new TypeStatement
-                                    {
-                                        Name = "action",
-                                        IsAction = true,
-                                    },
+                                    Type = new TypeStatement { Name = "action", IsAction = true, },
                                 },
                                 new ArgumentStatement
                                 {
@@ -311,17 +264,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                         Name = "Observer",
                                         GenericTypes = new List<TypeStatement>
                                         {
-                                            new TypeStatement
-                                            {
-                                                Name = "T",
-                                            },
+                                            new TypeStatement { Name = "T", },
                                         },
                                     },
-                                    UsedClassNames = new List<string>
-                                    {
-                                        "Observer",
-                                        "T",
-                                    },
+                                    UsedClassNames = new List<string> { "Observer", "T", },
                                 },
                             },
                         },
@@ -339,17 +285,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                         Name = "Observer",
                                         GenericTypes = new List<TypeStatement>
                                         {
-                                            new TypeStatement
-                                            {
-                                                Name = "T",
-                                            },
+                                            new TypeStatement { Name = "T", },
                                         },
                                     },
-                                    UsedClassNames = new List<string>
-                                    {
-                                        "Observer",
-                                        "T",
-                                    },
+                                    UsedClassNames = new List<string> { "Observer", "T", },
                                 },
                             },
                         },
@@ -362,14 +301,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 new ArgumentStatement
                                 {
                                     Name = "eventData",
-                                    Type = new TypeStatement
-                                    {
-                                        Name = "T"
-                                    },
-                                    UsedClassNames = new List<string>
-                                    {
-                                        "T",
-                                    },
+                                    Type = new TypeStatement { Name = "T" },
+                                    UsedClassNames = new List<string> { "T", },
                                 },
                                 new ArgumentStatement
                                 {
@@ -405,26 +338,16 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                         Name = "Observer",
                                         GenericTypes = new List<TypeStatement>
                                         {
-                                            new TypeStatement
-                                            {
-                                                Name = "T",
-                                            },
+                                            new TypeStatement { Name = "T", },
                                         },
                                     },
-                                    UsedClassNames = new List<string>
-                                    {
-                                        "Observer",
-                                        "T",
-                                    },
+                                    UsedClassNames = new List<string> { "Observer", "T", },
                                 },
                                 new ArgumentStatement
                                 {
                                     Name = "eventData",
                                     Type = "T".MakeTypeStatement(),
-                                    UsedClassNames = new List<string>
-                                    {
-                                        "T",
-                                    },
+                                    UsedClassNames = new List<string> { "T", },
                                 },
                                 new ArgumentStatement
                                 {
@@ -452,17 +375,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                                 Name = "Observable",
                                 GenericTypes = new List<TypeStatement>
                                 {
-                                    new TypeStatement
-                                    {
-                                        Name = "T",
-                                    },
+                                    new TypeStatement { Name = "T", },
                                 },
                             },
-                            UsedClassNames = new List<string>
-                            {
-                                "Observable",
-                                "T",
-                            },
+                            UsedClassNames = new List<string> { "Observable", "T", },
                         },
                         new PublicMethodStatement
                         {
@@ -480,15 +396,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.GenerateInteropClassS
                         },
                     }
                 );
-            actual.PublicPropertyStatements
-                .Should().BeEmpty();
+            actual.PublicPropertyStatements.Should().BeEmpty();
         }
     }
+
     public static class MakeTypeStatementExtension
     {
-        public static TypeStatement MakeTypeStatement(
-            this string typeString
-        ) => new TypeStatement { Name = typeString };
+        public static TypeStatement MakeTypeStatement(this string typeString) =>
+            new TypeStatement { Name = typeString };
     }
-
 }

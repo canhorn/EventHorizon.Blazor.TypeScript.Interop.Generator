@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<FresnelParameters>))]
     public class FresnelParameters : CachedEntityObject
     {
@@ -28,39 +26,34 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<FresnelParameters>(
                 entity => new FresnelParameters() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "FresnelParameters", "Parse" }, parsedFresnelParameters
+                    new string[] { "BABYLON", "FresnelParameters", "Parse" },
+                    parsedFresnelParameters
                 }
             );
         }
         #endregion
 
         #region Accessors
-        
+
         public async ValueTask<bool> get_isEnabled()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isEnabled"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "isEnabled");
         }
+
         public ValueTask set_isEnabled(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isEnabled",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "isEnabled", value);
         }
         #endregion
 
         #region Properties
         private Color3 __leftColor;
+
         public async ValueTask<Color3> get_leftColor()
         {
-            if(__leftColor == null)
+            if (__leftColor == null)
             {
                 __leftColor = await EventHorizonBlazorInterop.GetClass<Color3>(
                     this.___guid,
@@ -73,20 +66,18 @@ namespace BABYLON
             }
             return __leftColor;
         }
+
         public ValueTask set_leftColor(Color3 value)
         {
-__leftColor = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "leftColor",
-                    value
-                );
+            __leftColor = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "leftColor", value);
         }
 
         private Color3 __rightColor;
+
         public async ValueTask<Color3> get_rightColor()
         {
-            if(__rightColor == null)
+            if (__rightColor == null)
             {
                 __rightColor = await EventHorizonBlazorInterop.GetClass<Color3>(
                     this.___guid,
@@ -99,59 +90,40 @@ __leftColor = null;
             }
             return __rightColor;
         }
+
         public ValueTask set_rightColor(Color3 value)
         {
-__rightColor = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "rightColor",
-                    value
-                );
+            __rightColor = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "rightColor", value);
         }
 
-        
         public async ValueTask<decimal> get_bias()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "bias"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "bias");
         }
+
         public ValueTask set_bias(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "bias",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "bias", value);
         }
 
-        
         public async ValueTask<decimal> get_power()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "power"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "power");
         }
+
         public ValueTask set_power(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "power",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "power", value);
         }
         #endregion
-        
-        #region Constructor
-        public FresnelParameters() : base() { } 
 
-        public FresnelParameters(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public FresnelParameters()
+            : base() { }
+
+        public FresnelParameters(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
@@ -174,30 +146,21 @@ __rightColor = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<FresnelParameters>(
                 entity => new FresnelParameters() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "clone" }
-                }
+                new object[] { new string[] { this.___guid, "clone" } }
             );
         }
 
         public async ValueTask<bool> equals(FresnelParameters otherFresnelParameters)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "equals" }, otherFresnelParameters
-                }
+                new object[] { new string[] { this.___guid, "equals" }, otherFresnelParameters }
             );
         }
 
         public async ValueTask<CachedEntity> serialize()
         {
             return await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "serialize" }
-                }
+                new object[] { new string[] { this.___guid, "serialize" } }
             );
         }
         #endregion

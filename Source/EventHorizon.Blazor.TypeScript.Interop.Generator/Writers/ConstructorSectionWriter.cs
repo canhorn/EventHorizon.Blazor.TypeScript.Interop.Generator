@@ -27,56 +27,33 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 foreach (var argument in arguments.OrderBy(a => a.IsOptional))
                 {
                     argumentStrings.Add(
-                        ArgumentWriter.Write(
-                            argument,
-                            true,
-                            " = null",
-                            ignorePrefix: true
-                        )
+                        ArgumentWriter.Write(argument, true, " = null", ignorePrefix: true)
                     );
                 }
-                var constructorArguments = string.Join(
-                    ", ",
-                    argumentStrings
-                );
+                var constructorArguments = string.Join(", ", argumentStrings);
                 var propertyArguments = string.Join(
                     ", ",
-                    arguments.Select(
-                        argument => DotNetNormalizer.Normalize(
-                            argument.Name
-                        )
-                    )
+                    arguments.Select(argument => DotNetNormalizer.Normalize(argument.Name))
                 );
 
                 // Generate Namespace
-                var entityNamespace = string.Join(
-                    ", ",
-                    classStatement.Namespace
-                        .Split(".")
-                        .Select(part => @$"""{part}""")
-                ) + ", ";
+                var entityNamespace =
+                    string.Join(
+                        ", ",
+                        classStatement.Namespace.Split(".").Select(part => @$"""{part}""")
+                    ) + ", ";
 
                 if (entityNamespace == @""""", ")
                 {
                     entityNamespace = string.Empty;
                 }
 
-                return template.Replace(
-                    "[[CLASS_NAME]]",
-                    classStatement.Name
-                ).Replace(
-                    "[[ARGUMENTS]]",
-                    constructorArguments
-                ).Replace(
-                    "[[PROPERTY_NAMESPACE]]",
-                    entityNamespace
-                ).Replace(
-                    "[[PROPERTY_ARGUMENTS]]",
-                    propertyArguments
-                ).Replace(
-                    "[[BASE_CLASS_CALL]]",
-                    extendsClass ? " : base()" : string.Empty
-                );
+                return template
+                    .Replace("[[CLASS_NAME]]", classStatement.Name)
+                    .Replace("[[ARGUMENTS]]", constructorArguments)
+                    .Replace("[[PROPERTY_NAMESPACE]]", entityNamespace)
+                    .Replace("[[PROPERTY_ARGUMENTS]]", propertyArguments)
+                    .Replace("[[BASE_CLASS_CALL]]", extendsClass ? " : base()" : string.Empty);
             }
             return string.Empty;
         }

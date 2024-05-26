@@ -10,8 +10,6 @@ namespace BABYLON.GUI
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Style>))]
     public class Style : CachedEntityObject, _IDisposable
     {
@@ -28,87 +26,44 @@ namespace BABYLON.GUI
         #endregion
 
         #region Accessors
-        
+
         public string fontSize
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "fontSize"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "fontSize"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "fontSize",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "fontSize", value);
             }
         }
 
-        
         public string fontFamily
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "fontFamily"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "fontFamily"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "fontFamily",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "fontFamily", value);
             }
         }
 
-        
         public string fontStyle
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "fontStyle"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "fontStyle"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "fontStyle",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "fontStyle", value);
             }
         }
 
-        
         public string fontWeight
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "fontWeight"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "fontWeight"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "fontWeight",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "fontWeight", value);
             }
         }
         #endregion
@@ -119,43 +74,36 @@ namespace BABYLON.GUI
         {
             get
             {
-            if(__onChangedObservable == null)
-            {
-                __onChangedObservable = EventHorizonBlazorInterop.GetClass<Observable<Style>>(
-                    this.___guid,
-                    "onChangedObservable",
-                    (entity) =>
-                    {
-                        return new Observable<Style>() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __onChangedObservable;
+                if (__onChangedObservable == null)
+                {
+                    __onChangedObservable = EventHorizonBlazorInterop.GetClass<Observable<Style>>(
+                        this.___guid,
+                        "onChangedObservable",
+                        (entity) =>
+                        {
+                            return new Observable<Style>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __onChangedObservable;
             }
             set
             {
-__onChangedObservable = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onChangedObservable",
-                    value
-                );
+                __onChangedObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onChangedObservable", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public Style() : base() { }
+        public Style()
+            : base() { }
 
-        public Style(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public Style(ICachedEntity entity)
+            : base(entity) { }
 
-        public Style(
-            AdvancedDynamicTexture host
-        ) : base()
+        public Style(AdvancedDynamicTexture host)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GUI", "Style" },
@@ -169,10 +117,7 @@ __onChangedObservable = null;
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
         #endregion

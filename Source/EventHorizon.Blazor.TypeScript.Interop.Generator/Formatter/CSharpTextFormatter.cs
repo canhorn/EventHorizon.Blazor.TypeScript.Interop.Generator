@@ -9,19 +9,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter
 {
     public class CSharpTextFormatter : TextFormatter
     {
-        public string Format(
-            string text
-        )
+        public string Format(string text)
         {
-            return SyntaxFactory.ParseSyntaxTree(
-                SourceText.From(
-                    text,
-                    Encoding.UTF8
-                )
-            ).GetRoot().NormalizeWhitespace(
-                "    ",
-                Environment.NewLine
-            ).ToFullString();
+            return SyntaxFactory
+                .ParseSyntaxTree(SourceText.From(text, Encoding.UTF8))
+                .GetRoot()
+                .NormalizeWhitespace("    ", Environment.NewLine)
+                .ToFullString();
         }
     }
 }

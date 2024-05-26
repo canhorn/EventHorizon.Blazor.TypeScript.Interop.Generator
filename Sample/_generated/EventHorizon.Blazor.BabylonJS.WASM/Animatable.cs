@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Animatable>))]
     public class Animatable : CachedEntityObject
     {
@@ -33,83 +31,54 @@ namespace BABYLON
         {
             get
             {
-            if(__syncRoot == null)
-            {
-                __syncRoot = EventHorizonBlazorInterop.GetClass<Animatable>(
-                    this.___guid,
-                    "syncRoot",
-                    (entity) =>
-                    {
-                        return new Animatable() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __syncRoot;
+                if (__syncRoot == null)
+                {
+                    __syncRoot = EventHorizonBlazorInterop.GetClass<Animatable>(
+                        this.___guid,
+                        "syncRoot",
+                        (entity) =>
+                        {
+                            return new Animatable() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __syncRoot;
             }
         }
 
-        
         public decimal masterFrame
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "masterFrame"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "masterFrame"); }
         }
 
-        
         public decimal weight
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "weight"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "weight"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "weight",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "weight", value);
             }
         }
 
-        
         public decimal speedRatio
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "speedRatio"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "speedRatio"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "speedRatio",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "speedRatio", value);
             }
         }
         #endregion
 
         #region Properties
-        
+
         public CachedEntity target
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "target",
                     (entity) =>
@@ -121,137 +90,67 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "target",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "target", value);
             }
         }
 
-        
         public decimal fromFrame
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "fromFrame"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "fromFrame"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "fromFrame",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "fromFrame", value);
             }
         }
 
-        
         public decimal toFrame
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "toFrame"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "toFrame"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "toFrame",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "toFrame", value);
             }
         }
 
-        
         public bool loopAnimation
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "loopAnimation"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "loopAnimation"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "loopAnimation",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "loopAnimation", value);
             }
         }
 
-        
         public bool isAdditive
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isAdditive"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isAdditive"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isAdditive",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "isAdditive", value);
             }
         }
 
-        
         public bool disposeOnEnd
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "disposeOnEnd"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "disposeOnEnd"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "disposeOnEnd",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "disposeOnEnd", value);
             }
         }
 
-        
         public bool animationStarted
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "animationStarted"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "animationStarted"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "animationStarted",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "animationStarted", value);
             }
         }
 
@@ -260,27 +159,25 @@ namespace BABYLON
         {
             get
             {
-            if(__onAnimationEndObservable == null)
-            {
-                __onAnimationEndObservable = EventHorizonBlazorInterop.GetClass<Observable<Animatable>>(
-                    this.___guid,
-                    "onAnimationEndObservable",
-                    (entity) =>
-                    {
-                        return new Observable<Animatable>() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __onAnimationEndObservable;
+                if (__onAnimationEndObservable == null)
+                {
+                    __onAnimationEndObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<Animatable>
+                    >(
+                        this.___guid,
+                        "onAnimationEndObservable",
+                        (entity) =>
+                        {
+                            return new Observable<Animatable>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __onAnimationEndObservable;
             }
             set
             {
-__onAnimationEndObservable = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onAnimationEndObservable",
-                    value
-                );
+                __onAnimationEndObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onAnimationEndObservable", value);
             }
         }
 
@@ -289,48 +186,64 @@ __onAnimationEndObservable = null;
         {
             get
             {
-            if(__onAnimationLoopObservable == null)
-            {
-                __onAnimationLoopObservable = EventHorizonBlazorInterop.GetClass<Observable<Animatable>>(
-                    this.___guid,
-                    "onAnimationLoopObservable",
-                    (entity) =>
-                    {
-                        return new Observable<Animatable>() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __onAnimationLoopObservable;
+                if (__onAnimationLoopObservable == null)
+                {
+                    __onAnimationLoopObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<Animatable>
+                    >(
+                        this.___guid,
+                        "onAnimationLoopObservable",
+                        (entity) =>
+                        {
+                            return new Observable<Animatable>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __onAnimationLoopObservable;
             }
             set
             {
-__onAnimationLoopObservable = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onAnimationLoopObservable",
-                    value
-                );
+                __onAnimationLoopObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onAnimationLoopObservable", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public Animatable() : base() { }
 
-        public Animatable(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public Animatable()
+            : base() { }
+
+        public Animatable(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
         public Animatable(
-            Scene scene, object target, System.Nullable<decimal> fromFrame = null, System.Nullable<decimal> toFrame = null, System.Nullable<bool> loopAnimation = null, System.Nullable<decimal> speedRatio = null, ActionResultCallback<ActionCallback> onAnimationEnd = null, Animation[] animations = null, ActionResultCallback<ActionCallback> onAnimationLoop = null, System.Nullable<bool> isAdditive = null
+            Scene scene,
+            object target,
+            System.Nullable<decimal> fromFrame = null,
+            System.Nullable<decimal> toFrame = null,
+            System.Nullable<bool> loopAnimation = null,
+            System.Nullable<decimal> speedRatio = null,
+            ActionResultCallback<ActionCallback> onAnimationEnd = null,
+            Animation[] animations = null,
+            ActionResultCallback<ActionCallback> onAnimationLoop = null,
+            System.Nullable<bool> isAdditive = null
         )
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Animatable" },
-                scene, target, fromFrame, toFrame, loopAnimation, speedRatio, onAnimationEnd, animations, onAnimationLoop, isAdditive
+                scene,
+                target,
+                fromFrame,
+                toFrame,
+                loopAnimation,
+                speedRatio,
+                onAnimationEnd,
+                animations,
+                onAnimationLoop,
+                isAdditive
             );
             ___guid = entity.___guid;
         }
@@ -339,30 +252,22 @@ __onAnimationLoopObservable = null;
         #region Methods
         #region onAnimationEnd TODO: Get Comments as metadata identification
         private bool _isOnAnimationEndEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _onAnimationEndActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _onAnimationEndActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string onAnimationEnd(
-            Func<Task> callback
-        )
+        public string onAnimationEnd(Func<Task> callback)
         {
             SetupOnAnimationEndLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _onAnimationEndActionMap.Add(
-                handle,
-                callback
-            );
+            _onAnimationEndActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool onAnimationEnd_Remove(
-            string handle
-        )
+        public bool onAnimationEnd_Remove(string handle)
         {
-            return _onAnimationEndActionMap.Remove(
-                handle
-            );
+            return _onAnimationEndActionMap.Remove(handle);
         }
 
         private void SetupOnAnimationEndLoop()
@@ -392,30 +297,22 @@ __onAnimationLoopObservable = null;
 
         #region onAnimationLoop TODO: Get Comments as metadata identification
         private bool _isOnAnimationLoopEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _onAnimationLoopActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _onAnimationLoopActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string onAnimationLoop(
-            Func<Task> callback
-        )
+        public string onAnimationLoop(Func<Task> callback)
         {
             SetupOnAnimationLoopLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _onAnimationLoopActionMap.Add(
-                handle,
-                callback
-            );
+            _onAnimationLoopActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool onAnimationLoop_Remove(
-            string handle
-        )
+        public bool onAnimationLoop_Remove(string handle)
         {
-            return _onAnimationLoopActionMap.Remove(
-                handle
-            );
+            return _onAnimationLoopActionMap.Remove(handle);
         }
 
         private void SetupOnAnimationLoopLoop()
@@ -447,10 +344,7 @@ __onAnimationLoopObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Animatable>(
                 entity => new Animatable() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "syncWith" }, root
-                }
+                new object[] { new string[] { this.___guid, "syncWith" }, root }
             );
         }
 
@@ -458,10 +352,7 @@ __onAnimationLoopObservable = null;
         {
             return EventHorizonBlazorInterop.FuncArrayClass<RuntimeAnimation>(
                 entity => new RuntimeAnimation() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getAnimations" }
-                }
+                new object[] { new string[] { this.___guid, "getAnimations" } }
             );
         }
 
@@ -470,7 +361,9 @@ __onAnimationLoopObservable = null;
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "appendAnimations" }, target, animations
+                    new string[] { this.___guid, "appendAnimations" },
+                    target,
+                    animations
                 }
             );
         }
@@ -481,7 +374,8 @@ __onAnimationLoopObservable = null;
                 entity => new Animation() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "getAnimationByTargetProperty" }, property
+                    new string[] { this.___guid, "getAnimationByTargetProperty" },
+                    property
                 }
             );
         }
@@ -492,7 +386,8 @@ __onAnimationLoopObservable = null;
                 entity => new RuntimeAnimation() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "getRuntimeAnimationByTargetProperty" }, property
+                    new string[] { this.___guid, "getRuntimeAnimationByTargetProperty" },
+                    property
                 }
             );
         }
@@ -500,70 +395,52 @@ __onAnimationLoopObservable = null;
         public void reset()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "reset" }
-                }
+                new object[] { new string[] { this.___guid, "reset" } }
             );
         }
 
         public void enableBlending(decimal blendingSpeed)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "enableBlending" }, blendingSpeed
-                }
+                new object[] { new string[] { this.___guid, "enableBlending" }, blendingSpeed }
             );
         }
 
         public void disableBlending()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "disableBlending" }
-                }
+                new object[] { new string[] { this.___guid, "disableBlending" } }
             );
         }
 
         public void goToFrame(decimal frame)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "goToFrame" }, frame
-                }
+                new object[] { new string[] { this.___guid, "goToFrame" }, frame }
             );
         }
 
         public void pause()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "pause" }
-                }
+                new object[] { new string[] { this.___guid, "pause" } }
             );
         }
 
         public void restart()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "restart" }
-                }
+                new object[] { new string[] { this.___guid, "restart" } }
             );
         }
 
-        public void stop(string animationName = null, ActionResultCallback<object, bool> targetMask = null)
+        public void stop(
+            string animationName = null,
+            ActionResultCallback<object, bool> targetMask = null
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "stop" }, animationName, targetMask
-                }
+                new object[] { new string[] { this.___guid, "stop" }, animationName, targetMask }
             );
         }
 
@@ -571,10 +448,7 @@ __onAnimationLoopObservable = null;
         {
             return EventHorizonBlazorInterop.TaskClass<Animatable>(
                 entity => new Animatable() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "waitAsync" }
-                }
+                new object[] { new string[] { this.___guid, "waitAsync" } }
             );
         }
         #endregion

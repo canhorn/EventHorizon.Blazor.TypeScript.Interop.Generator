@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Sprite>))]
     public class Sprite : ThinSprite, IAnimatable
     {
@@ -30,31 +28,23 @@ namespace BABYLON
                 entity => new Sprite() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "Sprite", "Parse" }, parsedSprite, manager
+                    new string[] { "BABYLON", "Sprite", "Parse" },
+                    parsedSprite,
+                    manager
                 }
             );
         }
         #endregion
 
         #region Accessors
-        
+
         public decimal size
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "size"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "size"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "size",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "size", value);
             }
         }
 
@@ -63,125 +53,71 @@ namespace BABYLON
         {
             get
             {
-            if(__manager == null)
-            {
-                __manager = EventHorizonBlazorInterop.GetClass<ISpriteManagerCachedEntity>(
-                    this.___guid,
-                    "manager",
-                    (entity) =>
-                    {
-                        return new ISpriteManagerCachedEntity() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __manager;
+                if (__manager == null)
+                {
+                    __manager = EventHorizonBlazorInterop.GetClass<ISpriteManagerCachedEntity>(
+                        this.___guid,
+                        "manager",
+                        (entity) =>
+                        {
+                            return new ISpriteManagerCachedEntity() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __manager;
             }
         }
 
-        
         public decimal fromIndex
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "fromIndex"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "fromIndex"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "fromIndex",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "fromIndex", value);
             }
         }
 
-        
         public decimal toIndex
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "toIndex"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "toIndex"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "toIndex",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "toIndex", value);
             }
         }
 
-        
         public bool loopAnimation
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "loopAnimation"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "loopAnimation"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "loopAnimation",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "loopAnimation", value);
             }
         }
 
-        
         public decimal delay
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "delay"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "delay"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "delay",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "delay", value);
             }
         }
         #endregion
 
         #region Properties
-        
+
         public string name
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "name"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "name"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "name",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "name", value);
             }
         }
 
@@ -190,27 +126,23 @@ namespace BABYLON
         {
             get
             {
-            if(__position == null)
-            {
-                __position = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "position",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __position;
+                if (__position == null)
+                {
+                    __position = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "position",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __position;
             }
             set
             {
-__position = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "position",
-                    value
-                );
+                __position = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "position", value);
             }
         }
 
@@ -219,36 +151,31 @@ __position = null;
         {
             get
             {
-            if(__color == null)
-            {
-                __color = EventHorizonBlazorInterop.GetClass<Color4>(
-                    this.___guid,
-                    "color",
-                    (entity) =>
-                    {
-                        return new Color4() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __color;
+                if (__color == null)
+                {
+                    __color = EventHorizonBlazorInterop.GetClass<Color4>(
+                        this.___guid,
+                        "color",
+                        (entity) =>
+                        {
+                            return new Color4() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __color;
             }
             set
             {
-__color = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "color",
-                    value
-                );
+                __color = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "color", value);
             }
         }
 
-        
         public bool disposeWhenFinishedAnimating
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
+                return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
                     "disposeWhenFinishedAnimating"
                 );
@@ -256,20 +183,15 @@ __color = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "disposeWhenFinishedAnimating",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "disposeWhenFinishedAnimating", value);
             }
         }
 
-        
         public Animation[] animations
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<Animation>(
+                return EventHorizonBlazorInterop.GetArrayClass<Animation>(
                     this.___guid,
                     "animations",
                     (entity) =>
@@ -281,53 +203,27 @@ __color = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "animations",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "animations", value);
             }
         }
 
-        
         public bool isPickable
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isPickable"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isPickable"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isPickable",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "isPickable", value);
             }
         }
 
-        
         public bool useAlphaForPicking
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "useAlphaForPicking"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "useAlphaForPicking"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "useAlphaForPicking",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "useAlphaForPicking", value);
             }
         }
 
@@ -336,27 +232,23 @@ __color = null;
         {
             get
             {
-            if(__actionManager == null)
-            {
-                __actionManager = EventHorizonBlazorInterop.GetClass<ActionManager>(
-                    this.___guid,
-                    "actionManager",
-                    (entity) =>
-                    {
-                        return new ActionManager() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __actionManager;
+                if (__actionManager == null)
+                {
+                    __actionManager = EventHorizonBlazorInterop.GetClass<ActionManager>(
+                        this.___guid,
+                        "actionManager",
+                        (entity) =>
+                        {
+                            return new ActionManager() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __actionManager;
             }
             set
             {
-__actionManager = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "actionManager",
-                    value
-                );
+                __actionManager = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "actionManager", value);
             }
         }
 
@@ -365,68 +257,51 @@ __actionManager = null;
         {
             get
             {
-            if(__onDisposeObservable == null)
-            {
-                __onDisposeObservable = EventHorizonBlazorInterop.GetClass<Observable<Sprite>>(
-                    this.___guid,
-                    "onDisposeObservable",
-                    (entity) =>
-                    {
-                        return new Observable<Sprite>() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __onDisposeObservable;
+                if (__onDisposeObservable == null)
+                {
+                    __onDisposeObservable = EventHorizonBlazorInterop.GetClass<Observable<Sprite>>(
+                        this.___guid,
+                        "onDisposeObservable",
+                        (entity) =>
+                        {
+                            return new Observable<Sprite>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __onDisposeObservable;
             }
             set
             {
-__onDisposeObservable = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onDisposeObservable",
-                    value
-                );
+                __onDisposeObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onDisposeObservable", value);
             }
         }
 
-        
         public decimal uniqueId
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "uniqueId"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "uniqueId"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "uniqueId",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "uniqueId", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public Sprite() : base() { }
+        public Sprite()
+            : base() { }
 
-        public Sprite(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public Sprite(ICachedEntity entity)
+            : base(entity) { }
 
-        public Sprite(
-            string name, ISpriteManager manager
-        ) : base()
+        public Sprite(string name, ISpriteManager manager)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Sprite" },
-                name, manager
+                name,
+                manager
             );
             ___guid = entity.___guid;
         }
@@ -436,19 +311,27 @@ __onDisposeObservable = null;
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
-        public void playAnimation(decimal from, decimal to, bool loop, decimal delay, ActionCallback onAnimationEnd = null)
+        public void playAnimation(
+            decimal from,
+            decimal to,
+            bool loop,
+            decimal delay,
+            ActionCallback onAnimationEnd = null
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "playAnimation" }, from, to, loop, delay, onAnimationEnd
+                    new string[] { this.___guid, "playAnimation" },
+                    from,
+                    to,
+                    loop,
+                    delay,
+                    onAnimationEnd
                 }
             );
         }
@@ -456,20 +339,14 @@ __onDisposeObservable = null;
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
 
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "serialize" }
-                }
+                new object[] { new string[] { this.___guid, "serialize" } }
             );
         }
         #endregion

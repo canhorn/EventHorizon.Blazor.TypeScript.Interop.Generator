@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Server.Interop;
 
 public class GainNode : CachedEntity
 {
-    public GainNode()
-    {
-    }
+    public GainNode() { }
 
-    public GainNode(
-        ICachedEntity entity
-    )
+    public GainNode(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

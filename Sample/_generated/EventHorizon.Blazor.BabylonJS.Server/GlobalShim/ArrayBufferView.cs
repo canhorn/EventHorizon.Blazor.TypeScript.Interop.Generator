@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Server.Interop;
 
 public class ArrayBufferView : CachedEntity
 {
-    public ArrayBufferView()
-    {
-    }
+    public ArrayBufferView() { }
 
-    public ArrayBufferView(
-        ICachedEntity entity
-    )
+    public ArrayBufferView(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

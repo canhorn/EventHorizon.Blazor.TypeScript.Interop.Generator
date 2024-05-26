@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IGetSetVerticesData : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IGetSetVerticesDataCachedEntity>))]
     public class IGetSetVerticesDataCachedEntity : CachedEntityObject, IGetSetVerticesData
     {
@@ -34,16 +34,13 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
+
         #region Constructor
-        public IGetSetVerticesDataCachedEntity() : base() { }
+        public IGetSetVerticesDataCachedEntity()
+            : base() { }
 
-        public IGetSetVerticesDataCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IGetSetVerticesDataCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -51,29 +48,38 @@ namespace BABYLON
         public bool isVerticesDataPresent(string kind)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "isVerticesDataPresent" }, kind
-                }
+                new object[] { new string[] { this.___guid, "isVerticesDataPresent" }, kind }
             );
         }
 
-        public decimal[] getVerticesData(string kind, System.Nullable<bool> copyWhenShared = null, System.Nullable<bool> forceCopy = null)
+        public decimal[] getVerticesData(
+            string kind,
+            System.Nullable<bool> copyWhenShared = null,
+            System.Nullable<bool> forceCopy = null
+        )
         {
             return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
-                    new string[] { this.___guid, "getVerticesData" }, kind, copyWhenShared, forceCopy
+                    new string[] { this.___guid, "getVerticesData" },
+                    kind,
+                    copyWhenShared,
+                    forceCopy
                 }
             );
         }
 
-        public decimal[] getIndices(System.Nullable<bool> copyWhenShared = null, System.Nullable<bool> forceCopy = null)
+        public decimal[] getIndices(
+            System.Nullable<bool> copyWhenShared = null,
+            System.Nullable<bool> forceCopy = null
+        )
         {
             return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
-                    new string[] { this.___guid, "getIndices" }, copyWhenShared, forceCopy
+                    new string[] { this.___guid, "getIndices" },
+                    copyWhenShared,
+                    forceCopy
                 }
             );
         }
@@ -83,27 +89,46 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "setVerticesData" }, kind, data, updatable
+                    new string[] { this.___guid, "setVerticesData" },
+                    kind,
+                    data,
+                    updatable
                 }
             );
         }
 
-        public void updateVerticesData(string kind, decimal[] data, System.Nullable<bool> updateExtends = null, System.Nullable<bool> makeItUnique = null)
+        public void updateVerticesData(
+            string kind,
+            decimal[] data,
+            System.Nullable<bool> updateExtends = null,
+            System.Nullable<bool> makeItUnique = null
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "updateVerticesData" }, kind, data, updateExtends, makeItUnique
+                    new string[] { this.___guid, "updateVerticesData" },
+                    kind,
+                    data,
+                    updateExtends,
+                    makeItUnique
                 }
             );
         }
 
-        public void setIndices(decimal[] indices, System.Nullable<decimal> totalVertices = null, System.Nullable<bool> updatable = null)
+        public void setIndices(
+            decimal[] indices,
+            System.Nullable<decimal> totalVertices = null,
+            System.Nullable<bool> updatable = null
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "setIndices" }, indices, totalVertices, updatable
+                    new string[] { this.___guid, "setIndices" },
+                    indices,
+                    totalVertices,
+                    updatable
                 }
             );
         }

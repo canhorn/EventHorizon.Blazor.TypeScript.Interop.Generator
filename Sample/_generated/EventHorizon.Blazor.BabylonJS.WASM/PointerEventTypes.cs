@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<PointerEventTypes>))]
     public class PointerEventTypes : CachedEntityObject
     {
@@ -20,84 +18,78 @@ namespace BABYLON
         #endregion
 
         #region Static Properties
-        
+
         public static decimal POINTERDOWN
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "PointerEventTypes.POINTERDOWN"
                 );
             }
         }
 
-        
         public static decimal POINTERUP
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "PointerEventTypes.POINTERUP"
                 );
             }
         }
 
-        
         public static decimal POINTERMOVE
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "PointerEventTypes.POINTERMOVE"
                 );
             }
         }
 
-        
         public static decimal POINTERWHEEL
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "PointerEventTypes.POINTERWHEEL"
                 );
             }
         }
 
-        
         public static decimal POINTERPICK
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "PointerEventTypes.POINTERPICK"
                 );
             }
         }
 
-        
         public static decimal POINTERTAP
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "PointerEventTypes.POINTERTAP"
                 );
             }
         }
 
-        
         public static decimal POINTERDOUBLETAP
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "PointerEventTypes.POINTERDOUBLETAP"
                 );
@@ -116,17 +108,16 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
-        #region Constructor
-        public PointerEventTypes() : base() { }
 
-        public PointerEventTypes(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public PointerEventTypes()
+            : base() { }
+
+        public PointerEventTypes(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
-
 
         #endregion
 

@@ -21,23 +21,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
         {
             // Given
             GenerateSource.DisableCache();
-            var sourcePath = Path.Combine(
-                ".",
-                "GenerateClassStatementStringTests",
-                path
-            );
-            string expected = File.ReadAllText(Path.Combine(
-                sourcePath,
-                expectedFile
-            ));
-            var source = File.ReadAllText(Path.Combine(
-                sourcePath,
-                sourceFile
-            ));
-            var ast = CreateParser(
-                parserType,
-                source
-            );
+            var sourcePath = Path.Combine(".", "GenerateClassStatementStringTests", path);
+            string expected = File.ReadAllText(Path.Combine(sourcePath, expectedFile));
+            var source = File.ReadAllText(Path.Combine(sourcePath, sourceFile));
+            var ast = CreateParser(parserType, source);
             var typeOverrideMap = new Dictionary<string, string>();
 
             // When
@@ -53,9 +40,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
             );
 
             // Then
-            actual.Should().Be(
-                expected
-            );
+            actual.Should().Be(expected);
         }
 
         public void ValidateGenerateWithTypeOverrideStrings(
@@ -68,23 +53,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
         {
             // Given
             GenerateSource.DisableCache();
-            var sourcePath = Path.Combine(
-                ".",
-                "GenerateClassStatementStringTests",
-                path
-            );
-            string expected = File.ReadAllText(Path.Combine(
-                sourcePath,
-                expectedFile
-            ));
-            var source = File.ReadAllText(Path.Combine(
-                sourcePath,
-                sourceFile
-            ));
-            var ast = CreateParser(
-                parserType,
-                source
-            );
+            var sourcePath = Path.Combine(".", "GenerateClassStatementStringTests", path);
+            string expected = File.ReadAllText(Path.Combine(sourcePath, expectedFile));
+            var source = File.ReadAllText(Path.Combine(sourcePath, sourceFile));
+            var ast = CreateParser(parserType, source);
 
             // When
             var generated = GenerateInteropClassStatement.Generate(
@@ -99,24 +71,15 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests
             );
 
             // Then
-            actual.Should().Be(
-                expected
-            );
+            actual.Should().Be(expected);
         }
 
-        private static AbstractSyntaxTree CreateParser(
-            ASTParserType parserType,
-            string source
-        )
+        private static AbstractSyntaxTree CreateParser(ASTParserType parserType, string source)
         {
             return parserType switch
             {
-                ASTParserType.NodeJS => new NodeJS_ASTWrapper(
-                    source
-                ),
-                _ => new Sdcb_TypeScriptASTWrapper(
-                    source
-                ),
+                ASTParserType.NodeJS => new NodeJS_ASTWrapper(source),
+                _ => new Sdcb_TypeScriptASTWrapper(source),
             };
         }
     }

@@ -18,12 +18,12 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         {
             var interfaces = new List<TypeStatement>();
             // Check if Class
-            var interfaceCache = ast.RootNode.OfKind(
-                SyntaxKind.InterfaceDeclaration
-            );
-            if (node.Kind == SyntaxKind.ClassDeclaration
+            var interfaceCache = ast.RootNode.OfKind(SyntaxKind.InterfaceDeclaration);
+            if (
+                node.Kind == SyntaxKind.ClassDeclaration
                 && node.HeritageClauses != null
-                && node.HeritageClauses.Any())
+                && node.HeritageClauses.Any()
+            )
             {
                 foreach (var heritageClauses in node.HeritageClauses)
                 {
@@ -32,8 +32,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                         var identifiers = heritageClauseType.OfKind(SyntaxKind.Identifier);
                         foreach (var identifier in identifiers)
                         {
-                            var interfaceNode = interfaceCache.FirstOrDefault(
-                                a => a.IdentifierStr == identifier.IdentifierStr
+                            var interfaceNode = interfaceCache.FirstOrDefault(a =>
+                                a.IdentifierStr == identifier.IdentifierStr
                             );
                             if (interfaceNode != null)
                             {

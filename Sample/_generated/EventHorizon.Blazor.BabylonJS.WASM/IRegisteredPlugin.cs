@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IRegisteredPlugin : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IRegisteredPluginCachedEntity>))]
     public class IRegisteredPluginCachedEntity : CachedEntityObject, IRegisteredPlugin
     {
@@ -37,61 +37,46 @@ namespace BABYLON
         {
             get
             {
-            if(__plugin == null)
-            {
-                __plugin = EventHorizonBlazorInterop.GetClass<ISceneLoaderPluginCachedEntity>(
-                    this.___guid,
-                    "plugin",
-                    (entity) =>
-                    {
-                        return new ISceneLoaderPluginCachedEntity() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __plugin;
+                if (__plugin == null)
+                {
+                    __plugin = EventHorizonBlazorInterop.GetClass<ISceneLoaderPluginCachedEntity>(
+                        this.___guid,
+                        "plugin",
+                        (entity) =>
+                        {
+                            return new ISceneLoaderPluginCachedEntity()
+                            {
+                                ___guid = entity.___guid
+                            };
+                        }
+                    );
+                }
+                return __plugin;
             }
             set
             {
-__plugin = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "plugin",
-                    value
-                );
+                __plugin = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "plugin", value);
             }
         }
 
-        
         public bool isBinary
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isBinary"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isBinary"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isBinary",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "isBinary", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IRegisteredPluginCachedEntity() : base() { }
+        public IRegisteredPluginCachedEntity()
+            : base() { }
 
-        public IRegisteredPluginCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IRegisteredPluginCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

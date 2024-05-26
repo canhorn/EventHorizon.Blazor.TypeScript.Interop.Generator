@@ -27,40 +27,13 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
 
         public void CreateScene()
         {
-            var canvas = Canvas.GetElementById(
-                "game-window"
-            );
-            var engine = new Engine(
-                canvas,
-                true
-            );
-            var scene = new Scene(
-                engine
-            );
-            var light0 = new PointLight(
-                "Omni",
-                new Vector3(
-                    0,
-                    2,
-                    8
-                ),
-                scene
-            );
-            var box1 = Mesh.CreateBox(
-                "b1",
-                1.0m,
-                scene
-            );
-            var box2 = Mesh.CreateBox(
-                "b1",
-                1.0m,
-                scene
-            );
-            box2.position = new Vector3(
-                2m,
-                0,
-                0
-            );
+            var canvas = Canvas.GetElementById("game-window");
+            var engine = new Engine(canvas, true);
+            var scene = new Scene(engine);
+            var light0 = new PointLight("Omni", new Vector3(0, 2, 8), scene);
+            var box1 = Mesh.CreateBox("b1", 1.0m, scene);
+            var box2 = Mesh.CreateBox("b1", 1.0m, scene);
+            box2.position = new Vector3(2m, 0, 0);
             var camera = new ArcRotateCamera(
                 "ArcRotateCamera",
                 (decimal)(System.Math.PI / 2),
@@ -75,12 +48,10 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
                 wheelDeltaPercentage = 0.01m
             };
             scene.activeCamera = camera;
-            camera.attachControl(
-                false
+            camera.attachControl(false);
+            engine.runRenderLoop(
+                new ActionCallback(() => Task.Run(() => scene.render(true, false)))
             );
-            engine.runRenderLoop(new ActionCallback(
-                () => Task.Run(() => scene.render(true, false))
-            ));
 
             _engine = engine;
         }

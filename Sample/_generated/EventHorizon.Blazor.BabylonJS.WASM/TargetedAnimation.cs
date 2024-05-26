@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<TargetedAnimation>))]
     public class TargetedAnimation : CachedEntityObject
     {
@@ -37,36 +35,31 @@ namespace BABYLON
         {
             get
             {
-            if(__animation == null)
-            {
-                __animation = EventHorizonBlazorInterop.GetClass<Animation>(
-                    this.___guid,
-                    "animation",
-                    (entity) =>
-                    {
-                        return new Animation() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __animation;
+                if (__animation == null)
+                {
+                    __animation = EventHorizonBlazorInterop.GetClass<Animation>(
+                        this.___guid,
+                        "animation",
+                        (entity) =>
+                        {
+                            return new Animation() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __animation;
             }
             set
             {
-__animation = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "animation",
-                    value
-                );
+                __animation = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "animation", value);
             }
         }
 
-        
         public CachedEntity target
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "target",
                     (entity) =>
@@ -78,25 +71,20 @@ __animation = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "target",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "target", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public TargetedAnimation() : base() { }
 
-        public TargetedAnimation(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public TargetedAnimation()
+            : base() { }
+
+        public TargetedAnimation(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
-
 
         #endregion
 
@@ -104,20 +92,14 @@ __animation = null;
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "serialize" }
-                }
+                new object[] { new string[] { this.___guid, "serialize" } }
             );
         }
         #endregion

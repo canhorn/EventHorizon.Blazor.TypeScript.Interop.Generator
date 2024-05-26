@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Server.Interop;
 
 public class MSGesture : CachedEntity
 {
-    public MSGesture()
-    {
-    }
+    public MSGesture() { }
 
-    public MSGesture(
-        ICachedEntity entity
-    )
+    public MSGesture(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Node>))]
     public class Node : CachedEntityObject, IBehaviorAware<Node>
     {
@@ -24,22 +22,41 @@ namespace BABYLON
         #endregion
 
         #region Static Methods
-        public static void AddNodeConstructor(string type, ActionResultCallback<string, Scene, CachedEntity, ActionResultCallback<Node>> constructorFunc)
+        public static void AddNodeConstructor(
+            string type,
+            ActionResultCallback<
+                string,
+                Scene,
+                CachedEntity,
+                ActionResultCallback<Node>
+            > constructorFunc
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "Node", "AddNodeConstructor" }, type, constructorFunc
+                    new string[] { "BABYLON", "Node", "AddNodeConstructor" },
+                    type,
+                    constructorFunc
                 }
             );
         }
 
-        public static ActionResultCallback<Node> Construct(string type, string name, Scene scene, object options = null)
+        public static ActionResultCallback<Node> Construct(
+            string type,
+            string name,
+            Scene scene,
+            object options = null
+        )
         {
             return EventHorizonBlazorInterop.Func<ActionResultCallback<Node>>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "Node", "Construct" }, type, name, scene, options
+                    new string[] { "BABYLON", "Node", "Construct" },
+                    type,
+                    name,
+                    scene,
+                    options
                 }
             );
         }
@@ -49,31 +66,24 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "Node", "ParseAnimationRanges" }, node, parsedNode, scene
+                    new string[] { "BABYLON", "Node", "ParseAnimationRanges" },
+                    node,
+                    parsedNode,
+                    scene
                 }
             );
         }
         #endregion
 
         #region Accessors
-        
+
         public bool doNotSerialize
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "doNotSerialize"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "doNotSerialize"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "doNotSerialize",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "doNotSerialize", value);
             }
         }
 
@@ -82,27 +92,23 @@ namespace BABYLON
         {
             get
             {
-            if(__parent == null)
-            {
-                __parent = EventHorizonBlazorInterop.GetClass<Node>(
-                    this.___guid,
-                    "parent",
-                    (entity) =>
-                    {
-                        return new Node() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __parent;
+                if (__parent == null)
+                {
+                    __parent = EventHorizonBlazorInterop.GetClass<Node>(
+                        this.___guid,
+                        "parent",
+                        (entity) =>
+                        {
+                            return new Node() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __parent;
             }
             set
             {
-__parent = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "parent",
-                    value
-                );
+                __parent = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "parent", value);
             }
         }
 
@@ -111,36 +117,35 @@ __parent = null;
         {
             get
             {
-            if(__animationPropertiesOverride == null)
-            {
-                __animationPropertiesOverride = EventHorizonBlazorInterop.GetClass<AnimationPropertiesOverride>(
-                    this.___guid,
-                    "animationPropertiesOverride",
-                    (entity) =>
-                    {
-                        return new AnimationPropertiesOverride() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __animationPropertiesOverride;
+                if (__animationPropertiesOverride == null)
+                {
+                    __animationPropertiesOverride =
+                        EventHorizonBlazorInterop.GetClass<AnimationPropertiesOverride>(
+                            this.___guid,
+                            "animationPropertiesOverride",
+                            (entity) =>
+                            {
+                                return new AnimationPropertiesOverride()
+                                {
+                                    ___guid = entity.___guid
+                                };
+                            }
+                        );
+                }
+                return __animationPropertiesOverride;
             }
             set
             {
-__animationPropertiesOverride = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "animationPropertiesOverride",
-                    value
-                );
+                __animationPropertiesOverride = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "animationPropertiesOverride", value);
             }
         }
 
-        
         public BehaviorCachedEntity<Node>[] behaviors
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<BehaviorCachedEntity<Node>>(
+                return EventHorizonBlazorInterop.GetArrayClass<BehaviorCachedEntity<Node>>(
                     this.___guid,
                     "behaviors",
                     (entity) =>
@@ -156,113 +161,69 @@ __animationPropertiesOverride = null;
         {
             get
             {
-            if(__worldMatrixFromCache == null)
-            {
-                __worldMatrixFromCache = EventHorizonBlazorInterop.GetClass<Matrix>(
-                    this.___guid,
-                    "worldMatrixFromCache",
-                    (entity) =>
-                    {
-                        return new Matrix() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __worldMatrixFromCache;
+                if (__worldMatrixFromCache == null)
+                {
+                    __worldMatrixFromCache = EventHorizonBlazorInterop.GetClass<Matrix>(
+                        this.___guid,
+                        "worldMatrixFromCache",
+                        (entity) =>
+                        {
+                            return new Matrix() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __worldMatrixFromCache;
             }
         }
         #endregion
 
         #region Properties
-        
+
         public string name
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "name"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "name"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "name",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "name", value);
             }
         }
 
-        
         public string id
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "id"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "id"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "id",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "id", value);
             }
         }
 
-        
         public decimal uniqueId
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "uniqueId"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "uniqueId"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "uniqueId",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "uniqueId", value);
             }
         }
 
-        
         public string state
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "state"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "state"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "state",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "state", value);
             }
         }
 
-        
         public CachedEntity metadata
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "metadata",
                     (entity) =>
@@ -274,20 +235,15 @@ __animationPropertiesOverride = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "metadata",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "metadata", value);
             }
         }
 
-        
         public CachedEntity reservedDataStore
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "reservedDataStore",
                     (entity) =>
@@ -299,20 +255,15 @@ __animationPropertiesOverride = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "reservedDataStore",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "reservedDataStore", value);
             }
         }
 
-        
         public IInspectableCachedEntity[] inspectableCustomProperties
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<IInspectableCachedEntity>(
+                return EventHorizonBlazorInterop.GetArrayClass<IInspectableCachedEntity>(
                     this.___guid,
                     "inspectableCustomProperties",
                     (entity) =>
@@ -324,20 +275,15 @@ __animationPropertiesOverride = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "inspectableCustomProperties",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "inspectableCustomProperties", value);
             }
         }
 
-        
         public Animation[] animations
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArrayClass<Animation>(
+                return EventHorizonBlazorInterop.GetArrayClass<Animation>(
                     this.___guid,
                     "animations",
                     (entity) =>
@@ -349,32 +295,20 @@ __animationPropertiesOverride = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "animations",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "animations", value);
             }
         }
 
-        
         public ActionCallback<Node> onReady
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<ActionCallback<Node>>(
-                    this.___guid,
-                    "onReady"
-                );
+                return EventHorizonBlazorInterop.Get<ActionCallback<Node>>(this.___guid, "onReady");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onReady",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "onReady", value);
             }
         }
 
@@ -383,47 +317,41 @@ __animationPropertiesOverride = null;
         {
             get
             {
-            if(__onDisposeObservable == null)
-            {
-                __onDisposeObservable = EventHorizonBlazorInterop.GetClass<Observable<Node>>(
-                    this.___guid,
-                    "onDisposeObservable",
-                    (entity) =>
-                    {
-                        return new Observable<Node>() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __onDisposeObservable;
+                if (__onDisposeObservable == null)
+                {
+                    __onDisposeObservable = EventHorizonBlazorInterop.GetClass<Observable<Node>>(
+                        this.___guid,
+                        "onDisposeObservable",
+                        (entity) =>
+                        {
+                            return new Observable<Node>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __onDisposeObservable;
             }
             set
             {
-__onDisposeObservable = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onDisposeObservable",
-                    value
-                );
+                __onDisposeObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onDisposeObservable", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public Node() : base() { }
+        public Node()
+            : base() { }
 
-        public Node(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public Node(ICachedEntity entity)
+            : base(entity) { }
 
-        public Node(
-            string name, Scene scene = null
-        ) : base()
+        public Node(string name, Scene scene = null)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Node" },
-                name, scene
+                name,
+                scene
             );
             ___guid = entity.___guid;
         }
@@ -433,20 +361,14 @@ __onDisposeObservable = null;
         public bool isDisposed()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "isDisposed" }
-                }
+                new object[] { new string[] { this.___guid, "isDisposed" } }
             );
         }
 
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
@@ -454,10 +376,7 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Scene>(
                 entity => new Scene() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getScene" }
-                }
+                new object[] { new string[] { this.___guid, "getScene" } }
             );
         }
 
@@ -465,20 +384,22 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Engine>(
                 entity => new Engine() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getEngine" }
-                }
+                new object[] { new string[] { this.___guid, "getEngine" } }
             );
         }
 
-        public Node addBehavior(Behavior<Node> behavior, System.Nullable<bool> attachImmediately = null)
+        public Node addBehavior(
+            Behavior<Node> behavior,
+            System.Nullable<bool> attachImmediately = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<Node>(
                 entity => new Node() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "addBehavior" }, behavior, attachImmediately
+                    new string[] { this.___guid, "addBehavior" },
+                    behavior,
+                    attachImmediately
                 }
             );
         }
@@ -487,10 +408,7 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Node>(
                 entity => new Node() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "removeBehavior" }, behavior
-                }
+                new object[] { new string[] { this.___guid, "removeBehavior" }, behavior }
             );
         }
 
@@ -498,10 +416,7 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<BehaviorCachedEntity<Node>>(
                 entity => new BehaviorCachedEntity<Node>() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getBehaviorByName" }, name
-                }
+                new object[] { new string[] { this.___guid, "getBehaviorByName" }, name }
             );
         }
 
@@ -509,112 +424,103 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getWorldMatrix" }
-                }
+                new object[] { new string[] { this.___guid, "getWorldMatrix" } }
             );
         }
 
         public void updateCache(System.Nullable<bool> force = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "updateCache" }, force
-                }
+                new object[] { new string[] { this.___guid, "updateCache" }, force }
             );
         }
 
         public bool isSynchronizedWithParent()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "isSynchronizedWithParent" }
-                }
+                new object[] { new string[] { this.___guid, "isSynchronizedWithParent" } }
             );
         }
 
         public bool isSynchronized()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "isSynchronized" }
-                }
+                new object[] { new string[] { this.___guid, "isSynchronized" } }
             );
         }
 
         public bool isReady(System.Nullable<bool> completeCheck = null)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "isReady" }, completeCheck
-                }
+                new object[] { new string[] { this.___guid, "isReady" }, completeCheck }
             );
         }
 
         public bool isEnabled(System.Nullable<bool> checkAncestors = null)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "isEnabled" }, checkAncestors
-                }
+                new object[] { new string[] { this.___guid, "isEnabled" }, checkAncestors }
             );
         }
 
         public void setEnabled(bool value)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "setEnabled" }, value
-                }
+                new object[] { new string[] { this.___guid, "setEnabled" }, value }
             );
         }
 
         public bool isDescendantOf(Node ancestor)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "isDescendantOf" }, ancestor
-                }
+                new object[] { new string[] { this.___guid, "isDescendantOf" }, ancestor }
             );
         }
 
-        public Node[] getDescendants(System.Nullable<bool> directDescendantsOnly = null, ActionResultCallback<Node, bool> predicate = null)
+        public Node[] getDescendants(
+            System.Nullable<bool> directDescendantsOnly = null,
+            ActionResultCallback<Node, bool> predicate = null
+        )
         {
             return EventHorizonBlazorInterop.FuncArrayClass<Node>(
                 entity => new Node() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "getDescendants" }, directDescendantsOnly, predicate
+                    new string[] { this.___guid, "getDescendants" },
+                    directDescendantsOnly,
+                    predicate
                 }
             );
         }
 
-        public AbstractMesh[] getChildMeshes(System.Nullable<bool> directDescendantsOnly = null, ActionResultCallback<Node, bool> predicate = null)
+        public AbstractMesh[] getChildMeshes(
+            System.Nullable<bool> directDescendantsOnly = null,
+            ActionResultCallback<Node, bool> predicate = null
+        )
         {
             return EventHorizonBlazorInterop.FuncArrayClass<AbstractMesh>(
                 entity => new AbstractMesh() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "getChildMeshes" }, directDescendantsOnly, predicate
+                    new string[] { this.___guid, "getChildMeshes" },
+                    directDescendantsOnly,
+                    predicate
                 }
             );
         }
 
-        public Node[] getChildren(ActionResultCallback<Node, bool> predicate = null, System.Nullable<bool> directDescendantsOnly = null)
+        public Node[] getChildren(
+            ActionResultCallback<Node, bool> predicate = null,
+            System.Nullable<bool> directDescendantsOnly = null
+        )
         {
             return EventHorizonBlazorInterop.FuncArrayClass<Node>(
                 entity => new Node() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "getChildren" }, predicate, directDescendantsOnly
+                    new string[] { this.___guid, "getChildren" },
+                    predicate,
+                    directDescendantsOnly
                 }
             );
         }
@@ -623,10 +529,7 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Animation>(
                 entity => new Animation() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getAnimationByName" }, name
-                }
+                new object[] { new string[] { this.___guid, "getAnimationByName" }, name }
             );
         }
 
@@ -635,7 +538,10 @@ __onDisposeObservable = null;
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "createAnimationRange" }, name, from, to
+                    new string[] { this.___guid, "createAnimationRange" },
+                    name,
+                    from,
+                    to
                 }
             );
         }
@@ -645,7 +551,9 @@ __onDisposeObservable = null;
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "deleteAnimationRange" }, name, deleteFrames
+                    new string[] { this.___guid, "deleteAnimationRange" },
+                    name,
+                    deleteFrames
                 }
             );
         }
@@ -654,10 +562,7 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<AnimationRange>(
                 entity => new AnimationRange() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getAnimationRange" }, name
-                }
+                new object[] { new string[] { this.___guid, "getAnimationRange" }, name }
             );
         }
 
@@ -665,20 +570,26 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncArrayClass<AnimationRange>(
                 entity => new AnimationRange() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getAnimationRanges" }
-                }
+                new object[] { new string[] { this.___guid, "getAnimationRanges" } }
             );
         }
 
-        public Animatable beginAnimation(string name, System.Nullable<bool> loop = null, System.Nullable<decimal> speedRatio = null, ActionCallback onAnimationEnd = null)
+        public Animatable beginAnimation(
+            string name,
+            System.Nullable<bool> loop = null,
+            System.Nullable<decimal> speedRatio = null,
+            ActionCallback onAnimationEnd = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<Animatable>(
                 entity => new Animatable() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "beginAnimation" }, name, loop, speedRatio, onAnimationEnd
+                    new string[] { this.___guid, "beginAnimation" },
+                    name,
+                    loop,
+                    speedRatio,
+                    onAnimationEnd
                 }
             );
         }
@@ -686,10 +597,7 @@ __onDisposeObservable = null;
         public CachedEntity serializeAnimationRanges()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "serializeAnimationRanges" }
-                }
+                new object[] { new string[] { this.___guid, "serializeAnimationRanges" } }
             );
         }
 
@@ -697,29 +605,36 @@ __onDisposeObservable = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "computeWorldMatrix" }, force
-                }
+                new object[] { new string[] { this.___guid, "computeWorldMatrix" }, force }
             );
         }
 
-        public void dispose(System.Nullable<bool> doNotRecurse = null, System.Nullable<bool> disposeMaterialAndTextures = null)
+        public void dispose(
+            System.Nullable<bool> doNotRecurse = null,
+            System.Nullable<bool> disposeMaterialAndTextures = null
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "dispose" }, doNotRecurse, disposeMaterialAndTextures
+                    new string[] { this.___guid, "dispose" },
+                    doNotRecurse,
+                    disposeMaterialAndTextures
                 }
             );
         }
 
-        public CachedEntity getHierarchyBoundingVectors(System.Nullable<bool> includeDescendants = null, ActionResultCallback<AbstractMesh, bool> predicate = null)
+        public CachedEntity getHierarchyBoundingVectors(
+            System.Nullable<bool> includeDescendants = null,
+            ActionResultCallback<AbstractMesh, bool> predicate = null
+        )
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "getHierarchyBoundingVectors" }, includeDescendants, predicate
+                    new string[] { this.___guid, "getHierarchyBoundingVectors" },
+                    includeDescendants,
+                    predicate
                 }
             );
         }

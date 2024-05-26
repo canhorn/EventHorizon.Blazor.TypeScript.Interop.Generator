@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<PointerInfoPre>))]
     public class PointerInfoPre : PointerInfoBase
     {
@@ -33,9 +31,10 @@ namespace BABYLON
 
         #region Properties
         private Ray __ray;
+
         public async ValueTask<Ray> get_ray()
         {
-            if(__ray == null)
+            if (__ray == null)
             {
                 __ray = await EventHorizonBlazorInterop.GetClass<Ray>(
                     this.___guid,
@@ -48,20 +47,18 @@ namespace BABYLON
             }
             return __ray;
         }
+
         public ValueTask set_ray(Ray value)
         {
-__ray = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "ray",
-                    value
-                );
+            __ray = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "ray", value);
         }
 
         private Vector2 __localPosition;
+
         public async ValueTask<Vector2> get_localPosition()
         {
-            if(__localPosition == null)
+            if (__localPosition == null)
             {
                 __localPosition = await EventHorizonBlazorInterop.GetClass<Vector2>(
                     this.___guid,
@@ -74,51 +71,47 @@ __ray = null;
             }
             return __localPosition;
         }
+
         public ValueTask set_localPosition(Vector2 value)
         {
-__localPosition = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "localPosition",
-                    value
-                );
+            __localPosition = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "localPosition", value);
         }
 
-        
         public async ValueTask<bool> get_skipOnPointerObservable()
         {
             return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "skipOnPointerObservable"
-                );
+                this.___guid,
+                "skipOnPointerObservable"
+            );
         }
+
         public ValueTask set_skipOnPointerObservable(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "skipOnPointerObservable",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "skipOnPointerObservable", value);
         }
         #endregion
-        
-        #region Constructor
-        public PointerInfoPre() : base() { }
 
-        public PointerInfoPre(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        #region Constructor
+        public PointerInfoPre()
+            : base() { }
+
+        public PointerInfoPre(ICachedEntity entity)
+            : base(entity) { }
 
         public static async ValueTask<PointerInfoPre> NewPointerInfoPre(
-            decimal type, PointerEvent @event, decimal localX, decimal localY
+            decimal type,
+            PointerEvent @event,
+            decimal localX,
+            decimal localY
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "PointerInfoPre" },
-                type, @event, localX, localY
+                type,
+                @event,
+                localX,
+                localY
             );
 
             return new PointerInfoPre(entity);

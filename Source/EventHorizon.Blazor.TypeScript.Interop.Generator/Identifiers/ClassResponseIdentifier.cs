@@ -6,26 +6,19 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
     public class ClassResponseIdentifier
     {
-        public static bool Identify(
-            TypeStatement typeStatement,
-            IList<string> classNameList
-        )
+        public static bool Identify(TypeStatement typeStatement, IList<string> classNameList)
         {
             var name = typeStatement.Name;
-            if (typeStatement.IsArray
+            if (
+                typeStatement.IsArray
                 || typeStatement.IsModifier
                 || typeStatement.IsNullable
-                || typeStatement.IsTask)
+                || typeStatement.IsTask
+            )
             {
-                return Identify(
-                    typeStatement.GenericTypes.First(),
-                    classNameList
-                );
+                return Identify(typeStatement.GenericTypes.First(), classNameList);
             }
-            return ClassIdentifier.Identify(
-                classNameList,
-                name
-            );
+            return ClassIdentifier.Identify(classNameList, name);
         }
     }
 }

@@ -38,22 +38,20 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             var overallStopwatch = Stopwatch.StartNew();
             var stopwatch = Stopwatch.StartNew();
             GlobalLogger.Info($"=== Consolidate Source Files");
-            var sourceFilesAsText = GetSourceFilesAsSingleTextString(
-                sourceDirectory,
-                sourceFiles
+            var sourceFilesAsText = GetSourceFilesAsSingleTextString(sourceDirectory, sourceFiles);
+            GlobalLogger.Info(
+                $"=== Consolidated Source Files | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms"
             );
-            GlobalLogger.Info($"=== Consolidated Source Files | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms");
 
             stopwatch.Restart();
             GlobalLogger.Info($"=== Generated AST - {parserType}");
             var ast = ASTParser.ParseText(
                 sourceFilesAsText,
-                new ASTParserOptions
-                {
-                    ParserType = parserType,
-                }
+                new ASTParserOptions { ParserType = parserType, }
             );
-            GlobalLogger.Info($"=== Generated AST | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms");
+            GlobalLogger.Info(
+                $"=== Generated AST | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms"
+            );
             var notGeneratedClassNames = new List<string>();
 
             var generatedStatements = new List<GeneratedStatement>();
@@ -66,7 +64,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                     GenerateCachedEntityObject.GenerateString()
                 )
             );
-            GlobalLogger.Info($"=== Generated Cached Entity Object | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms");
+            GlobalLogger.Info(
+                $"=== Generated Cached Entity Object | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms"
+            );
 
             stopwatch.Restart();
             GlobalLogger.Info($"=== Generate Class Statements");
@@ -79,7 +79,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                 new List<ClassStatement> { cachedEntityObject }
             );
             generatedClassStatements.Remove(cachedEntityObject);
-            GlobalLogger.Info($"=== Generated Class Statements | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms");
+            GlobalLogger.Info(
+                $"=== Generated Class Statements | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms"
+            );
 
             stopwatch.Restart();
             GlobalLogger.Info($"=== Generate Statements");
@@ -88,14 +90,13 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                 generatedStatements.Add(
                     new GeneratedStatement(
                         generatedStatement,
-                        GenerateClassStatementString.Generate(
-                            generatedStatement,
-                            textFormatter
-                        )
+                        GenerateClassStatementString.Generate(generatedStatement, textFormatter)
                     )
                 );
             }
-            GlobalLogger.Info($"=== Generated Statements | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms");
+            GlobalLogger.Info(
+                $"=== Generated Statements | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms"
+            );
 
             stopwatch.Restart();
             GlobalLogger.Info($"=== Generating Shimmed Classes");
@@ -109,27 +110,27 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                     generatedStatements.Add(
                         new GeneratedStatement(
                             classShim,
-                            textFormatter.Format(
-                                GenerateClassShim.GenerateString(
-                                    classShim
-                                )
-                            )
+                            textFormatter.Format(GenerateClassShim.GenerateString(classShim))
                         )
                     );
                     GlobalLogger.Info($"=== Generated Shimmed Class: {notGeneratedInterfaceName}");
                 }
             }
-            GlobalLogger.Info($"=== Generated Shimmed Classes | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms");
+            GlobalLogger.Info(
+                $"=== Generated Shimmed Classes | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms"
+            );
 
             // Write Generated Statements to Passed in Writer
             stopwatch.Restart();
             GlobalLogger.Info($"=== Writing Generated Statements");
-            writer.Write(
-                generatedStatements
+            writer.Write(generatedStatements);
+            GlobalLogger.Info(
+                $"=== Finished Writing Generated Statements | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms"
             );
-            GlobalLogger.Info($"=== Finished Writing Generated Statements | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms");
 
-            GlobalLogger.Success($"=== Finished Run | ElapsedTime: {overallStopwatch.ElapsedMilliseconds}ms");
+            GlobalLogger.Success(
+                $"=== Finished Run | ElapsedTime: {overallStopwatch.ElapsedMilliseconds}ms"
+            );
 
             return true;
         }
@@ -143,14 +144,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
 
             sourceFiles.Aggregate(
                 stringBuilder,
-                (acc, sourceFile) => acc.Append(
-                    File.ReadAllText(
-                        Path.Combine(
-                            sourceDirectory,
-                            sourceFile
-                        )
-                    )
-                )
+                (acc, sourceFile) =>
+                    acc.Append(File.ReadAllText(Path.Combine(sourceDirectory, sourceFile)))
             );
 
             return stringBuilder.ToString();
@@ -168,8 +163,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             var stopwatch = Stopwatch.StartNew();
             foreach (var classIdentifier in generationList)
             {
-                if (generatedStatements.Any(a => a.Name == classIdentifier)
-                    || notGeneratedClassNames.Contains(classIdentifier))
+                if (
+                    generatedStatements.Any(a => a.Name == classIdentifier)
+                    || notGeneratedClassNames.Contains(classIdentifier)
+                )
                 {
                     continue;
                 }
@@ -191,9 +188,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
                         GlobalLogger.Warning(
                             $"Was not found in AST. Adding to Shim Generation List. classIdentifier: {classIdentifier}"
                         );
-                        notGeneratedClassNames.Add(
-                            classIdentifier
-                        );
+                        notGeneratedClassNames.Add(classIdentifier);
                     }
                     continue;
                 }
@@ -226,9 +221,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             var list = new List<string>();
             if (generated.ExtendedType != null)
             {
-                var usedClassNames = UsedClassNamesIdentifier.Identify(
-                    generated.ExtendedType
-                );
+                var usedClassNames = UsedClassNamesIdentifier.Identify(generated.ExtendedType);
                 foreach (var usedClassName in usedClassNames)
                 {
                     if (!list.Contains(usedClassName))
@@ -250,9 +243,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             }
             foreach (var interfaceType in generated.ImplementedInterfaces)
             {
-                var usedClassNames = UsedClassNamesIdentifier.Identify(
-                    interfaceType
-                );
+                var usedClassNames = UsedClassNamesIdentifier.Identify(interfaceType);
                 foreach (var usedClassName in usedClassNames)
                 {
                     if (!list.Contains(usedClassName))
@@ -314,5 +305,4 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator
             return list;
         }
     }
-
 }

@@ -11,9 +11,11 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface ISceneLoaderProgressEvent : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<ISceneLoaderProgressEventCachedEntity>))]
-    public class ISceneLoaderProgressEventCachedEntity : CachedEntityObject, ISceneLoaderProgressEvent
+    public class ISceneLoaderProgressEventCachedEntity
+        : CachedEntityObject,
+            ISceneLoaderProgressEvent
     {
         #region Static Accessors
 
@@ -32,43 +34,29 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<bool> get_lengthComputable()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "lengthComputable"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "lengthComputable");
         }
 
-        
         public async ValueTask<decimal> get_loaded()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "loaded"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "loaded");
         }
 
-        
         public async ValueTask<decimal> get_total()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "total"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "total");
         }
         #endregion
-        
+
         #region Constructor
-        public ISceneLoaderProgressEventCachedEntity() : base() { }
+        public ISceneLoaderProgressEventCachedEntity()
+            : base() { }
 
-        public ISceneLoaderProgressEventCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public ISceneLoaderProgressEventCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

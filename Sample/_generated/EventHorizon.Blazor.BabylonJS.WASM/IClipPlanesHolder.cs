@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IClipPlanesHolder : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IClipPlanesHolderCachedEntity>))]
     public class IClipPlanesHolderCachedEntity : CachedEntityObject, IClipPlanesHolder
     {
@@ -37,27 +37,23 @@ namespace BABYLON
         {
             get
             {
-            if(__clipPlane == null)
-            {
-                __clipPlane = EventHorizonBlazorInterop.GetClass<Plane>(
-                    this.___guid,
-                    "clipPlane",
-                    (entity) =>
-                    {
-                        return new Plane() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __clipPlane;
+                if (__clipPlane == null)
+                {
+                    __clipPlane = EventHorizonBlazorInterop.GetClass<Plane>(
+                        this.___guid,
+                        "clipPlane",
+                        (entity) =>
+                        {
+                            return new Plane() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __clipPlane;
             }
             set
             {
-__clipPlane = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "clipPlane",
-                    value
-                );
+                __clipPlane = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "clipPlane", value);
             }
         }
 
@@ -66,27 +62,23 @@ __clipPlane = null;
         {
             get
             {
-            if(__clipPlane2 == null)
-            {
-                __clipPlane2 = EventHorizonBlazorInterop.GetClass<Plane>(
-                    this.___guid,
-                    "clipPlane2",
-                    (entity) =>
-                    {
-                        return new Plane() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __clipPlane2;
+                if (__clipPlane2 == null)
+                {
+                    __clipPlane2 = EventHorizonBlazorInterop.GetClass<Plane>(
+                        this.___guid,
+                        "clipPlane2",
+                        (entity) =>
+                        {
+                            return new Plane() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __clipPlane2;
             }
             set
             {
-__clipPlane2 = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "clipPlane2",
-                    value
-                );
+                __clipPlane2 = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "clipPlane2", value);
             }
         }
 
@@ -95,27 +87,23 @@ __clipPlane2 = null;
         {
             get
             {
-            if(__clipPlane3 == null)
-            {
-                __clipPlane3 = EventHorizonBlazorInterop.GetClass<Plane>(
-                    this.___guid,
-                    "clipPlane3",
-                    (entity) =>
-                    {
-                        return new Plane() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __clipPlane3;
+                if (__clipPlane3 == null)
+                {
+                    __clipPlane3 = EventHorizonBlazorInterop.GetClass<Plane>(
+                        this.___guid,
+                        "clipPlane3",
+                        (entity) =>
+                        {
+                            return new Plane() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __clipPlane3;
             }
             set
             {
-__clipPlane3 = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "clipPlane3",
-                    value
-                );
+                __clipPlane3 = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "clipPlane3", value);
             }
         }
 
@@ -124,27 +112,23 @@ __clipPlane3 = null;
         {
             get
             {
-            if(__clipPlane4 == null)
-            {
-                __clipPlane4 = EventHorizonBlazorInterop.GetClass<Plane>(
-                    this.___guid,
-                    "clipPlane4",
-                    (entity) =>
-                    {
-                        return new Plane() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __clipPlane4;
+                if (__clipPlane4 == null)
+                {
+                    __clipPlane4 = EventHorizonBlazorInterop.GetClass<Plane>(
+                        this.___guid,
+                        "clipPlane4",
+                        (entity) =>
+                        {
+                            return new Plane() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __clipPlane4;
             }
             set
             {
-__clipPlane4 = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "clipPlane4",
-                    value
-                );
+                __clipPlane4 = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "clipPlane4", value);
             }
         }
 
@@ -153,27 +137,23 @@ __clipPlane4 = null;
         {
             get
             {
-            if(__clipPlane5 == null)
-            {
-                __clipPlane5 = EventHorizonBlazorInterop.GetClass<Plane>(
-                    this.___guid,
-                    "clipPlane5",
-                    (entity) =>
-                    {
-                        return new Plane() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __clipPlane5;
+                if (__clipPlane5 == null)
+                {
+                    __clipPlane5 = EventHorizonBlazorInterop.GetClass<Plane>(
+                        this.___guid,
+                        "clipPlane5",
+                        (entity) =>
+                        {
+                            return new Plane() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __clipPlane5;
             }
             set
             {
-__clipPlane5 = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "clipPlane5",
-                    value
-                );
+                __clipPlane5 = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "clipPlane5", value);
             }
         }
 
@@ -182,40 +162,33 @@ __clipPlane5 = null;
         {
             get
             {
-            if(__clipPlane6 == null)
-            {
-                __clipPlane6 = EventHorizonBlazorInterop.GetClass<Plane>(
-                    this.___guid,
-                    "clipPlane6",
-                    (entity) =>
-                    {
-                        return new Plane() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __clipPlane6;
+                if (__clipPlane6 == null)
+                {
+                    __clipPlane6 = EventHorizonBlazorInterop.GetClass<Plane>(
+                        this.___guid,
+                        "clipPlane6",
+                        (entity) =>
+                        {
+                            return new Plane() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __clipPlane6;
             }
             set
             {
-__clipPlane6 = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "clipPlane6",
-                    value
-                );
+                __clipPlane6 = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "clipPlane6", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IClipPlanesHolderCachedEntity() : base() { }
+        public IClipPlanesHolderCachedEntity()
+            : base() { }
 
-        public IClipPlanesHolderCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IClipPlanesHolderCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

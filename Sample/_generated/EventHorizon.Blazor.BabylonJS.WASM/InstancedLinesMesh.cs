@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<InstancedLinesMesh>))]
     public class InstancedLinesMesh : InstancedMesh
     {
@@ -32,12 +30,12 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public decimal intersectionThreshold
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "intersectionThreshold"
                 );
@@ -45,31 +43,25 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "intersectionThreshold",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "intersectionThreshold", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public InstancedLinesMesh() : base() { }
+        public InstancedLinesMesh()
+            : base() { }
 
-        public InstancedLinesMesh(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public InstancedLinesMesh(ICachedEntity entity)
+            : base(entity) { }
 
-        public InstancedLinesMesh(
-            string name, LinesMesh source
-        ) : base()
+        public InstancedLinesMesh(string name, LinesMesh source)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "InstancedLinesMesh" },
-                name, source
+                name,
+                source
             );
             ___guid = entity.___guid;
         }
@@ -79,10 +71,7 @@ namespace BABYLON
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
         #endregion

@@ -11,9 +11,11 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface PrePassEffectConfiguration : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<PrePassEffectConfigurationCachedEntity>))]
-    public class PrePassEffectConfigurationCachedEntity : CachedEntityObject, PrePassEffectConfiguration
+    public class PrePassEffectConfigurationCachedEntity
+        : CachedEntityObject,
+            PrePassEffectConfiguration
     {
         #region Static Accessors
 
@@ -32,24 +34,14 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public string name
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "name"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "name"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "name",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "name", value);
             }
         }
 
@@ -58,36 +50,31 @@ namespace BABYLON
         {
             get
             {
-            if(__postProcess == null)
-            {
-                __postProcess = EventHorizonBlazorInterop.GetClass<PostProcess>(
-                    this.___guid,
-                    "postProcess",
-                    (entity) =>
-                    {
-                        return new PostProcess() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __postProcess;
+                if (__postProcess == null)
+                {
+                    __postProcess = EventHorizonBlazorInterop.GetClass<PostProcess>(
+                        this.___guid,
+                        "postProcess",
+                        (entity) =>
+                        {
+                            return new PostProcess() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __postProcess;
             }
             set
             {
-__postProcess = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "postProcess",
-                    value
-                );
+                __postProcess = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "postProcess", value);
             }
         }
 
-        
         public decimal[] texturesRequired
         {
             get
             {
-            return EventHorizonBlazorInterop.GetArray<decimal>(
+                return EventHorizonBlazorInterop.GetArray<decimal>(
                     this.___guid,
                     "texturesRequired"
                 );
@@ -95,75 +82,49 @@ __postProcess = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "texturesRequired",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "texturesRequired", value);
             }
         }
 
-        
         public bool enabled
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "enabled"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "enabled"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "enabled",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "enabled", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public PrePassEffectConfigurationCachedEntity() : base() { }
+        public PrePassEffectConfigurationCachedEntity()
+            : base() { }
 
-        public PrePassEffectConfigurationCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public PrePassEffectConfigurationCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
         #region Methods
         #region dispose TODO: Get Comments as metadata identification
         private bool _isDisposeEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _disposeActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _disposeActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string dispose(
-            Func<Task> callback
-        )
+        public string dispose(Func<Task> callback)
         {
             SetupDisposeLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _disposeActionMap.Add(
-                handle,
-                callback
-            );
+            _disposeActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool dispose_Remove(
-            string handle
-        )
+        public bool dispose_Remove(string handle)
         {
-            return _disposeActionMap.Remove(
-                handle
-            );
+            return _disposeActionMap.Remove(handle);
         }
 
         private void SetupDisposeLoop()
@@ -193,30 +154,22 @@ __postProcess = null;
 
         #region createPostProcess TODO: Get Comments as metadata identification
         private bool _isCreatePostProcessEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _createPostProcessActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _createPostProcessActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public string createPostProcess(
-            Func<Task> callback
-        )
+        public string createPostProcess(Func<Task> callback)
         {
             SetupCreatePostProcessLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _createPostProcessActionMap.Add(
-                handle,
-                callback
-            );
+            _createPostProcessActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool createPostProcess_Remove(
-            string handle
-        )
+        public bool createPostProcess_Remove(string handle)
         {
-            return _createPostProcessActionMap.Remove(
-                handle
-            );
+            return _createPostProcessActionMap.Remove(handle);
         }
 
         private void SetupCreatePostProcessLoop()

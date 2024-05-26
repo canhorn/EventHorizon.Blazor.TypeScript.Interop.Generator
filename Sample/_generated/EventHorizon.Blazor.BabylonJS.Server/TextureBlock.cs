@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<TextureBlock>))]
     public class TextureBlock : NodeMaterialBlock
     {
@@ -29,9 +27,10 @@ namespace BABYLON
 
         #region Accessors
         private NodeMaterialConnectionPoint __uv;
+
         public async ValueTask<NodeMaterialConnectionPoint> get_uv()
         {
-            if(__uv == null)
+            if (__uv == null)
             {
                 __uv = await EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
                     this.___guid,
@@ -46,9 +45,10 @@ namespace BABYLON
         }
 
         private NodeMaterialConnectionPoint __rgba;
+
         public async ValueTask<NodeMaterialConnectionPoint> get_rgba()
         {
-            if(__rgba == null)
+            if (__rgba == null)
             {
                 __rgba = await EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
                     this.___guid,
@@ -63,9 +63,10 @@ namespace BABYLON
         }
 
         private NodeMaterialConnectionPoint __rgb;
+
         public async ValueTask<NodeMaterialConnectionPoint> get_rgb()
         {
-            if(__rgb == null)
+            if (__rgb == null)
             {
                 __rgb = await EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
                     this.___guid,
@@ -80,9 +81,10 @@ namespace BABYLON
         }
 
         private NodeMaterialConnectionPoint __r;
+
         public async ValueTask<NodeMaterialConnectionPoint> get_r()
         {
-            if(__r == null)
+            if (__r == null)
             {
                 __r = await EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
                     this.___guid,
@@ -97,9 +99,10 @@ namespace BABYLON
         }
 
         private NodeMaterialConnectionPoint __g;
+
         public async ValueTask<NodeMaterialConnectionPoint> get_g()
         {
-            if(__g == null)
+            if (__g == null)
             {
                 __g = await EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
                     this.___guid,
@@ -114,9 +117,10 @@ namespace BABYLON
         }
 
         private NodeMaterialConnectionPoint __b;
+
         public async ValueTask<NodeMaterialConnectionPoint> get_b()
         {
-            if(__b == null)
+            if (__b == null)
             {
                 __b = await EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
                     this.___guid,
@@ -131,9 +135,10 @@ namespace BABYLON
         }
 
         private NodeMaterialConnectionPoint __a;
+
         public async ValueTask<NodeMaterialConnectionPoint> get_a()
         {
-            if(__a == null)
+            if (__a == null)
             {
                 __a = await EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
                     this.___guid,
@@ -147,21 +152,18 @@ namespace BABYLON
             return __a;
         }
 
-        
         public async ValueTask<int> get_target()
         {
-            return await EventHorizonBlazorInterop.Get<int>(
-                    this.___guid,
-                    "target"
-                );
+            return await EventHorizonBlazorInterop.Get<int>(this.___guid, "target");
         }
         #endregion
 
         #region Properties
         private Texture __texture;
+
         public async ValueTask<Texture> get_texture()
         {
-            if(__texture == null)
+            if (__texture == null)
             {
                 __texture = await EventHorizonBlazorInterop.GetClass<Texture>(
                     this.___guid,
@@ -174,69 +176,50 @@ namespace BABYLON
             }
             return __texture;
         }
+
         public ValueTask set_texture(Texture value)
         {
-__texture = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "texture",
-                    value
-                );
+            __texture = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "texture", value);
         }
 
-        
         public async ValueTask<bool> get_convertToGammaSpace()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "convertToGammaSpace"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "convertToGammaSpace");
         }
+
         public ValueTask set_convertToGammaSpace(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "convertToGammaSpace",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "convertToGammaSpace", value);
         }
 
-        
         public async ValueTask<bool> get_convertToLinearSpace()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "convertToLinearSpace"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "convertToLinearSpace");
         }
+
         public ValueTask set_convertToLinearSpace(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "convertToLinearSpace",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "convertToLinearSpace", value);
         }
         #endregion
-        
-        #region Constructor
-        public TextureBlock() : base() { }
 
-        public TextureBlock(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        #region Constructor
+        public TextureBlock()
+            : base() { }
+
+        public TextureBlock(ICachedEntity entity)
+            : base(entity) { }
 
         public static async ValueTask<TextureBlock> NewTextureBlock(
-            string name, System.Nullable<bool> fragmentOnly = null
+            string name,
+            System.Nullable<bool> fragmentOnly = null
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "TextureBlock" },
-                name, fragmentOnly
+                name,
+                fragmentOnly
             );
 
             return new TextureBlock(entity);
@@ -247,39 +230,49 @@ __texture = null;
         public async ValueTask<string> getClassName()
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
         public async ValueTask autoConfigure(NodeMaterial material)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[] { new string[] { this.___guid, "autoConfigure" }, material }
+            );
+        }
+
+        public async ValueTask initializeDefines(
+            AbstractMesh mesh,
+            NodeMaterial nodeMaterial,
+            NodeMaterialDefines defines,
+            System.Nullable<bool> useInstances = null
+        )
+        {
+            await EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
                 {
-                    new string[] { this.___guid, "autoConfigure" }, material
+                    new string[] { this.___guid, "initializeDefines" },
+                    mesh,
+                    nodeMaterial,
+                    defines,
+                    useInstances
                 }
             );
         }
 
-        public async ValueTask initializeDefines(AbstractMesh mesh, NodeMaterial nodeMaterial, NodeMaterialDefines defines, System.Nullable<bool> useInstances = null)
+        public async ValueTask prepareDefines(
+            AbstractMesh mesh,
+            NodeMaterial nodeMaterial,
+            NodeMaterialDefines defines
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "initializeDefines" }, mesh, nodeMaterial, defines, useInstances
-                }
-            );
-        }
-
-        public async ValueTask prepareDefines(AbstractMesh mesh, NodeMaterial nodeMaterial, NodeMaterialDefines defines)
-        {
-            await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "prepareDefines" }, mesh, nodeMaterial, defines
+                    new string[] { this.___guid, "prepareDefines" },
+                    mesh,
+                    nodeMaterial,
+                    defines
                 }
             );
         }
@@ -287,30 +280,21 @@ __texture = null;
         public async ValueTask<bool> isReady()
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "isReady" }
-                }
+                new object[] { new string[] { this.___guid, "isReady" } }
             );
         }
 
         public async ValueTask bind(Effect effect, NodeMaterial nodeMaterial, Mesh mesh = null)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "bind" }, effect, nodeMaterial, mesh
-                }
+                new object[] { new string[] { this.___guid, "bind" }, effect, nodeMaterial, mesh }
             );
         }
 
         public async ValueTask<CachedEntity> serialize()
         {
             return await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "serialize" }
-                }
+                new object[] { new string[] { this.___guid, "serialize" } }
             );
         }
         #endregion

@@ -10,16 +10,15 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Color3>))]
     public class Color3 : CachedEntityObject
     {
         #region Static Accessors
         private static Color3 __BlackReadOnly;
+
         public static async ValueTask<Color3> get_BlackReadOnly()
         {
-            if(__BlackReadOnly == null)
+            if (__BlackReadOnly == null)
             {
                 __BlackReadOnly = await EventHorizonBlazorInterop.GetClass<Color3>(
                     "BABYLON",
@@ -39,12 +38,21 @@ namespace BABYLON
         #endregion
 
         #region Static Methods
-        public static async ValueTask HSVtoRGBToRef(decimal hue, decimal saturation, decimal value, Color3 result)
+        public static async ValueTask HSVtoRGBToRef(
+            decimal hue,
+            decimal saturation,
+            decimal value,
+            Color3 result
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Color3", "HSVtoRGBToRef" }, hue, saturation, value, result
+                    new string[] { "BABYLON", "Color3", "HSVtoRGBToRef" },
+                    hue,
+                    saturation,
+                    value,
+                    result
                 }
             );
         }
@@ -53,30 +61,34 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Color3", "FromHexString" }, hex
-                }
+                new object[] { new string[] { "BABYLON", "Color3", "FromHexString" }, hex }
             );
         }
 
-        public static async ValueTask<Color3> FromArray(decimal[] array, System.Nullable<decimal> offset = null)
+        public static async ValueTask<Color3> FromArray(
+            decimal[] array,
+            System.Nullable<decimal> offset = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Color3", "FromArray" }, array, offset
-                }
+                new object[] { new string[] { "BABYLON", "Color3", "FromArray" }, array, offset }
             );
         }
 
-        public static async ValueTask FromArrayToRef(decimal[] array, Color3 result, System.Nullable<decimal> offset = null)
+        public static async ValueTask FromArrayToRef(
+            decimal[] array,
+            Color3 result,
+            System.Nullable<decimal> offset = null
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Color3", "FromArrayToRef" }, array, offset, result
+                    new string[] { "BABYLON", "Color3", "FromArrayToRef" },
+                    array,
+                    offset,
+                    result
                 }
             );
         }
@@ -85,10 +97,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Color3", "FromInts" }, r, g, b
-                }
+                new object[] { new string[] { "BABYLON", "Color3", "FromInts" }, r, g, b }
             );
         }
 
@@ -96,19 +105,25 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Color3", "Lerp" }, start, end, amount
-                }
+                new object[] { new string[] { "BABYLON", "Color3", "Lerp" }, start, end, amount }
             );
         }
 
-        public static async ValueTask LerpToRef(Color3 left, Color3 right, decimal amount, Color3 result)
+        public static async ValueTask LerpToRef(
+            Color3 left,
+            Color3 right,
+            decimal amount,
+            Color3 result
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Color3", "LerpToRef" }, left, right, amount, result
+                    new string[] { "BABYLON", "Color3", "LerpToRef" },
+                    left,
+                    right,
+                    amount,
+                    result
                 }
             );
         }
@@ -117,10 +132,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Color3", "Red" }
-                }
+                new object[] { new string[] { "BABYLON", "Color3", "Red" } }
             );
         }
 
@@ -128,10 +140,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Color3", "Green" }
-                }
+                new object[] { new string[] { "BABYLON", "Color3", "Green" } }
             );
         }
 
@@ -139,10 +148,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Color3", "Blue" }
-                }
+                new object[] { new string[] { "BABYLON", "Color3", "Blue" } }
             );
         }
 
@@ -150,10 +156,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Color3", "Black" }
-                }
+                new object[] { new string[] { "BABYLON", "Color3", "Black" } }
             );
         }
 
@@ -161,10 +164,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Color3", "White" }
-                }
+                new object[] { new string[] { "BABYLON", "Color3", "White" } }
             );
         }
 
@@ -172,10 +172,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Color3", "Purple" }
-                }
+                new object[] { new string[] { "BABYLON", "Color3", "Purple" } }
             );
         }
 
@@ -183,10 +180,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Color3", "Magenta" }
-                }
+                new object[] { new string[] { "BABYLON", "Color3", "Magenta" } }
             );
         }
 
@@ -194,10 +188,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Color3", "Yellow" }
-                }
+                new object[] { new string[] { "BABYLON", "Color3", "Yellow" } }
             );
         }
 
@@ -205,10 +196,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Color3", "Gray" }
-                }
+                new object[] { new string[] { "BABYLON", "Color3", "Gray" } }
             );
         }
 
@@ -216,10 +204,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Color3", "Teal" }
-                }
+                new object[] { new string[] { "BABYLON", "Color3", "Teal" } }
             );
         }
 
@@ -227,10 +212,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "Color3", "Random" }
-                }
+                new object[] { new string[] { "BABYLON", "Color3", "Random" } }
             );
         }
         #endregion
@@ -240,78 +222,59 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<decimal> get_r()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "r"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "r");
         }
+
         public ValueTask set_r(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "r",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "r", value);
         }
 
-        
         public async ValueTask<decimal> get_g()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "g"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "g");
         }
+
         public ValueTask set_g(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "g",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "g", value);
         }
 
-        
         public async ValueTask<decimal> get_b()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "b"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "b");
         }
+
         public ValueTask set_b(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "b",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "b", value);
         }
         #endregion
-        
-        #region Constructor
-        public Color3() : base() { } 
 
-        public Color3(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public Color3()
+            : base() { }
+
+        public Color3(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
         public static async ValueTask<Color3> NewColor3(
-            System.Nullable<decimal> r = null, System.Nullable<decimal> g = null, System.Nullable<decimal> b = null
+            System.Nullable<decimal> r = null,
+            System.Nullable<decimal> g = null,
+            System.Nullable<decimal> b = null
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Color3" },
-                r, g, b
+                r,
+                g,
+                b
             );
 
             return new Color3(entity);
@@ -322,52 +285,43 @@ namespace BABYLON
         public async ValueTask<string> toString()
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "toString" }
-                }
+                new object[] { new string[] { this.___guid, "toString" } }
             );
         }
 
         public async ValueTask<string> getClassName()
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
         public async ValueTask<decimal> getHashCode()
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getHashCode" }
-                }
+                new object[] { new string[] { this.___guid, "getHashCode" } }
             );
         }
 
-        public async ValueTask<Color3> toArray(decimal[] array, System.Nullable<decimal> index = null)
+        public async ValueTask<Color3> toArray(
+            decimal[] array,
+            System.Nullable<decimal> index = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "toArray" }, array, index
-                }
+                new object[] { new string[] { this.___guid, "toArray" }, array, index }
             );
         }
 
-        public async ValueTask<Color3> fromArray(decimal[] array, System.Nullable<decimal> offset = null)
+        public async ValueTask<Color3> fromArray(
+            decimal[] array,
+            System.Nullable<decimal> offset = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "fromArray" }, array, offset
-                }
+                new object[] { new string[] { this.___guid, "fromArray" }, array, offset }
             );
         }
 
@@ -375,30 +329,21 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color4>(
                 entity => new Color4() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "toColor4" }, alpha
-                }
+                new object[] { new string[] { this.___guid, "toColor4" }, alpha }
             );
         }
 
         public async ValueTask<decimal[]> asArray()
         {
             return await EventHorizonBlazorInterop.FuncArray<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "asArray" }
-                }
+                new object[] { new string[] { this.___guid, "asArray" } }
             );
         }
 
         public async ValueTask<decimal> toLuminance()
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "toLuminance" }
-                }
+                new object[] { new string[] { this.___guid, "toLuminance" } }
             );
         }
 
@@ -406,10 +351,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "multiply" }, otherColor
-                }
+                new object[] { new string[] { this.___guid, "multiply" }, otherColor }
             );
         }
 
@@ -417,30 +359,21 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "multiplyToRef" }, otherColor, result
-                }
+                new object[] { new string[] { this.___guid, "multiplyToRef" }, otherColor, result }
             );
         }
 
         public async ValueTask<bool> equals(Color3 otherColor)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "equals" }, otherColor
-                }
+                new object[] { new string[] { this.___guid, "equals" }, otherColor }
             );
         }
 
         public async ValueTask<bool> equalsFloats(decimal r, decimal g, decimal b)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "equalsFloats" }, r, g, b
-                }
+                new object[] { new string[] { this.___guid, "equalsFloats" }, r, g, b }
             );
         }
 
@@ -448,10 +381,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "scale" }, scale
-                }
+                new object[] { new string[] { this.___guid, "scale" }, scale }
             );
         }
 
@@ -459,10 +389,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "scaleToRef" }, scale, result
-                }
+                new object[] { new string[] { this.___guid, "scaleToRef" }, scale, result }
             );
         }
 
@@ -470,21 +397,19 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "scaleAndAddToRef" }, scale, result
-                }
+                new object[] { new string[] { this.___guid, "scaleAndAddToRef" }, scale, result }
             );
         }
 
-        public async ValueTask<Color3> clampToRef(Color3 result, System.Nullable<decimal> min = null, System.Nullable<decimal> max = null)
+        public async ValueTask<Color3> clampToRef(
+            Color3 result,
+            System.Nullable<decimal> min = null,
+            System.Nullable<decimal> max = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "clampToRef" }, min, max, result
-                }
+                new object[] { new string[] { this.___guid, "clampToRef" }, min, max, result }
             );
         }
 
@@ -492,10 +417,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "add" }, otherColor
-                }
+                new object[] { new string[] { this.___guid, "add" }, otherColor }
             );
         }
 
@@ -503,10 +425,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "addToRef" }, otherColor, result
-                }
+                new object[] { new string[] { this.___guid, "addToRef" }, otherColor, result }
             );
         }
 
@@ -514,10 +433,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "subtract" }, otherColor
-                }
+                new object[] { new string[] { this.___guid, "subtract" }, otherColor }
             );
         }
 
@@ -525,10 +441,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "subtractToRef" }, otherColor, result
-                }
+                new object[] { new string[] { this.___guid, "subtractToRef" }, otherColor, result }
             );
         }
 
@@ -536,10 +449,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "clone" }
-                }
+                new object[] { new string[] { this.___guid, "clone" } }
             );
         }
 
@@ -547,10 +457,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "copyFrom" }, source
-                }
+                new object[] { new string[] { this.___guid, "copyFrom" }, source }
             );
         }
 
@@ -558,10 +465,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "copyFromFloats" }, r, g, b
-                }
+                new object[] { new string[] { this.___guid, "copyFromFloats" }, r, g, b }
             );
         }
 
@@ -569,20 +473,14 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "set" }, r, g, b
-                }
+                new object[] { new string[] { this.___guid, "set" }, r, g, b }
             );
         }
 
         public async ValueTask<string> toHexString()
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "toHexString" }
-                }
+                new object[] { new string[] { this.___guid, "toHexString" } }
             );
         }
 
@@ -590,10 +488,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "toLinearSpace" }
-                }
+                new object[] { new string[] { this.___guid, "toLinearSpace" } }
             );
         }
 
@@ -601,20 +496,14 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "toHSV" }
-                }
+                new object[] { new string[] { this.___guid, "toHSV" } }
             );
         }
 
         public async ValueTask toHSVToRef(Color3 result)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "toHSVToRef" }, result
-                }
+                new object[] { new string[] { this.___guid, "toHSVToRef" }, result }
             );
         }
 
@@ -622,10 +511,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "toLinearSpaceToRef" }, convertedColor
-                }
+                new object[] { new string[] { this.___guid, "toLinearSpaceToRef" }, convertedColor }
             );
         }
 
@@ -633,10 +519,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "toGammaSpace" }
-                }
+                new object[] { new string[] { this.___guid, "toGammaSpace" } }
             );
         }
 
@@ -644,10 +527,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "toGammaSpaceToRef" }, convertedColor
-                }
+                new object[] { new string[] { this.___guid, "toGammaSpaceToRef" }, convertedColor }
             );
         }
         #endregion

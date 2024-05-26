@@ -13,11 +13,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             bool ignorePrefix = false
         )
         {
-            if (type.IsTypeAlias
-                && !type.IsNullable
-                && !type.IsModifier
-                && !type.IsArray
-            )
+            if (type.IsTypeAlias && !type.IsNullable && !type.IsModifier && !type.IsArray)
             {
                 type = type.AliasType;
             }
@@ -46,20 +42,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 {
                     template = TypeStatementTemplates.ArrayTemplate;
                 }
-                var genericTypes = type.GenericTypes.Select(
-                    a => Write(
-                        a,
-                        includeArraySymbol,
-                        ignorePrefix
-                    )
+                var genericTypes = type.GenericTypes.Select(a =>
+                    Write(a, includeArraySymbol, ignorePrefix)
                 );
 
-                genericTypesAsString = string.Join(
-                    ", ",
-                    genericTypes
-                );
+                genericTypesAsString = string.Join(", ", genericTypes);
             }
-            if (type.IsNullable
+            if (
+                type.IsNullable
                 || type.IsModifier
                 || (type.IsArray && type.GenericTypes.Any() && !includeArraySymbol)
             )
@@ -68,8 +58,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             }
             if (type.IsAction)
             {
-                if (type.ActionResultType.IsTask
-                    || type.ActionResultType.Name == GenerationIdentifiedTypes.Void)
+                if (
+                    type.ActionResultType.IsTask
+                    || type.ActionResultType.Name == GenerationIdentifiedTypes.Void
+                )
                 {
                     template = TypeStatementTemplates.ActionTemplate;
 
@@ -77,7 +69,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     {
                         template = TypeStatementTemplates.ActionVoidTemplate;
                     }
-                } else
+                }
+                else
                 {
                     template = TypeStatementTemplates.ActionResultTemplate;
 
@@ -101,8 +94,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     template = TypeStatementTemplates.RootTaskTemplate;
                 }
 
-                if (!type.GenericTypes.Any()
-                    || type.GenericTypes.Any(type => type.Name == GenerationIdentifiedTypes.Void))
+                if (
+                    !type.GenericTypes.Any()
+                    || type.GenericTypes.Any(type => type.Name == GenerationIdentifiedTypes.Void)
+                )
                 {
                     template = TypeStatementTemplates.TaskVoidTemplate;
                     if (!includeArraySymbol)
@@ -113,25 +108,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             }
             if (type.IsEnum)
             {
-                template = template.Replace(
-                    "[[NAME]]",
-                    "int"
-                );
+                template = template.Replace("[[NAME]]", "int");
             }
 
-            return template.Replace(
-                "[[NAME]]",
-                name
-            ).Replace(
-                "[[GENERIC_TYPES]]",
-                genericTypesAsString
-            ).Replace(
-                "[[ACTION_RESULT]]",
-                actionResultTypeAsStirng
-            ).Replace(
-                "[[INTERFACE_POSTFIX]]",
-                interfacePostfix
-            );
+            return template
+                .Replace("[[NAME]]", name)
+                .Replace("[[GENERIC_TYPES]]", genericTypesAsString)
+                .Replace("[[ACTION_RESULT]]", actionResultTypeAsStirng)
+                .Replace("[[INTERFACE_POSTFIX]]", interfacePostfix);
         }
     }
 }

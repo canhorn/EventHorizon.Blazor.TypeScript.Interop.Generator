@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Size>))]
     public class Size : CachedEntityObject, ISize
     {
@@ -28,10 +26,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Size>(
                 entity => new Size() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "Size", "Zero" }
-                }
+                new object[] { new string[] { "BABYLON", "Size", "Zero" } }
             );
         }
 
@@ -39,88 +34,56 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Size>(
                 entity => new Size() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "Size", "Lerp" }, start, end, amount
-                }
+                new object[] { new string[] { "BABYLON", "Size", "Lerp" }, start, end, amount }
             );
         }
         #endregion
 
         #region Accessors
-        
+
         public decimal surface
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "surface"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "surface"); }
         }
         #endregion
 
         #region Properties
-        
+
         public decimal width
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "width"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "width"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "width",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "width", value);
             }
         }
 
-        
         public decimal height
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "height"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "height"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "height",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "height", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public Size() : base() { }
+        public Size()
+            : base() { }
 
-        public Size(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public Size(ICachedEntity entity)
+            : base(entity) { }
 
-        public Size(
-            decimal width, decimal height
-        ) : base()
+        public Size(decimal width, decimal height)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Size" },
-                width, height
+                width,
+                height
             );
             ___guid = entity.___guid;
         }
@@ -130,40 +93,28 @@ namespace BABYLON
         public string toString()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "toString" }
-                }
+                new object[] { new string[] { this.___guid, "toString" } }
             );
         }
 
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
         public decimal getHashCode()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getHashCode" }
-                }
+                new object[] { new string[] { this.___guid, "getHashCode" } }
             );
         }
 
         public void copyFrom(Size src)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "copyFrom" }, src
-                }
+                new object[] { new string[] { this.___guid, "copyFrom" }, src }
             );
         }
 
@@ -171,10 +122,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Size>(
                 entity => new Size() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "copyFromFloats" }, width, height
-                }
+                new object[] { new string[] { this.___guid, "copyFromFloats" }, width, height }
             );
         }
 
@@ -182,10 +130,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Size>(
                 entity => new Size() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "set" }, width, height
-                }
+                new object[] { new string[] { this.___guid, "set" }, width, height }
             );
         }
 
@@ -193,10 +138,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Size>(
                 entity => new Size() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "multiplyByFloats" }, w, h
-                }
+                new object[] { new string[] { this.___guid, "multiplyByFloats" }, w, h }
             );
         }
 
@@ -204,20 +146,14 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Size>(
                 entity => new Size() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "clone" }
-                }
+                new object[] { new string[] { this.___guid, "clone" } }
             );
         }
 
         public bool equals(Size other)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "equals" }, other
-                }
+                new object[] { new string[] { this.___guid, "equals" }, other }
             );
         }
 
@@ -225,10 +161,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Size>(
                 entity => new Size() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "add" }, otherSize
-                }
+                new object[] { new string[] { this.___guid, "add" }, otherSize }
             );
         }
 
@@ -236,10 +169,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Size>(
                 entity => new Size() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "subtract" }, otherSize
-                }
+                new object[] { new string[] { this.___guid, "subtract" }, otherSize }
             );
         }
         #endregion

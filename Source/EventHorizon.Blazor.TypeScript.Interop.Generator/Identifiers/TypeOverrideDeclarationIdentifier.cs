@@ -8,11 +8,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 {
     public class TypeOverrideDeclarationIdentifier
     {
-        public static string Identify(
-            ClassMetadata classMetadata,
-            bool isStatic,
-            string name
-        )
+        public static string Identify(ClassMetadata classMetadata, bool isStatic, string name)
         {
             if (isStatic)
             {

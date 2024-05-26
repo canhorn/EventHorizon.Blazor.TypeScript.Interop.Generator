@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<TextureBlock>))]
     public class TextureBlock : NodeMaterialBlock
     {
@@ -33,18 +31,18 @@ namespace BABYLON
         {
             get
             {
-            if(__uv == null)
-            {
-                __uv = EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
-                    this.___guid,
-                    "uv",
-                    (entity) =>
-                    {
-                        return new NodeMaterialConnectionPoint() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __uv;
+                if (__uv == null)
+                {
+                    __uv = EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
+                        this.___guid,
+                        "uv",
+                        (entity) =>
+                        {
+                            return new NodeMaterialConnectionPoint() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __uv;
             }
         }
 
@@ -53,18 +51,18 @@ namespace BABYLON
         {
             get
             {
-            if(__rgba == null)
-            {
-                __rgba = EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
-                    this.___guid,
-                    "rgba",
-                    (entity) =>
-                    {
-                        return new NodeMaterialConnectionPoint() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __rgba;
+                if (__rgba == null)
+                {
+                    __rgba = EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
+                        this.___guid,
+                        "rgba",
+                        (entity) =>
+                        {
+                            return new NodeMaterialConnectionPoint() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __rgba;
             }
         }
 
@@ -73,18 +71,18 @@ namespace BABYLON
         {
             get
             {
-            if(__rgb == null)
-            {
-                __rgb = EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
-                    this.___guid,
-                    "rgb",
-                    (entity) =>
-                    {
-                        return new NodeMaterialConnectionPoint() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __rgb;
+                if (__rgb == null)
+                {
+                    __rgb = EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
+                        this.___guid,
+                        "rgb",
+                        (entity) =>
+                        {
+                            return new NodeMaterialConnectionPoint() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __rgb;
             }
         }
 
@@ -93,18 +91,18 @@ namespace BABYLON
         {
             get
             {
-            if(__r == null)
-            {
-                __r = EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
-                    this.___guid,
-                    "r",
-                    (entity) =>
-                    {
-                        return new NodeMaterialConnectionPoint() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __r;
+                if (__r == null)
+                {
+                    __r = EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
+                        this.___guid,
+                        "r",
+                        (entity) =>
+                        {
+                            return new NodeMaterialConnectionPoint() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __r;
             }
         }
 
@@ -113,18 +111,18 @@ namespace BABYLON
         {
             get
             {
-            if(__g == null)
-            {
-                __g = EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
-                    this.___guid,
-                    "g",
-                    (entity) =>
-                    {
-                        return new NodeMaterialConnectionPoint() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __g;
+                if (__g == null)
+                {
+                    __g = EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
+                        this.___guid,
+                        "g",
+                        (entity) =>
+                        {
+                            return new NodeMaterialConnectionPoint() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __g;
             }
         }
 
@@ -133,18 +131,18 @@ namespace BABYLON
         {
             get
             {
-            if(__b == null)
-            {
-                __b = EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
-                    this.___guid,
-                    "b",
-                    (entity) =>
-                    {
-                        return new NodeMaterialConnectionPoint() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __b;
+                if (__b == null)
+                {
+                    __b = EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
+                        this.___guid,
+                        "b",
+                        (entity) =>
+                        {
+                            return new NodeMaterialConnectionPoint() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __b;
             }
         }
 
@@ -153,31 +151,24 @@ namespace BABYLON
         {
             get
             {
-            if(__a == null)
-            {
-                __a = EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
-                    this.___guid,
-                    "a",
-                    (entity) =>
-                    {
-                        return new NodeMaterialConnectionPoint() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __a;
+                if (__a == null)
+                {
+                    __a = EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
+                        this.___guid,
+                        "a",
+                        (entity) =>
+                        {
+                            return new NodeMaterialConnectionPoint() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __a;
             }
         }
 
-        
         public int target
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<int>(
-                    this.___guid,
-                    "target"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<int>(this.___guid, "target"); }
         }
         #endregion
 
@@ -187,89 +178,64 @@ namespace BABYLON
         {
             get
             {
-            if(__texture == null)
-            {
-                __texture = EventHorizonBlazorInterop.GetClass<Texture>(
-                    this.___guid,
-                    "texture",
-                    (entity) =>
-                    {
-                        return new Texture() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __texture;
+                if (__texture == null)
+                {
+                    __texture = EventHorizonBlazorInterop.GetClass<Texture>(
+                        this.___guid,
+                        "texture",
+                        (entity) =>
+                        {
+                            return new Texture() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __texture;
             }
             set
             {
-__texture = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "texture",
-                    value
-                );
+                __texture = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "texture", value);
             }
         }
 
-        
         public bool convertToGammaSpace
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "convertToGammaSpace"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "convertToGammaSpace"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "convertToGammaSpace",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "convertToGammaSpace", value);
             }
         }
 
-        
         public bool convertToLinearSpace
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "convertToLinearSpace"
-                );
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "convertToLinearSpace");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "convertToLinearSpace",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "convertToLinearSpace", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public TextureBlock() : base() { }
+        public TextureBlock()
+            : base() { }
 
-        public TextureBlock(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public TextureBlock(ICachedEntity entity)
+            : base(entity) { }
 
-        public TextureBlock(
-            string name, System.Nullable<bool> fragmentOnly = null
-        ) : base()
+        public TextureBlock(string name, System.Nullable<bool> fragmentOnly = null)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "TextureBlock" },
-                name, fragmentOnly
+                name,
+                fragmentOnly
             );
             ___guid = entity.___guid;
         }
@@ -279,39 +245,49 @@ __texture = null;
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
         public void autoConfigure(NodeMaterial material)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "autoConfigure" }, material
-                }
+                new object[] { new string[] { this.___guid, "autoConfigure" }, material }
             );
         }
 
-        public void initializeDefines(AbstractMesh mesh, NodeMaterial nodeMaterial, NodeMaterialDefines defines, System.Nullable<bool> useInstances = null)
+        public void initializeDefines(
+            AbstractMesh mesh,
+            NodeMaterial nodeMaterial,
+            NodeMaterialDefines defines,
+            System.Nullable<bool> useInstances = null
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "initializeDefines" }, mesh, nodeMaterial, defines, useInstances
+                    new string[] { this.___guid, "initializeDefines" },
+                    mesh,
+                    nodeMaterial,
+                    defines,
+                    useInstances
                 }
             );
         }
 
-        public void prepareDefines(AbstractMesh mesh, NodeMaterial nodeMaterial, NodeMaterialDefines defines)
+        public void prepareDefines(
+            AbstractMesh mesh,
+            NodeMaterial nodeMaterial,
+            NodeMaterialDefines defines
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "prepareDefines" }, mesh, nodeMaterial, defines
+                    new string[] { this.___guid, "prepareDefines" },
+                    mesh,
+                    nodeMaterial,
+                    defines
                 }
             );
         }
@@ -319,30 +295,21 @@ __texture = null;
         public bool isReady()
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "isReady" }
-                }
+                new object[] { new string[] { this.___guid, "isReady" } }
             );
         }
 
         public void bind(Effect effect, NodeMaterial nodeMaterial, Mesh mesh = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "bind" }, effect, nodeMaterial, mesh
-                }
+                new object[] { new string[] { this.___guid, "bind" }, effect, nodeMaterial, mesh }
             );
         }
 
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "serialize" }
-                }
+                new object[] { new string[] { this.___guid, "serialize" } }
             );
         }
         #endregion

@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Interop;
 
 public class AudioBuffer : CachedEntity
 {
-    public AudioBuffer()
-    {
-    }
+    public AudioBuffer() { }
 
-    public AudioBuffer(
-        ICachedEntity entity
-    )
+    public AudioBuffer(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

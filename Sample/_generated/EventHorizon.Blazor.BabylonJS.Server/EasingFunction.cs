@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<EasingFunction>))]
     public class EasingFunction : CachedEntityObject, IEasingFunction
     {
@@ -20,31 +18,29 @@ namespace BABYLON
         #endregion
 
         #region Static Properties
-        
+
         public static async ValueTask<decimal> get_EASINGMODE_EASEIN()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "EasingFunction.EASINGMODE_EASEIN"
-                );
+                "BABYLON",
+                "EasingFunction.EASINGMODE_EASEIN"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_EASINGMODE_EASEOUT()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "EasingFunction.EASINGMODE_EASEOUT"
-                );
+                "BABYLON",
+                "EasingFunction.EASINGMODE_EASEOUT"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_EASINGMODE_EASEINOUT()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "EasingFunction.EASINGMODE_EASEINOUT"
-                );
+                "BABYLON",
+                "EasingFunction.EASINGMODE_EASEINOUT"
+            );
         }
         #endregion
 
@@ -59,16 +55,13 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
+
         #region Constructor
-        public EasingFunction() : base() { }
+        public EasingFunction()
+            : base() { }
 
-        public EasingFunction(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public EasingFunction(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -76,40 +69,28 @@ namespace BABYLON
         public async ValueTask setEasingMode(decimal easingMode)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "setEasingMode" }, easingMode
-                }
+                new object[] { new string[] { this.___guid, "setEasingMode" }, easingMode }
             );
         }
 
         public async ValueTask<decimal> getEasingMode()
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getEasingMode" }
-                }
+                new object[] { new string[] { this.___guid, "getEasingMode" } }
             );
         }
 
         public async ValueTask<decimal> easeInCore(decimal gradient)
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "easeInCore" }, gradient
-                }
+                new object[] { new string[] { this.___guid, "easeInCore" }, gradient }
             );
         }
 
         public async ValueTask<decimal> ease(decimal gradient)
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "ease" }, gradient
-                }
+                new object[] { new string[] { this.___guid, "ease" }, gradient }
             );
         }
         #endregion

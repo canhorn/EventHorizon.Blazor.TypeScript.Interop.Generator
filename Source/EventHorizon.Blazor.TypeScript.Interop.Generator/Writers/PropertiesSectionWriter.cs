@@ -32,27 +32,17 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     property.Type,
                     property.UsedClassNames
                 );
-                var isLiteral = TypeLiteralIdentifier.Identify(
-                    property.Type
-                );
-                var isArray = ArrayResponseIdentifier.Identify(
-                    property.Type
-                );
-                var isNotSupported = NotSupportedIdentifier.Identify(
-                    property
-                );
-                var isEnum = TypeEnumIdentifier.Identify(
-                    property.Type
-                );
+                var isLiteral = TypeLiteralIdentifier.Identify(property.Type);
+                var isArray = ArrayResponseIdentifier.Identify(property.Type);
+                var isNotSupported = NotSupportedIdentifier.Identify(property);
+                var isEnum = TypeEnumIdentifier.Identify(property.Type);
 
                 var template = templates.AccessorWithSetter;
                 var propertyGetterResultType = templates.InteropGet;
                 var root = "this.___guid";
                 var namespaceParts = classStatement.Namespace.Split(".");
-                var entityNamespace = string.Join(
-                    ", ",
-                    namespaceParts.Select(part => @$"""{part}""")
-                ) + ", ";
+                var entityNamespace =
+                    string.Join(", ", namespaceParts.Select(part => @$"""{part}""")) + ", ";
                 var propertyIdentifier = property.Name;
                 var propertyGetterTemplate = templates.ReturnTypePrimitiveTemplate;
                 var cacheSection = string.Empty;
@@ -70,13 +60,10 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
 
                 if (property.IsStatic)
                 {
-
                     root = $"\"{namespaceParts.FirstOrDefault()}\"";
                     propertyIdentifier = string.Join(
                         ".",
-                        namespaceParts
-                            .Skip(1)
-                            .Select(part => @$"{part}")
+                        namespaceParts.Skip(1).Select(part => @$"{part}")
                     );
                     if (propertyIdentifier.Length > 0)
                     {
@@ -116,7 +103,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 {
                     propertyGetterResultType = templates.InteropGetArray;
                 }
-                else if(isLiteral && property.Type.Name == GenerationIdentifiedTypes.CachedEntity)
+                else if (isLiteral && property.Type.Name == GenerationIdentifiedTypes.CachedEntity)
                 {
                     propertyGetterResultType = templates.InteropGetClass;
                 }
@@ -127,82 +114,31 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 }
 
                 template = template
+                    .Replace("[[PROPERTY_GETTER]]", propertyGetterTemplate)
+                    .Replace("[[PROPERTY_SETTER]]", templates.InteropSet)
+                    .Replace("[[RETURN_TYPE_CONTENT]]", propertyGetterResultType)
+                    .Replace("[[PROPERTY_NAMESPACE]]", entityNamespace)
+                    .Replace("[[CACHE_SECTION]]", cacheSection)
+                    .Replace("[[CACHE_SETTTER_SECTION]]", cacheSetterSection)
+                    .Replace("[[STATIC]]", property.IsStatic ? "static " : string.Empty)
+                    .Replace("[[ARRAY]]", string.Empty)
+                    .Replace("[[NAME]]", DotNetNormalizer.Normalize(property.Name))
+                    .Replace("[[CACHE_NAME]]", property.Name)
+                    .Replace("[[NAME_CAPTIALIZED]]", property.Name.Captialize())
+                    .Replace("[[TYPE]]", TypeStatementWriter.Write(property.Type))
+                    .Replace("[[ARRAY_TYPE]]", TypeStatementWriter.Write(property.Type, false))
+                    .Replace("[[NEW_TYPE]]", TypeStatementWriter.Write(property.Type, false))
+                    .Replace("[[PROPERTY]]", propertyIdentifier)
+                    .Replace("[[PROPERTY_ARGUMENTS]]", string.Empty)
+                    .Replace("[[ROOT]]", root)
                     .Replace(
-                        "[[PROPERTY_GETTER]]",
-                        propertyGetterTemplate
-                    ).Replace(
-                        "[[PROPERTY_SETTER]]",
-                        templates.InteropSet
-                    ).Replace(
-                        "[[RETURN_TYPE_CONTENT]]",
-                        propertyGetterResultType
-                    ).Replace(
-                        "[[PROPERTY_NAMESPACE]]",
-                        entityNamespace
-                    ).Replace(
-                        "[[CACHE_SECTION]]",
-                        cacheSection
-                    ).Replace(
-                        "[[CACHE_SETTTER_SECTION]]",
-                        cacheSetterSection
-                    ).Replace(
-                        "[[STATIC]]",
-                        property.IsStatic ? "static " : string.Empty
-                    ).Replace(
-                        "[[ARRAY]]",
-                        string.Empty
-                    ).Replace(
-                        "[[NAME]]",
-                        DotNetNormalizer.Normalize(
-                            property.Name
-                        )
-                    ).Replace(
-                        "[[CACHE_NAME]]",
-                        property.Name
-                    ).Replace(
-                        "[[NAME_CAPTIALIZED]]",
-                        property.Name.Captialize()
-                    ).Replace(
-                        "[[TYPE]]",
-                        TypeStatementWriter.Write(
-                            property.Type
-                        )
-                    ).Replace(
-                        "[[ARRAY_TYPE]]",
-                        TypeStatementWriter.Write(
-                            property.Type,
-                            false
-                        )
-                    ).Replace(
-                        "[[NEW_TYPE]]",
-                        TypeStatementWriter.Write(
-                            property.Type,
-                            false
-                        )
-                    ).Replace(
-                        "[[PROPERTY]]",
-                        propertyIdentifier
-                    ).Replace(
-                        "[[PROPERTY_ARGUMENTS]]",
-                        string.Empty
-                    ).Replace(
-                        "[[ROOT]]",
-                        root
-                    ).Replace(
                         "[[INTERFACE_POSTFIX]]",
                         property.IsInterfaceResponse ? Constants.INTERFACE_POSTFIX : string.Empty
-                    )
-                ;
-                section.Append(
-                    template
-                );
+                    );
+                section.Append(template);
                 if (!isLast)
                 {
-                    section.Append(
-                        Environment.NewLine
-                    ).Append(
-                        Environment.NewLine
-                    );
+                    section.Append(Environment.NewLine).Append(Environment.NewLine);
                 }
                 current++;
             }

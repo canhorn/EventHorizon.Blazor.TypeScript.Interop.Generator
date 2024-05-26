@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Server.Interop;
 
 public class MediaStream : CachedEntity
 {
-    public MediaStream()
-    {
-    }
+    public MediaStream() { }
 
-    public MediaStream(
-        ICachedEntity entity
-    )
+    public MediaStream(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

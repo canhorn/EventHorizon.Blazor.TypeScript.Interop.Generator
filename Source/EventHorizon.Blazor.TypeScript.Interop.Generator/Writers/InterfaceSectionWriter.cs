@@ -18,17 +18,16 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             if (classStatement.IsInterface)
             {
                 GlobalLogger.Info($"Generating Interface: {classStatement}");
-                var className = TypeStatementWriter.Write(new TypeStatement
-                {
-                    Name = classStatement.Name,
-                    GenericTypes = classStatement.GenericTypes,
-                });
+                var className = TypeStatementWriter.Write(
+                    new TypeStatement
+                    {
+                        Name = classStatement.Name,
+                        GenericTypes = classStatement.GenericTypes,
+                    }
+                );
                 // Get Interface Section Template
                 var template = "public interface [[CLASS_NAME]] : ICachedEntity { }";
-                return template.Replace(
-                    "[[CLASS_NAME]]",
-                    className
-                );
+                return template.Replace("[[CLASS_NAME]]", className);
             }
             return string.Empty;
         }

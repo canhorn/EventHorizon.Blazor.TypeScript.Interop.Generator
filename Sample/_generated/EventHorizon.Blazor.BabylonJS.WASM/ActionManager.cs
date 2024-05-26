@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<ActionManager>))]
     public class ActionManager : AbstractActionManager
     {
@@ -20,204 +18,188 @@ namespace BABYLON
         #endregion
 
         #region Static Properties
-        
+
         public static decimal NothingTrigger
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ActionManager.NothingTrigger"
                 );
             }
         }
 
-        
         public static decimal OnPickTrigger
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ActionManager.OnPickTrigger"
                 );
             }
         }
 
-        
         public static decimal OnLeftPickTrigger
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ActionManager.OnLeftPickTrigger"
                 );
             }
         }
 
-        
         public static decimal OnRightPickTrigger
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ActionManager.OnRightPickTrigger"
                 );
             }
         }
 
-        
         public static decimal OnCenterPickTrigger
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ActionManager.OnCenterPickTrigger"
                 );
             }
         }
 
-        
         public static decimal OnPickDownTrigger
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ActionManager.OnPickDownTrigger"
                 );
             }
         }
 
-        
         public static decimal OnDoublePickTrigger
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ActionManager.OnDoublePickTrigger"
                 );
             }
         }
 
-        
         public static decimal OnPickUpTrigger
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ActionManager.OnPickUpTrigger"
                 );
             }
         }
 
-        
         public static decimal OnPickOutTrigger
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ActionManager.OnPickOutTrigger"
                 );
             }
         }
 
-        
         public static decimal OnLongPressTrigger
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ActionManager.OnLongPressTrigger"
                 );
             }
         }
 
-        
         public static decimal OnPointerOverTrigger
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ActionManager.OnPointerOverTrigger"
                 );
             }
         }
 
-        
         public static decimal OnPointerOutTrigger
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ActionManager.OnPointerOutTrigger"
                 );
             }
         }
 
-        
         public static decimal OnEveryFrameTrigger
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ActionManager.OnEveryFrameTrigger"
                 );
             }
         }
 
-        
         public static decimal OnIntersectionEnterTrigger
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ActionManager.OnIntersectionEnterTrigger"
                 );
             }
         }
 
-        
         public static decimal OnIntersectionExitTrigger
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ActionManager.OnIntersectionExitTrigger"
                 );
             }
         }
 
-        
         public static decimal OnKeyDownTrigger
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ActionManager.OnKeyDownTrigger"
                 );
             }
         }
 
-        
         public static decimal OnKeyUpTrigger
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     "BABYLON",
                     "ActionManager.OnKeyUpTrigger"
                 );
@@ -231,7 +213,10 @@ namespace BABYLON
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "ActionManager", "Parse" }, parsedActions, @object, scene
+                    new string[] { "BABYLON", "ActionManager", "Parse" },
+                    parsedActions,
+                    @object,
+                    scene
                 }
             );
         }
@@ -241,54 +226,39 @@ namespace BABYLON
             return EventHorizonBlazorInterop.Func<string>(
                 new object[]
                 {
-                    new string[] { "BABYLON", "ActionManager", "GetTriggerName" }, trigger
+                    new string[] { "BABYLON", "ActionManager", "GetTriggerName" },
+                    trigger
                 }
             );
         }
         #endregion
 
         #region Accessors
-        
+
         public bool hasPointerTriggers
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "hasPointerTriggers"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "hasPointerTriggers"); }
         }
 
-        
         public bool hasPickTriggers
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "hasPickTriggers"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "hasPickTriggers"); }
         }
         #endregion
 
         #region Properties
 
         #endregion
-        
+
         #region Constructor
-        public ActionManager() : base() { }
+        public ActionManager()
+            : base() { }
 
-        public ActionManager(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public ActionManager(ICachedEntity entity)
+            : base(entity) { }
 
-        public ActionManager(
-            Scene scene
-        ) : base()
+        public ActionManager(Scene scene)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "ActionManager" },
@@ -302,10 +272,7 @@ namespace BABYLON
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
 
@@ -313,20 +280,14 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<Scene>(
                 entity => new Scene() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getScene" }
-                }
+                new object[] { new string[] { this.___guid, "getScene" } }
             );
         }
 
         public bool hasSpecificTriggers(decimal[] triggers)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "hasSpecificTriggers" }, triggers
-                }
+                new object[] { new string[] { this.___guid, "hasSpecificTriggers" }, triggers }
             );
         }
 
@@ -335,17 +296,24 @@ namespace BABYLON
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
-                    new string[] { this.___guid, "hasSpecificTriggers2" }, triggerA, triggerB
+                    new string[] { this.___guid, "hasSpecificTriggers2" },
+                    triggerA,
+                    triggerB
                 }
             );
         }
 
-        public bool hasSpecificTrigger(decimal trigger, ActionResultCallback<object, bool> parameterPredicate = null)
+        public bool hasSpecificTrigger(
+            decimal trigger,
+            ActionResultCallback<object, bool> parameterPredicate = null
+        )
         {
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
-                    new string[] { this.___guid, "hasSpecificTrigger" }, trigger, parameterPredicate
+                    new string[] { this.___guid, "hasSpecificTrigger" },
+                    trigger,
+                    parameterPredicate
                 }
             );
         }
@@ -354,40 +322,28 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<IActionCachedEntity>(
                 entity => new IActionCachedEntity() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "registerAction" }, action
-                }
+                new object[] { new string[] { this.___guid, "registerAction" }, action }
             );
         }
 
         public bool unregisterAction(IAction action)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "unregisterAction" }, action
-                }
+                new object[] { new string[] { this.___guid, "unregisterAction" }, action }
             );
         }
 
         public void processTrigger(decimal trigger, IActionEvent evt = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "processTrigger" }, trigger, evt
-                }
+                new object[] { new string[] { this.___guid, "processTrigger" }, trigger, evt }
             );
         }
 
         public CachedEntity serialize(string name)
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "serialize" }, name
-                }
+                new object[] { new string[] { this.___guid, "serialize" }, name }
             );
         }
         #endregion

@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IAction : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IActionCachedEntity>))]
     public class IActionCachedEntity : CachedEntityObject, IAction
     {
@@ -32,33 +32,22 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public decimal trigger
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "trigger"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "trigger"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "trigger",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "trigger", value);
             }
         }
 
-        
         public CachedEntity triggerOptions
         {
             get
             {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
                     this.___guid,
                     "triggerOptions",
                     (entity) =>
@@ -70,24 +59,17 @@ namespace BABYLON
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "triggerOptions",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "triggerOptions", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IActionCachedEntity() : base() { }
+        public IActionCachedEntity()
+            : base() { }
 
-        public IActionCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IActionCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -95,20 +77,14 @@ namespace BABYLON
         public CachedEntity getTriggerParameter()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getTriggerParameter" }
-                }
+                new object[] { new string[] { this.___guid, "getTriggerParameter" } }
             );
         }
 
         public CachedEntity serialize(object parent)
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "serialize" }, parent
-                }
+                new object[] { new string[] { this.___guid, "serialize" }, parent }
             );
         }
 
@@ -116,10 +92,7 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<IActionCachedEntity>(
                 entity => new IActionCachedEntity() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "then" }, action
-                }
+                new object[] { new string[] { this.___guid, "then" }, action }
             );
         }
         #endregion

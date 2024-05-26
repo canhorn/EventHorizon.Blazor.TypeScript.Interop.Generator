@@ -16,11 +16,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
         )
         {
             // Get node from typeIdentifier
-            var node = ast.RootNode.OfKind(
-                SyntaxKind.TypeAliasDeclaration
-            ).FirstOrDefault(
-                child => child.IdentifierStr == typeIdentifier
-            );
+            var node = ast
+                .RootNode.OfKind(SyntaxKind.TypeAliasDeclaration)
+                .FirstOrDefault(child => child.IdentifierStr == typeIdentifier);
 
             if (node == null)
             {

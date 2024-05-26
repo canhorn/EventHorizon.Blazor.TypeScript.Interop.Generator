@@ -8,20 +8,16 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
 
     public interface IInterfaceResponseTypeIdentifier
     {
-        bool Identify(
-            string identifierString,
-            AbstractSyntaxTree ast
-        );
-        bool Identify(
-            TypeStatement type,
-            AbstractSyntaxTree ast
-        );
+        bool Identify(string identifierString, AbstractSyntaxTree ast);
+        bool Identify(TypeStatement type, AbstractSyntaxTree ast);
     }
+
     public static class InterfaceResponseTypeIdentifier
     {
-
-        private static IInterfaceResponseTypeIdentifier CACHED = new InterfaceResponseTypeIdentifierCached();
-        private static IInterfaceResponseTypeIdentifier NOT_CACHED = new InterfaceResponseTypeIdentifierNotCached();
+        private static IInterfaceResponseTypeIdentifier CACHED =
+            new InterfaceResponseTypeIdentifierCached();
+        private static IInterfaceResponseTypeIdentifier NOT_CACHED =
+            new InterfaceResponseTypeIdentifierNotCached();
         private static IInterfaceResponseTypeIdentifier ACTIVE = CACHED;
 
         public static void DisableCache()
@@ -29,97 +25,61 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
             ACTIVE = NOT_CACHED;
         }
 
-        public static bool Identify(
-            string identifierString,
-            AbstractSyntaxTree ast
-        )
+        public static bool Identify(string identifierString, AbstractSyntaxTree ast)
         {
-            return ACTIVE.Identify(
-                identifierString,
-                ast
-            );
+            return ACTIVE.Identify(identifierString, ast);
         }
 
-        public static bool Identify(
-            TypeStatement type,
-            AbstractSyntaxTree ast
-        )
+        public static bool Identify(TypeStatement type, AbstractSyntaxTree ast)
         {
-            return ACTIVE.Identify(
-                type,
-                ast
-            );
+            return ACTIVE.Identify(type, ast);
         }
     }
 
-    public class InterfaceResponseTypeIdentifierNotCached
-        : IInterfaceResponseTypeIdentifier
+    public class InterfaceResponseTypeIdentifierNotCached : IInterfaceResponseTypeIdentifier
     {
-        public virtual bool Identify(
-            string identifierString,
-            AbstractSyntaxTree ast
-        )
+        public virtual bool Identify(string identifierString, AbstractSyntaxTree ast)
         {
-            var hasClassDeclarations = ast.RootNode.OfKind(
-                SyntaxKind.ClassDeclaration
-            ).Any(
-                child => child.IdentifierStr == identifierString
-            );
-            var response = !hasClassDeclarations && ast.RootNode.OfKind(
-                SyntaxKind.InterfaceDeclaration
-            ).Any(
-                child => child.IdentifierStr == identifierString
-            );
+            var hasClassDeclarations = ast
+                .RootNode.OfKind(SyntaxKind.ClassDeclaration)
+                .Any(child => child.IdentifierStr == identifierString);
+            var response =
+                !hasClassDeclarations
+                && ast.RootNode.OfKind(SyntaxKind.InterfaceDeclaration)
+                    .Any(child => child.IdentifierStr == identifierString);
             return response;
         }
 
-        public virtual bool Identify(
-            TypeStatement type,
-            AbstractSyntaxTree ast
-        )
+        public virtual bool Identify(TypeStatement type, AbstractSyntaxTree ast)
         {
             var identifierString = type.Name;
-            if (type.IsModifier
-                || type.IsArray
-                || type.IsNullable
-            )
+            if (type.IsModifier || type.IsArray || type.IsNullable)
             {
                 if (type.GenericTypes.Any())
                 {
                     identifierString = type.GenericTypes.First().Name;
                 }
             }
-            return Identify(
-                identifierString,
-                ast
-            );
+            return Identify(identifierString, ast);
         }
     }
 
-    public class InterfaceResponseTypeIdentifierCached
-        : InterfaceResponseTypeIdentifierNotCached
+    public class InterfaceResponseTypeIdentifierCached : InterfaceResponseTypeIdentifierNotCached
     {
         private bool _isCachedSetup;
         private readonly List<string> _cacheClassDeclaration = new List<string>();
         private readonly List<string> _cacheInterfaceDeclaration = new List<string>();
 
-        public override bool Identify(
-            string identifierString,
-            AbstractSyntaxTree ast
-        )
+        public override bool Identify(string identifierString, AbstractSyntaxTree ast)
         {
             if (!_isCachedSetup)
             {
-                var classDeclarations = ast.RootNode.OfKind(
-                    SyntaxKind.ClassDeclaration
-                );
+                var classDeclarations = ast.RootNode.OfKind(SyntaxKind.ClassDeclaration);
                 foreach (var classDeclaration in classDeclarations)
                 {
                     _cacheClassDeclaration.Add(classDeclaration.IdentifierStr);
                 }
-                var interfaceDeclarations = ast.RootNode.OfKind(
-                    SyntaxKind.InterfaceDeclaration
-                );
+                var interfaceDeclarations = ast.RootNode.OfKind(SyntaxKind.InterfaceDeclaration);
                 foreach (var interfaceDeclaration in interfaceDeclarations)
                 {
                     _cacheInterfaceDeclaration.Add(interfaceDeclaration.IdentifierStr);
@@ -130,15 +90,9 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
                 && _cacheInterfaceDeclaration.Contains(identifierString);
         }
 
-        public override bool Identify(
-            TypeStatement type,
-            AbstractSyntaxTree ast
-        )
+        public override bool Identify(TypeStatement type, AbstractSyntaxTree ast)
         {
-            return base.Identify(
-                type,
-                ast
-            );
+            return base.Identify(type, ast);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface INodeMaterialOptions : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<INodeMaterialOptionsCachedEntity>))]
     public class INodeMaterialOptionsCachedEntity : CachedEntityObject, INodeMaterialOptions
     {
@@ -32,34 +32,24 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<bool> get_emitComments()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "emitComments"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "emitComments");
         }
+
         public ValueTask set_emitComments(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "emitComments",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "emitComments", value);
         }
         #endregion
-        
+
         #region Constructor
-        public INodeMaterialOptionsCachedEntity() : base() { }
+        public INodeMaterialOptionsCachedEntity()
+            : base() { }
 
-        public INodeMaterialOptionsCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public INodeMaterialOptionsCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

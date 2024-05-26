@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Interop;
 
 public class Space : CachedEntity
 {
-    public Space()
-    {
-    }
+    public Space() { }
 
-    public Space(
-        ICachedEntity entity
-    )
+    public Space(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

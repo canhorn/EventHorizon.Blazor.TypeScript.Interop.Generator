@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface ICreateCapsuleOptions : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<ICreateCapsuleOptionsCachedEntity>))]
     public class ICreateCapsuleOptionsCachedEntity : CachedEntityObject, ICreateCapsuleOptions
     {
@@ -37,204 +37,114 @@ namespace BABYLON
         {
             get
             {
-            if(__orientation == null)
-            {
-                __orientation = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "orientation",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __orientation;
+                if (__orientation == null)
+                {
+                    __orientation = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "orientation",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __orientation;
             }
             set
             {
-__orientation = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "orientation",
-                    value
-                );
+                __orientation = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "orientation", value);
             }
         }
 
-        
         public decimal subdivisions
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "subdivisions"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "subdivisions"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "subdivisions",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "subdivisions", value);
             }
         }
 
-        
         public decimal tessellation
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "tessellation"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "tessellation"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "tessellation",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "tessellation", value);
             }
         }
 
-        
         public decimal height
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "height"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "height"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "height",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "height", value);
             }
         }
 
-        
         public decimal radius
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "radius"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "radius"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "radius",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "radius", value);
             }
         }
 
-        
         public decimal capSubdivisions
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "capSubdivisions"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "capSubdivisions"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "capSubdivisions",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "capSubdivisions", value);
             }
         }
 
-        
         public decimal radiusTop
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "radiusTop"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "radiusTop"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "radiusTop",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "radiusTop", value);
             }
         }
 
-        
         public decimal radiusBottom
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "radiusBottom"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "radiusBottom"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "radiusBottom",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "radiusBottom", value);
             }
         }
 
-        
         public decimal topCapSubdivisions
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "topCapSubdivisions"
-                );
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "topCapSubdivisions");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "topCapSubdivisions",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "topCapSubdivisions", value);
             }
         }
 
-        
         public decimal bottomCapSubdivisions
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
+                return EventHorizonBlazorInterop.Get<decimal>(
                     this.___guid,
                     "bottomCapSubdivisions"
                 );
@@ -242,24 +152,17 @@ __orientation = null;
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "bottomCapSubdivisions",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "bottomCapSubdivisions", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public ICreateCapsuleOptionsCachedEntity() : base() { }
+        public ICreateCapsuleOptionsCachedEntity()
+            : base() { }
 
-        public ICreateCapsuleOptionsCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public ICreateCapsuleOptionsCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

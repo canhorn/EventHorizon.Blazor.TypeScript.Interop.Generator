@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface ISceneLike : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<ISceneLikeCachedEntity>))]
     public class ISceneLikeCachedEntity : CachedEntityObject, ISceneLike
     {
@@ -33,41 +33,37 @@ namespace BABYLON
 
         #region Properties
         private IOfflineProviderCachedEntity __offlineProvider;
+
         public async ValueTask<IOfflineProviderCachedEntity> get_offlineProvider()
         {
-            if(__offlineProvider == null)
+            if (__offlineProvider == null)
             {
-                __offlineProvider = await EventHorizonBlazorInterop.GetClass<IOfflineProviderCachedEntity>(
-                    this.___guid,
-                    "offlineProvider",
-                    (entity) =>
-                    {
-                        return new IOfflineProviderCachedEntity() { ___guid = entity.___guid };
-                    }
-                );
+                __offlineProvider =
+                    await EventHorizonBlazorInterop.GetClass<IOfflineProviderCachedEntity>(
+                        this.___guid,
+                        "offlineProvider",
+                        (entity) =>
+                        {
+                            return new IOfflineProviderCachedEntity() { ___guid = entity.___guid };
+                        }
+                    );
             }
             return __offlineProvider;
         }
+
         public ValueTask set_offlineProvider(IOfflineProviderCachedEntity value)
         {
-__offlineProvider = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "offlineProvider",
-                    value
-                );
+            __offlineProvider = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "offlineProvider", value);
         }
         #endregion
-        
+
         #region Constructor
-        public ISceneLikeCachedEntity() : base() { }
+        public ISceneLikeCachedEntity()
+            : base() { }
 
-        public ISceneLikeCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public ISceneLikeCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

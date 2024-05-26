@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface ISceneLoaderPlugin : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<ISceneLoaderPluginCachedEntity>))]
     public class ISceneLoaderPluginCachedEntity : CachedEntityObject, ISceneLoaderPlugin
     {
@@ -34,47 +34,79 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
+
         #region Constructor
-        public ISceneLoaderPluginCachedEntity() : base() { }
+        public ISceneLoaderPluginCachedEntity()
+            : base() { }
 
-        public ISceneLoaderPluginCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public ISceneLoaderPluginCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
         #region Methods
-        public bool importMesh(object meshesNames, Scene scene, object data, string rootUrl, AbstractMesh[] meshes, IParticleSystem[] particleSystems, Skeleton[] skeletons, ActionCallback<string, object> onError = null)
+        public bool importMesh(
+            object meshesNames,
+            Scene scene,
+            object data,
+            string rootUrl,
+            AbstractMesh[] meshes,
+            IParticleSystem[] particleSystems,
+            Skeleton[] skeletons,
+            ActionCallback<string, object> onError = null
+        )
         {
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
-                    new string[] { this.___guid, "importMesh" }, meshesNames, scene, data, rootUrl, meshes, particleSystems, skeletons, onError
+                    new string[] { this.___guid, "importMesh" },
+                    meshesNames,
+                    scene,
+                    data,
+                    rootUrl,
+                    meshes,
+                    particleSystems,
+                    skeletons,
+                    onError
                 }
             );
         }
 
-        public bool load(Scene scene, object data, string rootUrl, ActionCallback<string, object> onError = null)
+        public bool load(
+            Scene scene,
+            object data,
+            string rootUrl,
+            ActionCallback<string, object> onError = null
+        )
         {
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
-                    new string[] { this.___guid, "load" }, scene, data, rootUrl, onError
+                    new string[] { this.___guid, "load" },
+                    scene,
+                    data,
+                    rootUrl,
+                    onError
                 }
             );
         }
 
-        public AssetContainer loadAssetContainer(Scene scene, object data, string rootUrl, ActionCallback<string, object> onError = null)
+        public AssetContainer loadAssetContainer(
+            Scene scene,
+            object data,
+            string rootUrl,
+            ActionCallback<string, object> onError = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<AssetContainer>(
                 entity => new AssetContainer() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "loadAssetContainer" }, scene, data, rootUrl, onError
+                    new string[] { this.___guid, "loadAssetContainer" },
+                    scene,
+                    data,
+                    rootUrl,
+                    onError
                 }
             );
         }

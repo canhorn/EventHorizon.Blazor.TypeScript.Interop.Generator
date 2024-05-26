@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<BoundingBox>))]
     public class BoundingBox : CachedEntityObject, ICullable
     {
@@ -27,39 +25,55 @@ namespace BABYLON
         public static async ValueTask<bool> Intersects(BoundingBox box0, BoundingBox box1)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[] { new string[] { "BABYLON", "BoundingBox", "Intersects" }, box0, box1 }
+            );
+        }
+
+        public static async ValueTask<bool> IntersectsSphere(
+            Vector3 minPoint,
+            Vector3 maxPoint,
+            Vector3 sphereCenter,
+            decimal sphereRadius
+        )
+        {
+            return await EventHorizonBlazorInterop.Func<bool>(
+                new object[]
                 {
-                    new string[] { "BABYLON", "BoundingBox", "Intersects" }, box0, box1
+                    new string[] { "BABYLON", "BoundingBox", "IntersectsSphere" },
+                    minPoint,
+                    maxPoint,
+                    sphereCenter,
+                    sphereRadius
                 }
             );
         }
 
-        public static async ValueTask<bool> IntersectsSphere(Vector3 minPoint, Vector3 maxPoint, Vector3 sphereCenter, decimal sphereRadius)
+        public static async ValueTask<bool> IsCompletelyInFrustum(
+            Vector3[] boundingVectors,
+            Plane[] frustumPlanes
+        )
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "BoundingBox", "IntersectsSphere" }, minPoint, maxPoint, sphereCenter, sphereRadius
+                    new string[] { "BABYLON", "BoundingBox", "IsCompletelyInFrustum" },
+                    boundingVectors,
+                    frustumPlanes
                 }
             );
         }
 
-        public static async ValueTask<bool> IsCompletelyInFrustum(Vector3[] boundingVectors, Plane[] frustumPlanes)
+        public static async ValueTask<bool> IsInFrustum(
+            Vector3[] boundingVectors,
+            Plane[] frustumPlanes
+        )
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "BoundingBox", "IsCompletelyInFrustum" }, boundingVectors, frustumPlanes
-                }
-            );
-        }
-
-        public static async ValueTask<bool> IsInFrustum(Vector3[] boundingVectors, Plane[] frustumPlanes)
-        {
-            return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { "BABYLON", "BoundingBox", "IsInFrustum" }, boundingVectors, frustumPlanes
+                    new string[] { "BABYLON", "BoundingBox", "IsInFrustum" },
+                    boundingVectors,
+                    frustumPlanes
                 }
             );
         }
@@ -70,23 +84,24 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<Vector3[]> get_vectors()
         {
             return await EventHorizonBlazorInterop.GetArrayClass<Vector3>(
-                    this.___guid,
-                    "vectors",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "vectors",
+                (entity) =>
+                {
+                    return new Vector3() { ___guid = entity.___guid };
+                }
+            );
         }
 
         private Vector3 __center;
+
         public async ValueTask<Vector3> get_center()
         {
-            if(__center == null)
+            if (__center == null)
             {
                 __center = await EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
@@ -101,9 +116,10 @@ namespace BABYLON
         }
 
         private Vector3 __centerWorld;
+
         public async ValueTask<Vector3> get_centerWorld()
         {
-            if(__centerWorld == null)
+            if (__centerWorld == null)
             {
                 __centerWorld = await EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
@@ -118,9 +134,10 @@ namespace BABYLON
         }
 
         private Vector3 __extendSize;
+
         public async ValueTask<Vector3> get_extendSize()
         {
-            if(__extendSize == null)
+            if (__extendSize == null)
             {
                 __extendSize = await EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
@@ -135,9 +152,10 @@ namespace BABYLON
         }
 
         private Vector3 __extendSizeWorld;
+
         public async ValueTask<Vector3> get_extendSizeWorld()
         {
-            if(__extendSizeWorld == null)
+            if (__extendSizeWorld == null)
             {
                 __extendSizeWorld = await EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
@@ -151,36 +169,35 @@ namespace BABYLON
             return __extendSizeWorld;
         }
 
-        
         public async ValueTask<Vector3[]> get_directions()
         {
             return await EventHorizonBlazorInterop.GetArrayClass<Vector3>(
-                    this.___guid,
-                    "directions",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "directions",
+                (entity) =>
+                {
+                    return new Vector3() { ___guid = entity.___guid };
+                }
+            );
         }
 
-        
         public async ValueTask<Vector3[]> get_vectorsWorld()
         {
             return await EventHorizonBlazorInterop.GetArrayClass<Vector3>(
-                    this.___guid,
-                    "vectorsWorld",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "vectorsWorld",
+                (entity) =>
+                {
+                    return new Vector3() { ___guid = entity.___guid };
+                }
+            );
         }
 
         private Vector3 __minimumWorld;
+
         public async ValueTask<Vector3> get_minimumWorld()
         {
-            if(__minimumWorld == null)
+            if (__minimumWorld == null)
             {
                 __minimumWorld = await EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
@@ -195,9 +212,10 @@ namespace BABYLON
         }
 
         private Vector3 __maximumWorld;
+
         public async ValueTask<Vector3> get_maximumWorld()
         {
-            if(__maximumWorld == null)
+            if (__maximumWorld == null)
             {
                 __maximumWorld = await EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
@@ -212,9 +230,10 @@ namespace BABYLON
         }
 
         private Vector3 __minimum;
+
         public async ValueTask<Vector3> get_minimum()
         {
-            if(__minimum == null)
+            if (__minimum == null)
             {
                 __minimum = await EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
@@ -229,9 +248,10 @@ namespace BABYLON
         }
 
         private Vector3 __maximum;
+
         public async ValueTask<Vector3> get_maximum()
         {
-            if(__maximum == null)
+            if (__maximum == null)
             {
                 __maximum = await EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
@@ -245,23 +265,25 @@ namespace BABYLON
             return __maximum;
         }
         #endregion
-        
-        #region Constructor
-        public BoundingBox() : base() { }
 
-        public BoundingBox(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        #region Constructor
+        public BoundingBox()
+            : base() { }
+
+        public BoundingBox(ICachedEntity entity)
+            : base(entity) { }
 
         public static async ValueTask<BoundingBox> NewBoundingBox(
-            Vector3 min, Vector3 max, Matrix worldMatrix = null
+            Vector3 min,
+            Vector3 max,
+            Matrix worldMatrix = null
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "BoundingBox" },
-                min, max, worldMatrix
+                min,
+                max,
+                worldMatrix
             );
 
             return new BoundingBox(entity);
@@ -272,10 +294,7 @@ namespace BABYLON
         public async ValueTask reConstruct(Vector3 min, Vector3 max, Matrix worldMatrix = null)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "reConstruct" }, min, max, worldMatrix
-                }
+                new object[] { new string[] { this.___guid, "reConstruct" }, min, max, worldMatrix }
             );
         }
 
@@ -283,10 +302,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<BoundingBox>(
                 entity => new BoundingBox() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "scale" }, factor
-                }
+                new object[] { new string[] { this.___guid, "scale" }, factor }
             );
         }
 
@@ -294,29 +310,24 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getWorldMatrix" }
-                }
+                new object[] { new string[] { this.___guid, "getWorldMatrix" } }
             );
         }
 
         public async ValueTask<bool> isInFrustum(Plane[] frustumPlanes)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "isInFrustum" }, frustumPlanes
-                }
+                new object[] { new string[] { this.___guid, "isInFrustum" }, frustumPlanes }
             );
         }
 
         public async ValueTask<bool> isCompletelyInFrustum(Plane[] frustumPlanes)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "isCompletelyInFrustum" }, frustumPlanes
+                    new string[] { this.___guid, "isCompletelyInFrustum" },
+                    frustumPlanes
                 }
             );
         }
@@ -324,30 +335,21 @@ namespace BABYLON
         public async ValueTask<bool> intersectsPoint(Vector3 point)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "intersectsPoint" }, point
-                }
+                new object[] { new string[] { this.___guid, "intersectsPoint" }, point }
             );
         }
 
         public async ValueTask<bool> intersectsSphere(BoundingSphere sphere)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "intersectsSphere" }, sphere
-                }
+                new object[] { new string[] { this.___guid, "intersectsSphere" }, sphere }
             );
         }
 
         public async ValueTask<bool> intersectsMinMax(Vector3 min, Vector3 max)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "intersectsMinMax" }, min, max
-                }
+                new object[] { new string[] { this.___guid, "intersectsMinMax" }, min, max }
             );
         }
         #endregion

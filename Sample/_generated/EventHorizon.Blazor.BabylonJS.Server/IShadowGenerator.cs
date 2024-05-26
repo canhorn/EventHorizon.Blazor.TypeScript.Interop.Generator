@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IShadowGenerator : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IShadowGeneratorCachedEntity>))]
     public class IShadowGeneratorCachedEntity : CachedEntityObject, IShadowGenerator
     {
@@ -32,34 +32,24 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<string> get_id()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "id"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "id");
         }
+
         public ValueTask set_id(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "id",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "id", value);
         }
         #endregion
-        
+
         #region Constructor
-        public IShadowGeneratorCachedEntity() : base() { }
+        public IShadowGeneratorCachedEntity()
+            : base() { }
 
-        public IShadowGeneratorCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IShadowGeneratorCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -68,19 +58,19 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<RenderTargetTexture>(
                 entity => new RenderTargetTexture() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getShadowMap" }
-                }
+                new object[] { new string[] { this.___guid, "getShadowMap" } }
             );
         }
 
         public async ValueTask<bool> isReady(SubMesh subMesh, bool useInstances, bool isTransparent)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "isReady" }, subMesh, useInstances, isTransparent
+                    new string[] { this.___guid, "isReady" },
+                    subMesh,
+                    useInstances,
+                    isTransparent
                 }
             );
         }
@@ -88,9 +78,11 @@ namespace BABYLON
         public async ValueTask prepareDefines(MaterialDefines defines, decimal lightIndex)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "prepareDefines" }, defines, lightIndex
+                    new string[] { this.___guid, "prepareDefines" },
+                    defines,
+                    lightIndex
                 }
             );
         }
@@ -98,9 +90,11 @@ namespace BABYLON
         public async ValueTask bindShadowLight(string lightIndex, Effect effect)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "bindShadowLight" }, lightIndex, effect
+                    new string[] { this.___guid, "bindShadowLight" },
+                    lightIndex,
+                    effect
                 }
             );
         }
@@ -109,29 +103,28 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getTransformMatrix" }
-                }
+                new object[] { new string[] { this.___guid, "getTransformMatrix" } }
             );
         }
 
         public async ValueTask recreateShadowMap()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "recreateShadowMap" }
-                }
+                new object[] { new string[] { this.___guid, "recreateShadowMap" } }
             );
         }
 
-        public async ValueTask forceCompilation(ActionCallback<IShadowGenerator> onCompiled = null, CachedEntity options = null)
+        public async ValueTask forceCompilation(
+            ActionCallback<IShadowGenerator> onCompiled = null,
+            CachedEntity options = null
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "forceCompilation" }, onCompiled, options
+                    new string[] { this.___guid, "forceCompilation" },
+                    onCompiled,
+                    options
                 }
             );
         }
@@ -139,30 +132,21 @@ namespace BABYLON
         public async ValueTask forceCompilationAsync(CachedEntity options = null)
         {
             await EventHorizonBlazorInterop.Task<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "forceCompilationAsync" }, options
-                }
+                new object[] { new string[] { this.___guid, "forceCompilationAsync" }, options }
             );
         }
 
         public async ValueTask<CachedEntity> serialize()
         {
             return await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "serialize" }
-                }
+                new object[] { new string[] { this.___guid, "serialize" } }
             );
         }
 
         public async ValueTask dispose()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
         #endregion

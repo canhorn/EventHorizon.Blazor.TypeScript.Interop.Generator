@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IParticleEmitterType : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IParticleEmitterTypeCachedEntity>))]
     public class IParticleEmitterTypeCachedEntity : CachedEntityObject, IParticleEmitterType
     {
@@ -34,36 +34,51 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
+
         #region Constructor
-        public IParticleEmitterTypeCachedEntity() : base() { }
+        public IParticleEmitterTypeCachedEntity()
+            : base() { }
 
-        public IParticleEmitterTypeCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IParticleEmitterTypeCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
         #region Methods
-        public void startDirectionFunction(Matrix worldMatrix, Vector3 directionToUpdate, Particle particle, bool isLocal)
+        public void startDirectionFunction(
+            Matrix worldMatrix,
+            Vector3 directionToUpdate,
+            Particle particle,
+            bool isLocal
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "startDirectionFunction" }, worldMatrix, directionToUpdate, particle, isLocal
+                    new string[] { this.___guid, "startDirectionFunction" },
+                    worldMatrix,
+                    directionToUpdate,
+                    particle,
+                    isLocal
                 }
             );
         }
 
-        public void startPositionFunction(Matrix worldMatrix, Vector3 positionToUpdate, Particle particle, bool isLocal)
+        public void startPositionFunction(
+            Matrix worldMatrix,
+            Vector3 positionToUpdate,
+            Particle particle,
+            bool isLocal
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "startPositionFunction" }, worldMatrix, positionToUpdate, particle, isLocal
+                    new string[] { this.___guid, "startPositionFunction" },
+                    worldMatrix,
+                    positionToUpdate,
+                    particle,
+                    isLocal
                 }
             );
         }
@@ -72,60 +87,42 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncClass<IParticleEmitterTypeCachedEntity>(
                 entity => new IParticleEmitterTypeCachedEntity() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "clone" }
-                }
+                new object[] { new string[] { this.___guid, "clone" } }
             );
         }
 
         public void applyToShader(Effect effect)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "applyToShader" }, effect
-                }
+                new object[] { new string[] { this.___guid, "applyToShader" }, effect }
             );
         }
 
         public string getEffectDefines()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getEffectDefines" }
-                }
+                new object[] { new string[] { this.___guid, "getEffectDefines" } }
             );
         }
 
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
         public CachedEntity serialize()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "serialize" }
-                }
+                new object[] { new string[] { this.___guid, "serialize" } }
             );
         }
 
         public void parse(object serializationObject, Scene scene)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "parse" }, serializationObject, scene
-                }
+                new object[] { new string[] { this.___guid, "parse" }, serializationObject, scene }
             );
         }
         #endregion

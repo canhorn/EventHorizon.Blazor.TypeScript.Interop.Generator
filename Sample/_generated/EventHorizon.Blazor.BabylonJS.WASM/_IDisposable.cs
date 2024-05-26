@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface _IDisposable : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<_IDisposableCachedEntity>))]
     public class _IDisposableCachedEntity : CachedEntityObject, _IDisposable
     {
@@ -34,16 +34,13 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
+
         #region Constructor
-        public _IDisposableCachedEntity() : base() { }
+        public _IDisposableCachedEntity()
+            : base() { }
 
-        public _IDisposableCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public _IDisposableCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -51,10 +48,7 @@ namespace BABYLON
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
         #endregion

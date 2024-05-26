@@ -20,25 +20,15 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             if (argument.IsOptional)
             {
                 argumentsTemplate = GenericTypeWriter(
-                    argument.Type,
-                    argument.UsedClassNames,
-                    includeName
-                ).Replace(
-                    "[[DEFAULT_VALUE]]",
-                    defaultValue
-                );
+                        argument.Type,
+                        argument.UsedClassNames,
+                        includeName
+                    )
+                    .Replace("[[DEFAULT_VALUE]]", defaultValue);
             }
-            return argumentsTemplate.Replace(
-                "[[NAME]]",
-                DotNetNormalizer.Normalize(argument.Name)
-            ).Replace(
-                "[[TYPE]]",
-                TypeStatementWriter.Write(
-                    argument.Type,
-                    true,
-                    ignorePrefix
-                )
-            );
+            return argumentsTemplate
+                .Replace("[[NAME]]", DotNetNormalizer.Normalize(argument.Name))
+                .Replace("[[TYPE]]", TypeStatementWriter.Write(argument.Type, true, ignorePrefix));
         }
 
         private static string GenericTypeWriter(
@@ -50,21 +40,17 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
             var argumentsTemplate = "System.Nullable<[[TYPE]]>[[NAME]][[DEFAULT_VALUE]]";
             if (typeStatement.IsTypeAlias)
             {
-                return GenericTypeWriter(
-                    typeStatement.AliasType,
-                    usedClassNames,
-                    includeName
-                );
+                return GenericTypeWriter(typeStatement.AliasType, usedClassNames, includeName);
             }
             else if (typeStatement.IsNullable)
             {
                 var genericType = typeStatement.GenericTypes.First();
 
-                if (!genericType.IsEnum
-                    && (ClassIdentifier.Identify(
-                        usedClassNames,
-                        genericType.Name
-                    ) || genericType.IsNullable
+                if (
+                    !genericType.IsEnum
+                    && (
+                        ClassIdentifier.Identify(usedClassNames, genericType.Name)
+                        || genericType.IsNullable
                         || genericType.IsArray
                         || genericType.IsModifier
                         || genericType.IsAction
@@ -77,11 +63,11 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                     argumentsTemplate = "[[TYPE]][[NAME]][[DEFAULT_VALUE]]";
                 }
             }
-            else if (!typeStatement.IsEnum 
-                && (ClassIdentifier.Identify(
-                    usedClassNames,
-                    typeStatement.Name
-                ) || typeStatement.IsNullable
+            else if (
+                !typeStatement.IsEnum
+                && (
+                    ClassIdentifier.Identify(usedClassNames, typeStatement.Name)
+                    || typeStatement.IsNullable
                     || typeStatement.IsArray
                     || typeStatement.IsModifier
                     || typeStatement.IsAction
@@ -93,10 +79,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers
                 argumentsTemplate = "[[TYPE]][[NAME]][[DEFAULT_VALUE]]";
             }
 
-            return argumentsTemplate.Replace(
-                "[[NAME]]",
-                includeName ? " [[NAME]]" : string.Empty
-            );
+            return argumentsTemplate.Replace("[[NAME]]", includeName ? " [[NAME]]" : string.Empty);
         }
     }
 }

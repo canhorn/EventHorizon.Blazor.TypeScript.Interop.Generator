@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<PickingInfo>))]
     public class PickingInfo : CachedEntityObject
     {
@@ -32,45 +30,24 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public bool hit
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "hit"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "hit"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "hit",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "hit", value);
             }
         }
 
-        
         public decimal distance
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "distance"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "distance"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "distance",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "distance", value);
             }
         }
 
@@ -79,27 +56,23 @@ namespace BABYLON
         {
             get
             {
-            if(__pickedPoint == null)
-            {
-                __pickedPoint = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "pickedPoint",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __pickedPoint;
+                if (__pickedPoint == null)
+                {
+                    __pickedPoint = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "pickedPoint",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __pickedPoint;
             }
             set
             {
-__pickedPoint = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "pickedPoint",
-                    value
-                );
+                __pickedPoint = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "pickedPoint", value);
             }
         }
 
@@ -108,132 +81,73 @@ __pickedPoint = null;
         {
             get
             {
-            if(__pickedMesh == null)
-            {
-                __pickedMesh = EventHorizonBlazorInterop.GetClass<AbstractMesh>(
-                    this.___guid,
-                    "pickedMesh",
-                    (entity) =>
-                    {
-                        return new AbstractMesh() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __pickedMesh;
+                if (__pickedMesh == null)
+                {
+                    __pickedMesh = EventHorizonBlazorInterop.GetClass<AbstractMesh>(
+                        this.___guid,
+                        "pickedMesh",
+                        (entity) =>
+                        {
+                            return new AbstractMesh() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __pickedMesh;
             }
             set
             {
-__pickedMesh = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "pickedMesh",
-                    value
-                );
+                __pickedMesh = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "pickedMesh", value);
             }
         }
 
-        
         public decimal bu
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "bu"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "bu"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "bu",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "bu", value);
             }
         }
 
-        
         public decimal bv
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "bv"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "bv"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "bv",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "bv", value);
             }
         }
 
-        
         public decimal faceId
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "faceId"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "faceId"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "faceId",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "faceId", value);
             }
         }
 
-        
         public decimal subMeshFaceId
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "subMeshFaceId"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "subMeshFaceId"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "subMeshFaceId",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "subMeshFaceId", value);
             }
         }
 
-        
         public decimal subMeshId
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "subMeshId"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "subMeshId"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "subMeshId",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "subMeshId", value);
             }
         }
 
@@ -242,48 +156,36 @@ __pickedMesh = null;
         {
             get
             {
-            if(__pickedSprite == null)
-            {
-                __pickedSprite = EventHorizonBlazorInterop.GetClass<Sprite>(
-                    this.___guid,
-                    "pickedSprite",
-                    (entity) =>
-                    {
-                        return new Sprite() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __pickedSprite;
+                if (__pickedSprite == null)
+                {
+                    __pickedSprite = EventHorizonBlazorInterop.GetClass<Sprite>(
+                        this.___guid,
+                        "pickedSprite",
+                        (entity) =>
+                        {
+                            return new Sprite() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __pickedSprite;
             }
             set
             {
-__pickedSprite = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "pickedSprite",
-                    value
-                );
+                __pickedSprite = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "pickedSprite", value);
             }
         }
 
-        
         public decimal thinInstanceIndex
         {
             get
             {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "thinInstanceIndex"
-                );
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "thinInstanceIndex");
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "thinInstanceIndex",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "thinInstanceIndex", value);
             }
         }
 
@@ -292,27 +194,23 @@ __pickedSprite = null;
         {
             get
             {
-            if(__originMesh == null)
-            {
-                __originMesh = EventHorizonBlazorInterop.GetClass<AbstractMesh>(
-                    this.___guid,
-                    "originMesh",
-                    (entity) =>
-                    {
-                        return new AbstractMesh() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __originMesh;
+                if (__originMesh == null)
+                {
+                    __originMesh = EventHorizonBlazorInterop.GetClass<AbstractMesh>(
+                        this.___guid,
+                        "originMesh",
+                        (entity) =>
+                        {
+                            return new AbstractMesh() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __originMesh;
             }
             set
             {
-__originMesh = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "originMesh",
-                    value
-                );
+                __originMesh = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "originMesh", value);
             }
         }
 
@@ -321,52 +219,52 @@ __originMesh = null;
         {
             get
             {
-            if(__ray == null)
-            {
-                __ray = EventHorizonBlazorInterop.GetClass<Ray>(
-                    this.___guid,
-                    "ray",
-                    (entity) =>
-                    {
-                        return new Ray() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __ray;
+                if (__ray == null)
+                {
+                    __ray = EventHorizonBlazorInterop.GetClass<Ray>(
+                        this.___guid,
+                        "ray",
+                        (entity) =>
+                        {
+                            return new Ray() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __ray;
             }
             set
             {
-__ray = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "ray",
-                    value
-                );
+                __ray = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "ray", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public PickingInfo() : base() { }
 
-        public PickingInfo(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public PickingInfo()
+            : base() { }
+
+        public PickingInfo(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
-
         #endregion
 
         #region Methods
-        public Vector3 getNormal(System.Nullable<bool> useWorldCoordinates = null, System.Nullable<bool> useVerticesNormals = null)
+        public Vector3 getNormal(
+            System.Nullable<bool> useWorldCoordinates = null,
+            System.Nullable<bool> useVerticesNormals = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "getNormal" }, useWorldCoordinates, useVerticesNormals
+                    new string[] { this.___guid, "getNormal" },
+                    useWorldCoordinates,
+                    useVerticesNormals
                 }
             );
         }
@@ -375,10 +273,7 @@ __ray = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Vector2>(
                 entity => new Vector2() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getTextureCoordinates" }
-                }
+                new object[] { new string[] { this.___guid, "getTextureCoordinates" } }
             );
         }
         #endregion

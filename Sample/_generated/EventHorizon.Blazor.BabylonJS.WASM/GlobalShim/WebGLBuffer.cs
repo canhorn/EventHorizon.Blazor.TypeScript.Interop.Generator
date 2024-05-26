@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Interop;
 
 public class WebGLBuffer : CachedEntity
 {
-    public WebGLBuffer()
-    {
-    }
+    public WebGLBuffer() { }
 
-    public WebGLBuffer(
-        ICachedEntity entity
-    )
+    public WebGLBuffer(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

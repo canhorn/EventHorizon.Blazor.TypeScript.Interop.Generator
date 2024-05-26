@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IEffectFallbacks : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IEffectFallbacksCachedEntity>))]
     public class IEffectFallbacksCachedEntity : CachedEntityObject, IEffectFallbacks
     {
@@ -32,37 +32,24 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public bool hasMoreFallbacks
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "hasMoreFallbacks"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "hasMoreFallbacks"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "hasMoreFallbacks",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "hasMoreFallbacks", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public IEffectFallbacksCachedEntity() : base() { }
+        public IEffectFallbacksCachedEntity()
+            : base() { }
 
-        public IEffectFallbacksCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IEffectFallbacksCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -70,20 +57,14 @@ namespace BABYLON
         public string reduce(string currentDefines, Effect effect)
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "reduce" }, currentDefines, effect
-                }
+                new object[] { new string[] { this.___guid, "reduce" }, currentDefines, effect }
             );
         }
 
         public void unBindMesh()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "unBindMesh" }
-                }
+                new object[] { new string[] { this.___guid, "unBindMesh" } }
             );
         }
         #endregion

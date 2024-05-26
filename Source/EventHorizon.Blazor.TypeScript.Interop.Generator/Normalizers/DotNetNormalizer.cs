@@ -18,9 +18,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers
             "params"
         };
 
-        public static string Normalize(
-            string text
-        )
+        public static string Normalize(string text)
         {
             if (NORMAILZE_LIST.Contains(text))
             {

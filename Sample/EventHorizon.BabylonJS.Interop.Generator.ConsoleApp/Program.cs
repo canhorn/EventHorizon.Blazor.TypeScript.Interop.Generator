@@ -5,7 +5,6 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
     using System.IO;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
     using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
-
     using ServerGenerator = Blazor.Interop.Generator.GenerateInteropSource;
     using ServerProjectWriter = Blazor.Interop.Generator.Writers.Project.ServerProjectWriter;
     using WasmGenerator = GenerateSource;
@@ -16,34 +15,21 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
         static void Main(string[] args)
         {
             //Run(AstParser.Model.ASTParserType.NodeJS, true); //  75084ms/71877ms to generate.
-            Run(
-                AstParser.Model.ASTParserType.Sdcb,
-                true,
-                "EventHorizon.Blazor.BabylonJS.WASM"
-            ); //  22027ms/19835ms/18236ms to generate.
+            Run(AstParser.Model.ASTParserType.Sdcb, true, "EventHorizon.Blazor.BabylonJS.WASM"); //  22027ms/19835ms/18236ms to generate.
             //Run(
             //    AstParser.Model.ASTParserType.Sdcb,
             //    false,
             //    "EventHorizon.Blazor.BabylonJS.Server"
             //);
         }
-        static void Run(
-            AstParser.Model.ASTParserType type,
-            bool useWasm,
-            string projectAssembly
-        )
+
+        static void Run(AstParser.Model.ASTParserType type, bool useWasm, string projectAssembly)
         {
             var stopwatch = Stopwatch.StartNew();
             //var projectAssembly = "EventHorizon.Blazor.BabylonJS.WASM";
-            var projectGenerationLocation = Path.Combine(
-                "..",
-                "_generated"
-            );
+            var projectGenerationLocation = Path.Combine("..", "_generated");
 
-            var sourceDirectory = Path.Combine(
-                ".",
-                "SourceFiles"
-            );
+            var sourceDirectory = Path.Combine(".", "SourceFiles");
             var textFormatter = new NoFormattingTextFormatter();
             var sourceFiles = new List<string>
             {
@@ -84,28 +70,16 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
             };
 
             // Remove any already Generated Source.
-            if (Directory.Exists(Path.Combine(
-                projectGenerationLocation,
-                projectAssembly
-            )))
+            if (Directory.Exists(Path.Combine(projectGenerationLocation, projectAssembly)))
             {
-                Directory.Delete(
-                    Path.Combine(
-                        projectGenerationLocation,
-                        projectAssembly
-                    ),
-                    true
-                );
+                Directory.Delete(Path.Combine(projectGenerationLocation, projectAssembly), true);
             }
             GlobalLogger.Info("Removed Generation Directory");
 
             if (useWasm)
             {
                 GlobalLogger.Info("Running Wasm Generator");
-                var writer = new WasmProjectWriter(
-                    projectGenerationLocation,
-                    projectAssembly
-                );
+                var writer = new WasmProjectWriter(projectGenerationLocation, projectAssembly);
                 new WasmGenerator().Run(
                     projectAssembly,
                     sourceDirectory,
@@ -113,20 +87,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
                     generationList,
                     writer,
                     textFormatter,
-                    new Dictionary<string, string>
-                    {
-                        { "BABYLON.PointerInfoBase | type", "int" }
-                    },
+                    new Dictionary<string, string> { { "BABYLON.PointerInfoBase | type", "int" } },
                     type
                 );
             }
             else
             {
                 GlobalLogger.Info("Running Server Generator");
-                var writer = new ServerProjectWriter(
-                    projectGenerationLocation,
-                    projectAssembly
-                );
+                var writer = new ServerProjectWriter(projectGenerationLocation, projectAssembly);
                 new ServerGenerator().Run(
                     projectAssembly,
                     sourceDirectory,
@@ -134,10 +102,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
                     generationList,
                     writer,
                     textFormatter,
-                    new Dictionary<string, string>
-                    {
-                        { "BABYLON.PointerInfoBase | type", "int" }
-                    },
+                    new Dictionary<string, string> { { "BABYLON.PointerInfoBase | type", "int" } },
                     type
                 );
             }

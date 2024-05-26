@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<MeshLODLevel>))]
     public class MeshLODLevel : CachedEntityObject
     {
@@ -32,24 +30,14 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public decimal distance
         {
-            get
-            {
-            return EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "distance"
-                );
-            }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "distance"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "distance",
-                    value
-                );
+                EventHorizonBlazorInterop.Set(this.___guid, "distance", value);
             }
         }
 
@@ -58,48 +46,43 @@ namespace BABYLON
         {
             get
             {
-            if(__mesh == null)
-            {
-                __mesh = EventHorizonBlazorInterop.GetClass<Mesh>(
-                    this.___guid,
-                    "mesh",
-                    (entity) =>
-                    {
-                        return new Mesh() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __mesh;
+                if (__mesh == null)
+                {
+                    __mesh = EventHorizonBlazorInterop.GetClass<Mesh>(
+                        this.___guid,
+                        "mesh",
+                        (entity) =>
+                        {
+                            return new Mesh() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __mesh;
             }
             set
             {
-__mesh = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "mesh",
-                    value
-                );
+                __mesh = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "mesh", value);
             }
         }
         #endregion
-        
-        #region Constructor
-        public MeshLODLevel() : base() { }
 
-        public MeshLODLevel(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public MeshLODLevel()
+            : base() { }
+
+        public MeshLODLevel(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
-        public MeshLODLevel(
-            decimal distance, Mesh mesh
-        )
+        public MeshLODLevel(decimal distance, Mesh mesh)
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "MeshLODLevel" },
-                distance, mesh
+                distance,
+                mesh
             );
             ___guid = entity.___guid;
         }

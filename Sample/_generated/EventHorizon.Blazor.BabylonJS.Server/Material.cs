@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Material>))]
     public class Material : CachedEntityObject, IAnimatable
     {
@@ -20,297 +18,261 @@ namespace BABYLON
         #endregion
 
         #region Static Properties
-        
+
         public static async ValueTask<decimal> get_TriangleFillMode()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.TriangleFillMode"
-                );
+                "BABYLON",
+                "Material.TriangleFillMode"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_WireFrameFillMode()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.WireFrameFillMode"
-                );
+                "BABYLON",
+                "Material.WireFrameFillMode"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_PointFillMode()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.PointFillMode"
-                );
+                "BABYLON",
+                "Material.PointFillMode"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_PointListDrawMode()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.PointListDrawMode"
-                );
+                "BABYLON",
+                "Material.PointListDrawMode"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_LineListDrawMode()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.LineListDrawMode"
-                );
+                "BABYLON",
+                "Material.LineListDrawMode"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_LineLoopDrawMode()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.LineLoopDrawMode"
-                );
+                "BABYLON",
+                "Material.LineLoopDrawMode"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_LineStripDrawMode()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.LineStripDrawMode"
-                );
+                "BABYLON",
+                "Material.LineStripDrawMode"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_TriangleStripDrawMode()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.TriangleStripDrawMode"
-                );
+                "BABYLON",
+                "Material.TriangleStripDrawMode"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_TriangleFanDrawMode()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.TriangleFanDrawMode"
-                );
+                "BABYLON",
+                "Material.TriangleFanDrawMode"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_ClockWiseSideOrientation()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.ClockWiseSideOrientation"
-                );
+                "BABYLON",
+                "Material.ClockWiseSideOrientation"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_CounterClockWiseSideOrientation()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.CounterClockWiseSideOrientation"
-                );
+                "BABYLON",
+                "Material.CounterClockWiseSideOrientation"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_TextureDirtyFlag()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.TextureDirtyFlag"
-                );
+                "BABYLON",
+                "Material.TextureDirtyFlag"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_LightDirtyFlag()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.LightDirtyFlag"
-                );
+                "BABYLON",
+                "Material.LightDirtyFlag"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_FresnelDirtyFlag()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.FresnelDirtyFlag"
-                );
+                "BABYLON",
+                "Material.FresnelDirtyFlag"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_AttributesDirtyFlag()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.AttributesDirtyFlag"
-                );
+                "BABYLON",
+                "Material.AttributesDirtyFlag"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_MiscDirtyFlag()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.MiscDirtyFlag"
-                );
+                "BABYLON",
+                "Material.MiscDirtyFlag"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_PrePassDirtyFlag()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.PrePassDirtyFlag"
-                );
+                "BABYLON",
+                "Material.PrePassDirtyFlag"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_AllDirtyFlag()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.AllDirtyFlag"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>("BABYLON", "Material.AllDirtyFlag");
         }
 
-        
         public static async ValueTask<decimal> get_MATERIAL_OPAQUE()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.MATERIAL_OPAQUE"
-                );
+                "BABYLON",
+                "Material.MATERIAL_OPAQUE"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_MATERIAL_ALPHATEST()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.MATERIAL_ALPHATEST"
-                );
+                "BABYLON",
+                "Material.MATERIAL_ALPHATEST"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_MATERIAL_ALPHABLEND()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.MATERIAL_ALPHABLEND"
-                );
+                "BABYLON",
+                "Material.MATERIAL_ALPHABLEND"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_MATERIAL_ALPHATESTANDBLEND()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.MATERIAL_ALPHATESTANDBLEND"
-                );
+                "BABYLON",
+                "Material.MATERIAL_ALPHATESTANDBLEND"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_MATERIAL_NORMALBLENDMETHOD_WHITEOUT()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.MATERIAL_NORMALBLENDMETHOD_WHITEOUT"
-                );
+                "BABYLON",
+                "Material.MATERIAL_NORMALBLENDMETHOD_WHITEOUT"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_MATERIAL_NORMALBLENDMETHOD_RNM()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Material.MATERIAL_NORMALBLENDMETHOD_RNM"
-                );
+                "BABYLON",
+                "Material.MATERIAL_NORMALBLENDMETHOD_RNM"
+            );
         }
         #endregion
 
         #region Static Methods
-        public static async ValueTask<Material> Parse(object parsedMaterial, Scene scene, string rootUrl)
+        public static async ValueTask<Material> Parse(
+            object parsedMaterial,
+            Scene scene,
+            string rootUrl
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Material>(
                 entity => new Material() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Material", "Parse" }, parsedMaterial, scene, rootUrl
+                    new string[] { "BABYLON", "Material", "Parse" },
+                    parsedMaterial,
+                    scene,
+                    rootUrl
                 }
             );
         }
         #endregion
 
         #region Accessors
-        
+
         public async ValueTask<bool> get_canRenderToMRT()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "canRenderToMRT"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "canRenderToMRT");
         }
 
-        
         public async ValueTask<decimal> get_alpha()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "alpha"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "alpha");
         }
+
         public ValueTask set_alpha(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "alpha",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "alpha", value);
         }
 
-        
         public async ValueTask<bool> get_backFaceCulling()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "backFaceCulling"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "backFaceCulling");
         }
+
         public ValueTask set_backFaceCulling(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "backFaceCulling",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "backFaceCulling", value);
         }
 
-        
         public async ValueTask<bool> get_hasRenderTargetTextures()
         {
             return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "hasRenderTargetTextures"
-                );
+                this.___guid,
+                "hasRenderTargetTextures"
+            );
         }
 
         private Observable<AbstractMesh> __onBindObservable;
+
         public async ValueTask<Observable<AbstractMesh>> get_onBindObservable()
         {
-            if(__onBindObservable == null)
+            if (__onBindObservable == null)
             {
-                __onBindObservable = await EventHorizonBlazorInterop.GetClass<Observable<AbstractMesh>>(
+                __onBindObservable = await EventHorizonBlazorInterop.GetClass<
+                    Observable<AbstractMesh>
+                >(
                     this.___guid,
                     "onBindObservable",
                     (entity) =>
@@ -323,11 +285,14 @@ namespace BABYLON
         }
 
         private Observable<Material> __onUnBindObservable;
+
         public async ValueTask<Observable<Material>> get_onUnBindObservable()
         {
-            if(__onUnBindObservable == null)
+            if (__onUnBindObservable == null)
             {
-                __onUnBindObservable = await EventHorizonBlazorInterop.GetClass<Observable<Material>>(
+                __onUnBindObservable = await EventHorizonBlazorInterop.GetClass<
+                    Observable<Material>
+                >(
                     this.___guid,
                     "onUnBindObservable",
                     (entity) =>
@@ -340,11 +305,14 @@ namespace BABYLON
         }
 
         private Observable<CachedEntity> __onEffectCreatedObservable;
+
         public async ValueTask<Observable<CachedEntity>> get_onEffectCreatedObservable()
         {
-            if(__onEffectCreatedObservable == null)
+            if (__onEffectCreatedObservable == null)
             {
-                __onEffectCreatedObservable = await EventHorizonBlazorInterop.GetClass<Observable<CachedEntity>>(
+                __onEffectCreatedObservable = await EventHorizonBlazorInterop.GetClass<
+                    Observable<CachedEntity>
+                >(
                     this.___guid,
                     "onEffectCreatedObservable",
                     (entity) =>
@@ -356,147 +324,88 @@ namespace BABYLON
             return __onEffectCreatedObservable;
         }
 
-        
         public async ValueTask<decimal> get_alphaMode()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "alphaMode"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "alphaMode");
         }
+
         public ValueTask set_alphaMode(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "alphaMode",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "alphaMode", value);
         }
 
-        
         public async ValueTask<bool> get_needDepthPrePass()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "needDepthPrePass"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "needDepthPrePass");
         }
+
         public ValueTask set_needDepthPrePass(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "needDepthPrePass",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "needDepthPrePass", value);
         }
 
-        
         public async ValueTask<bool> get_fogEnabled()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "fogEnabled"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "fogEnabled");
         }
+
         public ValueTask set_fogEnabled(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "fogEnabled",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "fogEnabled", value);
         }
 
-        
         public async ValueTask<bool> get_wireframe()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "wireframe"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "wireframe");
         }
+
         public ValueTask set_wireframe(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "wireframe",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "wireframe", value);
         }
 
-        
         public async ValueTask<bool> get_pointsCloud()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "pointsCloud"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "pointsCloud");
         }
+
         public ValueTask set_pointsCloud(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "pointsCloud",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "pointsCloud", value);
         }
 
-        
         public async ValueTask<decimal> get_fillMode()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "fillMode"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "fillMode");
         }
+
         public ValueTask set_fillMode(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "fillMode",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "fillMode", value);
         }
 
-        
         public async ValueTask<bool> get_isFrozen()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isFrozen"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "isFrozen");
         }
 
-        
         public async ValueTask<decimal> get_transparencyMode()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "transparencyMode"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "transparencyMode");
         }
+
         public ValueTask set_transparencyMode(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "transparencyMode",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "transparencyMode", value);
         }
         #endregion
 
         #region Properties
         private ShadowDepthWrapper __shadowDepthWrapper;
+
         public async ValueTask<ShadowDepthWrapper> get_shadowDepthWrapper()
         {
-            if(__shadowDepthWrapper == null)
+            if (__shadowDepthWrapper == null)
             {
                 __shadowDepthWrapper = await EventHorizonBlazorInterop.GetClass<ShadowDepthWrapper>(
                     this.___guid,
@@ -509,326 +418,229 @@ namespace BABYLON
             }
             return __shadowDepthWrapper;
         }
+
         public ValueTask set_shadowDepthWrapper(ShadowDepthWrapper value)
         {
-__shadowDepthWrapper = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "shadowDepthWrapper",
-                    value
-                );
+            __shadowDepthWrapper = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "shadowDepthWrapper", value);
         }
 
-        
         public async ValueTask<bool> get_allowShaderHotSwapping()
         {
             return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "allowShaderHotSwapping"
-                );
+                this.___guid,
+                "allowShaderHotSwapping"
+            );
         }
+
         public ValueTask set_allowShaderHotSwapping(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "allowShaderHotSwapping",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "allowShaderHotSwapping", value);
         }
 
-        
         public async ValueTask<string> get_id()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "id"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "id");
         }
+
         public ValueTask set_id(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "id",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "id", value);
         }
 
-        
         public async ValueTask<decimal> get_uniqueId()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "uniqueId"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "uniqueId");
         }
+
         public ValueTask set_uniqueId(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "uniqueId",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "uniqueId", value);
         }
 
-        
         public async ValueTask<string> get_name()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "name"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "name");
         }
+
         public ValueTask set_name(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "name",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "name", value);
         }
 
-        
         public async ValueTask<CachedEntity> get_metadata()
         {
             return await EventHorizonBlazorInterop.GetClass<CachedEntity>(
-                    this.___guid,
-                    "metadata",
-                    (entity) =>
-                    {
-                        return new CachedEntity() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "metadata",
+                (entity) =>
+                {
+                    return new CachedEntity() { ___guid = entity.___guid };
+                }
+            );
         }
+
         public ValueTask set_metadata(CachedEntity value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "metadata",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "metadata", value);
         }
 
-        
         public async ValueTask<CachedEntity> get_reservedDataStore()
         {
             return await EventHorizonBlazorInterop.GetClass<CachedEntity>(
-                    this.___guid,
-                    "reservedDataStore",
-                    (entity) =>
-                    {
-                        return new CachedEntity() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "reservedDataStore",
+                (entity) =>
+                {
+                    return new CachedEntity() { ___guid = entity.___guid };
+                }
+            );
         }
+
         public ValueTask set_reservedDataStore(CachedEntity value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "reservedDataStore",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "reservedDataStore", value);
         }
 
-        
         public async ValueTask<bool> get_checkReadyOnEveryCall()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "checkReadyOnEveryCall"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "checkReadyOnEveryCall");
         }
+
         public ValueTask set_checkReadyOnEveryCall(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "checkReadyOnEveryCall",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "checkReadyOnEveryCall", value);
         }
 
-        
         public async ValueTask<bool> get_checkReadyOnlyOnce()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "checkReadyOnlyOnce"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "checkReadyOnlyOnce");
         }
+
         public ValueTask set_checkReadyOnlyOnce(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "checkReadyOnlyOnce",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "checkReadyOnlyOnce", value);
         }
 
-        
         public async ValueTask<string> get_state()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "state"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "state");
         }
+
         public ValueTask set_state(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "state",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "state", value);
         }
 
-        
         public async ValueTask<IInspectableCachedEntity[]> get_inspectableCustomProperties()
         {
             return await EventHorizonBlazorInterop.GetArrayClass<IInspectableCachedEntity>(
-                    this.___guid,
-                    "inspectableCustomProperties",
-                    (entity) =>
-                    {
-                        return new IInspectableCachedEntity() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "inspectableCustomProperties",
+                (entity) =>
+                {
+                    return new IInspectableCachedEntity() { ___guid = entity.___guid };
+                }
+            );
         }
+
         public ValueTask set_inspectableCustomProperties(IInspectableCachedEntity[] value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "inspectableCustomProperties",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(
+                this.___guid,
+                "inspectableCustomProperties",
+                value
+            );
         }
 
-        
         public async ValueTask<decimal> get_sideOrientation()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "sideOrientation"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "sideOrientation");
         }
+
         public ValueTask set_sideOrientation(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "sideOrientation",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "sideOrientation", value);
         }
 
-        
         public async ValueTask<ActionCallback<Effect>> get_onCompiled()
         {
             return await EventHorizonBlazorInterop.Get<ActionCallback<Effect>>(
-                    this.___guid,
-                    "onCompiled"
-                );
+                this.___guid,
+                "onCompiled"
+            );
         }
+
         public ValueTask set_onCompiled(ActionCallback<Effect> value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onCompiled",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "onCompiled", value);
         }
 
-        
         public async ValueTask<ActionCallback<Effect, string>> get_onError()
         {
             return await EventHorizonBlazorInterop.Get<ActionCallback<Effect, string>>(
-                    this.___guid,
-                    "onError"
-                );
+                this.___guid,
+                "onError"
+            );
         }
+
         public ValueTask set_onError(ActionCallback<Effect, string> value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onError",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "onError", value);
         }
 
-        
-        public async ValueTask<ActionResultCallback<SmartArray<RenderTargetTexture>>> get_getRenderTargetTextures()
+        public async ValueTask<
+            ActionResultCallback<SmartArray<RenderTargetTexture>>
+        > get_getRenderTargetTextures()
         {
-            return await EventHorizonBlazorInterop.Get<ActionResultCallback<SmartArray<RenderTargetTexture>>>(
-                    this.___guid,
-                    "getRenderTargetTextures"
-                );
+            return await EventHorizonBlazorInterop.Get<
+                ActionResultCallback<SmartArray<RenderTargetTexture>>
+            >(this.___guid, "getRenderTargetTextures");
         }
-        public ValueTask set_getRenderTargetTextures(ActionResultCallback<SmartArray<RenderTargetTexture>> value)
+
+        public ValueTask set_getRenderTargetTextures(
+            ActionResultCallback<SmartArray<RenderTargetTexture>> value
+        )
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "getRenderTargetTextures",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "getRenderTargetTextures", value);
         }
 
-        
         public async ValueTask<bool> get_doNotSerialize()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "doNotSerialize"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "doNotSerialize");
         }
+
         public ValueTask set_doNotSerialize(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "doNotSerialize",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "doNotSerialize", value);
         }
 
-        
         public async ValueTask<Animation[]> get_animations()
         {
             return await EventHorizonBlazorInterop.GetArrayClass<Animation>(
-                    this.___guid,
-                    "animations",
-                    (entity) =>
-                    {
-                        return new Animation() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "animations",
+                (entity) =>
+                {
+                    return new Animation() { ___guid = entity.___guid };
+                }
+            );
         }
+
         public ValueTask set_animations(Animation[] value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "animations",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "animations", value);
         }
 
         private Observable<Material> __onDisposeObservable;
+
         public async ValueTask<Observable<Material>> get_onDisposeObservable()
         {
-            if(__onDisposeObservable == null)
+            if (__onDisposeObservable == null)
             {
-                __onDisposeObservable = await EventHorizonBlazorInterop.GetClass<Observable<Material>>(
+                __onDisposeObservable = await EventHorizonBlazorInterop.GetClass<
+                    Observable<Material>
+                >(
                     this.___guid,
                     "onDisposeObservable",
                     (entity) =>
@@ -839,146 +651,88 @@ __shadowDepthWrapper = null;
             }
             return __onDisposeObservable;
         }
+
         public ValueTask set_onDisposeObservable(Observable<Material> value)
         {
-__onDisposeObservable = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onDisposeObservable",
-                    value
-                );
+            __onDisposeObservable = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "onDisposeObservable", value);
         }
 
-        
         public async ValueTask<bool> get_disableDepthWrite()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "disableDepthWrite"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "disableDepthWrite");
         }
+
         public ValueTask set_disableDepthWrite(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "disableDepthWrite",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "disableDepthWrite", value);
         }
 
-        
         public async ValueTask<bool> get_disableColorWrite()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "disableColorWrite"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "disableColorWrite");
         }
+
         public ValueTask set_disableColorWrite(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "disableColorWrite",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "disableColorWrite", value);
         }
 
-        
         public async ValueTask<bool> get_forceDepthWrite()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "forceDepthWrite"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "forceDepthWrite");
         }
+
         public ValueTask set_forceDepthWrite(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "forceDepthWrite",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "forceDepthWrite", value);
         }
 
-        
         public async ValueTask<decimal> get_depthFunction()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "depthFunction"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "depthFunction");
         }
+
         public ValueTask set_depthFunction(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "depthFunction",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "depthFunction", value);
         }
 
-        
         public async ValueTask<bool> get_separateCullingPass()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "separateCullingPass"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "separateCullingPass");
         }
+
         public ValueTask set_separateCullingPass(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "separateCullingPass",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "separateCullingPass", value);
         }
 
-        
         public async ValueTask<decimal> get_pointSize()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "pointSize"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "pointSize");
         }
+
         public ValueTask set_pointSize(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "pointSize",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "pointSize", value);
         }
 
-        
         public async ValueTask<decimal> get_zOffset()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "zOffset"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "zOffset");
         }
+
         public ValueTask set_zOffset(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "zOffset",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "zOffset", value);
         }
 
         private AbstractMesh __meshMap;
+
         public async ValueTask<AbstractMesh> get_meshMap()
         {
-            if(__meshMap == null)
+            if (__meshMap == null)
             {
                 __meshMap = await EventHorizonBlazorInterop.GetClass<AbstractMesh>(
                     this.___guid,
@@ -991,33 +745,32 @@ __onDisposeObservable = null;
             }
             return __meshMap;
         }
+
         public ValueTask set_meshMap(AbstractMesh value)
         {
-__meshMap = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "meshMap",
-                    value
-                );
+            __meshMap = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "meshMap", value);
         }
         #endregion
-        
-        #region Constructor
-        public Material() : base() { }
 
-        public Material(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        #region Constructor
+        public Material()
+            : base() { }
+
+        public Material(ICachedEntity entity)
+            : base(entity) { }
 
         public static async ValueTask<Material> NewMaterial(
-            string name, Scene scene, System.Nullable<bool> doNotAdd = null
+            string name,
+            Scene scene,
+            System.Nullable<bool> doNotAdd = null
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Material" },
-                name, scene, doNotAdd
+                name,
+                scene,
+                doNotAdd
             );
 
             return new Material(entity);
@@ -1027,19 +780,15 @@ __meshMap = null;
         #region Methods
         #region customShaderNameResolve TODO: Get Comments as metadata identification
         private bool _isCustomShaderNameResolveEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _customShaderNameResolveActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _customShaderNameResolveActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public async ValueTask<string> customShaderNameResolve(
-            Func<Task> callback
-        )
+        public async ValueTask<string> customShaderNameResolve(Func<Task> callback)
         {
             await SetupCustomShaderNameResolveLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _customShaderNameResolveActionMap.Add(
-                handle,
-                callback
-            );
+            _customShaderNameResolveActionMap.Add(handle, callback);
 
             return handle;
         }
@@ -1072,59 +821,54 @@ __meshMap = null;
         public async ValueTask<string> toString(System.Nullable<bool> fullDetails = null)
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "toString" }, fullDetails
-                }
+                new object[] { new string[] { this.___guid, "toString" }, fullDetails }
             );
         }
 
         public async ValueTask<string> getClassName()
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
         public async ValueTask freeze()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "freeze" }
-                }
+                new object[] { new string[] { this.___guid, "freeze" } }
             );
         }
 
         public async ValueTask unfreeze()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "unfreeze" }
-                }
+                new object[] { new string[] { this.___guid, "unfreeze" } }
             );
         }
 
-        public async ValueTask<bool> isReady(AbstractMesh mesh = null, System.Nullable<bool> useInstances = null)
+        public async ValueTask<bool> isReady(
+            AbstractMesh mesh = null,
+            System.Nullable<bool> useInstances = null
+        )
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "isReady" }, mesh, useInstances
-                }
+                new object[] { new string[] { this.___guid, "isReady" }, mesh, useInstances }
             );
         }
 
-        public async ValueTask<bool> isReadyForSubMesh(AbstractMesh mesh, SubMesh subMesh, System.Nullable<bool> useInstances = null)
+        public async ValueTask<bool> isReadyForSubMesh(
+            AbstractMesh mesh,
+            SubMesh subMesh,
+            System.Nullable<bool> useInstances = null
+        )
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "isReadyForSubMesh" }, mesh, subMesh, useInstances
+                    new string[] { this.___guid, "isReadyForSubMesh" },
+                    mesh,
+                    subMesh,
+                    useInstances
                 }
             );
         }
@@ -1133,10 +877,7 @@ __meshMap = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getEffect" }
-                }
+                new object[] { new string[] { this.___guid, "getEffect" } }
             );
         }
 
@@ -1144,40 +885,28 @@ __meshMap = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Scene>(
                 entity => new Scene() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getScene" }
-                }
+                new object[] { new string[] { this.___guid, "getScene" } }
             );
         }
 
         public async ValueTask<bool> needAlphaBlending()
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "needAlphaBlending" }
-                }
+                new object[] { new string[] { this.___guid, "needAlphaBlending" } }
             );
         }
 
         public async ValueTask<bool> needAlphaBlendingForMesh(AbstractMesh mesh)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "needAlphaBlendingForMesh" }, mesh
-                }
+                new object[] { new string[] { this.___guid, "needAlphaBlendingForMesh" }, mesh }
             );
         }
 
         public async ValueTask<bool> needAlphaTesting()
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "needAlphaTesting" }
-                }
+                new object[] { new string[] { this.___guid, "needAlphaTesting" } }
             );
         }
 
@@ -1185,39 +914,33 @@ __meshMap = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<BaseTexture>(
                 entity => new BaseTexture() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getAlphaTestTexture" }
-                }
+                new object[] { new string[] { this.___guid, "getAlphaTestTexture" } }
             );
         }
 
         public async ValueTask markDirty()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "markDirty" }
-                }
+                new object[] { new string[] { this.___guid, "markDirty" } }
             );
         }
 
         public async ValueTask bind(Matrix world, Mesh mesh = null)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "bind" }, world, mesh
-                }
+                new object[] { new string[] { this.___guid, "bind" }, world, mesh }
             );
         }
 
         public async ValueTask bindForSubMesh(Matrix world, Mesh mesh, SubMesh subMesh)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "bindForSubMesh" }, world, mesh, subMesh
+                    new string[] { this.___guid, "bindForSubMesh" },
+                    world,
+                    mesh,
+                    subMesh
                 }
             );
         }
@@ -1225,19 +948,18 @@ __meshMap = null;
         public async ValueTask bindOnlyWorldMatrix(Matrix world)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "bindOnlyWorldMatrix" }, world
-                }
+                new object[] { new string[] { this.___guid, "bindOnlyWorldMatrix" }, world }
             );
         }
 
         public async ValueTask bindSceneUniformBuffer(Effect effect, UniformBuffer sceneUbo)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "bindSceneUniformBuffer" }, effect, sceneUbo
+                    new string[] { this.___guid, "bindSceneUniformBuffer" },
+                    effect,
+                    sceneUbo
                 }
             );
         }
@@ -1245,30 +967,21 @@ __meshMap = null;
         public async ValueTask bindView(Effect effect)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "bindView" }, effect
-                }
+                new object[] { new string[] { this.___guid, "bindView" }, effect }
             );
         }
 
         public async ValueTask bindViewProjection(Effect effect)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "bindViewProjection" }, effect
-                }
+                new object[] { new string[] { this.___guid, "bindViewProjection" }, effect }
             );
         }
 
         public async ValueTask unbind()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "unbind" }
-                }
+                new object[] { new string[] { this.___guid, "unbind" } }
             );
         }
 
@@ -1276,20 +989,14 @@ __meshMap = null;
         {
             return await EventHorizonBlazorInterop.FuncArrayClass<BaseTexture>(
                 entity => new BaseTexture() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getActiveTextures" }
-                }
+                new object[] { new string[] { this.___guid, "getActiveTextures" } }
             );
         }
 
         public async ValueTask<bool> hasTexture(BaseTexture texture)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "hasTexture" }, texture
-                }
+                new object[] { new string[] { this.___guid, "hasTexture" }, texture }
             );
         }
 
@@ -1297,10 +1004,7 @@ __meshMap = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Material>(
                 entity => new Material() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "clone" }, name
-                }
+                new object[] { new string[] { this.___guid, "clone" }, name }
             );
         }
 
@@ -1308,29 +1012,40 @@ __meshMap = null;
         {
             return await EventHorizonBlazorInterop.FuncArrayClass<AbstractMesh>(
                 entity => new AbstractMesh() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getBindedMeshes" }
-                }
+                new object[] { new string[] { this.___guid, "getBindedMeshes" } }
             );
         }
 
-        public async ValueTask forceCompilation(AbstractMesh mesh, ActionCallback<Material> onCompiled = null, IMaterialCompilationOptions options = null, ActionCallback<string> onError = null)
+        public async ValueTask forceCompilation(
+            AbstractMesh mesh,
+            ActionCallback<Material> onCompiled = null,
+            IMaterialCompilationOptions options = null,
+            ActionCallback<string> onError = null
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "forceCompilation" }, mesh, onCompiled, options, onError
+                    new string[] { this.___guid, "forceCompilation" },
+                    mesh,
+                    onCompiled,
+                    options,
+                    onError
                 }
             );
         }
 
-        public async ValueTask forceCompilationAsync(AbstractMesh mesh, IMaterialCompilationOptions options = null)
+        public async ValueTask forceCompilationAsync(
+            AbstractMesh mesh,
+            IMaterialCompilationOptions options = null
+        )
         {
             await EventHorizonBlazorInterop.Task<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "forceCompilationAsync" }, mesh, options
+                    new string[] { this.___guid, "forceCompilationAsync" },
+                    mesh,
+                    options
                 }
             );
         }
@@ -1338,29 +1053,34 @@ __meshMap = null;
         public async ValueTask markAsDirty(decimal flag)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "markAsDirty" }, flag
-                }
+                new object[] { new string[] { this.___guid, "markAsDirty" }, flag }
             );
         }
 
         public async ValueTask<bool> setPrePassRenderer(PrePassRenderer prePassRenderer)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "setPrePassRenderer" }, prePassRenderer
+                    new string[] { this.___guid, "setPrePassRenderer" },
+                    prePassRenderer
                 }
             );
         }
 
-        public async ValueTask dispose(System.Nullable<bool> forceDisposeEffect = null, System.Nullable<bool> forceDisposeTextures = null, System.Nullable<bool> notBoundToMesh = null)
+        public async ValueTask dispose(
+            System.Nullable<bool> forceDisposeEffect = null,
+            System.Nullable<bool> forceDisposeTextures = null,
+            System.Nullable<bool> notBoundToMesh = null
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "dispose" }, forceDisposeEffect, forceDisposeTextures, notBoundToMesh
+                    new string[] { this.___guid, "dispose" },
+                    forceDisposeEffect,
+                    forceDisposeTextures,
+                    notBoundToMesh
                 }
             );
         }
@@ -1368,10 +1088,7 @@ __meshMap = null;
         public async ValueTask<CachedEntity> serialize()
         {
             return await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "serialize" }
-                }
+                new object[] { new string[] { this.___guid, "serialize" } }
             );
         }
         #endregion

@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<HemisphericLight>))]
     public class HemisphericLight : Light
     {
@@ -37,27 +35,23 @@ namespace BABYLON
         {
             get
             {
-            if(__groundColor == null)
-            {
-                __groundColor = EventHorizonBlazorInterop.GetClass<Color3>(
-                    this.___guid,
-                    "groundColor",
-                    (entity) =>
-                    {
-                        return new Color3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __groundColor;
+                if (__groundColor == null)
+                {
+                    __groundColor = EventHorizonBlazorInterop.GetClass<Color3>(
+                        this.___guid,
+                        "groundColor",
+                        (entity) =>
+                        {
+                            return new Color3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __groundColor;
             }
             set
             {
-__groundColor = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "groundColor",
-                    value
-                );
+                __groundColor = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "groundColor", value);
             }
         }
 
@@ -66,47 +60,42 @@ __groundColor = null;
         {
             get
             {
-            if(__direction == null)
-            {
-                __direction = EventHorizonBlazorInterop.GetClass<Vector3>(
-                    this.___guid,
-                    "direction",
-                    (entity) =>
-                    {
-                        return new Vector3() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __direction;
+                if (__direction == null)
+                {
+                    __direction = EventHorizonBlazorInterop.GetClass<Vector3>(
+                        this.___guid,
+                        "direction",
+                        (entity) =>
+                        {
+                            return new Vector3() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __direction;
             }
             set
             {
-__direction = null;
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "direction",
-                    value
-                );
+                __direction = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "direction", value);
             }
         }
         #endregion
-        
+
         #region Constructor
-        public HemisphericLight() : base() { }
+        public HemisphericLight()
+            : base() { }
 
-        public HemisphericLight(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public HemisphericLight(ICachedEntity entity)
+            : base(entity) { }
 
-        public HemisphericLight(
-            string name, Vector3 direction, Scene scene
-        ) : base()
+        public HemisphericLight(string name, Vector3 direction, Scene scene)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "HemisphericLight" },
-                name, direction, scene
+                name,
+                direction,
+                scene
             );
             ___guid = entity.___guid;
         }
@@ -116,10 +105,7 @@ __direction = null;
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
@@ -127,10 +113,7 @@ __direction = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "setDirectionToTarget" }, target
-                }
+                new object[] { new string[] { this.___guid, "setDirectionToTarget" }, target }
             );
         }
 
@@ -138,10 +121,7 @@ __direction = null;
         {
             return EventHorizonBlazorInterop.FuncClass<IShadowGeneratorCachedEntity>(
                 entity => new IShadowGeneratorCachedEntity() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getShadowGenerator" }
-                }
+                new object[] { new string[] { this.___guid, "getShadowGenerator" } }
             );
         }
 
@@ -151,18 +131,25 @@ __direction = null;
                 entity => new HemisphericLight() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "transferToEffect" }, effect, lightIndex
+                    new string[] { this.___guid, "transferToEffect" },
+                    effect,
+                    lightIndex
                 }
             );
         }
 
-        public HemisphericLight transferToNodeMaterialEffect(Effect effect, string lightDataUniformName)
+        public HemisphericLight transferToNodeMaterialEffect(
+            Effect effect,
+            string lightDataUniformName
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<HemisphericLight>(
                 entity => new HemisphericLight() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "transferToNodeMaterialEffect" }, effect, lightDataUniformName
+                    new string[] { this.___guid, "transferToNodeMaterialEffect" },
+                    effect,
+                    lightDataUniformName
                 }
             );
         }
@@ -171,20 +158,14 @@ __direction = null;
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "computeWorldMatrix" }
-                }
+                new object[] { new string[] { this.___guid, "computeWorldMatrix" } }
             );
         }
 
         public decimal getTypeID()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getTypeID" }
-                }
+                new object[] { new string[] { this.___guid, "getTypeID" } }
             );
         }
 
@@ -193,7 +174,9 @@ __direction = null;
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
-                    new string[] { this.___guid, "prepareLightSpecificDefines" }, defines, lightIndex
+                    new string[] { this.___guid, "prepareLightSpecificDefines" },
+                    defines,
+                    lightIndex
                 }
             );
         }

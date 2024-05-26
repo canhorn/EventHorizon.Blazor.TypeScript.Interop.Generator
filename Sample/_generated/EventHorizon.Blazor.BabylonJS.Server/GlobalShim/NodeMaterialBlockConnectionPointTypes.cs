@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Server.Interop;
 
 public class NodeMaterialBlockConnectionPointTypes : CachedEntity
 {
-    public NodeMaterialBlockConnectionPointTypes()
-    {
-    }
+    public NodeMaterialBlockConnectionPointTypes() { }
 
-    public NodeMaterialBlockConnectionPointTypes(
-        ICachedEntity entity
-    )
+    public NodeMaterialBlockConnectionPointTypes(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

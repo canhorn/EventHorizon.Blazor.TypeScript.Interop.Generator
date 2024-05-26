@@ -35,9 +35,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             );
 
             // Then
-            actual.Should().Be(
-                expected
-            );
+            actual.Should().Be(expected);
         }
 
         [Fact]
@@ -65,9 +63,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassSt
             );
 
             // Then
-            actual.Should().Be(
-                expected
-            );
+            actual.Should().Be(expected);
         }
     }
 }

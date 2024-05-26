@@ -11,9 +11,10 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface CameraInputsMap<TCamera> : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<CameraInputsMapCachedEntity<CachedEntity>>))]
-    public class CameraInputsMapCachedEntity<TCamera> : CachedEntityObject, CameraInputsMap<TCamera> where TCamera : CachedEntity, new()
+    public class CameraInputsMapCachedEntity<TCamera> : CachedEntityObject, CameraInputsMap<TCamera>
+        where TCamera : CachedEntity, new()
     {
         #region Static Accessors
 
@@ -34,16 +35,13 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
+
         #region Constructor
-        public CameraInputsMapCachedEntity() : base() { }
+        public CameraInputsMapCachedEntity()
+            : base() { }
 
-        public CameraInputsMapCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public CameraInputsMapCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

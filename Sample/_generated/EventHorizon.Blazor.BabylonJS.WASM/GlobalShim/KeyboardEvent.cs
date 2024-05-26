@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Interop;
 
 public class KeyboardEvent : CachedEntity
 {
-    public KeyboardEvent()
-    {
-    }
+    public KeyboardEvent() { }
 
-    public KeyboardEvent(
-        ICachedEntity entity
-    )
+    public KeyboardEvent(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }
