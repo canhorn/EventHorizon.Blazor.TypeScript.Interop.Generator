@@ -1,7 +1,6 @@
-namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Model
+namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Model;
+
+public class ASTModel
 {
-    public class ASTModel
-    {
-        public Program Program { get; set; }
-    }
+    public Program Program { get; set; }
 }

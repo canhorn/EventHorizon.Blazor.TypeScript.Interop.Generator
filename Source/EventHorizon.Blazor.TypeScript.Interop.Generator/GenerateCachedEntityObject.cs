@@ -1,26 +1,25 @@
-namespace EventHorizon.Blazor.TypeScript.Interop.Generator
+namespace EventHorizon.Blazor.TypeScript.Interop.Generator;
+
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Templates;
+
+public static class GenerateCachedEntityObject
 {
-    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
-    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
-    using EventHorizon.Blazor.TypeScript.Interop.Generator.Templates;
-
-    public static class GenerateCachedEntityObject
+    public static ClassStatement GenerateClassStatement()
     {
-        public static ClassStatement GenerateClassStatement()
+        return new ClassStatement
         {
-            return new ClassStatement
-            {
-                Namespace = "global.Provided",
-                Name = GenerationIdentifiedTypes.CachedEntityObject,
-            };
-        }
+            Namespace = "global.Provided",
+            Name = GenerationIdentifiedTypes.CachedEntityObject,
+        };
+    }
 
-        public static string GenerateString()
-        {
-            // Templates
-            var classGenerationTemplates = ReadTemplates.Read();
+    public static string GenerateString()
+    {
+        // Templates
+        var classGenerationTemplates = ReadTemplates.Read();
 
-            return classGenerationTemplates.CachedEntityObject;
-        }
+        return classGenerationTemplates.CachedEntityObject;
     }
 }

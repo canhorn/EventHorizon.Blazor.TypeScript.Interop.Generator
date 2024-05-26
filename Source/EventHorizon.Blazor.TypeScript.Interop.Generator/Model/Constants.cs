@@ -1,9 +1,8 @@
-namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model
-{
-    internal static class Constants
-    {
-        internal static string INTERFACE_POSTFIX = "CachedEntity";
+namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
 
-        internal static string TYPESCRIPT_CONSTRUCTOR_NAME => "constructor";
-    }
+internal static class Constants
+{
+    internal static string INTERFACE_POSTFIX = "CachedEntity";
+
+    internal static string TYPESCRIPT_CONSTRUCTOR_NAME => "constructor";
 }

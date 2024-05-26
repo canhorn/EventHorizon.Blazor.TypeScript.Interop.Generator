@@ -1,30 +1,29 @@
-namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers
+namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers;
+
+using System.Collections.Generic;
+
+public static class DotNetNormalizer
 {
-    using System.Collections.Generic;
-
-    public static class DotNetNormalizer
+    private static readonly IList<string> NORMAILZE_LIST = new List<string>
     {
-        private static readonly IList<string> NORMAILZE_LIST = new List<string>
-        {
-            "ref",
-            "lock",
-            "unlock",
-            "object",
-            "event",
-            "bool",
-            "virtual",
-            "string",
-            "this",
-            "params"
-        };
+        "ref",
+        "lock",
+        "unlock",
+        "object",
+        "event",
+        "bool",
+        "virtual",
+        "string",
+        "this",
+        "params"
+    };
 
-        public static string Normalize(string text)
+    public static string Normalize(string text)
+    {
+        if (NORMAILZE_LIST.Contains(text))
         {
-            if (NORMAILZE_LIST.Contains(text))
-            {
-                return $"@{text}";
-            }
-            return text;
+            return $"@{text}";
         }
+        return text;
     }
 }

@@ -1,14 +1,13 @@
-namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Rules
-{
-    using System.Linq;
-    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
-    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
 
-    public class IsNumericArray : IRule
+using System.Linq;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+
+public class IsNumericArray : IRule
+{
+    public bool Check(Node node)
     {
-        public bool Check(Node node)
-        {
-            return JavaScriptTypes.NumberArrayTypes.Any(a => a == node.IdentifierStr);
-        }
+        return JavaScriptTypes.NumberArrayTypes.Any(a => a == node.IdentifierStr);
     }
 }

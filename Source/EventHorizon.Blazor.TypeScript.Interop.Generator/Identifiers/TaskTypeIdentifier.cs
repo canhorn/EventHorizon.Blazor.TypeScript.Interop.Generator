@@ -1,12 +1,11 @@
-namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers
-{
-    using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
 
-    public class TaskTypeIdentifier
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+
+public class TaskTypeIdentifier
+{
+    public static bool Identify(string type)
     {
-        public static bool Identify(string type)
-        {
-            return GenerationIdentifiedTypes.Task == type;
-        }
+        return GenerationIdentifiedTypes.Task == type;
     }
 }

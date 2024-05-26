@@ -25,10 +25,10 @@ jobs:
         additionalArguments: '/updateAssemblyInfo'
     - run: |
         echo "NuGetVersionV2: ${{ steps.gitversion.outputs.NuGetVersionV2 }}"
-    - name: Setup .NET6
+    - name: Setup .NET8
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '6.0.x'
+        dotnet-version: '8.0.x'
     - name: Build with dotnet
       run: dotnet build --configuration Release
     - name: Pack with dotnet
