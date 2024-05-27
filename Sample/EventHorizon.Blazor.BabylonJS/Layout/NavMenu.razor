@@ -1,49 +1,51 @@
-<div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">EventHorizon.Blazor.BabylonJS</a>
-    <button class="navbar-toggler" @onclick="ToggleNavMenu">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">EventHorizon.Blazor.BabylonJS</a>
+        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
 </div>
 
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <ul class="nav flex-column">
-        <li class="nav-item px-3">
+<div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="oi oi-home" aria-hidden="true"></span> Home
             </NavLink>
-        </li>
-        <li class="nav-item px-3">
+        </div>
+        <div class="nav-item px-3">
             <NavLink class="nav-link" href="mesh/gltf">
                 <span class="oi oi-home" aria-hidden="true"></span> Mesh glTF
             </NavLink>
-        </li>
-        <li class="nav-item px-3">
+        </div>
+        <div class="nav-item px-3">
             <NavLink class="nav-link" href="mesh/builder">
                 <span class="oi oi-home" aria-hidden="true"></span> Mesh Builder
             </NavLink>
-        </li>
-        <li class="nav-item px-3">
+        </div>
+        <div class="nav-item px-3">
             <NavLink class="nav-link" href="animation">
                 <span class="oi oi-home" aria-hidden="true"></span> Animation
             </NavLink>
-        </li>
-        <li class="nav-item px-3">
+        </div>
+        <div class="nav-item px-3">
             <NavLink class="nav-link" href="button">
                 <span class="oi oi-home" aria-hidden="true"></span> Button
             </NavLink>
-        </li>
-        <li class="nav-item px-3">
+        </div>
+        <div class="nav-item px-3">
             <NavLink class="nav-link" href="pirate-fort">
                 <span class="oi oi-home" aria-hidden="true"></span> Pirate Fort
             </NavLink>
-        </li>
-    </ul>
+        </div>
+    </nav>
 </div>
 
 @code {
     private bool collapseNavMenu = true;
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
     private void ToggleNavMenu()
     {
