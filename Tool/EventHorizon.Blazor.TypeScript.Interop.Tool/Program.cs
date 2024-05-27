@@ -7,6 +7,8 @@ using System.CommandLine.Invocation;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 using EventHorizon.Blazor.Interop.Generator;
 using EventHorizon.Blazor.Interop.Generator.Writers.Project;
 using EventHorizon.Blazor.TypeScript.Interop.Generator;
@@ -20,7 +22,7 @@ class Program
 {
     private static readonly string SOURCE_FILES_DIRECTORY_NAME = "_sourceFiles";
 
-    static int Main(string[] args)
+    static async Task<int> Main(string[] args)
     {
         // Create a root command with some options
         var rootCommand = new RootCommand
@@ -81,10 +83,10 @@ class Program
         >(GenerateSources);
 
         // Parse the incoming args and invoke the handler
-        return rootCommand.InvokeAsync(args).Result;
+        return await rootCommand.InvokeAsync(args);
     }
 
-    private static int GenerateSources(
+    private static async Task<int> GenerateSources(
         IList<string> source,
         IList<string> classToGenerate,
         string projectAssembly = "Generated.Code",
@@ -124,7 +126,7 @@ class Program
             projectGenerationLocation = Path.Combine(".", projectGenerationLocation);
 
             var sourceDirectory = Path.Combine(".", SOURCE_FILES_DIRECTORY_NAME);
-            var sourceFiles = CopyAndDownloadSourceFiles(source);
+            var sourceFiles = await CopyAndDownloadSourceFiles(source);
             var generationList = classToGenerate;
 
             // Check for already Generated Source.
@@ -261,9 +263,11 @@ class Program
     /// </summary>
     /// <param name="sourceFileList">The path or URL to a list of files to use as the Source.</param>
     /// <returns>The filenames of the copied and URLs.</returns>
-    private static IList<string> CopyAndDownloadSourceFiles(IList<string> sourceFileList)
+    private static async Task<IList<string>> CopyAndDownloadSourceFiles(
+        IList<string> sourceFileList
+    )
     {
-        using var client = new WebClient();
+        using var client = new HttpClient();
         var filesFound = new List<string>();
         var sourcesFileDirectoryFullName = Path.Combine(".", SOURCE_FILES_DIRECTORY_NAME);
         // Create SOURCE_FILES_DIRECTORY_NAME
@@ -287,7 +291,7 @@ class Program
             if (IsUrl(sourceFile))
             {
                 // Download file, and place into SOURCE_FILES_DIRECTORY_NAME directory
-                client.DownloadFile(sourceFile, sourceFileFullName);
+                await client.DownloadFile(sourceFile, sourceFileFullName);
             }
             // If FileSystem
             else if (File.Exists(sourceFile))
@@ -317,4 +321,14 @@ class Program
             "nodejs" => ASTParserType.NodeJS,
             _ => ASTParserType.Sdcb,
         };
+}
+
+public static class HttpClientExtensions
+{
+    public static async Task DownloadFile(this HttpClient client, string uri, string FullFileName)
+    {
+        using var clientStream = await client.GetStreamAsync(uri);
+        using var fileStream = new FileStream(FullFileName, FileMode.CreateNew);
+        await clientStream.CopyToAsync(fileStream);
+    }
 }

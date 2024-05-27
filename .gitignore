@@ -254,3 +254,5 @@ App_Data/*
 lcov.info
 coverage*.json
 coverage*.xml
+
+published
