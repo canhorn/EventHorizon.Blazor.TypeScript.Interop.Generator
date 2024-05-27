@@ -119,33 +119,19 @@ public class NodeJS_Node : Node
 
         Kind = overrideKind ?? NodeJSTypeMapper.NodeJSTypeToSyntaxKind(node.Type, node.Kind);
 
-        //if (!string.IsNullOrWhiteSpace(
-        //    node.Accessibility
-        //))
-        //{
-        //    var modiferKind = default(string);
-        //    switch (node.Accessibility)
-        //    {
-        //        case "protected":
-        //            modiferKind = SyntaxKind.ProtectedKeyword;
-        //            break;
-        //        case "private":
-        //            modiferKind = SyntaxKind.PrivateKeyword;
-        //            break;
-        //        default:
-        //            modiferKind = node.Accessibility;
-        //            break;
-        //    }
-        //    modifiers.Add(
-        //        new NodeJS_Node(
-        //            NodeJSTypeMapper.NodeJSTypeToSyntaxKind(
-        //                modiferKind,
-        //                null
-        //            ),
-        //            this
-        //        )
-        //    );
-        //}
+        if (!string.IsNullOrWhiteSpace(node.Accessibility))
+        {
+            var modifierKind = default(string);
+            modifierKind = node.Accessibility switch
+            {
+                "protected" => SyntaxKind.ProtectedKeyword,
+                "private" => SyntaxKind.PrivateKeyword,
+                _ => node.Accessibility,
+            };
+            modifiers.Add(
+                new NodeJS_Node(NodeJSTypeMapper.NodeJSTypeToSyntaxKind(modifierKind, null), this)
+            );
+        }
 
         if (node.Static ?? false)
         {

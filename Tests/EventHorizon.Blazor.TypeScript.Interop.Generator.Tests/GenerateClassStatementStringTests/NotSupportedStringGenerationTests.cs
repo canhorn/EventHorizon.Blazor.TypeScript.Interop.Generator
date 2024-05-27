@@ -29,6 +29,13 @@ public class NotSupportedStringGenerationTests : GenerateStringTestBase
         "ExampleClass",
         ASTParserType.Sdcb
     )]
+    [InlineData(
+        "MissingTypeScenarios.ts",
+        "NotSupported",
+        "MissingTypeScenarios.Expected.txt",
+        "ExampleClass",
+        ASTParserType.Sdcb
+    )]
     public void ShouldGenerateConstructorStringsUsingSdcb(
         string sourceFile,
         string path,
@@ -65,6 +72,13 @@ public class NotSupportedStringGenerationTests : GenerateStringTestBase
         "NotSupportedResponseType.ts",
         "NotSupported",
         "NotSupportedResponseType.Expected.txt",
+        "ExampleClass",
+        ASTParserType.NodeJS
+    )]
+    [InlineData(
+        "MissingTypeScenarios.ts",
+        "NotSupported",
+        "MissingTypeScenarios.Expected.txt",
         "ExampleClass",
         ASTParserType.NodeJS
     )]

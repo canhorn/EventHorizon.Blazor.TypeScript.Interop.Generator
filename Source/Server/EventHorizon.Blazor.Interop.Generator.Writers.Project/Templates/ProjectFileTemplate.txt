@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <NoWarn>8601,8618,8625,0108,CA2012,IDE1006</NoWarn>
+    <NoWarn>8601,8618,8625,0108,CA2012,IDE1006,IDE1006,CA1416</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
