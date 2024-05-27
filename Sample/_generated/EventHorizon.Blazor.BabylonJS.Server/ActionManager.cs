@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<ActionManager>))]
     public class ActionManager : AbstractActionManager
     {
@@ -20,157 +18,141 @@ namespace BABYLON
         #endregion
 
         #region Static Properties
-        
+
         public static async ValueTask<decimal> get_NothingTrigger()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "ActionManager.NothingTrigger"
-                );
+                "BABYLON",
+                "ActionManager.NothingTrigger"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_OnPickTrigger()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "ActionManager.OnPickTrigger"
-                );
+                "BABYLON",
+                "ActionManager.OnPickTrigger"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_OnLeftPickTrigger()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "ActionManager.OnLeftPickTrigger"
-                );
+                "BABYLON",
+                "ActionManager.OnLeftPickTrigger"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_OnRightPickTrigger()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "ActionManager.OnRightPickTrigger"
-                );
+                "BABYLON",
+                "ActionManager.OnRightPickTrigger"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_OnCenterPickTrigger()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "ActionManager.OnCenterPickTrigger"
-                );
+                "BABYLON",
+                "ActionManager.OnCenterPickTrigger"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_OnPickDownTrigger()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "ActionManager.OnPickDownTrigger"
-                );
+                "BABYLON",
+                "ActionManager.OnPickDownTrigger"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_OnDoublePickTrigger()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "ActionManager.OnDoublePickTrigger"
-                );
+                "BABYLON",
+                "ActionManager.OnDoublePickTrigger"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_OnPickUpTrigger()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "ActionManager.OnPickUpTrigger"
-                );
+                "BABYLON",
+                "ActionManager.OnPickUpTrigger"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_OnPickOutTrigger()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "ActionManager.OnPickOutTrigger"
-                );
+                "BABYLON",
+                "ActionManager.OnPickOutTrigger"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_OnLongPressTrigger()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "ActionManager.OnLongPressTrigger"
-                );
+                "BABYLON",
+                "ActionManager.OnLongPressTrigger"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_OnPointerOverTrigger()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "ActionManager.OnPointerOverTrigger"
-                );
+                "BABYLON",
+                "ActionManager.OnPointerOverTrigger"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_OnPointerOutTrigger()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "ActionManager.OnPointerOutTrigger"
-                );
+                "BABYLON",
+                "ActionManager.OnPointerOutTrigger"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_OnEveryFrameTrigger()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "ActionManager.OnEveryFrameTrigger"
-                );
+                "BABYLON",
+                "ActionManager.OnEveryFrameTrigger"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_OnIntersectionEnterTrigger()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "ActionManager.OnIntersectionEnterTrigger"
-                );
+                "BABYLON",
+                "ActionManager.OnIntersectionEnterTrigger"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_OnIntersectionExitTrigger()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "ActionManager.OnIntersectionExitTrigger"
-                );
+                "BABYLON",
+                "ActionManager.OnIntersectionExitTrigger"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_OnKeyDownTrigger()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "ActionManager.OnKeyDownTrigger"
-                );
+                "BABYLON",
+                "ActionManager.OnKeyDownTrigger"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_OnKeyUpTrigger()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "ActionManager.OnKeyUpTrigger"
-                );
+                "BABYLON",
+                "ActionManager.OnKeyUpTrigger"
+            );
         }
         #endregion
 
@@ -178,9 +160,12 @@ namespace BABYLON
         public static async ValueTask Parse(object parsedActions, AbstractMesh @object, Scene scene)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "ActionManager", "Parse" }, parsedActions, @object, scene
+                    new string[] { "BABYLON", "ActionManager", "Parse" },
+                    parsedActions,
+                    @object,
+                    scene
                 }
             );
         }
@@ -188,50 +173,40 @@ namespace BABYLON
         public static async ValueTask<string> GetTriggerName(decimal trigger)
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "ActionManager", "GetTriggerName" }, trigger
+                    new string[] { "BABYLON", "ActionManager", "GetTriggerName" },
+                    trigger
                 }
             );
         }
         #endregion
 
         #region Accessors
-        
+
         public async ValueTask<bool> get_hasPointerTriggers()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "hasPointerTriggers"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "hasPointerTriggers");
         }
 
-        
         public async ValueTask<bool> get_hasPickTriggers()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "hasPickTriggers"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "hasPickTriggers");
         }
         #endregion
 
         #region Properties
 
         #endregion
-        
+
         #region Constructor
-        public ActionManager() : base() { }
+        public ActionManager()
+            : base() { }
 
-        public ActionManager(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public ActionManager(ICachedEntity entity)
+            : base(entity) { }
 
-        public static async ValueTask<ActionManager> NewActionManager(
-            Scene scene
-        )
+        public static async ValueTask<ActionManager> NewActionManager(Scene scene)
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "ActionManager" },
@@ -246,10 +221,7 @@ namespace BABYLON
         public async ValueTask dispose()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
 
@@ -257,39 +229,40 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Scene>(
                 entity => new Scene() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getScene" }
-                }
+                new object[] { new string[] { this.___guid, "getScene" } }
             );
         }
 
         public async ValueTask<bool> hasSpecificTriggers(decimal[] triggers)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "hasSpecificTriggers" }, triggers
-                }
+                new object[] { new string[] { this.___guid, "hasSpecificTriggers" }, triggers }
             );
         }
 
         public async ValueTask<bool> hasSpecificTriggers2(decimal triggerA, decimal triggerB)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "hasSpecificTriggers2" }, triggerA, triggerB
+                    new string[] { this.___guid, "hasSpecificTriggers2" },
+                    triggerA,
+                    triggerB
                 }
             );
         }
 
-        public async ValueTask<bool> hasSpecificTrigger(decimal trigger, ActionResultCallback<object, bool> parameterPredicate = null)
+        public async ValueTask<bool> hasSpecificTrigger(
+            decimal trigger,
+            ActionResultCallback<object, bool> parameterPredicate = null
+        )
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "hasSpecificTrigger" }, trigger, parameterPredicate
+                    new string[] { this.___guid, "hasSpecificTrigger" },
+                    trigger,
+                    parameterPredicate
                 }
             );
         }
@@ -298,40 +271,28 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<IActionCachedEntity>(
                 entity => new IActionCachedEntity() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "registerAction" }, action
-                }
+                new object[] { new string[] { this.___guid, "registerAction" }, action }
             );
         }
 
         public async ValueTask<bool> unregisterAction(IAction action)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "unregisterAction" }, action
-                }
+                new object[] { new string[] { this.___guid, "unregisterAction" }, action }
             );
         }
 
         public async ValueTask processTrigger(decimal trigger, IActionEvent evt = null)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "processTrigger" }, trigger, evt
-                }
+                new object[] { new string[] { this.___guid, "processTrigger" }, trigger, evt }
             );
         }
 
         public async ValueTask<CachedEntity> serialize(string name)
         {
             return await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "serialize" }, name
-                }
+                new object[] { new string[] { this.___guid, "serialize" }, name }
             );
         }
         #endregion

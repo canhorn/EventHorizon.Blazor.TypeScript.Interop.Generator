@@ -11,9 +11,10 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface ICameraInput<TCamera> : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<ICameraInputCachedEntity<CachedEntity>>))]
-    public class ICameraInputCachedEntity<TCamera> : CachedEntityObject, ICameraInput<TCamera> where TCamera : CachedEntity, new()
+    public class ICameraInputCachedEntity<TCamera> : CachedEntityObject, ICameraInput<TCamera>
+        where TCamera : CachedEntity, new()
     {
         #region Static Accessors
 
@@ -33,9 +34,10 @@ namespace BABYLON
 
         #region Properties
         private TCamera __camera;
+
         public async ValueTask<TCamera> get_camera()
         {
-            if(__camera == null)
+            if (__camera == null)
             {
                 __camera = await EventHorizonBlazorInterop.GetClass<TCamera>(
                     this.___guid,
@@ -48,26 +50,20 @@ namespace BABYLON
             }
             return __camera;
         }
+
         public ValueTask set_camera(TCamera value)
         {
-__camera = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "camera",
-                    value
-                );
+            __camera = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "camera", value);
         }
         #endregion
-        
+
         #region Constructor
-        public ICameraInputCachedEntity() : base() { }
+        public ICameraInputCachedEntity()
+            : base() { }
 
-        public ICameraInputCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public ICameraInputCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -75,58 +71,42 @@ __camera = null;
         public async ValueTask<string> getClassName()
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
         public async ValueTask<string> getSimpleName()
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getSimpleName" }
-                }
+                new object[] { new string[] { this.___guid, "getSimpleName" } }
             );
         }
 
         public async ValueTask attachControl(System.Nullable<bool> noPreventDefault = null)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "attachControl" }, noPreventDefault
-                }
+                new object[] { new string[] { this.___guid, "attachControl" }, noPreventDefault }
             );
         }
 
         public async ValueTask detachControl()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "detachControl" }
-                }
+                new object[] { new string[] { this.___guid, "detachControl" } }
             );
         }
 
         #region checkInputs TODO: Get Comments as metadata identification
         private bool _isCheckInputsEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _checkInputsActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _checkInputsActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public async ValueTask<string> checkInputs(
-            Func<Task> callback
-        )
+        public async ValueTask<string> checkInputs(Func<Task> callback)
         {
             await SetupCheckInputsLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _checkInputsActionMap.Add(
-                handle,
-                callback
-            );
+            _checkInputsActionMap.Add(handle, callback);
 
             return handle;
         }

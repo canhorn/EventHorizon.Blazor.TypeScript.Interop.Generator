@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IDisplayChangedEventArgs : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IDisplayChangedEventArgsCachedEntity>))]
     public class IDisplayChangedEventArgsCachedEntity : CachedEntityObject, IDisplayChangedEventArgs
     {
@@ -32,52 +32,34 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<CachedEntity> get_vrDisplay()
         {
-            return await EventHorizonBlazorInterop.Get<CachedEntity>(
-                    this.___guid,
-                    "vrDisplay"
-                );
+            return await EventHorizonBlazorInterop.Get<CachedEntity>(this.___guid, "vrDisplay");
         }
+
         public ValueTask set_vrDisplay(CachedEntity value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "vrDisplay",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "vrDisplay", value);
         }
 
-        
         public async ValueTask<bool> get_vrSupported()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "vrSupported"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "vrSupported");
         }
+
         public ValueTask set_vrSupported(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "vrSupported",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "vrSupported", value);
         }
         #endregion
-        
+
         #region Constructor
-        public IDisplayChangedEventArgsCachedEntity() : base() { }
+        public IDisplayChangedEventArgsCachedEntity()
+            : base() { }
 
-        public IDisplayChangedEventArgsCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IDisplayChangedEventArgsCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

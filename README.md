@@ -1,5 +1,5 @@
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fcanhorn%2FEventHorizon.Blazor.TypeScript.Interop.Generator%2Fbadge%3Fref%3Dmain&style=for-the-badge)](https://actions-badge.atrox.dev/canhorn/EventHorizon.Blazor.TypeScript.Interop.Generator/goto?ref=main)
-[![codecov](https://img.shields.io/codecov/c/github/canhorn/EventHorizon.Blazor.TypeScript.Interop.Generator?style=for-the-badge)](https://codecov.io/gh/canhorn/EventHorizon.Blazor.TypeScript.Interop.Generator) 
+[![codecov](https://img.shields.io/codecov/c/github/canhorn/EventHorizon.Blazor.TypeScript.Interop.Generator?style=for-the-badge)](https://codecov.io/gh/canhorn/EventHorizon.Blazor.TypeScript.Interop.Generator)
 [![EventHorizon.Blazor.TypeScript.Interop.Generator](https://img.shields.io/nuget/v/EventHorizon.Blazor.TypeScript.Interop.Generator?style=for-the-badge&label=Nuget)](https://www.nuget.org/packages/EventHorizon.Blazor.TypeScript.Interop.Generator)
 
 [![GitHub](https://img.shields.io/github/license/canhorn/EventHorizon.Blazor.TypeScript.Interop.Generator?style=for-the-badge)](https://github.com/canhorn/EventHorizon.Blazor.TypeScript.Interop.Generator/blob/main/LICENSE)
@@ -13,12 +13,12 @@
 
 # About EventHorizon Blazor TypeScript Interop Generator
 
-This project generates a C# Blazor Interop proxy using a TypeScript definition file. 
+This project generates a C# Blazor Interop proxy using a TypeScript definition file.
 
 ## Details
 
-The generated project can be used with Blazor Wasm/Server to interface with JavaScript from C#, this gives most JavaScript libraries an easy to use interface from C#. 
-It uses the JSRuntime to interop directly with the underlying JavaScript from C#, this is done with a custom interop abstraction. 
+The generated project can be used with Blazor Wasm/Server to interface with JavaScript from C#, this gives most JavaScript libraries an easy to use interface from C#.
+It uses the JSRuntime to interop directly with the underlying JavaScript from C#, this is done with a custom interop abstraction.
 
 The Wasm interop project can be found in the [canhorn/EventHorizon.Blazor.Interop](https://github.com/canhorn/EventHorizon.Blazor.Interop) repository, it gives the generated code access to a common set of access patterns it then uses to interface with the JavaScript. The [canhorn/EventHorizon.Blazor.Server.Interop](https://github.com/canhorn/EventHorizon.Blazor.Server.Interop) repository contains the Blazor Server, async first, JavaScript access patterns.
 
@@ -27,13 +27,14 @@ The Wasm interop project can be found in the [canhorn/EventHorizon.Blazor.Intero
 * [.NET Core](https://dotnet.microsoft.com/)
 * [TypeScript](https://www.typescriptlang.org/)
 * [NodeJS](https://nodejs.org/)
+  * Required Version >= 20
 
 ## TypeScript Parser
 
-The generation relies heavily on the TypeScript Abstract Syntax Tree and so the code includes ways to parse the source files into a AST representation for easier generation. 
+The generation relies heavily on the TypeScript Abstract Syntax Tree and so the code includes ways to parse the source files into a AST representation for easier generation.
 
 The code has two supported parser types, .NET and NodeJS, to do realtime parsing of code. Using a .NET library it's able to do very quick parsing, but since it has not been maintained it can not handle complex or modern TypeScript syntax.
-But with the NodeJS TypeScript parser it can handle modern more complex TypeScript syntax, but with the trade off of in speed. 
+But with the NodeJS TypeScript parser it can handle modern more complex TypeScript syntax, but with the trade off of in speed.
 
 > Having NodeJS installed is required to use the NodeJS TypeScript parser. (This is required when using the parser with the Tool)
 

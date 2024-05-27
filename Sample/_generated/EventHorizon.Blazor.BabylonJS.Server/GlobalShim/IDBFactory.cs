@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Server.Interop;
 
 public class IDBFactory : CachedEntity
 {
-    public IDBFactory()
-    {
-    }
+    public IDBFactory() { }
 
-    public IDBFactory(
-        ICachedEntity entity
-    )
+    public IDBFactory(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

@@ -10,6 +10,7 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
     public partial class MeshBuilderExample : IDisposable
     {
         private Engine _engine;
+
         protected override void OnAfterRender(bool firstRender)
         {
             if (firstRender)
@@ -25,21 +26,10 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
 
         public void CreateScene()
         {
-            var canvas = Canvas.GetElementById(
-                "game-window"
-            );
-            var engine = new Engine(
-                canvas,
-                true
-            );
-            var scene = new Scene(
-                engine
-            );
-            var light1 = new HemisphericLight(
-                "HemisphericLight",
-                new Vector3(1, 1, 0),
-                scene
-            );
+            var canvas = Canvas.GetElementById("game-window");
+            var engine = new Engine(canvas, true);
+            var scene = new Scene(engine);
+            var light1 = new HemisphericLight("HemisphericLight", new Vector3(1, 1, 0), scene);
 
             var columns = 6m;
             var rows = 1m;
@@ -48,18 +38,10 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
 
             for (var i = 0; i < 6; i++)
             {
-                faceUV[i] = new Vector4(
-                    i / columns,
-                    0, 
-                    (i + 1) / columns,
-                    1m / rows
-                );
+                faceUV[i] = new Vector4(i / columns, 0, (i + 1) / columns, 1m / rows);
             }
 
-            var mat = new StandardMaterial(
-                "mat",
-                scene
-            );
+            var mat = new StandardMaterial("mat", scene);
             var texture = new Texture(
                 scene,
                 "https://assets.babylonjs.com/environments/numbers.jpg"
@@ -67,24 +49,9 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
             mat.diffuseTexture = texture;
 
             var alpha = 1;
-            var red = new Color4(
-                1,
-                0,
-                0,
-                alpha
-            );
-            var blue = new Color4(
-                0,
-                0,
-                1,
-                alpha
-            );
-            var green = new Color4(
-                0,
-                1,
-                0,
-                alpha
-                );
+            var red = new Color4(1, 0, 0, alpha);
+            var blue = new Color4(0, 0, 1, alpha);
+            var green = new Color4(0, 1, 0, alpha);
 
             var options = new
             {
@@ -96,11 +63,7 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
                 faceColors = new List<Color4> { green, green, green, green, blue, red }
             };
 
-            var box = MeshBuilder.CreateBox(
-                "box",
-                options,
-                scene
-            );
+            var box = MeshBuilder.CreateBox("box", options, scene);
             box.material = mat;
 
             var camera = new ArcRotateCamera(
@@ -112,13 +75,11 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
                 scene
             );
             scene.activeCamera = camera;
-            camera.attachControl(
-                false
-            );
+            camera.attachControl(false);
 
-            engine.runRenderLoop(new ActionCallback(
-                () => Task.Run(() => scene.render(true, false))
-            ));
+            engine.runRenderLoop(
+                new ActionCallback(() => Task.Run(() => scene.render(true, false)))
+            );
 
             _engine = engine;
         }

@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IAudioEngine : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IAudioEngineCachedEntity>))]
     public class IAudioEngineCachedEntity : CachedEntityObject, IAudioEngine
     {
@@ -32,19 +32,17 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<bool> get_canUseWebAudio()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "canUseWebAudio"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "canUseWebAudio");
         }
 
         private AudioContext __audioContext;
+
         public async ValueTask<AudioContext> get_audioContext()
         {
-            if(__audioContext == null)
+            if (__audioContext == null)
             {
                 __audioContext = await EventHorizonBlazorInterop.GetClass<AudioContext>(
                     this.___guid,
@@ -59,9 +57,10 @@ namespace BABYLON
         }
 
         private GainNode __masterGain;
+
         public async ValueTask<GainNode> get_masterGain()
         {
-            if(__masterGain == null)
+            if (__masterGain == null)
             {
                 __masterGain = await EventHorizonBlazorInterop.GetClass<GainNode>(
                     this.___guid,
@@ -75,131 +74,112 @@ namespace BABYLON
             return __masterGain;
         }
 
-        
         public async ValueTask<bool> get_isMP3supported()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isMP3supported"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "isMP3supported");
         }
 
-        
         public async ValueTask<bool> get_isOGGsupported()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isOGGsupported"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "isOGGsupported");
         }
 
-        
         public async ValueTask<bool> get_WarnedWebAudioUnsupported()
         {
             return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "WarnedWebAudioUnsupported"
-                );
+                this.___guid,
+                "WarnedWebAudioUnsupported"
+            );
         }
+
         public ValueTask set_WarnedWebAudioUnsupported(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "WarnedWebAudioUnsupported",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "WarnedWebAudioUnsupported", value);
         }
 
-        
         public async ValueTask<bool> get_useCustomUnlockedButton()
         {
             return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "useCustomUnlockedButton"
-                );
+                this.___guid,
+                "useCustomUnlockedButton"
+            );
         }
+
         public ValueTask set_useCustomUnlockedButton(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "useCustomUnlockedButton",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "useCustomUnlockedButton", value);
         }
 
-        
         public async ValueTask<bool> get_unlocked()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "unlocked"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "unlocked");
         }
 
         private Observable<IAudioEngineCachedEntity> __onAudioUnlockedObservable;
+
         public async ValueTask<Observable<IAudioEngineCachedEntity>> get_onAudioUnlockedObservable()
         {
-            if(__onAudioUnlockedObservable == null)
+            if (__onAudioUnlockedObservable == null)
             {
-                __onAudioUnlockedObservable = await EventHorizonBlazorInterop.GetClass<Observable<IAudioEngineCachedEntity>>(
+                __onAudioUnlockedObservable = await EventHorizonBlazorInterop.GetClass<
+                    Observable<IAudioEngineCachedEntity>
+                >(
                     this.___guid,
                     "onAudioUnlockedObservable",
                     (entity) =>
                     {
-                        return new Observable<IAudioEngineCachedEntity>() { ___guid = entity.___guid };
+                        return new Observable<IAudioEngineCachedEntity>()
+                        {
+                            ___guid = entity.___guid
+                        };
                     }
                 );
             }
             return __onAudioUnlockedObservable;
         }
+
         public ValueTask set_onAudioUnlockedObservable(Observable<IAudioEngineCachedEntity> value)
         {
-__onAudioUnlockedObservable = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onAudioUnlockedObservable",
-                    value
-                );
+            __onAudioUnlockedObservable = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "onAudioUnlockedObservable", value);
         }
 
         private Observable<IAudioEngineCachedEntity> __onAudioLockedObservable;
+
         public async ValueTask<Observable<IAudioEngineCachedEntity>> get_onAudioLockedObservable()
         {
-            if(__onAudioLockedObservable == null)
+            if (__onAudioLockedObservable == null)
             {
-                __onAudioLockedObservable = await EventHorizonBlazorInterop.GetClass<Observable<IAudioEngineCachedEntity>>(
+                __onAudioLockedObservable = await EventHorizonBlazorInterop.GetClass<
+                    Observable<IAudioEngineCachedEntity>
+                >(
                     this.___guid,
                     "onAudioLockedObservable",
                     (entity) =>
                     {
-                        return new Observable<IAudioEngineCachedEntity>() { ___guid = entity.___guid };
+                        return new Observable<IAudioEngineCachedEntity>()
+                        {
+                            ___guid = entity.___guid
+                        };
                     }
                 );
             }
             return __onAudioLockedObservable;
         }
+
         public ValueTask set_onAudioLockedObservable(Observable<IAudioEngineCachedEntity> value)
         {
-__onAudioLockedObservable = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onAudioLockedObservable",
-                    value
-                );
+            __onAudioLockedObservable = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "onAudioLockedObservable", value);
         }
         #endregion
-        
+
         #region Constructor
-        public IAudioEngineCachedEntity() : base() { }
+        public IAudioEngineCachedEntity()
+            : base() { }
 
-        public IAudioEngineCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IAudioEngineCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -207,50 +187,35 @@ __onAudioLockedObservable = null;
         public async ValueTask @lock()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "@lock" }
-                }
+                new object[] { new string[] { this.___guid, "@lock" } }
             );
         }
 
         public async ValueTask @unlock()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "@unlock" }
-                }
+                new object[] { new string[] { this.___guid, "@unlock" } }
             );
         }
 
         public async ValueTask<decimal> getGlobalVolume()
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getGlobalVolume" }
-                }
+                new object[] { new string[] { this.___guid, "getGlobalVolume" } }
             );
         }
 
         public async ValueTask setGlobalVolume(decimal newVolume)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "setGlobalVolume" }, newVolume
-                }
+                new object[] { new string[] { this.___guid, "setGlobalVolume" }, newVolume }
             );
         }
 
         public async ValueTask connectToAnalyser(Analyser analyser)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "connectToAnalyser" }, analyser
-                }
+                new object[] { new string[] { this.___guid, "connectToAnalyser" }, analyser }
             );
         }
         #endregion

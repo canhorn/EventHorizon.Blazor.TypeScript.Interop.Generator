@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Viewport>))]
     public class Viewport : CachedEntityObject
     {
@@ -32,96 +30,71 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<decimal> get_x()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "x"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "x");
         }
+
         public ValueTask set_x(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "x",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "x", value);
         }
 
-        
         public async ValueTask<decimal> get_y()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "y"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "y");
         }
+
         public ValueTask set_y(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "y",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "y", value);
         }
 
-        
         public async ValueTask<decimal> get_width()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "width"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "width");
         }
+
         public ValueTask set_width(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "width",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "width", value);
         }
 
-        
         public async ValueTask<decimal> get_height()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "height"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "height");
         }
+
         public ValueTask set_height(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "height",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "height", value);
         }
         #endregion
-        
-        #region Constructor
-        public Viewport() : base() { } 
 
-        public Viewport(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public Viewport()
+            : base() { }
+
+        public Viewport(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
         public static async ValueTask<Viewport> NewViewport(
-            decimal x, decimal y, decimal width, decimal height
+            decimal x,
+            decimal y,
+            decimal width,
+            decimal height
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Viewport" },
-                x, y, width, height
+                x,
+                y,
+                width,
+                height
             );
 
             return new Viewport(entity);
@@ -133,20 +106,29 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Viewport>(
                 entity => new Viewport() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "toGlobal" }, renderWidth, renderHeight
+                    new string[] { this.___guid, "toGlobal" },
+                    renderWidth,
+                    renderHeight
                 }
             );
         }
 
-        public async ValueTask<Viewport> toGlobalToRef(decimal renderWidth, decimal renderHeight, Viewport @ref)
+        public async ValueTask<Viewport> toGlobalToRef(
+            decimal renderWidth,
+            decimal renderHeight,
+            Viewport @ref
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Viewport>(
                 entity => new Viewport() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "toGlobalToRef" }, renderWidth, renderHeight, @ref
+                    new string[] { this.___guid, "toGlobalToRef" },
+                    renderWidth,
+                    renderHeight,
+                    @ref
                 }
             );
         }
@@ -155,10 +137,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Viewport>(
                 entity => new Viewport() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "clone" }
-                }
+                new object[] { new string[] { this.___guid, "clone" } }
             );
         }
         #endregion

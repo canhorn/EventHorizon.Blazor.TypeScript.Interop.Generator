@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<ShadowDepthWrapper>))]
     public class ShadowDepthWrapper : CachedEntityObject
     {
@@ -28,19 +26,17 @@ namespace BABYLON
         #endregion
 
         #region Accessors
-        
+
         public async ValueTask<bool> get_standalone()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "standalone"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "standalone");
         }
 
         private Material __baseMaterial;
+
         public async ValueTask<Material> get_baseMaterial()
         {
-            if(__baseMaterial == null)
+            if (__baseMaterial == null)
             {
                 __baseMaterial = await EventHorizonBlazorInterop.GetClass<Material>(
                     this.___guid,
@@ -58,24 +54,28 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
-        #region Constructor
-        public ShadowDepthWrapper() : base() { } 
 
-        public ShadowDepthWrapper(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public ShadowDepthWrapper()
+            : base() { }
+
+        public ShadowDepthWrapper(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
         public static async ValueTask<ShadowDepthWrapper> NewShadowDepthWrapper(
-            Material baseMaterial, Scene scene, IIOptionShadowDepthMaterial options = null
+            Material baseMaterial,
+            Scene scene,
+            IIOptionShadowDepthMaterial options = null
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "ShadowDepthWrapper" },
-                baseMaterial, scene, options
+                baseMaterial,
+                scene,
+                options
             );
 
             return new ShadowDepthWrapper(entity);
@@ -87,19 +87,30 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "getEffect" }, subMesh, shadowGenerator
+                    new string[] { this.___guid, "getEffect" },
+                    subMesh,
+                    shadowGenerator
                 }
             );
         }
 
-        public async ValueTask<bool> isReadyForSubMesh(SubMesh subMesh, string[] defines, ShadowGenerator shadowGenerator, bool useInstances)
+        public async ValueTask<bool> isReadyForSubMesh(
+            SubMesh subMesh,
+            string[] defines,
+            ShadowGenerator shadowGenerator,
+            bool useInstances
+        )
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "isReadyForSubMesh" }, subMesh, defines, shadowGenerator, useInstances
+                    new string[] { this.___guid, "isReadyForSubMesh" },
+                    subMesh,
+                    defines,
+                    shadowGenerator,
+                    useInstances
                 }
             );
         }
@@ -107,10 +118,7 @@ namespace BABYLON
         public async ValueTask dispose()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
         #endregion

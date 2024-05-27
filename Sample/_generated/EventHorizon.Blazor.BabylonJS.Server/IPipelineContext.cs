@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IPipelineContext : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IPipelineContextCachedEntity>))]
     public class IPipelineContextCachedEntity : CachedEntityObject, IPipelineContext
     {
@@ -32,52 +32,34 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<bool> get_isAsync()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isAsync"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "isAsync");
         }
+
         public ValueTask set_isAsync(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isAsync",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "isAsync", value);
         }
 
-        
         public async ValueTask<bool> get_isReady()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isReady"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "isReady");
         }
+
         public ValueTask set_isReady(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isReady",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "isReady", value);
         }
         #endregion
-        
+
         #region Constructor
-        public IPipelineContextCachedEntity() : base() { }
+        public IPipelineContextCachedEntity()
+            : base() { }
 
-        public IPipelineContextCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IPipelineContextCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

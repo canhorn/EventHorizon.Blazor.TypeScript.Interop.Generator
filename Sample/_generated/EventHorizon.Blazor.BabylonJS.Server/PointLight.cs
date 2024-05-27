@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<PointLight>))]
     public class PointLight : ShadowLight
     {
@@ -28,28 +26,22 @@ namespace BABYLON
         #endregion
 
         #region Accessors
-        
+
         public async ValueTask<decimal> get_shadowAngle()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "shadowAngle"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "shadowAngle");
         }
+
         public ValueTask set_shadowAngle(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "shadowAngle",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "shadowAngle", value);
         }
 
         private Vector3 __direction;
+
         public async ValueTask<Vector3> get_direction()
         {
-            if(__direction == null)
+            if (__direction == null)
             {
                 __direction = await EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
@@ -62,37 +54,36 @@ namespace BABYLON
             }
             return __direction;
         }
+
         public ValueTask set_direction(Vector3 value)
         {
-__direction = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "direction",
-                    value
-                );
+            __direction = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "direction", value);
         }
         #endregion
 
         #region Properties
 
         #endregion
-        
-        #region Constructor
-        public PointLight() : base() { }
 
-        public PointLight(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        #region Constructor
+        public PointLight()
+            : base() { }
+
+        public PointLight(ICachedEntity entity)
+            : base(entity) { }
 
         public static async ValueTask<PointLight> NewPointLight(
-            string name, Vector3 position, Scene scene
+            string name,
+            Vector3 position,
+            Scene scene
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "PointLight" },
-                name, position, scene
+                name,
+                position,
+                scene
             );
 
             return new PointLight(entity);
@@ -103,41 +94,31 @@ __direction = null;
         public async ValueTask<string> getClassName()
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
         public async ValueTask<decimal> getTypeID()
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getTypeID" }
-                }
+                new object[] { new string[] { this.___guid, "getTypeID" } }
             );
         }
 
         public async ValueTask<bool> needCube()
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "needCube" }
-                }
+                new object[] { new string[] { this.___guid, "needCube" } }
             );
         }
 
-        public async ValueTask<Vector3> getShadowDirection(System.Nullable<decimal> faceIndex = null)
+        public async ValueTask<Vector3> getShadowDirection(
+            System.Nullable<decimal> faceIndex = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getShadowDirection" }, faceIndex
-                }
+                new object[] { new string[] { this.___guid, "getShadowDirection" }, faceIndex }
             );
         }
 
@@ -145,20 +126,27 @@ __direction = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<PointLight>(
                 entity => new PointLight() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "transferToEffect" }, effect, lightIndex
+                    new string[] { this.___guid, "transferToEffect" },
+                    effect,
+                    lightIndex
                 }
             );
         }
 
-        public async ValueTask<PointLight> transferToNodeMaterialEffect(Effect effect, string lightDataUniformName)
+        public async ValueTask<PointLight> transferToNodeMaterialEffect(
+            Effect effect,
+            string lightDataUniformName
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<PointLight>(
                 entity => new PointLight() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "transferToNodeMaterialEffect" }, effect, lightDataUniformName
+                    new string[] { this.___guid, "transferToNodeMaterialEffect" },
+                    effect,
+                    lightDataUniformName
                 }
             );
         }
@@ -166,9 +154,11 @@ __direction = null;
         public async ValueTask prepareLightSpecificDefines(object defines, decimal lightIndex)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "prepareLightSpecificDefines" }, defines, lightIndex
+                    new string[] { this.___guid, "prepareLightSpecificDefines" },
+                    defines,
+                    lightIndex
                 }
             );
         }

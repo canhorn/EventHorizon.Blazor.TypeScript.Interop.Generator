@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<BackEase>))]
     public class BackEase : EasingFunction, IEasingFunction
     {
@@ -32,33 +30,24 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<decimal> get_amplitude()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "amplitude"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "amplitude");
         }
+
         public ValueTask set_amplitude(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "amplitude",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "amplitude", value);
         }
         #endregion
-        
-        #region Constructor
-        public BackEase() : base() { }
 
-        public BackEase(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        #region Constructor
+        public BackEase()
+            : base() { }
+
+        public BackEase(ICachedEntity entity)
+            : base(entity) { }
 
         public static async ValueTask<BackEase> NewBackEase(
             System.Nullable<decimal> amplitude = null
@@ -77,10 +66,7 @@ namespace BABYLON
         public async ValueTask<decimal> easeInCore(decimal gradient)
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "easeInCore" }, gradient
-                }
+                new object[] { new string[] { this.___guid, "easeInCore" }, gradient }
             );
         }
         #endregion

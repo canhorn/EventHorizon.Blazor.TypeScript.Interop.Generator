@@ -1,11 +1,8 @@
-namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Writer
-{
-    using System.Collections.Generic;
+namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Writer;
 
-    public interface IWriter
-    {
-        void Write(
-            IList<GeneratedStatement> generatedStatementList
-        );
-    }
+using System.Collections.Generic;
+
+public interface IWriter
+{
+    void Write(IList<GeneratedStatement> generatedStatementList);
 }

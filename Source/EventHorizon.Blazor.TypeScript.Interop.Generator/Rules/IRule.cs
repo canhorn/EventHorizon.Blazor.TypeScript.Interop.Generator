@@ -1,9 +1,8 @@
-namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Rules
-{
-    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
 
-    public interface IRule
-    {
-        bool Check(Node node);
-    }
+using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+
+public interface IRule
+{
+    bool Check(Node node);
 }

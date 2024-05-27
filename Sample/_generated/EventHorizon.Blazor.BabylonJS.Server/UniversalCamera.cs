@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<UniversalCamera>))]
     public class UniversalCamera : TouchCamera
     {
@@ -28,63 +26,56 @@ namespace BABYLON
         #endregion
 
         #region Accessors
-        
+
         public async ValueTask<decimal> get_gamepadAngularSensibility()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "gamepadAngularSensibility"
-                );
+                this.___guid,
+                "gamepadAngularSensibility"
+            );
         }
+
         public ValueTask set_gamepadAngularSensibility(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "gamepadAngularSensibility",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "gamepadAngularSensibility", value);
         }
 
-        
         public async ValueTask<decimal> get_gamepadMoveSensibility()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "gamepadMoveSensibility"
-                );
+                this.___guid,
+                "gamepadMoveSensibility"
+            );
         }
+
         public ValueTask set_gamepadMoveSensibility(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "gamepadMoveSensibility",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "gamepadMoveSensibility", value);
         }
         #endregion
 
         #region Properties
 
         #endregion
-        
-        #region Constructor
-        public UniversalCamera() : base() { }
 
-        public UniversalCamera(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        #region Constructor
+        public UniversalCamera()
+            : base() { }
+
+        public UniversalCamera(ICachedEntity entity)
+            : base(entity) { }
 
         public static async ValueTask<UniversalCamera> NewUniversalCamera(
-            string name, Vector3 position, Scene scene
+            string name,
+            Vector3 position,
+            Scene scene
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "UniversalCamera" },
-                name, position, scene
+                name,
+                position,
+                scene
             );
 
             return new UniversalCamera(entity);
@@ -95,10 +86,7 @@ namespace BABYLON
         public async ValueTask<string> getClassName()
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
         #endregion

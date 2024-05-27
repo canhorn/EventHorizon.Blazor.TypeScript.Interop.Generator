@@ -10,8 +10,6 @@ namespace BABYLON.GUI
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Vector2WithInfo>))]
     public class Vector2WithInfo : Vector2
     {
@@ -32,41 +30,34 @@ namespace BABYLON.GUI
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<decimal> get_buttonIndex()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "buttonIndex"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "buttonIndex");
         }
+
         public ValueTask set_buttonIndex(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "buttonIndex",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "buttonIndex", value);
         }
         #endregion
-        
-        #region Constructor
-        public Vector2WithInfo() : base() { }
 
-        public Vector2WithInfo(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        #region Constructor
+        public Vector2WithInfo()
+            : base() { }
+
+        public Vector2WithInfo(ICachedEntity entity)
+            : base(entity) { }
 
         public static async ValueTask<Vector2WithInfo> NewVector2WithInfo(
-            Vector2 source, System.Nullable<decimal> buttonIndex = null
+            Vector2 source,
+            System.Nullable<decimal> buttonIndex = null
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GUI", "Vector2WithInfo" },
-                source, buttonIndex
+                source,
+                buttonIndex
             );
 
             return new Vector2WithInfo(entity);

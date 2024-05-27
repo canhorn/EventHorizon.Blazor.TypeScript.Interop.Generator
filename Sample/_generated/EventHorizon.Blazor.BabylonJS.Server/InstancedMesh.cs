@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<InstancedMesh>))]
     public class InstancedMesh : AbstractMesh
     {
@@ -28,32 +26,29 @@ namespace BABYLON
         #endregion
 
         #region Accessors
-        
+
         public async ValueTask<Light[]> get_lightSources()
         {
             return await EventHorizonBlazorInterop.GetArrayClass<Light>(
-                    this.___guid,
-                    "lightSources",
-                    (entity) =>
-                    {
-                        return new Light() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "lightSources",
+                (entity) =>
+                {
+                    return new Light() { ___guid = entity.___guid };
+                }
+            );
         }
 
-        
         public async ValueTask<bool> get_receiveShadows()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "receiveShadows"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "receiveShadows");
         }
 
         private Material __material;
+
         public async ValueTask<Material> get_material()
         {
-            if(__material == null)
+            if (__material == null)
             {
                 __material = await EventHorizonBlazorInterop.GetClass<Material>(
                     this.___guid,
@@ -67,19 +62,16 @@ namespace BABYLON
             return __material;
         }
 
-        
         public async ValueTask<decimal> get_visibility()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "visibility"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "visibility");
         }
 
         private Skeleton __skeleton;
+
         public async ValueTask<Skeleton> get_skeleton()
         {
-            if(__skeleton == null)
+            if (__skeleton == null)
             {
                 __skeleton = await EventHorizonBlazorInterop.GetClass<Skeleton>(
                     this.___guid,
@@ -93,28 +85,21 @@ namespace BABYLON
             return __skeleton;
         }
 
-        
         public async ValueTask<decimal> get_renderingGroupId()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "renderingGroupId"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "renderingGroupId");
         }
+
         public ValueTask set_renderingGroupId(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "renderingGroupId",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "renderingGroupId", value);
         }
 
         private Mesh __sourceMesh;
+
         public async ValueTask<Mesh> get_sourceMesh()
         {
-            if(__sourceMesh == null)
+            if (__sourceMesh == null)
             {
                 __sourceMesh = await EventHorizonBlazorInterop.GetClass<Mesh>(
                     this.___guid,
@@ -128,36 +113,29 @@ namespace BABYLON
             return __sourceMesh;
         }
 
-        
         public async ValueTask<bool> get_isAnInstance()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isAnInstance"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "isAnInstance");
         }
         #endregion
 
         #region Properties
 
         #endregion
-        
+
         #region Constructor
-        public InstancedMesh() : base() { }
+        public InstancedMesh()
+            : base() { }
 
-        public InstancedMesh(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public InstancedMesh(ICachedEntity entity)
+            : base(entity) { }
 
-        public static async ValueTask<InstancedMesh> NewInstancedMesh(
-            string name, Mesh source
-        )
+        public static async ValueTask<InstancedMesh> NewInstancedMesh(string name, Mesh source)
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "InstancedMesh" },
-                name, source
+                name,
+                source
             );
 
             return new InstancedMesh(entity);
@@ -168,30 +146,21 @@ namespace BABYLON
         public async ValueTask<string> getClassName()
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
         public async ValueTask<decimal> getTotalVertices()
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getTotalVertices" }
-                }
+                new object[] { new string[] { this.___guid, "getTotalVertices" } }
             );
         }
 
         public async ValueTask<decimal> getTotalIndices()
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getTotalIndices" }
-                }
+                new object[] { new string[] { this.___guid, "getTotalIndices" } }
             );
         }
 
@@ -199,94 +168,104 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<InstancedMesh>(
                 entity => new InstancedMesh() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "createInstance" }, name
-                }
+                new object[] { new string[] { this.___guid, "createInstance" }, name }
             );
         }
 
         public async ValueTask<bool> isReady(System.Nullable<bool> completeCheck = null)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "isReady" }, completeCheck
-                }
+                new object[] { new string[] { this.___guid, "isReady" }, completeCheck }
             );
         }
 
-        public async ValueTask<decimal[]> getVerticesData(string kind, System.Nullable<bool> copyWhenShared = null)
+        public async ValueTask<decimal[]> getVerticesData(
+            string kind,
+            System.Nullable<bool> copyWhenShared = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
-                    new string[] { this.___guid, "getVerticesData" }, kind, copyWhenShared
+                    new string[] { this.___guid, "getVerticesData" },
+                    kind,
+                    copyWhenShared
                 }
             );
         }
 
-        public async ValueTask<AbstractMesh> setVerticesData(string kind, decimal[] data, System.Nullable<bool> updatable = null, System.Nullable<decimal> stride = null)
+        public async ValueTask<AbstractMesh> setVerticesData(
+            string kind,
+            decimal[] data,
+            System.Nullable<bool> updatable = null,
+            System.Nullable<decimal> stride = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
                 entity => new AbstractMesh() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "setVerticesData" }, kind, data, updatable, stride
+                    new string[] { this.___guid, "setVerticesData" },
+                    kind,
+                    data,
+                    updatable,
+                    stride
                 }
             );
         }
 
-        public async ValueTask<Mesh> updateVerticesData(string kind, decimal[] data, System.Nullable<bool> updateExtends = null, System.Nullable<bool> makeItUnique = null)
+        public async ValueTask<Mesh> updateVerticesData(
+            string kind,
+            decimal[] data,
+            System.Nullable<bool> updateExtends = null,
+            System.Nullable<bool> makeItUnique = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "updateVerticesData" }, kind, data, updateExtends, makeItUnique
+                    new string[] { this.___guid, "updateVerticesData" },
+                    kind,
+                    data,
+                    updateExtends,
+                    makeItUnique
                 }
             );
         }
 
-        public async ValueTask<Mesh> setIndices(decimal[] indices, System.Nullable<decimal> totalVertices = null)
+        public async ValueTask<Mesh> setIndices(
+            decimal[] indices,
+            System.Nullable<decimal> totalVertices = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setIndices" }, indices, totalVertices
-                }
+                new object[] { new string[] { this.___guid, "setIndices" }, indices, totalVertices }
             );
         }
 
         public async ValueTask<bool> isVerticesDataPresent(string kind)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "isVerticesDataPresent" }, kind
-                }
+                new object[] { new string[] { this.___guid, "isVerticesDataPresent" }, kind }
             );
         }
 
         public async ValueTask<decimal[]> getIndices()
         {
             return await EventHorizonBlazorInterop.FuncArray<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "getIndices" }
-                }
+                new object[] { new string[] { this.___guid, "getIndices" } }
             );
         }
 
-        public async ValueTask<InstancedMesh> refreshBoundingInfo(System.Nullable<bool> applySkeleton = null)
+        public async ValueTask<InstancedMesh> refreshBoundingInfo(
+            System.Nullable<bool> applySkeleton = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<InstancedMesh>(
                 entity => new InstancedMesh() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "refreshBoundingInfo" }, applySkeleton
-                }
+                new object[] { new string[] { this.___guid, "refreshBoundingInfo" }, applySkeleton }
             );
         }
 
@@ -294,10 +273,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getWorldMatrix" }
-                }
+                new object[] { new string[] { this.___guid, "getWorldMatrix" } }
             );
         }
 
@@ -305,30 +281,39 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
                 entity => new AbstractMesh() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getLOD" }, camera
-                }
+                new object[] { new string[] { this.___guid, "getLOD" }, camera }
             );
         }
 
-        public async ValueTask<InstancedMesh> clone(string name, Node newParent = null, System.Nullable<bool> doNotCloneChildren = null)
+        public async ValueTask<InstancedMesh> clone(
+            string name,
+            Node newParent = null,
+            System.Nullable<bool> doNotCloneChildren = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<InstancedMesh>(
                 entity => new InstancedMesh() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "clone" }, name, newParent, doNotCloneChildren
+                    new string[] { this.___guid, "clone" },
+                    name,
+                    newParent,
+                    doNotCloneChildren
                 }
             );
         }
 
-        public async ValueTask dispose(System.Nullable<bool> doNotRecurse = null, System.Nullable<bool> disposeMaterialAndTextures = null)
+        public async ValueTask dispose(
+            System.Nullable<bool> doNotRecurse = null,
+            System.Nullable<bool> disposeMaterialAndTextures = null
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "dispose" }, doNotRecurse, disposeMaterialAndTextures
+                    new string[] { this.___guid, "dispose" },
+                    doNotRecurse,
+                    disposeMaterialAndTextures
                 }
             );
         }

@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IPlaneLike : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IPlaneLikeCachedEntity>))]
     public class IPlaneLikeCachedEntity : CachedEntityObject, IPlaneLike
     {
@@ -33,9 +33,10 @@ namespace BABYLON
 
         #region Properties
         private IVector3LikeCachedEntity __normal;
+
         public async ValueTask<IVector3LikeCachedEntity> get_normal()
         {
-            if(__normal == null)
+            if (__normal == null)
             {
                 __normal = await EventHorizonBlazorInterop.GetClass<IVector3LikeCachedEntity>(
                     this.___guid,
@@ -48,44 +49,30 @@ namespace BABYLON
             }
             return __normal;
         }
+
         public ValueTask set_normal(IVector3LikeCachedEntity value)
         {
-__normal = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "normal",
-                    value
-                );
+            __normal = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "normal", value);
         }
 
-        
         public async ValueTask<decimal> get_d()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "d"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "d");
         }
+
         public ValueTask set_d(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "d",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "d", value);
         }
         #endregion
-        
+
         #region Constructor
-        public IPlaneLikeCachedEntity() : base() { }
+        public IPlaneLikeCachedEntity()
+            : base() { }
 
-        public IPlaneLikeCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IPlaneLikeCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -93,10 +80,7 @@ __normal = null;
         public async ValueTask normalize()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "normalize" }
-                }
+                new object[] { new string[] { this.___guid, "normalize" } }
             );
         }
         #endregion

@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<ParticleHelper>))]
     public class ParticleHelper : CachedEntityObject
     {
@@ -20,62 +18,69 @@ namespace BABYLON
         #endregion
 
         #region Static Properties
-        
+
         public static async ValueTask<string> get_BaseAssetsUrl()
         {
             return await EventHorizonBlazorInterop.Get<string>(
-                    "BABYLON",
-                    "ParticleHelper.BaseAssetsUrl"
-                );
+                "BABYLON",
+                "ParticleHelper.BaseAssetsUrl"
+            );
         }
+
         public static ValueTask set_BaseAssetsUrl(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    "BABYLON",
-                    "ParticleHelper.BaseAssetsUrl",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set("BABYLON", "ParticleHelper.BaseAssetsUrl", value);
         }
 
-        
         public static async ValueTask<string> get_SnippetUrl()
         {
             return await EventHorizonBlazorInterop.Get<string>(
-                    "BABYLON",
-                    "ParticleHelper.SnippetUrl"
-                );
+                "BABYLON",
+                "ParticleHelper.SnippetUrl"
+            );
         }
+
         public static ValueTask set_SnippetUrl(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    "BABYLON",
-                    "ParticleHelper.SnippetUrl",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set("BABYLON", "ParticleHelper.SnippetUrl", value);
         }
         #endregion
 
         #region Static Methods
-        public static async ValueTask<IParticleSystemCachedEntity> CreateDefault(AbstractMesh emitter, System.Nullable<decimal> capacity = null, Scene scene = null, System.Nullable<bool> useGPU = null)
+        public static async ValueTask<IParticleSystemCachedEntity> CreateDefault(
+            AbstractMesh emitter,
+            System.Nullable<decimal> capacity = null,
+            Scene scene = null,
+            System.Nullable<bool> useGPU = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "ParticleHelper", "CreateDefault" }, emitter, capacity, scene, useGPU
+                    new string[] { "BABYLON", "ParticleHelper", "CreateDefault" },
+                    emitter,
+                    capacity,
+                    scene,
+                    useGPU
                 }
             );
         }
 
-        public static async ValueTask<ParticleSystemSet> CreateAsync(string type, Scene scene, System.Nullable<bool> gpu = null)
+        public static async ValueTask<ParticleSystemSet> CreateAsync(
+            string type,
+            Scene scene,
+            System.Nullable<bool> gpu = null
+        )
         {
             return await EventHorizonBlazorInterop.TaskClass<ParticleSystemSet>(
                 entity => new ParticleSystemSet() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "ParticleHelper", "CreateAsync" }, type, scene, gpu
+                    new string[] { "BABYLON", "ParticleHelper", "CreateAsync" },
+                    type,
+                    scene,
+                    gpu
                 }
             );
         }
@@ -84,31 +89,48 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<ParticleSystemSet>(
                 entity => new ParticleSystemSet() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { "BABYLON", "ParticleHelper", "ExportSet" }, systems
-                }
+                new object[] { new string[] { "BABYLON", "ParticleHelper", "ExportSet" }, systems }
             );
         }
 
-        public static async ValueTask<IParticleSystemCachedEntity> ParseFromFileAsync(string url, Scene scene, string name = null, System.Nullable<bool> gpu = null, string rootUrl = null)
+        public static async ValueTask<IParticleSystemCachedEntity> ParseFromFileAsync(
+            string url,
+            Scene scene,
+            string name = null,
+            System.Nullable<bool> gpu = null,
+            string rootUrl = null
+        )
         {
             return await EventHorizonBlazorInterop.TaskClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "ParticleHelper", "ParseFromFileAsync" }, name, url, scene, gpu, rootUrl
+                    new string[] { "BABYLON", "ParticleHelper", "ParseFromFileAsync" },
+                    name,
+                    url,
+                    scene,
+                    gpu,
+                    rootUrl
                 }
             );
         }
 
-        public static async ValueTask<IParticleSystemCachedEntity> CreateFromSnippetAsync(string snippetId, Scene scene, System.Nullable<bool> gpu = null, string rootUrl = null)
+        public static async ValueTask<IParticleSystemCachedEntity> CreateFromSnippetAsync(
+            string snippetId,
+            Scene scene,
+            System.Nullable<bool> gpu = null,
+            string rootUrl = null
+        )
         {
             return await EventHorizonBlazorInterop.TaskClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "ParticleHelper", "CreateFromSnippetAsync" }, snippetId, scene, gpu, rootUrl
+                    new string[] { "BABYLON", "ParticleHelper", "CreateFromSnippetAsync" },
+                    snippetId,
+                    scene,
+                    gpu,
+                    rootUrl
                 }
             );
         }
@@ -121,17 +143,16 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
-        #region Constructor
-        public ParticleHelper() : base() { } 
 
-        public ParticleHelper(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public ParticleHelper()
+            : base() { }
+
+        public ParticleHelper(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
-
 
         #endregion
 

@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Particle>))]
     public class Particle : CachedEntityObject
     {
@@ -33,9 +31,10 @@ namespace BABYLON
 
         #region Properties
         private ParticleSystem __particleSystem;
+
         public async ValueTask<ParticleSystem> get_particleSystem()
         {
-            if(__particleSystem == null)
+            if (__particleSystem == null)
             {
                 __particleSystem = await EventHorizonBlazorInterop.GetClass<ParticleSystem>(
                     this.___guid,
@@ -48,38 +47,28 @@ namespace BABYLON
             }
             return __particleSystem;
         }
+
         public ValueTask set_particleSystem(ParticleSystem value)
         {
-__particleSystem = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "particleSystem",
-                    value
-                );
+            __particleSystem = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "particleSystem", value);
         }
 
-        
         public async ValueTask<decimal> get_id()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "id"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "id");
         }
+
         public ValueTask set_id(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "id",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "id", value);
         }
 
         private Vector3 __position;
+
         public async ValueTask<Vector3> get_position()
         {
-            if(__position == null)
+            if (__position == null)
             {
                 __position = await EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
@@ -92,20 +81,18 @@ __particleSystem = null;
             }
             return __position;
         }
+
         public ValueTask set_position(Vector3 value)
         {
-__position = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "position",
-                    value
-                );
+            __position = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "position", value);
         }
 
         private Vector3 __direction;
+
         public async ValueTask<Vector3> get_direction()
         {
-            if(__direction == null)
+            if (__direction == null)
             {
                 __direction = await EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
@@ -118,20 +105,18 @@ __position = null;
             }
             return __direction;
         }
+
         public ValueTask set_direction(Vector3 value)
         {
-__direction = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "direction",
-                    value
-                );
+            __direction = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "direction", value);
         }
 
         private Color4 __color;
+
         public async ValueTask<Color4> get_color()
         {
-            if(__color == null)
+            if (__color == null)
             {
                 __color = await EventHorizonBlazorInterop.GetClass<Color4>(
                     this.___guid,
@@ -144,20 +129,18 @@ __direction = null;
             }
             return __color;
         }
+
         public ValueTask set_color(Color4 value)
         {
-__color = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "color",
-                    value
-                );
+            __color = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "color", value);
         }
 
         private Color4 __colorStep;
+
         public async ValueTask<Color4> get_colorStep()
         {
-            if(__colorStep == null)
+            if (__colorStep == null)
             {
                 __colorStep = await EventHorizonBlazorInterop.GetClass<Color4>(
                     this.___guid,
@@ -170,74 +153,48 @@ __color = null;
             }
             return __colorStep;
         }
+
         public ValueTask set_colorStep(Color4 value)
         {
-__colorStep = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "colorStep",
-                    value
-                );
+            __colorStep = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "colorStep", value);
         }
 
-        
         public async ValueTask<decimal> get_lifeTime()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "lifeTime"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "lifeTime");
         }
+
         public ValueTask set_lifeTime(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "lifeTime",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "lifeTime", value);
         }
 
-        
         public async ValueTask<decimal> get_age()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "age"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "age");
         }
+
         public ValueTask set_age(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "age",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "age", value);
         }
 
-        
         public async ValueTask<decimal> get_size()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "size"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "size");
         }
+
         public ValueTask set_size(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "size",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "size", value);
         }
 
         private Vector2 __scale;
+
         public async ValueTask<Vector2> get_scale()
         {
-            if(__scale == null)
+            if (__scale == null)
             {
                 __scale = await EventHorizonBlazorInterop.GetClass<Vector2>(
                     this.___guid,
@@ -250,74 +207,48 @@ __colorStep = null;
             }
             return __scale;
         }
+
         public ValueTask set_scale(Vector2 value)
         {
-__scale = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "scale",
-                    value
-                );
+            __scale = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "scale", value);
         }
 
-        
         public async ValueTask<decimal> get_angle()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "angle"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "angle");
         }
+
         public ValueTask set_angle(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "angle",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "angle", value);
         }
 
-        
         public async ValueTask<decimal> get_angularSpeed()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "angularSpeed"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "angularSpeed");
         }
+
         public ValueTask set_angularSpeed(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "angularSpeed",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "angularSpeed", value);
         }
 
-        
         public async ValueTask<decimal> get_cellIndex()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "cellIndex"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "cellIndex");
         }
+
         public ValueTask set_cellIndex(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "cellIndex",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "cellIndex", value);
         }
 
         private Vector4 __remapData;
+
         public async ValueTask<Vector4> get_remapData()
         {
-            if(__remapData == null)
+            if (__remapData == null)
             {
                 __remapData = await EventHorizonBlazorInterop.GetClass<Vector4>(
                     this.___guid,
@@ -330,30 +261,25 @@ __scale = null;
             }
             return __remapData;
         }
+
         public ValueTask set_remapData(Vector4 value)
         {
-__remapData = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "remapData",
-                    value
-                );
+            __remapData = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "remapData", value);
         }
         #endregion
-        
-        #region Constructor
-        public Particle() : base() { } 
 
-        public Particle(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public Particle()
+            : base() { }
+
+        public Particle(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
-        public static async ValueTask<Particle> NewParticle(
-            ParticleSystem particleSystem
-        )
+        public static async ValueTask<Particle> NewParticle(ParticleSystem particleSystem)
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Particle" },
@@ -368,20 +294,14 @@ __remapData = null;
         public async ValueTask updateCellIndex()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "updateCellIndex" }
-                }
+                new object[] { new string[] { this.___guid, "updateCellIndex" } }
             );
         }
 
         public async ValueTask copyTo(Particle other)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "copyTo" }, other
-                }
+                new object[] { new string[] { this.___guid, "copyTo" }, other }
             );
         }
         #endregion

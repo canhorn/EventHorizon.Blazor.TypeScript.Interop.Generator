@@ -10,10 +10,9 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Observer<CachedEntity>>))]
-    public class Observer<T> : CachedEntityObject where T : CachedEntity, new()
+    public class Observer<T> : CachedEntityObject
+        where T : CachedEntity, new()
     {
         #region Static Accessors
 
@@ -32,82 +31,66 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<decimal> get_mask()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "mask"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "mask");
         }
+
         public ValueTask set_mask(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "mask",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "mask", value);
         }
 
-        
         public async ValueTask<CachedEntity> get_scope()
         {
             return await EventHorizonBlazorInterop.GetClass<CachedEntity>(
-                    this.___guid,
-                    "scope",
-                    (entity) =>
-                    {
-                        return new CachedEntity() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "scope",
+                (entity) =>
+                {
+                    return new CachedEntity() { ___guid = entity.___guid };
+                }
+            );
         }
+
         public ValueTask set_scope(CachedEntity value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "scope",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "scope", value);
         }
 
-        
         public async ValueTask<bool> get_unregisterOnNextCall()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "unregisterOnNextCall"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "unregisterOnNextCall");
         }
+
         public ValueTask set_unregisterOnNextCall(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "unregisterOnNextCall",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "unregisterOnNextCall", value);
         }
         #endregion
-        
-        #region Constructor
-        public Observer() : base() { } 
 
-        public Observer(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public Observer()
+            : base() { }
+
+        public Observer(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
         public static async ValueTask<Observer<T>> NewObserver(
-            ActionCallback<T, EventState> callback, decimal mask, object scope = null
+            ActionCallback<T, EventState> callback,
+            decimal mask,
+            object scope = null
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Observer" },
-                callback, mask, scope
+                callback,
+                mask,
+                scope
             );
 
             return new Observer<T>(entity);
@@ -117,19 +100,15 @@ namespace BABYLON
         #region Methods
         #region callback TODO: Get Comments as metadata identification
         private bool _isCallbackEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _callbackActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _callbackActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public async ValueTask<string> callback(
-            Func<Task> callback
-        )
+        public async ValueTask<string> callback(Func<Task> callback)
         {
             await SetupCallbackLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _callbackActionMap.Add(
-                handle,
-                callback
-            );
+            _callbackActionMap.Add(handle, callback);
 
             return handle;
         }

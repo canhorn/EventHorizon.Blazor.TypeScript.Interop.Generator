@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<InstancedLinesMesh>))]
     public class InstancedLinesMesh : InstancedMesh
     {
@@ -32,41 +30,37 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<decimal> get_intersectionThreshold()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "intersectionThreshold"
-                );
+                this.___guid,
+                "intersectionThreshold"
+            );
         }
+
         public ValueTask set_intersectionThreshold(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "intersectionThreshold",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "intersectionThreshold", value);
         }
         #endregion
-        
-        #region Constructor
-        public InstancedLinesMesh() : base() { }
 
-        public InstancedLinesMesh(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        #region Constructor
+        public InstancedLinesMesh()
+            : base() { }
+
+        public InstancedLinesMesh(ICachedEntity entity)
+            : base(entity) { }
 
         public static async ValueTask<InstancedLinesMesh> NewInstancedLinesMesh(
-            string name, LinesMesh source
+            string name,
+            LinesMesh source
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "InstancedLinesMesh" },
-                name, source
+                name,
+                source
             );
 
             return new InstancedLinesMesh(entity);
@@ -77,10 +71,7 @@ namespace BABYLON
         public async ValueTask<string> getClassName()
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
         #endregion

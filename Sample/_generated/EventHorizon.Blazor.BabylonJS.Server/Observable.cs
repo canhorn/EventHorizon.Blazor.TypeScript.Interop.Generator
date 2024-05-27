@@ -10,10 +10,9 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Observable<CachedEntity>>))]
-    public class Observable<T> : CachedEntityObject where T : CachedEntity, new()
+    public class Observable<T> : CachedEntityObject
+        where T : CachedEntity, new()
     {
         #region Static Accessors
 
@@ -28,30 +27,30 @@ namespace BABYLON
         #endregion
 
         #region Accessors
-        
+
         public async ValueTask<Observer<T>[]> get_observers()
         {
             return await EventHorizonBlazorInterop.GetArrayClass<Observer<T>>(
-                    this.___guid,
-                    "observers",
-                    (entity) =>
-                    {
-                        return new Observer<T>() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "observers",
+                (entity) =>
+                {
+                    return new Observer<T>() { ___guid = entity.___guid };
+                }
+            );
         }
         #endregion
 
         #region Properties
 
         #endregion
-        
-        #region Constructor
-        public Observable() : base() { } 
 
-        public Observable(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public Observable()
+            : base() { }
+
+        public Observable(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
@@ -72,19 +71,15 @@ namespace BABYLON
         #region Methods
         #region add TODO: Get Comments as metadata identification
         private bool _isAddEnabled = false;
-        private readonly IDictionary<string, Func<T, EventState, Task>> _addActionMap = new Dictionary<string, Func<T, EventState, Task>>();
+        private readonly IDictionary<string, Func<T, EventState, Task>> _addActionMap =
+            new Dictionary<string, Func<T, EventState, Task>>();
 
-        public async ValueTask<string> add(
-            Func<T, EventState, Task> callback
-        )
+        public async ValueTask<string> add(Func<T, EventState, Task> callback)
         {
             await SetupAddLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _addActionMap.Add(
-                handle,
-                callback
-            );
+            _addActionMap.Add(handle, callback);
 
             return handle;
         }
@@ -116,19 +111,15 @@ namespace BABYLON
 
         #region addOnce TODO: Get Comments as metadata identification
         private bool _isAddOnceEnabled = false;
-        private readonly IDictionary<string, Func<T, EventState, Task>> _addOnceActionMap = new Dictionary<string, Func<T, EventState, Task>>();
+        private readonly IDictionary<string, Func<T, EventState, Task>> _addOnceActionMap =
+            new Dictionary<string, Func<T, EventState, Task>>();
 
-        public async ValueTask<string> addOnce(
-            Func<T, EventState, Task> callback
-        )
+        public async ValueTask<string> addOnce(Func<T, EventState, Task> callback)
         {
             await SetupAddOnceLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _addOnceActionMap.Add(
-                handle,
-                callback
-            );
+            _addOnceActionMap.Add(handle, callback);
 
             return handle;
         }
@@ -161,28 +152,21 @@ namespace BABYLON
         public async ValueTask<bool> remove(Observer<T> observer)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "remove" }, observer
-                }
+                new object[] { new string[] { this.___guid, "remove" }, observer }
             );
         }
 
         #region removeCallback TODO: Get Comments as metadata identification
         private bool _isRemoveCallbackEnabled = false;
-        private readonly IDictionary<string, Func<T, EventState, Task>> _removeCallbackActionMap = new Dictionary<string, Func<T, EventState, Task>>();
+        private readonly IDictionary<string, Func<T, EventState, Task>> _removeCallbackActionMap =
+            new Dictionary<string, Func<T, EventState, Task>>();
 
-        public async ValueTask<string> removeCallback(
-            Func<T, EventState, Task> callback
-        )
+        public async ValueTask<string> removeCallback(Func<T, EventState, Task> callback)
         {
             await SetupRemoveCallbackLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _removeCallbackActionMap.Add(
-                handle,
-                callback
-            );
+            _removeCallbackActionMap.Add(handle, callback);
 
             return handle;
         }
@@ -215,50 +199,77 @@ namespace BABYLON
         public async ValueTask makeObserverTopPriority(Observer<T> observer)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "makeObserverTopPriority" }, observer
-                }
+                new object[] { new string[] { this.___guid, "makeObserverTopPriority" }, observer }
             );
         }
 
         public async ValueTask makeObserverBottomPriority(Observer<T> observer)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "makeObserverBottomPriority" }, observer
+                    new string[] { this.___guid, "makeObserverBottomPriority" },
+                    observer
                 }
             );
         }
 
-        public async ValueTask<bool> notifyObservers(T eventData, System.Nullable<decimal> mask = null, object target = null, object currentTarget = null, object userInfo = null)
+        public async ValueTask<bool> notifyObservers(
+            T eventData,
+            System.Nullable<decimal> mask = null,
+            object target = null,
+            object currentTarget = null,
+            object userInfo = null
+        )
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "notifyObservers" }, eventData, mask, target, currentTarget, userInfo
+                    new string[] { this.___guid, "notifyObservers" },
+                    eventData,
+                    mask,
+                    target,
+                    currentTarget,
+                    userInfo
                 }
             );
         }
 
-        public async ValueTask<T> notifyObserversWithPromise(T eventData, System.Nullable<decimal> mask = null, object target = null, object currentTarget = null, object userInfo = null)
+        public async ValueTask<T> notifyObserversWithPromise(
+            T eventData,
+            System.Nullable<decimal> mask = null,
+            object target = null,
+            object currentTarget = null,
+            object userInfo = null
+        )
         {
             return await EventHorizonBlazorInterop.TaskClass<T>(
                 entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "notifyObserversWithPromise" }, eventData, mask, target, currentTarget, userInfo
+                    new string[] { this.___guid, "notifyObserversWithPromise" },
+                    eventData,
+                    mask,
+                    target,
+                    currentTarget,
+                    userInfo
                 }
             );
         }
 
-        public async ValueTask notifyObserver(Observer<T> observer, T eventData, System.Nullable<decimal> mask = null)
+        public async ValueTask notifyObserver(
+            Observer<T> observer,
+            T eventData,
+            System.Nullable<decimal> mask = null
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "notifyObserver" }, observer, eventData, mask
+                    new string[] { this.___guid, "notifyObserver" },
+                    observer,
+                    eventData,
+                    mask
                 }
             );
         }
@@ -266,20 +277,14 @@ namespace BABYLON
         public async ValueTask<bool> hasObservers()
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "hasObservers" }
-                }
+                new object[] { new string[] { this.___guid, "hasObservers" } }
             );
         }
 
         public async ValueTask clear()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "clear" }
-                }
+                new object[] { new string[] { this.___guid, "clear" } }
             );
         }
 
@@ -287,20 +292,14 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Observable<T>>(
                 entity => new Observable<T>() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "clone" }
-                }
+                new object[] { new string[] { this.___guid, "clone" } }
             );
         }
 
         public async ValueTask<bool> hasSpecificMask(System.Nullable<decimal> mask = null)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "hasSpecificMask" }, mask
-                }
+                new object[] { new string[] { this.___guid, "hasSpecificMask" }, mask }
             );
         }
         #endregion

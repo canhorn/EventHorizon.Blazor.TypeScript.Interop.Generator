@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Server.Interop;
 
 public class Uint8ArrayConstructor : CachedEntity
 {
-    public Uint8ArrayConstructor()
-    {
-    }
+    public Uint8ArrayConstructor() { }
 
-    public Uint8ArrayConstructor(
-        ICachedEntity entity
-    )
+    public Uint8ArrayConstructor(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

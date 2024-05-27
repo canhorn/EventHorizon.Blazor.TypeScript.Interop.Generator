@@ -1,70 +1,46 @@
-namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers
+namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers;
+
+using System.Collections.Generic;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
+using FluentAssertions;
+using Moq;
+using Xunit;
+
+public class AliasTypeIdentifierCachedTests
 {
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
-    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
-    using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
-    using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
-    using FluentAssertions;
-    using Moq;
-    using Xunit;
-
-    public class AliasTypeIdentifierCachedTests
+    [Fact]
+    [Trait("Category", "Caching")]
+    public void ShouldOnlyReadFromASTOnceWhenCallingIdentifyAsSecondTime()
     {
-        [Fact]
-        [Trait("Category", "Caching")]
-        public async Task ShoudlOnlyReadFromASTOnceWhenCallingIdentifyAsSecondTime()
-        {
-            // Given
-            var expected = 1;
-            var identifierString = "identifier-string";
-            var mockNode = new NodeMock
-            {
-                IdentifierStr = identifierString,
-            };
+        // Given
+        var expected = 1;
+        var identifierString = "identifier-string";
+        var mockNode = new NodeMock { IdentifierStr = identifierString, };
 
-            var astMock = new Mock<AbstractSyntaxTree>();
-            var rootNodeMock = new Mock<Node>();
+        var astMock = new Mock<AbstractSyntaxTree>();
+        var rootNodeMock = new Mock<Node>();
 
-            astMock.Setup(
-                mock => mock.RootNode
-            ).Returns(
-                rootNodeMock.Object
-            );
+        astMock.Setup(mock => mock.RootNode).Returns(rootNodeMock.Object);
 
-            rootNodeMock.Setup(
-                mock => mock.OfKind(
-                    SyntaxKind.TypeAliasDeclaration
-                )
-            ).Returns(
-                new List<Node>
-                {
-                    mockNode
-                }
-            );
+        rootNodeMock
+            .Setup(mock => mock.OfKind(SyntaxKind.TypeAliasDeclaration))
+            .Returns(new List<Node> { mockNode });
 
-            // When
-            var alias = new AliasTypeIdentifierCached();
-            var actual = alias.Identify(
-                identifierString,
-                astMock.Object
-            );
-            actual.Should().BeTrue();
+        // When
+        var alias = new AliasTypeIdentifierCached();
+        var actual = alias.Identify(identifierString, astMock.Object);
+        actual.Should().BeTrue();
 
-            actual = alias.Identify(
-                identifierString,
-                astMock.Object
-            );
+        actual = alias.Identify(identifierString, astMock.Object);
 
-            // Then
-            actual.Should().BeTrue();
+        // Then
+        actual.Should().BeTrue();
 
-            rootNodeMock.Verify(
-                mock => mock.OfKind(
-                    SyntaxKind.TypeAliasDeclaration
-                ),
-                Times.Exactly(expected)
-            );
-        }
+        rootNodeMock.Verify(
+            mock => mock.OfKind(SyntaxKind.TypeAliasDeclaration),
+            Times.Exactly(expected)
+        );
     }
 }

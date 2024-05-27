@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<HemisphericLight>))]
     public class HemisphericLight : Light
     {
@@ -33,9 +31,10 @@ namespace BABYLON
 
         #region Properties
         private Color3 __groundColor;
+
         public async ValueTask<Color3> get_groundColor()
         {
-            if(__groundColor == null)
+            if (__groundColor == null)
             {
                 __groundColor = await EventHorizonBlazorInterop.GetClass<Color3>(
                     this.___guid,
@@ -48,20 +47,18 @@ namespace BABYLON
             }
             return __groundColor;
         }
+
         public ValueTask set_groundColor(Color3 value)
         {
-__groundColor = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "groundColor",
-                    value
-                );
+            __groundColor = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "groundColor", value);
         }
 
         private Vector3 __direction;
+
         public async ValueTask<Vector3> get_direction()
         {
-            if(__direction == null)
+            if (__direction == null)
             {
                 __direction = await EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
@@ -74,33 +71,32 @@ __groundColor = null;
             }
             return __direction;
         }
+
         public ValueTask set_direction(Vector3 value)
         {
-__direction = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "direction",
-                    value
-                );
+            __direction = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "direction", value);
         }
         #endregion
-        
-        #region Constructor
-        public HemisphericLight() : base() { }
 
-        public HemisphericLight(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        #region Constructor
+        public HemisphericLight()
+            : base() { }
+
+        public HemisphericLight(ICachedEntity entity)
+            : base(entity) { }
 
         public static async ValueTask<HemisphericLight> NewHemisphericLight(
-            string name, Vector3 direction, Scene scene
+            string name,
+            Vector3 direction,
+            Scene scene
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "HemisphericLight" },
-                name, direction, scene
+                name,
+                direction,
+                scene
             );
 
             return new HemisphericLight(entity);
@@ -111,10 +107,7 @@ __direction = null;
         public async ValueTask<string> getClassName()
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
@@ -122,10 +115,7 @@ __direction = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setDirectionToTarget" }, target
-                }
+                new object[] { new string[] { this.___guid, "setDirectionToTarget" }, target }
             );
         }
 
@@ -133,10 +123,7 @@ __direction = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<IShadowGeneratorCachedEntity>(
                 entity => new IShadowGeneratorCachedEntity() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getShadowGenerator" }
-                }
+                new object[] { new string[] { this.___guid, "getShadowGenerator" } }
             );
         }
 
@@ -144,20 +131,27 @@ __direction = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<HemisphericLight>(
                 entity => new HemisphericLight() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "transferToEffect" }, effect, lightIndex
+                    new string[] { this.___guid, "transferToEffect" },
+                    effect,
+                    lightIndex
                 }
             );
         }
 
-        public async ValueTask<HemisphericLight> transferToNodeMaterialEffect(Effect effect, string lightDataUniformName)
+        public async ValueTask<HemisphericLight> transferToNodeMaterialEffect(
+            Effect effect,
+            string lightDataUniformName
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<HemisphericLight>(
                 entity => new HemisphericLight() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "transferToNodeMaterialEffect" }, effect, lightDataUniformName
+                    new string[] { this.___guid, "transferToNodeMaterialEffect" },
+                    effect,
+                    lightDataUniformName
                 }
             );
         }
@@ -166,29 +160,25 @@ __direction = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "computeWorldMatrix" }
-                }
+                new object[] { new string[] { this.___guid, "computeWorldMatrix" } }
             );
         }
 
         public async ValueTask<decimal> getTypeID()
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getTypeID" }
-                }
+                new object[] { new string[] { this.___guid, "getTypeID" } }
             );
         }
 
         public async ValueTask prepareLightSpecificDefines(object defines, decimal lightIndex)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "prepareLightSpecificDefines" }, defines, lightIndex
+                    new string[] { this.___guid, "prepareLightSpecificDefines" },
+                    defines,
+                    lightIndex
                 }
             );
         }

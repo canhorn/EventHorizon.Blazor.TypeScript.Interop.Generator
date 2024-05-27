@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Animatable>))]
     public class Animatable : CachedEntityObject
     {
@@ -29,9 +27,10 @@ namespace BABYLON
 
         #region Accessors
         private Animatable __syncRoot;
+
         public async ValueTask<Animatable> get_syncRoot()
         {
-            if(__syncRoot == null)
+            if (__syncRoot == null)
             {
                 __syncRoot = await EventHorizonBlazorInterop.GetClass<Animatable>(
                     this.___guid,
@@ -45,189 +44,120 @@ namespace BABYLON
             return __syncRoot;
         }
 
-        
         public async ValueTask<decimal> get_masterFrame()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "masterFrame"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "masterFrame");
         }
 
-        
         public async ValueTask<decimal> get_weight()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "weight"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "weight");
         }
+
         public ValueTask set_weight(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "weight",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "weight", value);
         }
 
-        
         public async ValueTask<decimal> get_speedRatio()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "speedRatio"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "speedRatio");
         }
+
         public ValueTask set_speedRatio(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "speedRatio",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "speedRatio", value);
         }
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<CachedEntity> get_target()
         {
             return await EventHorizonBlazorInterop.GetClass<CachedEntity>(
-                    this.___guid,
-                    "target",
-                    (entity) =>
-                    {
-                        return new CachedEntity() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "target",
+                (entity) =>
+                {
+                    return new CachedEntity() { ___guid = entity.___guid };
+                }
+            );
         }
+
         public ValueTask set_target(CachedEntity value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "target",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "target", value);
         }
 
-        
         public async ValueTask<decimal> get_fromFrame()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "fromFrame"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "fromFrame");
         }
+
         public ValueTask set_fromFrame(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "fromFrame",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "fromFrame", value);
         }
 
-        
         public async ValueTask<decimal> get_toFrame()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "toFrame"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "toFrame");
         }
+
         public ValueTask set_toFrame(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "toFrame",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "toFrame", value);
         }
 
-        
         public async ValueTask<bool> get_loopAnimation()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "loopAnimation"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "loopAnimation");
         }
+
         public ValueTask set_loopAnimation(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "loopAnimation",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "loopAnimation", value);
         }
 
-        
         public async ValueTask<bool> get_isAdditive()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isAdditive"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "isAdditive");
         }
+
         public ValueTask set_isAdditive(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isAdditive",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "isAdditive", value);
         }
 
-        
         public async ValueTask<bool> get_disposeOnEnd()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "disposeOnEnd"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "disposeOnEnd");
         }
+
         public ValueTask set_disposeOnEnd(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "disposeOnEnd",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "disposeOnEnd", value);
         }
 
-        
         public async ValueTask<bool> get_animationStarted()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "animationStarted"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "animationStarted");
         }
+
         public ValueTask set_animationStarted(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "animationStarted",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "animationStarted", value);
         }
 
         private Observable<Animatable> __onAnimationEndObservable;
+
         public async ValueTask<Observable<Animatable>> get_onAnimationEndObservable()
         {
-            if(__onAnimationEndObservable == null)
+            if (__onAnimationEndObservable == null)
             {
-                __onAnimationEndObservable = await EventHorizonBlazorInterop.GetClass<Observable<Animatable>>(
+                __onAnimationEndObservable = await EventHorizonBlazorInterop.GetClass<
+                    Observable<Animatable>
+                >(
                     this.___guid,
                     "onAnimationEndObservable",
                     (entity) =>
@@ -238,22 +168,22 @@ namespace BABYLON
             }
             return __onAnimationEndObservable;
         }
+
         public ValueTask set_onAnimationEndObservable(Observable<Animatable> value)
         {
-__onAnimationEndObservable = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onAnimationEndObservable",
-                    value
-                );
+            __onAnimationEndObservable = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "onAnimationEndObservable", value);
         }
 
         private Observable<Animatable> __onAnimationLoopObservable;
+
         public async ValueTask<Observable<Animatable>> get_onAnimationLoopObservable()
         {
-            if(__onAnimationLoopObservable == null)
+            if (__onAnimationLoopObservable == null)
             {
-                __onAnimationLoopObservable = await EventHorizonBlazorInterop.GetClass<Observable<Animatable>>(
+                __onAnimationLoopObservable = await EventHorizonBlazorInterop.GetClass<
+                    Observable<Animatable>
+                >(
                     this.___guid,
                     "onAnimationLoopObservable",
                     (entity) =>
@@ -264,34 +194,49 @@ __onAnimationEndObservable = null;
             }
             return __onAnimationLoopObservable;
         }
+
         public ValueTask set_onAnimationLoopObservable(Observable<Animatable> value)
         {
-__onAnimationLoopObservable = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onAnimationLoopObservable",
-                    value
-                );
+            __onAnimationLoopObservable = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "onAnimationLoopObservable", value);
         }
         #endregion
-        
-        #region Constructor
-        public Animatable() : base() { } 
 
-        public Animatable(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public Animatable()
+            : base() { }
+
+        public Animatable(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
         public static async ValueTask<Animatable> NewAnimatable(
-            Scene scene, object target, System.Nullable<decimal> fromFrame = null, System.Nullable<decimal> toFrame = null, System.Nullable<bool> loopAnimation = null, System.Nullable<decimal> speedRatio = null, ActionResultCallback<ActionCallback> onAnimationEnd = null, Animation[] animations = null, ActionResultCallback<ActionCallback> onAnimationLoop = null, System.Nullable<bool> isAdditive = null
+            Scene scene,
+            object target,
+            System.Nullable<decimal> fromFrame = null,
+            System.Nullable<decimal> toFrame = null,
+            System.Nullable<bool> loopAnimation = null,
+            System.Nullable<decimal> speedRatio = null,
+            ActionResultCallback<ActionCallback> onAnimationEnd = null,
+            Animation[] animations = null,
+            ActionResultCallback<ActionCallback> onAnimationLoop = null,
+            System.Nullable<bool> isAdditive = null
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Animatable" },
-                scene, target, fromFrame, toFrame, loopAnimation, speedRatio, onAnimationEnd, animations, onAnimationLoop, isAdditive
+                scene,
+                target,
+                fromFrame,
+                toFrame,
+                loopAnimation,
+                speedRatio,
+                onAnimationEnd,
+                animations,
+                onAnimationLoop,
+                isAdditive
             );
 
             return new Animatable(entity);
@@ -301,19 +246,15 @@ __onAnimationLoopObservable = null;
         #region Methods
         #region onAnimationEnd TODO: Get Comments as metadata identification
         private bool _isOnAnimationEndEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _onAnimationEndActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _onAnimationEndActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public async ValueTask<string> onAnimationEnd(
-            Func<Task> callback
-        )
+        public async ValueTask<string> onAnimationEnd(Func<Task> callback)
         {
             await SetupOnAnimationEndLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _onAnimationEndActionMap.Add(
-                handle,
-                callback
-            );
+            _onAnimationEndActionMap.Add(handle, callback);
 
             return handle;
         }
@@ -345,19 +286,15 @@ __onAnimationLoopObservable = null;
 
         #region onAnimationLoop TODO: Get Comments as metadata identification
         private bool _isOnAnimationLoopEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _onAnimationLoopActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _onAnimationLoopActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public async ValueTask<string> onAnimationLoop(
-            Func<Task> callback
-        )
+        public async ValueTask<string> onAnimationLoop(Func<Task> callback)
         {
             await SetupOnAnimationLoopLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _onAnimationLoopActionMap.Add(
-                handle,
-                callback
-            );
+            _onAnimationLoopActionMap.Add(handle, callback);
 
             return handle;
         }
@@ -391,10 +328,7 @@ __onAnimationLoopObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Animatable>(
                 entity => new Animatable() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "syncWith" }, root
-                }
+                new object[] { new string[] { this.___guid, "syncWith" }, root }
             );
         }
 
@@ -402,19 +336,18 @@ __onAnimationLoopObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncArrayClass<RuntimeAnimation>(
                 entity => new RuntimeAnimation() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getAnimations" }
-                }
+                new object[] { new string[] { this.___guid, "getAnimations" } }
             );
         }
 
         public async ValueTask appendAnimations(object target, Animation[] animations)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "appendAnimations" }, target, animations
+                    new string[] { this.___guid, "appendAnimations" },
+                    target,
+                    animations
                 }
             );
         }
@@ -423,20 +356,24 @@ __onAnimationLoopObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Animation>(
                 entity => new Animation() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "getAnimationByTargetProperty" }, property
+                    new string[] { this.___guid, "getAnimationByTargetProperty" },
+                    property
                 }
             );
         }
 
-        public async ValueTask<RuntimeAnimation> getRuntimeAnimationByTargetProperty(string property)
+        public async ValueTask<RuntimeAnimation> getRuntimeAnimationByTargetProperty(
+            string property
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<RuntimeAnimation>(
                 entity => new RuntimeAnimation() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "getRuntimeAnimationByTargetProperty" }, property
+                    new string[] { this.___guid, "getRuntimeAnimationByTargetProperty" },
+                    property
                 }
             );
         }
@@ -444,70 +381,52 @@ __onAnimationLoopObservable = null;
         public async ValueTask reset()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "reset" }
-                }
+                new object[] { new string[] { this.___guid, "reset" } }
             );
         }
 
         public async ValueTask enableBlending(decimal blendingSpeed)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "enableBlending" }, blendingSpeed
-                }
+                new object[] { new string[] { this.___guid, "enableBlending" }, blendingSpeed }
             );
         }
 
         public async ValueTask disableBlending()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "disableBlending" }
-                }
+                new object[] { new string[] { this.___guid, "disableBlending" } }
             );
         }
 
         public async ValueTask goToFrame(decimal frame)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "goToFrame" }, frame
-                }
+                new object[] { new string[] { this.___guid, "goToFrame" }, frame }
             );
         }
 
         public async ValueTask pause()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "pause" }
-                }
+                new object[] { new string[] { this.___guid, "pause" } }
             );
         }
 
         public async ValueTask restart()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "restart" }
-                }
+                new object[] { new string[] { this.___guid, "restart" } }
             );
         }
 
-        public async ValueTask stop(string animationName = null, ActionResultCallback<object, bool> targetMask = null)
+        public async ValueTask stop(
+            string animationName = null,
+            ActionResultCallback<object, bool> targetMask = null
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "stop" }, animationName, targetMask
-                }
+                new object[] { new string[] { this.___guid, "stop" }, animationName, targetMask }
             );
         }
 
@@ -515,10 +434,7 @@ __onAnimationLoopObservable = null;
         {
             return await EventHorizonBlazorInterop.TaskClass<Animatable>(
                 entity => new Animatable() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "waitAsync" }
-                }
+                new object[] { new string[] { this.___guid, "waitAsync" } }
             );
         }
         #endregion

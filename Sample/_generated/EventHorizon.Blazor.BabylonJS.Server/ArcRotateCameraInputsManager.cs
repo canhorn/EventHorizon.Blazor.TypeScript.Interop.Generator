@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<ArcRotateCameraInputsManager>))]
     public class ArcRotateCameraInputsManager : CameraInputsManager<ArcRotateCamera>
     {
@@ -34,15 +32,13 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
-        #region Constructor
-        public ArcRotateCameraInputsManager() : base() { }
 
-        public ArcRotateCameraInputsManager(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        #region Constructor
+        public ArcRotateCameraInputsManager()
+            : base() { }
+
+        public ArcRotateCameraInputsManager(ICachedEntity entity)
+            : base(entity) { }
 
         public static async ValueTask<ArcRotateCameraInputsManager> NewArcRotateCameraInputsManager(
             ArcRotateCamera camera
@@ -62,10 +58,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<ArcRotateCameraInputsManager>(
                 entity => new ArcRotateCameraInputsManager() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "addMouseWheel" }
-                }
+                new object[] { new string[] { this.___guid, "addMouseWheel" } }
             );
         }
 
@@ -73,10 +66,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<ArcRotateCameraInputsManager>(
                 entity => new ArcRotateCameraInputsManager() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "addPointers" }
-                }
+                new object[] { new string[] { this.___guid, "addPointers" } }
             );
         }
 
@@ -84,10 +74,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<ArcRotateCameraInputsManager>(
                 entity => new ArcRotateCameraInputsManager() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "addKeyboard" }
-                }
+                new object[] { new string[] { this.___guid, "addKeyboard" } }
             );
         }
         #endregion

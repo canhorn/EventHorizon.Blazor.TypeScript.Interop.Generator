@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Texture>))]
     public class Texture : BaseTexture
     {
@@ -20,647 +18,520 @@ namespace BABYLON
         #endregion
 
         #region Static Properties
-        
+
         public static async ValueTask<bool> get_SerializeBuffers()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    "BABYLON",
-                    "Texture.SerializeBuffers"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>("BABYLON", "Texture.SerializeBuffers");
         }
+
         public static ValueTask set_SerializeBuffers(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    "BABYLON",
-                    "Texture.SerializeBuffers",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set("BABYLON", "Texture.SerializeBuffers", value);
         }
 
-        
         public static async ValueTask<bool> get_ForceSerializeBuffers()
         {
             return await EventHorizonBlazorInterop.Get<bool>(
-                    "BABYLON",
-                    "Texture.ForceSerializeBuffers"
-                );
+                "BABYLON",
+                "Texture.ForceSerializeBuffers"
+            );
         }
+
         public static ValueTask set_ForceSerializeBuffers(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    "BABYLON",
-                    "Texture.ForceSerializeBuffers",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set("BABYLON", "Texture.ForceSerializeBuffers", value);
         }
 
-        
         public static async ValueTask<decimal> get_NEAREST_SAMPLINGMODE()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.NEAREST_SAMPLINGMODE"
-                );
+                "BABYLON",
+                "Texture.NEAREST_SAMPLINGMODE"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_NEAREST_NEAREST_MIPLINEAR()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.NEAREST_NEAREST_MIPLINEAR"
-                );
+                "BABYLON",
+                "Texture.NEAREST_NEAREST_MIPLINEAR"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_BILINEAR_SAMPLINGMODE()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.BILINEAR_SAMPLINGMODE"
-                );
+                "BABYLON",
+                "Texture.BILINEAR_SAMPLINGMODE"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_LINEAR_LINEAR_MIPNEAREST()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.LINEAR_LINEAR_MIPNEAREST"
-                );
+                "BABYLON",
+                "Texture.LINEAR_LINEAR_MIPNEAREST"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_TRILINEAR_SAMPLINGMODE()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.TRILINEAR_SAMPLINGMODE"
-                );
+                "BABYLON",
+                "Texture.TRILINEAR_SAMPLINGMODE"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_LINEAR_LINEAR_MIPLINEAR()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.LINEAR_LINEAR_MIPLINEAR"
-                );
+                "BABYLON",
+                "Texture.LINEAR_LINEAR_MIPLINEAR"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_NEAREST_NEAREST_MIPNEAREST()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.NEAREST_NEAREST_MIPNEAREST"
-                );
+                "BABYLON",
+                "Texture.NEAREST_NEAREST_MIPNEAREST"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_NEAREST_LINEAR_MIPNEAREST()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.NEAREST_LINEAR_MIPNEAREST"
-                );
+                "BABYLON",
+                "Texture.NEAREST_LINEAR_MIPNEAREST"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_NEAREST_LINEAR_MIPLINEAR()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.NEAREST_LINEAR_MIPLINEAR"
-                );
+                "BABYLON",
+                "Texture.NEAREST_LINEAR_MIPLINEAR"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_NEAREST_LINEAR()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.NEAREST_LINEAR"
-                );
+                "BABYLON",
+                "Texture.NEAREST_LINEAR"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_NEAREST_NEAREST()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.NEAREST_NEAREST"
-                );
+                "BABYLON",
+                "Texture.NEAREST_NEAREST"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_LINEAR_NEAREST_MIPNEAREST()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.LINEAR_NEAREST_MIPNEAREST"
-                );
+                "BABYLON",
+                "Texture.LINEAR_NEAREST_MIPNEAREST"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_LINEAR_NEAREST_MIPLINEAR()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.LINEAR_NEAREST_MIPLINEAR"
-                );
+                "BABYLON",
+                "Texture.LINEAR_NEAREST_MIPLINEAR"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_LINEAR_LINEAR()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.LINEAR_LINEAR"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>("BABYLON", "Texture.LINEAR_LINEAR");
         }
 
-        
         public static async ValueTask<decimal> get_LINEAR_NEAREST()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.LINEAR_NEAREST"
-                );
+                "BABYLON",
+                "Texture.LINEAR_NEAREST"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_EXPLICIT_MODE()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.EXPLICIT_MODE"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>("BABYLON", "Texture.EXPLICIT_MODE");
         }
 
-        
         public static async ValueTask<decimal> get_SPHERICAL_MODE()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.SPHERICAL_MODE"
-                );
+                "BABYLON",
+                "Texture.SPHERICAL_MODE"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_PLANAR_MODE()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.PLANAR_MODE"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>("BABYLON", "Texture.PLANAR_MODE");
         }
 
-        
         public static async ValueTask<decimal> get_CUBIC_MODE()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.CUBIC_MODE"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>("BABYLON", "Texture.CUBIC_MODE");
         }
 
-        
         public static async ValueTask<decimal> get_PROJECTION_MODE()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.PROJECTION_MODE"
-                );
+                "BABYLON",
+                "Texture.PROJECTION_MODE"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_SKYBOX_MODE()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.SKYBOX_MODE"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>("BABYLON", "Texture.SKYBOX_MODE");
         }
 
-        
         public static async ValueTask<decimal> get_INVCUBIC_MODE()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.INVCUBIC_MODE"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>("BABYLON", "Texture.INVCUBIC_MODE");
         }
 
-        
         public static async ValueTask<decimal> get_EQUIRECTANGULAR_MODE()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.EQUIRECTANGULAR_MODE"
-                );
+                "BABYLON",
+                "Texture.EQUIRECTANGULAR_MODE"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_FIXED_EQUIRECTANGULAR_MODE()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.FIXED_EQUIRECTANGULAR_MODE"
-                );
+                "BABYLON",
+                "Texture.FIXED_EQUIRECTANGULAR_MODE"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_FIXED_EQUIRECTANGULAR_MIRRORED_MODE()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.FIXED_EQUIRECTANGULAR_MIRRORED_MODE"
-                );
+                "BABYLON",
+                "Texture.FIXED_EQUIRECTANGULAR_MIRRORED_MODE"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_CLAMP_ADDRESSMODE()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.CLAMP_ADDRESSMODE"
-                );
+                "BABYLON",
+                "Texture.CLAMP_ADDRESSMODE"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_WRAP_ADDRESSMODE()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.WRAP_ADDRESSMODE"
-                );
+                "BABYLON",
+                "Texture.WRAP_ADDRESSMODE"
+            );
         }
 
-        
         public static async ValueTask<decimal> get_MIRROR_ADDRESSMODE()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "Texture.MIRROR_ADDRESSMODE"
-                );
+                "BABYLON",
+                "Texture.MIRROR_ADDRESSMODE"
+            );
         }
 
-        
         public static async ValueTask<bool> get_UseSerializedUrlIfAny()
         {
             return await EventHorizonBlazorInterop.Get<bool>(
-                    "BABYLON",
-                    "Texture.UseSerializedUrlIfAny"
-                );
+                "BABYLON",
+                "Texture.UseSerializedUrlIfAny"
+            );
         }
+
         public static ValueTask set_UseSerializedUrlIfAny(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    "BABYLON",
-                    "Texture.UseSerializedUrlIfAny",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set("BABYLON", "Texture.UseSerializedUrlIfAny", value);
         }
         #endregion
 
         #region Static Methods
-        public static async ValueTask<BaseTexture> Parse(object parsedTexture, Scene scene, string rootUrl)
+        public static async ValueTask<BaseTexture> Parse(
+            object parsedTexture,
+            Scene scene,
+            string rootUrl
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<BaseTexture>(
                 entity => new BaseTexture() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Texture", "Parse" }, parsedTexture, scene, rootUrl
+                    new string[] { "BABYLON", "Texture", "Parse" },
+                    parsedTexture,
+                    scene,
+                    rootUrl
                 }
             );
         }
 
-        public static async ValueTask<Texture> CreateFromBase64String(string data, string name, Scene scene, System.Nullable<bool> noMipmap = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, ActionCallback onLoad = null, ActionCallback onError = null, System.Nullable<decimal> format = null)
+        public static async ValueTask<Texture> CreateFromBase64String(
+            string data,
+            string name,
+            Scene scene,
+            System.Nullable<bool> noMipmap = null,
+            System.Nullable<bool> invertY = null,
+            System.Nullable<decimal> samplingMode = null,
+            ActionCallback onLoad = null,
+            ActionCallback onError = null,
+            System.Nullable<decimal> format = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Texture>(
                 entity => new Texture() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Texture", "CreateFromBase64String" }, data, name, scene, noMipmap, invertY, samplingMode, onLoad, onError, format
+                    new string[] { "BABYLON", "Texture", "CreateFromBase64String" },
+                    data,
+                    name,
+                    scene,
+                    noMipmap,
+                    invertY,
+                    samplingMode,
+                    onLoad,
+                    onError,
+                    format
                 }
             );
         }
 
-        public static async ValueTask<Texture> LoadFromDataString(string name, object buffer, Scene scene, System.Nullable<bool> deleteBuffer = null, System.Nullable<bool> noMipmap = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, ActionCallback onLoad = null, ActionCallback<string, CachedEntity> onError = null, System.Nullable<decimal> format = null)
+        public static async ValueTask<Texture> LoadFromDataString(
+            string name,
+            object buffer,
+            Scene scene,
+            System.Nullable<bool> deleteBuffer = null,
+            System.Nullable<bool> noMipmap = null,
+            System.Nullable<bool> invertY = null,
+            System.Nullable<decimal> samplingMode = null,
+            ActionCallback onLoad = null,
+            ActionCallback<string, CachedEntity> onError = null,
+            System.Nullable<decimal> format = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Texture>(
                 entity => new Texture() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "Texture", "LoadFromDataString" }, name, buffer, scene, deleteBuffer, noMipmap, invertY, samplingMode, onLoad, onError, format
+                    new string[] { "BABYLON", "Texture", "LoadFromDataString" },
+                    name,
+                    buffer,
+                    scene,
+                    deleteBuffer,
+                    noMipmap,
+                    invertY,
+                    samplingMode,
+                    onLoad,
+                    onError,
+                    format
                 }
             );
         }
         #endregion
 
         #region Accessors
-        
+
         public async ValueTask<bool> get_noMipmap()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "noMipmap"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "noMipmap");
         }
 
-        
         public async ValueTask<string> get_mimeType()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "mimeType"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "mimeType");
         }
 
-        
         public async ValueTask<bool> get_isBlocking()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isBlocking"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "isBlocking");
         }
+
         public ValueTask set_isBlocking(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isBlocking",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "isBlocking", value);
         }
 
-        
         public async ValueTask<decimal> get_samplingMode()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "samplingMode"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "samplingMode");
         }
 
-        
         public async ValueTask<bool> get_invertY()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "invertY"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "invertY");
         }
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<string> get_url()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "url"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "url");
         }
+
         public ValueTask set_url(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "url",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "url", value);
         }
 
-        
         public async ValueTask<decimal> get_uOffset()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "uOffset"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "uOffset");
         }
+
         public ValueTask set_uOffset(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "uOffset",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "uOffset", value);
         }
 
-        
         public async ValueTask<decimal> get_vOffset()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "vOffset"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "vOffset");
         }
+
         public ValueTask set_vOffset(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "vOffset",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "vOffset", value);
         }
 
-        
         public async ValueTask<decimal> get_uScale()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "uScale"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "uScale");
         }
+
         public ValueTask set_uScale(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "uScale",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "uScale", value);
         }
 
-        
         public async ValueTask<decimal> get_vScale()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "vScale"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "vScale");
         }
+
         public ValueTask set_vScale(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "vScale",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "vScale", value);
         }
 
-        
         public async ValueTask<decimal> get_uAng()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "uAng"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "uAng");
         }
+
         public ValueTask set_uAng(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "uAng",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "uAng", value);
         }
 
-        
         public async ValueTask<decimal> get_vAng()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "vAng"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "vAng");
         }
+
         public ValueTask set_vAng(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "vAng",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "vAng", value);
         }
 
-        
         public async ValueTask<decimal> get_wAng()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "wAng"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "wAng");
         }
+
         public ValueTask set_wAng(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "wAng",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "wAng", value);
         }
 
-        
         public async ValueTask<decimal> get_uRotationCenter()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "uRotationCenter"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "uRotationCenter");
         }
+
         public ValueTask set_uRotationCenter(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "uRotationCenter",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "uRotationCenter", value);
         }
 
-        
         public async ValueTask<decimal> get_vRotationCenter()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "vRotationCenter"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "vRotationCenter");
         }
+
         public ValueTask set_vRotationCenter(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "vRotationCenter",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "vRotationCenter", value);
         }
 
-        
         public async ValueTask<decimal> get_wRotationCenter()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "wRotationCenter"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "wRotationCenter");
         }
+
         public ValueTask set_wRotationCenter(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "wRotationCenter",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "wRotationCenter", value);
         }
 
-        
         public async ValueTask<bool> get_homogeneousRotationInUVTransform()
         {
             return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "homogeneousRotationInUVTransform"
-                );
+                this.___guid,
+                "homogeneousRotationInUVTransform"
+            );
         }
+
         public ValueTask set_homogeneousRotationInUVTransform(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "homogeneousRotationInUVTransform",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(
+                this.___guid,
+                "homogeneousRotationInUVTransform",
+                value
+            );
         }
 
-        
         public async ValueTask<IInspectableCachedEntity[]> get_inspectableCustomProperties()
         {
             return await EventHorizonBlazorInterop.GetArrayClass<IInspectableCachedEntity>(
-                    this.___guid,
-                    "inspectableCustomProperties",
-                    (entity) =>
-                    {
-                        return new IInspectableCachedEntity() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "inspectableCustomProperties",
+                (entity) =>
+                {
+                    return new IInspectableCachedEntity() { ___guid = entity.___guid };
+                }
+            );
         }
+
         public ValueTask set_inspectableCustomProperties(IInspectableCachedEntity[] value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "inspectableCustomProperties",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(
+                this.___guid,
+                "inspectableCustomProperties",
+                value
+            );
         }
 
         private Observable<Texture> __onLoadObservable;
+
         public async ValueTask<Observable<Texture>> get_onLoadObservable()
         {
-            if(__onLoadObservable == null)
+            if (__onLoadObservable == null)
             {
                 __onLoadObservable = await EventHorizonBlazorInterop.GetClass<Observable<Texture>>(
                     this.___guid,
@@ -673,33 +544,50 @@ namespace BABYLON
             }
             return __onLoadObservable;
         }
+
         public ValueTask set_onLoadObservable(Observable<Texture> value)
         {
-__onLoadObservable = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onLoadObservable",
-                    value
-                );
+            __onLoadObservable = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "onLoadObservable", value);
         }
         #endregion
-        
-        #region Constructor
-        public Texture() : base() { }
 
-        public Texture(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        #region Constructor
+        public Texture()
+            : base() { }
+
+        public Texture(ICachedEntity entity)
+            : base(entity) { }
 
         public static async ValueTask<Texture> NewTexture(
-            Scene sceneOrEngine, string url = null, System.Nullable<bool> noMipmap = null, System.Nullable<bool> invertY = null, System.Nullable<decimal> samplingMode = null, ActionCallback onLoad = null, ActionCallback<string, CachedEntity> onError = null, string buffer = null, System.Nullable<bool> deleteBuffer = null, System.Nullable<decimal> format = null, string mimeType = null, object loaderOptions = null
+            Scene sceneOrEngine,
+            string url = null,
+            System.Nullable<bool> noMipmap = null,
+            System.Nullable<bool> invertY = null,
+            System.Nullable<decimal> samplingMode = null,
+            ActionCallback onLoad = null,
+            ActionCallback<string, CachedEntity> onError = null,
+            string buffer = null,
+            System.Nullable<bool> deleteBuffer = null,
+            System.Nullable<decimal> format = null,
+            string mimeType = null,
+            object loaderOptions = null
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Texture" },
-                url, sceneOrEngine, noMipmap, invertY, samplingMode, onLoad, onError, buffer, deleteBuffer, format, mimeType, loaderOptions
+                url,
+                sceneOrEngine,
+                noMipmap,
+                invertY,
+                samplingMode,
+                onLoad,
+                onError,
+                buffer,
+                deleteBuffer,
+                format,
+                mimeType,
+                loaderOptions
             );
 
             return new Texture(entity);
@@ -707,32 +595,31 @@ __onLoadObservable = null;
         #endregion
 
         #region Methods
-        public async ValueTask updateURL(string url, string buffer = null, ActionCallback onLoad = null)
+        public async ValueTask updateURL(
+            string url,
+            string buffer = null,
+            ActionCallback onLoad = null
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "updateURL" }, url, buffer, onLoad
-                }
+                new object[] { new string[] { this.___guid, "updateURL" }, url, buffer, onLoad }
             );
         }
 
         public async ValueTask delayLoad()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "delayLoad" }
-                }
+                new object[] { new string[] { this.___guid, "delayLoad" } }
             );
         }
 
         public async ValueTask<bool> checkTransformsAreIdentical(Texture texture)
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "checkTransformsAreIdentical" }, texture
+                    new string[] { this.___guid, "checkTransformsAreIdentical" },
+                    texture
                 }
             );
         }
@@ -741,10 +628,7 @@ __onLoadObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getTextureMatrix" }, uBase
-                }
+                new object[] { new string[] { this.___guid, "getTextureMatrix" }, uBase }
             );
         }
 
@@ -752,10 +636,7 @@ __onLoadObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getReflectionTextureMatrix" }
-                }
+                new object[] { new string[] { this.___guid, "getReflectionTextureMatrix" } }
             );
         }
 
@@ -763,40 +644,28 @@ __onLoadObservable = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Texture>(
                 entity => new Texture() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "clone" }
-                }
+                new object[] { new string[] { this.___guid, "clone" } }
             );
         }
 
         public async ValueTask<CachedEntity> serialize()
         {
             return await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "serialize" }
-                }
+                new object[] { new string[] { this.___guid, "serialize" } }
             );
         }
 
         public async ValueTask<string> getClassName()
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
         public async ValueTask dispose()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
         #endregion

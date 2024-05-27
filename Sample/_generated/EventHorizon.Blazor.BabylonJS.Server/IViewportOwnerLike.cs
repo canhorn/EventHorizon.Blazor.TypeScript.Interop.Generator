@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IViewportOwnerLike : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IViewportOwnerLikeCachedEntity>))]
     public class IViewportOwnerLikeCachedEntity : CachedEntityObject, IViewportOwnerLike
     {
@@ -33,9 +33,10 @@ namespace BABYLON
 
         #region Properties
         private IViewportLikeCachedEntity __viewport;
+
         public async ValueTask<IViewportLikeCachedEntity> get_viewport()
         {
-            if(__viewport == null)
+            if (__viewport == null)
             {
                 __viewport = await EventHorizonBlazorInterop.GetClass<IViewportLikeCachedEntity>(
                     this.___guid,
@@ -48,26 +49,20 @@ namespace BABYLON
             }
             return __viewport;
         }
+
         public ValueTask set_viewport(IViewportLikeCachedEntity value)
         {
-__viewport = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "viewport",
-                    value
-                );
+            __viewport = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "viewport", value);
         }
         #endregion
-        
+
         #region Constructor
-        public IViewportOwnerLikeCachedEntity() : base() { }
+        public IViewportOwnerLikeCachedEntity()
+            : base() { }
 
-        public IViewportOwnerLikeCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IViewportOwnerLikeCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

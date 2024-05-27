@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<ReadFileError>))]
     public class ReadFileError : BaseError
     {
@@ -33,9 +31,10 @@ namespace BABYLON
 
         #region Properties
         private File __file;
+
         public async ValueTask<File> get_file()
         {
-            if(__file == null)
+            if (__file == null)
             {
                 __file = await EventHorizonBlazorInterop.GetClass<File>(
                     this.___guid,
@@ -48,33 +47,27 @@ namespace BABYLON
             }
             return __file;
         }
+
         public ValueTask set_file(File value)
         {
-__file = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "file",
-                    value
-                );
+            __file = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "file", value);
         }
         #endregion
-        
+
         #region Constructor
-        public ReadFileError() : base() { }
+        public ReadFileError()
+            : base() { }
 
-        public ReadFileError(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public ReadFileError(ICachedEntity entity)
+            : base(entity) { }
 
-        public static async ValueTask<ReadFileError> NewReadFileError(
-            string message, File file
-        )
+        public static async ValueTask<ReadFileError> NewReadFileError(string message, File file)
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "ReadFileError" },
-                message, file
+                message,
+                file
             );
 
             return new ReadFileError(entity);

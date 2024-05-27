@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<BouncingBehavior>))]
     public class BouncingBehavior : CachedEntityObject, Behavior<ArcRotateCamera>
     {
@@ -21,9 +19,10 @@ namespace BABYLON
 
         #region Static Properties
         private static BackEase __EasingFunction;
+
         public static async ValueTask<BackEase> get_EasingFunction()
         {
-            if(__EasingFunction == null)
+            if (__EasingFunction == null)
             {
                 __EasingFunction = await EventHorizonBlazorInterop.GetClass<BackEase>(
                     "BABYLON",
@@ -36,32 +35,28 @@ namespace BABYLON
             }
             return __EasingFunction;
         }
+
         public static ValueTask set_EasingFunction(BackEase value)
         {
-__EasingFunction = null;
-                return EventHorizonBlazorInterop.Set(
-                    "BABYLON",
-                    "BouncingBehavior.EasingFunction",
-                    value
-                );
+            __EasingFunction = null;
+            return EventHorizonBlazorInterop.Set(
+                "BABYLON",
+                "BouncingBehavior.EasingFunction",
+                value
+            );
         }
 
-        
         public static async ValueTask<decimal> get_EasingMode()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    "BABYLON",
-                    "BouncingBehavior.EasingMode"
-                );
+                "BABYLON",
+                "BouncingBehavior.EasingMode"
+            );
         }
+
         public static ValueTask set_EasingMode(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    "BABYLON",
-                    "BouncingBehavior.EasingMode",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set("BABYLON", "BouncingBehavior.EasingMode", value);
         }
         #endregion
 
@@ -70,99 +65,68 @@ __EasingFunction = null;
         #endregion
 
         #region Accessors
-        
+
         public async ValueTask<string> get_name()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "name"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "name");
         }
 
-        
         public async ValueTask<bool> get_autoTransitionRange()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "autoTransitionRange"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "autoTransitionRange");
         }
+
         public ValueTask set_autoTransitionRange(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "autoTransitionRange",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "autoTransitionRange", value);
         }
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<decimal> get_transitionDuration()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "transitionDuration"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "transitionDuration");
         }
+
         public ValueTask set_transitionDuration(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "transitionDuration",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "transitionDuration", value);
         }
 
-        
         public async ValueTask<decimal> get_lowerRadiusTransitionRange()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "lowerRadiusTransitionRange"
-                );
+                this.___guid,
+                "lowerRadiusTransitionRange"
+            );
         }
+
         public ValueTask set_lowerRadiusTransitionRange(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "lowerRadiusTransitionRange",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "lowerRadiusTransitionRange", value);
         }
 
-        
         public async ValueTask<decimal> get_upperRadiusTransitionRange()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "upperRadiusTransitionRange"
-                );
+                this.___guid,
+                "upperRadiusTransitionRange"
+            );
         }
+
         public ValueTask set_upperRadiusTransitionRange(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "upperRadiusTransitionRange",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "upperRadiusTransitionRange", value);
         }
         #endregion
-        
+
         #region Constructor
-        public BouncingBehavior() : base() { }
+        public BouncingBehavior()
+            : base() { }
 
-        public BouncingBehavior(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public BouncingBehavior(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -170,40 +134,28 @@ __EasingFunction = null;
         public async ValueTask init()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "init" }
-                }
+                new object[] { new string[] { this.___guid, "init" } }
             );
         }
 
         public async ValueTask attach(ArcRotateCamera camera)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "attach" }, camera
-                }
+                new object[] { new string[] { this.___guid, "attach" }, camera }
             );
         }
 
         public async ValueTask detach()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "detach" }
-                }
+                new object[] { new string[] { this.___guid, "detach" } }
             );
         }
 
         public async ValueTask stopAllAnimations()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "stopAllAnimations" }
-                }
+                new object[] { new string[] { this.___guid, "stopAllAnimations" } }
             );
         }
         #endregion

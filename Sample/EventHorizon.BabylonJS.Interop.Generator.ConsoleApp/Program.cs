@@ -1,149 +1,123 @@
-namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp
+namespace EventHorizon.Blazor.TypeScript.Interop.Generator.ConsoleApp;
+
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
+using ServerGenerator = Blazor.Interop.Generator.GenerateInteropSource;
+using ServerProjectWriter = Blazor.Interop.Generator.Writers.Project.ServerProjectWriter;
+using WasmGenerator = GenerateSource;
+using WasmProjectWriter = Writers.Project.ProjectWriter;
+
+public class Program
 {
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.IO;
-    using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
-    using EventHorizon.Blazor.TypeScript.Interop.Generator.Logging;
-
-    using ServerGenerator = Blazor.Interop.Generator.GenerateInteropSource;
-    using ServerProjectWriter = Blazor.Interop.Generator.Writers.Project.ServerProjectWriter;
-    using WasmGenerator = GenerateSource;
-    using WasmProjectWriter = Writers.Project.ProjectWriter;
-
-    public class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        // pre-05/26/2024 - 75084ms/71877ms to generate.
+        // 05/26/2024 - 26662ms/27904ms/27486ms to generate.
+        Run(AstParser.Model.ASTParserType.NodeJS, true, "EventHorizon.Blazor.BabylonJS.NodeJS");
+
+        // pre-05/26/2024 - 22027ms/19835ms/18236ms to generate.
+        // 05/26/2024 - 10116ms/9721ms/9762ms to generate.
+        Run(AstParser.Model.ASTParserType.Sdcb, true, "EventHorizon.Blazor.BabylonJS.WASM");
+
+        // 05/26/2024 - 10545ms/10603ms/10318ms to generate.
+        Run(AstParser.Model.ASTParserType.Sdcb, false, "EventHorizon.Blazor.BabylonJS.Server");
+    }
+
+    static void Run(AstParser.Model.ASTParserType type, bool useWasm, string projectAssembly)
+    {
+        var stopwatch = Stopwatch.StartNew();
+        //var projectAssembly = "EventHorizon.Blazor.BabylonJS.WASM";
+        var projectGenerationLocation = Path.Combine("..", "_generated");
+
+        var sourceDirectory = Path.Combine(".", "SourceFiles");
+        var textFormatter = new CSharpTextFormatter();
+        var sourceFiles = new List<string>
         {
-            //Run(AstParser.Model.ASTParserType.NodeJS, true); //  75084ms/71877ms to generate.
-            Run(
-                AstParser.Model.ASTParserType.Sdcb,
-                true,
-                "EventHorizon.Blazor.BabylonJS.WASM"
-            ); //  22027ms/19835ms/18236ms to generate.
-            //Run(
-            //    AstParser.Model.ASTParserType.Sdcb,
-            //    false,
-            //    "EventHorizon.Blazor.BabylonJS.Server"
-            //);
+            //"testing.d.ts",
+            "babylon.d.ts",
+            "babylon.gui.d.ts",
+        };
+        var generationList = new List<string>
+        {
+            //"Everything",
+            "Scene",
+            "VertexBuffer",
+            "ICameraInput",
+            "AbstractActionManager",
+            "ICustomAnimationFrameRequester",
+            "IAction",
+            "Vector3",
+            "EventState",
+            "Observable",
+            "Container",
+            "Control",
+            "Button",
+            "UniversalCamera",
+            "ArcRotateCamera",
+            "PointLight",
+            "Grid",
+            "StackPanel",
+            "MeshBuilder",
+            "StandardMaterial",
+            "Texture",
+            "HemisphericLight",
+            "PointerInfo",
+            "PointerInfoBase",
+            "SceneLoader",
+            "ParticleHelper",
+            "Sound",
+            "Tools",
+        };
+
+        // Remove any already Generated Source.
+        if (Directory.Exists(Path.Combine(projectGenerationLocation, projectAssembly)))
+        {
+            Directory.Delete(Path.Combine(projectGenerationLocation, projectAssembly), true);
         }
-        static void Run(
-            AstParser.Model.ASTParserType type,
-            bool useWasm,
-            string projectAssembly
-        )
+        GlobalLogger.Info("Removed Generation Directory");
+
+        if (useWasm)
         {
-            var stopwatch = Stopwatch.StartNew();
-            //var projectAssembly = "EventHorizon.Blazor.BabylonJS.WASM";
-            var projectGenerationLocation = Path.Combine(
-                "..",
-                "_generated"
+            GlobalLogger.Info("Running Wasm Generator");
+            var writer = new WasmProjectWriter(projectGenerationLocation, projectAssembly);
+            new WasmGenerator().Run(
+                projectAssembly,
+                sourceDirectory,
+                sourceFiles,
+                generationList,
+                writer,
+                textFormatter,
+                new Dictionary<string, string> { { "BABYLON.PointerInfoBase | type", "int" } },
+                type
             );
-
-            var sourceDirectory = Path.Combine(
-                ".",
-                "SourceFiles"
-            );
-            var textFormatter = new NoFormattingTextFormatter();
-            var sourceFiles = new List<string>
-            {
-                //"testing.d.ts",
-                "babylon.d.ts",
-                "babylon.gui.d.ts",
-            };
-            var generationList = new List<string>
-            {
-                //"Everything",
-                "Scene",
-                "VertexBuffer",
-                "ICameraInput",
-                "AbstractActionManager",
-                "ICustomAnimationFrameRequester",
-                "IAction",
-                "Vector3",
-                "EventState",
-                "Observable",
-                "Container",
-                "Control",
-                "Button",
-                "UniversalCamera",
-                "ArcRotateCamera",
-                "PointLight",
-                "Grid",
-                "StackPanel",
-                "MeshBuilder",
-                "StandardMaterial",
-                "Texture",
-                "HemisphericLight",
-                "PointerInfo",
-                "PointerInfoBase",
-                "SceneLoader",
-                "ParticleHelper",
-                "Sound",
-                "Tools",
-            };
-
-            // Remove any already Generated Source.
-            if (Directory.Exists(Path.Combine(
+        }
+        else
+        {
+            GlobalLogger.Info("Running Server Generator");
+            // For the Server Generator, we don't want to format the text. So we use the NoFormattingTextFormatter.
+            // We want to let the Server Project Writer handle the formatting.
+            var noFormattingTextFormatter = new NoFormattingTextFormatter();
+            var writer = new ServerProjectWriter(
                 projectGenerationLocation,
-                projectAssembly
-            )))
-            {
-                Directory.Delete(
-                    Path.Combine(
-                        projectGenerationLocation,
-                        projectAssembly
-                    ),
-                    true
-                );
-            }
-            GlobalLogger.Info("Removed Generation Directory");
-
-            if (useWasm)
-            {
-                GlobalLogger.Info("Running Wasm Generator");
-                var writer = new WasmProjectWriter(
-                    projectGenerationLocation,
-                    projectAssembly
-                );
-                new WasmGenerator().Run(
-                    projectAssembly,
-                    sourceDirectory,
-                    sourceFiles,
-                    generationList,
-                    writer,
-                    textFormatter,
-                    new Dictionary<string, string>
-                    {
-                        { "BABYLON.PointerInfoBase | type", "int" }
-                    },
-                    type
-                );
-            }
-            else
-            {
-                GlobalLogger.Info("Running Server Generator");
-                var writer = new ServerProjectWriter(
-                    projectGenerationLocation,
-                    projectAssembly
-                );
-                new ServerGenerator().Run(
-                    projectAssembly,
-                    sourceDirectory,
-                    sourceFiles,
-                    generationList,
-                    writer,
-                    textFormatter,
-                    new Dictionary<string, string>
-                    {
-                        { "BABYLON.PointerInfoBase | type", "int" }
-                    },
-                    type
-                );
-            }
-            stopwatch.Stop();
-            GlobalLogger.Info("Removed Generation Directory");
-            GlobalLogger.Info($"Took {stopwatch.ElapsedMilliseconds}ms to generate.");
+                projectAssembly,
+                textFormatter
+            );
+            new ServerGenerator().Run(
+                projectAssembly,
+                sourceDirectory,
+                sourceFiles,
+                generationList,
+                writer,
+                noFormattingTextFormatter,
+                new Dictionary<string, string> { { "BABYLON.PointerInfoBase | type", "int" } },
+                type
+            );
         }
+        stopwatch.Stop();
+        GlobalLogger.Info("Removed Generation Directory");
+        GlobalLogger.Info($"Took {stopwatch.ElapsedMilliseconds}ms to generate.");
     }
 }

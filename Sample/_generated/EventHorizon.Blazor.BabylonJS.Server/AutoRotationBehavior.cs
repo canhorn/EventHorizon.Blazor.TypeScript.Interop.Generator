@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<AutoRotationBehavior>))]
     public class AutoRotationBehavior : CachedEntityObject, Behavior<ArcRotateCamera>
     {
@@ -28,110 +26,74 @@ namespace BABYLON
         #endregion
 
         #region Accessors
-        
+
         public async ValueTask<string> get_name()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "name"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "name");
         }
 
-        
         public async ValueTask<bool> get_zoomStopsAnimation()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "zoomStopsAnimation"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "zoomStopsAnimation");
         }
+
         public ValueTask set_zoomStopsAnimation(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "zoomStopsAnimation",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "zoomStopsAnimation", value);
         }
 
-        
         public async ValueTask<decimal> get_idleRotationSpeed()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "idleRotationSpeed"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "idleRotationSpeed");
         }
+
         public ValueTask set_idleRotationSpeed(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "idleRotationSpeed",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "idleRotationSpeed", value);
         }
 
-        
         public async ValueTask<decimal> get_idleRotationWaitTime()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "idleRotationWaitTime"
-                );
+                this.___guid,
+                "idleRotationWaitTime"
+            );
         }
+
         public ValueTask set_idleRotationWaitTime(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "idleRotationWaitTime",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "idleRotationWaitTime", value);
         }
 
-        
         public async ValueTask<decimal> get_idleRotationSpinupTime()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "idleRotationSpinupTime"
-                );
+                this.___guid,
+                "idleRotationSpinupTime"
+            );
         }
+
         public ValueTask set_idleRotationSpinupTime(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "idleRotationSpinupTime",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "idleRotationSpinupTime", value);
         }
 
-        
         public async ValueTask<bool> get_rotationInProgress()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "rotationInProgress"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "rotationInProgress");
         }
         #endregion
 
         #region Properties
 
         #endregion
-        
+
         #region Constructor
-        public AutoRotationBehavior() : base() { }
+        public AutoRotationBehavior()
+            : base() { }
 
-        public AutoRotationBehavior(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public AutoRotationBehavior(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -139,30 +101,21 @@ namespace BABYLON
         public async ValueTask init()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "init" }
-                }
+                new object[] { new string[] { this.___guid, "init" } }
             );
         }
 
         public async ValueTask attach(ArcRotateCamera camera)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "attach" }, camera
-                }
+                new object[] { new string[] { this.___guid, "attach" }, camera }
             );
         }
 
         public async ValueTask detach()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "detach" }
-                }
+                new object[] { new string[] { this.___guid, "detach" } }
             );
         }
         #endregion

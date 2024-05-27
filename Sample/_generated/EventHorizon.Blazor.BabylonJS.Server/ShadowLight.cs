@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<ShadowLight>))]
     public class ShadowLight : Light, IShadowLight
     {
@@ -29,9 +27,10 @@ namespace BABYLON
 
         #region Accessors
         private Vector3 __position;
+
         public async ValueTask<Vector3> get_position()
         {
-            if(__position == null)
+            if (__position == null)
             {
                 __position = await EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
@@ -44,20 +43,18 @@ namespace BABYLON
             }
             return __position;
         }
+
         public ValueTask set_position(Vector3 value)
         {
-__position = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "position",
-                    value
-                );
+            __position = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "position", value);
         }
 
         private Vector3 __direction;
+
         public async ValueTask<Vector3> get_direction()
         {
-            if(__direction == null)
+            if (__direction == null)
             {
                 __direction = await EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
@@ -70,58 +67,40 @@ __position = null;
             }
             return __direction;
         }
+
         public ValueTask set_direction(Vector3 value)
         {
-__direction = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "direction",
-                    value
-                );
+            __direction = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "direction", value);
         }
 
-        
         public async ValueTask<decimal> get_shadowMinZ()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "shadowMinZ"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "shadowMinZ");
         }
+
         public ValueTask set_shadowMinZ(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "shadowMinZ",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "shadowMinZ", value);
         }
 
-        
         public async ValueTask<decimal> get_shadowMaxZ()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "shadowMaxZ"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "shadowMaxZ");
         }
+
         public ValueTask set_shadowMaxZ(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "shadowMaxZ",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "shadowMaxZ", value);
         }
         #endregion
 
         #region Properties
         private Vector3 __transformedPosition;
+
         public async ValueTask<Vector3> get_transformedPosition()
         {
-            if(__transformedPosition == null)
+            if (__transformedPosition == null)
             {
                 __transformedPosition = await EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
@@ -134,20 +113,18 @@ __direction = null;
             }
             return __transformedPosition;
         }
+
         public ValueTask set_transformedPosition(Vector3 value)
         {
-__transformedPosition = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "transformedPosition",
-                    value
-                );
+            __transformedPosition = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "transformedPosition", value);
         }
 
         private Vector3 __transformedDirection;
+
         public async ValueTask<Vector3> get_transformedDirection()
         {
-            if(__transformedDirection == null)
+            if (__transformedDirection == null)
             {
                 __transformedDirection = await EventHorizonBlazorInterop.GetClass<Vector3>(
                     this.___guid,
@@ -160,45 +137,35 @@ __transformedPosition = null;
             }
             return __transformedDirection;
         }
+
         public ValueTask set_transformedDirection(Vector3 value)
         {
-__transformedDirection = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "transformedDirection",
-                    value
-                );
+            __transformedDirection = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "transformedDirection", value);
         }
         #endregion
-        
+
         #region Constructor
-        public ShadowLight() : base() { }
+        public ShadowLight()
+            : base() { }
 
-        public ShadowLight(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public ShadowLight(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
         #region Methods
         #region customProjectionMatrixBuilder TODO: Get Comments as metadata identification
         private bool _isCustomProjectionMatrixBuilderEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _customProjectionMatrixBuilderActionMap = new Dictionary<string, Func<Task>>();
+        private readonly IDictionary<string, Func<Task>> _customProjectionMatrixBuilderActionMap =
+            new Dictionary<string, Func<Task>>();
 
-        public async ValueTask<string> customProjectionMatrixBuilder(
-            Func<Task> callback
-        )
+        public async ValueTask<string> customProjectionMatrixBuilder(Func<Task> callback)
         {
             await SetupCustomProjectionMatrixBuilderLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _customProjectionMatrixBuilderActionMap.Add(
-                handle,
-                callback
-            );
+            _customProjectionMatrixBuilderActionMap.Add(handle, callback);
 
             return handle;
         }
@@ -231,31 +198,24 @@ __transformedDirection = null;
         public async ValueTask<bool> computeTransformedInformation()
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "computeTransformedInformation" }
-                }
+                new object[] { new string[] { this.___guid, "computeTransformedInformation" } }
             );
         }
 
         public async ValueTask<decimal> getDepthScale()
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getDepthScale" }
-                }
+                new object[] { new string[] { this.___guid, "getDepthScale" } }
             );
         }
 
-        public async ValueTask<Vector3> getShadowDirection(System.Nullable<decimal> faceIndex = null)
+        public async ValueTask<Vector3> getShadowDirection(
+            System.Nullable<decimal> faceIndex = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getShadowDirection" }, faceIndex
-                }
+                new object[] { new string[] { this.___guid, "getShadowDirection" }, faceIndex }
             );
         }
 
@@ -263,10 +223,7 @@ __transformedDirection = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getAbsolutePosition" }
-                }
+                new object[] { new string[] { this.___guid, "getAbsolutePosition" } }
             );
         }
 
@@ -274,10 +231,7 @@ __transformedDirection = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "setDirectionToTarget" }, target
-                }
+                new object[] { new string[] { this.___guid, "setDirectionToTarget" }, target }
             );
         }
 
@@ -285,40 +239,28 @@ __transformedDirection = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getRotation" }
-                }
+                new object[] { new string[] { this.___guid, "getRotation" } }
             );
         }
 
         public async ValueTask<bool> needCube()
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "needCube" }
-                }
+                new object[] { new string[] { this.___guid, "needCube" } }
             );
         }
 
         public async ValueTask<bool> needProjectionMatrixCompute()
         {
             return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "needProjectionMatrixCompute" }
-                }
+                new object[] { new string[] { this.___guid, "needProjectionMatrixCompute" } }
             );
         }
 
         public async ValueTask forceProjectionMatrixCompute()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "forceProjectionMatrixCompute" }
-                }
+                new object[] { new string[] { this.___guid, "forceProjectionMatrixCompute" } }
             );
         }
 
@@ -326,40 +268,38 @@ __transformedDirection = null;
         {
             return await EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "computeWorldMatrix" }, force
-                }
+                new object[] { new string[] { this.___guid, "computeWorldMatrix" }, force }
             );
         }
 
         public async ValueTask<decimal> getDepthMinZ(Camera activeCamera)
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getDepthMinZ" }, activeCamera
-                }
+                new object[] { new string[] { this.___guid, "getDepthMinZ" }, activeCamera }
             );
         }
 
         public async ValueTask<decimal> getDepthMaxZ(Camera activeCamera)
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getDepthMaxZ" }, activeCamera
-                }
+                new object[] { new string[] { this.___guid, "getDepthMaxZ" }, activeCamera }
             );
         }
 
-        public async ValueTask<IShadowLightCachedEntity> setShadowProjectionMatrix(Matrix matrix, Matrix viewMatrix, AbstractMesh[] renderList)
+        public async ValueTask<IShadowLightCachedEntity> setShadowProjectionMatrix(
+            Matrix matrix,
+            Matrix viewMatrix,
+            AbstractMesh[] renderList
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<IShadowLightCachedEntity>(
                 entity => new IShadowLightCachedEntity() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "setShadowProjectionMatrix" }, matrix, viewMatrix, renderList
+                    new string[] { this.___guid, "setShadowProjectionMatrix" },
+                    matrix,
+                    viewMatrix,
+                    renderList
                 }
             );
         }

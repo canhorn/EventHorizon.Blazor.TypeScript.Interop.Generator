@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IEffectFallbacks : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IEffectFallbacksCachedEntity>))]
     public class IEffectFallbacksCachedEntity : CachedEntityObject, IEffectFallbacks
     {
@@ -32,34 +32,24 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<bool> get_hasMoreFallbacks()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "hasMoreFallbacks"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "hasMoreFallbacks");
         }
+
         public ValueTask set_hasMoreFallbacks(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "hasMoreFallbacks",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "hasMoreFallbacks", value);
         }
         #endregion
-        
+
         #region Constructor
-        public IEffectFallbacksCachedEntity() : base() { }
+        public IEffectFallbacksCachedEntity()
+            : base() { }
 
-        public IEffectFallbacksCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IEffectFallbacksCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -67,20 +57,14 @@ namespace BABYLON
         public async ValueTask<string> reduce(string currentDefines, Effect effect)
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "reduce" }, currentDefines, effect
-                }
+                new object[] { new string[] { this.___guid, "reduce" }, currentDefines, effect }
             );
         }
 
         public async ValueTask unBindMesh()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "unBindMesh" }
-                }
+                new object[] { new string[] { this.___guid, "unBindMesh" } }
             );
         }
         #endregion

@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<GroundMesh>))]
     public class GroundMesh : Mesh
     {
@@ -28,79 +26,60 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<GroundMesh>(
                 entity => new GroundMesh() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "GroundMesh", "Parse" }, parsedMesh, scene
+                    new string[] { "BABYLON", "GroundMesh", "Parse" },
+                    parsedMesh,
+                    scene
                 }
             );
         }
         #endregion
 
         #region Accessors
-        
+
         public async ValueTask<decimal> get_subdivisions()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "subdivisions"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "subdivisions");
         }
 
-        
         public async ValueTask<decimal> get_subdivisionsX()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "subdivisionsX"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "subdivisionsX");
         }
 
-        
         public async ValueTask<decimal> get_subdivisionsY()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "subdivisionsY"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "subdivisionsY");
         }
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<bool> get_generateOctree()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "generateOctree"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "generateOctree");
         }
+
         public ValueTask set_generateOctree(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "generateOctree",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "generateOctree", value);
         }
         #endregion
-        
+
         #region Constructor
-        public GroundMesh() : base() { }
+        public GroundMesh()
+            : base() { }
 
-        public GroundMesh(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public GroundMesh(ICachedEntity entity)
+            : base(entity) { }
 
-        public static async ValueTask<GroundMesh> NewGroundMesh(
-            string name, Scene scene
-        )
+        public static async ValueTask<GroundMesh> NewGroundMesh(string name, Scene scene)
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GroundMesh" },
-                name, scene
+                name,
+                scene
             );
 
             return new GroundMesh(entity);
@@ -111,19 +90,21 @@ namespace BABYLON
         public async ValueTask<string> getClassName()
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
-        public async ValueTask optimize(decimal chunksCount, System.Nullable<decimal> octreeBlocksSize = null)
+        public async ValueTask optimize(
+            decimal chunksCount,
+            System.Nullable<decimal> octreeBlocksSize = null
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "optimize" }, chunksCount, octreeBlocksSize
+                    new string[] { this.___guid, "optimize" },
+                    chunksCount,
+                    octreeBlocksSize
                 }
             );
         }
@@ -131,10 +112,7 @@ namespace BABYLON
         public async ValueTask<decimal> getHeightAtCoordinates(decimal x, decimal z)
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getHeightAtCoordinates" }, x, z
-                }
+                new object[] { new string[] { this.___guid, "getHeightAtCoordinates" }, x, z }
             );
         }
 
@@ -142,20 +120,24 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "getNormalAtCoordinates" }, x, z
-                }
+                new object[] { new string[] { this.___guid, "getNormalAtCoordinates" }, x, z }
             );
         }
 
-        public async ValueTask<GroundMesh> getNormalAtCoordinatesToRef(decimal x, decimal z, Vector3 @ref)
+        public async ValueTask<GroundMesh> getNormalAtCoordinatesToRef(
+            decimal x,
+            decimal z,
+            Vector3 @ref
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<GroundMesh>(
                 entity => new GroundMesh() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "getNormalAtCoordinatesToRef" }, x, z, @ref
+                    new string[] { this.___guid, "getNormalAtCoordinatesToRef" },
+                    x,
+                    z,
+                    @ref
                 }
             );
         }
@@ -164,20 +146,14 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<GroundMesh>(
                 entity => new GroundMesh() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "updateCoordinateHeights" }
-                }
+                new object[] { new string[] { this.___guid, "updateCoordinateHeights" } }
             );
         }
 
         public async ValueTask serialize(object serializationObject)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "serialize" }, serializationObject
-                }
+                new object[] { new string[] { this.___guid, "serialize" }, serializationObject }
             );
         }
         #endregion

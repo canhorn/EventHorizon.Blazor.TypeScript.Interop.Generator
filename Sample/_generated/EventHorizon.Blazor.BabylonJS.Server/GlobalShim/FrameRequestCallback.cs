@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Server.Interop;
 
 public class FrameRequestCallback : CachedEntity
 {
-    public FrameRequestCallback()
-    {
-    }
+    public FrameRequestCallback() { }
 
-    public FrameRequestCallback(
-        ICachedEntity entity
-    )
+    public FrameRequestCallback(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

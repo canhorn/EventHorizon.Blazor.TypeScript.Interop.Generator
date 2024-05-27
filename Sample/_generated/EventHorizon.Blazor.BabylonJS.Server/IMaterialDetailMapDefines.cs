@@ -11,9 +11,11 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IMaterialDetailMapDefines : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IMaterialDetailMapDefinesCachedEntity>))]
-    public class IMaterialDetailMapDefinesCachedEntity : CachedEntityObject, IMaterialDetailMapDefines
+    public class IMaterialDetailMapDefinesCachedEntity
+        : CachedEntityObject,
+            IMaterialDetailMapDefines
     {
         #region Static Accessors
 
@@ -32,70 +34,47 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<bool> get_DETAIL()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "DETAIL"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "DETAIL");
         }
+
         public ValueTask set_DETAIL(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "DETAIL",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "DETAIL", value);
         }
 
-        
         public async ValueTask<decimal> get_DETAILDIRECTUV()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "DETAILDIRECTUV"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "DETAILDIRECTUV");
         }
+
         public ValueTask set_DETAILDIRECTUV(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "DETAILDIRECTUV",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "DETAILDIRECTUV", value);
         }
 
-        
         public async ValueTask<decimal> get_DETAIL_NORMALBLENDMETHOD()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "DETAIL_NORMALBLENDMETHOD"
-                );
+                this.___guid,
+                "DETAIL_NORMALBLENDMETHOD"
+            );
         }
+
         public ValueTask set_DETAIL_NORMALBLENDMETHOD(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "DETAIL_NORMALBLENDMETHOD",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "DETAIL_NORMALBLENDMETHOD", value);
         }
         #endregion
-        
+
         #region Constructor
-        public IMaterialDetailMapDefinesCachedEntity() : base() { }
+        public IMaterialDetailMapDefinesCachedEntity()
+            : base() { }
 
-        public IMaterialDetailMapDefinesCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IMaterialDetailMapDefinesCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

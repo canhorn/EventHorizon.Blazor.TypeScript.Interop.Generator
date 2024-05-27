@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<MeshLODLevel>))]
     public class MeshLODLevel : CachedEntityObject
     {
@@ -32,28 +30,22 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<decimal> get_distance()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "distance"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "distance");
         }
+
         public ValueTask set_distance(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "distance",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "distance", value);
         }
 
         private Mesh __mesh;
+
         public async ValueTask<Mesh> get_mesh()
         {
-            if(__mesh == null)
+            if (__mesh == null)
             {
                 __mesh = await EventHorizonBlazorInterop.GetClass<Mesh>(
                     this.___guid,
@@ -66,34 +58,30 @@ namespace BABYLON
             }
             return __mesh;
         }
+
         public ValueTask set_mesh(Mesh value)
         {
-__mesh = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "mesh",
-                    value
-                );
+            __mesh = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "mesh", value);
         }
         #endregion
-        
-        #region Constructor
-        public MeshLODLevel() : base() { } 
 
-        public MeshLODLevel(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public MeshLODLevel()
+            : base() { }
+
+        public MeshLODLevel(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
-        public static async ValueTask<MeshLODLevel> NewMeshLODLevel(
-            decimal distance, Mesh mesh
-        )
+        public static async ValueTask<MeshLODLevel> NewMeshLODLevel(decimal distance, Mesh mesh)
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "MeshLODLevel" },
-                distance, mesh
+                distance,
+                mesh
             );
 
             return new MeshLODLevel(entity);

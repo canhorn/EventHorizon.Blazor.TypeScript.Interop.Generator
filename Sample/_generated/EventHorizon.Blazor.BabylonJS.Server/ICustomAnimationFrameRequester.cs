@@ -11,9 +11,11 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface ICustomAnimationFrameRequester : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<ICustomAnimationFrameRequesterCachedEntity>))]
-    public class ICustomAnimationFrameRequesterCachedEntity : CachedEntityObject, ICustomAnimationFrameRequester
+    public class ICustomAnimationFrameRequesterCachedEntity
+        : CachedEntityObject,
+            ICustomAnimationFrameRequester
     {
         #region Static Accessors
 
@@ -32,34 +34,24 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<decimal> get_requestID()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "requestID"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "requestID");
         }
+
         public ValueTask set_requestID(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "requestID",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "requestID", value);
         }
         #endregion
-        
+
         #region Constructor
-        public ICustomAnimationFrameRequesterCachedEntity() : base() { }
+        public ICustomAnimationFrameRequesterCachedEntity()
+            : base() { }
 
-        public ICustomAnimationFrameRequesterCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public ICustomAnimationFrameRequesterCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -67,20 +59,14 @@ namespace BABYLON
         public async ValueTask renderFunction()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "renderFunction" }
-                }
+                new object[] { new string[] { this.___guid, "renderFunction" } }
             );
         }
 
         public async ValueTask requestAnimationFrame()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "requestAnimationFrame" }
-                }
+                new object[] { new string[] { this.___guid, "requestAnimationFrame" } }
             );
         }
         #endregion

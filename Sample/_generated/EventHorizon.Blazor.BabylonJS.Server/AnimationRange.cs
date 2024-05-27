@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<AnimationRange>))]
     public class AnimationRange : CachedEntityObject
     {
@@ -32,78 +30,59 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<string> get_name()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "name"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "name");
         }
+
         public ValueTask set_name(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "name",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "name", value);
         }
 
-        
         public async ValueTask<decimal> get_from()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "from"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "from");
         }
+
         public ValueTask set_from(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "from",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "from", value);
         }
 
-        
         public async ValueTask<decimal> get_to()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "to"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "to");
         }
+
         public ValueTask set_to(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "to",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "to", value);
         }
         #endregion
-        
-        #region Constructor
-        public AnimationRange() : base() { } 
 
-        public AnimationRange(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public AnimationRange()
+            : base() { }
+
+        public AnimationRange(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
         public static async ValueTask<AnimationRange> NewAnimationRange(
-            string name, decimal from, decimal to
+            string name,
+            decimal from,
+            decimal to
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "AnimationRange" },
-                name, from, to
+                name,
+                from,
+                to
             );
 
             return new AnimationRange(entity);
@@ -115,10 +94,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<AnimationRange>(
                 entity => new AnimationRange() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "clone" }
-                }
+                new object[] { new string[] { this.___guid, "clone" } }
             );
         }
         #endregion

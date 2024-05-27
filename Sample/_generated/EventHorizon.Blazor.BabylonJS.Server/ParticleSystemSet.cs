@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<ParticleSystemSet>))]
     public class ParticleSystemSet : CachedEntityObject, _IDisposable
     {
@@ -20,33 +18,40 @@ namespace BABYLON
         #endregion
 
         #region Static Properties
-        
+
         public static async ValueTask<string> get_BaseAssetsUrl()
         {
             return await EventHorizonBlazorInterop.Get<string>(
-                    "BABYLON",
-                    "ParticleSystemSet.BaseAssetsUrl"
-                );
+                "BABYLON",
+                "ParticleSystemSet.BaseAssetsUrl"
+            );
         }
+
         public static ValueTask set_BaseAssetsUrl(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    "BABYLON",
-                    "ParticleSystemSet.BaseAssetsUrl",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(
+                "BABYLON",
+                "ParticleSystemSet.BaseAssetsUrl",
+                value
+            );
         }
         #endregion
 
         #region Static Methods
-        public static async ValueTask<ParticleSystemSet> Parse(object data, Scene scene, System.Nullable<bool> gpu = null)
+        public static async ValueTask<ParticleSystemSet> Parse(
+            object data,
+            Scene scene,
+            System.Nullable<bool> gpu = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<ParticleSystemSet>(
                 entity => new ParticleSystemSet() { ___guid = entity.___guid },
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "ParticleSystemSet", "Parse" }, data, scene, gpu
+                    new string[] { "BABYLON", "ParticleSystemSet", "Parse" },
+                    data,
+                    scene,
+                    gpu
                 }
             );
         }
@@ -54,9 +59,10 @@ namespace BABYLON
 
         #region Accessors
         private TransformNode __emitterNode;
+
         public async ValueTask<TransformNode> get_emitterNode()
         {
-            if(__emitterNode == null)
+            if (__emitterNode == null)
             {
                 __emitterNode = await EventHorizonBlazorInterop.GetClass<TransformNode>(
                     this.___guid,
@@ -72,48 +78,48 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<IParticleSystemCachedEntity[]> get_systems()
         {
             return await EventHorizonBlazorInterop.GetArrayClass<IParticleSystemCachedEntity>(
-                    this.___guid,
-                    "systems",
-                    (entity) =>
-                    {
-                        return new IParticleSystemCachedEntity() { ___guid = entity.___guid };
-                    }
-                );
+                this.___guid,
+                "systems",
+                (entity) =>
+                {
+                    return new IParticleSystemCachedEntity() { ___guid = entity.___guid };
+                }
+            );
         }
+
         public ValueTask set_systems(IParticleSystemCachedEntity[] value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "systems",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "systems", value);
         }
         #endregion
-        
+
         #region Constructor
-        public ParticleSystemSet() : base() { }
+        public ParticleSystemSet()
+            : base() { }
 
-        public ParticleSystemSet(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public ParticleSystemSet(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
         #region Methods
-        public async ValueTask setEmitterAsSphere(object options, decimal renderingGroupId, Scene scene)
+        public async ValueTask setEmitterAsSphere(
+            object options,
+            decimal renderingGroupId,
+            Scene scene
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "setEmitterAsSphere" }, options, renderingGroupId, scene
+                    new string[] { this.___guid, "setEmitterAsSphere" },
+                    options,
+                    renderingGroupId,
+                    scene
                 }
             );
         }
@@ -121,30 +127,23 @@ namespace BABYLON
         public async ValueTask start(AbstractMesh emitter = null)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "start" }, emitter
-                }
+                new object[] { new string[] { this.___guid, "start" }, emitter }
             );
         }
 
         public async ValueTask dispose()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
 
-        public async ValueTask<CachedEntity> serialize(System.Nullable<bool> serializeTexture = null)
+        public async ValueTask<CachedEntity> serialize(
+            System.Nullable<bool> serializeTexture = null
+        )
         {
             return await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "serialize" }, serializeTexture
-                }
+                new object[] { new string[] { this.___guid, "serialize" }, serializeTexture }
             );
         }
         #endregion

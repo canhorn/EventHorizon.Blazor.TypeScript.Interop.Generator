@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<HemisphericParticleEmitter>))]
     public class HemisphericParticleEmitter : CachedEntityObject, IParticleEmitterType
     {
@@ -32,77 +30,59 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<decimal> get_radius()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "radius"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "radius");
         }
+
         public ValueTask set_radius(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "radius",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "radius", value);
         }
 
-        
         public async ValueTask<decimal> get_radiusRange()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "radiusRange"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "radiusRange");
         }
+
         public ValueTask set_radiusRange(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "radiusRange",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "radiusRange", value);
         }
 
-        
         public async ValueTask<decimal> get_directionRandomizer()
         {
             return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "directionRandomizer"
-                );
+                this.___guid,
+                "directionRandomizer"
+            );
         }
+
         public ValueTask set_directionRandomizer(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "directionRandomizer",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "directionRandomizer", value);
         }
         #endregion
-        
-        #region Constructor
-        public HemisphericParticleEmitter() : base() { }
 
-        public HemisphericParticleEmitter(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        #region Constructor
+        public HemisphericParticleEmitter()
+            : base() { }
+
+        public HemisphericParticleEmitter(ICachedEntity entity)
+            : base(entity) { }
 
         public static async ValueTask<HemisphericParticleEmitter> NewHemisphericParticleEmitter(
-            System.Nullable<decimal> radius = null, System.Nullable<decimal> radiusRange = null, System.Nullable<decimal> directionRandomizer = null
+            System.Nullable<decimal> radius = null,
+            System.Nullable<decimal> radiusRange = null,
+            System.Nullable<decimal> directionRandomizer = null
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "HemisphericParticleEmitter" },
-                radius, radiusRange, directionRandomizer
+                radius,
+                radiusRange,
+                directionRandomizer
             );
 
             return new HemisphericParticleEmitter(entity);
@@ -110,22 +90,40 @@ namespace BABYLON
         #endregion
 
         #region Methods
-        public async ValueTask startDirectionFunction(Matrix worldMatrix, Vector3 directionToUpdate, Particle particle, bool isLocal)
+        public async ValueTask startDirectionFunction(
+            Matrix worldMatrix,
+            Vector3 directionToUpdate,
+            Particle particle,
+            bool isLocal
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "startDirectionFunction" }, worldMatrix, directionToUpdate, particle, isLocal
+                    new string[] { this.___guid, "startDirectionFunction" },
+                    worldMatrix,
+                    directionToUpdate,
+                    particle,
+                    isLocal
                 }
             );
         }
 
-        public async ValueTask startPositionFunction(Matrix worldMatrix, Vector3 positionToUpdate, Particle particle, bool isLocal)
+        public async ValueTask startPositionFunction(
+            Matrix worldMatrix,
+            Vector3 positionToUpdate,
+            Particle particle,
+            bool isLocal
+        )
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { this.___guid, "startPositionFunction" }, worldMatrix, positionToUpdate, particle, isLocal
+                    new string[] { this.___guid, "startPositionFunction" },
+                    worldMatrix,
+                    positionToUpdate,
+                    particle,
+                    isLocal
                 }
             );
         }
@@ -134,60 +132,42 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<HemisphericParticleEmitter>(
                 entity => new HemisphericParticleEmitter() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "clone" }
-                }
+                new object[] { new string[] { this.___guid, "clone" } }
             );
         }
 
         public async ValueTask applyToShader(Effect effect)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "applyToShader" }, effect
-                }
+                new object[] { new string[] { this.___guid, "applyToShader" }, effect }
             );
         }
 
         public async ValueTask<string> getEffectDefines()
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getEffectDefines" }
-                }
+                new object[] { new string[] { this.___guid, "getEffectDefines" } }
             );
         }
 
         public async ValueTask<string> getClassName()
         {
             return await EventHorizonBlazorInterop.Func<string>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "getClassName" }
-                }
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
         public async ValueTask<CachedEntity> serialize()
         {
             return await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "serialize" }
-                }
+                new object[] { new string[] { this.___guid, "serialize" } }
             );
         }
 
         public async ValueTask parse(object serializationObject)
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "parse" }, serializationObject
-                }
+                new object[] { new string[] { this.___guid, "parse" }, serializationObject }
             );
         }
         #endregion

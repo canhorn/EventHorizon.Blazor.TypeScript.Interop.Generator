@@ -6,10 +6,8 @@ namespace EventHorizon.Maui.BabylonJS.Model
     using EventHorizon.Blazor.Server.Interop;
 
     [JsonConverter(typeof(CachedEntityConverter<SceneLoaderImportMeshEntity>))]
-    public class SceneLoaderImportMeshEntity
-        : CachedEntity
+    public class SceneLoaderImportMeshEntity : CachedEntity
     {
-
         public async ValueTask<AbstractMesh[]> get_meshes()
         {
             return await EventHorizonBlazorInterop.GetArrayClass<AbstractMesh>(
@@ -18,13 +16,10 @@ namespace EventHorizon.Maui.BabylonJS.Model
                 entity => new AbstractMesh() { ___guid = entity.___guid }
             );
         }
+
         public ValueTask set_meshes(AbstractMesh[] value)
         {
-            return EventHorizonBlazorInterop.Set(
-                this.___guid,
-                "meshes",
-                value
-            );
+            return EventHorizonBlazorInterop.Set(this.___guid, "meshes", value);
         }
 
         public async ValueTask<AnimationGroup[]> get_animationGroups()
@@ -35,13 +30,10 @@ namespace EventHorizon.Maui.BabylonJS.Model
                 entity => new AnimationGroup() { ___guid = entity.___guid }
             );
         }
+
         public ValueTask set_animationGroups(AnimationGroup[] value)
         {
-            return EventHorizonBlazorInterop.Set(
-                this.___guid,
-                "animationGroups",
-                value
-            );
+            return EventHorizonBlazorInterop.Set(this.___guid, "animationGroups", value);
         }
 
         //#region Static Accessors

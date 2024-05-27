@@ -19,7 +19,8 @@ namespace EventHorizon.Blazor.Server.BabylonJS.Pages
 
     public partial class PirateFort : IAsyncDisposable
     {
-        private IDictionary<string, AnimationGroup> _animationMap = new Dictionary<string, AnimationGroup>();
+        private IDictionary<string, AnimationGroup> _animationMap =
+            new Dictionary<string, AnimationGroup>();
         private AnimationGroup _runningAnimation = null;
 
         private Engine _engine;
@@ -32,7 +33,6 @@ namespace EventHorizon.Blazor.Server.BabylonJS.Pages
         private AbstractMesh[] _pirateFortMeshes;
         private AbstractMesh _cannon;
         private AnimationGroup[] _importedAnimGroups;
-
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
@@ -52,31 +52,20 @@ namespace EventHorizon.Blazor.Server.BabylonJS.Pages
 
         public async Task CreateSceneAsync()
         {
-            var canvas = await Canvas.GetElementById(
-                "game-window"
-            );
-            var engine = await Engine.NewEngine(
-                canvas,
-                true
-            );
+            var canvas = await Canvas.GetElementById("game-window");
+            var engine = await Engine.NewEngine(canvas, true);
 
             // This creates a basic Babylon Scene object (non-mesh)
             var scene = await Scene.NewScene(engine);
 
-            await scene.set_clearColor(
-                await Color4.NewColor4(
-                    0.31m,
-                    0.48m,
-                    0.64m,
-                    1
-                )
-            );
+            await scene.set_clearColor(await Color4.NewColor4(0.31m, 0.48m, 0.64m, 1));
 
             //add an arcRotateCamera to the scene
             var camera = await ArcRotateCamera.NewArcRotateCamera(
                 "camera",
                 await Tools.ToRadians(125),
-                await Tools.ToRadians(70), 25,
+                await Tools.ToRadians(70),
+                25,
                 await Vector3.NewVector3(0, 3, 0),
                 scene
             );
@@ -107,12 +96,14 @@ namespace EventHorizon.Blazor.Server.BabylonJS.Pages
             await (await scene.getLightByName("Sun")).set_intensity(12);
 
             //Load the cannon model and create clones
-            var cannonImportResult = (await SceneLoader.ImportMeshAsync(
-                "",
-                "https://models.babylonjs.com/pirateFort/",
-                "cannon.glb",
-                scene
-            )).ToEntity<SceneLoaderImportMeshEntity>();
+            var cannonImportResult = (
+                await SceneLoader.ImportMeshAsync(
+                    "",
+                    "https://models.babylonjs.com/pirateFort/",
+                    "cannon.glb",
+                    scene
+                )
+            ).ToEntity<SceneLoaderImportMeshEntity>();
             //remove the top level root node
             var cannonMeshs = await cannonImportResult.get_meshes();
             var cannon = (await cannonMeshs[0].getChildren())[0];
@@ -135,14 +126,13 @@ namespace EventHorizon.Blazor.Server.BabylonJS.Pages
             for (var i = 0; i < importedAnimGroups.Length; i++)
             {
                 await importedAnimGroups[i].stop();
-                animations[i] = await (await importedAnimGroups[i].get_targetedAnimations())[0].get_animation();
+                animations[i] = await (await importedAnimGroups[i].get_targetedAnimations())[0]
+                    .get_animation();
                 await importedAnimGroups[i].dispose();
             }
 
             //create a new animation group and add targeted animations based on copied curve data from the "animations" array.
-            var cannonAnimGroup = await AnimationGroup.NewAnimationGroup(
-                "cannonAnimGroup"
-            );
+            var cannonAnimGroup = await AnimationGroup.NewAnimationGroup("cannonAnimGroup");
             await cannonAnimGroup.addTargetedAnimation(
                 animations[0],
                 (await cannon.getChildMeshes())[1]
@@ -158,16 +148,10 @@ namespace EventHorizon.Blazor.Server.BabylonJS.Pages
                 new { size = 0.05 },
                 scene
             );
-            await particleEmitter.set_position(await Vector3.NewVector3(
-                0,
-                0.76m,
-                1.05m
-            ));
+            await particleEmitter.set_position(await Vector3.NewVector3(0, 0.76m, 1.05m));
             await (await particleEmitter.get_rotation()).set_x(await Tools.ToRadians(78.5m));
             await particleEmitter.set_isVisible(false);
-            await particleEmitter.setParent(
-                (await cannon.getChildMeshes())[1]
-            );
+            await particleEmitter.setParent((await cannon.getChildMeshes())[1]);
 
             //load particle system from the snippet server and set the emitter to the particleEmitter. Set its stopDuration.
             var baseurl = await Tools.get_BaseUrl();
@@ -189,66 +173,105 @@ namespace EventHorizon.Blazor.Server.BabylonJS.Pages
             );
 
             //position and rotation data for the placement of the cannon clones
-            var cannonPositionArray = new Vector3[][] {
-
+            var cannonPositionArray = new Vector3[][]
+            {
                 new Vector3[]
                 {
                     await Vector3.NewVector3(0.97m, 5.52m, 1.79m),
-                    await Vector3.NewVector3(await Tools.ToRadians(0), await Tools.ToRadians(0), await Tools.ToRadians(180)) },
-
+                    await Vector3.NewVector3(
+                        await Tools.ToRadians(0),
+                        await Tools.ToRadians(0),
+                        await Tools.ToRadians(180)
+                    )
+                },
                 new Vector3[]
                 {
                     await Vector3.NewVector3(1.08m, 2.32m, 3.05m),
-                    await Vector3.NewVector3(await Tools.ToRadians(0), await Tools.ToRadians(0), await Tools.ToRadians(180)) },
-
+                    await Vector3.NewVector3(
+                        await Tools.ToRadians(0),
+                        await Tools.ToRadians(0),
+                        await Tools.ToRadians(180)
+                    )
+                },
                 new Vector3[]
                 {
                     await Vector3.NewVector3(1.46m, 2.35m, -0.73m),
-                    await Vector3.NewVector3(await Tools.ToRadians(0), await Tools.ToRadians(90), await Tools.ToRadians(180)) },
-
+                    await Vector3.NewVector3(
+                        await Tools.ToRadians(0),
+                        await Tools.ToRadians(90),
+                        await Tools.ToRadians(180)
+                    )
+                },
                 new Vector3[]
                 {
                     await Vector3.NewVector3(1.45m, 5.52m, -1.66m),
-                    await Vector3.NewVector3(await Tools.ToRadians(0), await Tools.ToRadians(90), await Tools.ToRadians(180)) },
-
+                    await Vector3.NewVector3(
+                        await Tools.ToRadians(0),
+                        await Tools.ToRadians(90),
+                        await Tools.ToRadians(180)
+                    )
+                },
                 new Vector3[]
                 {
                     await Vector3.NewVector3(1.49m, 8.69m, -0.35m),
-                    await Vector3.NewVector3(await Tools.ToRadians(0), await Tools.ToRadians(90), await Tools.ToRadians(180)) },
-
+                    await Vector3.NewVector3(
+                        await Tools.ToRadians(0),
+                        await Tools.ToRadians(90),
+                        await Tools.ToRadians(180)
+                    )
+                },
                 new Vector3[]
                 {
                     await Vector3.NewVector3(-1.37m, 8.69m, -0.39m),
-                    await Vector3.NewVector3(await Tools.ToRadians(0), await Tools.ToRadians(-90), await Tools.ToRadians(180)) },
-
+                    await Vector3.NewVector3(
+                        await Tools.ToRadians(0),
+                        await Tools.ToRadians(-90),
+                        await Tools.ToRadians(180)
+                    )
+                },
                 new Vector3[]
                 {
                     await Vector3.NewVector3(0.58m, 4, -2.18m),
-                    await Vector3.NewVector3(await Tools.ToRadians(0), await Tools.ToRadians(180), await Tools.ToRadians(180)) },
-
+                    await Vector3.NewVector3(
+                        await Tools.ToRadians(0),
+                        await Tools.ToRadians(180),
+                        await Tools.ToRadians(180)
+                    )
+                },
                 new Vector3[]
                 {
                     await Vector3.NewVector3(1.22m, 8.69m, -2.5m),
-                    await Vector3.NewVector3(await Tools.ToRadians(0), await Tools.ToRadians(180), await Tools.ToRadians(180)) },
-
+                    await Vector3.NewVector3(
+                        await Tools.ToRadians(0),
+                        await Tools.ToRadians(180),
+                        await Tools.ToRadians(180)
+                    )
+                },
                 new Vector3[]
                 {
                     await Vector3.NewVector3(-1.31m, 2.33m, -2.45m),
-                    await Vector3.NewVector3(await Tools.ToRadians(0), await Tools.ToRadians(180), await Tools.ToRadians(180)) },
-
+                    await Vector3.NewVector3(
+                        await Tools.ToRadians(0),
+                        await Tools.ToRadians(180),
+                        await Tools.ToRadians(180)
+                    )
+                },
                 new Vector3[]
                 {
                     await Vector3.NewVector3(-3.54m, 5.26m, -2.12m),
-                    await Vector3.NewVector3(await Tools.ToRadians(0), await Tools.ToRadians(-90), await Tools.ToRadians(180)) }
+                    await Vector3.NewVector3(
+                        await Tools.ToRadians(0),
+                        await Tools.ToRadians(-90),
+                        await Tools.ToRadians(180)
+                    )
+                }
             };
 
             //create 10 cannon clones, each with unique position/rotation data. Note that particle systems are cloned with parent meshes
             //also create 10 new animation groups with targeted animations applied to the newly cloned meshes
             for (var i = 0; i < 10; i++)
             {
-                var cannonClone = await cannon.clone<AbstractMesh>(
-                    "cannonClone" + i
-                );
+                var cannonClone = await cannon.clone<AbstractMesh>("cannonClone" + i);
                 await cannonClone.set_position(cannonPositionArray[i][0]);
                 await cannonClone.set_rotation(cannonPositionArray[i][1]);
                 var cannonAnimGroupClone = await AnimationGroup.NewAnimationGroup(
@@ -256,17 +279,19 @@ namespace EventHorizon.Blazor.Server.BabylonJS.Pages
                 );
                 await cannonAnimGroupClone.addTargetedAnimation(
                     await (await cannonAnimGroup.get_targetedAnimations())[0].get_animation(),
-                    (await cannonClone.getChildMeshes())[1]);
+                    (await cannonClone.getChildMeshes())[1]
+                );
                 await cannonAnimGroupClone.addTargetedAnimation(
                     await (await cannonAnimGroup.get_targetedAnimations())[1].get_animation(),
-                    (await cannonClone.getChildMeshes())[0]);
+                    (await cannonClone.getChildMeshes())[0]
+                );
 
                 //store a key/value pair of each clone name and the name of the associated animation group name.
-                cannonAnimationPairings[await cannonClone.get_name()] = await cannonAnimGroupClone.get_name();
+                cannonAnimationPairings[await cannonClone.get_name()] =
+                    await cannonAnimGroupClone.get_name();
 
                 //store key/value pair for the cannon name and it's readyToPlay status as 1;
                 cannonReadyToPlay[await cannonClone.get_name()] = 1;
-
             }
             //dispose of the original cannon, animation group, and particle system
             await cannon.dispose();
@@ -281,68 +306,83 @@ namespace EventHorizon.Blazor.Server.BabylonJS.Pages
             }
 
             //logic of what happens on a click
-            await (await scene.get_onPointerObservable()).add(async (pointerInfo, eventState) =>
-            {
-                // PointerEventTypes.POINTERDOWN
-                if (await pointerInfo.get_type() != 1)
+            await (await scene.get_onPointerObservable()).add(
+                async (pointerInfo, eventState) =>
                 {
-                    return;
-                }
-                var pickResult = await pointerInfo.get_pickInfo();
-                //check if a mesh was picked and if that mesh has specific metadata
-                var pickedMesh = await pickResult.get_pickedMesh();
-                if (pickedMesh != null
-                    && await pickedMesh.get_metadata() != null)
-                {
-                    var metadataNode = (await pickedMesh.get_metadata()).ToEntity<NodeMetadata>();
-                    if (await metadataNode.get_name() != "cannon")
+                    // PointerEventTypes.POINTERDOWN
+                    if (await pointerInfo.get_type() != 1)
                     {
                         return;
                     }
-                    //find the top level parent (necessary since the cannon is an extra layer below the clone root)
-                    var topParent = await (await pickResult.get_pickedMesh()).get_parent();
-                    var parent = await topParent.get_parent();
-                    if (parent != null
-                        && await parent.get_name() != null)
+                    var pickResult = await pointerInfo.get_pickInfo();
+                    //check if a mesh was picked and if that mesh has specific metadata
+                    var pickedMesh = await pickResult.get_pickedMesh();
+                    if (pickedMesh != null && await pickedMesh.get_metadata() != null)
                     {
-                        topParent = parent;
-                    }
-                    var name = await topParent.get_name();
-                    //wrap all 'play' elements into a check to make sure the cannon can be played.
-                    if (cannonReadyToPlay[name] == 1)
-                    {
-                        //set the readyToPlay status to 0
-                        cannonReadyToPlay[name] = 0;
-                        //loop through all of the animation groups in the scene and play the correct group based on the top level parent of the picked mesh.
-                        var animationToPlay = cannonAnimationPairings[name];
-                        for (var i = 0; i < (await scene.get_animationGroups()).Length; i++)
+                        var metadataNode = (
+                            await pickedMesh.get_metadata()
+                        ).ToEntity<NodeMetadata>();
+                        if (await metadataNode.get_name() != "cannon")
                         {
-                            if (await (await scene.get_animationGroups())[i].get_name() == animationToPlay)
-                            {
-                                await (await scene.get_animationGroups())[i].play();
-                                //after the animation has finished, set the readyToPlay status for this cannon to 1;
-                                await (await (await scene.get_animationGroups())[i].get_onAnimationGroupEndObservable()).addOnce(async (_, __) =>
-                               {
-                                   cannonReadyToPlay[await topParent.get_name()] = 1;
-                               });
-                            }
+                            return;
                         }
-                        //loop through all particle systems in the scene, loop through all picked mesh submeshes. if there is a matching mesh and particle system emitter, start the particle system.
-                        var childMeshes = await (await pickResult.get_pickedMesh()).getChildMeshes();
-                        for (var i = 0; i < smokeBlasts.Length; i++)
+                        //find the top level parent (necessary since the cannon is an extra layer below the clone root)
+                        var topParent = await (await pickResult.get_pickedMesh()).get_parent();
+                        var parent = await topParent.get_parent();
+                        if (parent != null && await parent.get_name() != null)
                         {
-                            for (var j = 0; j < childMeshes.Length; j++)
+                            topParent = parent;
+                        }
+                        var name = await topParent.get_name();
+                        //wrap all 'play' elements into a check to make sure the cannon can be played.
+                        if (cannonReadyToPlay[name] == 1)
+                        {
+                            //set the readyToPlay status to 0
+                            cannonReadyToPlay[name] = 0;
+                            //loop through all of the animation groups in the scene and play the correct group based on the top level parent of the picked mesh.
+                            var animationToPlay = cannonAnimationPairings[name];
+                            for (var i = 0; i < (await scene.get_animationGroups()).Length; i++)
                             {
-                                if (childMeshes[j].___guid == (await smokeBlasts[i].get_emitter()).___guid)
+                                if (
+                                    await (await scene.get_animationGroups())[i].get_name()
+                                    == animationToPlay
+                                )
                                 {
-                                    await smokeBlasts[i].start();
+                                    await (await scene.get_animationGroups())[i].play();
+                                    //after the animation has finished, set the readyToPlay status for this cannon to 1;
+                                    await (
+                                        await (await scene.get_animationGroups())[i]
+                                            .get_onAnimationGroupEndObservable()
+                                    ).addOnce(
+                                        async (_, __) =>
+                                        {
+                                            cannonReadyToPlay[await topParent.get_name()] = 1;
+                                        }
+                                    );
                                 }
                             }
+                            //loop through all particle systems in the scene, loop through all picked mesh submeshes. if there is a matching mesh and particle system emitter, start the particle system.
+                            var childMeshes = await (
+                                await pickResult.get_pickedMesh()
+                            ).getChildMeshes();
+                            for (var i = 0; i < smokeBlasts.Length; i++)
+                            {
+                                for (var j = 0; j < childMeshes.Length; j++)
+                                {
+                                    if (
+                                        childMeshes[j].___guid
+                                        == (await smokeBlasts[i].get_emitter()).___guid
+                                    )
+                                    {
+                                        await smokeBlasts[i].start();
+                                    }
+                                }
+                            }
+                            await cannonBlastSound.play();
                         }
-                        await cannonBlastSound.play();
                     }
                 }
-            });
+            );
             //scene.onPointerDown = function(evt, pickResult) {
             //    //check if a mesh was picked and if that mesh has specific metadata
             //    if (pickResult.pickedMesh && pickResult.pickedMesh.metadata === "cannon")
@@ -392,9 +432,9 @@ namespace EventHorizon.Blazor.Server.BabylonJS.Pages
 
             _scene = scene;
             await _scene.set_activeCamera(camera);
-            await engine.runRenderLoop(new ActionCallback(
-                () => Task.Run(() => _scene.render(true, false))
-            ));
+            await engine.runRenderLoop(
+                new ActionCallback(() => Task.Run(() => _scene.render(true, false)))
+            );
 
             _engine = engine;
         }

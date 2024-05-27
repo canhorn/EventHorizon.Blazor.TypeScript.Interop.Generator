@@ -41,10 +41,7 @@ namespace EventHorizon.Blazor.Server.BabylonJS
             provider.Mappings[".fx"] = "application/fx";
             provider.Mappings[".gltf"] = "model/vnd.gltf+json";
             provider.Mappings[".glb"] = "application/octet-stream";
-            app.UseStaticFiles(new StaticFileOptions()
-            {
-                ContentTypeProvider = provider
-            });
+            app.UseStaticFiles(new StaticFileOptions() { ContentTypeProvider = provider });
             app.UseStaticFiles();
 
             app.UseRouting();

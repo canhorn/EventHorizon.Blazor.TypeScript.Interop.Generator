@@ -10,8 +10,6 @@ namespace BABYLON.GUI
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<Style>))]
     public class Style : CachedEntityObject, _IDisposable
     {
@@ -28,84 +26,54 @@ namespace BABYLON.GUI
         #endregion
 
         #region Accessors
-        
+
         public async ValueTask<string> get_fontSize()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "fontSize"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "fontSize");
         }
+
         public ValueTask set_fontSize(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "fontSize",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "fontSize", value);
         }
 
-        
         public async ValueTask<string> get_fontFamily()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "fontFamily"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "fontFamily");
         }
+
         public ValueTask set_fontFamily(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "fontFamily",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "fontFamily", value);
         }
 
-        
         public async ValueTask<string> get_fontStyle()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "fontStyle"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "fontStyle");
         }
+
         public ValueTask set_fontStyle(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "fontStyle",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "fontStyle", value);
         }
 
-        
         public async ValueTask<string> get_fontWeight()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "fontWeight"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "fontWeight");
         }
+
         public ValueTask set_fontWeight(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "fontWeight",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "fontWeight", value);
         }
         #endregion
 
         #region Properties
         private Observable<Style> __onChangedObservable;
+
         public async ValueTask<Observable<Style>> get_onChangedObservable()
         {
-            if(__onChangedObservable == null)
+            if (__onChangedObservable == null)
             {
                 __onChangedObservable = await EventHorizonBlazorInterop.GetClass<Observable<Style>>(
                     this.___guid,
@@ -118,29 +86,22 @@ namespace BABYLON.GUI
             }
             return __onChangedObservable;
         }
+
         public ValueTask set_onChangedObservable(Observable<Style> value)
         {
-__onChangedObservable = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "onChangedObservable",
-                    value
-                );
+            __onChangedObservable = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "onChangedObservable", value);
         }
         #endregion
-        
+
         #region Constructor
-        public Style() : base() { }
+        public Style()
+            : base() { }
 
-        public Style(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public Style(ICachedEntity entity)
+            : base(entity) { }
 
-        public static async ValueTask<Style> NewStyle(
-            AdvancedDynamicTexture host
-        )
+        public static async ValueTask<Style> NewStyle(AdvancedDynamicTexture host)
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GUI", "Style" },
@@ -155,10 +116,7 @@ __onChangedObservable = null;
         public async ValueTask dispose()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "dispose" }
-                }
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
         #endregion

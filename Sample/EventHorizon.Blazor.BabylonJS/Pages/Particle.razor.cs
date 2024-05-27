@@ -11,7 +11,8 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
 {
     public partial class Particle : IDisposable
     {
-        private IDictionary<string, AnimationGroup> _animationMap = new Dictionary<string, AnimationGroup>();
+        private IDictionary<string, AnimationGroup> _animationMap =
+            new Dictionary<string, AnimationGroup>();
         private AnimationGroup _runningAnimation = null;
         private Engine _engine;
 
@@ -30,35 +31,12 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
 
         public void CreateScene()
         {
-            var canvas = Canvas.GetElementById(
-                "game-window"
-            );
-            var engine = new Engine(
-                canvas,
-                true
-            );
-            var scene = new Scene(
-                engine
-            );
+            var canvas = Canvas.GetElementById("game-window");
+            var engine = new Engine(canvas, true);
+            var scene = new Scene(engine);
             scene.clearColor = new Color4(0, 0, 0, 0);
-            var light0 = new PointLight(
-                "Omni",
-                new Vector3(
-                    0,
-                    100,
-                    8
-                ),
-                scene
-            );
-            var light1 = new HemisphericLight(
-                "HemisphericLight",
-                new Vector3(
-                    0,
-                    100,
-                    8
-                ),
-                scene
-            );
+            var light0 = new PointLight("Omni", new Vector3(0, 100, 8), scene);
+            var light1 = new HemisphericLight("HemisphericLight", new Vector3(0, 100, 8), scene);
             var advancedTexture = AdvancedDynamicTexture.CreateFullscreenUI("UI");
             var UiPanel = new StackPanel("name")
             {
@@ -74,24 +52,31 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
                 "assets/",
                 "Player.glb",
                 scene,
-                new Interop.Callbacks.ActionCallback<AbstractMesh[], IParticleSystem[], Skeleton[], AnimationGroup[], TransformNode[], Geometry[], Light[]>((arg1, arg2, arg3, arg4, arg5, arg6, arg7) =>
-                {
-                    foreach (var animation in arg4)
+                new Interop.Callbacks.ActionCallback<
+                    AbstractMesh[],
+                    IParticleSystem[],
+                    Skeleton[],
+                    AnimationGroup[],
+                    TransformNode[],
+                    Geometry[],
+                    Light[]
+                >(
+                    (arg1, arg2, arg3, arg4, arg5, arg6, arg7) =>
                     {
-                        animation.stop();
-                        _animationMap.Add(animation.name, animation);
-                        AddRunAnimationButton(
-                            UiPanel,
-                            animation.name
-                        );
+                        foreach (var animation in arg4)
+                        {
+                            animation.stop();
+                            _animationMap.Add(animation.name, animation);
+                            AddRunAnimationButton(UiPanel, animation.name);
+                        }
+                        if (_animationMap.Count > 0)
+                        {
+                            _runningAnimation = _animationMap.First().Value;
+                            _runningAnimation.start(true);
+                        }
+                        return Task.CompletedTask;
                     }
-                    if(_animationMap.Count > 0)
-                    {
-                        _runningAnimation = _animationMap.First().Value;
-                        _runningAnimation.start(true);
-                    }
-                    return Task.CompletedTask;
-                })
+                )
             );
             var camera = new ArcRotateCamera(
                 "ArcRotateCamera",
@@ -107,12 +92,10 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
                 wheelDeltaPercentage = 0.01m
             };
             scene.activeCamera = camera;
-            camera.attachControl(
-                false
+            camera.attachControl(false);
+            engine.runRenderLoop(
+                new ActionCallback(() => Task.Run(() => scene.render(true, false)))
             );
-            engine.runRenderLoop(new ActionCallback(
-                () => Task.Run(() => scene.render(true, false))
-            ));
 
             _engine = engine;
         }
@@ -125,20 +108,23 @@ namespace EventHorizon.Blazor.BabylonJS.Pages
             button.height = "50px";
             button.color = "white";
             button.background = "green";
-            button.onPointerDownObservable.add((_, __) => {
-                if (_runningAnimation != null)
+            button.onPointerDownObservable.add(
+                (_, __) =>
                 {
-                    _runningAnimation.stop();
-                    _runningAnimation = null;
-                }
-                if(_animationMap.ContainsKey(name))
-                {
-                    _animationMap[name].play(true);
-                    _runningAnimation = _animationMap[name];
-                }
+                    if (_runningAnimation != null)
+                    {
+                        _runningAnimation.stop();
+                        _runningAnimation = null;
+                    }
+                    if (_animationMap.ContainsKey(name))
+                    {
+                        _animationMap[name].play(true);
+                        _runningAnimation = _animationMap[name];
+                    }
 
-                return Task.CompletedTask;
-            });
+                    return Task.CompletedTask;
+                }
+            );
             uiPanel.addControl(button);
         }
     }

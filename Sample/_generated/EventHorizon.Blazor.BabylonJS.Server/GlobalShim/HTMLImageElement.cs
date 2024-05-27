@@ -6,13 +6,9 @@ using EventHorizon.Blazor.Server.Interop;
 
 public class HTMLImageElement : CachedEntity
 {
-    public HTMLImageElement()
-    {
-    }
+    public HTMLImageElement() { }
 
-    public HTMLImageElement(
-        ICachedEntity entity
-    )
+    public HTMLImageElement(ICachedEntity entity)
     {
         this.___guid = entity.___guid;
     }

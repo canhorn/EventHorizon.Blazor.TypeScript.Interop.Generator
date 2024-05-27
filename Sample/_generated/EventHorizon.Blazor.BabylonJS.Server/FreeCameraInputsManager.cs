@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<FreeCameraInputsManager>))]
     public class FreeCameraInputsManager : CameraInputsManager<FreeCamera>
     {
@@ -34,15 +32,13 @@ namespace BABYLON
         #region Properties
 
         #endregion
-        
-        #region Constructor
-        public FreeCameraInputsManager() : base() { }
 
-        public FreeCameraInputsManager(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        #region Constructor
+        public FreeCameraInputsManager()
+            : base() { }
+
+        public FreeCameraInputsManager(ICachedEntity entity)
+            : base(entity) { }
 
         public static async ValueTask<FreeCameraInputsManager> NewFreeCameraInputsManager(
             FreeCamera camera
@@ -62,21 +58,17 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<FreeCameraInputsManager>(
                 entity => new FreeCameraInputsManager() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "addKeyboard" }
-                }
+                new object[] { new string[] { this.___guid, "addKeyboard" } }
             );
         }
 
-        public async ValueTask<FreeCameraInputsManager> addMouse(System.Nullable<bool> touchEnabled = null)
+        public async ValueTask<FreeCameraInputsManager> addMouse(
+            System.Nullable<bool> touchEnabled = null
+        )
         {
             return await EventHorizonBlazorInterop.FuncClass<FreeCameraInputsManager>(
                 entity => new FreeCameraInputsManager() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "addMouse" }, touchEnabled
-                }
+                new object[] { new string[] { this.___guid, "addMouse" }, touchEnabled }
             );
         }
 
@@ -84,10 +76,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<FreeCameraInputsManager>(
                 entity => new FreeCameraInputsManager() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "removeMouse" }
-                }
+                new object[] { new string[] { this.___guid, "removeMouse" } }
             );
         }
 
@@ -95,10 +84,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<FreeCameraInputsManager>(
                 entity => new FreeCameraInputsManager() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "addMouseWheel" }
-                }
+                new object[] { new string[] { this.___guid, "addMouseWheel" } }
             );
         }
 
@@ -106,10 +92,7 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<FreeCameraInputsManager>(
                 entity => new FreeCameraInputsManager() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "removeMouseWheel" }
-                }
+                new object[] { new string[] { this.___guid, "removeMouseWheel" } }
             );
         }
 
@@ -117,20 +100,14 @@ namespace BABYLON
         {
             return await EventHorizonBlazorInterop.FuncClass<FreeCameraInputsManager>(
                 entity => new FreeCameraInputsManager() { ___guid = entity.___guid },
-                new object[] 
-                {
-                    new string[] { this.___guid, "addTouch" }
-                }
+                new object[] { new string[] { this.___guid, "addTouch" } }
             );
         }
 
         public async ValueTask clear()
         {
             await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] 
-                {
-                    new string[] { this.___guid, "clear" }
-                }
+                new object[] { new string[] { this.___guid, "clear" } }
             );
         }
         #endregion

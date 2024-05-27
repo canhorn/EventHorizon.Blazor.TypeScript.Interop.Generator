@@ -5,8 +5,7 @@ using EventHorizon.Blazor.Interop;
 namespace EventHorizon.Blazor.BabylonJS.Model
 {
     [JsonConverter(typeof(CachedEntityConverter<SceneLoaderImportMeshEntity>))]
-    public class SceneLoaderImportMeshEntity
-        : CachedEntity
+    public class SceneLoaderImportMeshEntity : CachedEntity
     {
         public AbstractMesh[] meshes
         {
@@ -18,14 +17,7 @@ namespace EventHorizon.Blazor.BabylonJS.Model
                     entity => new AbstractMesh() { ___guid = entity.___guid }
                 );
             }
-            set
-            {
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "meshes",
-                    value
-                );
-            }
+            set { EventHorizonBlazorInterop.Set(this.___guid, "meshes", value); }
         }
         public AnimationGroup[] animationGroups
         {
@@ -37,14 +29,7 @@ namespace EventHorizon.Blazor.BabylonJS.Model
                     entity => new AnimationGroup() { ___guid = entity.___guid }
                 );
             }
-            set
-            {
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "animationGroups",
-                    value
-                );
-            }
+            set { EventHorizonBlazorInterop.Set(this.___guid, "animationGroups", value); }
         }
 
         //#region Static Accessors

@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface HostInformation : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<HostInformationCachedEntity>))]
     public class HostInformationCachedEntity : CachedEntityObject, HostInformation
     {
@@ -32,34 +32,24 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<bool> get_isMobile()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isMobile"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "isMobile");
         }
+
         public ValueTask set_isMobile(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isMobile",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "isMobile", value);
         }
         #endregion
-        
+
         #region Constructor
-        public HostInformationCachedEntity() : base() { }
+        public HostInformationCachedEntity()
+            : base() { }
 
-        public HostInformationCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public HostInformationCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

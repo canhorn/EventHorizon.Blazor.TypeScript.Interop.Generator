@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<KeyboardInfo>))]
     public class KeyboardInfo : CachedEntityObject
     {
@@ -32,28 +30,22 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<decimal> get_type()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "type"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "type");
         }
+
         public ValueTask set_type(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "type",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "type", value);
         }
 
         private KeyboardEvent __event;
+
         public async ValueTask<KeyboardEvent> get_event()
         {
-            if(__event == null)
+            if (__event == null)
             {
                 __event = await EventHorizonBlazorInterop.GetClass<KeyboardEvent>(
                     this.___guid,
@@ -66,34 +58,33 @@ namespace BABYLON
             }
             return __event;
         }
+
         public ValueTask set_event(KeyboardEvent value)
         {
-__event = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "event",
-                    value
-                );
+            __event = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "event", value);
         }
         #endregion
-        
-        #region Constructor
-        public KeyboardInfo() : base() { } 
 
-        public KeyboardInfo(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public KeyboardInfo()
+            : base() { }
+
+        public KeyboardInfo(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
         public static async ValueTask<KeyboardInfo> NewKeyboardInfo(
-            decimal type, KeyboardEvent @event
+            decimal type,
+            KeyboardEvent @event
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "KeyboardInfo" },
-                type, @event
+                type,
+                @event
             );
 
             return new KeyboardInfo(entity);

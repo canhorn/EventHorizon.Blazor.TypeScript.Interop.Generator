@@ -10,8 +10,6 @@ namespace BABYLON.GUI
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<StackPanel>))]
     public class StackPanel : Container
     {
@@ -28,111 +26,69 @@ namespace BABYLON.GUI
         #endregion
 
         #region Accessors
-        
+
         public async ValueTask<bool> get_isVertical()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "isVertical"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "isVertical");
         }
+
         public ValueTask set_isVertical(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "isVertical",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "isVertical", value);
         }
 
-        
         public async ValueTask<string> get_width()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "width"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "width");
         }
+
         public ValueTask set_width(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "width",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "width", value);
         }
 
-        
         public async ValueTask<string> get_height()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "height"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "height");
         }
+
         public ValueTask set_height(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "height",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "height", value);
         }
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<string> get_name()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "name"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "name");
         }
+
         public ValueTask set_name(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "name",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "name", value);
         }
 
-        
         public async ValueTask<bool> get_ignoreLayoutWarnings()
         {
-            return await EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "ignoreLayoutWarnings"
-                );
+            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "ignoreLayoutWarnings");
         }
+
         public ValueTask set_ignoreLayoutWarnings(bool value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "ignoreLayoutWarnings",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "ignoreLayoutWarnings", value);
         }
         #endregion
-        
+
         #region Constructor
-        public StackPanel() : base() { }
+        public StackPanel()
+            : base() { }
 
-        public StackPanel(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
+        public StackPanel(ICachedEntity entity)
+            : base(entity) { }
 
-        public static async ValueTask<StackPanel> NewStackPanel(
-            string name = null
-        )
+        public static async ValueTask<StackPanel> NewStackPanel(string name = null)
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GUI", "StackPanel" },

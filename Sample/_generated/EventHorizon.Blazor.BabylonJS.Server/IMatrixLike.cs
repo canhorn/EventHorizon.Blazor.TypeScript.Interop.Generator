@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IMatrixLike : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IMatrixLikeCachedEntity>))]
     public class IMatrixLikeCachedEntity : CachedEntityObject, IMatrixLike
     {
@@ -32,34 +32,24 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<decimal> get_updateFlag()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "updateFlag"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "updateFlag");
         }
+
         public ValueTask set_updateFlag(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "updateFlag",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "updateFlag", value);
         }
         #endregion
-        
+
         #region Constructor
-        public IMatrixLikeCachedEntity() : base() { }
+        public IMatrixLikeCachedEntity()
+            : base() { }
 
-        public IMatrixLikeCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IMatrixLikeCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 
@@ -67,10 +57,7 @@ namespace BABYLON
         public async ValueTask<decimal[]> toArray()
         {
             return await EventHorizonBlazorInterop.FuncArray<decimal>(
-                new object[]
-                {
-                    new string[] { this.___guid, "toArray" }
-                }
+                new object[] { new string[] { this.___guid, "toArray" } }
             );
         }
         #endregion

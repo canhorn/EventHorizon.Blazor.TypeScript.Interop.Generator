@@ -251,5 +251,8 @@ appsettings.*.json
 data/*.json
 App_Data/*
 
+lcov.info
 coverage*.json
 coverage*.xml
+
+published

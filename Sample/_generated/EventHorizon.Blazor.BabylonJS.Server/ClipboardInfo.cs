@@ -10,8 +10,6 @@ namespace BABYLON
     using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    
-    
     [JsonConverter(typeof(CachedEntityConverter<ClipboardInfo>))]
     public class ClipboardInfo : CachedEntityObject
     {
@@ -27,9 +25,10 @@ namespace BABYLON
         public static async ValueTask<decimal> GetTypeFromCharacter(decimal keyCode)
         {
             return await EventHorizonBlazorInterop.Func<decimal>(
-                new object[] 
+                new object[]
                 {
-                    new string[] { "BABYLON", "ClipboardInfo", "GetTypeFromCharacter" }, keyCode
+                    new string[] { "BABYLON", "ClipboardInfo", "GetTypeFromCharacter" },
+                    keyCode
                 }
             );
         }
@@ -40,28 +39,22 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<decimal> get_type()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "type"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "type");
         }
+
         public ValueTask set_type(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "type",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "type", value);
         }
 
         private ClipboardEvent __event;
+
         public async ValueTask<ClipboardEvent> get_event()
         {
-            if(__event == null)
+            if (__event == null)
             {
                 __event = await EventHorizonBlazorInterop.GetClass<ClipboardEvent>(
                     this.___guid,
@@ -74,34 +67,33 @@ namespace BABYLON
             }
             return __event;
         }
+
         public ValueTask set_event(ClipboardEvent value)
         {
-__event = null;
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "event",
-                    value
-                );
+            __event = null;
+            return EventHorizonBlazorInterop.Set(this.___guid, "event", value);
         }
         #endregion
-        
-        #region Constructor
-        public ClipboardInfo() : base() { } 
 
-        public ClipboardInfo(
-            ICachedEntity entity
-        ) : base(entity)
+        #region Constructor
+        public ClipboardInfo()
+            : base() { }
+
+        public ClipboardInfo(ICachedEntity entity)
+            : base(entity)
         {
             ___guid = entity.___guid;
         }
 
         public static async ValueTask<ClipboardInfo> NewClipboardInfo(
-            decimal type, ClipboardEvent @event
+            decimal type,
+            ClipboardEvent @event
         )
         {
             var entity = await EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "ClipboardInfo" },
-                type, @event
+                type,
+                @event
             );
 
             return new ClipboardInfo(entity);

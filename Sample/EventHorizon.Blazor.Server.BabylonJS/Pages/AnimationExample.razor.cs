@@ -11,7 +11,8 @@ namespace EventHorizon.Blazor.Server.BabylonJS.Pages
 
     public partial class AnimationExample : IAsyncDisposable
     {
-        private IDictionary<string, AnimationGroup> _animationMap = new Dictionary<string, AnimationGroup>();
+        private IDictionary<string, AnimationGroup> _animationMap =
+            new Dictionary<string, AnimationGroup>();
         private AnimationGroup _runningAnimation = null;
         private Engine _engine;
 
@@ -33,35 +34,18 @@ namespace EventHorizon.Blazor.Server.BabylonJS.Pages
 
         public async Task CreateScene()
         {
-            var canvas = await Canvas.GetElementById(
-                "game-window"
-            );
-            var engine = await Engine.NewEngine(
-                canvas,
-                true
-            );
-            var scene = await Scene.NewScene(
-                engine
-            );
-            await scene.set_clearColor(
-                await Color4.NewColor4(0, 0, 0, 0)
-            );
+            var canvas = await Canvas.GetElementById("game-window");
+            var engine = await Engine.NewEngine(canvas, true);
+            var scene = await Scene.NewScene(engine);
+            await scene.set_clearColor(await Color4.NewColor4(0, 0, 0, 0));
             var light0 = await PointLight.NewPointLight(
                 "Omni",
-                await Vector3.NewVector3(
-                    0,
-                    100,
-                    8
-                ),
+                await Vector3.NewVector3(0, 100, 8),
                 scene
             );
             var light1 = await HemisphericLight.NewHemisphericLight(
                 "HemisphericLight",
-                await Vector3.NewVector3(
-                    0,
-                    100,
-                    8
-                ),
+                await Vector3.NewVector3(0, 100, 8),
                 scene
             );
             var advancedTexture = await AdvancedDynamicTexture.CreateFullscreenUI("UI");
@@ -74,21 +58,13 @@ namespace EventHorizon.Blazor.Server.BabylonJS.Pages
 
             await advancedTexture.addControl(UiPanel);
 
-            var house = await SceneLoader.ImportMeshAsync(
-                null,
-                "assets/",
-                "Player.glb",
-                scene
-            );
+            var house = await SceneLoader.ImportMeshAsync(null, "assets/", "Player.glb", scene);
             var animationGroups = await house.get_animationGroups();
             foreach (var animation in animationGroups)
             {
                 await animation.stop();
                 _animationMap.Add(await animation.get_name(), animation);
-                await AddRunAnimationButton(
-                    UiPanel,
-                    await animation.get_name()
-                );
+                await AddRunAnimationButton(UiPanel, await animation.get_name());
             }
             if (_animationMap.Count > 0)
             {
@@ -108,12 +84,10 @@ namespace EventHorizon.Blazor.Server.BabylonJS.Pages
             await camera.set_upperRadiusLimit(10);
             await camera.set_wheelDeltaPercentage(0.01m);
             await scene.set_activeCamera(camera);
-            await camera.attachControl(
-                false
+            await camera.attachControl(false);
+            await engine.runRenderLoop(
+                new ActionCallback(() => Task.Run(() => scene.render(true, false)))
             );
-            await engine.runRenderLoop(new ActionCallback(
-                () => Task.Run(() => scene.render(true, false))
-            ));
 
             _engine = engine;
         }
@@ -126,19 +100,21 @@ namespace EventHorizon.Blazor.Server.BabylonJS.Pages
             await button.set_height("50px");
             await button.set_color("white");
             await button.set_background("green");
-            await (await button.get_onPointerDownObservable()).add(async (_, __) =>
-            {
-                if (_runningAnimation != null)
+            await (await button.get_onPointerDownObservable()).add(
+                async (_, __) =>
                 {
-                    await _runningAnimation.stop();
-                    _runningAnimation = null;
+                    if (_runningAnimation != null)
+                    {
+                        await _runningAnimation.stop();
+                        _runningAnimation = null;
+                    }
+                    if (_animationMap.ContainsKey(name))
+                    {
+                        await _animationMap[name].play(true);
+                        _runningAnimation = _animationMap[name];
+                    }
                 }
-                if (_animationMap.ContainsKey(name))
-                {
-                    await _animationMap[name].play(true);
-                    _runningAnimation = _animationMap[name];
-                }
-            });
+            );
             await uiPanel.addControl(button);
         }
     }

@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     public interface IWebRequest : ICachedEntity { }
-    
+
     [JsonConverter(typeof(CachedEntityConverter<IWebRequestCachedEntity>))]
     public class IWebRequestCachedEntity : CachedEntityObject, IWebRequest
     {
@@ -32,70 +32,44 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        
+
         public async ValueTask<string> get_responseURL()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "responseURL"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "responseURL");
         }
+
         public ValueTask set_responseURL(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "responseURL",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "responseURL", value);
         }
 
-        
         public async ValueTask<decimal> get_status()
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(
-                    this.___guid,
-                    "status"
-                );
+            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "status");
         }
+
         public ValueTask set_status(decimal value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "status",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "status", value);
         }
 
-        
         public async ValueTask<string> get_statusText()
         {
-            return await EventHorizonBlazorInterop.Get<string>(
-                    this.___guid,
-                    "statusText"
-                );
+            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "statusText");
         }
+
         public ValueTask set_statusText(string value)
         {
-
-                return EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "statusText",
-                    value
-                );
+            return EventHorizonBlazorInterop.Set(this.___guid, "statusText", value);
         }
         #endregion
-        
+
         #region Constructor
-        public IWebRequestCachedEntity() : base() { }
+        public IWebRequestCachedEntity()
+            : base() { }
 
-        public IWebRequestCachedEntity(
-            ICachedEntity entity
-        ) : base(entity)
-        {
-        }
-
+        public IWebRequestCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

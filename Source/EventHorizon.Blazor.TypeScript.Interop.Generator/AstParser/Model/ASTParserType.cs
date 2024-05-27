@@ -1,8 +1,7 @@
-namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model
+namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model;
+
+public enum ASTParserType
 {
-    public enum ASTParserType
-    {
-        Sdcb = 0,
-        NodeJS = 1,
-    }
+    Sdcb = 0,
+    NodeJS = 1,
 }
