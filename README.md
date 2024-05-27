@@ -27,6 +27,7 @@ The Wasm interop project can be found in the [canhorn/EventHorizon.Blazor.Intero
 * [.NET Core](https://dotnet.microsoft.com/)
 * [TypeScript](https://www.typescriptlang.org/)
 * [NodeJS](https://nodejs.org/)
+  * Required Version >= 20
 
 ## TypeScript Parser
 
