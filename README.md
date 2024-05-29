@@ -29,6 +29,26 @@ The Wasm interop project can be found in the [canhorn/EventHorizon.Blazor.Intero
 * [NodeJS](https://nodejs.org/)
   * Required Version >= 20
 
+## Using the Tool
+
+~~~ bash
+dotnet tool install -g EventHorizon.Blazor.TypeScript.Interop.Tool
+~~~
+
+## Command Line Options
+
+Identifier | Details | Required/Default
+--- | --- | ---
+-s, --source &lt;source&gt; | TypeScript Definition to generate from, can be a File or URL, accepts multiple or as Array |  REQUIRED
+-c, --class-to-generate &lt;class-to-generate&gt; | A Class to generate, accepts multiple or as Array |  REQUIRED
+-a, --project-assembly &lt;project-assembly&gt; | The project name of the Assembly that will be generated | Default: "Generated.WASM"
+-l, --project-generation-location &lt;project-generation-location&gt; | The directory where the Generated Project assembly will be saved | Default: "_generated"
+-f, --force | This will force generation, by deleting --project-generation-location | Default: (False)
+-p, --parser | The type of TypeScript parser to use, Supported values: ("dotnet","nodejs")  | Default: ("dotnet")
+-h, --host-type | The host type the source should be generator for, Supported values: ("wasm","server"). | Default: ("wasm") 
+
+More details in the [Tool README.md](./Tool/EventHorizon.Blazor.TypeScript.Interop.Tool/README.md).
+
 ## TypeScript Parser
 
 The generation relies heavily on the TypeScript Abstract Syntax Tree and so the code includes ways to parse the source files into a AST representation for easier generation.
