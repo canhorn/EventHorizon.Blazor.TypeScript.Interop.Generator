@@ -86,6 +86,6 @@ public class StringGenerationTest
 
         // Then
         actual.Should().NotBeNull();
-        actual.Should().HaveCount(5);
+        actual.Should().HaveCount(6);
     }
 }

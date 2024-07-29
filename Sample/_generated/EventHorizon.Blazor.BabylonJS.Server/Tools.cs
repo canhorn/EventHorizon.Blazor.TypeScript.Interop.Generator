@@ -477,7 +477,7 @@ namespace BABYLON
 
         public static async ValueTask LoadScriptAsync(string scriptUrl, string scriptId = null)
         {
-            await EventHorizonBlazorInterop.Task<CachedEntity>(
+            await EventHorizonBlazorInterop.Task<Void_>(
                 new object[]
                 {
                     new string[] { "BABYLON", "Tools", "LoadScriptAsync" },
@@ -985,7 +985,7 @@ namespace BABYLON
 
         public static async ValueTask DelayAsync(decimal delay)
         {
-            await EventHorizonBlazorInterop.Task<CachedEntity>(
+            await EventHorizonBlazorInterop.Task<Void_>(
                 new object[] { new string[] { "BABYLON", "Tools", "DelayAsync" }, delay }
             );
         }

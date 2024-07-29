@@ -14,10 +14,8 @@ public interface IInterfaceResponseTypeIdentifier
 
 public static class InterfaceResponseTypeIdentifier
 {
-    private static IInterfaceResponseTypeIdentifier CACHED =
-        new InterfaceResponseTypeIdentifierCached();
-    private static IInterfaceResponseTypeIdentifier NOT_CACHED =
-        new InterfaceResponseTypeIdentifierNotCached();
+    private static readonly InterfaceResponseTypeIdentifierCached CACHED = new();
+    private static readonly InterfaceResponseTypeIdentifierNotCached NOT_CACHED = new();
     private static IInterfaceResponseTypeIdentifier ACTIVE = CACHED;
 
     public static void DisableCache()

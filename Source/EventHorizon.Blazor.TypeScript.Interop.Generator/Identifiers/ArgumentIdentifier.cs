@@ -10,7 +10,7 @@ using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
 
 public static class ArgumentIdentifier
 {
-    private static readonly IRule IsOptionalRule = new IsOptional();
+    private static readonly IsOptional IsOptionalRule = new();
 
     internal static IList<ArgumentStatement> Identify(
         Node node,
@@ -48,7 +48,7 @@ public static class ArgumentIdentifier
                 }
                 if (type.Name == GenerationIdentifiedTypes.Action)
                 {
-                    type.GenericTypes = type.Arguments.Select(a => a.Type);
+                    type.GenericTypes = type.Arguments.Select(a => a.Type).ToList();
                 }
 
                 var name = parameter.IdentifierStr;

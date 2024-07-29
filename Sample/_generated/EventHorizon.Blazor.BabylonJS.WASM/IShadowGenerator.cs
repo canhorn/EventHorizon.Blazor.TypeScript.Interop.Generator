@@ -131,7 +131,7 @@ namespace BABYLON
 
         public async ValueTask forceCompilationAsync(CachedEntity options = null)
         {
-            await EventHorizonBlazorInterop.Task<CachedEntity>(
+            await EventHorizonBlazorInterop.Task<Void_>(
                 new object[] { new string[] { this.___guid, "forceCompilationAsync" }, options }
             );
         }

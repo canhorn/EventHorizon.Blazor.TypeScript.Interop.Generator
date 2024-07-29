@@ -25,9 +25,13 @@ public static class SyntaxKind
     public const string ParenthesizedType = nameof(ParenthesizedType);
     public const string FunctionType = nameof(FunctionType);
     public const string StringKeyword = nameof(StringKeyword);
+    public const string StringLiteral = nameof(StringLiteral);
     public const string VoidKeyword = nameof(VoidKeyword);
     public const string BooleanKeyword = nameof(BooleanKeyword);
+    public const string TrueKeyword = nameof(TrueKeyword);
+    public const string FalseKeyword = nameof(FalseKeyword);
     public const string NumberKeyword = nameof(NumberKeyword);
+    public const string NumericLiteral = nameof(NumericLiteral);
     public const string ObjectKeyword = nameof(ObjectKeyword);
     public const string StaticKeyword = nameof(StaticKeyword);
     public const string ReadonlyKeyword = nameof(ReadonlyKeyword);

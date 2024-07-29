@@ -22,6 +22,8 @@ public static class ReadInteropTemplates
         var cachedEntityObjectTemplate = ReadAllText(
             $"{templatesPath}.CachedEntityObjectTemplate.txt"
         );
+        // Void Type Template
+        var voidTypeTemplate = ReadAllText($"{templatesPath}.VoidTypeTemplate.txt");
         // Accessor/Property Template
         var accessorTemplate = ReadAllText($"{templatesPath}.AccessorTemplate.txt");
         // Accessor/Property With Setter Template
@@ -79,6 +81,7 @@ public static class ReadInteropTemplates
         generatedTemplates.ClassWithNoNamespace = classWithNoNamespaceTemplate;
         generatedTemplates.ClassShim = classShimTemplate;
         generatedTemplates.CachedEntityObject = cachedEntityObjectTemplate;
+        generatedTemplates.VoidTypeTemplate = voidTypeTemplate;
 
         generatedTemplates.Accessor = accessorTemplate;
         generatedTemplates.AccessorWithSetter = accessorWithSetterTemplate;

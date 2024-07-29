@@ -31,6 +31,18 @@ namespace Static.Primitive
                 );
             }
         }
+
+        
+        public static decimal ALPHA_DISABLE
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<decimal>(
+                    "Static",
+                    "Primitive.ExampleClass.ALPHA_DISABLE"
+                );
+            }
+        }
         #endregion
 
         #region Static Methods

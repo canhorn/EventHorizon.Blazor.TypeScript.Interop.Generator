@@ -61,19 +61,19 @@ public static class GenerateInteropClassStatement
         );
 
         // Public Properties
-        var publicProperties = toGenerateNode.Children.Where(child =>
-            IsNotPrivate(child) && IsPropertyType(child, classMetadata)
-        );
+        var publicProperties = toGenerateNode
+            .Children.Where(child => IsNotPrivate(child) && IsPropertyType(child, classMetadata))
+            .ToList();
 
         // Public Methods/Functions
-        var publicMethods = toGenerateNode.Children.Where(child =>
-            IsNotPrivate(child) && IsMethodType(child, classMetadata)
-        );
+        var publicMethods = toGenerateNode
+            .Children.Where(child => IsNotPrivate(child) && IsMethodType(child, classMetadata))
+            .ToList();
 
         // Get/Set Accessors
-        var accessorMethods = toGenerateNode.Children.Where(child =>
-            IsNotPrivate(child) && IsAccessorType(child)
-        );
+        var accessorMethods = toGenerateNode
+            .Children.Where(child => IsNotPrivate(child) && IsAccessorType(child))
+            .ToList();
 
         // Is Observer Method/Function
         var observalbleMethods = publicProperties
@@ -104,7 +104,6 @@ public static class GenerateInteropClassStatement
                 ),
             },
             PublicPropertyStatements = publicProperties
-                .ToList()
                 .Select(a =>
                 {
                     var name = a.IdentifierStr;
@@ -153,7 +152,6 @@ public static class GenerateInteropClassStatement
                 })
                 .ToList(),
             PublicMethodStatements = publicMethods
-                .ToList()
                 .Select(a =>
                 {
                     var name = a.IdentifierStr;

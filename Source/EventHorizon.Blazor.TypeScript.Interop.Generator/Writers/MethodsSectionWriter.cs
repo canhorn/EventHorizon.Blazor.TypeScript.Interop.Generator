@@ -180,10 +180,10 @@ public static class MethodsSectionWriter
                 }
 
                 // Change up the taskType if 'void';
-                if (taskType == GenerationIdentifiedTypes.Void)
+                if (taskType == GenerationIdentifiedTypes.VoidNode)
                 {
                     bodyTemplate = templates.ReturnTypeVoidTemplate;
-                    taskType = GenerationIdentifiedTypes.CachedEntity;
+                    taskType = GenerationIdentifiedTypes.VoidNode;
                     taskAsync = "async ";
                     taskAwait = "await ";
                 }

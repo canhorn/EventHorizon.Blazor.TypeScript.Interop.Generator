@@ -13,8 +13,8 @@ public interface IAliasTypeIdentifier
 
 public static class AliasTypeIdentifier
 {
-    private static IAliasTypeIdentifier CACHED => new AliasTypeIdentifierCached();
-    private static IAliasTypeIdentifier NOT_CACHED => new AliasTypeIdentifierNotCached();
+    private static readonly AliasTypeIdentifierCached CACHED = new();
+    private static readonly AliasTypeIdentifierNotCached NOT_CACHED = new();
     private static IAliasTypeIdentifier ACTIVE = CACHED;
 
     public static void DisableCache()

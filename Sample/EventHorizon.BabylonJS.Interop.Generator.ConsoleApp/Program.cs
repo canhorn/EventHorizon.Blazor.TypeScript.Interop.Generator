@@ -42,7 +42,7 @@ public class Program
         };
         var generationList = new List<string>
         {
-            //"Everything",
+            // "Everything",
             "Scene",
             "VertexBuffer",
             "ICameraInput",
@@ -68,6 +68,7 @@ public class Program
             "PointerInfoBase",
             "SceneLoader",
             "ParticleHelper",
+            "ParticleSystem",
             "Sound",
             "Tools",
         };

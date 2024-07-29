@@ -7,6 +7,7 @@ public class GenerationIdentifiedTypes
     public const string Action = "action";
     public const string Task = "Task";
     public const string Void = "void";
+    public const string VoidNode = "Void_";
     public const string Setter = "setter";
     public const string Getter = "getter";
     public const string Literal = "object-literal";

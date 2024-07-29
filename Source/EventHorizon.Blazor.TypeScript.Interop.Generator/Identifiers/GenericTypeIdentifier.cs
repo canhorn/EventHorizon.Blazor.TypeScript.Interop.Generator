@@ -11,11 +11,11 @@ using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
 
 public class GenericTypeIdentifier
 {
-    private static IRule IsArrayResposneTypeRule => new IsArrayResponseType();
-    private static IRule IsNumericArrayRule => new IsNumericArray();
-    private static IRule IsTypeLiteralRule => new IsTypeLiteral();
-    private static IRule IsVoidTypeRule => new IsVoidType();
-    private static IRule IsTypeQueryRule => new IsTypeQuery();
+    private static readonly IsArrayResponseType IsArrayResponseTypeRule = new();
+    private static readonly IsNumericArray IsNumericArrayRule = new();
+    private static readonly IsTypeLiteral IsTypeLiteralRule = new();
+    private static readonly IsVoidType IsVoidTypeRule = new();
+    private static readonly IsTypeQuery IsTypeQueryRule = new();
 
     public static TypeStatement Identify(
         Node node,
@@ -76,7 +76,7 @@ public class GenericTypeIdentifier
         {
             genericTypes.Add(new TypeStatement { Name = GenerationIdentifiedTypes.Number, });
         }
-        else if (IsArrayResposneTypeRule.Check(node))
+        else if (IsArrayResponseTypeRule.Check(node))
         {
             genericTypes.Add(Identify(node.First, classMetadata, ast, typeOverrideDetails));
         }
@@ -134,11 +134,12 @@ public class GenericTypeIdentifier
         return new TypeStatement
         {
             Name = DotNetClassNormalizer.Normalize(typeIdentifier),
-            IsArray = IsArrayResposneTypeRule.Check(node),
+            IsArray = IsArrayResponseTypeRule.Check(node),
             IsTypeAlias = isTypeAlias && aliasType != null,
             AliasType = aliasType,
             IsNullable = NullableTypeIdentifier.Identify(typeIdentifier),
             IsAction = isAction,
+            IsVoid = VoidTypeIdentifier.Identify(typeIdentifier),
             ActionResultType = actionResultType,
             IsTask = TaskTypeIdentifier.Identify(typeIdentifier),
             IsLiteral = isLiteral,

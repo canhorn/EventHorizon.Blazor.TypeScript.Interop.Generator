@@ -28,6 +28,8 @@ public static class ReadTemplates
         var cachedEntityObjectTemplate = ReadAllText(
             $"{templatesPath}.CachedEntityObjectTemplate.txt"
         );
+        // Void Type Template
+        var voidTypeTemplate = ReadAllText($"{templatesPath}.VoidTypeTemplate.txt");
         // Accessor/Property Template
         var accessorTemplate = ReadAllText($"{templatesPath}.AccessorTemplate.txt");
         // Accessor/Property With Setter Template
@@ -84,6 +86,7 @@ public static class ReadTemplates
             ClassWithNoNamespace = classWithNoNamespaceTemplate,
             ClassShim = classShimTemplate,
             CachedEntityObject = cachedEntityObjectTemplate,
+            VoidTypeTemplate = voidTypeTemplate,
             Accessor = accessorTemplate,
             AccessorWithSetter = accessorWithSetterTemplate,
             Constructor = constructorTemplate,

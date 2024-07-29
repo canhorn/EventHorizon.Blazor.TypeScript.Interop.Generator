@@ -6,6 +6,7 @@ public class ClassGenerationTemplates
     public string ClassWithNoNamespace { get; set; }
     public string ClassShim { get; set; }
     public string CachedEntityObject { get; set; }
+    public string VoidTypeTemplate { get; set; }
     public string Accessor { get; set; }
     public string AccessorWithSetter { get; set; }
     public string Constructor { get; set; }

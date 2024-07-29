@@ -21,6 +21,7 @@ module.exports = (callback, sourceFileCode) => {  // Module must export a functi
             return value;
         };
     };
+    
     callback(null, JSON.stringify(ast, replacerFunc(), 2));
 };
 

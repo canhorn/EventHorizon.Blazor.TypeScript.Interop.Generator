@@ -62,6 +62,15 @@ public class GenerateSource
         GlobalLogger.Info(
             $"=== Generated Cached Entity Object | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms"
         );
+        stopwatch.Restart();
+        GlobalLogger.Info($"=== Generate Void Type");
+        var voidType = GenerateVoidType.GenerateClassStatement();
+        generatedStatements.Add(
+            new GeneratedStatement(voidType, GenerateVoidType.GenerateString())
+        );
+        GlobalLogger.Info(
+            $"=== Generated Void Type | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms"
+        );
 
         stopwatch.Restart();
         GlobalLogger.Info($"=== Generate Class Statements");

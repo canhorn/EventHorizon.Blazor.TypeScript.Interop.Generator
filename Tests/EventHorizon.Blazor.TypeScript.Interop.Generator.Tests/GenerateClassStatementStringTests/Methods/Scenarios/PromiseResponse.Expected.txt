@@ -51,7 +51,7 @@ namespace Static.Class
         #region Methods
         public async ValueTask promiseVoid()
         {
-            await EventHorizonBlazorInterop.Task<CachedEntity>(
+            await EventHorizonBlazorInterop.Task<Void_>(
                 new object[]
                 {
                     new string[] { this.___guid, "promiseVoid" }

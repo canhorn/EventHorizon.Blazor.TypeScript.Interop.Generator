@@ -598,7 +598,7 @@ namespace BABYLON
 
         public async ValueTask edit(INodeMaterialEditorOptions config = null)
         {
-            await EventHorizonBlazorInterop.Task<CachedEntity>(
+            await EventHorizonBlazorInterop.Task<Void_>(
                 new object[] { new string[] { this.___guid, "edit" }, config }
             );
         }
@@ -640,7 +640,7 @@ namespace BABYLON
 
         public async ValueTask loadAsync(string url)
         {
-            await EventHorizonBlazorInterop.Task<CachedEntity>(
+            await EventHorizonBlazorInterop.Task<Void_>(
                 new object[] { new string[] { this.___guid, "loadAsync" }, url }
             );
         }

@@ -3362,7 +3362,7 @@ namespace BABYLON
 
         public async ValueTask whenReadyAsync()
         {
-            await EventHorizonBlazorInterop.Task<CachedEntity>(
+            await EventHorizonBlazorInterop.Task<Void_>(
                 new object[] { new string[] { this.___guid, "whenReadyAsync" } }
             );
         }

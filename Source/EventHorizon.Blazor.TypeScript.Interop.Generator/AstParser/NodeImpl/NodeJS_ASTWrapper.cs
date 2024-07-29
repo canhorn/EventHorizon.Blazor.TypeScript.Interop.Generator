@@ -37,29 +37,31 @@ public class NodeJS_ASTWrapper : AbstractSyntaxTree
             cmdProcess.WaitForExit();
         }
 
-        var result = StaticNodeJSService
+        var fileContent = StaticNodeJSService
             .InvokeFromFileAsync<string>(indexJSPath, args: new object[] { source })
             .GetAwaiter()
             .GetResult();
 
         // TEST: Uncomment to view the generated AST
-        //File.WriteAllText(
-        //    Path.Combine(
-        //        ".",
-        //        "AstParser",
-        //        "NodeImpl",
-        //        "NodeJS",
-        //        "_generated",
-        //        "ast.json"
-        //    ),
-        //    result
-        //);
+        // WriteAstJsonToFile(fileContent);
+
         var ast = JsonSerializer.Deserialize<ASTModel>(
-            result,
+            fileContent,
             new JsonSerializerOptions { PropertyNameCaseInsensitive = true, }
         );
 
         RootNode = new NodeJS_Node(ast.Program);
+    }
+
+    private static void WriteAstJsonToFile(string fileContent)
+    {
+        Directory.CreateDirectory(
+            Path.Combine(".", "AstParser", "NodeImpl", "NodeJS", "_generated")
+        );
+        File.WriteAllText(
+            Path.Combine(".", "AstParser", "NodeImpl", "NodeJS", "_generated", "ast.json"),
+            fileContent
+        );
     }
 
     public Node RootNode { get; }

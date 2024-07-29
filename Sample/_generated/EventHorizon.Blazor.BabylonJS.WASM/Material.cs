@@ -1120,7 +1120,7 @@ namespace BABYLON
             IMaterialCompilationOptions options = null
         )
         {
-            await EventHorizonBlazorInterop.Task<CachedEntity>(
+            await EventHorizonBlazorInterop.Task<Void_>(
                 new object[]
                 {
                     new string[] { this.___guid, "forceCompilationAsync" },

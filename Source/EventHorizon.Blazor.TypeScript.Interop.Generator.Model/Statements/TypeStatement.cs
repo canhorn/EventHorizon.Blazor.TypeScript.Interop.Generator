@@ -14,6 +14,7 @@ public class TypeStatement
     public IEnumerable<ArgumentStatement> Arguments { get; set; } = new List<ArgumentStatement>();
     public bool IsNullable { get; set; }
     public bool IsAction { get; set; }
+    public bool IsVoid { get; set; }
     public bool IsTask { get; set; }
     public bool IsLiteral { get; set; }
     public bool IsModifier { get; set; }
@@ -31,12 +32,13 @@ public class TypeStatement
         var modifier = IsModifier ? "(M)" : string.Empty;
         var interfaceString = IsInterface ? "(I)" : string.Empty;
         var enumString = IsEnum ? $"(E)" : string.Empty;
+        var voidString = IsVoid ? "(V)" : string.Empty;
         var arguments = string.Join(", ", Arguments.Select(generic => generic.ToString()));
         var action = IsAction ? $"({arguments}) => " : string.Empty;
         var task = IsTask ? $"({arguments}) => " : string.Empty;
         var genericsJoined = string.Join(", ", GenericTypes.Select(generic => generic.ToString()));
         var generics = GenericTypes.Any() ? $"<{genericsJoined}>" : string.Empty;
 
-        return $"{(IsTask ? task : action)} {enumString}{modifier}{interfaceString}{Name}{generics}{array}{nullable}";
+        return $"{(IsTask ? task : action)} {enumString}{modifier}{interfaceString}{voidString}{Name}{generics}{array}{nullable}";
     }
 }

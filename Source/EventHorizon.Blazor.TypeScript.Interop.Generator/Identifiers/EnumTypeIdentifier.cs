@@ -12,8 +12,8 @@ public interface IEnumTypeIdentifier
 
 public static class EnumTypeIdentifier
 {
-    private static IEnumTypeIdentifier CACHED => new EnumTypeIdentifierCached();
-    private static IEnumTypeIdentifier NOT_CACHED => new EnumTypeIdentifierNotCached();
+    private static readonly EnumTypeIdentifierCached CACHED = new();
+    private static readonly EnumTypeIdentifierNotCached NOT_CACHED = new();
     private static IEnumTypeIdentifier ACTIVE = CACHED;
 
     public static void DisableCache()

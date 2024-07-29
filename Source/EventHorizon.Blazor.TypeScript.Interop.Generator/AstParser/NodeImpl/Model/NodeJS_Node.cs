@@ -281,6 +281,11 @@ public class NodeJS_Node : Node
             children.Add(new NodeJS_Node(node.ReturnType.TypeAnnotation, parent: this));
         }
 
+        if (node.Value is not null)
+        {
+            children.Add(new NodeJS_Node(node.Value, parent: this));
+        }
+
         Children = children.ToList();
         Modifiers = modifiers.ToList();
     }

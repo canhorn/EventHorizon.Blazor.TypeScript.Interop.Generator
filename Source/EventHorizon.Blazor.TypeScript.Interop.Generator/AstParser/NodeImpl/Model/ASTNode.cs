@@ -53,6 +53,7 @@ public class ASTNode
     public TypeAnnotationModel ReturnType { get; set; }
     public ASTNode TypeParameters { get; set; }
     public ASTNode Expression { get; set; }
+    public IdentifierModel Value { get; set; }
 
     #region SuperClass
     public IdentifierModel Object { get; set; }

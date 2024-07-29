@@ -12,6 +12,8 @@ public class SdcbNode : GenNode
 
     public SdcbNode(INode node)
     {
+        ArgumentNullException.ThrowIfNull(node);
+
         _node = node;
     }
 
@@ -51,8 +53,15 @@ public class SdcbNode : GenNode
         {
             if (_type is null && _node is ParameterDeclaration parameterDeclaration)
             {
-                _type = new SdcbNode(parameterDeclaration.Type);
+                _type = new SdcbNode(
+                    parameterDeclaration.Type
+                        ?? parameterDeclaration.Parent.Children.FirstOrDefault(a =>
+                            a.Kind == SyntaxKind.TypeParameter
+                            && a.IdentifierStr == parameterDeclaration.IdentifierStr
+                        ) as INode
+                );
             }
+
             return _type;
         }
     }

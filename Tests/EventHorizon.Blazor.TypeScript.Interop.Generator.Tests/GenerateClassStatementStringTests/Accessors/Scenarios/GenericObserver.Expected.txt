@@ -83,6 +83,26 @@ namespace Static.Primitive
             return __getBehaviorByName;
             }
         }
+
+        private Observable<Void_> __observerWithVoid;
+        public Observable<Void_> observerWithVoid
+        {
+            get
+            {
+            if(__observerWithVoid == null)
+            {
+                __observerWithVoid = EventHorizonBlazorInterop.GetClass<Observable<Void_>>(
+                    this.___guid,
+                    "observerWithVoid",
+                    (entity) =>
+                    {
+                        return new Observable<Void_>() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __observerWithVoid;
+            }
+        }
         #endregion
 
         #region Properties
