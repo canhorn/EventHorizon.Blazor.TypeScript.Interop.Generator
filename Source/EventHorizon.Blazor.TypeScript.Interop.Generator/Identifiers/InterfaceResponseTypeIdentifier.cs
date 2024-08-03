@@ -51,7 +51,7 @@ public class InterfaceResponseTypeIdentifierNotCached : IInterfaceResponseTypeId
     public virtual bool Identify(TypeStatement type, AbstractSyntaxTree ast)
     {
         var identifierString = type.Name;
-        if (type.IsModifier || type.IsArray || type.IsNullable)
+        if (type.IsModifier || type.IsArray || type.IsNullable || type.IsReadonly)
         {
             if (type.GenericTypes.Any())
             {

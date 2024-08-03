@@ -14,6 +14,7 @@ public class ClassResponseIdentifier
             || typeStatement.IsModifier
             || typeStatement.IsNullable
             || typeStatement.IsTask
+            || typeStatement.IsReadonly
         )
         {
             return Identify(typeStatement.GenericTypes.First(), classNameList);

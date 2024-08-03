@@ -19,6 +19,7 @@ public static class UsedClassNamesIdentifier
             && !type.IsModifier
             && !type.IsNullable
             && !type.IsTypeAlias
+            && !type.IsReadonly
         )
         {
             // Using The Type get

@@ -1,6 +1,8 @@
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator;
 
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
@@ -12,21 +14,24 @@ using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
 
 public static class GenerateInteropClassStatement
 {
-    static readonly IRule IsObservablePropertyRule = new IsObservableProperty();
-    static readonly IRule IsGetterRule = new IsGetter();
-    static readonly IRule IsSetterRule = new IsSetter();
-    static readonly IRule IsStaticRule = new IsStatic();
-    static readonly IRule IsReadonlyRule = new IsReadonly();
-    static readonly IRule IsClassBasedMethodRule = new IsClassBasedMethod();
-    static readonly IRule IsInterfaceRule = new IsInterface();
+    static readonly IsObservableProperty IsObservablePropertyRule = new();
+    static readonly IsGetter IsGetterRule = new();
+    static readonly IsSetter IsSetterRule = new();
+    static readonly IsStatic IsStaticRule = new();
+    static readonly IsReadonly IsReadonlyRule = new();
+    static readonly IsClassBasedMethod IsClassBasedMethodRule = new();
+    static readonly IsInterface IsInterfaceRule = new();
 
     public static ClassStatement Generate(
         string projectAssembly,
         string classIdentifier,
         AbstractSyntaxTree ast,
-        IDictionary<string, string> typeOverrideMap
+        IDictionary<string, string> typeOverrideMap,
+        IEnumerable<string> ignoredIdentifiers = null
     )
     {
+        ignoredIdentifiers ??= [];
+
         var (found, className, toGenerateNode) = GetNode(classIdentifier, ast);
         if (!found)
         {
@@ -62,21 +67,33 @@ public static class GenerateInteropClassStatement
 
         // Public Properties
         var publicProperties = toGenerateNode
-            .Children.Where(child => IsNotPrivate(child) && IsPropertyType(child, classMetadata))
+            .Children.Where(child =>
+                IsNotPrivate(child)
+                && IsPropertyType(child, classMetadata)
+                && IsNotIgnored(namespaceIdentifier, className, child, ignoredIdentifiers)
+            )
             .ToList();
 
         // Public Methods/Functions
         var publicMethods = toGenerateNode
-            .Children.Where(child => IsNotPrivate(child) && IsMethodType(child, classMetadata))
+            .Children.Where(child =>
+                IsNotPrivate(child)
+                && IsMethodType(child, classMetadata)
+                && IsNotIgnored(namespaceIdentifier, className, child, ignoredIdentifiers)
+            )
             .ToList();
 
         // Get/Set Accessors
         var accessorMethods = toGenerateNode
-            .Children.Where(child => IsNotPrivate(child) && IsAccessorType(child))
+            .Children.Where(child =>
+                IsNotPrivate(child)
+                && IsAccessorType(child)
+                && IsNotIgnored(namespaceIdentifier, className, child, ignoredIdentifiers)
+            )
             .ToList();
 
         // Is Observer Method/Function
-        var observalbleMethods = publicProperties
+        var observableMethods = publicProperties
             .Where(a => IsObservablePropertyRule.Check(a))
             .ToList();
 
@@ -215,6 +232,26 @@ public static class GenerateInteropClassStatement
             InvokableReferenceIdentifier.Identify(classStatement);
 
         return classStatement;
+    }
+
+    private static bool IsNotIgnored(
+        string namespaceIdentifier,
+        string className,
+        Node child,
+        IEnumerable<string> ignoredIdentifiers
+    )
+    {
+        if (child.IdentifierStr == "T")
+        {
+            // Write to file in /temp/ignored.txt
+            File.AppendAllText(
+                "/temp/ignored.txt",
+                $"{namespaceIdentifier}.{className}.{child.IdentifierStr}[{child.Kind}]\n"
+            );
+        }
+        return !ignoredIdentifiers.Contains(
+            $"{namespaceIdentifier}.{className}.{child.IdentifierStr}[{child.Kind}]"
+        );
     }
 
     private static (bool found, string className, Node toGenerateNode) GetNode(

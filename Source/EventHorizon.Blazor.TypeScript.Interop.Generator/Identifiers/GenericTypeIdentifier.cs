@@ -131,6 +131,11 @@ public class GenericTypeIdentifier
             typeIdentifier = GenerationIdentifiedTypes.CachedEntity;
         }
 
+        if (typeIdentifier == GenerationIdentifiedTypes.Unknown)
+        {
+            typeIdentifier = GenerationIdentifiedTypes.CachedEntityObject;
+        }
+
         return new TypeStatement
         {
             Name = DotNetClassNormalizer.Normalize(typeIdentifier),
@@ -138,6 +143,7 @@ public class GenericTypeIdentifier
             IsTypeAlias = isTypeAlias && aliasType != null,
             AliasType = aliasType,
             IsNullable = NullableTypeIdentifier.Identify(typeIdentifier),
+            IsReadonly = ReadonlyTypeIdentifier.Identify(typeIdentifier),
             IsAction = isAction,
             IsVoid = VoidTypeIdentifier.Identify(typeIdentifier),
             ActionResultType = actionResultType,

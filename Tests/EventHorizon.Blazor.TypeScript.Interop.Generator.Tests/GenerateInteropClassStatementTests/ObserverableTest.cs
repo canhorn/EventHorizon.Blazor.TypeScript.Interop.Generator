@@ -18,13 +18,15 @@ public class ObserverableTest
         var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
         var ast = new Sdcb_TypeScriptASTWrapper(source);
         var typeOverrideMap = new Dictionary<string, string>();
+        var ignoredIdentifiers = new List<string>();
 
         // When
         var actual = GenerateInteropClassStatement.Generate(
             "ProjectAssembly",
             "Observable",
             ast,
-            typeOverrideMap
+            typeOverrideMap,
+            ignoredIdentifiers
         );
     }
 
@@ -38,13 +40,15 @@ public class ObserverableTest
         var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
         var ast = new Sdcb_TypeScriptASTWrapper(source);
         var typeOverrideMap = new Dictionary<string, string>();
+        var ignoredIdentifiers = new List<string>();
 
         // When
         var actual = GenerateInteropClassStatement.Generate(
             "ProjectAssembly",
             "Observable",
             ast,
-            typeOverrideMap
+            typeOverrideMap,
+            ignoredIdentifiers
         );
 
         // Then

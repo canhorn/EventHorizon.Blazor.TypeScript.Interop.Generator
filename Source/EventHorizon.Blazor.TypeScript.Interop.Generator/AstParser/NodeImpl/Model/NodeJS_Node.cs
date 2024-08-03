@@ -370,6 +370,11 @@ public class NodeJS_Node : Node
         }
         return list;
     }
+
+    public override string ToString()
+    {
+        return $"{Kind} {IdentifierStr}";
+    }
 }
 
 public static class NodeJSTypeMapper
@@ -455,6 +460,5 @@ public static class NodeJSTypeMapper
             default:
                 return type;
         }
-        ;
     }
 }

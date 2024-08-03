@@ -23,6 +23,7 @@ public class GenerateSourceEverythingTest
         var sourceFiles = new List<string> { sourceFile };
         var generationList = new List<string> { "Everything", };
         var typeOverrideMap = new Dictionary<string, string>();
+        var ignoredIdentifiers = new List<string>();
 
         var writerMock = new Mock<IWriter>();
 
@@ -35,7 +36,8 @@ public class GenerateSourceEverythingTest
             generationList,
             writerMock.Object,
             new NoFormattingTextFormatter(),
-            typeOverrideMap
+            typeOverrideMap,
+            ignoredIdentifiers
         );
 
         // Then
@@ -54,6 +56,7 @@ public class GenerateSourceEverythingTest
         var sourceFiles = new List<string> { sourceFile };
         var generationList = new List<string> { "Everything", };
         var typeOverrideMap = new Dictionary<string, string>();
+        var ignoredIdentifiers = new List<string>();
 
         var writerMock = new Mock<IWriter>();
 
@@ -67,6 +70,7 @@ public class GenerateSourceEverythingTest
             writerMock.Object,
             new NoFormattingTextFormatter(),
             typeOverrideMap,
+            ignoredIdentifiers,
             ASTParserType.NodeJS
         );
 

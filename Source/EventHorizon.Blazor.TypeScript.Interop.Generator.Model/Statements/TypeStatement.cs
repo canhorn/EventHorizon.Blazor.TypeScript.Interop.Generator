@@ -13,6 +13,7 @@ public class TypeStatement
     public IEnumerable<TypeStatement> GenericTypes { get; set; } = new List<TypeStatement>();
     public IEnumerable<ArgumentStatement> Arguments { get; set; } = new List<ArgumentStatement>();
     public bool IsNullable { get; set; }
+    public bool IsReadonly { get; set; }
     public bool IsAction { get; set; }
     public bool IsVoid { get; set; }
     public bool IsTask { get; set; }
@@ -30,6 +31,7 @@ public class TypeStatement
         var array = IsArray ? "[]" : string.Empty;
         var nullable = IsNullable ? "?" : string.Empty;
         var modifier = IsModifier ? "(M)" : string.Empty;
+        var @readonly = IsReadonly ? "(RO)" : string.Empty;
         var interfaceString = IsInterface ? "(I)" : string.Empty;
         var enumString = IsEnum ? $"(E)" : string.Empty;
         var voidString = IsVoid ? "(V)" : string.Empty;
@@ -39,6 +41,6 @@ public class TypeStatement
         var genericsJoined = string.Join(", ", GenericTypes.Select(generic => generic.ToString()));
         var generics = GenericTypes.Any() ? $"<{genericsJoined}>" : string.Empty;
 
-        return $"{(IsTask ? task : action)} {enumString}{modifier}{interfaceString}{voidString}{Name}{generics}{array}{nullable}";
+        return $"{(IsTask ? task : action)}{enumString}{modifier}{@readonly}{interfaceString}{voidString}{Name}{generics}{array}{nullable}";
     }
 }

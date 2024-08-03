@@ -18,6 +18,7 @@ public class GenerateInteropSource
         IWriter writer,
         TextFormatter textFormatter,
         IDictionary<string, string> typeOverrideMap,
+        IEnumerable<string> ignoredIdentifiers = null,
         ASTParserType parserType = ASTParserType.Sdcb
     )
     {
@@ -32,6 +33,7 @@ public class GenerateInteropSource
             writer,
             textFormatter,
             typeOverrideMap,
+            ignoredIdentifiers,
             parserType
         );
     }

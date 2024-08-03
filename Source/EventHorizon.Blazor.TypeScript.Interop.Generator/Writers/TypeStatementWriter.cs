@@ -12,7 +12,13 @@ public class TypeStatementWriter
         bool ignorePrefix = false
     )
     {
-        if (type.IsTypeAlias && !type.IsNullable && !type.IsModifier && !type.IsArray)
+        if (
+            type.IsTypeAlias
+            && !type.IsNullable
+            && !type.IsModifier
+            && !type.IsArray
+            && !type.IsReadonly
+        )
         {
             type = type.AliasType;
         }
@@ -56,6 +62,7 @@ public class TypeStatementWriter
         if (
             type.IsNullable
             || type.IsModifier
+            || type.IsReadonly
             || (type.IsArray && type.GenericTypes.Any() && !includeArraySymbol)
         )
         {

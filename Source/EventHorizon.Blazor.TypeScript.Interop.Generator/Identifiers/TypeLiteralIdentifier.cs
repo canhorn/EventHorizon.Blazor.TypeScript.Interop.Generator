@@ -14,7 +14,7 @@ public class TypeLiteralIdentifier
     public static bool Identify(TypeStatement property)
     {
         var type = property;
-        if (type.IsModifier || type.IsNullable || type.IsTask || type.IsArray)
+        if (type.IsModifier || type.IsNullable || type.IsTask || type.IsArray || type.IsReadonly)
         {
             if (type.GenericTypes.Any())
             {

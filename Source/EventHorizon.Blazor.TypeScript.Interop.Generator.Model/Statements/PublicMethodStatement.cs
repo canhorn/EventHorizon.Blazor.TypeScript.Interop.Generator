@@ -34,10 +34,18 @@ public class PublicMethodStatement
     {
         var type = Type.ToString();
         var args = string.Join(", ", Arguments.Select(a => a.ToString()));
+        var toString = "public ";
         if (IsStatic)
         {
-            return $"public static {type} {Name}({args});";
+            toString += "static ";
         }
-        return $"public {type} {Name}({args});";
+        toString += $"{type} {Name}";
+        if (GenericTypes.Any())
+        {
+            var generics = string.Join(", ", GenericTypes);
+            toString += $"<{generics}>";
+        }
+
+        return $"{toString}({args})";
     }
 }

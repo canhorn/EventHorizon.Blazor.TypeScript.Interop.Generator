@@ -5,17 +5,18 @@ using System.Collections.Generic;
 public static class JavaScriptTypes
 {
     #region General Types - Types provided by the JavaScript framework
-    public static string Promise => "Promise";
-    public static string Function => "Function";
-    public static string Boolean => "Boolean";
-    public static string String => "String";
-    public static string Array => "Array";
-    public static string ArrayLike => "ArrayLike";
-    public static string FloatArray => "FloatArray";
-    public static string Float32Array => "Float32Array";
-    public static string IndicesArray => "IndicesArray";
-    public static string Uint8Array => "Uint8Array";
-    public static string HTMLElement => "HTMLElement";
+    public const string Readonly = "Readonly";
+    public const string Promise = "Promise";
+    public const string Function = "Function";
+    public const string Boolean = "Boolean";
+    public const string String = "String";
+    public const string Array = "Array";
+    public const string ArrayLike = "ArrayLike";
+    public const string FloatArray = "FloatArray";
+    public const string Float32Array = "Float32Array";
+    public const string IndicesArray = "IndicesArray";
+    public const string Uint8Array = "Uint8Array";
+    public const string HTMLElement = "HTMLElement";
 
     public static IList<string> NumberArrayTypes = new List<string>
     {

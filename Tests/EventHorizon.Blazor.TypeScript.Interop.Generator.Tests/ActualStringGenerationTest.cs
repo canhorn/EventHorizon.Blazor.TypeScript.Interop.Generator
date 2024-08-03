@@ -24,6 +24,7 @@ public class ActualStringGenerationTest
         var sourceFiles = new List<string> { sourceFile };
         var generationList = new List<string> { "Mesh", "Mesh", "Engine", "Vector3", };
         var typeOverrideMap = new Dictionary<string, string>();
+        var ignoredIdentifiers = new List<string>();
 
         var writerMock = new Mock<IWriter>();
 
@@ -36,7 +37,8 @@ public class ActualStringGenerationTest
             generationList,
             writerMock.Object,
             new NoFormattingTextFormatter(),
-            typeOverrideMap
+            typeOverrideMap,
+            ignoredIdentifiers
         );
 
         // Then
@@ -56,6 +58,7 @@ public class ActualStringGenerationTest
         var sourceFiles = new List<string> { sourceFile };
         var generationList = new List<string> { "Vector3", };
         var typeOverrideMap = new Dictionary<string, string>();
+        var ignoredIdentifiers = new List<string>();
 
         var writerMock = new Mock<IWriter>();
 
@@ -78,7 +81,8 @@ public class ActualStringGenerationTest
             generationList,
             writerMock.Object,
             new NoFormattingTextFormatter(),
-            typeOverrideMap
+            typeOverrideMap,
+            ignoredIdentifiers
         );
 
         // Then

@@ -124,6 +124,11 @@ public class SdcbNode : GenNode
             {
                 _typeParameters = methodDeclaration.TypeParameters?.Select(a => new SdcbNode(a));
             }
+            else if (_typeParameters is null && _node is MethodSignature methodSignature)
+            {
+                _typeParameters = methodSignature.TypeParameters?.Select(a => new SdcbNode(a));
+            }
+
             return _typeParameters;
         }
     }
@@ -186,5 +191,10 @@ public class SdcbNode : GenNode
         }
 
         return new List<GenNode>();
+    }
+
+    public override string ToString()
+    {
+        return _node.ToString();
     }
 }

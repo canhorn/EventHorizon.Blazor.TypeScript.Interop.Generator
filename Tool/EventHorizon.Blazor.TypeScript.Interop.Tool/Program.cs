@@ -165,6 +165,7 @@ class Program
                     writer,
                     textFormatter,
                     new Dictionary<string, string> { },
+                    [],
                     GetParserType(parser)
                 );
             }
@@ -179,6 +180,7 @@ class Program
                     writer,
                     textFormatter,
                     new Dictionary<string, string> { },
+                    [],
                     GetParserType(parser)
                 );
             }

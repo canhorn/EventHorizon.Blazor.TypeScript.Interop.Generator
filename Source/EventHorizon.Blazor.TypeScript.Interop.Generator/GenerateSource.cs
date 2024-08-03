@@ -32,9 +32,12 @@ public class GenerateSource
         IWriter writer,
         TextFormatter textFormatter,
         IDictionary<string, string> typeOverrideMap,
+        IEnumerable<string> ignoredIdentifiers = null,
         ASTParserType parserType = ASTParserType.Sdcb
     )
     {
+        ignoredIdentifiers ??= [];
+
         var overallStopwatch = Stopwatch.StartNew();
         var stopwatch = Stopwatch.StartNew();
         GlobalLogger.Info($"=== Consolidate Source Files");
@@ -80,6 +83,7 @@ public class GenerateSource
             generationList,
             notGeneratedClassNames,
             typeOverrideMap,
+            ignoredIdentifiers,
             new List<ClassStatement> { cachedEntityObject }
         );
         generatedClassStatements.Remove(cachedEntityObject);
@@ -159,6 +163,7 @@ public class GenerateSource
         IList<string> generationList,
         IList<string> notGeneratedClassNames,
         IDictionary<string, string> typeOverrideMap,
+        IEnumerable<string> ignoredIdentifiers,
         IList<ClassStatement> generatedStatements
     )
     {
@@ -177,7 +182,8 @@ public class GenerateSource
                 projectAssembly,
                 classIdentifier,
                 ast,
-                typeOverrideMap
+                typeOverrideMap,
+                ignoredIdentifiers
             );
             stopwatch.Stop();
             GlobalLogger.Info(
@@ -211,6 +217,7 @@ public class GenerateSource
                 toGenerateList,
                 notGeneratedClassNames,
                 typeOverrideMap,
+                ignoredIdentifiers,
                 generatedStatements
             );
         }
