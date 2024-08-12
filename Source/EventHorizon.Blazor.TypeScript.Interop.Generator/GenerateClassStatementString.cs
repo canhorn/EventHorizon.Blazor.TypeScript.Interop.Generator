@@ -73,7 +73,8 @@ public static class GenerateClassStatementString
             ? string.Join(
                 "",
                 classStatement.GenericTypes.Select(genericType =>
-                    $" where {genericType.Name} : CachedEntity, new()"
+                    ""
+                // $" where {genericType.Name} : CachedEntity, new()"
                 )
             )
             : string.Empty;

@@ -1,0 +1,18 @@
+{
+    "name": "typescript-ast",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build-run": "tsc index.ts && node index.js",
+        "run": "node index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@types/node": "^22.0.0",
+        "fs": "0.0.1-security",
+        "ts-morph": "^23.0.0",
+        "typescript": "^5.5.4"
+    }
+}

@@ -99,14 +99,14 @@ switch ($Command) {
             cd $generatedSampleDirectory/EventHorizon.Blazor.BabylonJS.NodeJS
             dotnet build -c $Configuration
         }
-        Invoke-LocationChangeBlock {
-            cd $generatedSampleDirectory/EventHorizon.Blazor.BabylonJS.WASM
-            dotnet build -c $Configuration
-        }
-        Invoke-LocationChangeBlock {
-            cd $generatedSampleDirectory/EventHorizon.Blazor.BabylonJS.Server
-            dotnet build -c $Configuration
-        }
+        # Invoke-LocationChangeBlock {
+        #     cd $generatedSampleDirectory/EventHorizon.Blazor.BabylonJS.WASM
+        #     dotnet build -c $Configuration
+        # }
+        # Invoke-LocationChangeBlock {
+        #     cd $generatedSampleDirectory/EventHorizon.Blazor.BabylonJS.Server
+        #     dotnet build -c $Configuration
+        # }
     }
     Default {
         Write-Output "Invalid Command"

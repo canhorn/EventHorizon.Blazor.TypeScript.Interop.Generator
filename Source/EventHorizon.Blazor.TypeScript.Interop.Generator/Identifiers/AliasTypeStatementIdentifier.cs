@@ -25,6 +25,24 @@ public class AliasTypeStatementIdentifier
             return null;
         }
 
-        return GenericTypeIdentifier.Identify(node.Last, classMetadata, ast, typeOverrideDetails);
+        var typeNode = node.Last;
+        var typeStatementIdentifier = TypeIdentifier.Identify(typeNode, classMetadata);
+
+        if (typeStatementIdentifier == GenerationIdentifiedTypes.Unknown)
+        {
+            return null;
+        }
+        else if (
+            // If the typeStatementIdentifier is the same as the typeIdentifier,
+            // then this is not an alias type statement.
+            node.Children.Any(a =>
+                a.Kind == SyntaxKind.TypeParameter && a.IdentifierStr == typeStatementIdentifier
+            )
+        )
+        {
+            return null;
+        }
+
+        return GenericTypeIdentifier.Identify(typeNode, classMetadata, ast, typeOverrideDetails);
     }
 }

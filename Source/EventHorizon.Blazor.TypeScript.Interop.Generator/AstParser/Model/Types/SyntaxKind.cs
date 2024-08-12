@@ -21,6 +21,7 @@ public static class SyntaxKind
     public const string TypeReference = nameof(TypeReference);
     public const string ArrayType = nameof(ArrayType);
     public const string TypeQuery = nameof(TypeQuery);
+    public const string TypeOperator = nameof(TypeOperator);
     public const string UnionType = nameof(UnionType);
     public const string ParenthesizedType = nameof(ParenthesizedType);
     public const string FunctionType = nameof(FunctionType);

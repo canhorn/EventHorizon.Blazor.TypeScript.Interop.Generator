@@ -5,5 +5,6 @@ declare module Generic.Properties {
     export class ExampleClass<TCamera> {
         attached(): CameraInputsMap<TCamera>;
         initWebVR(): Observable<CameraInputsMap>;
+        thisReturned(): this;
     }
 }

@@ -226,7 +226,7 @@ public static class MethodsSectionWriter
 
                 if (
                     isClassResponse
-                    && method.GenericTypes.Any(genericType => genericType == typeNoModifier)
+                    // && method.GenericTypes.Any(genericType => genericType == typeNoModifier)
                 )
                 {
                     // TODO: [Template] : Move to templates
@@ -238,6 +238,7 @@ public static class MethodsSectionWriter
                     );
                 }
             }
+
 
             if (isNotSupported)
             {

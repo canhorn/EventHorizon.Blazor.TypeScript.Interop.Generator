@@ -50,6 +50,14 @@ public static class GenerateInteropClassStatement
             IsStatic = false,
             TypeOverrideMap = typeOverrideMap,
         };
+        var genericTypes = GetGenericTypes(
+            toGenerateNode,
+            classMetadata,
+            ast,
+            new TypeOverrideDetails { IsStatic = false, TypeOverrideMap = typeOverrideMap, }
+        );
+        classMetadata.GenericTypes = genericTypes;
+
         // Get ExtendedClassNames
         var extendedClassType = ExtendedClassTypesIdentifier.Identify(
             toGenerateNode,
@@ -103,12 +111,13 @@ public static class GenerateInteropClassStatement
             Namespace = namespaceIdentifier,
             Name = DotNetClassNormalizer.Normalize(className),
             IsInterface = IsInterfaceRule.Check(toGenerateNode),
-            GenericTypes = GetGenericTypes(
-                toGenerateNode,
-                classMetadata,
-                ast,
-                new TypeOverrideDetails { IsStatic = false, TypeOverrideMap = typeOverrideMap, }
-            ),
+            GenericTypes = MergeGenericTypes(genericTypes, extendedClassType),
+            // GenericTypes = GetGenericTypes(
+            //     toGenerateNode,
+            //     classMetadata,
+            //     ast,
+            //     new TypeOverrideDetails { IsStatic = false, TypeOverrideMap = typeOverrideMap, }
+            // ),
             ExtendedType = extendedClassType,
             ImplementedInterfaces = implementedInterfaces,
             ConstructorStatement = new ConstructorStatement
@@ -263,16 +272,26 @@ public static class GenerateInteropClassStatement
 
         var toGenerateNode = ast.OfKind(SyntaxKind.ClassDeclaration)
             .FirstOrDefault(a => a.IdentifierStr == className);
-        if (toGenerateNode == null)
+        if (toGenerateNode is not null)
         {
-            toGenerateNode = ast.OfKind(SyntaxKind.InterfaceDeclaration)
-                .FirstOrDefault(a => a.IdentifierStr == className);
-            if (toGenerateNode == null)
-            {
-                return (false, className, toGenerateNode);
-            }
+            return (true, className, toGenerateNode);
         }
-        return (true, className, toGenerateNode);
+
+        toGenerateNode = ast.OfKind(SyntaxKind.InterfaceDeclaration)
+            .FirstOrDefault(a => a.IdentifierStr == className);
+        if (toGenerateNode is not null)
+        {
+            return (true, className, toGenerateNode);
+        }
+
+        toGenerateNode = ast.OfKind(SyntaxKind.TypeAliasDeclaration)
+            .FirstOrDefault(a => a.IdentifierStr == className);
+        if (toGenerateNode is not null)
+        {
+            return (true, className, toGenerateNode);
+        }
+
+        return (false, className, toGenerateNode);
     }
 
     private static IList<TypeStatement> GetGenericTypes(
@@ -308,7 +327,70 @@ public static class GenerateInteropClassStatement
                 )
                 .ToList();
         }
-        return new List<TypeStatement>();
+        else if (node.Kind == SyntaxKind.TypeAliasDeclaration && node.TypeParameters != null)
+        {
+            return node
+                .TypeParameters.Select(typeParam =>
+                    GenericTypeIdentifier.Identify(
+                        typeParam,
+                        classMetadata,
+                        ast,
+                        typeOverrideDetails
+                    )
+                )
+                .ToList();
+        }
+
+        // Fallback, find any TypeParameter
+        return node
+            .Children.Where(a => a.Kind == SyntaxKind.TypeParameter)
+            .Select(typeParam =>
+                GenericTypeIdentifier.Identify(typeParam, classMetadata, ast, typeOverrideDetails)
+            )
+            .ToList();
+    }
+
+    private static IList<TypeStatement> MergeGenericTypes(
+        IList<TypeStatement> genericTypes,
+        TypeStatement extendedClassType
+    )
+    {
+        if (extendedClassType is null)
+        {
+            return genericTypes;
+        }
+
+        var extendedClassGenericTypes = extendedClassType.GenericTypes;
+        if (extendedClassGenericTypes is null || !extendedClassGenericTypes.Any())
+        {
+            return genericTypes;
+        }
+
+        var mergedGenericTypes = new List<TypeStatement>();
+        foreach (var genericType in genericTypes)
+        {
+            var extendedGenericType = extendedClassGenericTypes.FirstOrDefault(a =>
+                a.Name == genericType.Name
+            );
+            if (extendedGenericType is not null)
+            {
+                mergedGenericTypes.Add(extendedGenericType);
+            }
+            else
+            {
+                mergedGenericTypes.Add(genericType);
+            }
+        }
+
+        foreach (var extendedGenericType in extendedClassGenericTypes)
+        {
+            if (!mergedGenericTypes.Any(a => a.Name == extendedGenericType.Name))
+            {
+                mergedGenericTypes.Add(extendedGenericType);
+            }
+        }
+
+        return mergedGenericTypes;
     }
 
     private static TypeStatement NormalizeLiteralTypeStatement(
@@ -340,6 +422,15 @@ public static class GenerateInteropClassStatement
                 );
                 return typedType;
             }
+        }
+
+        if (type.IsThisType)
+        {
+            return new TypeStatement
+            {
+                Name = classMetadata.Name,
+                GenericTypes = classMetadata.GenericTypes,
+            };
         }
 
         if (type.IsLiteral)

@@ -70,6 +70,17 @@ namespace Generic.Properties
                 }
             );
         }
+
+        public ExampleClass<TCamera> thisReturned()
+        {
+            return EventHorizonBlazorInterop.FuncClass<ExampleClass<TCamera>>(
+                entity => new ExampleClass<TCamera>() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "thisReturned" }
+                }
+            );
+        }
         #endregion
     }
 }

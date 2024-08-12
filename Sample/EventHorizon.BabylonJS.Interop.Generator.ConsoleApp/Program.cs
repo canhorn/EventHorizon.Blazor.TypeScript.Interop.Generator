@@ -20,10 +20,10 @@ public class Program
 
         // pre-05/26/2024 - 22027ms/19835ms/18236ms to generate.
         // 05/26/2024 - 10116ms/9721ms/9762ms to generate.
-        Run(AstParser.Model.ASTParserType.Sdcb, true, "EventHorizon.Blazor.BabylonJS.WASM");
+        // Run(AstParser.Model.ASTParserType.Sdcb, true, "EventHorizon.Blazor.BabylonJS.WASM");
 
         // 05/26/2024 - 10545ms/10603ms/10318ms to generate.
-        Run(AstParser.Model.ASTParserType.Sdcb, false, "EventHorizon.Blazor.BabylonJS.Server");
+        // Run(AstParser.Model.ASTParserType.Sdcb, false, "EventHorizon.Blazor.BabylonJS.Server");
     }
 
     static void Run(AstParser.Model.ASTParserType type, bool useWasm, string projectAssembly)
@@ -91,7 +91,12 @@ public class Program
                 generationList,
                 writer,
                 textFormatter,
-                new Dictionary<string, string> { { "BABYLON.PointerInfoBase | type", "int" } },
+                new Dictionary<string, string>
+                {
+                    ["BABYLON.PointerInfoBase | type"] = "int",
+                    ["BABYLON.Tuple | type"] = "object",
+                },
+                ["BABYLON.Tensor.R[PropertySignature]", "BABYLON.Matrix.T[PropertyDeclaration]",],
                 type
             );
         }
@@ -114,6 +119,7 @@ public class Program
                 writer,
                 noFormattingTextFormatter,
                 new Dictionary<string, string> { { "BABYLON.PointerInfoBase | type", "int" } },
+                ["BABYLON.Tensor.R[PropertySignature]", "BABYLON.Matrix.T[PropertyDeclaration]",],
                 type
             );
         }

@@ -16,6 +16,9 @@ public class GenericTypeIdentifier
     private static readonly IsTypeLiteral IsTypeLiteralRule = new();
     private static readonly IsVoidType IsVoidTypeRule = new();
     private static readonly IsTypeQuery IsTypeQueryRule = new();
+    private static readonly IsTypeOperator IsTypeOperatorRule = new();
+    private static readonly IsTypeParameter IsTypeParameterRule = new();
+    private static readonly IsTypeReferenceIdentifier IsTypeReferenceIdentifierRule = new();
 
     public static TypeStatement Identify(
         Node node,
@@ -25,9 +28,14 @@ public class GenericTypeIdentifier
     )
     {
         var typeIdentifier = TypeIdentifier.Identify(node, classMetadata);
+        var isTypeReference = IsTypeReferenceIdentifierRule.Check(node);
         var isAction = ActionTypeIdentifier.Identify(typeIdentifier);
+        var isNullable = NullableTypeIdentifier.Identify(typeIdentifier);
         var isTypeQuery = IsTypeQueryRule.Check(node);
+        var isTypeOperator = IsTypeOperatorRule.Check(node);
         var isTypeAlias = AliasTypeIdentifier.Identify(node, ast);
+        var isThisType = ThisTypeIdentifier.Identify(node);
+        var isTypeParameter = IsTypeParameterRule.Check(node);
         var aliasType = isTypeAlias
             ? AliasTypeStatementIdentifier.Identify(
                 typeIdentifier,
@@ -39,8 +47,25 @@ public class GenericTypeIdentifier
         var isLiteral =
             IsTypeLiteralRule.Check(node) || TypeLiteralIdentifier.Identify(typeIdentifier);
         var actionResultType = default(TypeStatement);
+        var typeReferenceGenericTypes = new List<TypeStatement>();
+        if (!isNullable && isTypeReference)
+        {
+            typeReferenceGenericTypes.AddRange(
+                TypeReferenceGenericTypesIdentifier.Identify(
+                    node,
+                    classMetadata,
+                    ast,
+                    typeOverrideDetails
+                )
+            );
+        }
+
         var genericTypes = new List<TypeStatement>();
-        if (node.TypeArguments != null && node.TypeArguments.Any())
+        if (typeReferenceGenericTypes.Count > 0)
+        {
+            genericTypes.AddRange(typeReferenceGenericTypes);
+        }
+        else if (node.TypeArguments != null && node.TypeArguments.Any())
         {
             foreach (var typeArgument in node.TypeArguments)
             {
@@ -49,12 +74,17 @@ public class GenericTypeIdentifier
         }
         else if (node.Parameters != null && node.Parameters.Any())
         {
-            foreach (var functionParamerter in node.Parameters)
+            foreach (var functionParameter in node.Parameters)
             {
                 genericTypes.Add(
-                    Identify(functionParamerter, classMetadata, ast, typeOverrideDetails)
+                    Identify(functionParameter, classMetadata, ast, typeOverrideDetails)
                 );
             }
+        }
+        else if (isTypeOperator && node.Type != null && node.Type.Kind == SyntaxKind.ArrayType)
+        {
+            // This Type is an Array, so we will take the ElementType and use that as the result.
+            return Identify(node.Type, classMetadata, ast, typeOverrideDetails);
         }
         else if (
             typeIdentifier == GenerationIdentifiedTypes.Array
@@ -88,7 +118,7 @@ public class GenericTypeIdentifier
             }
         }
         else if (
-            NullableTypeIdentifier.Identify(typeIdentifier)
+            isNullable
             && node.Type is not null
             && node.Type.TypeArguments is not null
             && node.Type.TypeArguments.Any()
@@ -142,7 +172,7 @@ public class GenericTypeIdentifier
             IsArray = IsArrayResponseTypeRule.Check(node),
             IsTypeAlias = isTypeAlias && aliasType != null,
             AliasType = aliasType,
-            IsNullable = NullableTypeIdentifier.Identify(typeIdentifier),
+            IsNullable = isNullable,
             IsReadonly = ReadonlyTypeIdentifier.Identify(typeIdentifier),
             IsAction = isAction,
             IsVoid = VoidTypeIdentifier.Identify(typeIdentifier),
@@ -152,8 +182,11 @@ public class GenericTypeIdentifier
             IsModifier = ModifierTypeIdentifier.Identify(typeIdentifier),
             IsInterface = InterfaceResponseTypeIdentifier.Identify(typeIdentifier, ast),
             IsEnum = EnumTypeIdentifier.Identify(typeIdentifier, ast),
+            IsThisType = isThisType,
             GenericTypes = genericTypes,
             IsTypeQuery = isTypeQuery,
+            IsTypeOperator = isTypeOperator,
+            IsTypeParameter = isTypeParameter,
             TypeQuery = TypeQueryIdentifier.Identify(node, classMetadata, ast, typeOverrideDetails),
             Arguments = ArgumentIdentifier.Identify(node, classMetadata, ast, typeOverrideDetails),
         };

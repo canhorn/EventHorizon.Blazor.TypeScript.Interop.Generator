@@ -9,3 +9,4 @@ public class ActionTypeIdentifier
         return GenerationIdentifiedTypes.Action == type;
     }
 }
+

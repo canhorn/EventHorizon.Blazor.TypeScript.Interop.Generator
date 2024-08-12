@@ -21,8 +21,11 @@ public class TypeStatement
     public bool IsModifier { get; set; }
     public bool IsInterface { get; set; }
     public bool IsEnum { get; set; }
+    public bool IsThisType { get; set; }
 
     public bool IsTypeQuery { get; set; }
+    public bool IsTypeOperator { get; set; }
+    public bool IsTypeParameter { get; set; }
     public TypeQueryStatement TypeQuery { get; set; }
     public TypeStatement ActionResultType { get; set; }
 
@@ -34,6 +37,7 @@ public class TypeStatement
         var @readonly = IsReadonly ? "(RO)" : string.Empty;
         var interfaceString = IsInterface ? "(I)" : string.Empty;
         var enumString = IsEnum ? $"(E)" : string.Empty;
+        var thisType = IsThisType ? "(T)" : string.Empty;
         var voidString = IsVoid ? "(V)" : string.Empty;
         var arguments = string.Join(", ", Arguments.Select(generic => generic.ToString()));
         var action = IsAction ? $"({arguments}) => " : string.Empty;
@@ -41,6 +45,6 @@ public class TypeStatement
         var genericsJoined = string.Join(", ", GenericTypes.Select(generic => generic.ToString()));
         var generics = GenericTypes.Any() ? $"<{genericsJoined}>" : string.Empty;
 
-        return $"{(IsTask ? task : action)}{enumString}{modifier}{@readonly}{interfaceString}{voidString}{Name}{generics}{array}{nullable}";
+        return $"{(IsTask ? task : action)}{enumString}{thisType}{modifier}{@readonly}{interfaceString}{voidString}{Name}{generics}{array}{nullable}";
     }
 }

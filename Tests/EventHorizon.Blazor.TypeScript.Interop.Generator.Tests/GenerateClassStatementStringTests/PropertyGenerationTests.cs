@@ -357,8 +357,8 @@ public class IgnoredIdentifiersTests : GenerateStringTestBase
                 // This is advance typescript that is not supported by the Sdbc parser.
                 "Examples.ExampleClass.R[PropertySignature]",
                 "Examples.ExampleClass.property[PropertySignature]",
-                "Examples.ExampleClass.getProperty[PropertySignature]",
-                "Examples.ExampleClass.setProperty[PropertySignature]",
+                "Examples.ExampleClass.getProperty[GetAccessor]",
+                "Examples.ExampleClass.setProperty[SetAccessor]",
                 "Examples.ExampleClass.getProperty[MethodSignature]",
                 "Examples.ExampleClass.setProperty[MethodSignature]",
                 "Examples.ExampleClass.propertySignature[PropertySignature]",

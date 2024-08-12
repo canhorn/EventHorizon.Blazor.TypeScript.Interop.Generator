@@ -23,25 +23,41 @@ public class ExtendedClassTypesIdentifier
             && node.HeritageClauses.Any()
         )
         {
-            var herited = node.HeritageClauses.First();
-            if (herited != null)
+            var heritageClause = node.HeritageClauses.First();
+            if (heritageClause is null)
             {
-                var identifiedClass = GenericTypeIdentifier.Identify(
-                    herited.First,
+                return null;
+            }
+
+            var identifiedClass = GenericTypeIdentifier.Identify(
+                heritageClause.First,
+                classMetadata,
+                ast,
+                typeOverrideDetails
+            );
+            if (classesCache.Any(a => a.IdentifierStr == identifiedClass.Name))
+            {
+                return GenericTypeIdentifier.Identify(
+                    heritageClause.First,
                     classMetadata,
                     ast,
                     typeOverrideDetails
                 );
-                if (classesCache.Any(a => a.IdentifierStr == identifiedClass.Name))
-                {
-                    return GenericTypeIdentifier.Identify(
-                        herited.First,
-                        classMetadata,
-                        ast,
-                        typeOverrideDetails
-                    );
-                }
             }
+        }
+        else if (node.Kind == SyntaxKind.TypeAliasDeclaration)
+        {
+            if (node.Last is null || node.Last.Kind != SyntaxKind.TypeReference)
+            {
+                return null;
+            }
+
+            return GenericTypeIdentifier.Identify(
+                node.Last,
+                classMetadata,
+                ast,
+                typeOverrideDetails
+            );
         }
 
         return null;
