@@ -15,18 +15,27 @@ public class Program
     static void Main(string[] args)
     {
         // pre-05/26/2024 - 75084ms/71877ms to generate.
-        // 05/26/2024 - 26662ms/27904ms/27486ms to generate.
-        Run(AstParser.Model.ASTParserType.NodeJS, true, "EventHorizon.Blazor.BabylonJS.NodeJS");
+        // 05/26/2024 - 26662ms/27904ms/27486ms to generate. This is with a smaller data set.
+        // 08/16/2024 - 37792ms to generate.
+        Run(AstParser.Model.ASTParserType.NodeJS, true, "EventHorizon.Blazor.BabylonJS.NodeJS", 4);
 
         // pre-05/26/2024 - 22027ms/19835ms/18236ms to generate.
         // 05/26/2024 - 10116ms/9721ms/9762ms to generate.
-        // Run(AstParser.Model.ASTParserType.Sdcb, true, "EventHorizon.Blazor.BabylonJS.WASM");
+        // Run(AstParser.Model.ASTParserType.Sdcb, true, "EventHorizon.Blazor.BabylonJS.WASM", 1);
 
         // 05/26/2024 - 10545ms/10603ms/10318ms to generate.
-        // Run(AstParser.Model.ASTParserType.Sdcb, false, "EventHorizon.Blazor.BabylonJS.Server");
-    }
+        // Run(AstParser.Model.ASTParserType.Sdcb, false, "EventHorizon.Blazor.BabylonJS.Server", 4);
 
-    static void Run(AstParser.Model.ASTParserType type, bool useWasm, string projectAssembly)
+        // 08/16/2024 - 35424ms to generate.
+        // Run(AstParser.Model.ASTParserType.NodeJS, false, "EventHorizon.Blazor.BabylonJS.ServerNodeJs", 4);
+     }
+
+    static void Run(
+        AstParser.Model.ASTParserType type,
+        bool useWasm,
+        string projectAssembly,
+        int maxDegreeOfParallelism
+    )
     {
         var stopwatch = Stopwatch.StartNew();
         //var projectAssembly = "EventHorizon.Blazor.BabylonJS.WASM";
@@ -94,10 +103,10 @@ public class Program
                 new Dictionary<string, string>
                 {
                     ["BABYLON.PointerInfoBase | type"] = "int",
-                    ["BABYLON.Tuple | type"] = "object",
                 },
                 ["BABYLON.Tensor.R[PropertySignature]", "BABYLON.Matrix.T[PropertyDeclaration]",],
-                type
+                type,
+                maxDegreeOfParallelism
             );
         }
         else
@@ -120,7 +129,8 @@ public class Program
                 noFormattingTextFormatter,
                 new Dictionary<string, string> { { "BABYLON.PointerInfoBase | type", "int" } },
                 ["BABYLON.Tensor.R[PropertySignature]", "BABYLON.Matrix.T[PropertyDeclaration]",],
-                type
+                type,
+                maxDegreeOfParallelism
             );
         }
         stopwatch.Stop();

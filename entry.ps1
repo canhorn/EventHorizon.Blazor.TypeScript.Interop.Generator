@@ -44,6 +44,9 @@ $testProject = "./Tests/EventHorizon.Blazor.TypeScript.Interop.Generator.Tests/E
 $testServerProject = "./Tests/EventHorizon.Blazor.Interop.Generator.Tests/EventHorizon.Blazor.Interop.Generator.Tests.csproj"
 
 switch ($Command) {
+    "setup" {
+        dotnet tool install --global dotnet-trace
+    }
     "clean" {
         dotnet clean
     }

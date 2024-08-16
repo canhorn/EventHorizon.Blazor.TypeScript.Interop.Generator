@@ -381,14 +381,14 @@ public class NodeJS_Node : Node
             children.Add(new NodeJS_Node(node.Initializer, parent: this));
         }
 
-        Children = children.ToList();
-        Modifiers = modifiers.ToList();
+        Children = children;
+        Modifiers = modifiers;
     }
 
     public NodeJS_Node(Program program)
     {
         Kind = "Program";
-        Children = program.Body.Select(a => new NodeJS_Node(a, this)).ToList();
+        Children = program.Body.Select(a => new NodeJS_Node(a, this)).OfType<Node>().ToList();
     }
 
     public NodeJS_Node(string kind, string name, Node parent)
@@ -450,9 +450,9 @@ public class NodeJS_Node : Node
     public IEnumerable<Node> TypeArguments { get; }
     public IEnumerable<Node> Parameters { get; }
 
-    public IEnumerable<Node> Children { get; init; }
+    public List<Node> Children { get; init; }
 
-    public IEnumerable<Node> OfKind(string kind)
+    public List<Node> OfKind(string kind)
     {
         var list = new List<Node>();
         foreach (var child in Children)

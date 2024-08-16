@@ -40,7 +40,7 @@ public interface Node
     public IEnumerable<Node> Parameters { get; }
     #endregion
 
-    IEnumerable<Node> Children { get; }
+    List<Node> Children { get; }
 
-    IEnumerable<Node> OfKind(string kind);
+    List<Node> OfKind(string kind);
 }

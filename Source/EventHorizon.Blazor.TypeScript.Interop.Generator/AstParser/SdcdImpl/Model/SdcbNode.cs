@@ -179,15 +179,15 @@ public class SdcbNode : GenNode
     }
     #endregion
 
-    private IEnumerable<GenNode> _children;
-    public IEnumerable<GenNode> Children =>
-        _children ??= _node.Children?.Select(a => new SdcbNode(a));
+    private List<GenNode> _children;
+    public List<GenNode> Children =>
+        _children ??= _node.Children?.Select(a => new SdcbNode(a)).OfType<GenNode>().ToList();
 
-    public IEnumerable<GenNode> OfKind(string kind)
+    public List<GenNode> OfKind(string kind)
     {
         if (_node is Node node && Enum.TryParse<SyntaxKind>(kind, out var value))
         {
-            return node.OfKind(value).Select(a => new SdcbNode(a));
+            return node.OfKind(value).Select(a => new SdcbNode(a)).OfType<GenNode>().ToList();
         }
 
         return new List<GenNode>();

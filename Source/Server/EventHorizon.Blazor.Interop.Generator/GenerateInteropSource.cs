@@ -19,7 +19,8 @@ public class GenerateInteropSource
         TextFormatter textFormatter,
         IDictionary<string, string> typeOverrideMap,
         IEnumerable<string> ignoredIdentifiers = null,
-        ASTParserType parserType = ASTParserType.Sdcb
+        ASTParserType parserType = ASTParserType.Sdcb,
+        int maxDegreeOfParallelism = 1
     )
     {
         TypeStatementTemplates.TaskTemplate = "[[GENERIC_TYPES]]";
@@ -34,7 +35,8 @@ public class GenerateInteropSource
             textFormatter,
             typeOverrideMap,
             ignoredIdentifiers,
-            parserType
+            parserType,
+            maxDegreeOfParallelism
         );
     }
 }
