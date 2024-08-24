@@ -6,14 +6,14 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 public class PublicMethodStatement
 {
     public string Name { get; set; }
-    public IList<string> GenericTypes { get; set; } = new List<string>();
+    public IList<string> GenericTypes { get; set; } = [];
     public TypeStatement Type { get; set; }
-    public IList<ArgumentStatement> Arguments { get; set; } = new List<ArgumentStatement>();
+    public IList<ArgumentStatement> Arguments { get; set; } = [];
     public bool IsStatic { get; set; }
     public bool IsInterfaceResponse { get; set; }
 
     //public bool IsArrayResponse { get; set; }
-    public IList<string> UsedClassNames { get; set; } = new List<string>();
+    public IList<string> UsedClassNames { get; set; } = [];
 
     public override bool Equals(object obj)
     {

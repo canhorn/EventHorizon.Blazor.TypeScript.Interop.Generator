@@ -8,7 +8,7 @@ public class WipGenerationTests : GenerateStringTestBase
     [Theory(DisplayName = "WIP")]
     [Trait("Category", "WIP")]
     [Trait("AST", "Sdcb")]
-    // [InlineData("WIP.ts", "WIP", "WIP.Expected.txt", ASTParserType.Sdcb)]
+    [InlineData("WIP.ts", "WIP", "WIP.Expected.txt", ASTParserType.Sdcb)]
     [InlineData("WIP.ts", "WIP", "WIP.Expected.txt", ASTParserType.NodeJS)]
     public void WIP(
         string sourceFile,

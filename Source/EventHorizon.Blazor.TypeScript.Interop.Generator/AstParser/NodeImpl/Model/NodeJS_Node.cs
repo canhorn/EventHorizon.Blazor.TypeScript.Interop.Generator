@@ -270,17 +270,23 @@ public class NodeJS_Node : Node
 
         if (node.Parameters is not null)
         {
-            Parameters = node.Parameters.Select(paramNode => new NodeJS_Node(
-                paramNode,
-                parent: this,
-                overrideKind: SyntaxKind.Parameter
-            ));
+            Parameters = node
+                .Parameters.Select(paramNode => new NodeJS_Node(
+                    paramNode,
+                    parent: this,
+                    overrideKind: SyntaxKind.Parameter
+                ))
+                .Cast<Node>()
+                .ToList();
             children.AddRange(Parameters);
         }
 
         if (node.TypeParameters is not null)
         {
-            var types = node.TypeParameters.Select(a => new NodeJS_Node(a, parent: this));
+            var types = node
+                .TypeParameters.Select(a => new NodeJS_Node(a, parent: this))
+                .Cast<Node>()
+                .ToList();
             // if (types.Any(a => a.Kind == SyntaxKind.TypeParameter))
             // {
             TypeParameters = types;
@@ -294,7 +300,10 @@ public class NodeJS_Node : Node
 
         if (node.TypeArguments is not null)
         {
-            var types = node.TypeArguments.Select(a => new NodeJS_Node(a, parent: this));
+            var types = node
+                .TypeArguments.Select(a => new NodeJS_Node(a, parent: this))
+                .Cast<Node>()
+                .ToList();
             TypeArguments = types;
             children.AddRange(types);
         }
@@ -302,7 +311,10 @@ public class NodeJS_Node : Node
         if (typeParameters is not null)
         {
             // TODO: Validate this
-            var types = typeParameters.Parameters.Select(a => new NodeJS_Node(a, parent: this));
+            var types = typeParameters
+                .Parameters.Select(a => new NodeJS_Node(a, parent: this))
+                .Cast<Node>()
+                .ToList();
             TypeArguments = types;
             children.AddRange(types);
         }
@@ -321,7 +333,7 @@ public class NodeJS_Node : Node
 
         if (node.Types is not null)
         {
-            Types = node.Types.Select(a => new NodeJS_Node(a, this));
+            Types = node.Types.Select(a => new NodeJS_Node(a, this)).Cast<Node>().ToList();
             children.AddRange(node.Types.Select(a => new NodeJS_Node(a, this)));
         }
 
@@ -388,7 +400,7 @@ public class NodeJS_Node : Node
     public NodeJS_Node(Program program)
     {
         Kind = "Program";
-        Children = program.Body.Select(a => new NodeJS_Node(a, this)).OfType<Node>().ToList();
+        Children = program.Body.Select(a => new NodeJS_Node(a, this)).Cast<Node>().ToList();
     }
 
     public NodeJS_Node(string kind, string name, Node parent)
@@ -441,14 +453,14 @@ public class NodeJS_Node : Node
     public Node First => Children?.FirstOrDefault();
     public Node Last => Children?.LastOrDefault();
     public string Kind { get; }
-    public IEnumerable<Node> Modifiers { get; }
+    public List<Node> Modifiers { get; }
     public Node Type { get; }
     public Node ElementType { get; }
-    public IEnumerable<Node> TypeParameters { get; }
-    public IEnumerable<Node> HeritageClauses { get; }
-    public IEnumerable<Node> Types { get; }
-    public IEnumerable<Node> TypeArguments { get; }
-    public IEnumerable<Node> Parameters { get; }
+    public List<Node> TypeParameters { get; }
+    public List<Node> HeritageClauses { get; }
+    public List<Node> Types { get; }
+    public List<Node> TypeArguments { get; }
+    public List<Node> Parameters { get; }
 
     public List<Node> Children { get; init; }
 

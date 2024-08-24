@@ -41,9 +41,9 @@ public class SdcbNode : GenNode
     private string _kind;
     public string Kind => _kind ??= Enum.GetName(_node.Kind);
 
-    private IEnumerable<GenNode> _modifiers;
-    public IEnumerable<GenNode> Modifiers =>
-        _modifiers ??= _node.Modifiers?.Select(a => new SdcbNode(a));
+    private List<GenNode> _modifiers;
+    public List<GenNode> Modifiers =>
+        _modifiers ??= _node.Modifiers?.Select(a => new SdcbNode(a)).OfType<GenNode>().ToList();
 
     #region Parameter Declarations
     private GenNode _type;
@@ -83,23 +83,27 @@ public class SdcbNode : GenNode
     #endregion
 
     #region TypeReferenceNode ExpressionWithTypeArguments
-    private IEnumerable<GenNode> _typeArguments;
-    public IEnumerable<GenNode> TypeArguments
+    private List<GenNode> _typeArguments;
+    public List<GenNode> TypeArguments
     {
         get
         {
             if (_typeArguments is null && _node is TypeReferenceNode typeReferenceNode)
             {
-                _typeArguments = typeReferenceNode.TypeArguments?.Select(a => new SdcbNode(a));
+                _typeArguments = typeReferenceNode
+                    .TypeArguments?.Select(a => new SdcbNode(a))
+                    .OfType<GenNode>()
+                    .ToList();
             }
             else if (
                 _typeArguments is null
                 && _node is ExpressionWithTypeArguments expressionWithTypeArguments
             )
             {
-                _typeArguments = expressionWithTypeArguments.TypeArguments?.Select(
-                    a => new SdcbNode(a)
-                );
+                _typeArguments = expressionWithTypeArguments
+                    .TypeArguments?.Select(a => new SdcbNode(a))
+                    .OfType<GenNode>()
+                    .ToList();
             }
             return _typeArguments;
         }
@@ -107,26 +111,45 @@ public class SdcbNode : GenNode
     #endregion
 
     #region ClassDeclaration, InterfaceDeclaration, MethodDeclaration
-    private IEnumerable<GenNode> _typeParameters;
-    public IEnumerable<GenNode> TypeParameters
+    private List<GenNode> _typeParameters;
+    public List<GenNode> TypeParameters
     {
         get
         {
             if (_typeParameters is null && _node is ClassDeclaration classDeclaration)
             {
-                _typeParameters = classDeclaration.TypeParameters?.Select(a => new SdcbNode(a));
+                _typeParameters = classDeclaration
+                    .TypeParameters?.Select(a => new SdcbNode(a))
+                    .OfType<GenNode>()
+                    .ToList();
             }
             else if (_typeParameters is null && _node is InterfaceDeclaration interfaceDeclaration)
             {
-                _typeParameters = interfaceDeclaration.TypeParameters?.Select(a => new SdcbNode(a));
+                _typeParameters = interfaceDeclaration
+                    .TypeParameters?.Select(a => new SdcbNode(a))
+                    .OfType<GenNode>()
+                    .ToList();
             }
             else if (_typeParameters is null && _node is MethodDeclaration methodDeclaration)
             {
-                _typeParameters = methodDeclaration.TypeParameters?.Select(a => new SdcbNode(a));
+                _typeParameters = methodDeclaration
+                    .TypeParameters?.Select(a => new SdcbNode(a))
+                    .OfType<GenNode>()
+                    .ToList();
             }
             else if (_typeParameters is null && _node is MethodSignature methodSignature)
             {
-                _typeParameters = methodSignature.TypeParameters?.Select(a => new SdcbNode(a));
+                _typeParameters = methodSignature
+                    .TypeParameters?.Select(a => new SdcbNode(a))
+                    .OfType<GenNode>()
+                    .ToList();
+            }
+            else if (_typeParameters is null && _node is TypeAliasDeclaration typeAliasDeclaration)
+            {
+                _typeParameters = typeAliasDeclaration
+                    .TypeParameters?.Select(a => new SdcbNode(a))
+                    .OfType<GenNode>()
+                    .ToList();
             }
 
             return _typeParameters;
@@ -135,14 +158,17 @@ public class SdcbNode : GenNode
     #endregion
 
     #region ClassDefinition
-    private IEnumerable<GenNode> _heritageClauses;
-    public IEnumerable<GenNode> HeritageClauses
+    private List<GenNode> _heritageClauses;
+    public List<GenNode> HeritageClauses
     {
         get
         {
             if (_heritageClauses is null && _node is ClassDeclaration classDeclaration)
             {
-                _heritageClauses = classDeclaration.HeritageClauses?.Select(a => new SdcbNode(a));
+                _heritageClauses = classDeclaration
+                    .HeritageClauses?.Select(a => new SdcbNode(a))
+                    .OfType<GenNode>()
+                    .ToList();
             }
             return _heritageClauses;
         }
@@ -150,14 +176,17 @@ public class SdcbNode : GenNode
     #endregion
 
     #region HeritageClause
-    private IEnumerable<GenNode> _types;
-    public IEnumerable<GenNode> Types
+    private List<GenNode> _types;
+    public List<GenNode> Types
     {
         get
         {
             if (_types is null && _node is HeritageClause heritageClause)
             {
-                _types = heritageClause.Types?.Select(a => new SdcbNode(a));
+                _types = heritageClause
+                    .Types?.Select(a => new SdcbNode(a))
+                    .OfType<GenNode>()
+                    .ToList();
             }
             return _types;
         }
@@ -165,14 +194,17 @@ public class SdcbNode : GenNode
     #endregion
 
     #region FunctionTypeNode
-    private IEnumerable<GenNode> _parameters;
-    public IEnumerable<GenNode> Parameters
+    private List<GenNode> _parameters;
+    public List<GenNode> Parameters
     {
         get
         {
             if (_parameters is null && _node is FunctionTypeNode functionTypeNode)
             {
-                _parameters = functionTypeNode.Parameters?.Select(a => new SdcbNode(a));
+                _parameters = functionTypeNode
+                    .Parameters?.Select(a => new SdcbNode(a))
+                    .OfType<GenNode>()
+                    .ToList();
             }
             return _parameters;
         }

@@ -28,22 +28,24 @@ public static class MethodsSectionWriter
         {
             GlobalLogger.Info($"Generating Method: {method}");
             var isLast = current == methods.Count();
+            var methodType = method.Type.IsNullable
+                ? method.Type.GenericTypes.First()
+                : method.Type;
             var isClassResponse = ClassResponseIdentifier.Identify(
-                method.Type,
+                methodType,
                 method.UsedClassNames
             );
-            var isArray = ArrayResponseIdentifier.Identify(method.Type);
+            var isArray = ArrayResponseIdentifier.Identify(methodType);
             var template = templates.Method;
-            var methodType = method.Type;
             var type = TypeStatementWriter.Write(methodType);
             var typeNoModifier = TypeStatementWriter.Write(methodType, false);
             var propertyArguments = string.Empty;
             var isNotSupported = NotSupportedIdentifier.Identify(method);
-            var isTask = method.Type.IsTask;
-            var isEnum = TypeEnumIdentifier.Identify(method.Type);
+            var isTask = methodType.IsTask;
+            var isEnum = TypeEnumIdentifier.Identify(methodType);
             var isAction =
-                method.Type.Name == GenerationIdentifiedTypes.Action
-                || (method.Arguments.Take(1).Any(a => a.Type.IsAction && a.Name == "callback"));
+                methodType.Name == GenerationIdentifiedTypes.Action
+                || method.Arguments.Take(1).Any(a => a.Type.IsAction && a.Name == "callback");
 
             var bodyTemplate = templates.ReturnTypePrimitiveTemplate;
             var returnTypeContent = templates.InteropFunc;
@@ -210,7 +212,7 @@ public static class MethodsSectionWriter
 
             // Replace the Type in the Return TypeContent to Object
             // This is to avoid parsing errors and just get a generic object back from method calls.
-            if (method.Type.Name == GenerationIdentifiedTypes.Void)
+            if (methodType.Name == GenerationIdentifiedTypes.Void)
             {
                 bodyTemplate = templates.ReturnTypeVoidTemplate;
                 returnTypeContent = returnTypeContent
@@ -224,9 +226,8 @@ public static class MethodsSectionWriter
                 // TODO: [Template] : Move to templates
                 genericSection = $"<{genericTypeString}>";
 
-                if (
-                    isClassResponse
-                    // && method.GenericTypes.Any(genericType => genericType == typeNoModifier)
+                if (isClassResponse
+                // && method.GenericTypes.Any(genericType => genericType == typeNoModifier)
                 )
                 {
                     // TODO: [Template] : Move to templates
@@ -238,7 +239,6 @@ public static class MethodsSectionWriter
                     );
                 }
             }
-
 
             if (isNotSupported)
             {

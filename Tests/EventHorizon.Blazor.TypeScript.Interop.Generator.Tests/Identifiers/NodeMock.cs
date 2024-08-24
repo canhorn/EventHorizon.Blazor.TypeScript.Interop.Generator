@@ -11,17 +11,17 @@ public class NodeMock : Node
     public Node Last { get; }
     public string IdentifierStr { get; set; }
     public string Kind { get; set; }
-    public IEnumerable<Node> Modifiers { get; }
+    public List<Node> Modifiers { get; }
     public Node Type { get; }
     public Node ElementType { get; }
-    public IEnumerable<Node> TypeParameters { get; set; }
-    public IEnumerable<Node> HeritageClauses { get; }
-    public IEnumerable<Node> Types { get; }
-    public IEnumerable<Node> TypeArguments { get; }
-    public IEnumerable<Node> Parameters { get; }
-    public IEnumerable<Node> Children { get; }
+    public List<Node> TypeParameters { get; set; }
+    public List<Node> HeritageClauses { get; }
+    public List<Node> Types { get; }
+    public List<Node> TypeArguments { get; }
+    public List<Node> Parameters { get; }
+    public List<Node> Children { get; }
 
-    public IEnumerable<Node> OfKind(string kind)
+    public List<Node> OfKind(string kind)
     {
         throw new NotImplementedException();
     }

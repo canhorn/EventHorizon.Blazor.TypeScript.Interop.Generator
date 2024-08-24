@@ -106,7 +106,11 @@ public class GenerateSource
             generatedStatements.Add(
                 new GeneratedStatement(
                     generatedStatement,
-                    GenerateClassStatementString.Generate(generatedStatement, textFormatter)
+                    GenerateClassStatementString.Generate(
+                        generatedStatement,
+                        generatedClassStatements,
+                        textFormatter
+                    )
                 )
             );
         }

@@ -1,5 +1,5 @@
 /// Generated - Do Not Edit
-namespace BABYLON
+namespace Examples
 {
     using System;
     using System.Collections.Generic;
@@ -10,8 +10,10 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    [JsonConverter(typeof(CachedEntityConverter<BaseError>))]
-    public class BaseError : CachedEntityObject
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter<ExampleClass>))]
+    public class ExampleClass : CachedEntityObject
     {
         #region Static Accessors
 
@@ -32,21 +34,31 @@ namespace BABYLON
         #region Properties
 
         #endregion
-
+        
         #region Constructor
-        public BaseError()
-            : base() { }
+        public ExampleClass() : base() { }
 
-        public BaseError(ICachedEntity entity)
-            : base(entity)
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
         {
             ___guid = entity.___guid;
         }
 
+
         #endregion
 
         #region Methods
-
+        public ValueTask<ArrayBufferView> getContent()
+        {
+            return EventHorizonBlazorInterop.TaskClass<ArrayBufferView>(
+                entity => new ArrayBufferView() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "getContent" }
+                }
+            );
+        }
         #endregion
     }
 }

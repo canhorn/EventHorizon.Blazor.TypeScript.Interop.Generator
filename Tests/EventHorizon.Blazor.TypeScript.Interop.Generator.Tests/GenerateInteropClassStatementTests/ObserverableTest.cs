@@ -11,7 +11,7 @@ public class ObserverableTest
 {
     [Fact]
     [Trait("AST", "Sdcb")]
-    public void Slim_ShouldGenerateExpectedObserverable()
+    public void Slim_ShouldGenerateExpectedObservable()
     {
         // Given
         var sourceFile = "observable.ts";
@@ -32,7 +32,7 @@ public class ObserverableTest
 
     [Fact]
     [Trait("AST", "Sdcb")]
-    public void ShouldGenerateExpectedObserverable()
+    public void ShouldGenerateExpectedObservable()
     {
         // Given
         //var sourceFile = "babylon.d.ts";
@@ -60,26 +60,25 @@ public class ObserverableTest
             .BeEquivalentTo(
                 new List<AccessorStatement>
                 {
-                    new AccessorStatement
+                    new()
                     {
                         Name = "observers",
                         Type = new TypeStatement
                         {
                             Name = "Array",
                             IsArray = true,
-                            GenericTypes = new List<TypeStatement>
-                            {
-                                new TypeStatement
+                            IsTypeReference = true,
+                            GenericTypes =
+                            [
+                                new()
                                 {
                                     Name = "Observer",
-                                    GenericTypes = new List<TypeStatement>
-                                    {
-                                        new TypeStatement { Name = "T", },
-                                    },
+                                    IsTypeReference = true,
+                                    GenericTypes = [new() { Name = "T", IsTypeReference = true, },],
                                 },
-                            },
+                            ],
                         },
-                        UsedClassNames = new List<string> { "Observer", "T", },
+                        UsedClassNames = ["Observer", "T",],
                     }
                 }
             );
@@ -88,7 +87,7 @@ public class ObserverableTest
             .BeEquivalentTo(
                 new List<PublicMethodStatement>
                 {
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "notifyObserversWithPromise",
                         Type = new TypeStatement { Name = "void", },
@@ -96,307 +95,278 @@ public class ObserverableTest
                         //{
                         //    "Task",
                         //},
-                        Arguments = new List<ArgumentStatement>
-                        {
-                            new ArgumentStatement
+                        Arguments =
+                        [
+                            new()
                             {
                                 Name = "eventData",
                                 Type = "T".MakeTypeStatement(),
-                                UsedClassNames = new List<string> { "T", },
+                                UsedClassNames = ["T",],
                             },
-                            new ArgumentStatement
+                            new()
                             {
                                 Name = "mask",
                                 Type = "decimal".MakeTypeStatement(),
                                 IsOptional = true,
                             },
-                            new ArgumentStatement
+                            new()
                             {
                                 Name = "target",
                                 Type = "object".MakeTypeStatement(),
                                 IsOptional = true,
                             },
-                            new ArgumentStatement
+                            new()
                             {
                                 Name = "currentTarget",
                                 Type = "object".MakeTypeStatement(),
                                 IsOptional = true,
                             },
-                        },
+                        ],
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "add",
                         Type = new TypeStatement
                         {
                             Name = "Nullable",
                             IsNullable = true,
-                            GenericTypes = new List<TypeStatement>
-                            {
-                                new TypeStatement
+                            GenericTypes =
+                            [
+                                new()
                                 {
                                     Name = "Observer",
-                                    GenericTypes = new List<TypeStatement>
-                                    {
-                                        new TypeStatement { Name = "T", },
-                                    },
+                                    GenericTypes = [new() { Name = "T", },],
                                 },
-                            },
+                            ],
                         },
-                        UsedClassNames = new List<string> { "Observer", "T", },
-                        Arguments = new List<ArgumentStatement>
-                        {
-                            new ArgumentStatement
+                        UsedClassNames = ["Observer", "T",],
+                        Arguments =
+                        [
+                            new()
                             {
                                 Name = "callback",
                                 Type = new TypeStatement { Name = "action", IsAction = true, },
                             },
-                            new ArgumentStatement
+                            new()
                             {
                                 Name = "mask",
                                 Type = "decimal".MakeTypeStatement(),
                                 IsOptional = true,
                             },
-                            new ArgumentStatement
+                            new()
                             {
                                 Name = "insertFirst",
                                 Type = "bool".MakeTypeStatement(),
                                 IsOptional = true,
                             },
-                            new ArgumentStatement
+                            new()
                             {
                                 Name = "scope",
                                 Type = "object".MakeTypeStatement(),
                                 IsOptional = true,
                             },
-                            new ArgumentStatement
+                            new()
                             {
                                 Name = "unregisterOnFirstCall",
                                 Type = "bool".MakeTypeStatement(),
                                 IsOptional = true,
                             },
-                        }
+                        ]
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "addOnce",
                         Type = new TypeStatement
                         {
                             Name = "Nullable",
                             IsNullable = true,
-                            GenericTypes = new List<TypeStatement>
-                            {
-                                new TypeStatement
+                            GenericTypes =
+                            [
+                                new()
                                 {
                                     Name = "Observer",
-                                    GenericTypes = new List<TypeStatement>
-                                    {
-                                        new TypeStatement { Name = "T", },
-                                    },
+                                    GenericTypes = [new() { Name = "T", },],
                                 },
-                            },
+                            ],
                         },
-                        UsedClassNames = new List<string> { "Observer", "T", },
-                        Arguments = new List<ArgumentStatement>
-                        {
-                            new ArgumentStatement
+                        UsedClassNames = ["Observer", "T",],
+                        Arguments =
+                        [
+                            new()
                             {
                                 Name = "callback",
                                 Type = new TypeStatement { Name = "action", IsAction = true, },
                             },
-                        }
+                        ]
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "remove",
                         Type = "bool".MakeTypeStatement(),
-                        Arguments = new List<ArgumentStatement>
-                        {
-                            new ArgumentStatement
+                        Arguments =
+                        [
+                            new()
                             {
                                 Name = "observer",
                                 Type = new TypeStatement
                                 {
                                     Name = "Nullable",
                                     IsNullable = true,
-                                    GenericTypes = new List<TypeStatement>
-                                    {
-                                        new TypeStatement
+                                    GenericTypes =
+                                    [
+                                        new()
                                         {
                                             Name = "Observer",
-                                            GenericTypes = new List<TypeStatement>
-                                            {
-                                                new TypeStatement { Name = "T", },
-                                            },
+                                            GenericTypes = [new() { Name = "T", },],
                                         },
-                                    },
+                                    ],
                                 },
-                                UsedClassNames = new List<string> { "Observer", "T", },
+                                UsedClassNames = ["Observer", "T",],
                             },
-                        },
+                        ],
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "removeCallback",
                         Type = "bool".MakeTypeStatement(),
-                        Arguments = new List<ArgumentStatement>
-                        {
-                            new ArgumentStatement
+                        Arguments =
+                        [
+                            new()
                             {
                                 Name = "callback",
                                 Type = new TypeStatement { Name = "action", IsAction = true, },
                             },
-                            new ArgumentStatement
+                            new()
                             {
                                 Name = "scope",
                                 Type = "object".MakeTypeStatement(),
                                 IsOptional = true,
                             },
-                        },
+                        ],
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "makeObserverTopPriority",
                         Type = "void".MakeTypeStatement(),
-                        Arguments = new List<ArgumentStatement>
-                        {
-                            new ArgumentStatement
+                        Arguments =
+                        [
+                            new()
                             {
                                 Name = "observer",
                                 Type = new TypeStatement
                                 {
                                     Name = "Observer",
-                                    GenericTypes = new List<TypeStatement>
-                                    {
-                                        new TypeStatement { Name = "T", },
-                                    },
+                                    GenericTypes = [new() { Name = "T", },],
                                 },
-                                UsedClassNames = new List<string> { "Observer", "T", },
+                                UsedClassNames = ["Observer", "T",],
                             },
-                        },
+                        ],
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "makeObserverBottomPriority",
                         Type = "void".MakeTypeStatement(),
-                        Arguments = new List<ArgumentStatement>
-                        {
-                            new ArgumentStatement
+                        Arguments =
+                        [
+                            new()
                             {
                                 Name = "observer",
                                 Type = new TypeStatement
                                 {
                                     Name = "Observer",
-                                    GenericTypes = new List<TypeStatement>
-                                    {
-                                        new TypeStatement { Name = "T", },
-                                    },
+                                    GenericTypes = [new() { Name = "T", },],
                                 },
-                                UsedClassNames = new List<string> { "Observer", "T", },
+                                UsedClassNames = ["Observer", "T",],
                             },
-                        },
+                        ],
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "notifyObservers",
                         Type = "bool".MakeTypeStatement(),
-                        Arguments = new List<ArgumentStatement>
-                        {
-                            new ArgumentStatement
+                        Arguments =
+                        [
+                            new()
                             {
                                 Name = "eventData",
                                 Type = new TypeStatement { Name = "T" },
-                                UsedClassNames = new List<string> { "T", },
+                                UsedClassNames = ["T",],
                             },
-                            new ArgumentStatement
+                            new()
                             {
                                 Name = "mask",
                                 Type = "decimal".MakeTypeStatement(),
                                 IsOptional = true,
                             },
-                            new ArgumentStatement
+                            new()
                             {
                                 Name = "target",
                                 Type = "object".MakeTypeStatement(),
                                 IsOptional = true,
                             },
-                            new ArgumentStatement
+                            new()
                             {
                                 Name = "currentTarget",
                                 Type = "object".MakeTypeStatement(),
                                 IsOptional = true,
                             },
-                        },
+                        ],
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "notifyObserver",
                         Type = "void".MakeTypeStatement(),
-                        Arguments = new List<ArgumentStatement>
-                        {
-                            new ArgumentStatement
+                        Arguments =
+                        [
+                            new()
                             {
                                 Name = "observer",
                                 Type = new TypeStatement
                                 {
                                     Name = "Observer",
-                                    GenericTypes = new List<TypeStatement>
-                                    {
-                                        new TypeStatement { Name = "T", },
-                                    },
+                                    GenericTypes = [new() { Name = "T", },],
                                 },
-                                UsedClassNames = new List<string> { "Observer", "T", },
+                                UsedClassNames = ["Observer", "T",],
                             },
-                            new ArgumentStatement
+                            new()
                             {
                                 Name = "eventData",
                                 Type = "T".MakeTypeStatement(),
-                                UsedClassNames = new List<string> { "T", },
+                                UsedClassNames = ["T",],
                             },
-                            new ArgumentStatement
+                            new()
                             {
                                 Name = "mask",
                                 Type = "decimal".MakeTypeStatement(),
                                 IsOptional = true,
                             },
-                        },
+                        ],
                     },
-                    new PublicMethodStatement
-                    {
-                        Name = "hasObservers",
-                        Type = "bool".MakeTypeStatement(),
-                    },
-                    new PublicMethodStatement
-                    {
-                        Name = "clear",
-                        Type = "void".MakeTypeStatement(),
-                    },
-                    new PublicMethodStatement
+                    new() { Name = "hasObservers", Type = "bool".MakeTypeStatement(), },
+                    new() { Name = "clear", Type = "void".MakeTypeStatement(), },
+                    new()
                     {
                         Name = "clone",
                         Type = new TypeStatement
                         {
                             Name = "Observable",
-                            GenericTypes = new List<TypeStatement>
-                            {
-                                new TypeStatement { Name = "T", },
-                            },
+                            GenericTypes = [new() { Name = "T", },],
                         },
-                        UsedClassNames = new List<string> { "Observable", "T", },
+                        UsedClassNames = ["Observable", "T",],
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "hasSpecificMask",
                         Type = "bool".MakeTypeStatement(),
-                        Arguments = new List<ArgumentStatement>
-                        {
-                            new ArgumentStatement
+                        Arguments =
+                        [
+                            new()
                             {
                                 Name = "mask",
                                 Type = new TypeStatement { Name = "decimal" },
                                 IsOptional = true,
                             },
-                        },
+                        ],
                     },
                 }
             );
@@ -407,5 +377,5 @@ public class ObserverableTest
 public static class MakeTypeStatementExtension
 {
     public static TypeStatement MakeTypeStatement(this string typeString) =>
-        new TypeStatement { Name = typeString };
+        new() { Name = typeString };
 }

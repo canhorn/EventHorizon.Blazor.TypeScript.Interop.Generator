@@ -103,7 +103,12 @@ public class TypeStatementWriter
                 template = TypeStatementTemplates.RootTaskTemplate;
             }
 
-            if (!type.GenericTypes.Any() || type.GenericTypes.Any(type => type.IsVoid))
+            if (
+                !type.GenericTypes.Any()
+                || type.GenericTypes.Any(type =>
+                    type.IsVoid || type.GenericTypes.Any(a => a.IsVoid)
+                )
+            )
             {
                 template = TypeStatementTemplates.TaskVoidTemplate;
                 if (!includeArraySymbol)

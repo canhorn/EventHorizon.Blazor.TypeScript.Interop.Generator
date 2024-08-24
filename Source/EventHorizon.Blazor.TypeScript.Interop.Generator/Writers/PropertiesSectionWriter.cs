@@ -126,8 +126,24 @@ public static class PropertiesSectionWriter
                 .Replace("[[CACHE_NAME]]", property.Name)
                 .Replace("[[NAME_CAPTIALIZED]]", property.Name.Captialize())
                 .Replace("[[TYPE]]", TypeStatementWriter.Write(property.Type))
-                .Replace("[[ARRAY_TYPE]]", TypeStatementWriter.Write(property.Type, false))
-                .Replace("[[NEW_TYPE]]", TypeStatementWriter.Write(property.Type, false))
+                .Replace(
+                    "[[ARRAY_TYPE]]",
+                    TypeStatementWriter.Write(
+                        property.Type,
+                        !property.Type.IsModifier
+                            && !property.Type.IsNullable
+                            && !property.Type.IsArray
+                    )
+                )
+                .Replace(
+                    "[[NEW_TYPE]]",
+                    TypeStatementWriter.Write(
+                        property.Type,
+                        !property.Type.IsModifier
+                            && !property.Type.IsNullable
+                            && !property.Type.IsArray
+                    )
+                )
                 .Replace("[[PROPERTY]]", propertyIdentifier)
                 .Replace("[[PROPERTY_ARGUMENTS]]", string.Empty)
                 .Replace("[[ROOT]]", root)

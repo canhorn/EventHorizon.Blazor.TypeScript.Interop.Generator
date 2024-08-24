@@ -1,0 +1,106 @@
+/// Generated - Do Not Edit
+namespace Scenario.Class
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter<ExampleClass<CachedEntity>>))]
+    public class ExampleClass<T> : CachedEntityObject
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { }
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+
+        #endregion
+
+        #region Methods
+        #region add TODO: Get Comments as metadata identification
+        private bool _isAddEnabled = false;
+        private readonly IDictionary<string, Func<T, EventState, Task>> _addActionMap = new Dictionary<string, Func<T, EventState, Task>>();
+
+        public string add(
+            Func<T, EventState, Task> callback
+        )
+        {
+            SetupAddLoop();
+
+            var handle = Guid.NewGuid().ToString();
+            _addActionMap.Add(
+                handle,
+                callback
+            );
+
+            return handle;
+        }
+
+        public bool add_Remove(
+            string handle
+        )
+        {
+            return _addActionMap.Remove(
+                handle
+            );
+        }
+
+        private void SetupAddLoop()
+        {
+            if (_isAddEnabled)
+            {
+                return;
+            }
+            EventHorizonBlazorInterop.FuncCallback(
+                this,
+                "add",
+                "CallAddActions",
+                _invokableReference
+            );
+            _isAddEnabled = true;
+        }
+
+        [JSInvokable]
+        public async Task CallAddActions(T eventData, EventState eventState)
+        {
+            foreach (var action in _addActionMap.Values)
+            {
+                await action(eventData, eventState);
+            }
+        }
+        #endregion
+        #endregion
+    }
+}

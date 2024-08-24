@@ -18,7 +18,7 @@ public static class UsedClassNamesIdentifier
             && !type.IsNullable
             // && !type.IsTypeAlias
             && !type.IsReadonly
-        && !type.IsTypeParameter
+            && !type.IsTypeParameter
         )
         {
             // Using The Type get
@@ -52,6 +52,10 @@ public static class UsedClassNamesIdentifier
         if (type.IsTypeAlias)
         {
             Identify(type.AliasType, list);
+        }
+        if (type.ActionResultType != null)
+        {
+            Identify(type.ActionResultType, list);
         }
 
         return list;

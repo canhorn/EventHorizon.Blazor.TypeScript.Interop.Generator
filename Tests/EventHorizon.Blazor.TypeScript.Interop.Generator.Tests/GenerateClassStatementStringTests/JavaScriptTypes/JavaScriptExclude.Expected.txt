@@ -1,0 +1,117 @@
+/// Generated - Do Not Edit
+namespace Examples
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter<ExampleClass>))]
+    public class ExampleClass : CachedEntityObject
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+        
+        public static string staticExcludeProp
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<string>(
+                    "Examples",
+                    "ExampleClass.staticExcludeProp"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    "Examples",
+                    "ExampleClass.staticExcludeProp",
+                    value
+                );
+            }
+        }
+        #endregion
+
+        #region Static Methods
+        public static string staticExcludeType(object theMap)
+        {
+            return EventHorizonBlazorInterop.Func<string>(
+                new object[]
+                {
+                    new string[] { "Examples", "ExampleClass", "staticExcludeType" }, theMap
+                }
+            );
+        }
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+        private Vector2 __excludeProp;
+        public Vector2 excludeProp
+        {
+            get
+            {
+            if(__excludeProp == null)
+            {
+                __excludeProp = EventHorizonBlazorInterop.GetClass<Vector2>(
+                    this.___guid,
+                    "excludeProp",
+                    (entity) =>
+                    {
+                        return new Vector2() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __excludeProp;
+            }
+            set
+            {
+__excludeProp = null;
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "excludeProp",
+                    value
+                );
+            }
+        }
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { }
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+
+        #endregion
+
+        #region Methods
+        public string excludeType(Vector3 theMap)
+        {
+            return EventHorizonBlazorInterop.Func<string>(
+                new object[]
+                {
+                    new string[] { this.___guid, "excludeType" }, theMap
+                }
+            );
+        }
+        #endregion
+    }
+}

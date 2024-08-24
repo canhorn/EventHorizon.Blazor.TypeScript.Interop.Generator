@@ -1,5 +1,6 @@
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassStatementStringTests;
 
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.SdcdImpl;
@@ -30,7 +31,11 @@ public class FormattingTests
             ast,
             typeOverrideMap
         );
-        var actual = GenerateClassStatementString.Generate(generated, new CSharpTextFormatter());
+        var actual = GenerateClassStatementString.Generate(
+            generated,
+            new ConcurrentDictionary<string, Model.Statements.ClassStatement>(),
+            new CSharpTextFormatter()
+        );
 
         // Then
         actual.Should().Be(expected);

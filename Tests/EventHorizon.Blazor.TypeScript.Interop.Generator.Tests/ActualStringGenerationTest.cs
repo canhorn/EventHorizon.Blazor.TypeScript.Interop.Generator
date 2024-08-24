@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Writer;
@@ -133,7 +134,7 @@ public class ActualStringGenerationTest
 
         // Then
         actual.Should().NotBeNull();
-        actual.Should().HaveCount(6);
+        actual.Should().HaveCount(4);
     }
 
     [Fact]
@@ -179,6 +180,63 @@ public class ActualStringGenerationTest
 
         // Then
         actual.Should().NotBeNull();
-        actual.Should().HaveCount(6);
+        actual.Should().HaveCount(4);
+    }
+
+    [Fact]
+    [Trait("Category", "Interface")]
+    [Trait("AST", "NodeJS")]
+    public void ShouldParseInterfaceTypeReference()
+    {
+        // Given
+        var projectAssembly = "ProjectAssembly";
+        var sourceDirectory = "";
+        var sourceFileName = "InterfaceTypeReference.d.ts";
+        var sourceFile = Path.Combine(".", "SourceFiles", sourceFileName);
+        var sourceFiles = new List<string> { sourceFile };
+        var generationList = new List<string> { "ExampleInterface", };
+        var typeOverrideMap = new Dictionary<string, string>();
+        var ignoredIdentifiers = new List<string>();
+
+        var writerMock = new Mock<IWriter>();
+
+        // When
+        var generateSource = new GenerateSource();
+        var actual = default(IList<GeneratedStatement>);
+        writerMock
+            .Setup(mock => mock.Write(It.IsAny<IList<GeneratedStatement>>()))
+            .Callback<IList<GeneratedStatement>>(
+                (generatedStatement) =>
+                {
+                    actual = generatedStatement;
+                }
+            );
+
+        generateSource.Run(
+            projectAssembly,
+            sourceDirectory,
+            sourceFiles,
+            generationList,
+            writerMock.Object,
+            new NoFormattingTextFormatter(),
+            typeOverrideMap,
+            ignoredIdentifiers,
+            AstParser.Model.ASTParserType.NodeJS
+        );
+
+        // Then
+        actual.Should().NotBeNull();
+        actual
+            .Select(a => a.ClassStatement.Name)
+            .Should()
+            .BeEquivalentTo(
+                [
+                    "CachedEntityObject",
+                    "Void_",
+                    "IPerfViewerCollectionStrategy",
+                    "PerfStrategyInitialization",
+                    "ExampleInterface"
+                ]
+            );
     }
 }

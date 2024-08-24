@@ -65,8 +65,8 @@ public class InterfaceResponseTypeIdentifierNotCached : IInterfaceResponseTypeId
 public class InterfaceResponseTypeIdentifierCached : InterfaceResponseTypeIdentifierNotCached
 {
     private bool _isCachedSetup;
-    private readonly List<string> _cacheClassDeclaration = new List<string>();
-    private readonly List<string> _cacheInterfaceDeclaration = new List<string>();
+    private readonly List<string> _cacheClassDeclaration = [];
+    private readonly List<string> _cacheInterfaceDeclaration = [];
 
     public override bool Identify(string identifierString, AbstractSyntaxTree ast)
     {

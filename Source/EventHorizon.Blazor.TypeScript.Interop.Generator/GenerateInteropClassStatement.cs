@@ -111,24 +111,18 @@ public static class GenerateInteropClassStatement
             Namespace = namespaceIdentifier,
             Name = DotNetClassNormalizer.Normalize(className),
             IsInterface = IsInterfaceRule.Check(toGenerateNode),
-            GenericTypes = MergeGenericTypes(genericTypes, extendedClassType),
-            // GenericTypes = GetGenericTypes(
-            //     toGenerateNode,
-            //     classMetadata,
-            //     ast,
-            //     new TypeOverrideDetails { IsStatic = false, TypeOverrideMap = typeOverrideMap, }
-            // ),
+            GenericTypes = MergeGenericTypes(genericTypes, extendedClassType).ToList(),
             ExtendedType = extendedClassType,
             ImplementedInterfaces = implementedInterfaces,
-            ConstructorStatement = new ConstructorStatement
-            {
-                Arguments = ConstructorArgumentIdentifier.Identify(
-                    toGenerateNode,
-                    classMetadata,
-                    ast,
-                    new TypeOverrideDetails { IsStatic = false, TypeOverrideMap = typeOverrideMap, }
-                ),
-            },
+            // ConstructorStatement = new ConstructorStatement
+            // {
+            //     Arguments = ConstructorArgumentIdentifier.Identify(
+            //         toGenerateNode,
+            //         classMetadata,
+            //         ast,
+            //         new TypeOverrideDetails { IsStatic = false, TypeOverrideMap = typeOverrideMap, }
+            //     ),
+            // },
             PublicPropertyStatements = publicProperties
                 .Select(a =>
                 {
@@ -165,13 +159,14 @@ public static class GenerateInteropClassStatement
                         Name = name,
                         Type = NormalizeLiteralTypeStatement(
                             type,
+                            toGenerateNode,
                             classMetadata,
                             ast,
                             typeOverrideDetails
                         ),
                         IsStatic = isStatic,
                         IsInterfaceResponse = InterfaceResponseTypeIdentifier.Identify(type, ast),
-                        //IsArrayResponse = IsArrayResposneTypeRule.Check(a),
+                        // IsArrayResponse = IsArrayResposneTypeRule.Check(a),
                         IsReadonly = IsReadonlyRule.Check(a),
                         UsedClassNames = UsedClassNamesIdentifier.Identify(type),
                     };
@@ -213,6 +208,7 @@ public static class GenerateInteropClassStatement
                         Name = name,
                         Type = NormalizeLiteralTypeStatement(
                             type,
+                            toGenerateNode,
                             classMetadata,
                             ast,
                             typeOverrideDetails
@@ -229,16 +225,70 @@ public static class GenerateInteropClassStatement
                         UsedClassNames = UsedClassNamesIdentifier.Identify(type),
                     };
                 })
-                .Distinct()
+                .GroupBy(a => a.Name)
+                .Select(FlattenPublicMethodStatement)
                 .ToList(),
             AccessorStatements = accessorMethods.FlattenAccessorStatements(
+                toGenerateNode,
                 ast,
                 classMetadata,
                 typeOverrideMap
             ),
         };
-        classStatement.ConstructorStatement.NeedsInvokableReference =
-            InvokableReferenceIdentifier.Identify(classStatement);
+
+        static PublicMethodStatement FlattenPublicMethodStatement(
+            IGrouping<string, PublicMethodStatement> group
+        )
+        {
+            var first = group.First();
+            if (group.Count() == 1)
+            {
+                return first;
+            }
+
+            return new PublicMethodStatement
+            {
+                Name = first.Name,
+                Type = first.Type,
+                IsStatic = first.IsStatic,
+                IsInterfaceResponse = first.IsInterfaceResponse,
+                UsedClassNames = group.SelectMany(a => a.UsedClassNames).Distinct().ToList(),
+                GenericTypes = group.SelectMany(a => a.GenericTypes).Distinct().ToList(),
+                Arguments = group
+                    .SelectMany(a => a.Arguments)
+                    .GroupBy(b => b.Name)
+                    .Select(FlattenArgumentStatement)
+                    .Distinct()
+                    .ToList(),
+            };
+
+            static ArgumentStatement FlattenArgumentStatement(
+                IGrouping<string, ArgumentStatement> group
+            )
+            {
+                var first = group.First();
+                if (group.Count() == 1)
+                {
+                    return first;
+                }
+
+                return new ArgumentStatement
+                {
+                    Name = first.Name,
+                    IsOptional = first.IsOptional,
+                    UsedClassNames = group.SelectMany(a => a.UsedClassNames).Distinct().ToList(),
+                    Type = group.OrderByDescending(a => a.Type.Score()).FirstOrDefault().Type,
+                };
+            }
+        }
+
+        classStatement.ConstructorStatement = ConstructorStatementIdentifier.Identify(
+            toGenerateNode,
+            classStatement,
+            classMetadata,
+            ast,
+            new TypeOverrideDetails { IsStatic = false, TypeOverrideMap = typeOverrideMap, }
+        );
 
         return classStatement;
     }
@@ -360,7 +410,9 @@ public static class GenerateInteropClassStatement
             return genericTypes;
         }
 
-        var extendedClassGenericTypes = extendedClassType.GenericTypes;
+        var extendedClassGenericTypes = extendedClassType.GenericTypes?.Where(a =>
+            !a.IsTypeReference
+        );
         if (extendedClassGenericTypes is null || !extendedClassGenericTypes.Any())
         {
             return genericTypes;
@@ -395,6 +447,7 @@ public static class GenerateInteropClassStatement
 
     private static TypeStatement NormalizeLiteralTypeStatement(
         TypeStatement type,
+        Node classNode,
         ClassMetadata classMetadata,
         AbstractSyntaxTree ast,
         TypeOverrideDetails typeOverrideDetails
@@ -414,23 +467,23 @@ public static class GenerateInteropClassStatement
             );
             if (typeNode is not null)
             {
-                var typedType = GenericTypeIdentifier.Identify(
+                return GenericTypeIdentifier.Identify(
                     typeNode.Last,
                     classMetadata,
                     ast,
                     typeOverrideDetails
                 );
-                return typedType;
             }
         }
 
         if (type.IsThisType)
         {
-            return new TypeStatement
-            {
-                Name = classMetadata.Name,
-                GenericTypes = classMetadata.GenericTypes,
-            };
+            return GenericTypeIdentifier.Identify(
+                classNode,
+                classMetadata,
+                ast,
+                typeOverrideDetails
+            );
         }
 
         if (type.IsLiteral)
@@ -447,6 +500,7 @@ public static class GenerateInteropClassStatement
 
     public static IList<AccessorStatement> FlattenAccessorStatements(
         this IEnumerable<Node> nodes,
+        Node classNode,
         AbstractSyntaxTree ast,
         ClassMetadata classMetadata,
         IDictionary<string, string> typeOverrideMap
@@ -485,6 +539,7 @@ public static class GenerateInteropClassStatement
                     Name = name,
                     Type = NormalizeLiteralTypeStatement(
                         type,
+                        classNode,
                         classMetadata,
                         ast,
                         typeOverrideDetails

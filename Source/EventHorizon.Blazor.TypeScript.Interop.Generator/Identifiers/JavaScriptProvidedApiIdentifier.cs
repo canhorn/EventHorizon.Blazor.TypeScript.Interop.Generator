@@ -43,6 +43,11 @@ public class JavaScriptProvidedApiIdentifier
             jsProvidedApiType = GenerationIdentifiedTypes.CachedEntity;
             return true;
         }
+        else if (typeAsString == JavaScriptTypes.Map)
+        {
+            jsProvidedApiType = GenerationIdentifiedTypes.CachedEntity;
+            return true;
+        }
         else if (JavaScriptTypes.NumberArrayTypes.Any(a => a == typeAsString))
         {
             jsProvidedApiType = GenerationIdentifiedTypes.Array;

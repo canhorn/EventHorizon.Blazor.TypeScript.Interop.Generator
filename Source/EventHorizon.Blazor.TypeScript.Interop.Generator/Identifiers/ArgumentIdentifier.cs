@@ -42,7 +42,10 @@ public static class ArgumentIdentifier
                 {
                     type = unionType;
                 }
-                if (type.Name == GenerationIdentifiedTypes.CachedEntity)
+                if (
+                    type.Name == GenerationIdentifiedTypes.CachedEntity
+                    || type.Name == GenerationIdentifiedTypes.Unknown
+                )
                 {
                     type.Name = GenerationIdentifiedTypes.Object;
                 }

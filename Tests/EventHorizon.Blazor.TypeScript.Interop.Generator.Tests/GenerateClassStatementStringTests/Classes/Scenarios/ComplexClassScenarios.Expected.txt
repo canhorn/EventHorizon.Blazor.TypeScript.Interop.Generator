@@ -1,0 +1,160 @@
+/// Generated - Do Not Edit
+namespace Examples
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter<ExampleClass<CachedEntity>>))]
+    public class ExampleClass<T> : CachedEntityObject where T : CachedEntity, new()
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+        
+        public T[] prop
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.GetArrayClass<T>(
+                    this.___guid,
+                    "prop",
+                    (entity) =>
+                    {
+                        return new T() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "prop",
+                    value
+                );
+            }
+        }
+
+        private TCamera __nullableProp;
+        public TCamera nullableProp
+        {
+            get
+            {
+            if(__nullableProp == null)
+            {
+                __nullableProp = EventHorizonBlazorInterop.GetClass<TCamera>(
+                    this.___guid,
+                    "nullableProp",
+                    (entity) =>
+                    {
+                        return new TCamera() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __nullableProp;
+            }
+            set
+            {
+__nullableProp = null;
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "nullableProp",
+                    value
+                );
+            }
+        }
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { }
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+
+        #endregion
+
+        #region Methods
+        public T[] addBehavior(Behavior<T> behavior)
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<T>(
+                entity => new T() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "addBehavior" }, behavior
+                }
+            );
+        }
+
+        public ExampleClass<T> thisMethod()
+        {
+            return EventHorizonBlazorInterop.FuncClass<ExampleClass<T>>(
+                entity => new ExampleClass<T>() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "thisMethod" }
+                }
+            );
+        }
+
+        public T isClass()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "isClass" }
+                }
+            );
+        }
+
+        public T removeBehavior(Behavior<T> behavior)
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "removeBehavior" }, behavior
+                }
+            );
+        }
+
+        public Behavior<T> getBehaviorByName(string name)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Behavior<T>>(
+                entity => new Behavior<T>() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "getBehaviorByName" }, name
+                }
+            );
+        }
+        #endregion
+    }
+}

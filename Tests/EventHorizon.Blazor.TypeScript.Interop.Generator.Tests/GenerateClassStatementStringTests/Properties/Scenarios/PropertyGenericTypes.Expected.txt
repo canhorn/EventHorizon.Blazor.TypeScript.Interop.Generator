@@ -13,7 +13,7 @@ namespace Generic.Properties
     
     
     [JsonConverter(typeof(CachedEntityConverter<ExampleClass<CachedEntity>>))]
-    public class ExampleClass<TCamera> : CachedEntityObject where TCamera : CachedEntity, new()
+    public class ExampleClass<TCamera> : CachedEntityObject
     {
         #region Static Accessors
 

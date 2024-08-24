@@ -12,8 +12,8 @@ namespace Examples
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter<ExampleClass<CachedEntity>>))]
-    public class ExampleClass<TCamera> : CachedEntityObject where TCamera : CachedEntity, new()
+    [JsonConverter(typeof(CachedEntityConverter<ExampleClass>))]
+    public class ExampleClass : Mesh
     {
         #region Static Accessors
 
@@ -42,23 +42,22 @@ namespace Examples
             ICachedEntity entity
         ) : base(entity)
         {
-            ___guid = entity.___guid;
         }
 
-
+        public ExampleClass(
+            string name, UsedClass scene = null
+        ) : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "Examples", "ExampleClass" },
+                name, scene
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods
-        public ExampleClass<TCamera> thisReturned()
-        {
-            return EventHorizonBlazorInterop.FuncClass<ExampleClass<TCamera>>(
-                entity => new ExampleClass<TCamera>() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "thisReturned" }
-                }
-            );
-        }
+
         #endregion
     }
 }

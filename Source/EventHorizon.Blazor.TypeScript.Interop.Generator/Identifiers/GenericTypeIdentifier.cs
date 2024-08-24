@@ -12,6 +12,8 @@ using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
 public class GenericTypeIdentifier
 {
     private static readonly IsArrayResponseType IsArrayResponseTypeRule = new();
+    private static readonly IsMapResponseType IsMapResponseTypeRule = new();
+    private static readonly IsExcludeResponseType IsExcludeResponseTypeRule = new();
     private static readonly IsNumericArray IsNumericArrayRule = new();
     private static readonly IsTypeLiteral IsTypeLiteralRule = new();
     private static readonly IsVoidType IsVoidTypeRule = new();
@@ -19,6 +21,7 @@ public class GenericTypeIdentifier
     private static readonly IsTypeOperator IsTypeOperatorRule = new();
     private static readonly IsTypeParameter IsTypeParameterRule = new();
     private static readonly IsTypeReferenceIdentifier IsTypeReferenceIdentifierRule = new();
+    private static readonly IsParameterIdentifier IsParameterIdentifierRule = new();
 
     public static TypeStatement Identify(
         Node node,
@@ -27,10 +30,23 @@ public class GenericTypeIdentifier
         TypeOverrideDetails typeOverrideDetails
     )
     {
+        var isParameter = IsParameterIdentifierRule.Check(node);
+        var isExclude = IsExcludeResponseTypeRule.Check(node);
+        if (isExclude && node.TypeArguments.Count != 0)
+        {
+            return Identify(node.TypeArguments.First(), classMetadata, ast, typeOverrideDetails);
+        }
+        else if (isParameter)
+        {
+            return Identify(node.Type, classMetadata, ast, typeOverrideDetails);
+        }
+
         var typeIdentifier = TypeIdentifier.Identify(node, classMetadata);
         var isTypeReference = IsTypeReferenceIdentifierRule.Check(node);
+        var isMap = IsMapResponseTypeRule.Check(node);
         var isAction = ActionTypeIdentifier.Identify(typeIdentifier);
         var isNullable = NullableTypeIdentifier.Identify(typeIdentifier);
+        var isModifier = ModifierTypeIdentifier.Identify(typeIdentifier);
         var isTypeQuery = IsTypeQueryRule.Check(node);
         var isTypeOperator = IsTypeOperatorRule.Check(node);
         var isTypeAlias = AliasTypeIdentifier.Identify(node, ast);
@@ -48,7 +64,8 @@ public class GenericTypeIdentifier
             IsTypeLiteralRule.Check(node) || TypeLiteralIdentifier.Identify(typeIdentifier);
         var actionResultType = default(TypeStatement);
         var typeReferenceGenericTypes = new List<TypeStatement>();
-        if (!isNullable && isTypeReference)
+
+        if (!isNullable && !isModifier && isTypeReference)
         {
             typeReferenceGenericTypes.AddRange(
                 TypeReferenceGenericTypesIdentifier.Identify(
@@ -65,20 +82,27 @@ public class GenericTypeIdentifier
         {
             genericTypes.AddRange(typeReferenceGenericTypes);
         }
-        else if (node.TypeArguments != null && node.TypeArguments.Any())
+        else if (node.TypeArguments != null && node.TypeArguments.Count != 0)
         {
             foreach (var typeArgument in node.TypeArguments)
             {
                 genericTypes.Add(Identify(typeArgument, classMetadata, ast, typeOverrideDetails));
             }
         }
-        else if (node.Parameters != null && node.Parameters.Any())
+        else if (node.Parameters != null && node.Parameters.Count != 0)
         {
             foreach (var functionParameter in node.Parameters)
             {
                 genericTypes.Add(
                     Identify(functionParameter, classMetadata, ast, typeOverrideDetails)
                 );
+            }
+        }
+        else if (node.TypeParameters != null && node.TypeParameters.Count != 0)
+        {
+            foreach (var typeParameter in node.TypeParameters)
+            {
+                genericTypes.Add(Identify(typeParameter, classMetadata, ast, typeOverrideDetails));
             }
         }
         else if (isTypeOperator && node.Type != null && node.Type.Kind == SyntaxKind.ArrayType)
@@ -121,7 +145,7 @@ public class GenericTypeIdentifier
             isNullable
             && node.Type is not null
             && node.Type.TypeArguments is not null
-            && node.Type.TypeArguments.Any()
+            && node.Type.TypeArguments.Count != 0
             && node.Type.TypeArguments.First() is Node typeArgumentFirst
         )
         {
@@ -141,19 +165,14 @@ public class GenericTypeIdentifier
             return typeStatement;
         }
 
-        if (typeIdentifier == GenerationIdentifiedTypes.Void)
+        if (isMap || typeIdentifier == GenerationIdentifiedTypes.Void)
         {
             genericTypes.Clear();
         }
 
         if (isAction)
         {
-            actionResultType = GenericTypeIdentifier.Identify(
-                node.Last,
-                classMetadata,
-                ast,
-                typeOverrideDetails
-            );
+            actionResultType = Identify(node.Last, classMetadata, ast, typeOverrideDetails);
         }
 
         if (isLiteral)
@@ -171,6 +190,7 @@ public class GenericTypeIdentifier
             Name = DotNetClassNormalizer.Normalize(typeIdentifier),
             IsArray = IsArrayResponseTypeRule.Check(node),
             IsTypeAlias = isTypeAlias && aliasType != null,
+            IsTypeReference = isTypeReference,
             AliasType = aliasType,
             IsNullable = isNullable,
             IsReadonly = ReadonlyTypeIdentifier.Identify(typeIdentifier),

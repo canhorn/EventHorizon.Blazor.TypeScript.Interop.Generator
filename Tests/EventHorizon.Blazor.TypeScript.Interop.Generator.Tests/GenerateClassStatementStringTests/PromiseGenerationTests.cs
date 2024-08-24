@@ -33,6 +33,12 @@ public class PromiseGenerationTests : GenerateStringTestBase
         "LiteralTaskPromise.Expected.txt",
         ASTParserType.Sdcb
     )]
+    [InlineData(
+        "NullableTaskPromise.ts",
+        "Promise",
+        "NullableTaskPromise.Expected.txt",
+        ASTParserType.Sdcb
+    )]
     public void ShouldGenerateConstructorStringsUsingSdcb(
         string sourceFile,
         string path,
@@ -66,6 +72,12 @@ public class PromiseGenerationTests : GenerateStringTestBase
         "LiteralTaskPromise.ts",
         "Promise",
         "LiteralTaskPromise.Expected.txt",
+        ASTParserType.NodeJS
+    )]
+    [InlineData(
+        "NullableTaskPromise.ts",
+        "Promise",
+        "NullableTaskPromise.Expected.txt",
         ASTParserType.NodeJS
     )]
     public void ShouldGenerateConstructorStringsUsingNodeJS(

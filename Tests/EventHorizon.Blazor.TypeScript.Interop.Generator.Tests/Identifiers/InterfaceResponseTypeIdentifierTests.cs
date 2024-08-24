@@ -310,11 +310,12 @@ public class InterfaceResponseTypeIdentifierTests
 
     [Theory]
     [Trait("Category", "EdgeCase")]
-    [InlineData(SyntaxKind.ClassDeclaration, false)]
-    [InlineData(SyntaxKind.InterfaceDeclaration, true)]
+    [InlineData(SyntaxKind.ClassDeclaration, false, SyntaxKind.InterfaceDeclaration)]
+    [InlineData(SyntaxKind.InterfaceDeclaration, true, SyntaxKind.ClassDeclaration)]
     public void ShouldValidateAgainstCacheWhenDeclarationTypeIsUsed(
         string declarationType,
-        bool found
+        bool found,
+        string notFoundDeclarationType
     )
     {
         // Given
@@ -327,9 +328,8 @@ public class InterfaceResponseTypeIdentifierTests
 
         astMock.Setup(mock => mock.RootNode).Returns(rootNodeMock.Object);
 
-        rootNodeMock
-            .Setup(mock => mock.OfKind(declarationType))
-            .Returns(new List<Node> { mockNode });
+        rootNodeMock.Setup(mock => mock.OfKind(declarationType)).Returns([mockNode]);
+        rootNodeMock.Setup(mock => mock.OfKind(notFoundDeclarationType)).Returns([]);
 
         // When
         var alias = new InterfaceResponseTypeIdentifierCached();

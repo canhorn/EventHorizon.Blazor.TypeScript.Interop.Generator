@@ -12,7 +12,7 @@ namespace Examples
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter<ExampleClass<CachedEntity>>))]
+    [JsonConverter(typeof(CachedEntityConverter<ExampleClass<CachedEntity, CachedEntity, CachedEntity>>))]
     public class ExampleClass<T, N, R> : _Tuple<T, N, R>
     {
         #region Static Accessors

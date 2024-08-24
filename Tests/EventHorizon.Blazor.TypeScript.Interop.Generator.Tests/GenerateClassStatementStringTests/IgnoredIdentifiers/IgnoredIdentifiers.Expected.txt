@@ -12,8 +12,8 @@ namespace Examples
 
     public interface ExampleClass<V, I> : ICachedEntity { }
     
-    [JsonConverter(typeof(CachedEntityConverter<ExampleClassCachedEntity<CachedEntity>>))]
-    public class ExampleClassCachedEntity<V, I> : CachedEntityObject, ExampleClass<V, I> where V : CachedEntity, new() where I : CachedEntity, new()
+    [JsonConverter(typeof(CachedEntityConverter<ExampleClassCachedEntity<CachedEntity, CachedEntity>>))]
+    public class ExampleClassCachedEntity<V, I> : CachedEntityObject, ExampleClass<V, I>
     {
         #region Static Accessors
 

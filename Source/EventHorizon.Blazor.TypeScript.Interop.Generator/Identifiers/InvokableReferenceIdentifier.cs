@@ -15,19 +15,19 @@ class InvokableReferenceIdentifier
     {
         var methodArgumentUsedClasses = classStatement.PublicMethodStatements.Aggregate(
             new List<string>(),
-            (acc, method) =>
-                acc.Concat(
-                        method.Arguments.Aggregate(
-                            new List<string>(),
-                            (argAcc, arg) =>
-                                argAcc.Concat(new List<string> { arg.Type.Name }).ToList()
-                        )
-                    )
-                    .ToList()
+            static (acc, method) =>
+
+                [
+                    .. acc,
+                    .. method.Arguments.Aggregate(
+                        new List<string>(),
+                        (argAcc, arg) => [.. argAcc, arg.Type.Name]
+                    ),
+                ]
         );
         var constructorUsedClasses = classStatement.ConstructorStatement.Arguments.Aggregate(
             new List<string>(),
-            (argAcc, arg) => argAcc.Concat(new List<string> { arg.Type.Name }).ToList()
+            (argAcc, arg) => [.. argAcc, arg.Type.Name]
         );
         var argumentUsedClasses = methodArgumentUsedClasses.Concat(constructorUsedClasses);
 
