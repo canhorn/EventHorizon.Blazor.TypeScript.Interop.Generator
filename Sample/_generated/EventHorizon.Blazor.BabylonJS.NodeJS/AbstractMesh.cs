@@ -303,9 +303,101 @@ namespace BABYLON
             }
         }
 
+        public decimal collisionRetryCount
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "collisionRetryCount");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "collisionRetryCount", value);
+            }
+        }
+
         public bool isFacetDataEnabled
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isFacetDataEnabled"); }
+        }
+
+        private MorphTargetManager __morphTargetManager;
+        public MorphTargetManager morphTargetManager
+        {
+            get
+            {
+                if (__morphTargetManager == null)
+                {
+                    __morphTargetManager = EventHorizonBlazorInterop.GetClass<MorphTargetManager>(
+                        this.___guid,
+                        "morphTargetManager",
+                        (entity) =>
+                        {
+                            return new MorphTargetManager() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __morphTargetManager;
+            }
+            set
+            {
+                __morphTargetManager = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "morphTargetManager", value);
+            }
+        }
+
+        private IBakedVertexAnimationManagerCachedEntity __bakedVertexAnimationManager;
+        public IBakedVertexAnimationManagerCachedEntity bakedVertexAnimationManager
+        {
+            get
+            {
+                if (__bakedVertexAnimationManager == null)
+                {
+                    __bakedVertexAnimationManager =
+                        EventHorizonBlazorInterop.GetClass<IBakedVertexAnimationManagerCachedEntity>(
+                            this.___guid,
+                            "bakedVertexAnimationManager",
+                            (entity) =>
+                            {
+                                return new IBakedVertexAnimationManagerCachedEntity()
+                                {
+                                    ___guid = entity.___guid
+                                };
+                            }
+                        );
+                }
+                return __bakedVertexAnimationManager;
+            }
+            set
+            {
+                __bakedVertexAnimationManager = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "bakedVertexAnimationManager", value);
+            }
+        }
+
+        private BoundingInfo __rawBoundingInfo;
+        public BoundingInfo rawBoundingInfo
+        {
+            get
+            {
+                if (__rawBoundingInfo == null)
+                {
+                    __rawBoundingInfo = EventHorizonBlazorInterop.GetClass<BoundingInfo>(
+                        this.___guid,
+                        "rawBoundingInfo",
+                        (entity) =>
+                        {
+                            return new BoundingInfo() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __rawBoundingInfo;
+            }
+            set
+            {
+                __rawBoundingInfo = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "rawBoundingInfo", value);
+            }
         }
 
         public decimal visibility
@@ -315,6 +407,42 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "visibility", value);
+            }
+        }
+
+        public bool inheritVisibility
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "inheritVisibility"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "inheritVisibility", value);
+            }
+        }
+
+        public bool isVisible
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isVisible"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "isVisible", value);
+            }
+        }
+
+        public bool pointerOverDisableMeshTesting
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "pointerOverDisableMeshTesting"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "pointerOverDisableMeshTesting", value);
             }
         }
 
@@ -422,6 +550,19 @@ namespace BABYLON
             }
         }
 
+        public bool enableDistantPicking
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "enableDistantPicking");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "enableDistantPicking", value);
+            }
+        }
+
         public decimal layerMask
         {
             get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "layerMask"); }
@@ -522,34 +663,14 @@ namespace BABYLON
             }
         }
 
-        private Vector3 __scaling;
-        public Vector3 scaling
-        {
-            get
-            {
-                if (__scaling == null)
-                {
-                    __scaling = EventHorizonBlazorInterop.GetClass<Vector3>(
-                        this.___guid,
-                        "scaling",
-                        (entity) =>
-                        {
-                            return new Vector3() { ___guid = entity.___guid };
-                        }
-                    );
-                }
-                return __scaling;
-            }
-            set
-            {
-                __scaling = null;
-                EventHorizonBlazorInterop.Set(this.___guid, "scaling", value);
-            }
-        }
-
         public bool isBlocked
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isBlocked"); }
+        }
+
+        public bool hasBoundingInfo
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "hasBoundingInfo"); }
         }
 
         public bool useBones
@@ -723,16 +844,6 @@ namespace BABYLON
             }
         }
 
-        public bool isVisible
-        {
-            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isVisible"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "isVisible", value);
-            }
-        }
-
         public bool isPickable
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isPickable"); }
@@ -740,6 +851,26 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "isPickable", value);
+            }
+        }
+
+        public bool isNearPickable
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isNearPickable"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "isNearPickable", value);
+            }
+        }
+
+        public bool isNearGrabbable
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isNearGrabbable"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "isNearGrabbable", value);
             }
         }
 
@@ -1099,9 +1230,60 @@ namespace BABYLON
             );
             ___guid = entity.___guid;
         }
+
+        public AbstractMesh(string name, Scene scene = null, System.Nullable<bool> isPure = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "AbstractMesh" },
+                name,
+                scene,
+                isPure
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods
+        public Material getMaterialForRenderPass(decimal renderPassId)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Material>(
+                entity => new Material() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "getMaterialForRenderPass" },
+                    renderPassId
+                }
+            );
+        }
+
+        public void setMaterialForRenderPass(decimal renderPassId, Material material = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "setMaterialForRenderPass" },
+                    renderPassId,
+                    material
+                }
+            );
+        }
+
+        public void transferToEffect(Matrix world)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "transferToEffect" }, world }
+            );
+        }
+
+        public UniformBuffer getMeshUniformBuffer()
+        {
+            return EventHorizonBlazorInterop.FuncClass<UniformBuffer>(
+                entity => new UniformBuffer() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getMeshUniformBuffer" } }
+            );
+        }
+
         public string getClassName()
         {
             return EventHorizonBlazorInterop.Func<string>(
@@ -1113,6 +1295,21 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.Func<string>(
                 new object[] { new string[] { this.___guid, "toString" }, fullDetails }
+            );
+        }
+
+        public AbstractMesh markAsDirty(string property = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
+                entity => new AbstractMesh() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "markAsDirty" }, property }
+            );
+        }
+
+        public void resetDrawCache(System.Nullable<decimal> passId = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "resetDrawCache" }, passId }
             );
         }
 
@@ -1149,6 +1346,13 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[] { new string[] { this.___guid, "getVerticesData" }, kind }
+            );
+        }
+
+        public void copyVerticesData(string kind, object vertexData)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "copyVerticesData" }, kind, vertexData }
             );
         }
 
@@ -1218,6 +1422,40 @@ namespace BABYLON
             );
         }
 
+        public BoundingInfo getRawBoundingInfo()
+        {
+            return EventHorizonBlazorInterop.FuncClass<BoundingInfo>(
+                entity => new BoundingInfo() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getRawBoundingInfo" } }
+            );
+        }
+
+        public AbstractMesh setBoundingInfo(BoundingInfo boundingInfo)
+        {
+            return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
+                entity => new AbstractMesh() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "setBoundingInfo" }, boundingInfo }
+            );
+        }
+
+        public BoundingInfo buildBoundingInfo(
+            Vector3 minimum,
+            Vector3 maximum,
+            Matrix worldMatrix = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<BoundingInfo>(
+                entity => new BoundingInfo() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "buildBoundingInfo" },
+                    minimum,
+                    maximum,
+                    worldMatrix
+                }
+            );
+        }
+
         public AbstractMesh normalizeToUnitCube(
             System.Nullable<bool> includeDescendants = null,
             System.Nullable<bool> ignoreRotation = null,
@@ -1233,14 +1471,6 @@ namespace BABYLON
                     ignoreRotation,
                     predicate
                 }
-            );
-        }
-
-        public AbstractMesh setBoundingInfo(BoundingInfo boundingInfo)
-        {
-            return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "setBoundingInfo" }, boundingInfo }
             );
         }
 
@@ -1308,11 +1538,53 @@ namespace BABYLON
             );
         }
 
-        public AbstractMesh refreshBoundingInfo(System.Nullable<bool> applySkeleton = null)
+        public AbstractMesh refreshBoundingInfo(
+            IMeshDataOptions options,
+            bool applySkeletonOrOptions,
+            bool applyMorph
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
                 entity => new AbstractMesh() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "refreshBoundingInfo" }, applySkeleton }
+                new object[]
+                {
+                    new string[] { this.___guid, "refreshBoundingInfo" },
+                    options,
+                    applySkeletonOrOptions,
+                    applyMorph
+                }
+            );
+        }
+
+        public decimal[] getNormalsData(
+            System.Nullable<bool> applySkeleton = null,
+            System.Nullable<bool> applyMorph = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
+                new object[]
+                {
+                    new string[] { this.___guid, "getNormalsData" },
+                    applySkeleton,
+                    applyMorph
+                }
+            );
+        }
+
+        public decimal[] getPositionData(
+            System.Nullable<bool> applySkeleton = null,
+            System.Nullable<bool> applyMorph = null,
+            decimal[] data = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
+                new object[]
+                {
+                    new string[] { this.___guid, "getPositionData" },
+                    applySkeleton,
+                    applyMorph,
+                    data
+                }
             );
         }
 
@@ -1369,7 +1641,16 @@ namespace BABYLON
         public PickingInfo intersects(
             Ray ray,
             System.Nullable<bool> fastCheck = null,
-            ActionResultCallback<Vector3, Vector3, Vector3, Ray, bool> trianglePredicate = null,
+            ActionResultCallback<
+                Vector3,
+                Vector3,
+                Vector3,
+                Ray,
+                decimal,
+                decimal,
+                decimal,
+                bool
+            > trianglePredicate = null,
             System.Nullable<bool> onlyBoundingInfo = null,
             Matrix worldToUse = null,
             System.Nullable<bool> skipBoundingInfo = null
@@ -1428,22 +1709,6 @@ namespace BABYLON
                     doNotRecurse,
                     disposeMaterialAndTextures
                 }
-            );
-        }
-
-        public AbstractMesh addChild(AbstractMesh mesh)
-        {
-            return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "addChild" }, mesh }
-            );
-        }
-
-        public AbstractMesh removeChild(AbstractMesh mesh)
-        {
-            return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
-                entity => new AbstractMesh() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "removeChild" }, mesh }
             );
         }
 

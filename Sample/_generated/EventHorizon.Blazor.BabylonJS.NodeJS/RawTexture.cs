@@ -108,7 +108,9 @@ namespace BABYLON
             System.Nullable<bool> generateMipMaps = null,
             System.Nullable<bool> invertY = null,
             System.Nullable<decimal> samplingMode = null,
-            System.Nullable<decimal> type = null
+            System.Nullable<decimal> type = null,
+            System.Nullable<decimal> creationFlags = null,
+            System.Nullable<bool> useSRGBBuffer = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<RawTexture>(
@@ -123,7 +125,9 @@ namespace BABYLON
                     generateMipMaps,
                     invertY,
                     samplingMode,
-                    type
+                    type,
+                    creationFlags,
+                    useSRGBBuffer
                 }
             );
         }
@@ -136,7 +140,9 @@ namespace BABYLON
             System.Nullable<bool> generateMipMaps = null,
             System.Nullable<bool> invertY = null,
             System.Nullable<decimal> samplingMode = null,
-            System.Nullable<decimal> type = null
+            System.Nullable<decimal> type = null,
+            System.Nullable<decimal> creationFlags = null,
+            System.Nullable<bool> useSRGBBuffer = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<RawTexture>(
@@ -151,7 +157,39 @@ namespace BABYLON
                     generateMipMaps,
                     invertY,
                     samplingMode,
-                    type
+                    type,
+                    creationFlags,
+                    useSRGBBuffer
+                }
+            );
+        }
+
+        public static RawTexture CreateRGBAStorageTexture(
+            ArrayBufferView data,
+            decimal width,
+            decimal height,
+            Scene sceneOrEngine,
+            System.Nullable<bool> generateMipMaps = null,
+            System.Nullable<bool> invertY = null,
+            System.Nullable<decimal> samplingMode = null,
+            System.Nullable<decimal> type = null,
+            System.Nullable<bool> useSRGBBuffer = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<RawTexture>(
+                entity => new RawTexture() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "RawTexture", "CreateRGBAStorageTexture" },
+                    data,
+                    width,
+                    height,
+                    sceneOrEngine,
+                    generateMipMaps,
+                    invertY,
+                    samplingMode,
+                    type,
+                    useSRGBBuffer
                 }
             );
         }
@@ -172,6 +210,34 @@ namespace BABYLON
                 new object[]
                 {
                     new string[] { "BABYLON", "RawTexture", "CreateRTexture" },
+                    data,
+                    width,
+                    height,
+                    sceneOrEngine,
+                    generateMipMaps,
+                    invertY,
+                    samplingMode,
+                    type
+                }
+            );
+        }
+
+        public static RawTexture CreateRStorageTexture(
+            ArrayBufferView data,
+            decimal width,
+            decimal height,
+            Scene sceneOrEngine,
+            System.Nullable<bool> generateMipMaps = null,
+            System.Nullable<bool> invertY = null,
+            System.Nullable<decimal> samplingMode = null,
+            System.Nullable<decimal> type = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<RawTexture>(
+                entity => new RawTexture() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "RawTexture", "CreateRStorageTexture" },
                     data,
                     width,
                     height,
@@ -218,7 +284,9 @@ namespace BABYLON
             System.Nullable<bool> generateMipMaps = null,
             System.Nullable<bool> invertY = null,
             System.Nullable<decimal> samplingMode = null,
-            System.Nullable<decimal> type = null
+            System.Nullable<decimal> type = null,
+            System.Nullable<decimal> creationFlags = null,
+            System.Nullable<bool> useSRGBBuffer = null
         )
             : base()
         {
@@ -232,7 +300,68 @@ namespace BABYLON
                 generateMipMaps,
                 invertY,
                 samplingMode,
-                type
+                type,
+                creationFlags,
+                useSRGBBuffer
+            );
+            ___guid = entity.___guid;
+        }
+
+        public RawTexture(
+            string url = null,
+            Scene sceneOrEngine = null,
+            System.Nullable<bool> noMipmapOrOptions = null,
+            System.Nullable<bool> invertY = null,
+            System.Nullable<decimal> samplingMode = null,
+            ActionCallback onLoad = null,
+            ActionCallback<string, CachedEntity> onError = null,
+            string buffer = null,
+            System.Nullable<bool> deleteBuffer = null,
+            System.Nullable<decimal> format = null,
+            string mimeType = null,
+            object loaderOptions = null,
+            System.Nullable<decimal> creationFlags = null,
+            string forcedExtension = null
+        )
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "RawTexture" },
+                url,
+                sceneOrEngine,
+                noMipmapOrOptions,
+                invertY,
+                samplingMode,
+                onLoad,
+                onError,
+                buffer,
+                deleteBuffer,
+                format,
+                mimeType,
+                loaderOptions,
+                creationFlags,
+                forcedExtension
+            );
+            ___guid = entity.___guid;
+        }
+
+        public RawTexture(Scene sceneOrEngine = null, InternalTexture internalTexture = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "RawTexture" },
+                sceneOrEngine,
+                internalTexture
+            );
+            ___guid = entity.___guid;
+        }
+
+        public RawTexture(InternalTexture internalTexture)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "RawTexture" },
+                internalTexture
             );
             ___guid = entity.___guid;
         }
@@ -243,6 +372,14 @@ namespace BABYLON
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "update" }, data }
+            );
+        }
+
+        public Texture clone()
+        {
+            return EventHorizonBlazorInterop.FuncClass<Texture>(
+                entity => new Texture() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "clone" } }
             );
         }
         #endregion

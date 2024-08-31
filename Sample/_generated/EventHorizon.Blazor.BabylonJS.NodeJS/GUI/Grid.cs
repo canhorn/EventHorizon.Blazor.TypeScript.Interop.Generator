@@ -27,6 +27,26 @@ namespace BABYLON.GUI
 
         #region Accessors
 
+        public bool clipContent
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "clipContent"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "clipContent", value);
+            }
+        }
+
+        public bool clipChildren
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "clipChildren"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "clipChildren", value);
+            }
+        }
+
         public decimal columnCount
         {
             get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "columnCount"); }
@@ -218,6 +238,18 @@ namespace BABYLON.GUI
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "dispose" } }
+            );
+        }
+
+        public void serialize(object serializationObject, bool force)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "serialize" },
+                    serializationObject,
+                    force
+                }
             );
         }
         #endregion

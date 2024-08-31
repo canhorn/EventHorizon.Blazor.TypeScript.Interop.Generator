@@ -70,95 +70,19 @@ namespace BABYLON
         #endregion
 
         #region Methods
-        #region displayLoadingUI TODO: Get Comments as metadata identification
-        private bool _isDisplayLoadingUIEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _displayLoadingUIActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string displayLoadingUI(Func<Task> callback)
+        public void displayLoadingUI()
         {
-            SetupDisplayLoadingUILoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _displayLoadingUIActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool displayLoadingUI_Remove(string handle)
-        {
-            return _displayLoadingUIActionMap.Remove(handle);
-        }
-
-        private void SetupDisplayLoadingUILoop()
-        {
-            if (_isDisplayLoadingUIEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "displayLoadingUI",
-                "CallDisplayLoadingUIActions",
-                _invokableReference
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "displayLoadingUI" } }
             );
-            _isDisplayLoadingUIEnabled = true;
         }
 
-        [JSInvokable]
-        public async Task CallDisplayLoadingUIActions()
+        public void hideLoadingUI()
         {
-            foreach (var action in _displayLoadingUIActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region hideLoadingUI TODO: Get Comments as metadata identification
-        private bool _isHideLoadingUIEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _hideLoadingUIActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string hideLoadingUI(Func<Task> callback)
-        {
-            SetupHideLoadingUILoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _hideLoadingUIActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool hideLoadingUI_Remove(string handle)
-        {
-            return _hideLoadingUIActionMap.Remove(handle);
-        }
-
-        private void SetupHideLoadingUILoop()
-        {
-            if (_isHideLoadingUIEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "hideLoadingUI",
-                "CallHideLoadingUIActions",
-                _invokableReference
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "hideLoadingUI" } }
             );
-            _isHideLoadingUIEnabled = true;
         }
-
-        [JSInvokable]
-        public async Task CallHideLoadingUIActions()
-        {
-            foreach (var action in _hideLoadingUIActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
         #endregion
     }
 }

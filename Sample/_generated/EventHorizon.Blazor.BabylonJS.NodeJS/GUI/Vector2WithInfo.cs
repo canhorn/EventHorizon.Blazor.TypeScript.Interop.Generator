@@ -59,6 +59,17 @@ namespace BABYLON.GUI
             );
             ___guid = entity.___guid;
         }
+
+        public Vector2WithInfo(System.Nullable<decimal> x = null, System.Nullable<decimal> y = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "Vector2WithInfo" },
+                x,
+                y
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods

@@ -89,50 +89,12 @@ namespace BABYLON
         #endregion
 
         #region Methods
-        #region action TODO: Get Comments as metadata identification
-        private bool _isActionEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _actionActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string action(Func<Task> callback)
+        public void action(decimal currentFrame)
         {
-            SetupActionLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _actionActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool action_Remove(string handle)
-        {
-            return _actionActionMap.Remove(handle);
-        }
-
-        private void SetupActionLoop()
-        {
-            if (_isActionEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "action",
-                "CallActionActions",
-                _invokableReference
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "action" }, currentFrame }
             );
-            _isActionEnabled = true;
         }
-
-        [JSInvokable]
-        public async Task CallActionActions()
-        {
-            foreach (var action in _actionActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
         #endregion
     }
 }

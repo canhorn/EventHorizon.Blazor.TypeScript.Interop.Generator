@@ -19,6 +19,22 @@ namespace BABYLON.GUI
 
         #region Static Properties
 
+        public static CachedEntity SourceImgCache
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<CachedEntity>(
+                    "BABYLON",
+                    "GUI.Image.SourceImgCache"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set("BABYLON", "GUI.Image.SourceImgCache", value);
+            }
+        }
+
         public static decimal STRETCH_NONE
         {
             get
@@ -70,7 +86,12 @@ namespace BABYLON.GUI
         #endregion
 
         #region Static Methods
-
+        public static void ResetImageCache()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { "BABYLON", "GUI", "Image", "ResetImageCache" } }
+            );
+        }
         #endregion
 
         #region Accessors
@@ -78,26 +99,6 @@ namespace BABYLON.GUI
         public bool isLoaded
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isLoaded"); }
-        }
-
-        public bool populateNinePatchSlicesFromImage
-        {
-            get
-            {
-                return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "populateNinePatchSlicesFromImage"
-                );
-            }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(
-                    this.___guid,
-                    "populateNinePatchSlicesFromImage",
-                    value
-                );
-            }
         }
 
         public bool detectPointerOnOpaqueOnly
@@ -196,6 +197,36 @@ namespace BABYLON.GUI
             }
         }
 
+        public decimal imageWidth
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "imageWidth"); }
+        }
+
+        public decimal imageHeight
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "imageHeight"); }
+        }
+
+        public bool populateNinePatchSlicesFromImage
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "populateNinePatchSlicesFromImage"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "populateNinePatchSlicesFromImage",
+                    value
+                );
+            }
+        }
+
         public bool isSVG
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isSVG"); }
@@ -232,19 +263,19 @@ namespace BABYLON.GUI
             }
         }
 
-        private HTMLImageElement __domImage;
-        public HTMLImageElement domImage
+        private IImageCachedEntity __domImage;
+        public IImageCachedEntity domImage
         {
             get
             {
                 if (__domImage == null)
                 {
-                    __domImage = EventHorizonBlazorInterop.GetClass<HTMLImageElement>(
+                    __domImage = EventHorizonBlazorInterop.GetClass<IImageCachedEntity>(
                         this.___guid,
                         "domImage",
                         (entity) =>
                         {
-                            return new HTMLImageElement() { ___guid = entity.___guid };
+                            return new IImageCachedEntity() { ___guid = entity.___guid };
                         }
                     );
                 }
@@ -254,6 +285,16 @@ namespace BABYLON.GUI
             {
                 __domImage = null;
                 EventHorizonBlazorInterop.Set(this.___guid, "domImage", value);
+            }
+        }
+
+        public string source
+        {
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "source"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "source", value);
             }
         }
 
@@ -297,6 +338,16 @@ namespace BABYLON.GUI
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "name", value);
+            }
+        }
+
+        public string alt
+        {
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "alt"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "alt", value);
             }
         }
 
@@ -357,6 +408,31 @@ namespace BABYLON.GUI
                 );
             }
         }
+
+        private ReferrerPolicy __referrerPolicy;
+        public ReferrerPolicy referrerPolicy
+        {
+            get
+            {
+                if (__referrerPolicy == null)
+                {
+                    __referrerPolicy = EventHorizonBlazorInterop.GetClass<ReferrerPolicy>(
+                        this.___guid,
+                        "referrerPolicy",
+                        (entity) =>
+                        {
+                            return new ReferrerPolicy() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __referrerPolicy;
+            }
+            set
+            {
+                __referrerPolicy = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "referrerPolicy", value);
+            }
+        }
         #endregion
 
         #region Constructor
@@ -376,9 +452,26 @@ namespace BABYLON.GUI
             );
             ___guid = entity.___guid;
         }
+
+        public Image(string name = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "GUI", "Image" },
+                name
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods
+        public bool isReady()
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "isReady" } }
+            );
+        }
+
         public bool contains(decimal x, decimal y)
         {
             return EventHorizonBlazorInterop.Func<bool>(

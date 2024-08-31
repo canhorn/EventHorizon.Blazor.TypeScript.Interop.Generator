@@ -15,6 +15,16 @@ namespace BABYLON
     {
         #region Static Accessors
 
+        public static bool IsCustomRequestAvailable
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    "BABYLON",
+                    "WebRequest.IsCustomRequestAvailable"
+                );
+            }
+        }
         #endregion
 
         #region Static Properties
@@ -55,6 +65,26 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set(
                     "BABYLON",
                     "WebRequest.CustomRequestModifiers",
+                    value
+                );
+            }
+        }
+
+        public static bool SkipRequestModificationForBabylonCDN
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    "BABYLON",
+                    "WebRequest.SkipRequestModificationForBabylonCDN"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    "BABYLON",
+                    "WebRequest.SkipRequestModificationForBabylonCDN",
                     value
                 );
             }
@@ -138,6 +168,16 @@ namespace BABYLON
             {
                 __responseType = null;
                 EventHorizonBlazorInterop.Set(this.___guid, "responseType", value);
+            }
+        }
+
+        public decimal timeout
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "timeout"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "timeout", value);
             }
         }
         #endregion

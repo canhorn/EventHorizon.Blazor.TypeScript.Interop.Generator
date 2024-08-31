@@ -33,6 +33,24 @@ namespace BABYLON
                 }
             );
         }
+
+        public static BoundingSphere CreateFromCenterAndRadius(
+            Vector3 center,
+            decimal radius,
+            Matrix matrix = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<BoundingSphere>(
+                entity => new BoundingSphere() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "BoundingSphere", "CreateFromCenterAndRadius" },
+                    center,
+                    radius,
+                    matrix
+                }
+            );
+        }
         #endregion
 
         #region Accessors

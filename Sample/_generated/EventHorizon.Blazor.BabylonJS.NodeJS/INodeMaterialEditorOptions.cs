@@ -44,6 +44,26 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set(this.___guid, "editorURL", value);
             }
         }
+
+        public CachedEntity nodeEditorConfig
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                    this.___guid,
+                    "nodeEditorConfig",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "nodeEditorConfig", value);
+            }
+        }
         #endregion
 
         #region Constructor

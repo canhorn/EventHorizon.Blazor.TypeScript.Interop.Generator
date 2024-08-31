@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     [JsonConverter(typeof(CachedEntityConverter<DetailMapConfiguration>))]
-    public class DetailMapConfiguration : CachedEntityObject
+    public class DetailMapConfiguration : MaterialPluginBase
     {
         #region Static Accessors
 
@@ -22,38 +22,7 @@ namespace BABYLON
         #endregion
 
         #region Static Methods
-        public static void AddUniforms(string[] uniforms)
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { "BABYLON", "DetailMapConfiguration", "AddUniforms" },
-                    uniforms
-                }
-            );
-        }
 
-        public static void AddSamplers(string[] samplers)
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { "BABYLON", "DetailMapConfiguration", "AddSamplers" },
-                    samplers
-                }
-            );
-        }
-
-        public static void PrepareUniformBuffer(UniformBuffer uniformBuffer)
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { "BABYLON", "DetailMapConfiguration", "PrepareUniformBuffer" },
-                    uniformBuffer
-                }
-            );
-        }
         #endregion
 
         #region Accessors
@@ -151,45 +120,76 @@ namespace BABYLON
             : base() { }
 
         public DetailMapConfiguration(ICachedEntity entity)
-            : base(entity)
-        {
-            ___guid = entity.___guid;
-        }
+            : base(entity) { }
 
-        public DetailMapConfiguration(ActionCallback markAllSubMeshesAsTexturesDirty)
+        public DetailMapConfiguration(
+            PBRBaseMaterial material,
+            System.Nullable<bool> addToPluginList = null
+        )
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "DetailMapConfiguration" },
-                markAllSubMeshesAsTexturesDirty
+                material,
+                addToPluginList
+            );
+            ___guid = entity.___guid;
+        }
+
+        public DetailMapConfiguration(
+            Material material,
+            string name,
+            decimal priority,
+            object defines = null,
+            System.Nullable<bool> addToPluginList = null,
+            System.Nullable<bool> enable = null,
+            System.Nullable<bool> resolveIncludes = null
+        )
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "DetailMapConfiguration" },
+                material,
+                name,
+                priority,
+                defines,
+                addToPluginList,
+                enable,
+                resolveIncludes
             );
             ___guid = entity.___guid;
         }
         #endregion
 
         #region Methods
-        public bool isReadyForSubMesh(IMaterialDetailMapDefines defines, Scene scene)
+        public bool isReadyForSubMesh(MaterialDetailMapDefines defines, Scene scene, Engine engine)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] { new string[] { this.___guid, "isReadyForSubMesh" }, defines, scene }
+                new object[]
+                {
+                    new string[] { this.___guid, "isReadyForSubMesh" },
+                    defines,
+                    scene,
+                    engine
+                }
             );
         }
 
-        public void prepareDefines(IMaterialDetailMapDefines defines, Scene scene)
+        public void prepareDefines(MaterialDetailMapDefines defines, Scene scene)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "prepareDefines" }, defines, scene }
             );
         }
 
-        public void bindForSubMesh(UniformBuffer uniformBuffer, Scene scene, bool isFrozen)
+        public void bindForSubMesh(UniformBuffer uniformBuffer, Scene scene)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
                     new string[] { this.___guid, "bindForSubMesh" },
                     uniformBuffer,
-                    scene,
-                    isFrozen
+                    scene
                 }
             );
         }
@@ -229,24 +229,17 @@ namespace BABYLON
             );
         }
 
-        public void copyTo(DetailMapConfiguration detailMap)
+        public void getSamplers(string[] samplers)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "copyTo" }, detailMap }
+                new object[] { new string[] { this.___guid, "getSamplers" }, samplers }
             );
         }
 
-        public CachedEntity serialize()
+        public CachedEntity getUniforms()
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "serialize" } }
-            );
-        }
-
-        public void parse(object source, Scene scene, string rootUrl)
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "parse" }, source, scene, rootUrl }
+                new object[] { new string[] { this.___guid, "getUniforms" } }
             );
         }
         #endregion

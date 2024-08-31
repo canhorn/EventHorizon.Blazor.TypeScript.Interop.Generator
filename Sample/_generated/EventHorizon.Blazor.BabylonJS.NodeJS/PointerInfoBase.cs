@@ -41,19 +41,19 @@ namespace BABYLON
             }
         }
 
-        private PointerEvent __event;
-        public PointerEvent @event
+        private IMouseEventCachedEntity __event;
+        public IMouseEventCachedEntity @event
         {
             get
             {
                 if (__event == null)
                 {
-                    __event = EventHorizonBlazorInterop.GetClass<PointerEvent>(
+                    __event = EventHorizonBlazorInterop.GetClass<IMouseEventCachedEntity>(
                         this.___guid,
                         "event",
                         (entity) =>
                         {
-                            return new PointerEvent() { ___guid = entity.___guid };
+                            return new IMouseEventCachedEntity() { ___guid = entity.___guid };
                         }
                     );
                 }
@@ -77,7 +77,7 @@ namespace BABYLON
             ___guid = entity.___guid;
         }
 
-        public PointerInfoBase(decimal type, PointerEvent @event)
+        public PointerInfoBase(decimal type, IMouseEvent @event)
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "PointerInfoBase" },

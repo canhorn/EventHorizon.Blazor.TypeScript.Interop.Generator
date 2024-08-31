@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     [JsonConverter(typeof(CachedEntityConverter<MorphTargetManager>))]
-    public class MorphTargetManager : CachedEntityObject
+    public class MorphTargetManager : CachedEntityObject, _IDisposable
     {
         #region Static Accessors
 
@@ -19,6 +19,45 @@ namespace BABYLON
 
         #region Static Properties
 
+        public static bool EnableTextureStorage
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    "BABYLON",
+                    "MorphTargetManager.EnableTextureStorage"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    "BABYLON",
+                    "MorphTargetManager.EnableTextureStorage",
+                    value
+                );
+            }
+        }
+
+        public static decimal MaxActiveMorphTargetsInVertexAttributeMode
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<decimal>(
+                    "BABYLON",
+                    "MorphTargetManager.MaxActiveMorphTargetsInVertexAttributeMode"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    "BABYLON",
+                    "MorphTargetManager.MaxActiveMorphTargetsInVertexAttributeMode",
+                    value
+                );
+            }
+        }
         #endregion
 
         #region Static Methods
@@ -37,6 +76,29 @@ namespace BABYLON
         #endregion
 
         #region Accessors
+
+        public bool areUpdatesFrozen
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "areUpdatesFrozen"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "areUpdatesFrozen", value);
+            }
+        }
+
+        public decimal numMaxInfluencers
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "numMaxInfluencers");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "numMaxInfluencers", value);
+            }
+        }
 
         public decimal uniqueId
         {
@@ -77,9 +139,46 @@ namespace BABYLON
         {
             get { return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "influences"); }
         }
+
+        public bool useTextureToStoreTargets
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "useTextureToStoreTargets"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "useTextureToStoreTargets", value);
+            }
+        }
+
+        public bool isUsingTextureForTargets
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "isUsingTextureForTargets"
+                );
+            }
+        }
         #endregion
 
         #region Properties
+
+        public bool optimizeInfluencers
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "optimizeInfluencers"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "optimizeInfluencers", value);
+            }
+        }
 
         public bool enableNormalMorphing
         {
@@ -123,12 +222,10 @@ namespace BABYLON
             : base() { }
 
         public MorphTargetManager(ICachedEntity entity)
-            : base(entity)
-        {
-            ___guid = entity.___guid;
-        }
+            : base(entity) { }
 
         public MorphTargetManager(Scene scene = null)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "MorphTargetManager" },
@@ -152,6 +249,14 @@ namespace BABYLON
             return EventHorizonBlazorInterop.FuncClass<MorphTarget>(
                 entity => new MorphTarget() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "getTarget" }, index }
+            );
+        }
+
+        public MorphTarget getTargetByName(string name)
+        {
+            return EventHorizonBlazorInterop.FuncClass<MorphTarget>(
+                entity => new MorphTarget() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getTargetByName" }, name }
             );
         }
 
@@ -188,6 +293,13 @@ namespace BABYLON
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "synchronize" } }
+            );
+        }
+
+        public void dispose()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
         }
         #endregion

@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     [JsonConverter(typeof(CachedEntityConverter<Material>))]
-    public class Material : CachedEntityObject, IAnimatable
+    public class Material : CachedEntityObject, IAnimatable, IClipPlanesHolder
     {
         #region Static Accessors
 
@@ -270,6 +270,31 @@ namespace BABYLON
                 );
             }
         }
+
+        private static Observable<Material> __OnEventObservable;
+        public static Observable<Material> OnEventObservable
+        {
+            get
+            {
+                if (__OnEventObservable == null)
+                {
+                    __OnEventObservable = EventHorizonBlazorInterop.GetClass<Observable<Material>>(
+                        "BABYLON",
+                        "Material.OnEventObservable",
+                        (entity) =>
+                        {
+                            return new Observable<Material>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __OnEventObservable;
+            }
+            set
+            {
+                __OnEventObservable = null;
+                EventHorizonBlazorInterop.Set("BABYLON", "Material.OnEventObservable", value);
+            }
+        }
         #endregion
 
         #region Static Methods
@@ -312,6 +337,26 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "backFaceCulling", value);
+            }
+        }
+
+        public bool cullBackFaces
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "cullBackFaces"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "cullBackFaces", value);
+            }
+        }
+
+        public bool blockDirtyMechanism
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "blockDirtyMechanism"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "blockDirtyMechanism", value);
             }
         }
 
@@ -407,6 +452,11 @@ namespace BABYLON
             }
         }
 
+        public bool isPrePassCapable
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isPrePassCapable"); }
+        }
+
         public bool fogEnabled
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "fogEnabled"); }
@@ -444,6 +494,16 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "fillMode", value);
+            }
+        }
+
+        public bool useLogarithmicDepth
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "useLogarithmicDepth"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "useLogarithmicDepth", value);
             }
         }
 
@@ -809,12 +869,207 @@ namespace BABYLON
             }
         }
 
-        public CachedEntity meshMap
+        public decimal zOffsetUnits
         {
-            get { return EventHorizonBlazorInterop.Get<CachedEntity>(this.___guid, "meshMap"); }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "zOffsetUnits"); }
             set
             {
 
+                EventHorizonBlazorInterop.Set(this.___guid, "zOffsetUnits", value);
+            }
+        }
+
+        private Plane __clipPlane;
+        public Plane clipPlane
+        {
+            get
+            {
+                if (__clipPlane == null)
+                {
+                    __clipPlane = EventHorizonBlazorInterop.GetClass<Plane>(
+                        this.___guid,
+                        "clipPlane",
+                        (entity) =>
+                        {
+                            return new Plane() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __clipPlane;
+            }
+            set
+            {
+                __clipPlane = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "clipPlane", value);
+            }
+        }
+
+        private Plane __clipPlane2;
+        public Plane clipPlane2
+        {
+            get
+            {
+                if (__clipPlane2 == null)
+                {
+                    __clipPlane2 = EventHorizonBlazorInterop.GetClass<Plane>(
+                        this.___guid,
+                        "clipPlane2",
+                        (entity) =>
+                        {
+                            return new Plane() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __clipPlane2;
+            }
+            set
+            {
+                __clipPlane2 = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "clipPlane2", value);
+            }
+        }
+
+        private Plane __clipPlane3;
+        public Plane clipPlane3
+        {
+            get
+            {
+                if (__clipPlane3 == null)
+                {
+                    __clipPlane3 = EventHorizonBlazorInterop.GetClass<Plane>(
+                        this.___guid,
+                        "clipPlane3",
+                        (entity) =>
+                        {
+                            return new Plane() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __clipPlane3;
+            }
+            set
+            {
+                __clipPlane3 = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "clipPlane3", value);
+            }
+        }
+
+        private Plane __clipPlane4;
+        public Plane clipPlane4
+        {
+            get
+            {
+                if (__clipPlane4 == null)
+                {
+                    __clipPlane4 = EventHorizonBlazorInterop.GetClass<Plane>(
+                        this.___guid,
+                        "clipPlane4",
+                        (entity) =>
+                        {
+                            return new Plane() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __clipPlane4;
+            }
+            set
+            {
+                __clipPlane4 = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "clipPlane4", value);
+            }
+        }
+
+        private Plane __clipPlane5;
+        public Plane clipPlane5
+        {
+            get
+            {
+                if (__clipPlane5 == null)
+                {
+                    __clipPlane5 = EventHorizonBlazorInterop.GetClass<Plane>(
+                        this.___guid,
+                        "clipPlane5",
+                        (entity) =>
+                        {
+                            return new Plane() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __clipPlane5;
+            }
+            set
+            {
+                __clipPlane5 = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "clipPlane5", value);
+            }
+        }
+
+        private Plane __clipPlane6;
+        public Plane clipPlane6
+        {
+            get
+            {
+                if (__clipPlane6 == null)
+                {
+                    __clipPlane6 = EventHorizonBlazorInterop.GetClass<Plane>(
+                        this.___guid,
+                        "clipPlane6",
+                        (entity) =>
+                        {
+                            return new Plane() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __clipPlane6;
+            }
+            set
+            {
+                __clipPlane6 = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "clipPlane6", value);
+            }
+        }
+
+        private MaterialStencilState __stencil;
+        public MaterialStencilState stencil
+        {
+            get
+            {
+                if (__stencil == null)
+                {
+                    __stencil = EventHorizonBlazorInterop.GetClass<MaterialStencilState>(
+                        this.___guid,
+                        "stencil",
+                        (entity) =>
+                        {
+                            return new MaterialStencilState() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __stencil;
+            }
+        }
+
+        private AbstractMesh __meshMap;
+        public AbstractMesh meshMap
+        {
+            get
+            {
+                if (__meshMap == null)
+                {
+                    __meshMap = EventHorizonBlazorInterop.GetClass<AbstractMesh>(
+                        this.___guid,
+                        "meshMap",
+                        (entity) =>
+                        {
+                            return new AbstractMesh() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __meshMap;
+            }
+            set
+            {
+                __meshMap = null;
                 EventHorizonBlazorInterop.Set(this.___guid, "meshMap", value);
             }
         }
@@ -827,7 +1082,7 @@ namespace BABYLON
         public Material(ICachedEntity entity)
             : base(entity) { }
 
-        public Material(string name, Scene scene, System.Nullable<bool> doNotAdd = null)
+        public Material(string name, Scene scene = null, System.Nullable<bool> doNotAdd = null)
             : base()
         {
             var entity = EventHorizonBlazorInterop.New(
@@ -841,47 +1096,72 @@ namespace BABYLON
         #endregion
 
         #region Methods
-        #region customShaderNameResolve TODO: Get Comments as metadata identification
-        private bool _isCustomShaderNameResolveEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _customShaderNameResolveActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string customShaderNameResolve(Func<Task> callback)
+        public string customShaderNameResolve(
+            string shaderName,
+            string[] uniforms,
+            string[] uniformBuffers,
+            string[] samplers,
+            MaterialDefines defines,
+            string[] attributes = null,
+            ICustomShaderNameResolveOptions options = null
+        )
         {
-            SetupCustomShaderNameResolveLoop();
+            return EventHorizonBlazorInterop.Func<string>(
+                new object[]
+                {
+                    new string[] { this.___guid, "customShaderNameResolve" },
+                    shaderName,
+                    uniforms,
+                    uniformBuffers,
+                    samplers,
+                    defines,
+                    attributes,
+                    options
+                }
+            );
+        }
+
+        #region atomicMaterialsUpdate TODO: Get Comments as metadata identification
+        private bool _isAtomicMaterialsUpdateEnabled = false;
+        private readonly IDictionary<string, Func<Material, Task>> _atomicMaterialsUpdateActionMap =
+            new Dictionary<string, Func<Material, Task>>();
+
+        public string atomicMaterialsUpdate(Func<Material, Task> callback)
+        {
+            SetupAtomicMaterialsUpdateLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _customShaderNameResolveActionMap.Add(handle, callback);
+            _atomicMaterialsUpdateActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool customShaderNameResolve_Remove(string handle)
+        public bool atomicMaterialsUpdate_Remove(string handle)
         {
-            return _customShaderNameResolveActionMap.Remove(handle);
+            return _atomicMaterialsUpdateActionMap.Remove(handle);
         }
 
-        private void SetupCustomShaderNameResolveLoop()
+        private void SetupAtomicMaterialsUpdateLoop()
         {
-            if (_isCustomShaderNameResolveEnabled)
+            if (_isAtomicMaterialsUpdateEnabled)
             {
                 return;
             }
             EventHorizonBlazorInterop.FuncCallback(
                 this,
-                "customShaderNameResolve",
-                "CallCustomShaderNameResolveActions",
+                "atomicMaterialsUpdate",
+                "CallAtomicMaterialsUpdateActions",
                 _invokableReference
             );
-            _isCustomShaderNameResolveEnabled = true;
+            _isAtomicMaterialsUpdateEnabled = true;
         }
 
         [JSInvokable]
-        public async Task CallCustomShaderNameResolveActions()
+        public async Task CallAtomicMaterialsUpdateActions(Material material)
         {
-            foreach (var action in _customShaderNameResolveActionMap.Values)
+            foreach (var action in _atomicMaterialsUpdateActionMap.Values)
             {
-                await action();
+                await action(material);
             }
         }
         #endregion
@@ -983,10 +1263,10 @@ namespace BABYLON
             );
         }
 
-        public void markDirty()
+        public void markDirty(System.Nullable<bool> forceMaterialDirty = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "markDirty" } }
+                new object[] { new string[] { this.___guid, "markDirty" }, forceMaterialDirty }
             );
         }
 
@@ -994,6 +1274,13 @@ namespace BABYLON
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "bind" }, world, mesh }
+            );
+        }
+
+        public void buildUniformLayout()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "buildUniformLayout" } }
             );
         }
 
@@ -1017,18 +1304,6 @@ namespace BABYLON
             );
         }
 
-        public void bindSceneUniformBuffer(Effect effect, UniformBuffer sceneUbo)
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "bindSceneUniformBuffer" },
-                    effect,
-                    sceneUbo
-                }
-            );
-        }
-
         public void bindView(Effect effect)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -1043,10 +1318,30 @@ namespace BABYLON
             );
         }
 
+        public void bindEyePosition(Effect effect, string variableName = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "bindEyePosition" },
+                    effect,
+                    variableName
+                }
+            );
+        }
+
         public void unbind()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "unbind" } }
+            );
+        }
+
+        public IAnimatableCachedEntity[] getAnimatables()
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<IAnimatableCachedEntity>(
+                entity => new IAnimatableCachedEntity() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getAnimatables" } }
             );
         }
 
@@ -1119,6 +1414,13 @@ namespace BABYLON
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "markAsDirty" }, flag }
+            );
+        }
+
+        public void resetDrawCache()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "resetDrawCache" } }
             );
         }
 

@@ -56,5 +56,12 @@ public class MathCachedEntity : CachedEntityObject, Math
             new object[] { new string[] { this.___guid, "imul" }, a, b }
         );
     }
+
+    public decimal log2(decimal x)
+    {
+        return EventHorizonBlazorInterop.Func<decimal>(
+            new object[] { new string[] { this.___guid, "log2" }, x }
+        );
+    }
     #endregion
 }

@@ -88,7 +88,7 @@ namespace BABYLON
         public HemisphericLight(ICachedEntity entity)
             : base(entity) { }
 
-        public HemisphericLight(string name, Vector3 direction, Scene scene)
+        public HemisphericLight(string name, Vector3 direction, Scene scene = null)
             : base()
         {
             var entity = EventHorizonBlazorInterop.New(
@@ -96,6 +96,33 @@ namespace BABYLON
                 name,
                 direction,
                 scene
+            );
+            ___guid = entity.___guid;
+        }
+
+        public HemisphericLight(string name, Scene scene = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "HemisphericLight" },
+                name,
+                scene
+            );
+            ___guid = entity.___guid;
+        }
+
+        public HemisphericLight(
+            string name,
+            Scene scene = null,
+            System.Nullable<bool> isPure = null
+        )
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "HemisphericLight" },
+                name,
+                scene,
+                isPure
             );
             ___guid = entity.___guid;
         }
@@ -125,14 +152,14 @@ namespace BABYLON
             );
         }
 
-        public HemisphericLight transferToEffect(Effect effect, string lightIndex)
+        public HemisphericLight transferToEffect(Effect _effect, string lightIndex)
         {
             return EventHorizonBlazorInterop.FuncClass<HemisphericLight>(
                 entity => new HemisphericLight() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "transferToEffect" },
-                    effect,
+                    _effect,
                     lightIndex
                 }
             );

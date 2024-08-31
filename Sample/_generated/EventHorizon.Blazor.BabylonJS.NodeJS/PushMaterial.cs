@@ -40,13 +40,18 @@ namespace BABYLON
         public PushMaterial(ICachedEntity entity)
             : base(entity) { }
 
-        public PushMaterial(string name, Scene scene)
+        public PushMaterial(
+            string name,
+            Scene scene = null,
+            System.Nullable<bool> storeEffectOnSubMeshes = null
+        )
             : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "PushMaterial" },
                 name,
-                scene
+                scene,
+                storeEffectOnSubMeshes
             );
             ___guid = entity.___guid;
         }
@@ -86,6 +91,23 @@ namespace BABYLON
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "bind" }, world, mesh }
+            );
+        }
+
+        public void dispose(
+            System.Nullable<bool> forceDisposeEffect = null,
+            System.Nullable<bool> forceDisposeTextures = null,
+            System.Nullable<bool> notBoundToMesh = null
+        )
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "dispose" },
+                    forceDisposeEffect,
+                    forceDisposeTextures,
+                    notBoundToMesh
+                }
             );
         }
         #endregion

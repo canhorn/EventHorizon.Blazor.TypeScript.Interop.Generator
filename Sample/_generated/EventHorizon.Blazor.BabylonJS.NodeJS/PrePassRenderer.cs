@@ -19,6 +19,25 @@ namespace BABYLON
 
         #region Static Properties
 
+        public static CachedEntity[] TextureFormats
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetArrayClass<CachedEntity>(
+                    "BABYLON",
+                    "PrePassRenderer.TextureFormats",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set("BABYLON", "PrePassRenderer.TextureFormats", value);
+            }
+        }
         #endregion
 
         #region Static Methods
@@ -27,9 +46,20 @@ namespace BABYLON
 
         #region Accessors
 
-        public bool enabled
+        public bool generateNormalsInWorldSpace
         {
-            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "enabled"); }
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "generateNormalsInWorldSpace"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "generateNormalsInWorldSpace", value);
+            }
         }
 
         public decimal samples
@@ -42,20 +72,34 @@ namespace BABYLON
             }
         }
 
-        public bool useGeometryBufferFallback
+        public bool useSpecificClearForDepthTexture
         {
             get
             {
                 return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
-                    "useGeometryBufferFallback"
+                    "useSpecificClearForDepthTexture"
                 );
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(this.___guid, "useGeometryBufferFallback", value);
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "useSpecificClearForDepthTexture",
+                    value
+                );
             }
+        }
+
+        public bool currentRTisSceneRT
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "currentRTisSceneRT"); }
+        }
+
+        public bool enabled
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "enabled"); }
         }
 
         public bool isSupported
@@ -116,57 +160,68 @@ namespace BABYLON
             }
         }
 
-        private MultiRenderTarget __prePassRT;
-        public MultiRenderTarget prePassRT
+        private PrePassRenderTarget __defaultRT;
+        public PrePassRenderTarget defaultRT
         {
             get
             {
-                if (__prePassRT == null)
+                if (__defaultRT == null)
                 {
-                    __prePassRT = EventHorizonBlazorInterop.GetClass<MultiRenderTarget>(
+                    __defaultRT = EventHorizonBlazorInterop.GetClass<PrePassRenderTarget>(
                         this.___guid,
-                        "prePassRT",
+                        "defaultRT",
                         (entity) =>
                         {
-                            return new MultiRenderTarget() { ___guid = entity.___guid };
+                            return new PrePassRenderTarget() { ___guid = entity.___guid };
                         }
                     );
                 }
-                return __prePassRT;
+                return __defaultRT;
             }
             set
             {
-                __prePassRT = null;
-                EventHorizonBlazorInterop.Set(this.___guid, "prePassRT", value);
+                __defaultRT = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "defaultRT", value);
             }
         }
 
-        private ImageProcessingPostProcess __imageProcessingPostProcess;
-        public ImageProcessingPostProcess imageProcessingPostProcess
+        public bool doNotUseGeometryRendererFallback
         {
             get
             {
-                if (__imageProcessingPostProcess == null)
-                {
-                    __imageProcessingPostProcess =
-                        EventHorizonBlazorInterop.GetClass<ImageProcessingPostProcess>(
-                            this.___guid,
-                            "imageProcessingPostProcess",
-                            (entity) =>
-                            {
-                                return new ImageProcessingPostProcess()
-                                {
-                                    ___guid = entity.___guid
-                                };
-                            }
-                        );
-                }
-                return __imageProcessingPostProcess;
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "doNotUseGeometryRendererFallback"
+                );
             }
             set
             {
-                __imageProcessingPostProcess = null;
-                EventHorizonBlazorInterop.Set(this.___guid, "imageProcessingPostProcess", value);
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "doNotUseGeometryRendererFallback",
+                    value
+                );
+            }
+        }
+
+        public PrePassRenderTarget[] renderTargets
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetArrayClass<PrePassRenderTarget>(
+                    this.___guid,
+                    "renderTargets",
+                    (entity) =>
+                    {
+                        return new PrePassRenderTarget() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "renderTargets", value);
             }
         }
 
@@ -205,6 +260,21 @@ namespace BABYLON
         #endregion
 
         #region Methods
+        public decimal getIndex(decimal type)
+        {
+            return EventHorizonBlazorInterop.Func<decimal>(
+                new object[] { new string[] { this.___guid, "getIndex" }, type }
+            );
+        }
+
+        public PrePassRenderTarget getRenderTarget()
+        {
+            return EventHorizonBlazorInterop.FuncClass<PrePassRenderTarget>(
+                entity => new PrePassRenderTarget() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getRenderTarget" } }
+            );
+        }
+
         public void bindAttachmentsForEffect(Effect effect, SubMesh subMesh)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -224,10 +294,10 @@ namespace BABYLON
             );
         }
 
-        public void clear()
+        public bool setCustomOutput(RenderTargetTexture rt)
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "clear" } }
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "setCustomOutput" }, rt }
             );
         }
 
@@ -241,10 +311,11 @@ namespace BABYLON
             );
         }
 
-        public decimal getIndex(decimal type)
+        public PrePassEffectConfigurationCachedEntity getEffectConfiguration(string name)
         {
-            return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] { new string[] { this.___guid, "getIndex" }, type }
+            return EventHorizonBlazorInterop.FuncClass<PrePassEffectConfigurationCachedEntity>(
+                entity => new PrePassEffectConfigurationCachedEntity() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getEffectConfiguration" }, name }
             );
         }
 
@@ -252,6 +323,13 @@ namespace BABYLON
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "markAsDirty" } }
+            );
+        }
+
+        public void update()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "update" } }
             );
         }
 

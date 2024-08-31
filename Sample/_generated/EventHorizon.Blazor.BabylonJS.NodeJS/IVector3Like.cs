@@ -33,26 +33,6 @@ namespace BABYLON
 
         #region Properties
 
-        public decimal x
-        {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "x"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "x", value);
-            }
-        }
-
-        public decimal y
-        {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "y"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "y", value);
-            }
-        }
-
         public decimal z
         {
             get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "z"); }

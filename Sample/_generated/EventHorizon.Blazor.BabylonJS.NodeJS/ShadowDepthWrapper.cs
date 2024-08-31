@@ -51,6 +51,11 @@ namespace BABYLON
                 return __baseMaterial;
             }
         }
+
+        public bool doNotInjectCode
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "doNotInjectCode"); }
+        }
         #endregion
 
         #region Properties
@@ -69,7 +74,7 @@ namespace BABYLON
 
         public ShadowDepthWrapper(
             Material baseMaterial,
-            Scene scene,
+            Scene scene = null,
             IIOptionShadowDepthMaterial options = null
         )
         {
@@ -84,15 +89,20 @@ namespace BABYLON
         #endregion
 
         #region Methods
-        public Effect getEffect(SubMesh subMesh, ShadowGenerator shadowGenerator)
+        public DrawWrapper getEffect(
+            SubMesh subMesh,
+            ShadowGenerator shadowGenerator,
+            decimal passIdForDrawWrapper
+        )
         {
-            return EventHorizonBlazorInterop.FuncClass<Effect>(
-                entity => new Effect() { ___guid = entity.___guid },
+            return EventHorizonBlazorInterop.FuncClass<DrawWrapper>(
+                entity => new DrawWrapper() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "getEffect" },
                     subMesh,
-                    shadowGenerator
+                    shadowGenerator,
+                    passIdForDrawWrapper
                 }
             );
         }
@@ -101,7 +111,8 @@ namespace BABYLON
             SubMesh subMesh,
             string[] defines,
             ShadowGenerator shadowGenerator,
-            bool useInstances
+            bool useInstances,
+            decimal passIdForDrawWrapper
         )
         {
             return EventHorizonBlazorInterop.Func<bool>(
@@ -111,7 +122,8 @@ namespace BABYLON
                     subMesh,
                     defines,
                     shadowGenerator,
-                    useInstances
+                    useInstances,
+                    passIdForDrawWrapper
                 }
             );
         }

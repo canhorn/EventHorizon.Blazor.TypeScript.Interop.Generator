@@ -107,13 +107,32 @@ namespace BABYLON
             );
             ___guid = entity.___guid;
         }
+
+        public CylinderDirectedParticleEmitter(
+            System.Nullable<decimal> radius = null,
+            System.Nullable<decimal> height = null,
+            System.Nullable<decimal> radiusRange = null,
+            System.Nullable<decimal> directionRandomizer = null
+        )
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "CylinderDirectedParticleEmitter" },
+                radius,
+                height,
+                radiusRange,
+                directionRandomizer
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods
         public void startDirectionFunction(
             Matrix worldMatrix,
             Vector3 directionToUpdate,
-            Particle particle
+            Particle _particle,
+            bool isLocal
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -122,7 +141,8 @@ namespace BABYLON
                     new string[] { this.___guid, "startDirectionFunction" },
                     worldMatrix,
                     directionToUpdate,
-                    particle
+                    _particle,
+                    isLocal
                 }
             );
         }
@@ -135,10 +155,17 @@ namespace BABYLON
             );
         }
 
-        public void applyToShader(Effect effect)
+        public void applyToShader(UniformBufferEffectCommonAccessor uboOrEffect)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "applyToShader" }, effect }
+                new object[] { new string[] { this.___guid, "applyToShader" }, uboOrEffect }
+            );
+        }
+
+        public void buildUniformLayout(UniformBuffer ubo)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "buildUniformLayout" }, ubo }
             );
         }
 

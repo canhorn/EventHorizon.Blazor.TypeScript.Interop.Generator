@@ -73,50 +73,12 @@ namespace BABYLON
         #endregion
 
         #region Methods
-        #region abort TODO: Get Comments as metadata identification
-        private bool _isAbortEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _abortActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string abort(Func<Task> callback)
+        public void abort()
         {
-            SetupAbortLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _abortActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool abort_Remove(string handle)
-        {
-            return _abortActionMap.Remove(handle);
-        }
-
-        private void SetupAbortLoop()
-        {
-            if (_isAbortEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "abort",
-                "CallAbortActions",
-                _invokableReference
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "abort" } }
             );
-            _isAbortEnabled = true;
         }
-
-        [JSInvokable]
-        public async Task CallAbortActions()
-        {
-            foreach (var action in _abortActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
         #endregion
     }
 }

@@ -62,6 +62,26 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set(this.___guid, "width", value);
             }
         }
+
+        public decimal finalWidth
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "finalWidth"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "finalWidth", value);
+            }
+        }
+
+        public decimal finalHeight
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "finalHeight"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "finalHeight", value);
+            }
+        }
         #endregion
 
         #region Constructor

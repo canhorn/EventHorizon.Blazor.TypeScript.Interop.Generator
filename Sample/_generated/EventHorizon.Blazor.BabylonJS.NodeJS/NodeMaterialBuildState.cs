@@ -27,6 +27,15 @@ namespace BABYLON
 
         #region Accessors
 
+        public int shaderLanguage
+        {
+            get { return EventHorizonBlazorInterop.Get<int>(this.___guid, "shaderLanguage"); }
+        }
+
+        public CachedEntity fSuffix
+        {
+            get { return EventHorizonBlazorInterop.Get<CachedEntity>(this.___guid, "fSuffix"); }
+        }
         #endregion
 
         #region Properties
@@ -121,6 +130,26 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "extensions", value);
+            }
+        }
+
+        public CachedEntity prePassOutput
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                    this.___guid,
+                    "prePassOutput",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "prePassOutput", value);
             }
         }
 

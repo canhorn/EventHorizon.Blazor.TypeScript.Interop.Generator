@@ -256,7 +256,7 @@ namespace BABYLON
         public TargetCamera(
             string name,
             Vector3 position,
-            Scene scene,
+            Scene scene = null,
             System.Nullable<bool> setActiveOnSceneIfNoneActive = null
         )
             : base()
@@ -267,6 +267,18 @@ namespace BABYLON
                 position,
                 scene,
                 setActiveOnSceneIfNoneActive
+            );
+            ___guid = entity.___guid;
+        }
+
+        public TargetCamera(string name, Scene scene = null, System.Nullable<bool> isPure = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "TargetCamera" },
+                name,
+                scene,
+                isPure
             );
             ___guid = entity.___guid;
         }

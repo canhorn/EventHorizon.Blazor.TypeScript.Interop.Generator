@@ -48,6 +48,37 @@ namespace BABYLON
             }
         }
 
+        private static Observable<BaseTexture> __OnTextureLoadErrorObservable;
+        public static Observable<BaseTexture> OnTextureLoadErrorObservable
+        {
+            get
+            {
+                if (__OnTextureLoadErrorObservable == null)
+                {
+                    __OnTextureLoadErrorObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<BaseTexture>
+                    >(
+                        "BABYLON",
+                        "Texture.OnTextureLoadErrorObservable",
+                        (entity) =>
+                        {
+                            return new Observable<BaseTexture>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __OnTextureLoadErrorObservable;
+            }
+            set
+            {
+                __OnTextureLoadErrorObservable = null;
+                EventHorizonBlazorInterop.Set(
+                    "BABYLON",
+                    "Texture.OnTextureLoadErrorObservable",
+                    value
+                );
+            }
+        }
+
         public static decimal NEAREST_SAMPLINGMODE
         {
             get
@@ -350,12 +381,14 @@ namespace BABYLON
             string data,
             string name,
             Scene scene,
-            System.Nullable<bool> noMipmap = null,
+            System.Nullable<bool> noMipmapOrOptions = null,
             System.Nullable<bool> invertY = null,
             System.Nullable<decimal> samplingMode = null,
             ActionCallback onLoad = null,
             ActionCallback onError = null,
-            System.Nullable<decimal> format = null
+            System.Nullable<decimal> format = null,
+            System.Nullable<decimal> creationFlags = null,
+            string forcedExtension = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<Texture>(
@@ -366,12 +399,14 @@ namespace BABYLON
                     data,
                     name,
                     scene,
-                    noMipmap,
+                    noMipmapOrOptions,
                     invertY,
                     samplingMode,
                     onLoad,
                     onError,
-                    format
+                    format,
+                    creationFlags,
+                    forcedExtension
                 }
             );
         }
@@ -381,12 +416,14 @@ namespace BABYLON
             object buffer,
             Scene scene,
             System.Nullable<bool> deleteBuffer = null,
-            System.Nullable<bool> noMipmap = null,
+            System.Nullable<bool> noMipmapOrOptions = null,
             System.Nullable<bool> invertY = null,
             System.Nullable<decimal> samplingMode = null,
             ActionCallback onLoad = null,
             ActionCallback<string, CachedEntity> onError = null,
-            System.Nullable<decimal> format = null
+            System.Nullable<decimal> format = null,
+            System.Nullable<decimal> creationFlags = null,
+            string forcedExtension = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<Texture>(
@@ -398,12 +435,14 @@ namespace BABYLON
                     buffer,
                     scene,
                     deleteBuffer,
-                    noMipmap,
+                    noMipmapOrOptions,
                     invertY,
                     samplingMode,
                     onLoad,
                     onError,
-                    format
+                    format,
+                    creationFlags,
+                    forcedExtension
                 }
             );
         }
@@ -429,11 +468,6 @@ namespace BABYLON
 
                 EventHorizonBlazorInterop.Set(this.___guid, "isBlocking", value);
             }
-        }
-
-        public decimal samplingMode
-        {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "samplingMode"); }
         }
 
         public bool invertY
@@ -628,9 +662,9 @@ namespace BABYLON
             : base(entity) { }
 
         public Texture(
-            Scene sceneOrEngine,
             string url = null,
-            System.Nullable<bool> noMipmap = null,
+            Scene sceneOrEngine = null,
+            System.Nullable<bool> noMipmapOrOptions = null,
             System.Nullable<bool> invertY = null,
             System.Nullable<decimal> samplingMode = null,
             ActionCallback onLoad = null,
@@ -639,7 +673,9 @@ namespace BABYLON
             System.Nullable<bool> deleteBuffer = null,
             System.Nullable<decimal> format = null,
             string mimeType = null,
-            object loaderOptions = null
+            object loaderOptions = null,
+            System.Nullable<decimal> creationFlags = null,
+            string forcedExtension = null
         )
             : base()
         {
@@ -647,7 +683,7 @@ namespace BABYLON
                 new string[] { "BABYLON", "Texture" },
                 url,
                 sceneOrEngine,
-                noMipmap,
+                noMipmapOrOptions,
                 invertY,
                 samplingMode,
                 onLoad,
@@ -656,17 +692,52 @@ namespace BABYLON
                 deleteBuffer,
                 format,
                 mimeType,
-                loaderOptions
+                loaderOptions,
+                creationFlags,
+                forcedExtension
+            );
+            ___guid = entity.___guid;
+        }
+
+        public Texture(Scene sceneOrEngine = null, InternalTexture internalTexture = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "Texture" },
+                sceneOrEngine,
+                internalTexture
+            );
+            ___guid = entity.___guid;
+        }
+
+        public Texture(InternalTexture internalTexture)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "Texture" },
+                internalTexture
             );
             ___guid = entity.___guid;
         }
         #endregion
 
         #region Methods
-        public void updateURL(string url, string buffer = null, ActionCallback onLoad = null)
+        public void updateURL(
+            string url,
+            string buffer = null,
+            ActionCallback onLoad = null,
+            string forcedExtension = null
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "updateURL" }, url, buffer, onLoad }
+                new object[]
+                {
+                    new string[] { this.___guid, "updateURL" },
+                    url,
+                    buffer,
+                    onLoad,
+                    forcedExtension
+                }
             );
         }
 
@@ -674,17 +745,6 @@ namespace BABYLON
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "delayLoad" } }
-            );
-        }
-
-        public bool checkTransformsAreIdentical(Texture texture)
-        {
-            return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "checkTransformsAreIdentical" },
-                    texture
-                }
             );
         }
 

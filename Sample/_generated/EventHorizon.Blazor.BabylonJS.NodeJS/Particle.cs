@@ -30,19 +30,19 @@ namespace BABYLON
         #endregion
 
         #region Properties
-        private ParticleSystem __particleSystem;
-        public ParticleSystem particleSystem
+        private ThinParticleSystem __particleSystem;
+        public ThinParticleSystem particleSystem
         {
             get
             {
                 if (__particleSystem == null)
                 {
-                    __particleSystem = EventHorizonBlazorInterop.GetClass<ParticleSystem>(
+                    __particleSystem = EventHorizonBlazorInterop.GetClass<ThinParticleSystem>(
                         this.___guid,
                         "particleSystem",
                         (entity) =>
                         {
-                            return new ParticleSystem() { ___guid = entity.___guid };
+                            return new ThinParticleSystem() { ___guid = entity.___guid };
                         }
                     );
                 }
@@ -286,7 +286,7 @@ namespace BABYLON
             ___guid = entity.___guid;
         }
 
-        public Particle(ParticleSystem particleSystem)
+        public Particle(ThinParticleSystem particleSystem)
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Particle" },

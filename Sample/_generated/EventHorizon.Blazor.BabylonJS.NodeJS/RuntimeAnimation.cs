@@ -137,15 +137,15 @@ namespace BABYLON
             );
         }
 
-        public void goToFrame(decimal frame)
+        public void goToFrame(decimal frame, System.Nullable<decimal> weight = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "goToFrame" }, frame }
+                new object[] { new string[] { this.___guid, "goToFrame" }, frame, weight }
             );
         }
 
         public bool animate(
-            decimal delay,
+            decimal elapsedTimeSinceAnimationStart,
             decimal from,
             decimal to,
             bool loop,
@@ -157,7 +157,7 @@ namespace BABYLON
                 new object[]
                 {
                     new string[] { this.___guid, "animate" },
-                    delay,
+                    elapsedTimeSinceAnimationStart,
                     from,
                     to,
                     loop,

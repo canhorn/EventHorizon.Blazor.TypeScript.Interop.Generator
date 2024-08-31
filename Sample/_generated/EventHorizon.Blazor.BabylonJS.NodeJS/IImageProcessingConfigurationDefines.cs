@@ -84,23 +84,13 @@ namespace BABYLON
             }
         }
 
-        public bool TONEMAPPING
+        public decimal TONEMAPPING
         {
-            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "TONEMAPPING"); }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "TONEMAPPING"); }
             set
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "TONEMAPPING", value);
-            }
-        }
-
-        public bool TONEMAPPING_ACES
-        {
-            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "TONEMAPPING_ACES"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "TONEMAPPING_ACES", value);
             }
         }
 
@@ -174,6 +164,16 @@ namespace BABYLON
             }
         }
 
+        public bool DITHER
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "DITHER"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "DITHER", value);
+            }
+        }
+
         public bool IMAGEPROCESSINGPOSTPROCESS
         {
             get
@@ -187,6 +187,16 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "IMAGEPROCESSINGPOSTPROCESS", value);
+            }
+        }
+
+        public bool SKIPFINALCOLORCLAMP
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "SKIPFINALCOLORCLAMP"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "SKIPFINALCOLORCLAMP", value);
             }
         }
         #endregion

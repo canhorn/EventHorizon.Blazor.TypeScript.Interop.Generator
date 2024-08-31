@@ -65,6 +65,44 @@ namespace BABYLON
             );
             ___guid = entity.___guid;
         }
+
+        public InstancedLinesMesh(string name, Mesh source)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "InstancedLinesMesh" },
+                name,
+                source
+            );
+            ___guid = entity.___guid;
+        }
+
+        public InstancedLinesMesh(string name, Scene scene = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "InstancedLinesMesh" },
+                name,
+                scene
+            );
+            ___guid = entity.___guid;
+        }
+
+        public InstancedLinesMesh(
+            string name,
+            Scene scene = null,
+            System.Nullable<bool> isPure = null
+        )
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "InstancedLinesMesh" },
+                name,
+                scene,
+                isPure
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods

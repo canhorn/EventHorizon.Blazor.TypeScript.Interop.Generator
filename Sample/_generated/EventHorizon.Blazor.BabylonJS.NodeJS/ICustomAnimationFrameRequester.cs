@@ -69,6 +69,13 @@ namespace BABYLON
                 new object[] { new string[] { this.___guid, "requestAnimationFrame" } }
             );
         }
+
+        public void cancelAnimationFrame()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "cancelAnimationFrame" } }
+            );
+        }
         #endregion
     }
 }

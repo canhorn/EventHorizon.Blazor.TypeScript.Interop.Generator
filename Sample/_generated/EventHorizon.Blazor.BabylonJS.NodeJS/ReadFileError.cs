@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     [JsonConverter(typeof(CachedEntityConverter<ReadFileError>))]
-    public class ReadFileError : BaseError
+    public class ReadFileError : RuntimeError
     {
         #region Static Accessors
 
@@ -73,6 +73,19 @@ namespace BABYLON
             );
             ___guid = entity.___guid;
         }
+
+        public ReadFileError(string message, ErrorCodes errorCode, Error innerError = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "ReadFileError" },
+                message,
+                errorCode,
+                innerError
+            );
+            ___guid = entity.___guid;
+        }
+
         #endregion
 
         #region Methods

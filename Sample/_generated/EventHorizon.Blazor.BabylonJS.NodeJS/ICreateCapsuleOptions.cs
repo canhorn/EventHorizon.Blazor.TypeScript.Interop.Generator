@@ -155,6 +155,16 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set(this.___guid, "bottomCapSubdivisions", value);
             }
         }
+
+        public bool updatable
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "updatable"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "updatable", value);
+            }
+        }
         #endregion
 
         #region Constructor

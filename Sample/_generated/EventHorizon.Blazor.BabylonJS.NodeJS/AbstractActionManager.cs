@@ -128,6 +128,16 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set(this.___guid, "isRecursive", value);
             }
         }
+
+        public bool disposeWhenUnowned
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "disposeWhenUnowned"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "disposeWhenUnowned", value);
+            }
+        }
         #endregion
 
         #region Constructor

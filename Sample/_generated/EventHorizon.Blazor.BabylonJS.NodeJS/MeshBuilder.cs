@@ -22,7 +22,7 @@ namespace BABYLON
         #endregion
 
         #region Static Methods
-        public static Mesh CreateBox(string name, object options, Scene scene = null)
+        public static Mesh CreateBox(string name, object options = null, Scene scene = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
@@ -50,7 +50,7 @@ namespace BABYLON
             );
         }
 
-        public static Mesh CreateSphere(string name, object options, Scene scene = null)
+        public static Mesh CreateSphere(string name, object options = null, Scene scene = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
@@ -64,7 +64,7 @@ namespace BABYLON
             );
         }
 
-        public static Mesh CreateDisc(string name, object options, Scene scene = null)
+        public static Mesh CreateDisc(string name, object options = null, Scene scene = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
@@ -78,7 +78,7 @@ namespace BABYLON
             );
         }
 
-        public static Mesh CreateIcoSphere(string name, object options, Scene scene = null)
+        public static Mesh CreateIcoSphere(string name, object options = null, Scene scene = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
@@ -106,7 +106,7 @@ namespace BABYLON
             );
         }
 
-        public static Mesh CreateCylinder(string name, object options, Scene scene = null)
+        public static Mesh CreateCylinder(string name, object options = null, Scene scene = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
@@ -120,7 +120,7 @@ namespace BABYLON
             );
         }
 
-        public static Mesh CreateTorus(string name, object options, Scene scene = null)
+        public static Mesh CreateTorus(string name, object options = null, Scene scene = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
@@ -134,7 +134,7 @@ namespace BABYLON
             );
         }
 
-        public static Mesh CreateTorusKnot(string name, object options, Scene scene = null)
+        public static Mesh CreateTorusKnot(string name, object options = null, Scene scene = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
@@ -148,7 +148,7 @@ namespace BABYLON
             );
         }
 
-        public static LinesMesh CreateLineSystem(string name, object options, Scene scene)
+        public static LinesMesh CreateLineSystem(string name, object options, Scene scene = null)
         {
             return EventHorizonBlazorInterop.FuncClass<LinesMesh>(
                 entity => new LinesMesh() { ___guid = entity.___guid },
@@ -246,7 +246,7 @@ namespace BABYLON
             );
         }
 
-        public static Mesh CreatePlane(string name, object options, Scene scene = null)
+        public static Mesh CreatePlane(string name, object options = null, Scene scene = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
@@ -260,10 +260,14 @@ namespace BABYLON
             );
         }
 
-        public static Mesh CreateGround(string name, object options, Scene scene = null)
+        public static GroundMesh CreateGround(
+            string name,
+            object options = null,
+            Scene scene = null
+        )
         {
-            return EventHorizonBlazorInterop.FuncClass<Mesh>(
-                entity => new Mesh() { ___guid = entity.___guid },
+            return EventHorizonBlazorInterop.FuncClass<GroundMesh>(
+                entity => new GroundMesh() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "MeshBuilder", "CreateGround" },
@@ -291,7 +295,7 @@ namespace BABYLON
         public static GroundMesh CreateGroundFromHeightMap(
             string name,
             string url,
-            object options,
+            object options = null,
             Scene scene = null
         )
         {
@@ -362,13 +366,45 @@ namespace BABYLON
             );
         }
 
-        public static Mesh CreatePolyhedron(string name, object options, Scene scene = null)
+        public static Mesh CreatePolyhedron(string name, object options = null, Scene scene = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Mesh>(
                 entity => new Mesh() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "MeshBuilder", "CreatePolyhedron" },
+                    name,
+                    options,
+                    scene
+                }
+            );
+        }
+
+        public static Mesh CreateGeodesic(string name, object options, Scene scene = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
+                entity => new Mesh() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "MeshBuilder", "CreateGeodesic" },
+                    name,
+                    options,
+                    scene
+                }
+            );
+        }
+
+        public static GoldbergMesh CreateGoldberg(
+            string name,
+            GoldbergVertexDataOption options,
+            Scene scene = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<GoldbergMesh>(
+                entity => new GoldbergMesh() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "MeshBuilder", "CreateGoldberg" },
                     name,
                     options,
                     scene
@@ -404,6 +440,30 @@ namespace BABYLON
                     name,
                     options,
                     scene
+                }
+            );
+        }
+
+        public static Mesh CreateText(
+            string name,
+            string text,
+            IFontData fontData,
+            object options = null,
+            Scene scene = null,
+            object earcutInjection = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
+                entity => new Mesh() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "MeshBuilder", "CreateText" },
+                    name,
+                    text,
+                    fontData,
+                    options,
+                    scene,
+                    earcutInjection
                 }
             );
         }

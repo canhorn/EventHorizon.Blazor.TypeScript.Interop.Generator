@@ -189,6 +189,31 @@ namespace BABYLON
             }
         }
 
+        private Ray __ray;
+        public Ray ray
+        {
+            get
+            {
+                if (__ray == null)
+                {
+                    __ray = EventHorizonBlazorInterop.GetClass<Ray>(
+                        this.___guid,
+                        "ray",
+                        (entity) =>
+                        {
+                            return new Ray() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __ray;
+            }
+            set
+            {
+                __ray = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "ray", value);
+            }
+        }
+
         private AbstractMesh __originMesh;
         public AbstractMesh originMesh
         {
@@ -214,28 +239,53 @@ namespace BABYLON
             }
         }
 
-        private Ray __ray;
-        public Ray ray
+        private TransformNode __aimTransform;
+        public TransformNode aimTransform
         {
             get
             {
-                if (__ray == null)
+                if (__aimTransform == null)
                 {
-                    __ray = EventHorizonBlazorInterop.GetClass<Ray>(
+                    __aimTransform = EventHorizonBlazorInterop.GetClass<TransformNode>(
                         this.___guid,
-                        "ray",
+                        "aimTransform",
                         (entity) =>
                         {
-                            return new Ray() { ___guid = entity.___guid };
+                            return new TransformNode() { ___guid = entity.___guid };
                         }
                     );
                 }
-                return __ray;
+                return __aimTransform;
             }
             set
             {
-                __ray = null;
-                EventHorizonBlazorInterop.Set(this.___guid, "ray", value);
+                __aimTransform = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "aimTransform", value);
+            }
+        }
+
+        private TransformNode __gripTransform;
+        public TransformNode gripTransform
+        {
+            get
+            {
+                if (__gripTransform == null)
+                {
+                    __gripTransform = EventHorizonBlazorInterop.GetClass<TransformNode>(
+                        this.___guid,
+                        "gripTransform",
+                        (entity) =>
+                        {
+                            return new TransformNode() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __gripTransform;
+            }
+            set
+            {
+                __gripTransform = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "gripTransform", value);
             }
         }
         #endregion
@@ -269,11 +319,11 @@ namespace BABYLON
             );
         }
 
-        public Vector2 getTextureCoordinates()
+        public Vector2 getTextureCoordinates(string uvSet = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Vector2>(
                 entity => new Vector2() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getTextureCoordinates" } }
+                new object[] { new string[] { this.___guid, "getTextureCoordinates" }, uvSet }
             );
         }
         #endregion

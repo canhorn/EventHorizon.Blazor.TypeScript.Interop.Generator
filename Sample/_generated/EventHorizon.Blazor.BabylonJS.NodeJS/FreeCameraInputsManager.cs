@@ -49,6 +49,16 @@ namespace BABYLON
             );
             ___guid = entity.___guid;
         }
+
+        public FreeCameraInputsManager(TCamera camera)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "FreeCameraInputsManager" },
+                camera
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods

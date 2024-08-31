@@ -134,6 +134,19 @@ namespace BABYLON.GUI
             }
         }
 
+        public bool applyOutlineToUnderline
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "applyOutlineToUnderline");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "applyOutlineToUnderline", value);
+            }
+        }
+
         public string outlineColor
         {
             get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "outlineColor"); }
@@ -141,6 +154,26 @@ namespace BABYLON.GUI
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "outlineColor", value);
+            }
+        }
+
+        public string wordDivider
+        {
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "wordDivider"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "wordDivider", value);
+            }
+        }
+
+        public bool forceResizeWidth
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "forceResizeWidth"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "forceResizeWidth", value);
             }
         }
         #endregion
@@ -226,6 +259,38 @@ namespace BABYLON.GUI
                 EventHorizonBlazorInterop.Set(this.___guid, "wordSplittingFunction", value);
             }
         }
+
+        public ActionCallback<CachedEntity> adjustWordWrappingHTMLElement
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<ActionCallback<CachedEntity>>(
+                    this.___guid,
+                    "adjustWordWrappingHTMLElement"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "adjustWordWrappingHTMLElement", value);
+            }
+        }
+
+        public bool reuseHTMLForWordWrapping
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "reuseHTMLForWordWrapping"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "reuseHTMLForWordWrapping", value);
+            }
+        }
         #endregion
 
         #region Constructor
@@ -245,9 +310,26 @@ namespace BABYLON.GUI
             );
             ___guid = entity.___guid;
         }
+
+        public TextBlock(string name = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "GUI", "TextBlock" },
+                name
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods
+        public bool isDimensionFullyDefined(object dim)
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "isDimensionFullyDefined" }, dim }
+            );
+        }
+
         public decimal computeExpectedHeight()
         {
             return EventHorizonBlazorInterop.Func<decimal>(

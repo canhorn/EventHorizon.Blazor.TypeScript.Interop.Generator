@@ -42,6 +42,17 @@ namespace BABYLON
             get { return EventHorizonBlazorInterop.Get<int>(this.___guid, "direction"); }
         }
 
+        public string declarationVariableName
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<string>(
+                    this.___guid,
+                    "declarationVariableName"
+                );
+            }
+        }
+
         public string associatedVariableName
         {
             get
@@ -215,6 +226,17 @@ namespace BABYLON
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "hasEndpoints"); }
         }
 
+        public bool isDirectlyConnectedToVertexOutput
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "isDirectlyConnectedToVertexOutput"
+                );
+            }
+        }
+
         public bool isConnectedInVertexShader
         {
             get
@@ -311,21 +333,47 @@ namespace BABYLON
                 }
                 return __onConnectionObservable;
             }
-            set
+        }
+
+        private Observable<NodeMaterialConnectionPoint> __onDisconnectionObservable;
+        public Observable<NodeMaterialConnectionPoint> onDisconnectionObservable
+        {
+            get
             {
-                __onConnectionObservable = null;
-                EventHorizonBlazorInterop.Set(this.___guid, "onConnectionObservable", value);
+                if (__onDisconnectionObservable == null)
+                {
+                    __onDisconnectionObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<NodeMaterialConnectionPoint>
+                    >(
+                        this.___guid,
+                        "onDisconnectionObservable",
+                        (entity) =>
+                        {
+                            return new Observable<NodeMaterialConnectionPoint>()
+                            {
+                                ___guid = entity.___guid
+                            };
+                        }
+                    );
+                }
+                return __onDisconnectionObservable;
+            }
+        }
+
+        public Observable<int> onTypeChangedObservable
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<Observable<int>>(
+                    this.___guid,
+                    "onTypeChangedObservable"
+                );
             }
         }
 
         public string name
         {
             get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "name"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "name", value);
-            }
         }
 
         public string displayName
@@ -459,6 +507,17 @@ namespace BABYLON
             return EventHorizonBlazorInterop.FuncClass<NodeMaterialConnectionPoint>(
                 entity => new NodeMaterialConnectionPoint() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "disconnectFrom" }, endpoint }
+            );
+        }
+
+        public void addExcludedConnectionPointFromAllowedTypes(decimal mask)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "addExcludedConnectionPointFromAllowedTypes" },
+                    mask
+                }
             );
         }
 

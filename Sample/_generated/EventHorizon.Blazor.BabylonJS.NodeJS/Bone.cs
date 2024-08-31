@@ -26,6 +26,31 @@ namespace BABYLON
         #endregion
 
         #region Accessors
+        private Bone __parent;
+        public Bone parent
+        {
+            get
+            {
+                if (__parent == null)
+                {
+                    __parent = EventHorizonBlazorInterop.GetClass<Bone>(
+                        this.___guid,
+                        "parent",
+                        (entity) =>
+                        {
+                            return new Bone() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __parent;
+            }
+            set
+            {
+                __parent = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "parent", value);
+            }
+        }
+
         private Vector3 __position;
         public Vector3 position
         {
@@ -226,8 +251,8 @@ namespace BABYLON
             Skeleton skeleton,
             Bone parentBone = null,
             Matrix localMatrix = null,
-            Matrix restPose = null,
-            Matrix baseMatrix = null,
+            Matrix restMatrix = null,
+            Matrix bindMatrix = null,
             System.Nullable<decimal> index = null
         )
             : base()
@@ -238,9 +263,21 @@ namespace BABYLON
                 skeleton,
                 parentBone,
                 localMatrix,
-                restPose,
-                baseMatrix,
+                restMatrix,
+                bindMatrix,
                 index
+            );
+            ___guid = entity.___guid;
+        }
+
+        public Bone(string name, Scene scene = null, System.Nullable<bool> isPure = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "Bone" },
+                name,
+                scene,
+                isPure
             );
             ___guid = entity.___guid;
         }
@@ -285,14 +322,14 @@ namespace BABYLON
             );
         }
 
-        public void setParent(Bone parent, System.Nullable<bool> updateDifferenceMatrix = null)
+        public void setParent(Bone parent, System.Nullable<bool> updateAbsoluteBindMatrices = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
                     new string[] { this.___guid, "setParent" },
                     parent,
-                    updateDifferenceMatrix
+                    updateAbsoluteBindMatrices
                 }
             );
         }
@@ -305,6 +342,14 @@ namespace BABYLON
             );
         }
 
+        public Matrix getBindMatrix()
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getBindMatrix" } }
+            );
+        }
+
         public Matrix getBaseMatrix()
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
@@ -313,11 +358,26 @@ namespace BABYLON
             );
         }
 
+        public Matrix getRestMatrix()
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getRestMatrix" } }
+            );
+        }
+
         public Matrix getRestPose()
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "getRestPose" } }
+            );
+        }
+
+        public void setRestMatrix(Matrix matrix)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "setRestMatrix" }, matrix }
             );
         }
 
@@ -336,10 +396,25 @@ namespace BABYLON
             );
         }
 
+        public void setBindMatrix(Matrix matrix)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "setBindMatrix" }, matrix }
+            );
+        }
+
         public void setBindPose(Matrix matrix)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "setBindPose" }, matrix }
+            );
+        }
+
+        public Matrix getFinalMatrix()
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getFinalMatrix" } }
             );
         }
 
@@ -358,11 +433,27 @@ namespace BABYLON
             );
         }
 
+        public Matrix getAbsoluteInverseBindMatrix()
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getAbsoluteInverseBindMatrix" } }
+            );
+        }
+
         public Matrix getInvertedAbsoluteTransform()
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "getInvertedAbsoluteTransform" } }
+            );
+        }
+
+        public Matrix getAbsoluteMatrix()
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getAbsoluteMatrix" } }
             );
         }
 
@@ -390,8 +481,8 @@ namespace BABYLON
         }
 
         public void updateMatrix(
-            Matrix matrix,
-            System.Nullable<bool> updateDifferenceMatrix = null,
+            Matrix bindMatrix,
+            System.Nullable<bool> updateAbsoluteBindMatrices = null,
             System.Nullable<bool> updateLocalMatrix = null
         )
         {
@@ -399,16 +490,17 @@ namespace BABYLON
                 new object[]
                 {
                     new string[] { this.___guid, "updateMatrix" },
-                    matrix,
-                    updateDifferenceMatrix,
+                    bindMatrix,
+                    updateAbsoluteBindMatrices,
                     updateLocalMatrix
                 }
             );
         }
 
-        public void markAsDirty()
+        public Bone markAsDirty()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<Bone>(
+                entity => new Bone() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "markAsDirty" } }
             );
         }
@@ -416,33 +508,39 @@ namespace BABYLON
         public void translate(
             Vector3 vec,
             System.Nullable<int> space = null,
-            AbstractMesh mesh = null
+            TransformNode tNode = null
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "translate" }, vec, space, mesh }
+                new object[] { new string[] { this.___guid, "translate" }, vec, space, tNode }
             );
         }
 
         public void setPosition(
             Vector3 position,
             System.Nullable<int> space = null,
-            AbstractMesh mesh = null
+            TransformNode tNode = null
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "setPosition" }, position, space, mesh }
+                new object[]
+                {
+                    new string[] { this.___guid, "setPosition" },
+                    position,
+                    space,
+                    tNode
+                }
             );
         }
 
-        public void setAbsolutePosition(Vector3 position, AbstractMesh mesh = null)
+        public void setAbsolutePosition(Vector3 position, TransformNode tNode = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
                     new string[] { this.___guid, "setAbsolutePosition" },
                     position,
-                    mesh
+                    tNode
                 }
             );
         }
@@ -486,7 +584,7 @@ namespace BABYLON
             decimal pitch,
             decimal roll,
             System.Nullable<int> space = null,
-            AbstractMesh mesh = null
+            TransformNode tNode = null
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -497,7 +595,7 @@ namespace BABYLON
                     pitch,
                     roll,
                     space,
-                    mesh
+                    tNode
                 }
             );
         }
@@ -506,11 +604,11 @@ namespace BABYLON
             Vector3 axis,
             decimal amount,
             System.Nullable<int> space = null,
-            AbstractMesh mesh = null
+            TransformNode tNode = null
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "rotate" }, axis, amount, space, mesh }
+                new object[] { new string[] { this.___guid, "rotate" }, axis, amount, space, tNode }
             );
         }
 
@@ -518,7 +616,7 @@ namespace BABYLON
             Vector3 axis,
             decimal angle,
             System.Nullable<int> space = null,
-            AbstractMesh mesh = null
+            TransformNode tNode = null
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -528,7 +626,7 @@ namespace BABYLON
                     axis,
                     angle,
                     space,
-                    mesh
+                    tNode
                 }
             );
         }
@@ -536,18 +634,24 @@ namespace BABYLON
         public void setRotation(
             Vector3 rotation,
             System.Nullable<int> space = null,
-            AbstractMesh mesh = null
+            TransformNode tNode = null
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "setRotation" }, rotation, space, mesh }
+                new object[]
+                {
+                    new string[] { this.___guid, "setRotation" },
+                    rotation,
+                    space,
+                    tNode
+                }
             );
         }
 
         public void setRotationQuaternion(
             Quaternion quat,
             System.Nullable<int> space = null,
-            AbstractMesh mesh = null
+            TransformNode tNode = null
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -556,7 +660,7 @@ namespace BABYLON
                     new string[] { this.___guid, "setRotationQuaternion" },
                     quat,
                     space,
-                    mesh
+                    tNode
                 }
             );
         }
@@ -564,7 +668,7 @@ namespace BABYLON
         public void setRotationMatrix(
             Matrix rotMat,
             System.Nullable<int> space = null,
-            AbstractMesh mesh = null
+            TransformNode tNode = null
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -573,21 +677,21 @@ namespace BABYLON
                     new string[] { this.___guid, "setRotationMatrix" },
                     rotMat,
                     space,
-                    mesh
+                    tNode
                 }
             );
         }
 
-        public Vector3 getPosition(System.Nullable<int> space = null, AbstractMesh mesh = null)
+        public Vector3 getPosition(System.Nullable<int> space = null, TransformNode tNode = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getPosition" }, space, mesh }
+                new object[] { new string[] { this.___guid, "getPosition" }, space, tNode }
             );
         }
 
         public void getPositionToRef(
-            AbstractMesh mesh,
+            TransformNode tNode,
             Vector3 result,
             System.Nullable<int> space = null
         )
@@ -597,29 +701,36 @@ namespace BABYLON
                 {
                     new string[] { this.___guid, "getPositionToRef" },
                     space,
-                    mesh,
+                    tNode,
                     result
                 }
             );
         }
 
-        public Vector3 getAbsolutePosition(AbstractMesh mesh = null)
+        public Vector3 getAbsolutePosition(TransformNode tNode = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getAbsolutePosition" }, mesh }
+                new object[] { new string[] { this.___guid, "getAbsolutePosition" }, tNode }
             );
         }
 
-        public void getAbsolutePositionToRef(AbstractMesh mesh, Vector3 result)
+        public void getAbsolutePositionToRef(TransformNode tNode, Vector3 result)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
                     new string[] { this.___guid, "getAbsolutePositionToRef" },
-                    mesh,
+                    tNode,
                     result
                 }
+            );
+        }
+
+        public void computeAbsoluteMatrices()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "computeAbsoluteMatrices" } }
             );
         }
 
@@ -630,39 +741,39 @@ namespace BABYLON
             );
         }
 
-        public Vector3 getDirection(Vector3 localAxis, AbstractMesh mesh = null)
+        public Vector3 getDirection(Vector3 localAxis, TransformNode tNode = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getDirection" }, localAxis, mesh }
+                new object[] { new string[] { this.___guid, "getDirection" }, localAxis, tNode }
             );
         }
 
-        public void getDirectionToRef(Vector3 localAxis, Vector3 result, AbstractMesh mesh = null)
+        public void getDirectionToRef(Vector3 localAxis, Vector3 result, TransformNode tNode = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
                     new string[] { this.___guid, "getDirectionToRef" },
                     localAxis,
-                    mesh,
+                    tNode,
                     result
                 }
             );
         }
 
-        public Vector3 getRotation(System.Nullable<int> space = null, AbstractMesh mesh = null)
+        public Vector3 getRotation(System.Nullable<int> space = null, TransformNode tNode = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getRotation" }, space, mesh }
+                new object[] { new string[] { this.___guid, "getRotation" }, space, tNode }
             );
         }
 
         public void getRotationToRef(
             Vector3 result,
             System.Nullable<int> space = null,
-            AbstractMesh mesh = null
+            TransformNode tNode = null
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -670,7 +781,7 @@ namespace BABYLON
                 {
                     new string[] { this.___guid, "getRotationToRef" },
                     space,
-                    mesh,
+                    tNode,
                     result
                 }
             );
@@ -678,19 +789,24 @@ namespace BABYLON
 
         public Quaternion getRotationQuaternion(
             System.Nullable<int> space = null,
-            AbstractMesh mesh = null
+            TransformNode tNode = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<Quaternion>(
                 entity => new Quaternion() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getRotationQuaternion" }, space, mesh }
+                new object[]
+                {
+                    new string[] { this.___guid, "getRotationQuaternion" },
+                    space,
+                    tNode
+                }
             );
         }
 
         public void getRotationQuaternionToRef(
             Quaternion result,
             System.Nullable<int> space = null,
-            AbstractMesh mesh = null
+            TransformNode tNode = null
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -698,22 +814,22 @@ namespace BABYLON
                 {
                     new string[] { this.___guid, "getRotationQuaternionToRef" },
                     space,
-                    mesh,
+                    tNode,
                     result
                 }
             );
         }
 
-        public Matrix getRotationMatrix(AbstractMesh mesh, System.Nullable<int> space = null)
+        public Matrix getRotationMatrix(TransformNode tNode, System.Nullable<int> space = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getRotationMatrix" }, space, mesh }
+                new object[] { new string[] { this.___guid, "getRotationMatrix" }, space, tNode }
             );
         }
 
         public void getRotationMatrixToRef(
-            AbstractMesh mesh,
+            TransformNode tNode,
             Matrix result,
             System.Nullable<int> space = null
         )
@@ -723,13 +839,13 @@ namespace BABYLON
                 {
                     new string[] { this.___guid, "getRotationMatrixToRef" },
                     space,
-                    mesh,
+                    tNode,
                     result
                 }
             );
         }
 
-        public Vector3 getAbsolutePositionFromLocal(Vector3 position, AbstractMesh mesh = null)
+        public Vector3 getAbsolutePositionFromLocal(Vector3 position, TransformNode tNode = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
@@ -737,7 +853,7 @@ namespace BABYLON
                 {
                     new string[] { this.___guid, "getAbsolutePositionFromLocal" },
                     position,
-                    mesh
+                    tNode
                 }
             );
         }
@@ -745,7 +861,7 @@ namespace BABYLON
         public void getAbsolutePositionFromLocalToRef(
             Vector3 position,
             Vector3 result,
-            AbstractMesh mesh = null
+            TransformNode tNode = null
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -753,13 +869,13 @@ namespace BABYLON
                 {
                     new string[] { this.___guid, "getAbsolutePositionFromLocalToRef" },
                     position,
-                    mesh,
+                    tNode,
                     result
                 }
             );
         }
 
-        public Vector3 getLocalPositionFromAbsolute(Vector3 position, AbstractMesh mesh = null)
+        public Vector3 getLocalPositionFromAbsolute(Vector3 position, TransformNode tNode = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Vector3>(
                 entity => new Vector3() { ___guid = entity.___guid },
@@ -767,7 +883,7 @@ namespace BABYLON
                 {
                     new string[] { this.___guid, "getLocalPositionFromAbsolute" },
                     position,
-                    mesh
+                    tNode
                 }
             );
         }
@@ -775,7 +891,7 @@ namespace BABYLON
         public void getLocalPositionFromAbsoluteToRef(
             Vector3 position,
             Vector3 result,
-            AbstractMesh mesh = null
+            TransformNode tNode = null
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -783,7 +899,7 @@ namespace BABYLON
                 {
                     new string[] { this.___guid, "getLocalPositionFromAbsoluteToRef" },
                     position,
-                    mesh,
+                    tNode,
                     result
                 }
             );

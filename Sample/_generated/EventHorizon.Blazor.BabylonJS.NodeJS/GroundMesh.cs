@@ -74,13 +74,47 @@ namespace BABYLON
         public GroundMesh(ICachedEntity entity)
             : base(entity) { }
 
-        public GroundMesh(string name, Scene scene)
+        public GroundMesh(string name, Scene scene = null)
             : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GroundMesh" },
                 name,
                 scene
+            );
+            ___guid = entity.___guid;
+        }
+
+        public GroundMesh(
+            string name,
+            Scene scene = null,
+            Node parent = null,
+            Mesh source = null,
+            System.Nullable<bool> doNotCloneChildren = null,
+            System.Nullable<bool> clonePhysicsImpostor = null
+        )
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "GroundMesh" },
+                name,
+                scene,
+                parent,
+                source,
+                doNotCloneChildren,
+                clonePhysicsImpostor
+            );
+            ___guid = entity.___guid;
+        }
+
+        public GroundMesh(string name, Scene scene = null, System.Nullable<bool> isPure = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "GroundMesh" },
+                name,
+                scene,
+                isPure
             );
             ___guid = entity.___guid;
         }

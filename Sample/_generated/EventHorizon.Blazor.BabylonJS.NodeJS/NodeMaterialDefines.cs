@@ -51,6 +51,16 @@ namespace BABYLON
             }
         }
 
+        public bool VERTEXCOLOR_NME
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "VERTEXCOLOR_NME"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "VERTEXCOLOR_NME", value);
+            }
+        }
+
         public bool UV1
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "UV1"); }
@@ -58,6 +68,148 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "UV1", value);
+            }
+        }
+
+        public bool UV2
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "UV2"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "UV2", value);
+            }
+        }
+
+        public bool UV3
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "UV3"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "UV3", value);
+            }
+        }
+
+        public bool UV4
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "UV4"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "UV4", value);
+            }
+        }
+
+        public bool UV5
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "UV5"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "UV5", value);
+            }
+        }
+
+        public bool UV6
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "UV6"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "UV6", value);
+            }
+        }
+
+        public bool PREPASS
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "PREPASS"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "PREPASS", value);
+            }
+        }
+
+        public bool PREPASS_NORMAL
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "PREPASS_NORMAL"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "PREPASS_NORMAL", value);
+            }
+        }
+
+        public decimal PREPASS_NORMAL_INDEX
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "PREPASS_NORMAL_INDEX");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "PREPASS_NORMAL_INDEX", value);
+            }
+        }
+
+        public bool PREPASS_POSITION
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "PREPASS_POSITION"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "PREPASS_POSITION", value);
+            }
+        }
+
+        public decimal PREPASS_POSITION_INDEX
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<decimal>(
+                    this.___guid,
+                    "PREPASS_POSITION_INDEX"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "PREPASS_POSITION_INDEX", value);
+            }
+        }
+
+        public bool PREPASS_DEPTH
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "PREPASS_DEPTH"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "PREPASS_DEPTH", value);
+            }
+        }
+
+        public decimal PREPASS_DEPTH_INDEX
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "PREPASS_DEPTH_INDEX");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "PREPASS_DEPTH_INDEX", value);
+            }
+        }
+
+        public decimal SCENE_MRT_COUNT
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "SCENE_MRT_COUNT"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "SCENE_MRT_COUNT", value);
             }
         }
 
@@ -153,6 +305,19 @@ namespace BABYLON
             }
         }
 
+        public bool MORPHTARGETS_TEXTURE
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "MORPHTARGETS_TEXTURE");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "MORPHTARGETS_TEXTURE", value);
+            }
+        }
+
         public bool IMAGEPROCESSING
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "IMAGEPROCESSING"); }
@@ -202,23 +367,13 @@ namespace BABYLON
             }
         }
 
-        public bool TONEMAPPING
+        public decimal TONEMAPPING
         {
-            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "TONEMAPPING"); }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "TONEMAPPING"); }
             set
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "TONEMAPPING", value);
-            }
-        }
-
-        public bool TONEMAPPING_ACES
-        {
-            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "TONEMAPPING_ACES"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "TONEMAPPING_ACES", value);
             }
         }
 
@@ -292,6 +447,16 @@ namespace BABYLON
             }
         }
 
+        public bool DITHER
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "DITHER"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "DITHER", value);
+            }
+        }
+
         public bool IMAGEPROCESSINGPOSTPROCESS
         {
             get
@@ -308,6 +473,16 @@ namespace BABYLON
             }
         }
 
+        public bool SKIPFINALCOLORCLAMP
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "SKIPFINALCOLORCLAMP"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "SKIPFINALCOLORCLAMP", value);
+            }
+        }
+
         public decimal BUMPDIRECTUV
         {
             get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "BUMPDIRECTUV"); }
@@ -315,6 +490,26 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "BUMPDIRECTUV", value);
+            }
+        }
+
+        public bool CAMERA_ORTHOGRAPHIC
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "CAMERA_ORTHOGRAPHIC"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "CAMERA_ORTHOGRAPHIC", value);
+            }
+        }
+
+        public bool CAMERA_PERSPECTIVE
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "CAMERA_PERSPECTIVE"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "CAMERA_PERSPECTIVE", value);
             }
         }
         #endregion
@@ -326,6 +521,15 @@ namespace BABYLON
         public NodeMaterialDefines(ICachedEntity entity)
             : base(entity) { }
 
+        public NodeMaterialDefines(object externalProperties = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "NodeMaterialDefines" },
+                externalProperties
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods

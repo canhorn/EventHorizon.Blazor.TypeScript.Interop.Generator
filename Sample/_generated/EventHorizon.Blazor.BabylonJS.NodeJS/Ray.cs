@@ -70,6 +70,26 @@ namespace BABYLON
             );
         }
 
+        public static Ray CreateFromToToRef(
+            Vector3 origin,
+            Vector3 end,
+            Ray result,
+            Matrix world = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<Ray>(
+                entity => new Ray() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "Ray", "CreateFromToToRef" },
+                    origin,
+                    end,
+                    result,
+                    world
+                }
+            );
+        }
+
         public static Ray Transform(Ray ray, Matrix matrix)
         {
             return EventHorizonBlazorInterop.FuncClass<Ray>(
@@ -78,9 +98,10 @@ namespace BABYLON
             );
         }
 
-        public static void TransformToRef(Ray ray, Matrix matrix, Ray result)
+        public static Ray TransformToRef(Ray ray, Matrix matrix, Ray result)
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<Ray>(
+                entity => new Ray() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Ray", "TransformToRef" },
@@ -156,6 +177,16 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set(this.___guid, "length", value);
             }
         }
+
+        public decimal epsilon
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "epsilon"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "epsilon", value);
+            }
+        }
         #endregion
 
         #region Constructor
@@ -168,19 +199,33 @@ namespace BABYLON
             ___guid = entity.___guid;
         }
 
-        public Ray(Vector3 origin, Vector3 direction, System.Nullable<decimal> length = null)
+        public Ray(
+            Vector3 origin,
+            Vector3 direction,
+            System.Nullable<decimal> length = null,
+            System.Nullable<decimal> epsilon = null
+        )
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Ray" },
                 origin,
                 direction,
-                length
+                length,
+                epsilon
             );
             ___guid = entity.___guid;
         }
         #endregion
 
         #region Methods
+        public Ray clone()
+        {
+            return EventHorizonBlazorInterop.FuncClass<Ray>(
+                entity => new Ray() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "clone" } }
+            );
+        }
+
         public bool intersectsBoxMinMax(
             Vector3 minimum,
             Vector3 maximum,
@@ -261,11 +306,36 @@ namespace BABYLON
             );
         }
 
-        public PickingInfo intersectsMesh(AbstractMesh mesh, System.Nullable<bool> fastCheck = null)
+        public PickingInfo intersectsMesh(
+            AbstractMesh mesh,
+            System.Nullable<bool> fastCheck = null,
+            ActionResultCallback<
+                Vector3,
+                Vector3,
+                Vector3,
+                Ray,
+                decimal,
+                decimal,
+                decimal,
+                bool
+            > trianglePredicate = null,
+            System.Nullable<bool> onlyBoundingInfo = null,
+            Matrix worldToUse = null,
+            System.Nullable<bool> skipBoundingInfo = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<PickingInfo>(
                 entity => new PickingInfo() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "intersectsMesh" }, mesh, fastCheck }
+                new object[]
+                {
+                    new string[] { this.___guid, "intersectsMesh" },
+                    mesh,
+                    fastCheck,
+                    trianglePredicate,
+                    onlyBoundingInfo,
+                    worldToUse,
+                    skipBoundingInfo
+                }
             );
         }
 
@@ -307,7 +377,8 @@ namespace BABYLON
             decimal viewportHeight,
             Matrix world,
             Matrix view,
-            Matrix projection
+            Matrix projection,
+            System.Nullable<bool> enableDistantPicking = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<Ray>(
@@ -321,7 +392,8 @@ namespace BABYLON
                     viewportHeight,
                     world,
                     view,
-                    projection
+                    projection,
+                    enableDistantPicking
                 }
             );
         }

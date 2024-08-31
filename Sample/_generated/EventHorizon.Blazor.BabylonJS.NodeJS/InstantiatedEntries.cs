@@ -31,16 +31,16 @@ namespace BABYLON
 
         #region Properties
 
-        public TransformNode[] rootNodes
+        public Node[] rootNodes
         {
             get
             {
-                return EventHorizonBlazorInterop.GetArrayClass<TransformNode>(
+                return EventHorizonBlazorInterop.GetArrayClass<Node>(
                     this.___guid,
                     "rootNodes",
                     (entity) =>
                     {
-                        return new TransformNode() { ___guid = entity.___guid };
+                        return new Node() { ___guid = entity.___guid };
                     }
                 );
             }
@@ -105,7 +105,12 @@ namespace BABYLON
         #endregion
 
         #region Methods
-
+        public void dispose()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "dispose" } }
+            );
+        }
         #endregion
     }
 }

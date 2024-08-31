@@ -137,6 +137,21 @@ namespace BABYLON
                 );
             }
         }
+
+        public ISpriteManagerCachedEntity[] spriteManagers
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetArrayClass<ISpriteManagerCachedEntity>(
+                    this.___guid,
+                    "spriteManagers",
+                    (entity) =>
+                    {
+                        return new ISpriteManagerCachedEntity() { ___guid = entity.___guid };
+                    }
+                );
+            }
+        }
         #endregion
 
         #region Constructor

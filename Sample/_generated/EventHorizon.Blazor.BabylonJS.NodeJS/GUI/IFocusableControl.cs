@@ -33,6 +33,25 @@ namespace BABYLON.GUI
 
         #region Properties
 
+        public decimal tabIndex
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "tabIndex"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "tabIndex", value);
+            }
+        }
+
+        public string focusBorderColor
+        {
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "focusBorderColor"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "focusBorderColor", value);
+            }
+        }
         #endregion
 
         #region Constructor
@@ -59,7 +78,7 @@ namespace BABYLON.GUI
             );
         }
 
-        public void processKeyboard(KeyboardEvent evt)
+        public void processKeyboard(IKeyboardEvent evt)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "processKeyboard" }, evt }
@@ -71,6 +90,20 @@ namespace BABYLON.GUI
             return EventHorizonBlazorInterop.FuncArrayClass<Control>(
                 entity => new Control() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "keepsFocusWith" } }
+            );
+        }
+
+        public void focus()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "focus" } }
+            );
+        }
+
+        public void blur()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "blur" } }
             );
         }
         #endregion

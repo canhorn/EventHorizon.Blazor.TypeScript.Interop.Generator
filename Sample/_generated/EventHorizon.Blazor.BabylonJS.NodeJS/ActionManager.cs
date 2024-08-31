@@ -257,7 +257,7 @@ namespace BABYLON
         public ActionManager(ICachedEntity entity)
             : base(entity) { }
 
-        public ActionManager(Scene scene)
+        public ActionManager(Scene scene = null)
             : base()
         {
             var entity = EventHorizonBlazorInterop.New(
@@ -266,6 +266,7 @@ namespace BABYLON
             );
             ___guid = entity.___guid;
         }
+
         #endregion
 
         #region Methods

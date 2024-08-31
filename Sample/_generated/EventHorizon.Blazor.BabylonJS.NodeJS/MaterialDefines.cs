@@ -47,6 +47,14 @@ namespace BABYLON
             ___guid = entity.___guid;
         }
 
+        public MaterialDefines(object externalProperties = null)
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "MaterialDefines" },
+                externalProperties
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods

@@ -1,49 +1,46 @@
 /// Generated - Do Not Edit
-namespace BABYLON
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using EventHorizon.Blazor.Interop;
+using EventHorizon.Blazor.Interop.Callbacks;
+using EventHorizon.Blazor.Interop.ResultCallbacks;
+using Microsoft.JSInterop;
+
+[JsonConverter(typeof(CachedEntityConverter<KeepAssets>))]
+public class KeepAssets : AbstractScene
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-    using EventHorizon.Blazor.Interop;
-    using EventHorizon.Blazor.Interop.Callbacks;
-    using EventHorizon.Blazor.Interop.ResultCallbacks;
-    using Microsoft.JSInterop;
+    #region Static Accessors
 
-    [JsonConverter(typeof(CachedEntityConverter<KeepAssets>))]
-    public class KeepAssets : AbstractScene
-    {
-        #region Static Accessors
+    #endregion
 
-        #endregion
+    #region Static Properties
 
-        #region Static Properties
+    #endregion
 
-        #endregion
+    #region Static Methods
 
-        #region Static Methods
+    #endregion
 
-        #endregion
+    #region Accessors
 
-        #region Accessors
+    #endregion
 
-        #endregion
+    #region Properties
 
-        #region Properties
+    #endregion
 
-        #endregion
+    #region Constructor
+    public KeepAssets()
+        : base() { }
 
-        #region Constructor
-        public KeepAssets()
-            : base() { }
+    public KeepAssets(ICachedEntity entity)
+        : base(entity) { }
 
-        public KeepAssets(ICachedEntity entity)
-            : base(entity) { }
+    #endregion
 
-        #endregion
+    #region Methods
 
-        #region Methods
-
-        #endregion
-    }
+    #endregion
 }

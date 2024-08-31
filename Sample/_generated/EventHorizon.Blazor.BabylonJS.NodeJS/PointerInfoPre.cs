@@ -55,6 +55,56 @@ namespace BABYLON
             }
         }
 
+        private PickingInfo __nearInteractionPickingInfo;
+        public PickingInfo nearInteractionPickingInfo
+        {
+            get
+            {
+                if (__nearInteractionPickingInfo == null)
+                {
+                    __nearInteractionPickingInfo = EventHorizonBlazorInterop.GetClass<PickingInfo>(
+                        this.___guid,
+                        "nearInteractionPickingInfo",
+                        (entity) =>
+                        {
+                            return new PickingInfo() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __nearInteractionPickingInfo;
+            }
+            set
+            {
+                __nearInteractionPickingInfo = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "nearInteractionPickingInfo", value);
+            }
+        }
+
+        private PickingInfo __originalPickingInfo;
+        public PickingInfo originalPickingInfo
+        {
+            get
+            {
+                if (__originalPickingInfo == null)
+                {
+                    __originalPickingInfo = EventHorizonBlazorInterop.GetClass<PickingInfo>(
+                        this.___guid,
+                        "originalPickingInfo",
+                        (entity) =>
+                        {
+                            return new PickingInfo() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __originalPickingInfo;
+            }
+            set
+            {
+                __originalPickingInfo = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "originalPickingInfo", value);
+            }
+        }
+
         private Vector2 __localPosition;
         public Vector2 localPosition
         {
@@ -101,7 +151,7 @@ namespace BABYLON
         public PointerInfoPre(ICachedEntity entity)
             : base(entity) { }
 
-        public PointerInfoPre(decimal type, PointerEvent @event, decimal localX, decimal localY)
+        public PointerInfoPre(decimal type, IMouseEvent @event, decimal localX, decimal localY)
             : base()
         {
             var entity = EventHorizonBlazorInterop.New(
@@ -110,6 +160,17 @@ namespace BABYLON
                 @event,
                 localX,
                 localY
+            );
+            ___guid = entity.___guid;
+        }
+
+        public PointerInfoPre(decimal type, IMouseEvent @event)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "PointerInfoPre" },
+                type,
+                @event
             );
             ___guid = entity.___guid;
         }

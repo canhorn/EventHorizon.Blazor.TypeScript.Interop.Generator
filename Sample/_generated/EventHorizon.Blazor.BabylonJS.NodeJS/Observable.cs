@@ -12,7 +12,6 @@ namespace BABYLON
 
     [JsonConverter(typeof(CachedEntityConverter<Observable<CachedEntity>>))]
     public class Observable<T> : CachedEntityObject
-        where T : CachedEntity, new()
     {
         #region Static Accessors
 
@@ -23,7 +22,23 @@ namespace BABYLON
         #endregion
 
         #region Static Methods
-
+        public static Observable<T> FromPromise<T, E>(
+            ValueTask<T> promise,
+            Observable<E> onErrorObservable = null
+        )
+            where T : CachedEntity, new()
+            where E : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<Observable<T>>(
+                entity => new Observable<T>() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "Observable", "FromPromise" },
+                    promise,
+                    onErrorObservable
+                }
+            );
+        }
         #endregion
 
         #region Accessors
@@ -46,6 +61,15 @@ namespace BABYLON
 
         #region Properties
 
+        public bool notifyIfTriggered
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "notifyIfTriggered"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "notifyIfTriggered", value);
+            }
+        }
         #endregion
 
         #region Constructor
@@ -58,11 +82,15 @@ namespace BABYLON
             ___guid = entity.___guid;
         }
 
-        public Observable(ActionCallback<Observer<T>> onObserverAdded = null)
+        public Observable(
+            ActionCallback<Observer<T>> onObserverAdded = null,
+            System.Nullable<bool> notifyIfTriggered = null
+        )
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Observable" },
-                onObserverAdded
+                onObserverAdded,
+                notifyIfTriggered
             );
             ___guid = entity.___guid;
         }
@@ -250,28 +278,6 @@ namespace BABYLON
             );
         }
 
-        public ValueTask<T> notifyObserversWithPromise(
-            T eventData,
-            System.Nullable<decimal> mask = null,
-            object target = null,
-            object currentTarget = null,
-            object userInfo = null
-        )
-        {
-            return EventHorizonBlazorInterop.TaskClass<T>(
-                entity => new T() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "notifyObserversWithPromise" },
-                    eventData,
-                    mask,
-                    target,
-                    currentTarget,
-                    userInfo
-                }
-            );
-        }
-
         public void notifyObserver(
             Observer<T> observer,
             T eventData,
@@ -300,6 +306,13 @@ namespace BABYLON
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "clear" } }
+            );
+        }
+
+        public void cleanLastNotifiedState()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "cleanLastNotifiedState" } }
             );
         }
 

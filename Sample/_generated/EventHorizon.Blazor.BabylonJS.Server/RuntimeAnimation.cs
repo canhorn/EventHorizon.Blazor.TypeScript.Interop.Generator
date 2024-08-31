@@ -1,172 +1,169 @@
 /// Generated - Do Not Edit
-namespace BABYLON
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using EventHorizon.Blazor.Server.Interop;
+using EventHorizon.Blazor.Server.Interop.Callbacks;
+using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
+using Microsoft.JSInterop;
+
+[JsonConverter(typeof(CachedEntityConverter<RuntimeAnimation>))]
+public class RuntimeAnimation : CachedEntityObject
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-    using EventHorizon.Blazor.Server.Interop;
-    using EventHorizon.Blazor.Server.Interop.Callbacks;
-    using EventHorizon.Blazor.Server.Interop.ResultCallbacks;
-    using Microsoft.JSInterop;
+    #region Static Accessors
 
-    [JsonConverter(typeof(CachedEntityConverter<RuntimeAnimation>))]
-    public class RuntimeAnimation : CachedEntityObject
+    #endregion
+
+    #region Static Properties
+
+    #endregion
+
+    #region Static Methods
+
+    #endregion
+
+    #region Accessors
+
+    public async ValueTask<decimal> get_currentFrame()
     {
-        #region Static Accessors
+        return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "currentFrame");
+    }
 
-        #endregion
+    public async ValueTask<decimal> get_weight()
+    {
+        return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "weight");
+    }
 
-        #region Static Properties
+    public async ValueTask<CachedEntity> get_currentValue()
+    {
+        return await EventHorizonBlazorInterop.Get<CachedEntity>(this.___guid, "currentValue");
+    }
 
-        #endregion
+    public async ValueTask<string> get_targetPath()
+    {
+        return await EventHorizonBlazorInterop.Get<string>(this.___guid, "targetPath");
+    }
 
-        #region Static Methods
+    public async ValueTask<CachedEntity> get_target()
+    {
+        return await EventHorizonBlazorInterop.Get<CachedEntity>(this.___guid, "target");
+    }
 
-        #endregion
+    public async ValueTask<bool> get_isAdditive()
+    {
+        return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "isAdditive");
+    }
 
-        #region Accessors
+    private Animation __animation;
 
-        public async ValueTask<decimal> get_currentFrame()
+    public async ValueTask<Animation> get_animation()
+    {
+        if (__animation == null)
         {
-            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "currentFrame");
-        }
-
-        public async ValueTask<decimal> get_weight()
-        {
-            return await EventHorizonBlazorInterop.Get<decimal>(this.___guid, "weight");
-        }
-
-        public async ValueTask<CachedEntity> get_currentValue()
-        {
-            return await EventHorizonBlazorInterop.Get<CachedEntity>(this.___guid, "currentValue");
-        }
-
-        public async ValueTask<string> get_targetPath()
-        {
-            return await EventHorizonBlazorInterop.Get<string>(this.___guid, "targetPath");
-        }
-
-        public async ValueTask<CachedEntity> get_target()
-        {
-            return await EventHorizonBlazorInterop.Get<CachedEntity>(this.___guid, "target");
-        }
-
-        public async ValueTask<bool> get_isAdditive()
-        {
-            return await EventHorizonBlazorInterop.Get<bool>(this.___guid, "isAdditive");
-        }
-
-        private Animation __animation;
-
-        public async ValueTask<Animation> get_animation()
-        {
-            if (__animation == null)
-            {
-                __animation = await EventHorizonBlazorInterop.GetClass<Animation>(
-                    this.___guid,
-                    "animation",
-                    (entity) =>
-                    {
-                        return new Animation() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __animation;
-        }
-        #endregion
-
-        #region Properties
-
-        #endregion
-
-        #region Constructor
-        public RuntimeAnimation()
-            : base() { }
-
-        public RuntimeAnimation(ICachedEntity entity)
-            : base(entity)
-        {
-            ___guid = entity.___guid;
-        }
-
-        public static async ValueTask<RuntimeAnimation> NewRuntimeAnimation(
-            object target,
-            Animation animation,
-            Scene scene,
-            Animatable host
-        )
-        {
-            var entity = await EventHorizonBlazorInterop.New(
-                new string[] { "BABYLON", "RuntimeAnimation" },
-                target,
-                animation,
-                scene,
-                host
-            );
-
-            return new RuntimeAnimation(entity);
-        }
-        #endregion
-
-        #region Methods
-        public async ValueTask reset(System.Nullable<bool> restoreOriginal = null)
-        {
-            await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "reset" }, restoreOriginal }
-            );
-        }
-
-        public async ValueTask<bool> isStopped()
-        {
-            return await EventHorizonBlazorInterop.Func<bool>(
-                new object[] { new string[] { this.___guid, "isStopped" } }
-            );
-        }
-
-        public async ValueTask dispose()
-        {
-            await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "dispose" } }
-            );
-        }
-
-        public async ValueTask setValue(object currentValue, decimal weight)
-        {
-            await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "setValue" }, currentValue, weight }
-            );
-        }
-
-        public async ValueTask goToFrame(decimal frame)
-        {
-            await EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "goToFrame" }, frame }
-            );
-        }
-
-        public async ValueTask<bool> animate(
-            decimal delay,
-            decimal from,
-            decimal to,
-            bool loop,
-            decimal speedRatio,
-            System.Nullable<decimal> weight = null
-        )
-        {
-            return await EventHorizonBlazorInterop.Func<bool>(
-                new object[]
+            __animation = await EventHorizonBlazorInterop.GetClass<Animation>(
+                this.___guid,
+                "animation",
+                (entity) =>
                 {
-                    new string[] { this.___guid, "animate" },
-                    delay,
-                    from,
-                    to,
-                    loop,
-                    speedRatio,
-                    weight
+                    return new Animation() { ___guid = entity.___guid };
                 }
             );
         }
-        #endregion
+        return __animation;
     }
+    #endregion
+
+    #region Properties
+
+    #endregion
+
+    #region Constructor
+    public RuntimeAnimation()
+        : base() { }
+
+    public RuntimeAnimation(ICachedEntity entity)
+        : base(entity)
+    {
+        ___guid = entity.___guid;
+    }
+
+    public static async ValueTask<RuntimeAnimation> NewRuntimeAnimation(
+        object target,
+        Animation animation,
+        Scene scene,
+        Animatable host
+    )
+    {
+        var entity = await EventHorizonBlazorInterop.New(
+            new string[] { "RuntimeAnimation" },
+            target,
+            animation,
+            scene,
+            host
+        );
+
+        return new RuntimeAnimation(entity);
+    }
+    #endregion
+
+    #region Methods
+    public async ValueTask reset(System.Nullable<bool> restoreOriginal = null)
+    {
+        await EventHorizonBlazorInterop.Func<CachedEntity>(
+            new object[] { new string[] { this.___guid, "reset" }, restoreOriginal }
+        );
+    }
+
+    public async ValueTask<bool> isStopped()
+    {
+        return await EventHorizonBlazorInterop.Func<bool>(
+            new object[] { new string[] { this.___guid, "isStopped" } }
+        );
+    }
+
+    public async ValueTask dispose()
+    {
+        await EventHorizonBlazorInterop.Func<CachedEntity>(
+            new object[] { new string[] { this.___guid, "dispose" } }
+        );
+    }
+
+    public async ValueTask setValue(object currentValue, decimal weight)
+    {
+        await EventHorizonBlazorInterop.Func<CachedEntity>(
+            new object[] { new string[] { this.___guid, "setValue" }, currentValue, weight }
+        );
+    }
+
+    public async ValueTask goToFrame(decimal frame)
+    {
+        await EventHorizonBlazorInterop.Func<CachedEntity>(
+            new object[] { new string[] { this.___guid, "goToFrame" }, frame }
+        );
+    }
+
+    public async ValueTask<bool> animate(
+        decimal delay,
+        decimal from,
+        decimal to,
+        bool loop,
+        decimal speedRatio,
+        System.Nullable<decimal> weight = null
+    )
+    {
+        return await EventHorizonBlazorInterop.Func<bool>(
+            new object[]
+            {
+                new string[] { this.___guid, "animate" },
+                delay,
+                from,
+                to,
+                loop,
+                speedRatio,
+                weight
+            }
+        );
+    }
+    #endregion
 }

@@ -54,10 +54,11 @@ namespace BABYLON
         #endregion
 
         #region Methods
-        public decimal[] toArray()
+        public _Tuple<T, N, R> asArray()
         {
-            return EventHorizonBlazorInterop.FuncArray<decimal>(
-                new object[] { new string[] { this.___guid, "toArray" } }
+            return EventHorizonBlazorInterop.FuncClass<_Tuple<T, N, R>>(
+                entity => new _Tuple<T, N, R>() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "asArray" } }
             );
         }
         #endregion

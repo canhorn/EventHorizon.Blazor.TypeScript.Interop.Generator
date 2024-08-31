@@ -218,6 +218,20 @@ namespace BABYLON
                 new object[] { new string[] { this.___guid, "render" } }
             );
         }
+
+        public void rebuild()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "rebuild" } }
+            );
+        }
+
+        public CachedEntity serialize(System.Nullable<bool> serializeTexture = null)
+        {
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "serialize" }, serializeTexture }
+            );
+        }
         #endregion
     }
 }

@@ -46,6 +46,46 @@ namespace BABYLON.GUI
                 EventHorizonBlazorInterop.Set(this.___guid, "cornerRadius", value);
             }
         }
+
+        public decimal cornerRadiusX
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "cornerRadiusX"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "cornerRadiusX", value);
+            }
+        }
+
+        public decimal cornerRadiusY
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "cornerRadiusY"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "cornerRadiusY", value);
+            }
+        }
+
+        public decimal cornerRadiusZ
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "cornerRadiusZ"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "cornerRadiusZ", value);
+            }
+        }
+
+        public decimal cornerRadiusW
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "cornerRadiusW"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "cornerRadiusW", value);
+            }
+        }
         #endregion
 
         #region Properties

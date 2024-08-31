@@ -130,25 +130,21 @@ public class WindowCachedEntity : CachedEntityObject, Window
         }
     }
 
-    private WebGLRenderingContextCachedEntity __WebGLRenderingContext;
-    public WebGLRenderingContextCachedEntity WebGLRenderingContext
+    private WebGLRenderingContext __WebGLRenderingContext;
+    public WebGLRenderingContext WebGLRenderingContext
     {
         get
         {
             if (__WebGLRenderingContext == null)
             {
-                __WebGLRenderingContext =
-                    EventHorizonBlazorInterop.GetClass<WebGLRenderingContextCachedEntity>(
-                        this.___guid,
-                        "WebGLRenderingContext",
-                        (entity) =>
-                        {
-                            return new WebGLRenderingContextCachedEntity()
-                            {
-                                ___guid = entity.___guid
-                            };
-                        }
-                    );
+                __WebGLRenderingContext = EventHorizonBlazorInterop.GetClass<WebGLRenderingContext>(
+                    this.___guid,
+                    "WebGLRenderingContext",
+                    (entity) =>
+                    {
+                        return new WebGLRenderingContext() { ___guid = entity.___guid };
+                    }
+                );
             }
             return __WebGLRenderingContext;
         }
@@ -156,31 +152,6 @@ public class WindowCachedEntity : CachedEntityObject, Window
         {
             __WebGLRenderingContext = null;
             EventHorizonBlazorInterop.Set(this.___guid, "WebGLRenderingContext", value);
-        }
-    }
-
-    private MSGesture __MSGesture;
-    public MSGesture MSGesture
-    {
-        get
-        {
-            if (__MSGesture == null)
-            {
-                __MSGesture = EventHorizonBlazorInterop.GetClass<MSGesture>(
-                    this.___guid,
-                    "MSGesture",
-                    (entity) =>
-                    {
-                        return new MSGesture() { ___guid = entity.___guid };
-                    }
-                );
-            }
-            return __MSGesture;
-        }
-        set
-        {
-            __MSGesture = null;
-            EventHorizonBlazorInterop.Set(this.___guid, "MSGesture", value);
         }
     }
 
@@ -396,26 +367,6 @@ public class WindowCachedEntity : CachedEntityObject, Window
         {
             __msURL = null;
             EventHorizonBlazorInterop.Set(this.___guid, "msURL", value);
-        }
-    }
-
-    public CachedEntity VRFrameData
-    {
-        get
-        {
-            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
-                this.___guid,
-                "VRFrameData",
-                (entity) =>
-                {
-                    return new CachedEntity() { ___guid = entity.___guid };
-                }
-            );
-        }
-        set
-        {
-
-            EventHorizonBlazorInterop.Set(this.___guid, "VRFrameData", value);
         }
     }
 

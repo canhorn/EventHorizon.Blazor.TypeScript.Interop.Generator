@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     [JsonConverter(typeof(CachedEntityConverter<Color3>))]
-    public class Color3 : CachedEntityObject
+    public class Color3 : CachedEntityObject, Tensor<_Tuple<T, N, R>, IColor3Like>, IColor3Like
     {
         #region Static Accessors
         private static Color3 __BlackReadOnly;
@@ -40,14 +40,11 @@ namespace BABYLON
         #endregion
 
         #region Static Methods
-        public static void HSVtoRGBToRef(
-            decimal hue,
-            decimal saturation,
-            decimal value,
-            Color3 result
-        )
+        public static T HSVtoRGBToRef<T>(decimal hue, decimal saturation, decimal value, T result)
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Color3", "HSVtoRGBToRef" },
@@ -55,6 +52,20 @@ namespace BABYLON
                     saturation,
                     value,
                     result
+                }
+            );
+        }
+
+        public static Color3 FromHSV(decimal hue, decimal saturation, decimal value)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Color3>(
+                entity => new Color3() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "Color3", "FromHSV" },
+                    hue,
+                    saturation,
+                    value
                 }
             );
         }
@@ -117,6 +128,73 @@ namespace BABYLON
                     left,
                     right,
                     amount,
+                    result
+                }
+            );
+        }
+
+        public static Color3 Hermite(
+            Color3 value1,
+            Color3 tangent1,
+            Color3 value2,
+            Color3 tangent2,
+            decimal amount
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<Color3>(
+                entity => new Color3() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "Color3", "Hermite" },
+                    value1,
+                    tangent1,
+                    value2,
+                    tangent2,
+                    amount
+                }
+            );
+        }
+
+        public static Color3 Hermite1stDerivative(
+            Color3 value1,
+            Color3 tangent1,
+            Color3 value2,
+            Color3 tangent2,
+            decimal time
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<Color3>(
+                entity => new Color3() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "Color3", "Hermite1stDerivative" },
+                    value1,
+                    tangent1,
+                    value2,
+                    tangent2,
+                    time
+                }
+            );
+        }
+
+        public static void Hermite1stDerivativeToRef(
+            Color3 value1,
+            Color3 tangent1,
+            Color3 value2,
+            Color3 tangent2,
+            decimal time,
+            Color3 result
+        )
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { "BABYLON", "Color3", "Hermite1stDerivativeToRef" },
+                    value1,
+                    tangent1,
+                    value2,
+                    tangent2,
+                    time,
                     result
                 }
             );
@@ -246,6 +324,41 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set(this.___guid, "b", value);
             }
         }
+
+        private CachedEntityObject __dimension;
+        public CachedEntityObject dimension
+        {
+            get
+            {
+                if (__dimension == null)
+                {
+                    __dimension = EventHorizonBlazorInterop.GetClass<CachedEntityObject>(
+                        this.___guid,
+                        "dimension",
+                        (entity) =>
+                        {
+                            return new CachedEntityObject() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __dimension;
+            }
+        }
+
+        public CachedEntity rank
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                    this.___guid,
+                    "rank",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
+                );
+            }
+        }
         #endregion
 
         #region Constructor
@@ -253,16 +366,14 @@ namespace BABYLON
             : base() { }
 
         public Color3(ICachedEntity entity)
-            : base(entity)
-        {
-            ___guid = entity.___guid;
-        }
+            : base(entity) { }
 
         public Color3(
             System.Nullable<decimal> r = null,
             System.Nullable<decimal> g = null,
             System.Nullable<decimal> b = null
         )
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Color3" },
@@ -320,9 +431,10 @@ namespace BABYLON
             );
         }
 
-        public decimal[] asArray()
+        public _Tuple<T, N, R> asArray()
         {
-            return EventHorizonBlazorInterop.FuncArray<decimal>(
+            return EventHorizonBlazorInterop.FuncClass<_Tuple<T, N, R>>(
+                entity => new _Tuple<T, N, R>() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "asArray" } }
             );
         }
@@ -334,7 +446,7 @@ namespace BABYLON
             );
         }
 
-        public Color3 multiply(Color3 otherColor)
+        public Color3 multiply(IColor3Like otherColor)
         {
             return EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
@@ -342,15 +454,120 @@ namespace BABYLON
             );
         }
 
-        public Color3 multiplyToRef(Color3 otherColor, Color3 result)
+        public T multiplyToRef<T>(IColor3Like otherColor, T result)
+            where T : CachedEntity, new()
         {
-            return EventHorizonBlazorInterop.FuncClass<Color3>(
-                entity => new Color3() { ___guid = entity.___guid },
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "multiplyToRef" }, otherColor, result }
             );
         }
 
-        public bool equals(Color3 otherColor)
+        public Color3 multiplyInPlace(IColor3Like otherColor)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Color3>(
+                entity => new Color3() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "multiplyInPlace" }, otherColor }
+            );
+        }
+
+        public Color3 multiplyByFloats(decimal r, decimal g, decimal b)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Color3>(
+                entity => new Color3() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "multiplyByFloats" }, r, g, b }
+            );
+        }
+
+        public CachedEntityObject divide(IColor3Like _other)
+        {
+            return EventHorizonBlazorInterop.FuncClass<CachedEntityObject>(
+                entity => new CachedEntityObject() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "divide" }, _other }
+            );
+        }
+
+        public CachedEntityObject divideToRef(IColor3Like _other, IColor3Like _result)
+        {
+            return EventHorizonBlazorInterop.FuncClass<CachedEntityObject>(
+                entity => new CachedEntityObject() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "divideToRef" }, _other, _result }
+            );
+        }
+
+        public CachedEntityObject divideInPlace(IColor3Like _other)
+        {
+            return EventHorizonBlazorInterop.FuncClass<CachedEntityObject>(
+                entity => new CachedEntityObject() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "divideInPlace" }, _other }
+            );
+        }
+
+        public Color3 minimizeInPlace(IColor3Like other)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Color3>(
+                entity => new Color3() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "minimizeInPlace" }, other }
+            );
+        }
+
+        public Color3 maximizeInPlace(IColor3Like other)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Color3>(
+                entity => new Color3() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "maximizeInPlace" }, other }
+            );
+        }
+
+        public Color3 minimizeInPlaceFromFloats(decimal r, decimal g, decimal b)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Color3>(
+                entity => new Color3() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "minimizeInPlaceFromFloats" }, r, g, b }
+            );
+        }
+
+        public Color3 maximizeInPlaceFromFloats(decimal r, decimal g, decimal b)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Color3>(
+                entity => new Color3() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "maximizeInPlaceFromFloats" }, r, g, b }
+            );
+        }
+
+        public CachedEntityObject floorToRef(IColor3Like _result)
+        {
+            return EventHorizonBlazorInterop.FuncClass<CachedEntityObject>(
+                entity => new CachedEntityObject() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "floorToRef" }, _result }
+            );
+        }
+
+        public CachedEntityObject floor()
+        {
+            return EventHorizonBlazorInterop.FuncClass<CachedEntityObject>(
+                entity => new CachedEntityObject() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "floor" } }
+            );
+        }
+
+        public CachedEntityObject fractToRef(IColor3Like _result)
+        {
+            return EventHorizonBlazorInterop.FuncClass<CachedEntityObject>(
+                entity => new CachedEntityObject() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "fractToRef" }, _result }
+            );
+        }
+
+        public CachedEntityObject fract()
+        {
+            return EventHorizonBlazorInterop.FuncClass<CachedEntityObject>(
+                entity => new CachedEntityObject() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "fract" } }
+            );
+        }
+
+        public bool equals(IColor3Like otherColor)
         {
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[] { new string[] { this.___guid, "equals" }, otherColor }
@@ -364,6 +581,52 @@ namespace BABYLON
             );
         }
 
+        public bool equalsToFloats(decimal r, decimal g, decimal b)
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "equalsToFloats" }, r, g, b }
+            );
+        }
+
+        public bool equalsWithEpsilon(
+            IColor3Like otherColor,
+            System.Nullable<decimal> epsilon = null
+        )
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[]
+                {
+                    new string[] { this.___guid, "equalsWithEpsilon" },
+                    otherColor,
+                    epsilon
+                }
+            );
+        }
+
+        public CachedEntityObject negate()
+        {
+            return EventHorizonBlazorInterop.FuncClass<CachedEntityObject>(
+                entity => new CachedEntityObject() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "negate" } }
+            );
+        }
+
+        public CachedEntityObject negateInPlace()
+        {
+            return EventHorizonBlazorInterop.FuncClass<CachedEntityObject>(
+                entity => new CachedEntityObject() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "negateInPlace" } }
+            );
+        }
+
+        public CachedEntityObject negateToRef(IColor3Like _result)
+        {
+            return EventHorizonBlazorInterop.FuncClass<CachedEntityObject>(
+                entity => new CachedEntityObject() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "negateToRef" }, _result }
+            );
+        }
+
         public Color3 scale(decimal scale)
         {
             return EventHorizonBlazorInterop.FuncClass<Color3>(
@@ -372,35 +635,46 @@ namespace BABYLON
             );
         }
 
-        public Color3 scaleToRef(decimal scale, Color3 result)
+        public Color3 scaleInPlace(decimal scale)
         {
             return EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "scaleInPlace" }, scale }
+            );
+        }
+
+        public T scaleToRef<T>(decimal scale, T result)
+            where T : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "scaleToRef" }, scale, result }
             );
         }
 
-        public Color3 scaleAndAddToRef(decimal scale, Color3 result)
+        public T scaleAndAddToRef<T>(decimal scale, T result)
+            where T : CachedEntity, new()
         {
-            return EventHorizonBlazorInterop.FuncClass<Color3>(
-                entity => new Color3() { ___guid = entity.___guid },
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "scaleAndAddToRef" }, scale, result }
             );
         }
 
-        public Color3 clampToRef(
-            Color3 result,
+        public T clampToRef<T>(
+            T result,
             System.Nullable<decimal> min = null,
             System.Nullable<decimal> max = null
         )
+            where T : CachedEntity, new()
         {
-            return EventHorizonBlazorInterop.FuncClass<Color3>(
-                entity => new Color3() { ___guid = entity.___guid },
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "clampToRef" }, min, max, result }
             );
         }
 
-        public Color3 add(Color3 otherColor)
+        public Color3 add(IColor3Like otherColor)
         {
             return EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
@@ -408,15 +682,32 @@ namespace BABYLON
             );
         }
 
-        public Color3 addToRef(Color3 otherColor, Color3 result)
+        public Color3 addInPlace(IColor3Like otherColor)
         {
             return EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "addInPlace" }, otherColor }
+            );
+        }
+
+        public Color3 addInPlaceFromFloats(decimal r, decimal g, decimal b)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Color3>(
+                entity => new Color3() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "addInPlaceFromFloats" }, r, g, b }
+            );
+        }
+
+        public T addToRef<T>(IColor3Like otherColor, T result)
+            where T : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "addToRef" }, otherColor, result }
             );
         }
 
-        public Color3 subtract(Color3 otherColor)
+        public Color3 subtract(IColor3Like otherColor)
         {
             return EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
@@ -424,11 +715,44 @@ namespace BABYLON
             );
         }
 
-        public Color3 subtractToRef(Color3 otherColor, Color3 result)
+        public T subtractToRef<T>(IColor3Like otherColor, T result)
+            where T : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "subtractToRef" }, otherColor, result }
+            );
+        }
+
+        public Color3 subtractInPlace(IColor3Like otherColor)
         {
             return EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "subtractToRef" }, otherColor, result }
+                new object[] { new string[] { this.___guid, "subtractInPlace" }, otherColor }
+            );
+        }
+
+        public Color3 subtractFromFloats(decimal r, decimal g, decimal b)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Color3>(
+                entity => new Color3() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "subtractFromFloats" }, r, g, b }
+            );
+        }
+
+        public T subtractFromFloatsToRef<T>(decimal r, decimal g, decimal b, T result)
+            where T : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "subtractFromFloatsToRef" },
+                    r,
+                    g,
+                    b,
+                    result
+                }
             );
         }
 
@@ -440,7 +764,7 @@ namespace BABYLON
             );
         }
 
-        public Color3 copyFrom(Color3 source)
+        public Color3 copyFrom(IColor3Like source)
         {
             return EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
@@ -464,18 +788,18 @@ namespace BABYLON
             );
         }
 
+        public Color3 setAll(decimal v)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Color3>(
+                entity => new Color3() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "setAll" }, v }
+            );
+        }
+
         public string toHexString()
         {
             return EventHorizonBlazorInterop.Func<string>(
                 new object[] { new string[] { this.___guid, "toHexString" } }
-            );
-        }
-
-        public Color3 toLinearSpace()
-        {
-            return EventHorizonBlazorInterop.FuncClass<Color3>(
-                entity => new Color3() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "toLinearSpace" } }
             );
         }
 
@@ -487,34 +811,60 @@ namespace BABYLON
             );
         }
 
-        public void toHSVToRef(Color3 result)
+        public T toHSVToRef<T>(T result)
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "toHSVToRef" }, result }
             );
         }
 
-        public Color3 toLinearSpaceToRef(Color3 convertedColor)
+        public Color3 toLinearSpace(System.Nullable<bool> exact = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "toLinearSpaceToRef" }, convertedColor }
+                new object[] { new string[] { this.___guid, "toLinearSpace" }, exact }
             );
         }
 
-        public Color3 toGammaSpace()
+        public Color3 toLinearSpaceToRef(
+            IColor3Like convertedColor,
+            System.Nullable<bool> exact = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "toGammaSpace" } }
+                new object[]
+                {
+                    new string[] { this.___guid, "toLinearSpaceToRef" },
+                    convertedColor,
+                    exact
+                }
             );
         }
 
-        public Color3 toGammaSpaceToRef(Color3 convertedColor)
+        public Color3 toGammaSpace(System.Nullable<bool> exact = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Color3>(
                 entity => new Color3() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "toGammaSpaceToRef" }, convertedColor }
+                new object[] { new string[] { this.___guid, "toGammaSpace" }, exact }
+            );
+        }
+
+        public Color3 toGammaSpaceToRef(
+            IColor3Like convertedColor,
+            System.Nullable<bool> exact = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<Color3>(
+                entity => new Color3() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "toGammaSpaceToRef" },
+                    convertedColor,
+                    exact
+                }
             );
         }
         #endregion

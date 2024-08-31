@@ -55,31 +55,21 @@ namespace BABYLON
         public bool isCube
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isCube"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "isCube", value);
-            }
         }
 
         public bool is3D
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "is3D"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "is3D", value);
-            }
         }
 
         public bool is2DArray
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "is2DArray"); }
-            set
-            {
+        }
 
-                EventHorizonBlazorInterop.Set(this.___guid, "is2DArray", value);
-            }
+        public decimal samplingMode
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "samplingMode"); }
         }
         #endregion
 

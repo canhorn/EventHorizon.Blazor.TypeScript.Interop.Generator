@@ -103,6 +103,58 @@ namespace BABYLON
             }
         }
 
+        public decimal[] keysRotateLeft
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "keysRotateLeft");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "keysRotateLeft", value);
+            }
+        }
+
+        public decimal[] keysRotateRight
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "keysRotateRight");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "keysRotateRight", value);
+            }
+        }
+
+        public decimal[] keysRotateUp
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "keysRotateUp");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "keysRotateUp", value);
+            }
+        }
+
+        public decimal[] keysRotateDown
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "keysRotateDown");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "keysRotateDown", value);
+            }
+        }
+
         public decimal collisionMask
         {
             get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "collisionMask"); }
@@ -110,6 +162,16 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "collisionMask", value);
+            }
+        }
+
+        public bool needMoveForGravity
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "needMoveForGravity"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "needMoveForGravity", value);
             }
         }
         #endregion
@@ -221,7 +283,7 @@ namespace BABYLON
         public FreeCamera(
             string name,
             Vector3 position,
-            Scene scene,
+            Scene scene = null,
             System.Nullable<bool> setActiveOnSceneIfNoneActive = null
         )
             : base()
@@ -235,58 +297,37 @@ namespace BABYLON
             );
             ___guid = entity.___guid;
         }
+
+        public FreeCamera(string name, Scene scene = null, System.Nullable<bool> isPure = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "FreeCamera" },
+                name,
+                scene,
+                isPure
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods
-        #region onCollide TODO: Get Comments as metadata identification
-        private bool _isOnCollideEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _onCollideActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string onCollide(Func<Task> callback)
-        {
-            SetupOnCollideLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _onCollideActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool onCollide_Remove(string handle)
-        {
-            return _onCollideActionMap.Remove(handle);
-        }
-
-        private void SetupOnCollideLoop()
-        {
-            if (_isOnCollideEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "onCollide",
-                "CallOnCollideActions",
-                _invokableReference
-            );
-            _isOnCollideEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallOnCollideActions()
-        {
-            foreach (var action in _onCollideActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        public void attachControl(System.Nullable<bool> noPreventDefault = null)
+        public void onCollide(AbstractMesh collidedMesh)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "attachControl" }, noPreventDefault }
+                new object[] { new string[] { this.___guid, "onCollide" }, collidedMesh }
+            );
+        }
+
+        public void attachControl(object ignored, System.Nullable<bool> noPreventDefault = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "attachControl" },
+                    noPreventDefault,
+                    ignored
+                }
             );
         }
 

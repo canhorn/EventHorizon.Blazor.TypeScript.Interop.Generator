@@ -22,6 +22,26 @@ namespace BABYLON
         #endregion
 
         #region Static Methods
+        public static AnimationGroup MergeAnimationGroups(
+            AnimationGroup[] animationGroups,
+            System.Nullable<bool> disposeSource = null,
+            System.Nullable<bool> normalize = null,
+            System.Nullable<decimal> weight = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
+                entity => new AnimationGroup() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "AnimationGroup", "MergeAnimationGroups" },
+                    animationGroups,
+                    disposeSource,
+                    normalize,
+                    weight
+                }
+            );
+        }
+
         public static AnimationGroup Parse(object parsedAnimationGroup, Scene scene)
         {
             return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
@@ -37,10 +57,11 @@ namespace BABYLON
 
         public static AnimationGroup MakeAnimationAdditive(
             AnimationGroup sourceAnimationGroup,
-            System.Nullable<decimal> referenceFrame = null,
+            decimal referenceFrame,
             string range = null,
             System.Nullable<bool> cloneOriginal = null,
-            string clonedName = null
+            string clonedName = null,
+            IMakeAnimationGroupAdditiveOptions options = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
@@ -52,22 +73,163 @@ namespace BABYLON
                     referenceFrame,
                     range,
                     cloneOriginal,
-                    clonedName
+                    clonedName,
+                    options
+                }
+            );
+        }
+
+        public static AnimationGroup ClipKeys(
+            AnimationGroup sourceAnimationGroup,
+            decimal fromKey,
+            decimal toKey,
+            string name = null,
+            System.Nullable<bool> dontCloneAnimations = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
+                entity => new AnimationGroup() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "AnimationGroup", "ClipKeys" },
+                    sourceAnimationGroup,
+                    fromKey,
+                    toKey,
+                    name,
+                    dontCloneAnimations
+                }
+            );
+        }
+
+        public static AnimationGroup ClipKeysInPlace(
+            AnimationGroup animationGroup,
+            decimal fromKey,
+            decimal toKey,
+            System.Nullable<bool> dontCloneAnimations = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
+                entity => new AnimationGroup() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "AnimationGroup", "ClipKeysInPlace" },
+                    animationGroup,
+                    fromKey,
+                    toKey,
+                    dontCloneAnimations
+                }
+            );
+        }
+
+        public static AnimationGroup ClipFrames(
+            AnimationGroup sourceAnimationGroup,
+            decimal fromFrame,
+            decimal toFrame,
+            string name = null,
+            System.Nullable<bool> dontCloneAnimations = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
+                entity => new AnimationGroup() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "AnimationGroup", "ClipFrames" },
+                    sourceAnimationGroup,
+                    fromFrame,
+                    toFrame,
+                    name,
+                    dontCloneAnimations
+                }
+            );
+        }
+
+        public static AnimationGroup ClipFramesInPlace(
+            AnimationGroup animationGroup,
+            decimal fromFrame,
+            decimal toFrame,
+            System.Nullable<bool> dontCloneAnimations = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
+                entity => new AnimationGroup() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "AnimationGroup", "ClipFramesInPlace" },
+                    animationGroup,
+                    fromFrame,
+                    toFrame,
+                    dontCloneAnimations
+                }
+            );
+        }
+
+        public static AnimationGroup ClipInPlace(
+            AnimationGroup animationGroup,
+            decimal start,
+            decimal end,
+            System.Nullable<bool> dontCloneAnimations = null,
+            System.Nullable<bool> useFrame = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
+                entity => new AnimationGroup() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "AnimationGroup", "ClipInPlace" },
+                    animationGroup,
+                    start,
+                    end,
+                    dontCloneAnimations,
+                    useFrame
                 }
             );
         }
         #endregion
 
         #region Accessors
+        private AnimationGroupMask __mask;
+        public AnimationGroupMask mask
+        {
+            get
+            {
+                if (__mask == null)
+                {
+                    __mask = EventHorizonBlazorInterop.GetClass<AnimationGroupMask>(
+                        this.___guid,
+                        "mask",
+                        (entity) =>
+                        {
+                            return new AnimationGroupMask() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __mask;
+            }
+            set
+            {
+                __mask = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "mask", value);
+            }
+        }
 
         public decimal from
         {
             get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "from"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "from", value);
+            }
         }
 
         public decimal to
         {
             get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "to"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "to", value);
+            }
         }
 
         public bool isStarted
@@ -107,6 +269,16 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "isAdditive", value);
+            }
+        }
+
+        public decimal weight
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "weight"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "weight", value);
             }
         }
 
@@ -152,6 +324,36 @@ namespace BABYLON
                         return new TargetedAnimation() { ___guid = entity.___guid };
                     }
                 );
+            }
+        }
+
+        public decimal playOrder
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "playOrder"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "playOrder", value);
+            }
+        }
+
+        public bool enableBlending
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "enableBlending"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "enableBlending", value);
+            }
+        }
+
+        public decimal blendingSpeed
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "blendingSpeed"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "blendingSpeed", value);
             }
         }
         #endregion
@@ -351,6 +553,26 @@ namespace BABYLON
                 );
             }
         }
+
+        public CachedEntity metadata
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                    this.___guid,
+                    "metadata",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "metadata", value);
+            }
+        }
         #endregion
 
         #region Constructor
@@ -360,19 +582,50 @@ namespace BABYLON
         public AnimationGroup(ICachedEntity entity)
             : base(entity) { }
 
-        public AnimationGroup(string name, Scene scene = null)
+        public AnimationGroup(
+            string name,
+            Scene scene = null,
+            System.Nullable<decimal> weight = null,
+            System.Nullable<decimal> playOrder = null
+        )
             : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "AnimationGroup" },
                 name,
-                scene
+                scene,
+                weight,
+                playOrder
             );
             ___guid = entity.___guid;
         }
         #endregion
 
         #region Methods
+        public void syncWithMask(System.Nullable<bool> forceUpdate = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "syncWithMask" }, forceUpdate }
+            );
+        }
+
+        public void removeUnmaskedAnimations()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "removeUnmaskedAnimations" } }
+            );
+        }
+
+        public decimal getLength(
+            System.Nullable<decimal> from = null,
+            System.Nullable<decimal> to = null
+        )
+        {
+            return EventHorizonBlazorInterop.Func<decimal>(
+                new object[] { new string[] { this.___guid, "getLength" }, from, to }
+            );
+        }
+
         public TargetedAnimation addTargetedAnimation(Animation animation, object target)
         {
             return EventHorizonBlazorInterop.FuncClass<TargetedAnimation>(
@@ -383,6 +636,13 @@ namespace BABYLON
                     animation,
                     target
                 }
+            );
+        }
+
+        public void removeTargetedAnimation(Animation animation)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "removeTargetedAnimation" }, animation }
             );
         }
 
@@ -492,12 +752,19 @@ namespace BABYLON
 
         public AnimationGroup clone(
             string newName,
-            ActionResultCallback<object, CachedEntity> targetConverter = null
+            ActionResultCallback<object, CachedEntity> targetConverter = null,
+            System.Nullable<bool> cloneAnimations = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<AnimationGroup>(
                 entity => new AnimationGroup() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "clone" }, newName, targetConverter }
+                new object[]
+                {
+                    new string[] { this.___guid, "clone" },
+                    newName,
+                    targetConverter,
+                    cloneAnimations
+                }
             );
         }
 

@@ -12,7 +12,6 @@ namespace BABYLON
 
     [JsonConverter(typeof(CachedEntityConverter<Observer<CachedEntity>>))]
     public class Observer<T> : CachedEntityObject
-        where T : CachedEntity, new()
     {
         #region Static Accessors
 
@@ -99,50 +98,19 @@ namespace BABYLON
         #endregion
 
         #region Methods
-        #region callback TODO: Get Comments as metadata identification
-        private bool _isCallbackEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _callbackActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string callback(Func<Task> callback)
+        public void callback(T eventData, EventState eventState)
         {
-            SetupCallbackLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _callbackActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool callback_Remove(string handle)
-        {
-            return _callbackActionMap.Remove(handle);
-        }
-
-        private void SetupCallbackLoop()
-        {
-            if (_isCallbackEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "callback",
-                "CallCallbackActions",
-                _invokableReference
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "callback" }, eventData, eventState }
             );
-            _isCallbackEnabled = true;
         }
 
-        [JSInvokable]
-        public async Task CallCallbackActions()
+        public void remove()
         {
-            foreach (var action in _callbackActionMap.Values)
-            {
-                await action();
-            }
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "remove" } }
+            );
         }
-        #endregion
         #endregion
     }
 }

@@ -72,7 +72,19 @@ namespace BABYLON
         #endregion
 
         #region Methods
+        public void addPendingData(object data)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "addPendingData" }, data }
+            );
+        }
 
+        public void removePendingData(object data)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "removePendingData" }, data }
+            );
+        }
         #endregion
     }
 }

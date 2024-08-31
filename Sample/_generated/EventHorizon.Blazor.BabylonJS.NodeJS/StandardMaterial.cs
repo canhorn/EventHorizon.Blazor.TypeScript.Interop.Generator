@@ -302,6 +302,11 @@ namespace BABYLON
             }
         }
 
+        public bool isPrePassCapable
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isPrePassCapable"); }
+        }
+
         public bool cameraColorCurvesEnabled
         {
             get
@@ -430,16 +435,6 @@ namespace BABYLON
             get
             {
                 return EventHorizonBlazorInterop.Get<bool>(this.___guid, "hasRenderTargetTextures");
-            }
-        }
-
-        public bool useLogarithmicDepth
-        {
-            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "useLogarithmicDepth"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "useLogarithmicDepth", value);
             }
         }
         #endregion
@@ -1182,6 +1177,22 @@ namespace BABYLON
             }
         }
 
+        public bool applyDecalMapAfterDetailMap
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "applyDecalMapAfterDetailMap"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "applyDecalMapAfterDetailMap", value);
+            }
+        }
+
         private PrePassConfiguration __prePassConfiguration;
         public PrePassConfiguration prePassConfiguration
         {
@@ -1231,13 +1242,29 @@ namespace BABYLON
         public StandardMaterial(ICachedEntity entity)
             : base(entity) { }
 
-        public StandardMaterial(string name, Scene scene)
+        public StandardMaterial(string name, Scene scene = null)
             : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "StandardMaterial" },
                 name,
                 scene
+            );
+            ___guid = entity.___guid;
+        }
+
+        public StandardMaterial(
+            string name,
+            Scene scene = null,
+            System.Nullable<bool> storeEffectOnSubMeshes = null
+        )
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "StandardMaterial" },
+                name,
+                scene,
+                storeEffectOnSubMeshes
             );
             ___guid = entity.___guid;
         }
@@ -1297,13 +1324,6 @@ namespace BABYLON
             );
         }
 
-        public void unbind()
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "unbind" } }
-            );
-        }
-
         public void bindForSubMesh(Matrix world, Mesh mesh, SubMesh subMesh)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -1355,18 +1375,21 @@ namespace BABYLON
             );
         }
 
-        public StandardMaterial clone(string name)
+        public StandardMaterial clone(
+            string name,
+            System.Nullable<bool> cloneTexturesOnlyOnce = null,
+            string rootUrl = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<StandardMaterial>(
                 entity => new StandardMaterial() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "clone" }, name }
-            );
-        }
-
-        public CachedEntity serialize()
-        {
-            return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "serialize" } }
+                new object[]
+                {
+                    new string[] { this.___guid, "clone" },
+                    name,
+                    cloneTexturesOnlyOnce,
+                    rootUrl
+                }
             );
         }
         #endregion

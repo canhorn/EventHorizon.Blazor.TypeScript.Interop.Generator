@@ -115,7 +115,7 @@ namespace BABYLON
             ___guid = entity.___guid;
         }
 
-        public Analyser(Scene scene)
+        public Analyser(Scene scene = null)
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Analyser" },

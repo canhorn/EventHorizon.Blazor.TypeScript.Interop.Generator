@@ -543,6 +543,16 @@ namespace BABYLON
             }
         }
 
+        public bool spriteCellLoop
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "spriteCellLoop"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "spriteCellLoop", value);
+            }
+        }
+
         public decimal spriteCellWidth
         {
             get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "spriteCellWidth"); }
@@ -674,6 +684,16 @@ namespace BABYLON
             }
         }
 
+        public bool useLogarithmicDepth
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "useLogarithmicDepth"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "useLogarithmicDepth", value);
+            }
+        }
+
         public decimal limitVelocityDamping
         {
             get
@@ -743,6 +763,16 @@ namespace BABYLON
             }
         }
 
+        public decimal manualEmitCount
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "manualEmitCount"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "manualEmitCount", value);
+            }
+        }
+
         public bool isLocal
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isLocal"); }
@@ -785,6 +815,16 @@ namespace BABYLON
             {
                 __defaultProjectionMatrix = null;
                 EventHorizonBlazorInterop.Set(this.___guid, "defaultProjectionMatrix", value);
+            }
+        }
+
+        public bool updateInAnimate
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "updateInAnimate"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "updateInAnimate", value);
             }
         }
 
@@ -889,6 +929,56 @@ namespace BABYLON
             }
         }
 
+        private Immutable<T> __vertexBuffers;
+        public Immutable<T> vertexBuffers
+        {
+            get
+            {
+                if (__vertexBuffers == null)
+                {
+                    __vertexBuffers = EventHorizonBlazorInterop.GetClass<Immutable<T>>(
+                        this.___guid,
+                        "vertexBuffers",
+                        (entity) =>
+                        {
+                            return new Immutable<T>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __vertexBuffers;
+            }
+            set
+            {
+                __vertexBuffers = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "vertexBuffers", value);
+            }
+        }
+
+        private DataBuffer __indexBuffer;
+        public DataBuffer indexBuffer
+        {
+            get
+            {
+                if (__indexBuffer == null)
+                {
+                    __indexBuffer = EventHorizonBlazorInterop.GetClass<DataBuffer>(
+                        this.___guid,
+                        "indexBuffer",
+                        (entity) =>
+                        {
+                            return new DataBuffer() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __indexBuffer;
+            }
+            set
+            {
+                __indexBuffer = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "indexBuffer", value);
+            }
+        }
+
         public bool useRampGradients
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "useRampGradients"); }
@@ -945,10 +1035,20 @@ namespace BABYLON
             );
         }
 
-        public void dispose(System.Nullable<bool> disposeTexture = null)
+        public void dispose(
+            System.Nullable<bool> disposeTexture = null,
+            System.Nullable<bool> disposeAttachedSubEmitters = null,
+            System.Nullable<bool> disposeEndSubEmitters = null
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "dispose" }, disposeTexture }
+                new object[]
+                {
+                    new string[] { this.___guid, "dispose" },
+                    disposeTexture,
+                    disposeAttachedSubEmitters,
+                    disposeEndSubEmitters
+                }
             );
         }
 
@@ -1038,10 +1138,20 @@ namespace BABYLON
             );
         }
 
-        public void fillDefines(string[] defines, decimal blendMode)
+        public void fillDefines(
+            string[] defines,
+            decimal blendMode,
+            System.Nullable<bool> fillImageProcessing = null
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "fillDefines" }, defines, blendMode }
+                new object[]
+                {
+                    new string[] { this.___guid, "fillDefines" },
+                    defines,
+                    blendMode,
+                    fillImageProcessing
+                }
             );
         }
 
@@ -1524,7 +1634,7 @@ namespace BABYLON
             );
         }
 
-        public SphereDirectedParticleEmitter createDirectedCylinderEmitter(
+        public CylinderDirectedParticleEmitter createDirectedCylinderEmitter(
             decimal radius,
             decimal height,
             decimal radiusRange,
@@ -1532,8 +1642,8 @@ namespace BABYLON
             Vector3 direction2
         )
         {
-            return EventHorizonBlazorInterop.FuncClass<SphereDirectedParticleEmitter>(
-                entity => new SphereDirectedParticleEmitter() { ___guid = entity.___guid },
+            return EventHorizonBlazorInterop.FuncClass<CylinderDirectedParticleEmitter>(
+                entity => new CylinderDirectedParticleEmitter() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "createDirectedCylinderEmitter" },
@@ -1551,6 +1661,26 @@ namespace BABYLON
             return EventHorizonBlazorInterop.FuncClass<ConeParticleEmitter>(
                 entity => new ConeParticleEmitter() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "createConeEmitter" }, radius, angle }
+            );
+        }
+
+        public ConeDirectedParticleEmitter createDirectedConeEmitter(
+            decimal radius,
+            decimal angle,
+            Vector3 direction1,
+            Vector3 direction2
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<ConeDirectedParticleEmitter>(
+                entity => new ConeDirectedParticleEmitter() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "createDirectedConeEmitter" },
+                    radius,
+                    angle,
+                    direction1,
+                    direction2
+                }
             );
         }
 

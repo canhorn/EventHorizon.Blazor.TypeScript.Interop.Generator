@@ -60,6 +60,16 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set(this.___guid, "standalone", value);
             }
         }
+
+        public bool doNotInjectCode
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "doNotInjectCode"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "doNotInjectCode", value);
+            }
+        }
         #endregion
 
         #region Constructor

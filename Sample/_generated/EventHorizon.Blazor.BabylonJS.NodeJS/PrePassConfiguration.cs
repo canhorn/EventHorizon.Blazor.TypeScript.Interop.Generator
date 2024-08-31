@@ -96,6 +96,31 @@ namespace BABYLON
             }
         }
 
+        private Matrix __currentViewProjection;
+        public Matrix currentViewProjection
+        {
+            get
+            {
+                if (__currentViewProjection == null)
+                {
+                    __currentViewProjection = EventHorizonBlazorInterop.GetClass<Matrix>(
+                        this.___guid,
+                        "currentViewProjection",
+                        (entity) =>
+                        {
+                            return new Matrix() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __currentViewProjection;
+            }
+            set
+            {
+                __currentViewProjection = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "currentViewProjection", value);
+            }
+        }
+
         public CachedEntity previousBones
         {
             get

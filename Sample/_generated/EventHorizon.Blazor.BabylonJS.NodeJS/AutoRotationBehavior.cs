@@ -92,6 +92,15 @@ namespace BABYLON
 
         #region Properties
 
+        public decimal targetAlpha
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "targetAlpha"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "targetAlpha", value);
+            }
+        }
         #endregion
 
         #region Constructor
@@ -122,6 +131,17 @@ namespace BABYLON
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "detach" } }
+            );
+        }
+
+        public void resetLastInteractionTime(System.Nullable<decimal> customTime = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "resetLastInteractionTime" },
+                    customTime
+                }
             );
         }
         #endregion

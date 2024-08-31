@@ -184,7 +184,7 @@ namespace BABYLON
 
         public Geometry(
             string id,
-            Scene scene,
+            Scene scene = null,
             VertexData vertexData = null,
             System.Nullable<bool> updatable = null,
             Mesh mesh = null
@@ -204,50 +204,12 @@ namespace BABYLON
         #endregion
 
         #region Methods
-        #region onGeometryUpdated TODO: Get Comments as metadata identification
-        private bool _isOnGeometryUpdatedEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _onGeometryUpdatedActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string onGeometryUpdated(Func<Task> callback)
+        public void onGeometryUpdated(Geometry geometry, string kind = null)
         {
-            SetupOnGeometryUpdatedLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _onGeometryUpdatedActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool onGeometryUpdated_Remove(string handle)
-        {
-            return _onGeometryUpdatedActionMap.Remove(handle);
-        }
-
-        private void SetupOnGeometryUpdatedLoop()
-        {
-            if (_isOnGeometryUpdatedEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "onGeometryUpdated",
-                "CallOnGeometryUpdatedActions",
-                _invokableReference
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "onGeometryUpdated" }, geometry, kind }
             );
-            _isOnGeometryUpdatedEnabled = true;
         }
-
-        [JSInvokable]
-        public async Task CallOnGeometryUpdatedActions()
-        {
-            foreach (var action in _onGeometryUpdatedActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
 
         public Scene getScene()
         {
@@ -257,10 +219,10 @@ namespace BABYLON
             );
         }
 
-        public Engine getEngine()
+        public AbstractEngine getEngine()
         {
-            return EventHorizonBlazorInterop.FuncClass<Engine>(
-                entity => new Engine() { ___guid = entity.___guid },
+            return EventHorizonBlazorInterop.FuncClass<AbstractEngine>(
+                entity => new AbstractEngine() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "getEngine" } }
             );
         }
@@ -315,7 +277,8 @@ namespace BABYLON
 
         public void setVerticesBuffer(
             VertexBuffer buffer,
-            System.Nullable<decimal> totalVertices = null
+            System.Nullable<decimal> totalVertices = null,
+            System.Nullable<bool> disposeExistingBuffer = null
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -323,7 +286,8 @@ namespace BABYLON
                 {
                     new string[] { this.___guid, "setVerticesBuffer" },
                     buffer,
-                    totalVertices
+                    totalVertices,
+                    disposeExistingBuffer
                 }
             );
         }
@@ -388,6 +352,13 @@ namespace BABYLON
             );
         }
 
+        public void copyVerticesData(string kind, object vertexData)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "copyVerticesData" }, kind, vertexData }
+            );
+        }
+
         public bool isVertexBufferUpdatable(string kind)
         {
             return EventHorizonBlazorInterop.Func<bool>(
@@ -437,6 +408,23 @@ namespace BABYLON
                     indices,
                     offset,
                     gpuMemoryOnly
+                }
+            );
+        }
+
+        public void setIndexBuffer(
+            DataBuffer indexBuffer,
+            decimal totalVertices,
+            decimal totalIndices
+        )
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "setIndexBuffer" },
+                    indexBuffer,
+                    totalVertices,
+                    totalIndices
                 }
             );
         }
@@ -547,6 +535,13 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "serialize" } }
+            );
+        }
+
+        public void clearCachedData()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "clearCachedData" } }
             );
         }
 

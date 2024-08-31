@@ -68,7 +68,7 @@ namespace BABYLON
         public TouchCamera(ICachedEntity entity)
             : base(entity) { }
 
-        public TouchCamera(string name, Vector3 position, Scene scene)
+        public TouchCamera(string name, Vector3 position, Scene scene = null)
             : base()
         {
             var entity = EventHorizonBlazorInterop.New(
@@ -76,6 +76,36 @@ namespace BABYLON
                 name,
                 position,
                 scene
+            );
+            ___guid = entity.___guid;
+        }
+
+        public TouchCamera(
+            string name,
+            Vector3 position,
+            Scene scene = null,
+            System.Nullable<bool> setActiveOnSceneIfNoneActive = null
+        )
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "TouchCamera" },
+                name,
+                position,
+                scene,
+                setActiveOnSceneIfNoneActive
+            );
+            ___guid = entity.___guid;
+        }
+
+        public TouchCamera(string name, Scene scene = null, System.Nullable<bool> isPure = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "TouchCamera" },
+                name,
+                scene,
+                isPure
             );
             ___guid = entity.___guid;
         }

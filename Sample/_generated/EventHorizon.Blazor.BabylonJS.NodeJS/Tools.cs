@@ -25,6 +25,48 @@ namespace BABYLON
             }
         }
 
+        public static ActionResultCallback<string, string> CleanUrl
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<ActionResultCallback<string, string>>(
+                    "BABYLON",
+                    "Tools.CleanUrl"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set("BABYLON", "Tools.CleanUrl", value);
+            }
+        }
+
+        public static string ScriptBaseUrl
+        {
+            get { return EventHorizonBlazorInterop.Get<string>("BABYLON", "Tools.ScriptBaseUrl"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set("BABYLON", "Tools.ScriptBaseUrl", value);
+            }
+        }
+
+        public static ActionResultCallback<string, string> ScriptPreprocessUrl
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<ActionResultCallback<string, string>>(
+                    "BABYLON",
+                    "Tools.ScriptPreprocessUrl"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set("BABYLON", "Tools.ScriptPreprocessUrl", value);
+            }
+        }
+
         public static ActionResultCallback<
             string,
             WebRequest,
@@ -167,27 +209,15 @@ namespace BABYLON
             }
         }
 
-        private static GetDOMTextContent __GetDOMTextContent;
-        public static GetDOMTextContent GetDOMTextContent
+        public static string GetDOMTextContent
         {
             get
             {
-                if (__GetDOMTextContent == null)
-                {
-                    __GetDOMTextContent = EventHorizonBlazorInterop.GetClass<GetDOMTextContent>(
-                        "BABYLON",
-                        "Tools.GetDOMTextContent",
-                        (entity) =>
-                        {
-                            return new GetDOMTextContent() { ___guid = entity.___guid };
-                        }
-                    );
-                }
-                return __GetDOMTextContent;
+                return EventHorizonBlazorInterop.Get<string>("BABYLON", "Tools.GetDOMTextContent");
             }
             set
             {
-                __GetDOMTextContent = null;
+
                 EventHorizonBlazorInterop.Set("BABYLON", "Tools.GetDOMTextContent", value);
             }
         }
@@ -223,27 +253,15 @@ namespace BABYLON
             get { return EventHorizonBlazorInterop.Get<decimal>("BABYLON", "Tools.AllLogLevel"); }
         }
 
-        private static IsWindowObjectExist __IsWindowObjectExist;
-        public static IsWindowObjectExist IsWindowObjectExist
+        public static bool IsWindowObjectExist
         {
             get
             {
-                if (__IsWindowObjectExist == null)
-                {
-                    __IsWindowObjectExist = EventHorizonBlazorInterop.GetClass<IsWindowObjectExist>(
-                        "BABYLON",
-                        "Tools.IsWindowObjectExist",
-                        (entity) =>
-                        {
-                            return new IsWindowObjectExist() { ___guid = entity.___guid };
-                        }
-                    );
-                }
-                return __IsWindowObjectExist;
+                return EventHorizonBlazorInterop.Get<bool>("BABYLON", "Tools.IsWindowObjectExist");
             }
             set
             {
-                __IsWindowObjectExist = null;
+
                 EventHorizonBlazorInterop.Set("BABYLON", "Tools.IsWindowObjectExist", value);
             }
         }
@@ -283,6 +301,13 @@ namespace BABYLON
         #endregion
 
         #region Static Methods
+        public static bool IsAbsoluteUrl(string url)
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { "BABYLON", "Tools", "IsAbsoluteUrl" }, url }
+            );
+        }
+
         public static void FetchToRef(
             decimal u,
             decimal v,
@@ -317,39 +342,6 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { "BABYLON", "Tools", "Instantiate" }, className }
-            );
-        }
-
-        public static T Slice<T>(
-            T data,
-            System.Nullable<decimal> start = null,
-            System.Nullable<decimal> end = null
-        )
-            where T : CachedEntity, new()
-        {
-            return EventHorizonBlazorInterop.FuncClass<T>(
-                entity => new T() { ___guid = entity.___guid },
-                new object[] { new string[] { "BABYLON", "Tools", "Slice" }, data, start, end }
-            );
-        }
-
-        public static P[] SliceToArray<T, P>(
-            T data,
-            System.Nullable<decimal> start = null,
-            System.Nullable<decimal> end = null
-        )
-            where T : CachedEntity, new()
-            where P : CachedEntity, new()
-        {
-            return EventHorizonBlazorInterop.FuncArrayClass<P>(
-                entity => new P() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { "BABYLON", "Tools", "SliceToArray" },
-                    data,
-                    start,
-                    end
-                }
             );
         }
 
@@ -410,6 +402,23 @@ namespace BABYLON
             );
         }
 
+        public static decimal SmoothAngleChange(
+            decimal previousAngle,
+            decimal newAngle,
+            System.Nullable<decimal> smoothFactor = null
+        )
+        {
+            return EventHorizonBlazorInterop.Func<decimal>(
+                new object[]
+                {
+                    new string[] { "BABYLON", "Tools", "SmoothAngleChange" },
+                    previousAngle,
+                    newAngle,
+                    smoothFactor
+                }
+            );
+        }
+
         public static CachedEntity[] MakeArray(
             object obj,
             System.Nullable<bool> allowsNullUndefined = null
@@ -425,14 +434,14 @@ namespace BABYLON
             );
         }
 
-        public static string GetPointerPrefix(Engine engine)
+        public static string GetPointerPrefix(AbstractEngine engine)
         {
             return EventHorizonBlazorInterop.Func<string>(
                 new object[] { new string[] { "BABYLON", "Tools", "GetPointerPrefix" }, engine }
             );
         }
 
-        public static void SetCorsBehavior(string url, object element)
+        public static void SetCorsBehavior(string url, string element)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
@@ -444,10 +453,15 @@ namespace BABYLON
             );
         }
 
-        public static string CleanUrl(string url)
+        public static void SetReferrerPolicyBehavior(ReferrerPolicy referrerPolicy, string element)
         {
-            return EventHorizonBlazorInterop.Func<string>(
-                new object[] { new string[] { "BABYLON", "Tools", "CleanUrl" }, url }
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { "BABYLON", "Tools", "SetReferrerPolicyBehavior" },
+                    referrerPolicy,
+                    element
+                }
             );
         }
 
@@ -456,7 +470,8 @@ namespace BABYLON
             HTMLImageElement onLoad,
             ActionCallback<string, object> onError,
             IOfflineProvider offlineProvider,
-            string mimeType = null
+            string mimeType = null,
+            ImageBitmapOptions imageBitmapOptions = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<HTMLImageElement>(
@@ -468,7 +483,8 @@ namespace BABYLON
                     onLoad,
                     onError,
                     offlineProvider,
-                    mimeType
+                    mimeType,
+                    imageBitmapOptions
                 }
             );
         }
@@ -497,10 +513,7 @@ namespace BABYLON
             );
         }
 
-        public static ValueTask<ArrayBuffer> LoadFileAsync(
-            string url,
-            System.Nullable<bool> useArrayBuffer = null
-        )
+        public static ValueTask<ArrayBuffer> LoadFileAsync(string url, object useArrayBuffer = null)
         {
             return EventHorizonBlazorInterop.TaskClass<ArrayBuffer>(
                 entity => new ArrayBuffer() { ___guid = entity.___guid },
@@ -509,6 +522,51 @@ namespace BABYLON
                     new string[] { "BABYLON", "Tools", "LoadFileAsync" },
                     url,
                     useArrayBuffer
+                }
+            );
+        }
+
+        public static string GetBabylonScriptURL(
+            string scriptUrl = null,
+            System.Nullable<bool> forceAbsoluteUrl = null
+        )
+        {
+            return EventHorizonBlazorInterop.Func<string>(
+                new object[]
+                {
+                    new string[] { "BABYLON", "Tools", "GetBabylonScriptURL" },
+                    scriptUrl,
+                    forceAbsoluteUrl
+                }
+            );
+        }
+
+        public static void LoadBabylonScript(
+            string scriptUrl,
+            ActionCallback onSuccess,
+            ActionCallback<string, object> onError = null,
+            string scriptId = null
+        )
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { "BABYLON", "Tools", "LoadBabylonScript" },
+                    scriptUrl,
+                    onSuccess,
+                    onError,
+                    scriptId
+                }
+            );
+        }
+
+        public static async ValueTask LoadBabylonScriptAsync(string scriptUrl)
+        {
+            await EventHorizonBlazorInterop.Task<Void_>(
+                new object[]
+                {
+                    new string[] { "BABYLON", "Tools", "LoadBabylonScriptAsync" },
+                    scriptUrl
                 }
             );
         }
@@ -648,16 +706,17 @@ namespace BABYLON
             );
         }
 
-        public static void DumpFramebuffer(
+        public static async ValueTask DumpFramebuffer(
             decimal width,
             decimal height,
-            Engine engine,
+            AbstractEngine engine,
             ActionCallback<string> successCallback = null,
             string mimeType = null,
-            string fileName = null
+            string fileName = null,
+            System.Nullable<decimal> quality = null
         )
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            await EventHorizonBlazorInterop.Task<Void_>(
                 new object[]
                 {
                     new string[] { "BABYLON", "Tools", "DumpFramebuffer" },
@@ -666,7 +725,64 @@ namespace BABYLON
                     engine,
                     successCallback,
                     mimeType,
-                    fileName
+                    fileName,
+                    quality
+                }
+            );
+        }
+
+        public static void DumpData(
+            decimal width,
+            decimal height,
+            ArrayBufferView data,
+            string successCallback = null,
+            string mimeType = null,
+            string fileName = null,
+            System.Nullable<bool> invertY = null,
+            System.Nullable<bool> toArrayBuffer = null,
+            System.Nullable<decimal> quality = null
+        )
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { "BABYLON", "Tools", "DumpData" },
+                    width,
+                    height,
+                    data,
+                    successCallback,
+                    mimeType,
+                    fileName,
+                    invertY,
+                    toArrayBuffer,
+                    quality
+                }
+            );
+        }
+
+        public static ValueTask<string> DumpDataAsync(
+            decimal width,
+            decimal height,
+            ArrayBufferView data,
+            string mimeType = null,
+            string fileName = null,
+            System.Nullable<bool> invertY = null,
+            System.Nullable<bool> toArrayBuffer = null,
+            System.Nullable<decimal> quality = null
+        )
+        {
+            return EventHorizonBlazorInterop.Task<string>(
+                new object[]
+                {
+                    new string[] { "BABYLON", "Tools", "DumpDataAsync" },
+                    width,
+                    height,
+                    data,
+                    mimeType,
+                    fileName,
+                    invertY,
+                    toArrayBuffer,
+                    quality
                 }
             );
         }
@@ -674,7 +790,8 @@ namespace BABYLON
         public static void ToBlob(
             HTMLCanvasElement canvas,
             ActionCallback<Blob> successCallback,
-            string mimeType = null
+            string mimeType = null,
+            System.Nullable<decimal> quality = null
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -683,24 +800,36 @@ namespace BABYLON
                     new string[] { "BABYLON", "Tools", "ToBlob" },
                     canvas,
                     successCallback,
-                    mimeType
+                    mimeType,
+                    quality
                 }
             );
         }
 
+        public static void DownloadBlob(Blob blob, string fileName = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { "BABYLON", "Tools", "DownloadBlob" }, blob, fileName }
+            );
+        }
+
         public static void EncodeScreenshotCanvasData(
+            HTMLCanvasElement canvas,
             ActionCallback<string> successCallback = null,
             string mimeType = null,
-            string fileName = null
+            string fileName = null,
+            System.Nullable<decimal> quality = null
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
                     new string[] { "BABYLON", "Tools", "EncodeScreenshotCanvasData" },
+                    canvas,
                     successCallback,
                     mimeType,
-                    fileName
+                    fileName,
+                    quality
                 }
             );
         }
@@ -724,11 +853,13 @@ namespace BABYLON
         }
 
         public static void CreateScreenshot(
-            Engine engine,
+            AbstractEngine engine,
             Camera camera,
             IScreenshotSize size,
             ActionCallback<string> successCallback = null,
-            string mimeType = null
+            string mimeType = null,
+            System.Nullable<bool> forceDownload = null,
+            System.Nullable<decimal> quality = null
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -739,16 +870,19 @@ namespace BABYLON
                     camera,
                     size,
                     successCallback,
-                    mimeType
+                    mimeType,
+                    forceDownload,
+                    quality
                 }
             );
         }
 
         public static ValueTask<string> CreateScreenshotAsync(
-            Engine engine,
+            AbstractEngine engine,
             Camera camera,
             IScreenshotSize size,
-            string mimeType = null
+            string mimeType = null,
+            System.Nullable<decimal> quality = null
         )
         {
             return EventHorizonBlazorInterop.Task<string>(
@@ -758,20 +892,25 @@ namespace BABYLON
                     engine,
                     camera,
                     size,
-                    mimeType
+                    mimeType,
+                    quality
                 }
             );
         }
 
         public static void CreateScreenshotUsingRenderTarget(
-            Engine engine,
+            AbstractEngine engine,
             Camera camera,
             IScreenshotSize size,
             ActionCallback<string> successCallback = null,
             string mimeType = null,
             System.Nullable<decimal> samples = null,
             System.Nullable<bool> antialiasing = null,
-            string fileName = null
+            string fileName = null,
+            System.Nullable<bool> renderSprites = null,
+            System.Nullable<bool> enableStencilBuffer = null,
+            System.Nullable<bool> useLayerMask = null,
+            System.Nullable<decimal> quality = null
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -785,19 +924,27 @@ namespace BABYLON
                     mimeType,
                     samples,
                     antialiasing,
-                    fileName
+                    fileName,
+                    renderSprites,
+                    enableStencilBuffer,
+                    useLayerMask,
+                    quality
                 }
             );
         }
 
         public static ValueTask<string> CreateScreenshotUsingRenderTargetAsync(
-            Engine engine,
+            AbstractEngine engine,
             Camera camera,
             IScreenshotSize size,
             string mimeType = null,
             System.Nullable<decimal> samples = null,
             System.Nullable<bool> antialiasing = null,
-            string fileName = null
+            string fileName = null,
+            System.Nullable<bool> renderSprites = null,
+            System.Nullable<bool> enableStencilBuffer = null,
+            System.Nullable<bool> useLayerMask = null,
+            System.Nullable<decimal> quality = null
         )
         {
             return EventHorizonBlazorInterop.Task<string>(
@@ -810,7 +957,11 @@ namespace BABYLON
                     mimeType,
                     samples,
                     antialiasing,
-                    fileName
+                    fileName,
+                    renderSprites,
+                    enableStencilBuffer,
+                    useLayerMask,
+                    quality
                 }
             );
         }
@@ -844,49 +995,12 @@ namespace BABYLON
             );
         }
 
-        #region OnNewCacheEntry TODO: Get Comments as metadata identification
-        private static bool IsOnNewCacheEntryEnabled = false;
-        private static readonly IDictionary<string, Func<Task>> OnNewCacheEntryActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public static string OnNewCacheEntry(Func<Task> callback)
+        public static void OnNewCacheEntry(string entry)
         {
-            SetupOnNewCacheEntryStaticLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            OnNewCacheEntryActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public static bool OnNewCacheEntry_Remove(string handle)
-        {
-            return OnNewCacheEntryActionMap.Remove(handle);
-        }
-
-        private static void SetupOnNewCacheEntryStaticLoop()
-        {
-            if (IsOnNewCacheEntryEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.AssemblyFuncCallback(
-                "EventHorizon.Blazor.BabylonJS.NodeJS",
-                "BABYLON.Tools.OnNewCacheEntry",
-                "CallOnNewCacheEntryStaticActions"
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { "BABYLON", "Tools", "OnNewCacheEntry" }, entry }
             );
-            IsOnNewCacheEntryEnabled = true;
         }
-
-        [JSInvokable]
-        public static async Task CallOnNewCacheEntryStaticActions()
-        {
-            foreach (var action in OnNewCacheEntryActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
 
         public static void Log(string message)
         {
@@ -916,93 +1030,35 @@ namespace BABYLON
             );
         }
 
-        #region StartPerformanceCounter TODO: Get Comments as metadata identification
-        private static bool IsStartPerformanceCounterEnabled = false;
-        private static readonly IDictionary<string, Func<Task>> StartPerformanceCounterActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public static string StartPerformanceCounter(Func<Task> callback)
+        public static void StartPerformanceCounter(
+            string counterName,
+            System.Nullable<bool> condition = null
+        )
         {
-            SetupStartPerformanceCounterStaticLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            StartPerformanceCounterActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public static bool StartPerformanceCounter_Remove(string handle)
-        {
-            return StartPerformanceCounterActionMap.Remove(handle);
-        }
-
-        private static void SetupStartPerformanceCounterStaticLoop()
-        {
-            if (IsStartPerformanceCounterEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.AssemblyFuncCallback(
-                "EventHorizon.Blazor.BabylonJS.NodeJS",
-                "BABYLON.Tools.StartPerformanceCounter",
-                "CallStartPerformanceCounterStaticActions"
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { "BABYLON", "Tools", "StartPerformanceCounter" },
+                    counterName,
+                    condition
+                }
             );
-            IsStartPerformanceCounterEnabled = true;
         }
 
-        [JSInvokable]
-        public static async Task CallStartPerformanceCounterStaticActions()
+        public static void EndPerformanceCounter(
+            string counterName,
+            System.Nullable<bool> condition = null
+        )
         {
-            foreach (var action in StartPerformanceCounterActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region EndPerformanceCounter TODO: Get Comments as metadata identification
-        private static bool IsEndPerformanceCounterEnabled = false;
-        private static readonly IDictionary<string, Func<Task>> EndPerformanceCounterActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public static string EndPerformanceCounter(Func<Task> callback)
-        {
-            SetupEndPerformanceCounterStaticLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            EndPerformanceCounterActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public static bool EndPerformanceCounter_Remove(string handle)
-        {
-            return EndPerformanceCounterActionMap.Remove(handle);
-        }
-
-        private static void SetupEndPerformanceCounterStaticLoop()
-        {
-            if (IsEndPerformanceCounterEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.AssemblyFuncCallback(
-                "EventHorizon.Blazor.BabylonJS.NodeJS",
-                "BABYLON.Tools.EndPerformanceCounter",
-                "CallEndPerformanceCounterStaticActions"
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { "BABYLON", "Tools", "EndPerformanceCounter" },
+                    counterName,
+                    condition
+                }
             );
-            IsEndPerformanceCounterEnabled = true;
         }
-
-        [JSInvokable]
-        public static async Task CallEndPerformanceCounterStaticActions()
-        {
-            foreach (var action in EndPerformanceCounterActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
 
         public static string GetClassName(object @object, System.Nullable<bool> isType = null)
         {

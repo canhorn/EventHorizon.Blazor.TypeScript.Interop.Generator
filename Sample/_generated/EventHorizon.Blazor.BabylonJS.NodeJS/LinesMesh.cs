@@ -22,7 +22,13 @@ namespace BABYLON
         #endregion
 
         #region Static Methods
-
+        public static LinesMesh Parse(object parsedMesh, Scene scene)
+        {
+            return EventHorizonBlazorInterop.FuncClass<LinesMesh>(
+                entity => new LinesMesh() { ___guid = entity.___guid },
+                new object[] { new string[] { "BABYLON", "LinesMesh", "Parse" }, parsedMesh, scene }
+            );
+        }
         #endregion
 
         #region Accessors
@@ -54,6 +60,11 @@ namespace BABYLON
         public bool checkCollisions
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "checkCollisions"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "checkCollisions", value);
+            }
         }
         #endregion
 
@@ -135,7 +146,8 @@ namespace BABYLON
             LinesMesh source = null,
             System.Nullable<bool> doNotCloneChildren = null,
             System.Nullable<bool> useVertexColor = null,
-            System.Nullable<bool> useVertexAlpha = null
+            System.Nullable<bool> useVertexAlpha = null,
+            Material material = null
         )
             : base()
         {
@@ -147,7 +159,53 @@ namespace BABYLON
                 source,
                 doNotCloneChildren,
                 useVertexColor,
-                useVertexAlpha
+                useVertexAlpha,
+                material
+            );
+            ___guid = entity.___guid;
+        }
+
+        public LinesMesh(
+            string name,
+            Scene scene = null,
+            Node parent = null,
+            Mesh source = null,
+            System.Nullable<bool> doNotCloneChildren = null,
+            System.Nullable<bool> clonePhysicsImpostor = null
+        )
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "LinesMesh" },
+                name,
+                scene,
+                parent,
+                source,
+                doNotCloneChildren,
+                clonePhysicsImpostor
+            );
+            ___guid = entity.___guid;
+        }
+
+        public LinesMesh(string name, Scene scene = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "LinesMesh" },
+                name,
+                scene
+            );
+            ___guid = entity.___guid;
+        }
+
+        public LinesMesh(string name, Scene scene = null, System.Nullable<bool> isPure = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "LinesMesh" },
+                name,
+                scene,
+                isPure
             );
             ___guid = entity.___guid;
         }
@@ -168,10 +226,20 @@ namespace BABYLON
             );
         }
 
-        public void dispose(System.Nullable<bool> doNotRecurse = null)
+        public void dispose(
+            System.Nullable<bool> doNotRecurse = null,
+            System.Nullable<bool> disposeMaterialAndTextures = null,
+            System.Nullable<bool> doNotDisposeMaterial = null
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "dispose" }, doNotRecurse }
+                new object[]
+                {
+                    new string[] { this.___guid, "dispose" },
+                    doNotRecurse,
+                    disposeMaterialAndTextures,
+                    doNotDisposeMaterial
+                }
             );
         }
 
@@ -198,6 +266,13 @@ namespace BABYLON
             return EventHorizonBlazorInterop.FuncClass<InstancedLinesMesh>(
                 entity => new InstancedLinesMesh() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "createInstance" }, name }
+            );
+        }
+
+        public void serialize(object serializationObject)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "serialize" }, serializationObject }
             );
         }
         #endregion

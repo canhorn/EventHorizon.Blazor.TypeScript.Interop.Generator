@@ -47,16 +47,16 @@ namespace BABYLON
 
         #region Methods
         public void optimize(
-            NodeMaterialBlock[] vertexOutputNodes,
-            NodeMaterialBlock[] fragmentOutputNodes
+            NodeMaterialBlock[] _vertexOutputNodes,
+            NodeMaterialBlock[] _fragmentOutputNodes
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
                     new string[] { this.___guid, "optimize" },
-                    vertexOutputNodes,
-                    fragmentOutputNodes
+                    _vertexOutputNodes,
+                    _fragmentOutputNodes
                 }
             );
         }

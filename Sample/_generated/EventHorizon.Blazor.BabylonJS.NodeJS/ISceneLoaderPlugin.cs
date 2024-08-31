@@ -46,13 +46,13 @@ namespace BABYLON
 
         #region Methods
         public bool importMesh(
-            object meshesNames,
             Scene scene,
-            object data,
+            CachedEntityObject data,
             string rootUrl,
             AbstractMesh[] meshes,
             IParticleSystem[] particleSystems,
             Skeleton[] skeletons,
+            string meshesNames = null,
             ActionCallback<string, object> onError = null
         )
         {
@@ -74,7 +74,7 @@ namespace BABYLON
 
         public bool load(
             Scene scene,
-            object data,
+            CachedEntityObject data,
             string rootUrl,
             ActionCallback<string, object> onError = null
         )
@@ -93,7 +93,7 @@ namespace BABYLON
 
         public AssetContainer loadAssetContainer(
             Scene scene,
-            object data,
+            CachedEntityObject data,
             string rootUrl,
             ActionCallback<string, object> onError = null
         )

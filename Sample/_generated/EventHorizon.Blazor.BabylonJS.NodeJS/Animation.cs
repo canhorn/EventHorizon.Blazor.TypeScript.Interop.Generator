@@ -189,6 +189,44 @@ namespace BABYLON
                 );
             }
         }
+
+        public static decimal ANIMATIONLOOPMODE_YOYO
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<decimal>(
+                    "BABYLON",
+                    "Animation.ANIMATIONLOOPMODE_YOYO"
+                );
+            }
+        }
+
+        public static decimal ANIMATIONLOOPMODE_RELATIVE_FROM_CURRENT
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<decimal>(
+                    "BABYLON",
+                    "Animation.ANIMATIONLOOPMODE_RELATIVE_FROM_CURRENT"
+                );
+            }
+        }
+
+        public static ValueTask<Animation> CreateFromSnippetAsync
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<ValueTask<Animation>>(
+                    "BABYLON",
+                    "Animation.CreateFromSnippetAsync"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set("BABYLON", "Animation.CreateFromSnippetAsync", value);
+            }
+        }
         #endregion
 
         #region Static Methods
@@ -214,7 +252,7 @@ namespace BABYLON
 
         public static Animatable CreateAndStartAnimation(
             string name,
-            Node node,
+            object target,
             string targetProperty,
             decimal framePerSecond,
             decimal totalFrame,
@@ -222,7 +260,8 @@ namespace BABYLON
             object to,
             System.Nullable<decimal> loopMode = null,
             EasingFunction easingFunction = null,
-            ActionCallback onAnimationEnd = null
+            ActionCallback onAnimationEnd = null,
+            Scene scene = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<Animatable>(
@@ -231,7 +270,7 @@ namespace BABYLON
                 {
                     new string[] { "BABYLON", "Animation", "CreateAndStartAnimation" },
                     name,
-                    node,
+                    target,
                     targetProperty,
                     framePerSecond,
                     totalFrame,
@@ -239,7 +278,8 @@ namespace BABYLON
                     to,
                     loopMode,
                     easingFunction,
-                    onAnimationEnd
+                    onAnimationEnd,
+                    scene
                 }
             );
         }
@@ -315,7 +355,8 @@ namespace BABYLON
             System.Nullable<decimal> referenceFrame = null,
             string range = null,
             System.Nullable<bool> cloneOriginal = null,
-            string clonedName = null
+            string clonedName = null,
+            IMakeAnimationAdditiveOptions options = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<Animation>(
@@ -327,7 +368,8 @@ namespace BABYLON
                     referenceFrame,
                     range,
                     cloneOriginal,
-                    clonedName
+                    clonedName,
+                    options
                 }
             );
         }
@@ -393,13 +435,13 @@ namespace BABYLON
             );
         }
 
-        public static ValueTask<Animation> CreateFromSnippetAsync(string snippetId)
+        public static ValueTask<Animation> ParseFromSnippetAsync(string snippetId)
         {
             return EventHorizonBlazorInterop.TaskClass<Animation>(
                 entity => new Animation() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "Animation", "CreateFromSnippetAsync" },
+                    new string[] { "BABYLON", "Animation", "ParseFromSnippetAsync" },
                     snippetId
                 }
             );
@@ -494,6 +536,16 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "enableBlending", value);
+            }
+        }
+
+        public decimal uniqueId
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "uniqueId"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "uniqueId", value);
             }
         }
 
@@ -641,7 +693,7 @@ namespace BABYLON
             );
         }
 
-        public void setEasingFunction(EasingFunction easingFunction)
+        public void setEasingFunction(IEasingFunction easingFunction)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "setEasingFunction" }, easingFunction }
@@ -838,6 +890,28 @@ namespace BABYLON
             );
         }
 
+        public Color3 color3InterpolateFunctionWithTangents(
+            Color3 startValue,
+            Color3 outTangent,
+            Color3 endValue,
+            Color3 inTangent,
+            decimal gradient
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<Color3>(
+                entity => new Color3() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "color3InterpolateFunctionWithTangents" },
+                    startValue,
+                    outTangent,
+                    endValue,
+                    inTangent,
+                    gradient
+                }
+            );
+        }
+
         public Color4 color4InterpolateFunction(
             Color4 startValue,
             Color4 endValue,
@@ -853,6 +927,35 @@ namespace BABYLON
                     endValue,
                     gradient
                 }
+            );
+        }
+
+        public Color4 color4InterpolateFunctionWithTangents(
+            Color4 startValue,
+            Color4 outTangent,
+            Color4 endValue,
+            Color4 inTangent,
+            decimal gradient
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<Color4>(
+                entity => new Color4() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "color4InterpolateFunctionWithTangents" },
+                    startValue,
+                    outTangent,
+                    endValue,
+                    inTangent,
+                    gradient
+                }
+            );
+        }
+
+        public CachedEntity evaluate(decimal currentFrame)
+        {
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "evaluate" }, currentFrame }
             );
         }
 
@@ -884,10 +987,17 @@ namespace BABYLON
             );
         }
 
-        public void setKeys(IAnimationKey[] values)
+        public void setKeys(IAnimationKey[] values, System.Nullable<bool> dontClone = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "setKeys" }, values }
+                new object[] { new string[] { this.___guid, "setKeys" }, values, dontClone }
+            );
+        }
+
+        public decimal createKeyForFrame(decimal frame)
+        {
+            return EventHorizonBlazorInterop.Func<decimal>(
+                new object[] { new string[] { this.___guid, "createKeyForFrame" }, frame }
             );
         }
 

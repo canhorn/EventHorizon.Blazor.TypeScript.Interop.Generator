@@ -22,14 +22,15 @@ namespace BABYLON
         #endregion
 
         #region Static Methods
-        public static MorphTarget Parse(object serializationObject)
+        public static MorphTarget Parse(object serializationObject, Scene scene = null)
         {
             return EventHorizonBlazorInterop.FuncClass<MorphTarget>(
                 entity => new MorphTarget() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "MorphTarget", "Parse" },
-                    serializationObject
+                    serializationObject,
+                    scene
                 }
             );
         }

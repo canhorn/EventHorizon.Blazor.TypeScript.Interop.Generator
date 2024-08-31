@@ -118,6 +118,26 @@ namespace BABYLON
                 );
             }
         }
+
+        public static bool BillboardUseParentOrientation
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    "BABYLON",
+                    "TransformNode.BillboardUseParentOrientation"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    "BABYLON",
+                    "TransformNode.BillboardUseParentOrientation",
+                    value
+                );
+            }
+        }
         #endregion
 
         #region Static Methods
@@ -517,6 +537,20 @@ namespace BABYLON
             );
         }
 
+        public bool isUsingPivotMatrix()
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "isUsingPivotMatrix" } }
+            );
+        }
+
+        public bool isUsingPostMultiplyPivotMatrix()
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "isUsingPostMultiplyPivotMatrix" } }
+            );
+        }
+
         public TransformNode updatePoseMatrix(Matrix matrix)
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
@@ -530,14 +564,6 @@ namespace BABYLON
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "getPoseMatrix" } }
-            );
-        }
-
-        public TransformNode markAsDirty(string property)
-        {
-            return EventHorizonBlazorInterop.FuncClass<TransformNode>(
-                entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "markAsDirty" }, property }
             );
         }
 
@@ -575,7 +601,7 @@ namespace BABYLON
 
         public TransformNode instantiateHierarchy(
             TransformNode newParent = null,
-            object options = null,
+            System.Nullable<bool> options = null,
             ActionCallback<TransformNode, TransformNode> onNewNodeCreated = null
         )
         {
@@ -591,11 +617,19 @@ namespace BABYLON
             );
         }
 
-        public TransformNode freezeWorldMatrix(Matrix newWorldMatrix = null)
+        public TransformNode freezeWorldMatrix(
+            Matrix newWorldMatrix = null,
+            System.Nullable<bool> decompose = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "freezeWorldMatrix" }, newWorldMatrix }
+                new object[]
+                {
+                    new string[] { this.___guid, "freezeWorldMatrix" },
+                    newWorldMatrix,
+                    decompose
+                }
             );
         }
 
@@ -758,11 +792,61 @@ namespace BABYLON
             );
         }
 
-        public TransformNode setParent(Node node)
+        public Node markAsDirty(string property = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Node>(
+                entity => new Node() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "markAsDirty" }, property }
+            );
+        }
+
+        public TransformNode setParent(
+            Node node,
+            System.Nullable<bool> preserveScalingSign = null,
+            System.Nullable<bool> updatePivot = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "setParent" }, node }
+                new object[]
+                {
+                    new string[] { this.___guid, "setParent" },
+                    node,
+                    preserveScalingSign,
+                    updatePivot
+                }
+            );
+        }
+
+        public TransformNode addChild(
+            TransformNode mesh,
+            System.Nullable<bool> preserveScalingSign = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<TransformNode>(
+                entity => new TransformNode() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "addChild" },
+                    mesh,
+                    preserveScalingSign
+                }
+            );
+        }
+
+        public TransformNode removeChild(
+            TransformNode mesh,
+            System.Nullable<bool> preserveScalingSign = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<TransformNode>(
+                entity => new TransformNode() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "removeChild" },
+                    mesh,
+                    preserveScalingSign
+                }
             );
         }
 
@@ -779,11 +863,15 @@ namespace BABYLON
             );
         }
 
-        public TransformNode detachFromBone()
+        public TransformNode detachFromBone(System.Nullable<bool> resetToPreviousParent = null)
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "detachFromBone" } }
+                new object[]
+                {
+                    new string[] { this.___guid, "detachFromBone" },
+                    resetToPreviousParent
+                }
             );
         }
 
@@ -823,11 +911,18 @@ namespace BABYLON
             );
         }
 
-        public Matrix computeWorldMatrix(System.Nullable<bool> force = null)
+        public bool isWorldMatrixCameraDependent()
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "isWorldMatrixCameraDependent" } }
+            );
+        }
+
+        public Matrix computeWorldMatrix(System.Nullable<bool> force = null, Camera camera = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "computeWorldMatrix" }, force }
+                new object[] { new string[] { this.___guid, "computeWorldMatrix" }, force, camera }
             );
         }
 
