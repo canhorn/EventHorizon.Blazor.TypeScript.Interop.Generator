@@ -76,7 +76,8 @@ public static class GenerateInteropClassStatement
         // Public Properties
         var publicProperties = toGenerateNode
             .Children.Where(child =>
-                IsNotPrivate(child)
+                child.Kind != SyntaxKind.TypeLiteral
+                && IsNotPrivate(child)
                 && IsPropertyType(child, classMetadata)
                 && IsNotIgnored(namespaceIdentifier, className, child, ignoredIdentifiers)
             )
@@ -85,7 +86,8 @@ public static class GenerateInteropClassStatement
         // Public Methods/Functions
         var publicMethods = toGenerateNode
             .Children.Where(child =>
-                IsNotPrivate(child)
+                child.Kind != SyntaxKind.TypeLiteral
+                && IsNotPrivate(child)
                 && IsMethodType(child, classMetadata)
                 && IsNotIgnored(namespaceIdentifier, className, child, ignoredIdentifiers)
             )
@@ -99,6 +101,16 @@ public static class GenerateInteropClassStatement
                 && IsNotIgnored(namespaceIdentifier, className, child, ignoredIdentifiers)
             )
             .ToList();
+
+        // Get TypeLiteral Properties/Accessors/Methods/Functions
+        var (properties, methods) = GetTypeLiteralChildren(
+            toGenerateNode,
+            ast,
+            classMetadata,
+            typeOverrideDetails
+        );
+        publicProperties.AddRange(properties);
+        publicMethods.AddRange(methods);
 
         // Is Observer Method/Function
         var observableMethods = publicProperties
@@ -114,15 +126,6 @@ public static class GenerateInteropClassStatement
             GenericTypes = MergeGenericTypes(genericTypes, extendedClassType).ToList(),
             ExtendedType = extendedClassType,
             ImplementedInterfaces = implementedInterfaces,
-            // ConstructorStatement = new ConstructorStatement
-            // {
-            //     Arguments = ConstructorArgumentIdentifier.Identify(
-            //         toGenerateNode,
-            //         classMetadata,
-            //         ast,
-            //         new TypeOverrideDetails { IsStatic = false, TypeOverrideMap = typeOverrideMap, }
-            //     ),
-            // },
             PublicPropertyStatements = publicProperties
                 .Select(a =>
                 {
@@ -133,8 +136,23 @@ public static class GenerateInteropClassStatement
                         IsStatic = isStatic,
                         TypeOverrideMap = typeOverrideMap,
                     };
+                    var node = a;
+                    var typeNode = a.Last;
+                    if (node.Type?.Kind == SyntaxKind.TypeQuery && node.Type.IdentifierStr != null)
+                    {
+                        var (found, className, childTypeNode) = GetTypeQueryNode(
+                            node.Type.IdentifierStr,
+                            ast
+                        );
+                        if (found)
+                        {
+                            node = childTypeNode;
+                            typeNode = childTypeNode.Type;
+                        }
+                    }
+
                     var type = GenericTypeIdentifier.Identify(
-                        a.Last,
+                        typeNode,
                         classMetadata,
                         ast,
                         typeOverrideDetails
@@ -154,6 +172,7 @@ public static class GenerateInteropClassStatement
                     {
                         type = overrideType;
                     }
+
                     return new PublicPropertyStatement
                     {
                         Name = name,
@@ -166,8 +185,7 @@ public static class GenerateInteropClassStatement
                         ),
                         IsStatic = isStatic,
                         IsInterfaceResponse = InterfaceResponseTypeIdentifier.Identify(type, ast),
-                        // IsArrayResponse = IsArrayResposneTypeRule.Check(a),
-                        IsReadonly = IsReadonlyRule.Check(a),
+                        IsReadonly = IsReadonlyRule.Check(node),
                         UsedClassNames = UsedClassNamesIdentifier.Identify(type),
                     };
                 })
@@ -182,8 +200,28 @@ public static class GenerateInteropClassStatement
                         IsStatic = isStatic,
                         TypeOverrideMap = typeOverrideMap,
                     };
+                    var node = a;
+                    var typeNode = a.Last;
+                    if (node.Type?.Kind == SyntaxKind.TypeQuery)
+                    {
+                        var (found, className, childTypeNode) = GetTypeQueryNode(
+                            node.Type.IdentifierStr,
+                            ast
+                        );
+                        if (found)
+                        {
+                            node = childTypeNode;
+                            typeNode = childTypeNode.Type;
+                        }
+                    }
+                    else if (node.Type?.Kind == SyntaxKind.FunctionType)
+                    {
+                        node = node.Type;
+                        typeNode = node.Last;
+                    }
+
                     var type = GenericTypeIdentifier.Identify(
-                        a.Last,
+                        typeNode,
                         classMetadata,
                         ast,
                         typeOverrideDetails
@@ -203,6 +241,7 @@ public static class GenerateInteropClassStatement
                     {
                         type = overrideType;
                     }
+
                     return new PublicMethodStatement
                     {
                         Name = name,
@@ -213,9 +252,9 @@ public static class GenerateInteropClassStatement
                             ast,
                             typeOverrideDetails
                         ),
-                        GenericTypes = DeclarationGenericTypesIdentifier.Identify(a),
+                        GenericTypes = DeclarationGenericTypesIdentifier.Identify(node),
                         Arguments = ArgumentIdentifier.Identify(
-                            a,
+                            node,
                             classMetadata,
                             ast,
                             typeOverrideDetails
@@ -293,6 +332,79 @@ public static class GenerateInteropClassStatement
         return classStatement;
     }
 
+    private static (List<Node> properties, List<Node> methods) GetTypeLiteralChildren(
+        Node toGenerateNode,
+        AbstractSyntaxTree ast,
+        ClassMetadata classMetadata,
+        TypeOverrideDetails typeOverrideDetails
+    )
+    {
+        var typeLiteralChildren = toGenerateNode
+            .Children.Where(child => IsNotPrivate(child) && child.Kind == SyntaxKind.TypeLiteral)
+            .SelectMany(child => child.Children)
+            .Where(child => child.Type != null)
+            .ToList();
+
+        var groupChildren = typeLiteralChildren.GroupBy(a => a.Type.Kind);
+        var properties = new List<Node>();
+        var methods = new List<Node>();
+        foreach (var group in groupChildren)
+        {
+            if (group.Key == SyntaxKind.LiteralType)
+            {
+                properties.AddRange(group);
+                continue;
+            }
+
+            foreach (var child in group)
+            {
+                if (IsPropertyType(child, classMetadata) && child.Type.Kind != SyntaxKind.TypeQuery)
+                {
+                    properties.Add(child);
+                }
+                else if (
+                    IsPropertyType(child, classMetadata)
+                    && child.Type.Kind == SyntaxKind.TypeQuery
+                )
+                {
+                    // Lookup the TypeQuery and add that to the properties
+                    var (found, className, childTypeNode) = GetTypeQueryNode(
+                        child.Type.IdentifierStr,
+                        ast
+                    );
+                    if (!found)
+                    {
+                        continue;
+                    }
+                    else if (IsPropertyType(childTypeNode, classMetadata))
+                    {
+                        properties.Add(child);
+                    }
+                    else if (IsMethodType(childTypeNode, classMetadata))
+                    {
+                        methods.Add(child);
+                    }
+                }
+                else if (IsMethodType(child, classMetadata))
+                {
+                    methods.Add(child);
+                }
+            }
+        }
+
+        // Add Static modifier to every property/method
+        foreach (var property in properties)
+        {
+            property.Modifiers.Add(IsStatic.StaticModifier);
+        }
+        foreach (var method in methods)
+        {
+            method.Modifiers.Add(IsStatic.StaticModifier);
+        }
+
+        return (properties, methods);
+    }
+
     private static bool IsNotIgnored(
         string namespaceIdentifier,
         string className,
@@ -300,14 +412,6 @@ public static class GenerateInteropClassStatement
         IEnumerable<string> ignoredIdentifiers
     )
     {
-        if (child.IdentifierStr == "T")
-        {
-            // Write to file in /temp/ignored.txt
-            File.AppendAllText(
-                "/temp/ignored.txt",
-                $"{namespaceIdentifier}.{className}.{child.IdentifierStr}[{child.Kind}]\n"
-            );
-        }
         return !ignoredIdentifiers.Contains(
             $"{namespaceIdentifier}.{className}.{child.IdentifierStr}[{child.Kind}]"
         );
@@ -335,6 +439,34 @@ public static class GenerateInteropClassStatement
         }
 
         toGenerateNode = ast.OfKind(SyntaxKind.TypeAliasDeclaration)
+            .FirstOrDefault(a => a.IdentifierStr == className);
+        if (toGenerateNode is not null)
+        {
+            return (true, className, toGenerateNode);
+        }
+
+        toGenerateNode = ast.OfKind(SyntaxKind.VariableDeclaration)
+            .FirstOrDefault(a => a.IdentifierStr == className);
+        if (toGenerateNode is not null)
+        {
+            return (true, className, toGenerateNode);
+        }
+
+        return (false, className, toGenerateNode);
+    }
+
+    private static (bool found, string className, Node toGenerateNode) GetTypeQueryNode(
+        string classIdentifier,
+        AbstractSyntaxTree ast
+    )
+    {
+        var (found, className, toGenerateNode) = GetNode(classIdentifier, ast);
+        if (found)
+        {
+            return (found, className, toGenerateNode);
+        }
+
+        toGenerateNode = ast.OfKind(SyntaxKind.FunctionDeclaration)
             .FirstOrDefault(a => a.IdentifierStr == className);
         if (toGenerateNode is not null)
         {
@@ -455,20 +587,38 @@ public static class GenerateInteropClassStatement
     {
         if (type.IsTypeQuery)
         {
-            var (found, className, toGenerateNode) = GetNode(type.TypeQuery.Class, ast);
+            var (found, className, toGenerateNode) = GetTypeQueryNode(type.TypeQuery.Class, ast);
 
             if (!found)
             {
                 return type;
             }
+            else if (toGenerateNode.Kind != SyntaxKind.ClassDeclaration)
+            {
+                return GenericTypeIdentifier.Identify(
+                    toGenerateNode,
+                    classMetadata,
+                    ast,
+                    typeOverrideDetails
+                );
+            }
 
             var typeNode = toGenerateNode.Children.FirstOrDefault(a =>
                 a.IdentifierStr == type.TypeQuery.Type
             );
-            if (typeNode is not null)
+            if (typeNode is not null && typeNode.Last is not null)
             {
                 return GenericTypeIdentifier.Identify(
                     typeNode.Last,
+                    classMetadata,
+                    ast,
+                    typeOverrideDetails
+                );
+            }
+            else if (typeNode is not null)
+            {
+                return GenericTypeIdentifier.Identify(
+                    typeNode,
                     classMetadata,
                     ast,
                     typeOverrideDetails
@@ -547,7 +697,6 @@ public static class GenerateInteropClassStatement
                     IsStatic = isStatic,
                     IsInterfaceResponse = InterfaceResponseTypeIdentifier.Identify(type, ast),
                     HasSetter = IsSetterRule.Check(accessor),
-                    //IsArrayResponse = IsArrayResposneTypeRule.Check(accessor),
                     UsedClassNames = UsedClassNamesIdentifier.Identify(type),
                 };
             })
@@ -575,7 +724,6 @@ public static class GenerateInteropClassStatement
         }
         if (classDeclaration.Kind == SyntaxKind.ModuleDeclaration)
         {
-            //var classDeclarationTyped = (ModuleDeclaration)classDeclaration;
             namespaceText.Insert(0, classDeclaration.IdentifierStr);
         }
         if (classDeclaration.Parent == null)
@@ -590,9 +738,11 @@ public static class GenerateInteropClassStatement
         return (
                 child.Kind == SyntaxKind.PropertyDeclaration
                 || child.Kind == SyntaxKind.PropertySignature
+                || child.Kind == SyntaxKind.VariableDeclaration
             )
             && TypeIdentifier.Identify(child.Last, classMetadata)
                 != GenerationIdentifiedTypes.Action
+            && TypeIdentifier.Identify(child.Last, classMetadata) != GenerationIdentifiedTypes.Void
             && !IsClassBasedMethodRule.Check(child.Last);
     }
 
@@ -603,6 +753,7 @@ public static class GenerateInteropClassStatement
                 (
                     child.Kind == SyntaxKind.MethodDeclaration
                     || child.Kind == SyntaxKind.MethodSignature
+                    || child.Kind == SyntaxKind.FunctionDeclaration
                 )
                 || TypeIdentifier.Identify(child.Last, classMetadata)
                     == GenerationIdentifiedTypes.Action
@@ -619,6 +770,11 @@ public static class GenerateInteropClassStatement
 
     private static bool IsNotPrivate(Node child)
     {
+        if (child.Kind == SyntaxKind.TypeLiteral)
+        {
+            return true;
+        }
+
         return child.Modifiers?.Count(modifier => modifier.Kind == SyntaxKind.PrivateKeyword) == 0
             && child.Modifiers?.Count(modifier => modifier.Kind == SyntaxKind.ProtectedKeyword) == 0
             && child.IdentifierStr != null

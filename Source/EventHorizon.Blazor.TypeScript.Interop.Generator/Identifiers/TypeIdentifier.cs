@@ -1,5 +1,6 @@
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
 
+using System;
 using System.Linq;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
@@ -27,7 +28,7 @@ public static class TypeIdentifier
             case SyntaxKind.ParenthesizedType:
                 return ParenthesizedTypeCheck(node, classMetadata);
             case SyntaxKind.FunctionType:
-                return GenerationIdentifiedTypes.Action;
+                return FunctionTypeCheck(node);
             case SyntaxKind.VoidKeyword:
                 return GenerationIdentifiedTypes.Void;
             case SyntaxKind.StringKeyword:
@@ -69,6 +70,16 @@ public static class TypeIdentifier
     private static string ParenthesizedTypeCheck(Node node, ClassMetadata classMetadata)
     {
         return GetFromNode(node.First, node.First.Kind, classMetadata);
+    }
+
+    private static string FunctionTypeCheck(Node node)
+    {
+        if (node.Last?.Kind == SyntaxKind.VoidKeyword)
+        {
+            // return GenerationIdentifiedTypes.Void;
+        }
+
+        return GenerationIdentifiedTypes.Action;
     }
 
     private static string AllOtherTypeChecks(Node node, ClassMetadata classMetadata)

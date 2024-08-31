@@ -31,6 +31,15 @@ public static class MethodsSectionWriter
             var methodType = method.Type.IsNullable
                 ? method.Type.GenericTypes.First()
                 : method.Type;
+            var methodArguments = method.Arguments;
+            var methodGenericTypes = method.GenericTypes;
+            var methodIsInterfaceResponse = methodType.IsInterface;
+            if (methodType.ActionResultType != null)
+            {
+                methodType = methodType.ActionResultType;
+                methodArguments = method.Type.Arguments.ToList();
+            }
+
             var isClassResponse = ClassResponseIdentifier.Identify(
                 methodType,
                 method.UsedClassNames
@@ -45,7 +54,7 @@ public static class MethodsSectionWriter
             var isEnum = TypeEnumIdentifier.Identify(methodType);
             var isAction =
                 methodType.Name == GenerationIdentifiedTypes.Action
-                || method.Arguments.Take(1).Any(a => a.Type.IsAction && a.Name == "callback");
+                || methodArguments.Take(1).Any(a => a.Type.IsAction && a.Name == "callback");
 
             var bodyTemplate = templates.ReturnTypePrimitiveTemplate;
             var returnTypeContent = templates.InteropFunc;
@@ -76,7 +85,7 @@ public static class MethodsSectionWriter
             if (isAction)
             {
                 var functionGenericsStrings = new List<string>();
-                var actionArgument = method.Arguments.FirstOrDefault(argument =>
+                var actionArgument = methodArguments.FirstOrDefault(argument =>
                     argument.Type.Name == GenerationIdentifiedTypes.Action
                 );
                 if (actionArgument != null)
@@ -112,21 +121,21 @@ public static class MethodsSectionWriter
             else
             {
                 // TODO: [Re-factor] : Move to Writer
-                foreach (var argument in method.Arguments.OrderBy(a => a.IsOptional))
+                foreach (var argument in methodArguments.OrderBy(a => a.IsOptional))
                 {
                     argumentStrings.Add(ArgumentWriter.Write(argument, true, " = null"));
                 }
-                propertyArguments = method.Arguments.Any()
+                propertyArguments = methodArguments.Any()
                     ? ", "
                         + string.Join(
                             ", ",
-                            method.Arguments.Select(argument =>
+                            methodArguments.Select(argument =>
                                 DotNetNormalizer.Normalize(argument.Name)
                             )
                         )
                     : string.Empty;
 
-                if (VoidArgumentIdenfifier.Identify(method.Arguments))
+                if (VoidArgumentIdentifier.Identify(methodArguments))
                 {
                     GlobalLogger.Error($"Found void argument in method: {method.Name}");
                     continue;
@@ -220,9 +229,9 @@ public static class MethodsSectionWriter
                     .Replace("[[NEW_TYPE]]", GenerationIdentifiedTypes.CachedEntity);
             }
 
-            if (method.GenericTypes.Any())
+            if (methodGenericTypes.Any())
             {
-                var genericTypeString = string.Join(", ", method.GenericTypes);
+                var genericTypeString = string.Join(", ", methodGenericTypes);
                 // TODO: [Template] : Move to templates
                 genericSection = $"<{genericTypeString}>";
 
@@ -233,7 +242,7 @@ public static class MethodsSectionWriter
                     // TODO: [Template] : Move to templates
                     whereConstraint = string.Join(
                         "",
-                        method.GenericTypes.Select(genericType =>
+                        methodGenericTypes.Select(genericType =>
                             $" where {genericType} : CachedEntity, new()"
                         )
                     );
@@ -253,7 +262,7 @@ public static class MethodsSectionWriter
                 //    "[[CACHE_SECTION]]",
                 //    string.Empty
                 //).Replace(
-                //    "[[CACHE_SETTTER_SECTION]]",
+                //    "[[CACHE_SETTER_SECTION]]",
                 //    string.Empty
                 //)
                 .Replace("[[ARRAY]]", string.Empty)
@@ -273,7 +282,7 @@ public static class MethodsSectionWriter
                 .Replace("[[PROPERTY_ARGUMENTS]]", propertyArguments)
                 .Replace(
                     "[[INTERFACE_POSTFIX]]",
-                    method.IsInterfaceResponse ? Constants.INTERFACE_POSTFIX : string.Empty
+                    methodIsInterfaceResponse ? Constants.INTERFACE_POSTFIX : string.Empty
                 )
                 .Replace("[[FUNCTION_GENERICS]]", functionGenerics)
                 .Replace("[[TASK_ASYNC]]", taskAsync)

@@ -165,14 +165,14 @@ public class GenericTypeIdentifier
             return typeStatement;
         }
 
-        if (isMap || typeIdentifier == GenerationIdentifiedTypes.Void)
-        {
-            genericTypes.Clear();
-        }
-
         if (isAction)
         {
             actionResultType = Identify(node.Last, classMetadata, ast, typeOverrideDetails);
+        }
+
+        if (isMap || typeIdentifier == GenerationIdentifiedTypes.Void)
+        {
+            genericTypes.Clear();
         }
 
         if (isLiteral)

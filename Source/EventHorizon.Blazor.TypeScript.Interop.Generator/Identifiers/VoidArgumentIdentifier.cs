@@ -5,7 +5,7 @@ using System.Linq;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 
-class VoidArgumentIdenfifier
+class VoidArgumentIdentifier
 {
     internal static bool Identify(IList<ArgumentStatement> arguments)
     {

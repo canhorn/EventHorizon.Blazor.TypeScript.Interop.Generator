@@ -138,22 +138,25 @@ public class NodeJS_Node : Node
                 children.Add(new NodeJS_Node(member, this));
             }
         }
+        // Children as DeclarationList
+        if (node.DeclarationList is not null)
+        {
+            children.Add(new NodeJS_Node(node.DeclarationList, this));
+        }
+        // Children as Declarations
+        if (node.Declarations is not null)
+        {
+            foreach (var declaration in node.Declarations)
+            {
+                children.Add(new NodeJS_Node(declaration, this));
+            }
+        }
 
         // Kind = overrideKind ?? NodeJSTypeMapper.NodeJSTypeToSyntaxKind(node.Type, node.Kind);
         Kind = overrideKind ?? NodeJSTypeMapper.NodeJSTypeToSyntaxKind(node.Type, node.Kind);
 
         if (node.Modifiers is not null)
         {
-            // var modifierKind = default(string);
-            // modifierKind = node.Accessibility switch
-            // {
-            //     "protected" => SyntaxKind.ProtectedKeyword,
-            //     "private" => SyntaxKind.PrivateKeyword,
-            //     _ => node.Accessibility,
-            // };
-            // modifiers.Add(
-            //     new NodeJS_Node(NodeJSTypeMapper.NodeJSTypeToSyntaxKind(modifierKind, null), this)
-            // );
             foreach (var modifier in node.Modifiers)
             {
                 if (modifier.Kind == TypeScriptSyntaxKind.StaticKeyword)
@@ -184,14 +187,6 @@ public class NodeJS_Node : Node
                 }
             }
         }
-        // if (node.Static ?? false)
-        // {
-        //     children.Add(new NodeJS_Node(SyntaxKind.StaticKeyword, this));
-        // }
-        // if (node.Readonly ?? false)
-        // {
-        //     children.Add(new NodeJS_Node(SyntaxKind.ReadonlyKeyword, this));
-        // }
 
         if (node.QuestionToken is not null)
         {
@@ -203,15 +198,6 @@ public class NodeJS_Node : Node
             children.Add(new NodeJS_Node(SyntaxKind.Identifier, IdentifierStr, this));
         }
 
-        // if (node.Object is not null)
-        // {
-        //     children.Add(new NodeJS_Node(SyntaxKind.Identifier, node.Object.Name, this));
-        // }
-        // if (node.Property is not null)
-        // {
-        //     children.Add(new NodeJS_Node(SyntaxKind.Identifier, node.Property.Name, this));
-        // }
-
         if (node.ObjectType is not null)
         {
             children.Add(new NodeJS_Node(node.ObjectType, this));
@@ -222,24 +208,6 @@ public class NodeJS_Node : Node
             children.Add(new NodeJS_Node(node.IndexType, this));
         }
 
-        // if (node.SuperClass is not null)
-        // {
-        //     var superClassNode = new NodeJS_Node(
-        //         node.SuperClass,
-        //         typeParameters: node.SuperTypeParameters,
-        //         parent: this
-        //     );
-
-        //     heritageClauses.Add(new NodeJS_Node(types: new List<Node> { superClassNode }, this));
-        // }
-        // if (node.Implements is not null)
-        // {
-        //     foreach (var implementation in node.Implements)
-        //     {
-        //         var interfaceNode = new NodeJS_Node(implementation, parent: this);
-        //         heritageClauses.Add(new NodeJS_Node(types: new List<Node> { interfaceNode }, this));
-        //     }
-        // }
         if (node.HeritageClauses is not null)
         {
             foreach (var heritageClause in node.HeritageClauses)
@@ -251,22 +219,6 @@ public class NodeJS_Node : Node
         {
             HeritageClauses = heritageClauses;
         }
-
-        // if (node.TypeAnnotation is not null && node.TypeAnnotation.Type != "TSTypeAnnotation")
-        // {
-        //     var type = new NodeJS_Node(node.TypeAnnotation, parent: this);
-        //     children.Add(type);
-        // }
-
-        // if (node.Params is not null)
-        // {
-        //     Types = node.Params.Select(paramNode => new NodeJS_Node(
-        //         paramNode,
-        //         parent: this,
-        //         overrideKind: SyntaxKind.Parameter
-        //     ));
-        //     children.AddRange(Types);
-        // }
 
         if (node.Parameters is not null)
         {
@@ -287,14 +239,7 @@ public class NodeJS_Node : Node
                 .TypeParameters.Select(a => new NodeJS_Node(a, parent: this))
                 .Cast<Node>()
                 .ToList();
-            // if (types.Any(a => a.Kind == SyntaxKind.TypeParameter))
-            // {
             TypeParameters = types;
-            // }
-            // else
-            // {
-            //     TypeArguments = types;
-            // }
             children.AddRange(types);
         }
 
@@ -310,7 +255,6 @@ public class NodeJS_Node : Node
 
         if (typeParameters is not null)
         {
-            // TODO: Validate this
             var types = typeParameters
                 .Parameters.Select(a => new NodeJS_Node(a, parent: this))
                 .Cast<Node>()
@@ -318,13 +262,6 @@ public class NodeJS_Node : Node
             TypeArguments = types;
             children.AddRange(types);
         }
-
-        // if (node.ElementTypes is not null)
-        // {
-        //     var types = node.ElementTypes.Select(a => new NodeJS_Node(a, parent: this));
-        //     //TypeArguments = types;
-        //     children.AddRange(types);
-        // }
 
         if (node.Elements is not null)
         {
@@ -371,16 +308,6 @@ public class NodeJS_Node : Node
         //         Type = type;
         //     }
         //     children.Add(type);
-        // }
-
-        // if (node.ReturnType is not null)
-        // {
-        //     children.Add(new NodeJS_Node(node.ReturnType.TypeAnnotation, parent: this));
-        // }
-
-        // if (node.Value is not null)
-        // {
-        //     children.Add(new NodeJS_Node(node.Value, parent: this));
         // }
 
         if (node.Literal is not null)

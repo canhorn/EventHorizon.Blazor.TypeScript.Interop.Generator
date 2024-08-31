@@ -6,6 +6,8 @@ public static class SyntaxKind
     public const string ModuleDeclaration = nameof(ModuleDeclaration);
     public const string ClassDeclaration = nameof(ClassDeclaration);
     public const string InterfaceDeclaration = nameof(InterfaceDeclaration);
+    public const string VariableDeclaration = nameof(VariableDeclaration);
+    public const string FunctionDeclaration = nameof(FunctionDeclaration);
     public const string EnumDeclaration = nameof(EnumDeclaration);
     public const string Constructor = nameof(Constructor);
     public const string PropertyDeclaration = nameof(PropertyDeclaration);
@@ -45,8 +47,4 @@ public static class SyntaxKind
     public const string ThisType = nameof(ThisType);
     public const string Parameter = nameof(Parameter);
     public const string TypeParameter = nameof(TypeParameter);
-
-    // TODO: Sdcb Speical Types
-    //public const string TypeReferenceNode = nameof(TypeReferenceNode);
-    //public const string ParameterDeclaration = nameof(ParameterDeclaration);
 }
