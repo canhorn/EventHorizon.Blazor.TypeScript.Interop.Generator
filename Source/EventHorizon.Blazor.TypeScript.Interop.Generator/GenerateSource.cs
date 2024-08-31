@@ -20,11 +20,15 @@ using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Writer;
 
 public class GenerateSource
 {
+    public static bool CacheEnabled { get; private set; } = true;
+
     public static void DisableCache()
     {
+        GlobalLogger.Warning("Disabling Cache");
         InterfaceResponseTypeIdentifier.DisableCache();
         EnumTypeIdentifier.DisableCache();
         AliasTypeIdentifier.DisableCache();
+        CacheEnabled = false;
     }
 
     public bool Run(

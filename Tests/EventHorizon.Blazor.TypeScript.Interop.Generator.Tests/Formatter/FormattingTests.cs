@@ -16,6 +16,7 @@ public class FormattingTests
     public void ShouldGenerateFormattedString()
     {
         // Given
+        GenerateSource.DisableCache();
         var sourceFile = "CSharpTextFormatter.d.ts";
         var source = File.ReadAllText($"./Formatter/SourceFiles/{sourceFile}");
         var expected = File.ReadAllText(

@@ -20,6 +20,7 @@ public class MethodTaskGenerationTests
     public void ShouldNotWrapValueTaskTwiceWhenMethodReturnsPromise()
     {
         // Given
+        GenerateSource.DisableCache();
         var sourceFile = "Method.Promise.d.ts";
         var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
         var expected = File.ReadAllText($"./ExpectedResults/Method.Promise.Expected.txt");

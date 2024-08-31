@@ -4,11 +4,12 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.SdcdImpl;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
 using FluentAssertions;
 using Xunit;
 
-public class ClassTests
+public class ClassScenarioTests
 {
     [Fact]
     [Trait("AST", "NodeJS")]
@@ -16,6 +17,7 @@ public class ClassTests
     public void ShouldGenerateInterfaceStringWhenUsingNodeJS()
     {
         // Given
+        GenerateSource.DisableCache();
         var source = File.ReadAllText($"./Scenarios/BaseClassConstructors.ts");
         var expected = File.ReadAllText($"./Scenarios/BaseClassConstructors.Expected.txt");
         var ast = new NodeJS_ASTWrapper(source);
@@ -66,6 +68,76 @@ public class ClassTests
                 [thirdLayerBaseClass] = thirdLayerSuperClassGenerated,
                 [fourthLayerBaseClass] = fourthLayerSuperClassGenerated,
                 [fifthLayerBaseClass] = fifthLayerSuperClassGenerated,
+            },
+            new NoFormattingTextFormatter()
+        );
+
+        // Then
+        actual.Should().Be(expected);
+    }
+
+    [Fact]
+    [Trait("AST", "Sdcb")]
+    [Trait("Category", "Class.Scenario.RemoveInvalidPatterns")]
+    public void ShouldRemoveInvalidPatternWhenSdcbAst()
+    {
+        // Given
+        GenerateSource.DisableCache();
+        var source = File.ReadAllText($"./Scenarios/RemoveInvalidPatterns.ts");
+        var expected = File.ReadAllText($"./Scenarios/RemoveInvalidPatterns.Expected.txt");
+        var ast = new Sdcb_TypeScriptASTWrapper(source);
+        var typeOverrideMap = new Dictionary<string, string>()
+        {
+            ["Examples.ExampleClass | onBeforeTextureInitObservable"] =
+                "Observable<CachedEntityObject>",
+        };
+
+        // When
+        var className = "ExampleClass";
+        var classGenerated = GenerateInteropClassStatement.Generate(
+            "ProjectAssembly",
+            className,
+            ast,
+            typeOverrideMap
+        );
+        var actual = GenerateClassStatementString.Generate(
+            classGenerated,
+            new ConcurrentDictionary<string, Model.Statements.ClassStatement>
+            {
+                [className] = classGenerated,
+            },
+            new NoFormattingTextFormatter()
+        );
+
+        // Then
+        actual.Should().Be(expected);
+    }
+
+    [Fact]
+    [Trait("AST", "NodeJS")]
+    [Trait("Category", "Class.Scenario.RemoveInvalidPatterns")]
+    public void ShouldRemoveInvalidPatternWhenNodeJSAst()
+    {
+        // Given
+        GenerateSource.DisableCache();
+        var source = File.ReadAllText($"./Scenarios/RemoveInvalidPatterns.ts");
+        var expected = File.ReadAllText($"./Scenarios/RemoveInvalidPatterns.Expected.txt");
+        var ast = new NodeJS_ASTWrapper(source);
+        var typeOverrideMap = new Dictionary<string, string>();
+
+        // When
+        var className = "ExampleClass";
+        var classGenerated = GenerateInteropClassStatement.Generate(
+            "ProjectAssembly",
+            className,
+            ast,
+            typeOverrideMap
+        );
+        var actual = GenerateClassStatementString.Generate(
+            classGenerated,
+            new ConcurrentDictionary<string, Model.Statements.ClassStatement>
+            {
+                [className] = classGenerated,
             },
             new NoFormattingTextFormatter()
         );

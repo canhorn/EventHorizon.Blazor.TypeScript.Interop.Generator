@@ -324,12 +324,6 @@ public class NodeJS_Node : Node
         Modifiers = modifiers;
     }
 
-    public NodeJS_Node(Program program)
-    {
-        Kind = "Program";
-        Children = program.Body.Select(a => new NodeJS_Node(a, this)).Cast<Node>().ToList();
-    }
-
     public NodeJS_Node(string kind, string name, Node parent)
     {
         Kind = kind;
@@ -338,41 +332,11 @@ public class NodeJS_Node : Node
         Children = new List<Node>();
     }
 
-    public NodeJS_Node(IdentifierModel identifier, Node parent)
-    {
-        var children = new List<Node>();
-        Kind = identifier.Type;
-        Parent = parent;
-
-        // Get Last Node
-        var leftNode = identifier.Left?.Right;
-        if (leftNode is not null)
-        {
-            children.Add(new NodeJS_Node(leftNode, parent: this));
-        }
-        var rightNode = identifier.Right;
-        if (rightNode is not null)
-        {
-            children.Add(new NodeJS_Node(rightNode, parent: this));
-        }
-
-        IdentifierStr = rightNode?.Name ?? identifier.Name;
-
-        Children = children;
-    }
-
     public NodeJS_Node(string kind, Node parent)
     {
         Kind = kind;
         Parent = parent;
         Children = new List<Node>();
-    }
-
-    public NodeJS_Node(List<Node> types, Node parent)
-    {
-        Types = types;
-        Children = types;
-        Parent = parent;
     }
 
     public string IdentifierStr { get; }
@@ -415,23 +379,23 @@ public static class NodeJSTypeMapper
 {
     public static string NodeJSTypeToSyntaxKind(ASTNode typeNode, TypeScriptSyntaxKind? kind)
     {
-        if (typeNode?.Kind == TypeScriptSyntaxKind.MethodDeclaration && kind is not null)
-        {
-            switch (kind)
-            {
-                // case TypeScriptSyntaxKind.MethodSignature:
-                case TypeScriptSyntaxKind.MethodDeclaration:
-                    return SyntaxKind.MethodDeclaration;
-                case TypeScriptSyntaxKind.Constructor:
-                    return SyntaxKind.Constructor;
-                case TypeScriptSyntaxKind.GetAccessor:
-                    return SyntaxKind.GetAccessor;
-                case TypeScriptSyntaxKind.SetAccessor:
-                    return SyntaxKind.SetAccessor;
-                default:
-                    break;
-            }
-        }
+        // if (typeNode?.Kind == TypeScriptSyntaxKind.MethodDeclaration && kind is not null)
+        // {
+        //     switch (kind)
+        //     {
+        //         // case TypeScriptSyntaxKind.MethodSignature:
+        //         case TypeScriptSyntaxKind.MethodDeclaration:
+        //             return SyntaxKind.MethodDeclaration;
+        //         case TypeScriptSyntaxKind.Constructor:
+        //             return SyntaxKind.Constructor;
+        //         case TypeScriptSyntaxKind.GetAccessor:
+        //             return SyntaxKind.GetAccessor;
+        //         case TypeScriptSyntaxKind.SetAccessor:
+        //             return SyntaxKind.SetAccessor;
+        //         default:
+        //             break;
+        //     }
+        // }
 
         switch (kind)
         {

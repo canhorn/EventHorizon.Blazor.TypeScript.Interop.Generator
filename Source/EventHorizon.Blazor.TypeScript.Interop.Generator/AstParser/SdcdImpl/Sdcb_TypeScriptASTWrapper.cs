@@ -27,6 +27,6 @@ public class Sdcb_TypeScriptASTWrapper : AbstractSyntaxTree
             return _ast.OfKind(value).Select(a => new SdcbNode(a)).ToList();
         }
 
-        return new List<Node>();
+        return [];
     }
 }

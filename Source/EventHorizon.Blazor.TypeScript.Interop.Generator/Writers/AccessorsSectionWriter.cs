@@ -18,10 +18,11 @@ public static class AccessorsSectionWriter
         ClassGenerationTemplates templates
     )
     {
-        if (accessors.Count() == 0)
+        if (!accessors.Any())
         {
             return string.Empty;
         }
+
         var section = new StringBuilder();
         var current = 1;
         foreach (var accessor in accessors)

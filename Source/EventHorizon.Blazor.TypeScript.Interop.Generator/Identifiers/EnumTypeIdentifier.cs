@@ -41,7 +41,7 @@ public class EnumTypeIdentifierNotCached : IEnumTypeIdentifier
 public class EnumTypeIdentifierCached : EnumTypeIdentifierNotCached
 {
     private bool _isCachedSetup;
-    private readonly List<string> _cache = new List<string>();
+    private readonly List<string> _cache = [];
 
     public override bool Identify(string identifierString, AbstractSyntaxTree ast)
     {

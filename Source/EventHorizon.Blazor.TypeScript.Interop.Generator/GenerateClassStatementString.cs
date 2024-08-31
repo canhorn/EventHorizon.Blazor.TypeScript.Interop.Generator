@@ -95,7 +95,7 @@ public static class GenerateClassStatementString
                 return genericType.Name == typeStatement.Name
                     || genericType.IsThisType
                     || (
-                        (genericType.IsArray || genericType.IsNullable)
+                        (genericType.IsArray || genericType.IsNullable || genericType.IsTask)
                         && genericType.GenericTypes.Any(g => g.Name == typeStatement.Name)
                     );
             }

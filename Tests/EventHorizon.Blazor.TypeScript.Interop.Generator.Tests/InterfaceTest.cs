@@ -17,6 +17,7 @@ public class InterfaceTests
     public void ShouldGenerateInterfaceStringWhenUsingSdcb()
     {
         // Given
+        GenerateSource.DisableCache();
         var sourceFile = "interface.ts";
         var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
         var expected = File.ReadAllText($"./ExpectedResults/interface.Expected.txt");
@@ -46,6 +47,7 @@ public class InterfaceTests
     public void ShouldGenerateInterfaceStringWhenUsingNodeJS()
     {
         // Given
+        GenerateSource.DisableCache();
         var sourceFile = "interface.ts";
         var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
         var expected = File.ReadAllText($"./ExpectedResults/interface.Expected.txt");

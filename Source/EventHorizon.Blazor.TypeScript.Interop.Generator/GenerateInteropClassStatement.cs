@@ -2,6 +2,8 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator;
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
@@ -32,7 +34,7 @@ public static class GenerateInteropClassStatement
     {
         ignoredIdentifiers ??= [];
 
-        var (found, className, toGenerateNode) = GetNode(classIdentifier, ast);
+        var (found, className, toGenerateNode) = NodeIdentifier.GetNode(classIdentifier, ast);
         if (!found)
         {
             return null;
@@ -65,6 +67,9 @@ public static class GenerateInteropClassStatement
             classMetadata,
             typeOverrideDetails
         );
+        genericTypes = MergeGenericTypes(genericTypes, extendedClassType);
+        classMetadata.GenericTypes = genericTypes;
+
         // Get ImplementedInterfaces
         var implementedInterfaces = ImplementedInterfacesIdentifier.Identify(
             toGenerateNode,
@@ -73,9 +78,12 @@ public static class GenerateInteropClassStatement
             typeOverrideDetails
         );
 
+        // Class Children
+        var classChildren = RemoveInvalidPatterns(toGenerateNode.Children);
+
         // Public Properties
-        var publicProperties = toGenerateNode
-            .Children.Where(child =>
+        var publicProperties = classChildren
+            .Where(child =>
                 child.Kind != SyntaxKind.TypeLiteral
                 && IsNotPrivate(child)
                 && IsPropertyType(child, classMetadata)
@@ -84,8 +92,8 @@ public static class GenerateInteropClassStatement
             .ToList();
 
         // Public Methods/Functions
-        var publicMethods = toGenerateNode
-            .Children.Where(child =>
+        var publicMethods = classChildren
+            .Where(child =>
                 child.Kind != SyntaxKind.TypeLiteral
                 && IsNotPrivate(child)
                 && IsMethodType(child, classMetadata)
@@ -94,8 +102,8 @@ public static class GenerateInteropClassStatement
             .ToList();
 
         // Get/Set Accessors
-        var accessorMethods = toGenerateNode
-            .Children.Where(child =>
+        var accessorMethods = classChildren
+            .Where(child =>
                 IsNotPrivate(child)
                 && IsAccessorType(child)
                 && IsNotIgnored(namespaceIdentifier, className, child, ignoredIdentifiers)
@@ -104,7 +112,7 @@ public static class GenerateInteropClassStatement
 
         // Get TypeLiteral Properties/Accessors/Methods/Functions
         var (properties, methods) = GetTypeLiteralChildren(
-            toGenerateNode,
+            classChildren,
             ast,
             classMetadata,
             typeOverrideDetails
@@ -123,7 +131,7 @@ public static class GenerateInteropClassStatement
             Namespace = namespaceIdentifier,
             Name = DotNetClassNormalizer.Normalize(className),
             IsInterface = IsInterfaceRule.Check(toGenerateNode),
-            GenericTypes = MergeGenericTypes(genericTypes, extendedClassType).ToList(),
+            GenericTypes = genericTypes,
             ExtendedType = extendedClassType,
             ImplementedInterfaces = implementedInterfaces,
             PublicPropertyStatements = publicProperties
@@ -140,7 +148,7 @@ public static class GenerateInteropClassStatement
                     var typeNode = a.Last;
                     if (node.Type?.Kind == SyntaxKind.TypeQuery && node.Type.IdentifierStr != null)
                     {
-                        var (found, className, childTypeNode) = GetTypeQueryNode(
+                        var (found, className, childTypeNode) = NodeIdentifier.GetTypeQueryNode(
                             node.Type.IdentifierStr,
                             ast
                         );
@@ -181,7 +189,8 @@ public static class GenerateInteropClassStatement
                             toGenerateNode,
                             classMetadata,
                             ast,
-                            typeOverrideDetails
+                            typeOverrideDetails,
+                            []
                         ),
                         IsStatic = isStatic,
                         IsInterfaceResponse = InterfaceResponseTypeIdentifier.Identify(type, ast),
@@ -204,7 +213,7 @@ public static class GenerateInteropClassStatement
                     var typeNode = a.Last;
                     if (node.Type?.Kind == SyntaxKind.TypeQuery)
                     {
-                        var (found, className, childTypeNode) = GetTypeQueryNode(
+                        var (found, className, childTypeNode) = NodeIdentifier.GetTypeQueryNode(
                             node.Type.IdentifierStr,
                             ast
                         );
@@ -242,6 +251,7 @@ public static class GenerateInteropClassStatement
                         type = overrideType;
                     }
 
+                    var genericTypes = DeclarationGenericTypesIdentifier.Identify(node);
                     return new PublicMethodStatement
                     {
                         Name = name,
@@ -250,9 +260,10 @@ public static class GenerateInteropClassStatement
                             toGenerateNode,
                             classMetadata,
                             ast,
-                            typeOverrideDetails
+                            typeOverrideDetails,
+                            genericTypes
                         ),
-                        GenericTypes = DeclarationGenericTypesIdentifier.Identify(node),
+                        GenericTypes = genericTypes,
                         Arguments = ArgumentIdentifier.Identify(
                             node,
                             classMetadata,
@@ -332,15 +343,49 @@ public static class GenerateInteropClassStatement
         return classStatement;
     }
 
+    private static List<Node> RemoveInvalidPatterns(List<Node> children)
+    {
+        // MethodDeclaration<Identifier(import), Block> PropertyDeclaration<StringLiteral> PropertyDeclaration<Identifier>
+        // Create a sliding window of 3 nodes checking for the above pattern
+        for (var i = 0; i < children.Count - 2; i++)
+        {
+            var firstChild = children[i];
+            var secondChild = children[i + 1];
+            var thirdChild = children[i + 2];
+            if (
+                // First Child
+                firstChild != null
+                && firstChild.Kind == SyntaxKind.MethodDeclaration
+                && firstChild.IdentifierStr == "import"
+                && firstChild.Last?.Kind == SyntaxKind.Block
+                // Second Child
+                && secondChild != null
+                && secondChild.Kind == SyntaxKind.PropertyDeclaration
+                && secondChild.Last?.Kind == SyntaxKind.StringLiteral
+                // Third Child
+                && thirdChild != null
+                && thirdChild.Kind == SyntaxKind.PropertyDeclaration
+                && thirdChild.Children.All(a => a.Kind != SyntaxKind.StringLiteral)
+            )
+            {
+                // remove all 3 nodes
+                children.RemoveAt(i + 2);
+                children.RemoveAt(i + 1);
+                children.RemoveAt(i);
+            }
+        }
+        return children;
+    }
+
     private static (List<Node> properties, List<Node> methods) GetTypeLiteralChildren(
-        Node toGenerateNode,
+        List<Node> children,
         AbstractSyntaxTree ast,
         ClassMetadata classMetadata,
         TypeOverrideDetails typeOverrideDetails
     )
     {
-        var typeLiteralChildren = toGenerateNode
-            .Children.Where(child => IsNotPrivate(child) && child.Kind == SyntaxKind.TypeLiteral)
+        var typeLiteralChildren = children
+            .Where(child => IsNotPrivate(child) && child.Kind == SyntaxKind.TypeLiteral)
             .SelectMany(child => child.Children)
             .Where(child => child.Type != null)
             .ToList();
@@ -368,7 +413,7 @@ public static class GenerateInteropClassStatement
                 )
                 {
                     // Lookup the TypeQuery and add that to the properties
-                    var (found, className, childTypeNode) = GetTypeQueryNode(
+                    var (found, className, childTypeNode) = NodeIdentifier.GetTypeQueryNode(
                         child.Type.IdentifierStr,
                         ast
                     );
@@ -415,65 +460,6 @@ public static class GenerateInteropClassStatement
         return !ignoredIdentifiers.Contains(
             $"{namespaceIdentifier}.{className}.{child.IdentifierStr}[{child.Kind}]"
         );
-    }
-
-    private static (bool found, string className, Node toGenerateNode) GetNode(
-        string classIdentifier,
-        AbstractSyntaxTree ast
-    )
-    {
-        var className = DotNetClassNormalizer.Denormalize(classIdentifier);
-
-        var toGenerateNode = ast.OfKind(SyntaxKind.ClassDeclaration)
-            .FirstOrDefault(a => a.IdentifierStr == className);
-        if (toGenerateNode is not null)
-        {
-            return (true, className, toGenerateNode);
-        }
-
-        toGenerateNode = ast.OfKind(SyntaxKind.InterfaceDeclaration)
-            .FirstOrDefault(a => a.IdentifierStr == className);
-        if (toGenerateNode is not null)
-        {
-            return (true, className, toGenerateNode);
-        }
-
-        toGenerateNode = ast.OfKind(SyntaxKind.TypeAliasDeclaration)
-            .FirstOrDefault(a => a.IdentifierStr == className);
-        if (toGenerateNode is not null)
-        {
-            return (true, className, toGenerateNode);
-        }
-
-        toGenerateNode = ast.OfKind(SyntaxKind.VariableDeclaration)
-            .FirstOrDefault(a => a.IdentifierStr == className);
-        if (toGenerateNode is not null)
-        {
-            return (true, className, toGenerateNode);
-        }
-
-        return (false, className, toGenerateNode);
-    }
-
-    private static (bool found, string className, Node toGenerateNode) GetTypeQueryNode(
-        string classIdentifier,
-        AbstractSyntaxTree ast
-    )
-    {
-        var (found, className, toGenerateNode) = GetNode(classIdentifier, ast);
-        if (found)
-        {
-            return (found, className, toGenerateNode);
-        }
-
-        toGenerateNode = ast.OfKind(SyntaxKind.FunctionDeclaration)
-            .FirstOrDefault(a => a.IdentifierStr == className);
-        if (toGenerateNode is not null)
-        {
-            return (true, className, toGenerateNode);
-        }
-
-        return (false, className, toGenerateNode);
     }
 
     private static IList<TypeStatement> GetGenericTypes(
@@ -582,25 +568,20 @@ public static class GenerateInteropClassStatement
         Node classNode,
         ClassMetadata classMetadata,
         AbstractSyntaxTree ast,
-        TypeOverrideDetails typeOverrideDetails
+        TypeOverrideDetails typeOverrideDetails,
+        IList<string> genericTypes
     )
     {
         if (type.IsTypeQuery)
         {
-            var (found, className, toGenerateNode) = GetTypeQueryNode(type.TypeQuery.Class, ast);
+            var (found, className, toGenerateNode) = NodeIdentifier.GetTypeQueryNode(
+                type.TypeQuery.Class,
+                ast
+            );
 
             if (!found)
             {
                 return type;
-            }
-            else if (toGenerateNode.Kind != SyntaxKind.ClassDeclaration)
-            {
-                return GenericTypeIdentifier.Identify(
-                    toGenerateNode,
-                    classMetadata,
-                    ast,
-                    typeOverrideDetails
-                );
             }
 
             var typeNode = toGenerateNode.Children.FirstOrDefault(a =>
@@ -610,15 +591,6 @@ public static class GenerateInteropClassStatement
             {
                 return GenericTypeIdentifier.Identify(
                     typeNode.Last,
-                    classMetadata,
-                    ast,
-                    typeOverrideDetails
-                );
-            }
-            else if (typeNode is not null)
-            {
-                return GenericTypeIdentifier.Identify(
-                    typeNode,
                     classMetadata,
                     ast,
                     typeOverrideDetails
@@ -645,6 +617,29 @@ public static class GenerateInteropClassStatement
         {
             genericType.Name = GenerationIdentifiedTypes.CachedEntity;
         }
+
+        if (
+            type.IsTypeReference
+            && !type.GenericTypes.Any()
+            && !classMetadata.GenericTypes.Any(a => a.Name == type.Name)
+            && !genericTypes.Any(a => a == type.Name)
+        )
+        {
+            var (found, className, toGenerateNode) = NodeIdentifier.GetTypeQueryNode(
+                type.Name,
+                ast
+            );
+            if (found)
+            {
+                return GenericTypeIdentifier.Identify(
+                    toGenerateNode,
+                    classMetadata,
+                    ast,
+                    typeOverrideDetails
+                );
+            }
+        }
+
         return type;
     }
 
@@ -661,6 +656,10 @@ public static class GenerateInteropClassStatement
             .Select(accessor =>
             {
                 var name = accessor.IdentifierStr;
+                if (name == "host")
+                {
+                    Debugger.Break();
+                }
                 var isStatic = IsStaticRule.Check(accessor);
                 var typeOverrideDetails = new TypeOverrideDetails
                 {
@@ -692,7 +691,8 @@ public static class GenerateInteropClassStatement
                         classNode,
                         classMetadata,
                         ast,
-                        typeOverrideDetails
+                        typeOverrideDetails,
+                        []
                     ),
                     IsStatic = isStatic,
                     IsInterfaceResponse = InterfaceResponseTypeIdentifier.Identify(type, ast),
@@ -779,5 +779,157 @@ public static class GenerateInteropClassStatement
             && child.Modifiers?.Count(modifier => modifier.Kind == SyntaxKind.ProtectedKeyword) == 0
             && child.IdentifierStr != null
             && !child.IdentifierStr.StartsWith("_");
+    }
+}
+
+public static class NodeIdentifier
+{
+    public static (bool found, string className, Node toGenerateNode) GetNode(
+        string classIdentifier,
+        AbstractSyntaxTree ast
+    )
+    {
+        var className = DotNetClassNormalizer.Denormalize(classIdentifier);
+
+        var toGenerateNode = GetClassDeclarationList(ast)
+            .FirstOrDefault(a => a.IdentifierStr == className);
+        if (toGenerateNode is not null)
+        {
+            return (true, className, toGenerateNode);
+        }
+
+        toGenerateNode = GetInterfaceDeclarationList(ast)
+            .FirstOrDefault(a => a.IdentifierStr == className);
+        if (toGenerateNode is not null)
+        {
+            return (true, className, toGenerateNode);
+        }
+
+        toGenerateNode = GetTypeAliasDeclarationList(ast)
+            .FirstOrDefault(a => a.IdentifierStr == className);
+        if (toGenerateNode is not null)
+        {
+            return (true, className, toGenerateNode);
+        }
+
+        toGenerateNode = GetVariableDeclarationList(ast)
+            .FirstOrDefault(a => a.IdentifierStr == className);
+        if (toGenerateNode is not null)
+        {
+            return (true, className, toGenerateNode);
+        }
+
+        return (false, className, toGenerateNode);
+    }
+
+    public static (bool found, string className, Node toGenerateNode) GetTypeQueryNode(
+        string classIdentifier,
+        AbstractSyntaxTree ast
+    )
+    {
+        var (found, className, toGenerateNode) = GetNode(classIdentifier, ast);
+        if (found)
+        {
+            return (found, className, toGenerateNode);
+        }
+
+        toGenerateNode = GetFunctionDeclarationList(ast)
+            .FirstOrDefault(a => a.IdentifierStr == className);
+        if (toGenerateNode is not null)
+        {
+            return (true, className, toGenerateNode);
+        }
+
+        return (false, className, toGenerateNode);
+    }
+
+    private static List<Node> ClassDeclarationCache;
+
+    [ExcludeFromCodeCoverage]
+    private static List<Node> GetClassDeclarationList(AbstractSyntaxTree ast)
+    {
+        if (GenerateSource.CacheEnabled && ClassDeclarationCache is not null)
+        {
+            return ClassDeclarationCache;
+        }
+        var classDeclarationCache = ast.OfKind(SyntaxKind.ClassDeclaration).ToList();
+        if (GenerateSource.CacheEnabled)
+        {
+            ClassDeclarationCache = classDeclarationCache;
+        }
+
+        return classDeclarationCache;
+    }
+
+    private static List<Node> InterfaceDeclarationCache;
+
+    [ExcludeFromCodeCoverage]
+    private static List<Node> GetInterfaceDeclarationList(AbstractSyntaxTree ast)
+    {
+        if (GenerateSource.CacheEnabled && InterfaceDeclarationCache is not null)
+        {
+            return InterfaceDeclarationCache;
+        }
+        var interfaceDeclarationCache = ast.OfKind(SyntaxKind.InterfaceDeclaration).ToList();
+        if (GenerateSource.CacheEnabled)
+        {
+            InterfaceDeclarationCache = interfaceDeclarationCache;
+        }
+
+        return interfaceDeclarationCache;
+    }
+
+    private static List<Node> TypeAliasDeclarationCache;
+
+    [ExcludeFromCodeCoverage]
+    private static List<Node> GetTypeAliasDeclarationList(AbstractSyntaxTree ast)
+    {
+        if (GenerateSource.CacheEnabled && TypeAliasDeclarationCache is not null)
+        {
+            return TypeAliasDeclarationCache;
+        }
+        var typeAliasDeclarationCache = ast.OfKind(SyntaxKind.TypeAliasDeclaration).ToList();
+        if (GenerateSource.CacheEnabled)
+        {
+            TypeAliasDeclarationCache = typeAliasDeclarationCache;
+        }
+
+        return typeAliasDeclarationCache;
+    }
+
+    private static List<Node> VariableDeclarationCache;
+
+    [ExcludeFromCodeCoverage]
+    private static List<Node> GetVariableDeclarationList(AbstractSyntaxTree ast)
+    {
+        if (GenerateSource.CacheEnabled && VariableDeclarationCache is not null)
+        {
+            return VariableDeclarationCache;
+        }
+        var variableDeclarationCache = ast.OfKind(SyntaxKind.VariableDeclaration).ToList();
+        if (GenerateSource.CacheEnabled)
+        {
+            VariableDeclarationCache = variableDeclarationCache;
+        }
+
+        return variableDeclarationCache;
+    }
+
+    private static List<Node> FunctionDeclarationCache;
+
+    [ExcludeFromCodeCoverage]
+    private static List<Node> GetFunctionDeclarationList(AbstractSyntaxTree ast)
+    {
+        if (GenerateSource.CacheEnabled && FunctionDeclarationCache is not null)
+        {
+            return FunctionDeclarationCache;
+        }
+        var functionDeclarationCache = ast.OfKind(SyntaxKind.FunctionDeclaration).ToList();
+        if (GenerateSource.CacheEnabled)
+        {
+            FunctionDeclarationCache = functionDeclarationCache;
+        }
+
+        return functionDeclarationCache;
     }
 }

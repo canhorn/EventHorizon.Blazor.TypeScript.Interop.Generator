@@ -11,9 +11,10 @@ public class ButtonTest
 {
     [Fact]
     [Trait("AST", "Sdcb")]
-    public void ShoudlGenerateExpectedButton()
+    public void ShouldGenerateExpectedButton()
     {
         // Given
+        GenerateSource.DisableCache();
         var sourceFile = "babylon.gui.d.ts";
         var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
         var ast = new Sdcb_TypeScriptASTWrapper(source);

@@ -18,6 +18,7 @@ public class ActualStringGenerationTest
     public void ShouldGenerateSourceForEverythingDefinition()
     {
         // Given
+        GenerateSource.DisableCache();
         var projectAssembly = "ProjectAssembly";
         var sourceDirectory = "";
         var sourceFileName = "MultipleGeneration.d.ts";
@@ -52,6 +53,7 @@ public class ActualStringGenerationTest
     public void ShouldCallWriterWithGeneratedClassStatement()
     {
         // Given
+        GenerateSource.DisableCache();
         var projectAssembly = "ProjectAssembly";
         var sourceDirectory = "";
         var sourceFileName = "MultipleGeneration.d.ts";
@@ -97,6 +99,7 @@ public class ActualStringGenerationTest
     public void ShouldCallWriterWithGeneratedComplexDefinitionSdcb()
     {
         // Given
+        GenerateSource.DisableCache();
         var projectAssembly = "ProjectAssembly";
         var sourceDirectory = "";
         var sourceFileName = "ComplexGeneration.d.ts";
@@ -143,6 +146,7 @@ public class ActualStringGenerationTest
     public void ShouldCallWriterWithGeneratedComplexDefinitionNodeJS()
     {
         // Given
+        GenerateSource.DisableCache();
         var projectAssembly = "ProjectAssembly";
         var sourceDirectory = "";
         var sourceFileName = "ComplexGeneration.d.ts";
@@ -189,6 +193,7 @@ public class ActualStringGenerationTest
     public void ShouldParseInterfaceTypeReference()
     {
         // Given
+        GenerateSource.DisableCache();
         var projectAssembly = "ProjectAssembly";
         var sourceDirectory = "";
         var sourceFileName = "InterfaceTypeReference.d.ts";

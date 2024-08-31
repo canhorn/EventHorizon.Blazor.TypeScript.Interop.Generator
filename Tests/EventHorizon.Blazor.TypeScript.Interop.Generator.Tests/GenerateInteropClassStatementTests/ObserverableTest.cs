@@ -14,6 +14,7 @@ public class ObserverableTest
     public void Slim_ShouldGenerateExpectedObservable()
     {
         // Given
+        GenerateSource.DisableCache();
         var sourceFile = "observable.ts";
         var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
         var ast = new Sdcb_TypeScriptASTWrapper(source);
@@ -36,6 +37,7 @@ public class ObserverableTest
     {
         // Given
         //var sourceFile = "babylon.d.ts";
+        GenerateSource.DisableCache();
         var sourceFile = "observable.ts";
         var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
         var ast = new Sdcb_TypeScriptASTWrapper(source);

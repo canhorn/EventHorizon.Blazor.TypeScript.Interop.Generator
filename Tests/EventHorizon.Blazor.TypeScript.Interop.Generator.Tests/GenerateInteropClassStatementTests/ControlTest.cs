@@ -14,6 +14,7 @@ public class ControlTest
     public void ShouldGenerateExpectedControl()
     {
         // Given
+        GenerateSource.DisableCache();
         var sourceFile = "babylon.gui.d.ts";
         var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
         var ast = new Sdcb_TypeScriptASTWrapper(source);
@@ -63,11 +64,7 @@ public class ControlTest
                     new()
                     {
                         Name = "host",
-                        Type = new TypeStatement
-                        {
-                            Name = "AdvancedDynamicTexture",
-                            IsTypeReference = true,
-                        },
+                        Type = new TypeStatement { Name = "AdvancedDynamicTexture", },
                         UsedClassNames = ["AdvancedDynamicTexture",],
                     },
                     new()

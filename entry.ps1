@@ -35,6 +35,7 @@ function Invoke-LocationChangeBlock {
     }
 }
 
+$sampleDirectory = "./Sample"
 $consoleSampleDirectory = "./Sample/EventHorizon.BabylonJS.Interop.Generator.ConsoleApp"
 $wasmSampleProject = "./Sample/EventHorizon.Blazor.BabylonJS/EventHorizon.Blazor.BabylonJS.csproj"
 $serverSampleProject = "./Sample/EventHorizon.Blazor.Server.BabylonJS/EventHorizon.Blazor.Server.BabylonJS.csproj"
@@ -99,17 +100,9 @@ switch ($Command) {
         }
 
         Invoke-LocationChangeBlock {
-            cd $generatedSampleDirectory/EventHorizon.Blazor.BabylonJS.NodeJS
-            dotnet build -c $Configuration
+            cd $sampleDirectory
+            dotnet build
         }
-        # Invoke-LocationChangeBlock {
-        #     cd $generatedSampleDirectory/EventHorizon.Blazor.BabylonJS.WASM
-        #     dotnet build -c $Configuration
-        # }
-        # Invoke-LocationChangeBlock {
-        #     cd $generatedSampleDirectory/EventHorizon.Blazor.BabylonJS.Server
-        #     dotnet build -c $Configuration
-        # }
     }
     Default {
         Write-Output "Invalid Command"

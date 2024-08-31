@@ -13,7 +13,7 @@ namespace Examples
     
     
     [JsonConverter(typeof(CachedEntityConverter<Observable<CachedEntity>>))]
-    public class Observable<T> : CachedEntityObject
+    public class Observable<T> : CachedEntityObject where T : CachedEntity, new()
     {
         #region Static Accessors
 
@@ -356,6 +356,17 @@ namespace Examples
                 new object[]
                 {
                     new string[] { this.___guid, "hasSpecificMask" }, mask
+                }
+            );
+        }
+
+        public ValueTask<T> notifyObserversWithPromise(T eventData, System.Nullable<decimal> mask = null, object target = null, object currentTarget = null, object userInfo = null)
+        {
+            return EventHorizonBlazorInterop.TaskClass<T>(
+                entity => new T() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "notifyObserversWithPromise" }, eventData, mask, target, currentTarget, userInfo
                 }
             );
         }

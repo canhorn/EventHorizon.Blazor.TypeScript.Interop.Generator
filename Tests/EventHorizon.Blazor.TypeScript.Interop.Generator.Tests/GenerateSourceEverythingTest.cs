@@ -16,6 +16,7 @@ public class GenerateSourceEverythingTest
     public void ShouldGenerateSourceForEverythingDefinition()
     {
         // Given
+        GenerateSource.DisableCache();
         var projectAssembly = "ProjectAssembly";
         var sourceDirectory = "";
         var sourceFileName = "Everything.ts";
@@ -49,6 +50,7 @@ public class GenerateSourceEverythingTest
     public void ShouldGenerateSourceForEverythingDefinitionWhenUsingTheNodeJS_AST()
     {
         // Given
+        GenerateSource.DisableCache();
         var projectAssembly = "ProjectAssembly";
         var sourceDirectory = "";
         var sourceFileName = "Everything.ts";

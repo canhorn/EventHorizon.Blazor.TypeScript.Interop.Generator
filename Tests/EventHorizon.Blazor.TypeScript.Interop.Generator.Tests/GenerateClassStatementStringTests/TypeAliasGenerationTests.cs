@@ -38,6 +38,12 @@ public class TypeAliasGenerationTests : GenerateStringTestBase
         "ObjectTypeResponse.Expected.txt",
         ASTParserType.Sdcb
     )]
+    [InlineData(
+        "TypeLiteralGeneric.ts",
+        "TypeAlias",
+        "TypeLiteralGeneric.Expected.txt",
+        ASTParserType.Sdcb
+    )]
     public void ShouldGenerateTypeAliasStringsUsingSdcb(
         string sourceFile,
         string path,
@@ -76,6 +82,12 @@ public class TypeAliasGenerationTests : GenerateStringTestBase
         "ObjectTypeResponse.ts",
         "TypeAlias",
         "ObjectTypeResponse.Expected.txt",
+        ASTParserType.NodeJS
+    )]
+    [InlineData(
+        "TypeLiteralGeneric.ts",
+        "TypeAlias",
+        "TypeLiteralGeneric.Expected.txt",
         ASTParserType.NodeJS
     )]
     public void ShouldGenerateTypeAliasStringsUsingNodeJS(

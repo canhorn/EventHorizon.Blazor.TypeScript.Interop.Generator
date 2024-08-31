@@ -12,8 +12,8 @@ namespace Examples
 
     
     
-    [JsonConverter(typeof(CachedEntityConverter<ExampleClass>))]
-    public class ExampleClass : CachedEntityObject
+    [JsonConverter(typeof(CachedEntityConverter<ExampleClass<CachedEntity>>))]
+    public class ExampleClass<T> : CachedEntityObject
     {
         #region Static Accessors
 

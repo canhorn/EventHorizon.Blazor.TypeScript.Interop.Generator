@@ -32,7 +32,34 @@ namespace Examples
         #endregion
 
         #region Properties
-
+        private Observable<CachedEntityObject> __onBeforeTextureInitObservable;
+        public Observable<CachedEntityObject> onBeforeTextureInitObservable
+        {
+            get
+            {
+            if(__onBeforeTextureInitObservable == null)
+            {
+                __onBeforeTextureInitObservable = EventHorizonBlazorInterop.GetClass<Observable<CachedEntityObject>>(
+                    this.___guid,
+                    "onBeforeTextureInitObservable",
+                    (entity) =>
+                    {
+                        return new Observable<CachedEntityObject>() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            return __onBeforeTextureInitObservable;
+            }
+            set
+            {
+__onBeforeTextureInitObservable = null;
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "onBeforeTextureInitObservable",
+                    value
+                );
+            }
+        }
         #endregion
         
         #region Constructor

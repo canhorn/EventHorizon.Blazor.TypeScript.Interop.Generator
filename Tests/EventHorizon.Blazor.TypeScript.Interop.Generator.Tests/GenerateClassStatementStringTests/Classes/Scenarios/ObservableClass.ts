@@ -30,5 +30,6 @@ declare module Examples {
         cleanLastNotifiedState(): void;
         clone(): Observable<T>;
         hasSpecificMask(mask?: number): boolean;
+        notifyObserversWithPromise(eventData: T, mask?: number, target?: any, currentTarget?: any, userInfo?: any): Promise<T>;
     }
 }

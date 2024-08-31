@@ -47,4 +47,5 @@ public static class SyntaxKind
     public const string ThisType = nameof(ThisType);
     public const string Parameter = nameof(Parameter);
     public const string TypeParameter = nameof(TypeParameter);
+    public const string Block = nameof(Block);
 }

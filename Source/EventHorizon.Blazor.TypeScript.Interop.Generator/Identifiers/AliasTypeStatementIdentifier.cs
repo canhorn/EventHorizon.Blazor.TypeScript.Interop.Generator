@@ -1,5 +1,6 @@
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
 
+using System.Collections.Generic;
 using System.Linq;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
@@ -8,6 +9,8 @@ using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 
 public class AliasTypeStatementIdentifier
 {
+    private static List<Node> TypeAliasDeclarationCache;
+
     public static TypeStatement Identify(
         string typeIdentifier,
         ClassMetadata classMetadata,
@@ -16,9 +19,14 @@ public class AliasTypeStatementIdentifier
     )
     {
         // Get node from typeIdentifier
-        var node = ast
-            .RootNode.OfKind(SyntaxKind.TypeAliasDeclaration)
-            .FirstOrDefault(child => child.IdentifierStr == typeIdentifier);
+        var cache =
+            TypeAliasDeclarationCache ?? ast.RootNode.OfKind(SyntaxKind.TypeAliasDeclaration);
+        var node = cache.FirstOrDefault(child => child.IdentifierStr == typeIdentifier);
+
+        if (TypeAliasDeclarationCache == null && GenerateSource.CacheEnabled)
+        {
+            TypeAliasDeclarationCache = cache;
+        }
 
         if (node == null)
         {

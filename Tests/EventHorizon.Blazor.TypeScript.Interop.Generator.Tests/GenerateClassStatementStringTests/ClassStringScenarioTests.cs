@@ -64,42 +64,42 @@ public class ClassStringScenarioTests : GenerateStringTestBase
     [Theory(DisplayName = "Class")]
     [Trait("Category", "StringGeneration.Classes")]
     [Trait("AST", "NodeJS")]
-    // [InlineData(
-    //     "ClassIsInterface.ts",
-    //     "Classes",
-    //     "Scenarios",
-    //     "ClassIsInterface.Expected.txt",
-    //     ASTParserType.NodeJS
-    // )]
-    // [InlineData(
-    //     "ClassIsType.ts",
-    //     "Classes",
-    //     "Scenarios",
-    //     "ClassIsType.Expected.txt",
-    //     ASTParserType.NodeJS
-    // )]
-    // [InlineData(
-    //     "ClassSameNameInterface.ts",
-    //     "Classes",
-    //     "Scenarios",
-    //     "ClassSameNameInterface.Expected.txt",
-    //     ASTParserType.NodeJS
-    // )]
-    // [InlineData(
-    //     "ComplexClassScenarios.ts",
-    //     "Classes",
-    //     "Scenarios",
-    //     "ComplexClassScenarios.Expected.txt",
-    //     ASTParserType.NodeJS
-    // )]
-    // [InlineData(
-    //     "ObservableClass.ts",
-    //     "Classes",
-    //     "Scenarios",
-    //     "ObservableClass.Expected.txt",
-    //     ASTParserType.NodeJS,
-    //     "Observable"
-    // )]
+    [InlineData(
+        "ClassIsInterface.ts",
+        "Classes",
+        "Scenarios",
+        "ClassIsInterface.Expected.txt",
+        ASTParserType.NodeJS
+    )]
+    [InlineData(
+        "ClassIsType.ts",
+        "Classes",
+        "Scenarios",
+        "ClassIsType.Expected.txt",
+        ASTParserType.NodeJS
+    )]
+    [InlineData(
+        "ClassSameNameInterface.ts",
+        "Classes",
+        "Scenarios",
+        "ClassSameNameInterface.Expected.txt",
+        ASTParserType.NodeJS
+    )]
+    [InlineData(
+        "ComplexClassScenarios.ts",
+        "Classes",
+        "Scenarios",
+        "ComplexClassScenarios.Expected.txt",
+        ASTParserType.NodeJS
+    )]
+    [InlineData(
+        "ObservableClass.ts",
+        "Classes",
+        "Scenarios",
+        "ObservableClass.Expected.txt",
+        ASTParserType.NodeJS,
+        "Observable"
+    )]
     [InlineData(
         "ClassIsVariable.ts",
         "Classes",
