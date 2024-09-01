@@ -26,6 +26,7 @@ public class NotSupportedIdentifier
             && !typeStatement.IsNullable
             && !typeStatement.IsAction
             && !typeStatement.IsTask
+            && !typeStatement.Arguments.Any()
             && typeStatement.GenericTypes.Any()
             && PrimitiveTypeIdentifier.Identify(typeStatement.GenericTypes.First().Name)
         )

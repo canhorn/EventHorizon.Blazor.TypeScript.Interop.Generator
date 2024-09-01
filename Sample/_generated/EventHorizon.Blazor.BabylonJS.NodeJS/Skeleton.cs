@@ -198,31 +198,6 @@ namespace BABYLON
             }
         }
 
-        private AbstractMesh __overrideMesh;
-        public AbstractMesh overrideMesh
-        {
-            get
-            {
-                if (__overrideMesh == null)
-                {
-                    __overrideMesh = EventHorizonBlazorInterop.GetClass<AbstractMesh>(
-                        this.___guid,
-                        "overrideMesh",
-                        (entity) =>
-                        {
-                            return new AbstractMesh() { ___guid = entity.___guid };
-                        }
-                    );
-                }
-                return __overrideMesh;
-            }
-            set
-            {
-                __overrideMesh = null;
-                EventHorizonBlazorInterop.Set(this.___guid, "overrideMesh", value);
-            }
-        }
-
         public Animation[] animations
         {
             get
@@ -459,10 +434,10 @@ namespace BABYLON
             );
         }
 
-        public void prepare()
+        public void prepare(System.Nullable<bool> dontCheckFrameId = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "prepare" } }
+                new object[] { new string[] { this.___guid, "prepare" }, dontCheckFrameId }
             );
         }
 
@@ -500,6 +475,17 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "serialize" } }
+            );
+        }
+
+        public void computeAbsoluteMatrices(System.Nullable<bool> forceUpdate = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "computeAbsoluteMatrices" },
+                    forceUpdate
+                }
             );
         }
 

@@ -31,6 +31,26 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set("BABYLON", "SpriteManager.SnippetUrl", value);
             }
         }
+
+        public static ValueTask<SpriteManager> CreateFromSnippetAsync
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<ValueTask<SpriteManager>>(
+                    "BABYLON",
+                    "SpriteManager.CreateFromSnippetAsync"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    "BABYLON",
+                    "SpriteManager.CreateFromSnippetAsync",
+                    value
+                );
+            }
+        }
         #endregion
 
         #region Static Methods
@@ -68,7 +88,7 @@ namespace BABYLON
             );
         }
 
-        public static ValueTask<SpriteManager> CreateFromSnippetAsync(
+        public static ValueTask<SpriteManager> ParseFromSnippetAsync(
             string snippetId,
             Scene scene,
             string rootUrl = null
@@ -78,7 +98,7 @@ namespace BABYLON
                 entity => new SpriteManager() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "SpriteManager", "CreateFromSnippetAsync" },
+                    new string[] { "BABYLON", "SpriteManager", "ParseFromSnippetAsync" },
                     snippetId,
                     scene,
                     rootUrl
@@ -184,6 +204,16 @@ namespace BABYLON
             }
         }
 
+        public bool useLogarithmicDepth
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "useLogarithmicDepth"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "useLogarithmicDepth", value);
+            }
+        }
+
         public decimal blendMode
         {
             get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "blendMode"); }
@@ -191,6 +221,26 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "blendMode", value);
+            }
+        }
+
+        public bool disableDepthWrite
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "disableDepthWrite"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "disableDepthWrite", value);
+            }
+        }
+
+        public bool pixelPerfect
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "pixelPerfect"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "pixelPerfect", value);
             }
         }
         #endregion
@@ -267,6 +317,26 @@ namespace BABYLON
             }
         }
 
+        public CachedEntity metadata
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                    this.___guid,
+                    "metadata",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "metadata", value);
+            }
+        }
+
         private Observable<SpriteManager> __onDisposeObservable;
         public Observable<SpriteManager> onDisposeObservable
         {
@@ -301,16 +371,6 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "uniqueId", value);
-            }
-        }
-
-        public bool disableDepthWrite
-        {
-            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "disableDepthWrite"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "disableDepthWrite", value);
             }
         }
         #endregion
@@ -401,6 +461,13 @@ namespace BABYLON
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "render" } }
+            );
+        }
+
+        public void rebuild()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "rebuild" } }
             );
         }
 

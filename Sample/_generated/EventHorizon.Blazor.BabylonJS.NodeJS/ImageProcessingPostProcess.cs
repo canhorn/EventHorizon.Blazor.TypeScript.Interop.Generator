@@ -200,6 +200,26 @@ namespace BABYLON
             }
         }
 
+        public decimal vignetteCenterY
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "vignetteCenterY"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "vignetteCenterY", value);
+            }
+        }
+
+        public decimal vignetteCenterX
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "vignetteCenterX"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "vignetteCenterX", value);
+            }
+        }
+
         public decimal vignetteWeight
         {
             get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "vignetteWeight"); }
@@ -271,6 +291,29 @@ namespace BABYLON
             }
         }
 
+        public decimal ditheringIntensity
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "ditheringIntensity");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "ditheringIntensity", value);
+            }
+        }
+
+        public bool ditheringEnabled
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "ditheringEnabled"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "ditheringEnabled", value);
+            }
+        }
+
         public bool fromLinearSpace
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "fromLinearSpace"); }
@@ -298,7 +341,7 @@ namespace BABYLON
             decimal options,
             Camera camera = null,
             System.Nullable<decimal> samplingMode = null,
-            Engine engine = null,
+            AbstractEngine engine = null,
             System.Nullable<bool> reusable = null,
             System.Nullable<decimal> textureType = null,
             ImageProcessingConfiguration imageProcessingConfiguration = null
@@ -315,6 +358,22 @@ namespace BABYLON
                 reusable,
                 textureType,
                 imageProcessingConfiguration
+            );
+            ___guid = entity.___guid;
+        }
+
+        public ImageProcessingPostProcess(
+            string name,
+            string fragmentUrl,
+            System.Nullable<decimal> options = null
+        )
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "ImageProcessingPostProcess" },
+                name,
+                fragmentUrl,
+                options
             );
             ___guid = entity.___guid;
         }

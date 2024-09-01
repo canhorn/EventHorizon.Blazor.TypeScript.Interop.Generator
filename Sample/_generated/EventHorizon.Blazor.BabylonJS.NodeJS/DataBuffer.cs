@@ -70,6 +70,11 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set(this.___guid, "is32Bits", value);
             }
         }
+
+        public decimal uniqueId
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "uniqueId"); }
+        }
         #endregion
 
         #region Constructor

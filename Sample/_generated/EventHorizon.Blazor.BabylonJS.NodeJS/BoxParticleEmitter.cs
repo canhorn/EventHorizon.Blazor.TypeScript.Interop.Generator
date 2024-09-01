@@ -187,10 +187,17 @@ namespace BABYLON
             );
         }
 
-        public void applyToShader(Effect effect)
+        public void applyToShader(UniformBufferEffectCommonAccessor uboOrEffect)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "applyToShader" }, effect }
+                new object[] { new string[] { this.___guid, "applyToShader" }, uboOrEffect }
+            );
+        }
+
+        public void buildUniformLayout(UniformBuffer ubo)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "buildUniformLayout" }, ubo }
             );
         }
 

@@ -91,6 +91,22 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set(this.___guid, "epsilonVertexAligned", value);
             }
         }
+
+        public bool removeDegeneratedTriangles
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "removeDegeneratedTriangles"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "removeDegeneratedTriangles", value);
+            }
+        }
         #endregion
 
         #region Constructor

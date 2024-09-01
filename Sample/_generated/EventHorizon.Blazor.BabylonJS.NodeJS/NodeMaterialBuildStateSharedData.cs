@@ -30,6 +30,30 @@ namespace BABYLON
         #endregion
 
         #region Properties
+        private NodeMaterial __nodeMaterial;
+        public NodeMaterial nodeMaterial
+        {
+            get
+            {
+                if (__nodeMaterial == null)
+                {
+                    __nodeMaterial = EventHorizonBlazorInterop.GetClass<NodeMaterial>(
+                        this.___guid,
+                        "nodeMaterial",
+                        (entity) =>
+                        {
+                            return new NodeMaterial() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __nodeMaterial;
+            }
+            set
+            {
+                __nodeMaterial = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "nodeMaterial", value);
+            }
+        }
 
         public string[] temps
         {
@@ -61,6 +85,31 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "varyingDeclaration", value);
+            }
+        }
+
+        private Immutable<T> __fragmentOutputNodes;
+        public Immutable<T> fragmentOutputNodes
+        {
+            get
+            {
+                if (__fragmentOutputNodes == null)
+                {
+                    __fragmentOutputNodes = EventHorizonBlazorInterop.GetClass<Immutable<T>>(
+                        this.___guid,
+                        "fragmentOutputNodes",
+                        (entity) =>
+                        {
+                            return new Immutable<T>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __fragmentOutputNodes;
+            }
+            set
+            {
+                __fragmentOutputNodes = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "fragmentOutputNodes", value);
             }
         }
 
@@ -121,6 +170,26 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "bindableBlocks", value);
+            }
+        }
+
+        public NodeMaterialBlock[] forcedBindableBlocks
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetArrayClass<NodeMaterialBlock>(
+                    this.___guid,
+                    "forcedBindableBlocks",
+                    (entity) =>
+                    {
+                        return new NodeMaterialBlock() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "forcedBindableBlocks", value);
             }
         }
 

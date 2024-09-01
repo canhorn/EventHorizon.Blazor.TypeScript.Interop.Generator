@@ -27,6 +27,22 @@ namespace BABYLON.GUI
 
         #region Accessors
 
+        public bool renderToIntermediateTexture
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "renderToIntermediateTexture"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "renderToIntermediateTexture", value);
+            }
+        }
+
         public bool adaptHeightToChildren
         {
             get
@@ -63,6 +79,31 @@ namespace BABYLON.GUI
             }
         }
 
+        private BaseGradient __backgroundGradient;
+        public BaseGradient backgroundGradient
+        {
+            get
+            {
+                if (__backgroundGradient == null)
+                {
+                    __backgroundGradient = EventHorizonBlazorInterop.GetClass<BaseGradient>(
+                        this.___guid,
+                        "backgroundGradient",
+                        (entity) =>
+                        {
+                            return new BaseGradient() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __backgroundGradient;
+            }
+            set
+            {
+                __backgroundGradient = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "backgroundGradient", value);
+            }
+        }
+
         public Control[] children
         {
             get
@@ -77,6 +118,16 @@ namespace BABYLON.GUI
                 );
             }
         }
+
+        public bool isReadOnly
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isReadOnly"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "isReadOnly", value);
+            }
+        }
         #endregion
 
         #region Properties
@@ -88,6 +139,22 @@ namespace BABYLON.GUI
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "name", value);
+            }
+        }
+
+        public bool delegatePickingToChildren
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "delegatePickingToChildren"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "delegatePickingToChildren", value);
             }
         }
 
@@ -111,6 +178,60 @@ namespace BABYLON.GUI
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "maxLayoutCycle", value);
+            }
+        }
+
+        private Observable<Control> __onControlAddedObservable;
+        public Observable<Control> onControlAddedObservable
+        {
+            get
+            {
+                if (__onControlAddedObservable == null)
+                {
+                    __onControlAddedObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<Control>
+                    >(
+                        this.___guid,
+                        "onControlAddedObservable",
+                        (entity) =>
+                        {
+                            return new Observable<Control>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __onControlAddedObservable;
+            }
+            set
+            {
+                __onControlAddedObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onControlAddedObservable", value);
+            }
+        }
+
+        private Observable<Control> __onControlRemovedObservable;
+        public Observable<Control> onControlRemovedObservable
+        {
+            get
+            {
+                if (__onControlRemovedObservable == null)
+                {
+                    __onControlRemovedObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<Control>
+                    >(
+                        this.___guid,
+                        "onControlRemovedObservable",
+                        (entity) =>
+                        {
+                            return new Observable<Control>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __onControlRemovedObservable;
+            }
+            set
+            {
+                __onControlRemovedObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onControlRemovedObservable", value);
             }
         }
         #endregion
@@ -198,10 +319,41 @@ namespace BABYLON.GUI
             );
         }
 
+        public bool isDimensionFullyDefined(object dim)
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "isDimensionFullyDefined" }, dim }
+            );
+        }
+
+        public void serialize(
+            object serializationObject,
+            System.Nullable<bool> force = null,
+            System.Nullable<bool> allowCanvas = null
+        )
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "serialize" },
+                    serializationObject,
+                    force,
+                    allowCanvas
+                }
+            );
+        }
+
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "dispose" } }
+            );
+        }
+
+        public bool isReady()
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "isReady" } }
             );
         }
         #endregion

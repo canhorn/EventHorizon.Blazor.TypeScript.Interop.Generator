@@ -155,13 +155,33 @@ namespace BABYLON
                 );
             }
         }
+
+        public static decimal DEFAULT_ALPHA_CUTOFF
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<decimal>(
+                    "BABYLON",
+                    "ShadowGenerator.DEFAULT_ALPHA_CUTOFF"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    "BABYLON",
+                    "ShadowGenerator.DEFAULT_ALPHA_CUTOFF",
+                    value
+                );
+            }
+        }
         #endregion
 
         #region Static Methods
         public static ShadowGenerator Parse(
             object parsedShadowGenerator,
             Scene scene,
-            ActionResultCallback<decimal, IShadowLight, ShadowGenerator> constr = null
+            ActionResultCallback<decimal, IShadowLight, Camera, ShadowGenerator> constr = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<ShadowGenerator>(
@@ -425,6 +445,46 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set(this.___guid, "mapSize", value);
             }
         }
+
+        private Matrix __viewMatrix;
+        public Matrix viewMatrix
+        {
+            get
+            {
+                if (__viewMatrix == null)
+                {
+                    __viewMatrix = EventHorizonBlazorInterop.GetClass<Matrix>(
+                        this.___guid,
+                        "viewMatrix",
+                        (entity) =>
+                        {
+                            return new Matrix() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __viewMatrix;
+            }
+        }
+
+        private Matrix __projectionMatrix;
+        public Matrix projectionMatrix
+        {
+            get
+            {
+                if (__projectionMatrix == null)
+                {
+                    __projectionMatrix = EventHorizonBlazorInterop.GetClass<Matrix>(
+                        this.___guid,
+                        "projectionMatrix",
+                        (entity) =>
+                        {
+                            return new Matrix() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __projectionMatrix;
+            }
+        }
         #endregion
 
         #region Properties
@@ -608,6 +668,26 @@ namespace BABYLON
             }
         }
 
+        public bool useOpacityTextureForTransparentShadow
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "useOpacityTextureForTransparentShadow"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "useOpacityTextureForTransparentShadow",
+                    value
+                );
+            }
+        }
+
         public decimal frustumEdgeFalloff
         {
             get
@@ -642,7 +722,9 @@ namespace BABYLON
         public ShadowGenerator(
             decimal mapSize,
             IShadowLight light,
-            System.Nullable<bool> usefulFloatFirst = null
+            System.Nullable<bool> usefullFloatFirst = null,
+            Camera camera = null,
+            System.Nullable<bool> useRedTextureType = null
         )
             : base()
         {
@@ -650,57 +732,21 @@ namespace BABYLON
                 new string[] { "BABYLON", "ShadowGenerator" },
                 mapSize,
                 light,
-                usefulFloatFirst
+                usefullFloatFirst,
+                camera,
+                useRedTextureType
             );
             ___guid = entity.___guid;
         }
         #endregion
 
         #region Methods
-        #region customAllowRendering TODO: Get Comments as metadata identification
-        private bool _isCustomAllowRenderingEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _customAllowRenderingActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string customAllowRendering(Func<Task> callback)
+        public bool customAllowRendering(SubMesh subMesh)
         {
-            SetupCustomAllowRenderingLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _customAllowRenderingActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool customAllowRendering_Remove(string handle)
-        {
-            return _customAllowRenderingActionMap.Remove(handle);
-        }
-
-        private void SetupCustomAllowRenderingLoop()
-        {
-            if (_isCustomAllowRenderingEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "customAllowRendering",
-                "CallCustomAllowRenderingActions",
-                _invokableReference
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "customAllowRendering" }, subMesh }
             );
-            _isCustomAllowRenderingEnabled = true;
         }
-
-        [JSInvokable]
-        public async Task CallCustomAllowRenderingActions()
-        {
-            foreach (var action in _customAllowRenderingActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
 
         public decimal getDarkness()
         {
@@ -805,7 +851,7 @@ namespace BABYLON
 
         public async ValueTask forceCompilationAsync(CachedEntity options = null)
         {
-            await EventHorizonBlazorInterop.Task<CachedEntity>(
+            await EventHorizonBlazorInterop.Task<Void_>(
                 new object[] { new string[] { this.___guid, "forceCompilationAsync" }, options }
             );
         }

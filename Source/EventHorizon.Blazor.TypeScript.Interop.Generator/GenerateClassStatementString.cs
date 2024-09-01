@@ -1,5 +1,6 @@
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator;
 
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,11 @@ using EventHorizon.Blazor.TypeScript.Interop.Generator.Writers;
 
 public static class GenerateClassStatementString
 {
-    public static string Generate(ClassStatement classStatement, TextFormatter textFormatter)
+    public static string Generate(
+        ClassStatement classStatement,
+        ConcurrentDictionary<string, ClassStatement> generatedClassStatements,
+        TextFormatter textFormatter
+    )
     {
         var classTokenMap = new Dictionary<string, string>
         {
@@ -72,11 +77,29 @@ public static class GenerateClassStatementString
         classTokenMap["[[WHERE_CONSTRAINT]]"] = classStatement.GenericTypes.Any()
             ? string.Join(
                 "",
-                classStatement.GenericTypes.Select(genericType =>
-                    $" where {genericType.Name} : CachedEntity, new()"
-                )
+                classStatement
+                    .GenericTypes.Where(IsGenericTypeReference)
+                    .Select(genericType => $" where {genericType.Name} : CachedEntity, new()")
             )
             : string.Empty;
+        bool IsGenericTypeReference(TypeStatement typeStatement)
+        {
+            // Check all Types to see if they are ResultType
+            return typeStatement.IsTypeReference
+                || typeStatement.IsThisType
+                || classStatement.AccessorStatements.Any(a => IsMatchingType(a.Type))
+                || classStatement.PublicPropertyStatements.Any(a => IsMatchingType(a.Type))
+                || classStatement.PublicMethodStatements.Any(a => IsMatchingType(a.Type));
+            bool IsMatchingType(TypeStatement genericType)
+            {
+                return genericType.Name == typeStatement.Name
+                    || genericType.IsThisType
+                    || (
+                        (genericType.IsArray || genericType.IsNullable || genericType.IsTask)
+                        && genericType.GenericTypes.Any(g => g.Name == typeStatement.Name)
+                    );
+            }
+        }
         classTokenMap["[[STATIC_ACCESSORS]]"] = AccessorsSectionWriter.Write(
             classStatement,
             staticAccessors,
@@ -105,6 +128,7 @@ public static class GenerateClassStatementString
         classTokenMap["[[CONSTRUCTOR]]"] = ConstructorSectionWriter.Write(
             classStatement,
             constructorDetails,
+            generatedClassStatements,
             classGenerationTemplates
         );
         classTokenMap["[[BASE_CONSTRUCTOR]]"] = BaseConstructorSectionWriter.Write(
@@ -156,7 +180,13 @@ public static class GenerateClassStatementString
             return string.Empty;
         }
 
-        return template.Replace("[[TYPE]]", GenerationIdentifiedTypes.CachedEntity);
+        return template.Replace(
+            "[[TYPE]]",
+            string.Join(
+                ", ",
+                classStatement.GenericTypes.Select(_ => GenerationIdentifiedTypes.CachedEntity)
+            )
+        );
     }
 
     /// <summary>
@@ -171,7 +201,7 @@ public static class GenerateClassStatementString
         var interfaceTypes = classStatement.ImplementedInterfaces;
         if (classStatement.IsInterface)
         {
-            // The classStatament if for an interface, so the class will postfixed with an identifier.
+            // The classStatement if for an interface, so the class will postfixed with an identifier.
             // And will need to be inherited from its created interface.
             interfaceTypes.Add(
                 new TypeStatement
@@ -186,7 +216,10 @@ public static class GenerateClassStatementString
         {
             return " : CachedEntityObject";
         }
-        if (classStatement.ExtendedType == null)
+        else if (
+            classStatement.ExtendedType == null
+            || classStatement.ExtendedType?.Name == classStatement.Name
+        )
         {
             classStatement.ExtendedType = new TypeStatement { Name = "CachedEntityObject", };
         }
@@ -194,13 +227,19 @@ public static class GenerateClassStatementString
         return " : "
             + string.Join(
                 ", ",
-                new List<string> { TypeStatementWriter.Write(classStatement.ExtendedType, true) }
-                    .Concat(
-                        interfaceTypes.Select(interfaceType =>
-                            TypeStatementWriter.Write(interfaceType, true, true)
-                        )
-                    )
+                new[] { TypeStatementWriter.Write(classStatement.ExtendedType, true) }
+                    .Concat(interfaceTypes.Select(ClassStatementExtendedType))
                     .Distinct()
             );
+        string ClassStatementExtendedType(TypeStatement interfaceType)
+        {
+            var statement = TypeStatementWriter.Write(interfaceType, true, true);
+            if (!classStatement.IsInterface && interfaceType.Name == classStatement.Name)
+            {
+                return $"{statement}Interface";
+            }
+
+            return statement;
+        }
     }
 }

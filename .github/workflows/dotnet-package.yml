@@ -11,27 +11,27 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         fetch-depth: '0'
     - name: Install GitVersion
-      uses: gittools/actions/gitversion/setup@v0.9.6
+      uses: gittools/actions/gitversion/setup@v3.0
       with:
         versionSpec: '5.x'
     - name: Use GitVersion
       id: gitversion
-      uses: gittools/actions/gitversion/execute@v0.9.6
+      uses: gittools/actions/gitversion/execute@v3.0
       with:
-        additionalArguments: '/updateAssemblyInfo'
+        updateAssemblyInfo: true
     - run: |
-        echo "NuGetVersionV2: ${{ steps.gitversion.outputs.NuGetVersionV2 }}"
+        echo "FullSemVer: ${{ steps.gitversion.outputs.FullSemVer }}"
     - name: Setup .NET8
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '8.0.x'
     - name: Build with dotnet
       run: dotnet build --configuration Release
     - name: Pack with dotnet
-      run: dotnet pack EventHorizon.Blazor.TypeScript.Interop.Generator.sln --output nuget-packages --configuration Release -p:PackageVersion=${{ steps.gitversion.outputs.NuGetVersionV2 }}
+      run: dotnet pack EventHorizon.Blazor.TypeScript.Interop.Generator.sln --output nuget-packages --configuration Release -p:PackageVersion=${{ steps.gitversion.outputs.FullSemVer }}
     - name: Push with dotnet
       run: find nuget-packages -name '*.nupkg' | xargs -i dotnet nuget push --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json {}

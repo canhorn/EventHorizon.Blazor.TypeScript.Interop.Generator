@@ -11,20 +11,23 @@ public class ButtonTest
 {
     [Fact]
     [Trait("AST", "Sdcb")]
-    public void ShoudlGenerateExpectedButton()
+    public void ShouldGenerateExpectedButton()
     {
         // Given
+        GenerateSource.DisableCache();
         var sourceFile = "babylon.gui.d.ts";
         var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
         var ast = new Sdcb_TypeScriptASTWrapper(source);
         var typeOverrideMap = new Dictionary<string, string>();
+        var ignoredIdentifiers = new List<string>();
 
         // When
         var actual = GenerateInteropClassStatement.Generate(
             "ProjectAssembly",
             "Button",
             ast,
-            typeOverrideMap
+            typeOverrideMap,
+            ignoredIdentifiers
         );
 
         // Then
@@ -53,33 +56,29 @@ public class ButtonTest
             .BeEquivalentTo(
                 new List<AccessorStatement>
                 {
-                    new AccessorStatement
+                    new()
                     {
                         Name = "image",
-                        Type = new TypeStatement
+                        Type = new()
                         {
                             Name = "Nullable",
                             IsNullable = true,
-                            GenericTypes = new List<TypeStatement>
-                            {
-                                new TypeStatement { Name = "Image" }
-                            }
+                            IsTypeReference = true,
+                            GenericTypes = [new() { Name = "Image", IsTypeReference = true, }]
                         },
-                        UsedClassNames = new List<string> { "Image", }
+                        UsedClassNames = ["Image",]
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "textBlock",
                         Type = new TypeStatement
                         {
                             Name = "Nullable",
                             IsNullable = true,
-                            GenericTypes = new List<TypeStatement>
-                            {
-                                new TypeStatement { Name = "TextBlock" }
-                            }
+                            IsTypeReference = true,
+                            GenericTypes = [new() { Name = "TextBlock", IsTypeReference = true, }]
                         },
-                        UsedClassNames = new List<string> { "TextBlock", }
+                        UsedClassNames = ["TextBlock",]
                     }
                 }
             );
@@ -88,38 +87,38 @@ public class ButtonTest
             .BeEquivalentTo(
                 new List<PublicMethodStatement>
                 {
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "pointerEnterAnimation",
                         Type = new TypeStatement { Name = "action", IsAction = true, },
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "pointerOutAnimation",
                         Type = new TypeStatement { Name = "action", IsAction = true, },
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "pointerDownAnimation",
                         Type = new TypeStatement { Name = "action", IsAction = true, },
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "pointerUpAnimation",
                         Type = new TypeStatement { Name = "action", IsAction = true, },
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "CreateImageButton",
                         Type = new TypeStatement { Name = "Button" },
                         IsStatic = true,
-                        UsedClassNames = new List<string>
-                        {
+                        UsedClassNames =
+                        [
                             //GenerationIdentifiedTypes.CachedEntityObject,
                             "Button"
-                        },
-                        Arguments = new List<ArgumentStatement>
-                        {
+                        ],
+                        Arguments =
+                        [
                             new ArgumentStatement
                             {
                                 Name = "name",
@@ -135,20 +134,20 @@ public class ButtonTest
                                 Name = "imageUrl",
                                 Type = new TypeStatement { Name = "string" },
                             },
-                        },
+                        ],
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "CreateImageOnlyButton",
                         Type = new TypeStatement { Name = "Button" },
                         IsStatic = true,
-                        UsedClassNames = new List<string>
-                        {
+                        UsedClassNames =
+                        [
                             //GenerationIdentifiedTypes.CachedEntityObject,
                             "Button"
-                        },
-                        Arguments = new List<ArgumentStatement>
-                        {
+                        ],
+                        Arguments =
+                        [
                             new ArgumentStatement
                             {
                                 Name = "name",
@@ -159,20 +158,20 @@ public class ButtonTest
                                 Name = "imageUrl",
                                 Type = new TypeStatement { Name = "string" },
                             },
-                        },
+                        ],
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "CreateSimpleButton",
                         Type = new TypeStatement { Name = "Button" },
                         IsStatic = true,
-                        UsedClassNames = new List<string>
-                        {
+                        UsedClassNames =
+                        [
                             //GenerationIdentifiedTypes.CachedEntityObject,
                             "Button"
-                        },
-                        Arguments = new List<ArgumentStatement>
-                        {
+                        ],
+                        Arguments =
+                        [
                             new ArgumentStatement
                             {
                                 Name = "name",
@@ -183,20 +182,20 @@ public class ButtonTest
                                 Name = "text",
                                 Type = new TypeStatement { Name = "string" },
                             },
-                        }
+                        ]
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "CreateImageWithCenterTextButton",
                         Type = new TypeStatement { Name = "Button" },
                         IsStatic = true,
-                        UsedClassNames = new List<string>
-                        {
+                        UsedClassNames =
+                        [
                             //GenerationIdentifiedTypes.CachedEntityObject,
                             "Button"
-                        },
-                        Arguments = new List<ArgumentStatement>
-                        {
+                        ],
+                        Arguments =
+                        [
                             new ArgumentStatement
                             {
                                 Name = "name",
@@ -212,7 +211,7 @@ public class ButtonTest
                                 Name = "imageUrl",
                                 Type = new TypeStatement { Name = "string" },
                             },
-                        },
+                        ],
                     },
                 }
             );
@@ -221,16 +220,12 @@ public class ButtonTest
             .BeEquivalentTo(
                 new List<PublicPropertyStatement>
                 {
-                    new PublicPropertyStatement
+                    new()
                     {
                         Name = "name",
                         Type = new TypeStatement { Name = "string" },
                     },
-                    new PublicPropertyStatement
-                    {
-                        Name = "delegatePickingToChildren",
-                        Type = "bool".MakeTypeStatement(),
-                    }
+                    new() { Name = "delegatePickingToChildren", Type = "bool".MakeTypeStatement(), }
                 }
             );
     }

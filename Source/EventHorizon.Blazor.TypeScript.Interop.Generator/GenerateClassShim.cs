@@ -11,7 +11,7 @@ public static class GenerateClassShim
         return new ClassStatement
         {
             Namespace = "global.GlobalShim",
-            Name = DotNetClassNormalizer.Normalize(classIdentifier),
+            Name = DotNetClassNormalizer.Normalize(classIdentifier).Split('<')[0],
         };
     }
 

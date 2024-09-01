@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <NoWarn>8601,8618,8625,0108,CA2012,IDE1006,IDE1006,CA1416</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EventHorizon.Blazor.Server.Interop" Version="1.1.0" />
+  </ItemGroup>
+
+</Project>

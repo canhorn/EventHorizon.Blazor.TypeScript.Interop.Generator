@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\_generated\EventHorizon.Blazor.BabylonJS.Server\EventHorizon.Blazor.BabylonJS.Server.csproj" />
+        <ProjectReference Include="..\_generated\EventHorizon.Blazor.BabylonJS.ServerNodeJS\EventHorizon.Blazor.BabylonJS.ServerNodeJS.csproj" />
     </ItemGroup>
 
     <ItemGroup>

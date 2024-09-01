@@ -1,82 +1,76 @@
 /// Generated - Do Not Edit
-namespace BABYLON
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using EventHorizon.Blazor.Interop;
+using EventHorizon.Blazor.Interop.Callbacks;
+using EventHorizon.Blazor.Interop.ResultCallbacks;
+using Microsoft.JSInterop;
+
+[JsonConverter(typeof(CachedEntityConverter<ReadFileError>))]
+public class ReadFileError : BaseError
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-    using EventHorizon.Blazor.Interop;
-    using EventHorizon.Blazor.Interop.Callbacks;
-    using EventHorizon.Blazor.Interop.ResultCallbacks;
-    using Microsoft.JSInterop;
+    #region Static Accessors
 
-    [JsonConverter(typeof(CachedEntityConverter<ReadFileError>))]
-    public class ReadFileError : BaseError
+    #endregion
+
+    #region Static Properties
+
+    #endregion
+
+    #region Static Methods
+
+    #endregion
+
+    #region Accessors
+
+    #endregion
+
+    #region Properties
+    private File __file;
+    public File file
     {
-        #region Static Accessors
-
-        #endregion
-
-        #region Static Properties
-
-        #endregion
-
-        #region Static Methods
-
-        #endregion
-
-        #region Accessors
-
-        #endregion
-
-        #region Properties
-        private File __file;
-        public File file
+        get
         {
-            get
+            if (__file == null)
             {
-                if (__file == null)
-                {
-                    __file = EventHorizonBlazorInterop.GetClass<File>(
-                        this.___guid,
-                        "file",
-                        (entity) =>
-                        {
-                            return new File() { ___guid = entity.___guid };
-                        }
-                    );
-                }
-                return __file;
+                __file = EventHorizonBlazorInterop.GetClass<File>(
+                    this.___guid,
+                    "file",
+                    (entity) =>
+                    {
+                        return new File() { ___guid = entity.___guid };
+                    }
+                );
             }
-            set
-            {
-                __file = null;
-                EventHorizonBlazorInterop.Set(this.___guid, "file", value);
-            }
+            return __file;
         }
-        #endregion
-
-        #region Constructor
-        public ReadFileError()
-            : base() { }
-
-        public ReadFileError(ICachedEntity entity)
-            : base(entity) { }
-
-        public ReadFileError(string message, File file)
-            : base()
+        set
         {
-            var entity = EventHorizonBlazorInterop.New(
-                new string[] { "BABYLON", "ReadFileError" },
-                message,
-                file
-            );
-            ___guid = entity.___guid;
+            __file = null;
+            EventHorizonBlazorInterop.Set(this.___guid, "file", value);
         }
-        #endregion
-
-        #region Methods
-
-        #endregion
     }
+    #endregion
+
+    #region Constructor
+    public ReadFileError()
+        : base() { }
+
+    public ReadFileError(ICachedEntity entity)
+        : base(entity) { }
+
+    public ReadFileError(string message, File file)
+        : base()
+    {
+        var entity = EventHorizonBlazorInterop.New(new string[] { "ReadFileError" }, message, file);
+        ___guid = entity.___guid;
+    }
+
+    #endregion
+
+    #region Methods
+
+    #endregion
 }

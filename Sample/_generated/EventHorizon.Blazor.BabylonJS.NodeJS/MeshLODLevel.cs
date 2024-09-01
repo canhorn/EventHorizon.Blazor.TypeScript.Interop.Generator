@@ -31,13 +31,19 @@ namespace BABYLON
 
         #region Properties
 
-        public decimal distance
+        public decimal distanceOrScreenCoverage
         {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "distance"); }
+            get
+            {
+                return EventHorizonBlazorInterop.Get<decimal>(
+                    this.___guid,
+                    "distanceOrScreenCoverage"
+                );
+            }
             set
             {
 
-                EventHorizonBlazorInterop.Set(this.___guid, "distance", value);
+                EventHorizonBlazorInterop.Set(this.___guid, "distanceOrScreenCoverage", value);
             }
         }
 
@@ -77,11 +83,11 @@ namespace BABYLON
             ___guid = entity.___guid;
         }
 
-        public MeshLODLevel(decimal distance, Mesh mesh)
+        public MeshLODLevel(decimal distanceOrScreenCoverage, Mesh mesh)
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "MeshLODLevel" },
-                distance,
+                distanceOrScreenCoverage,
                 mesh
             );
             ___guid = entity.___guid;

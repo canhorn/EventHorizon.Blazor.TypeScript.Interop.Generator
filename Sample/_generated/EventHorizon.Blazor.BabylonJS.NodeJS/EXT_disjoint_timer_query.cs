@@ -118,10 +118,10 @@ public class EXT_disjoint_timer_queryCachedEntity : CachedEntityObject, EXT_disj
         );
     }
 
-    public WebGLQueryCachedEntity createQueryEXT()
+    public WebGLQuery createQueryEXT()
     {
-        return EventHorizonBlazorInterop.FuncClass<WebGLQueryCachedEntity>(
-            entity => new WebGLQueryCachedEntity() { ___guid = entity.___guid },
+        return EventHorizonBlazorInterop.FuncClass<WebGLQuery>(
+            entity => new WebGLQuery() { ___guid = entity.___guid },
             new object[] { new string[] { this.___guid, "createQueryEXT" } }
         );
     }

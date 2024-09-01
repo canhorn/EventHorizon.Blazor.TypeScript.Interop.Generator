@@ -78,6 +78,17 @@ namespace BABYLON
             }
         }
 
+        public string declarationVariableName
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<string>(
+                    this.___guid,
+                    "declarationVariableName"
+                );
+            }
+        }
+
         public string associatedVariableName
         {
             get
@@ -290,6 +301,22 @@ namespace BABYLON
             );
             ___guid = entity.___guid;
         }
+
+        public InputBlock(
+            string name,
+            System.Nullable<int> target = null,
+            System.Nullable<bool> isFinalMerger = null
+        )
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "InputBlock" },
+                name,
+                target,
+                isFinalMerger
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods
@@ -330,10 +357,10 @@ namespace BABYLON
             );
         }
 
-        public void initialize(NodeMaterialBuildState state)
+        public void initialize()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "initialize" }, state }
+                new object[] { new string[] { this.___guid, "initialize" } }
             );
         }
 

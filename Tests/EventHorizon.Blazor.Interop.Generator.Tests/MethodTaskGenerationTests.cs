@@ -1,5 +1,6 @@
 namespace EventHorizon.Blazor.Interop.Generator.Tests;
 
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using EventHorizon.Blazor.Interop.Generator.Templates;
@@ -7,6 +8,7 @@ using EventHorizon.Blazor.TypeScript.Interop.Generator;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.SdcdImpl;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 using FluentAssertions;
 using Xunit;
 
@@ -18,6 +20,7 @@ public class MethodTaskGenerationTests
     public void ShouldNotWrapValueTaskTwiceWhenMethodReturnsPromise()
     {
         // Given
+        GenerateSource.DisableCache();
         var sourceFile = "Method.Promise.d.ts";
         var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
         var expected = File.ReadAllText($"./ExpectedResults/Method.Promise.Expected.txt");
@@ -36,6 +39,7 @@ public class MethodTaskGenerationTests
         );
         var actual = GenerateClassStatementString.Generate(
             generated,
+            new ConcurrentDictionary<string, ClassStatement>(),
             new NoFormattingTextFormatter()
         );
 

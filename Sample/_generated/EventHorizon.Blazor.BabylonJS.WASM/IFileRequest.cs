@@ -1,122 +1,81 @@
 /// Generated - Do Not Edit
-namespace BABYLON
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using EventHorizon.Blazor.Interop;
+using EventHorizon.Blazor.Interop.Callbacks;
+using EventHorizon.Blazor.Interop.ResultCallbacks;
+using Microsoft.JSInterop;
+
+public interface IFileRequest : ICachedEntity { }
+
+[JsonConverter(typeof(CachedEntityConverter<IFileRequestCachedEntity>))]
+public class IFileRequestCachedEntity : CachedEntityObject, IFileRequest
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-    using EventHorizon.Blazor.Interop;
-    using EventHorizon.Blazor.Interop.Callbacks;
-    using EventHorizon.Blazor.Interop.ResultCallbacks;
-    using Microsoft.JSInterop;
+    #region Static Accessors
 
-    public interface IFileRequest : ICachedEntity { }
+    #endregion
 
-    [JsonConverter(typeof(CachedEntityConverter<IFileRequestCachedEntity>))]
-    public class IFileRequestCachedEntity : CachedEntityObject, IFileRequest
+    #region Static Properties
+
+    #endregion
+
+    #region Static Methods
+
+    #endregion
+
+    #region Accessors
+
+    #endregion
+
+    #region Properties
+    private Observable<IFileRequestCachedEntity> __onCompleteObservable;
+    public Observable<IFileRequestCachedEntity> onCompleteObservable
     {
-        #region Static Accessors
-
-        #endregion
-
-        #region Static Properties
-
-        #endregion
-
-        #region Static Methods
-
-        #endregion
-
-        #region Accessors
-
-        #endregion
-
-        #region Properties
-        private Observable<IFileRequestCachedEntity> __onCompleteObservable;
-        public Observable<IFileRequestCachedEntity> onCompleteObservable
+        get
         {
-            get
+            if (__onCompleteObservable == null)
             {
-                if (__onCompleteObservable == null)
-                {
-                    __onCompleteObservable = EventHorizonBlazorInterop.GetClass<
-                        Observable<IFileRequestCachedEntity>
-                    >(
-                        this.___guid,
-                        "onCompleteObservable",
-                        (entity) =>
+                __onCompleteObservable = EventHorizonBlazorInterop.GetClass<
+                    Observable<IFileRequestCachedEntity>
+                >(
+                    this.___guid,
+                    "onCompleteObservable",
+                    (entity) =>
+                    {
+                        return new Observable<IFileRequestCachedEntity>()
                         {
-                            return new Observable<IFileRequestCachedEntity>()
-                            {
-                                ___guid = entity.___guid
-                            };
-                        }
-                    );
-                }
-                return __onCompleteObservable;
+                            ___guid = entity.___guid
+                        };
+                    }
+                );
             }
-            set
-            {
-                __onCompleteObservable = null;
-                EventHorizonBlazorInterop.Set(this.___guid, "onCompleteObservable", value);
-            }
+            return __onCompleteObservable;
         }
-        #endregion
-
-        #region Constructor
-        public IFileRequestCachedEntity()
-            : base() { }
-
-        public IFileRequestCachedEntity(ICachedEntity entity)
-            : base(entity) { }
-
-        #endregion
-
-        #region Methods
-        #region abort TODO: Get Comments as metadata identification
-        private bool _isAbortEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _abortActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string abort(Func<Task> callback)
+        set
         {
-            SetupAbortLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _abortActionMap.Add(handle, callback);
-
-            return handle;
+            __onCompleteObservable = null;
+            EventHorizonBlazorInterop.Set(this.___guid, "onCompleteObservable", value);
         }
-
-        public bool abort_Remove(string handle)
-        {
-            return _abortActionMap.Remove(handle);
-        }
-
-        private void SetupAbortLoop()
-        {
-            if (_isAbortEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "abort",
-                "CallAbortActions",
-                _invokableReference
-            );
-            _isAbortEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallAbortActions()
-        {
-            foreach (var action in _abortActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-        #endregion
     }
+    #endregion
+
+    #region Constructor
+    public IFileRequestCachedEntity()
+        : base() { }
+
+    public IFileRequestCachedEntity(ICachedEntity entity)
+        : base(entity) { }
+
+    #endregion
+
+    #region Methods
+    public void abort()
+    {
+        EventHorizonBlazorInterop.Func<CachedEntity>(
+            new object[] { new string[] { this.___guid, "abort" } }
+        );
+    }
+    #endregion
 }

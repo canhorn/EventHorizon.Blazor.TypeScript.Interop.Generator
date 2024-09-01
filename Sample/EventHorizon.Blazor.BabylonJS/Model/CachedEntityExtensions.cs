@@ -1,3 +1,4 @@
+using System.Runtime.Versioning;
 using EventHorizon.Blazor.Interop;
 
 namespace EventHorizon.Blazor.Interop
@@ -16,11 +17,11 @@ namespace BABYLON
 {
     public static class BabylonjsNodeExtensions
     {
-        public static void setParent(this Node node, string elementId)
+        public static void setParent(this Node node, string? elementId)
         {
             EventHorizonBlazorInterop.FuncClass<CachedEntity>(
                 entity => new CachedEntity() { ___guid = entity.___guid },
-                new object[] { new string[] { node.___guid, "setParent" }, elementId }
+                new object[] { new string[] { node.___guid, "setParent" }, elementId! }
             );
         }
 

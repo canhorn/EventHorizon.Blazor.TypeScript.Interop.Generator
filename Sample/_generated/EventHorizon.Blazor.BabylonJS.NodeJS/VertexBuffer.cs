@@ -137,6 +137,17 @@ namespace BABYLON
             }
         }
 
+        public static string ColorInstanceKind
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<string>(
+                    "BABYLON",
+                    "VertexBuffer.ColorInstanceKind"
+                );
+            }
+        }
+
         public static string MatricesIndicesKind
         {
             get
@@ -190,6 +201,13 @@ namespace BABYLON
             );
         }
 
+        public static decimal GetDataType(decimal[] data)
+        {
+            return EventHorizonBlazorInterop.Func<decimal>(
+                new object[] { new string[] { "BABYLON", "VertexBuffer", "GetDataType" }, data }
+            );
+        }
+
         public static decimal GetTypeByteLength(decimal type)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
@@ -227,9 +245,41 @@ namespace BABYLON
                 }
             );
         }
+
+        public static decimal[] GetFloatData(
+            decimal[] data,
+            decimal size,
+            decimal type,
+            decimal byteOffset,
+            decimal byteStride,
+            bool normalized,
+            decimal totalVertices,
+            System.Nullable<bool> forceCopy = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
+                new object[]
+                {
+                    new string[] { "BABYLON", "VertexBuffer", "GetFloatData" },
+                    data,
+                    size,
+                    type,
+                    byteOffset,
+                    byteStride,
+                    normalized,
+                    totalVertices,
+                    forceCopy
+                }
+            );
+        }
         #endregion
 
         #region Accessors
+
+        public bool isDisposed
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isDisposed"); }
+        }
 
         public decimal instanceDivisor
         {
@@ -263,6 +313,36 @@ namespace BABYLON
         {
             get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "type"); }
         }
+
+        public decimal uniqueId
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "uniqueId"); }
+        }
+
+        public decimal hashCode
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "hashCode"); }
+        }
+
+        private AbstractEngine __engine;
+        public AbstractEngine engine
+        {
+            get
+            {
+                if (__engine == null)
+                {
+                    __engine = EventHorizonBlazorInterop.GetClass<AbstractEngine>(
+                        this.___guid,
+                        "engine",
+                        (entity) =>
+                        {
+                            return new AbstractEngine() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __engine;
+            }
+        }
         #endregion
 
         #region Constructor
@@ -276,7 +356,7 @@ namespace BABYLON
         }
 
         public VertexBuffer(
-            object engine,
+            AbstractEngine engine,
             decimal[] data,
             string kind,
             bool updatable,
@@ -335,11 +415,31 @@ namespace BABYLON
             );
         }
 
+        public decimal[] getFloatData(decimal totalVertices, System.Nullable<bool> forceCopy = null)
+        {
+            return EventHorizonBlazorInterop.FuncArray<decimal>(
+                new object[]
+                {
+                    new string[] { this.___guid, "getFloatData" },
+                    totalVertices,
+                    forceCopy
+                }
+            );
+        }
+
         public DataBuffer getBuffer()
         {
             return EventHorizonBlazorInterop.FuncClass<DataBuffer>(
                 entity => new DataBuffer() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "getBuffer" } }
+            );
+        }
+
+        public Buffer getWrapperBuffer()
+        {
+            return EventHorizonBlazorInterop.FuncClass<Buffer>(
+                entity => new Buffer() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getWrapperBuffer" } }
             );
         }
 
@@ -357,10 +457,10 @@ namespace BABYLON
             );
         }
 
-        public decimal getSize()
+        public decimal getSize(System.Nullable<bool> sizeInBytes = null)
         {
             return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] { new string[] { this.___guid, "getSize" } }
+                new object[] { new string[] { this.___guid, "getSize" }, sizeInBytes }
             );
         }
 

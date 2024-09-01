@@ -307,6 +307,14 @@ namespace BABYLON
             );
         }
 
+        public static VertexData Parse(object parsedVertexData)
+        {
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
+                entity => new VertexData() { ___guid = entity.___guid },
+                new object[] { new string[] { "BABYLON", "VertexData", "Parse" }, parsedVertexData }
+            );
+        }
+
         public static void ImportVertexData(object parsedVertexData, Geometry geometry)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -493,6 +501,66 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set(this.___guid, "indices", value);
             }
         }
+
+        public VertexDataMaterialInfo[] materialInfos
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetArrayClass<VertexDataMaterialInfo>(
+                    this.___guid,
+                    "materialInfos",
+                    (entity) =>
+                    {
+                        return new VertexDataMaterialInfo() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "materialInfos", value);
+            }
+        }
+
+        public decimal uniqueId
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "uniqueId"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "uniqueId", value);
+            }
+        }
+
+        public CachedEntity metadata
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                    this.___guid,
+                    "metadata",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "metadata", value);
+            }
+        }
+
+        public bool hasVertexAlpha
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "hasVertexAlpha"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "hasVertexAlpha", value);
+            }
+        }
         #endregion
 
         #region Constructor
@@ -560,11 +628,41 @@ namespace BABYLON
             );
         }
 
-        public VertexData merge(VertexData other, System.Nullable<bool> use32BitsIndices = null)
+        public VertexData[] splitBasedOnMaterialID()
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<VertexData>(
+                entity => new VertexData() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "splitBasedOnMaterialID" } }
+            );
+        }
+
+        public VertexData merge(
+            VertexData others,
+            System.Nullable<bool> use32BitsIndices = null,
+            System.Nullable<bool> forceCloneIndices = null,
+            System.Nullable<bool> mergeMaterialIds = null,
+            System.Nullable<bool> enableCompletion = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<VertexData>(
                 entity => new VertexData() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "merge" }, other, use32BitsIndices }
+                new object[]
+                {
+                    new string[] { this.___guid, "merge" },
+                    others,
+                    use32BitsIndices,
+                    forceCloneIndices,
+                    mergeMaterialIds,
+                    enableCompletion
+                }
+            );
+        }
+
+        public VertexData clone()
+        {
+            return EventHorizonBlazorInterop.FuncClass<VertexData>(
+                entity => new VertexData() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "clone" } }
             );
         }
 

@@ -63,7 +63,7 @@ namespace BABYLON
         public AssetContainer(ICachedEntity entity)
             : base(entity) { }
 
-        public AssetContainer(Scene scene)
+        public AssetContainer(Scene scene = null)
             : base()
         {
             var entity = EventHorizonBlazorInterop.New(
@@ -72,12 +72,14 @@ namespace BABYLON
             );
             ___guid = entity.___guid;
         }
+
         #endregion
 
         #region Methods
         public InstantiatedEntries instantiateModelsToScene(
             ActionResultCallback<string, string> nameFunction = null,
-            System.Nullable<bool> cloneMaterials = null
+            System.Nullable<bool> cloneMaterials = null,
+            System.Nullable<bool> options = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<InstantiatedEntries>(
@@ -86,7 +88,8 @@ namespace BABYLON
                 {
                     new string[] { this.___guid, "instantiateModelsToScene" },
                     nameFunction,
-                    cloneMaterials
+                    cloneMaterials,
+                    options
                 }
             );
         }
@@ -98,10 +101,24 @@ namespace BABYLON
             );
         }
 
+        public void addToScene(ActionResultCallback<CachedEntity, bool> predicate = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "addToScene" }, predicate }
+            );
+        }
+
         public void removeAllFromScene()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "removeAllFromScene" } }
+            );
+        }
+
+        public void removeFromScene(ActionResultCallback<CachedEntity, bool> predicate = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "removeFromScene" }, predicate }
             );
         }
 
@@ -142,6 +159,20 @@ namespace BABYLON
                     animatables,
                     targetConverter
                 }
+            );
+        }
+
+        public void populateRootNodes()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "populateRootNodes" } }
+            );
+        }
+
+        public void addAllAssetsToContainer(Node root)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "addAllAssetsToContainer" }, root }
             );
         }
         #endregion

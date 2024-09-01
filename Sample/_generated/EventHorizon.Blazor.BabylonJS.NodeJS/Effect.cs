@@ -15,10 +15,6 @@ namespace BABYLON
     {
         #region Static Accessors
 
-        #endregion
-
-        #region Static Properties
-
         public static string ShadersRepository
         {
             get
@@ -31,6 +27,9 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set("BABYLON", "Effect.ShadersRepository", value);
             }
         }
+        #endregion
+
+        #region Static Properties
 
         public static bool LogShaderCodeOnCompilationError
         {
@@ -97,7 +96,8 @@ namespace BABYLON
         public static void RegisterShader(
             string name,
             string pixelShader = null,
-            string vertexShader = null
+            string vertexShader = null,
+            System.Nullable<int> shaderLanguage = null
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -106,7 +106,8 @@ namespace BABYLON
                     new string[] { "BABYLON", "Effect", "RegisterShader" },
                     name,
                     pixelShader,
-                    vertexShader
+                    vertexShader,
+                    shaderLanguage
                 }
             );
         }
@@ -140,6 +141,11 @@ namespace BABYLON
             }
         }
 
+        public int shaderLanguage
+        {
+            get { return EventHorizonBlazorInterop.Get<int>(this.___guid, "shaderLanguage"); }
+        }
+
         public string key
         {
             get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "key"); }
@@ -155,6 +161,28 @@ namespace BABYLON
             get
             {
                 return EventHorizonBlazorInterop.Get<string>(this.___guid, "fragmentSourceCode");
+            }
+        }
+
+        public string vertexSourceCodeBeforeMigration
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<string>(
+                    this.___guid,
+                    "vertexSourceCodeBeforeMigration"
+                );
+            }
+        }
+
+        public string fragmentSourceCodeBeforeMigration
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<string>(
+                    this.___guid,
+                    "fragmentSourceCodeBeforeMigration"
+                );
             }
         }
 
@@ -329,16 +357,18 @@ namespace BABYLON
             : base(entity) { }
 
         public Effect(
-            object baseName,
+            CachedEntity baseName,
             string[] attributesNamesOrOptions,
             string[] uniformsNamesOrEngine,
             string[] samplers = null,
-            ThinEngine engine = null,
+            AbstractEngine engine = null,
             string defines = null,
             IEffectFallbacks fallbacks = null,
             ActionCallback<Effect> onCompiled = null,
             ActionCallback<Effect, string> onError = null,
-            object indexParameters = null
+            object indexParameters = null,
+            string key = null,
+            System.Nullable<int> shaderLanguage = null
         )
             : base()
         {
@@ -353,7 +383,9 @@ namespace BABYLON
                 fallbacks,
                 onCompiled,
                 onError,
-                indexParameters
+                indexParameters,
+                key,
+                shaderLanguage
             );
             ___guid = entity.___guid;
         }
@@ -367,10 +399,10 @@ namespace BABYLON
             );
         }
 
-        public Engine getEngine()
+        public AbstractEngine getEngine()
         {
-            return EventHorizonBlazorInterop.FuncClass<Engine>(
-                entity => new Engine() { ___guid = entity.___guid },
+            return EventHorizonBlazorInterop.FuncClass<AbstractEngine>(
+                entity => new AbstractEngine() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "getEngine" } }
             );
         }
@@ -475,6 +507,14 @@ namespace BABYLON
             );
         }
 
+        public IPipelineGenerationOptionsCachedEntity getPipelineGenerationOptions()
+        {
+            return EventHorizonBlazorInterop.FuncClass<IPipelineGenerationOptionsCachedEntity>(
+                entity => new IPipelineGenerationOptionsCachedEntity() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getPipelineGenerationOptions" } }
+            );
+        }
+
         public void setTexture(string channel, ThinTexture texture)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -482,46 +522,10 @@ namespace BABYLON
             );
         }
 
-        public void setDepthStencilTexture(string channel, RenderTargetTexture texture)
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "setDepthStencilTexture" },
-                    channel,
-                    texture
-                }
-            );
-        }
-
         public void setTextureArray(string channel, ThinTexture[] textures)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "setTextureArray" }, channel, textures }
-            );
-        }
-
-        public void setTextureFromPostProcess(string channel, PostProcess postProcess)
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "setTextureFromPostProcess" },
-                    channel,
-                    postProcess
-                }
-            );
-        }
-
-        public void setTextureFromPostProcessOutput(string channel, PostProcess postProcess)
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { this.___guid, "setTextureFromPostProcessOutput" },
-                    channel,
-                    postProcess
-                }
             );
         }
 
@@ -544,6 +548,30 @@ namespace BABYLON
             return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "setInt" }, uniformName, value }
+            );
+        }
+
+        public Effect setInt2(string uniformName, decimal x, decimal y)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
+                entity => new Effect() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "setInt2" }, uniformName, x, y }
+            );
+        }
+
+        public Effect setInt3(string uniformName, decimal x, decimal y, decimal z)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
+                entity => new Effect() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "setInt3" }, uniformName, x, y, z }
+            );
+        }
+
+        public Effect setInt4(string uniformName, decimal x, decimal y, decimal z, decimal w)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
+                entity => new Effect() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "setInt4" }, uniformName, x, y, z, w }
             );
         }
 
@@ -576,6 +604,70 @@ namespace BABYLON
             return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "setIntArray4" }, uniformName, array }
+            );
+        }
+
+        public Effect setUInt(string uniformName, decimal value)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
+                entity => new Effect() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "setUInt" }, uniformName, value }
+            );
+        }
+
+        public Effect setUInt2(string uniformName, decimal x, decimal y)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
+                entity => new Effect() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "setUInt2" }, uniformName, x, y }
+            );
+        }
+
+        public Effect setUInt3(string uniformName, decimal x, decimal y, decimal z)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
+                entity => new Effect() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "setUInt3" }, uniformName, x, y, z }
+            );
+        }
+
+        public Effect setUInt4(string uniformName, decimal x, decimal y, decimal z, decimal w)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
+                entity => new Effect() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "setUInt4" }, uniformName, x, y, z, w }
+            );
+        }
+
+        public Effect setUIntArray(string uniformName, Uint32Array array)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
+                entity => new Effect() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "setUIntArray" }, uniformName, array }
+            );
+        }
+
+        public Effect setUIntArray2(string uniformName, Uint32Array array)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
+                entity => new Effect() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "setUIntArray2" }, uniformName, array }
+            );
+        }
+
+        public Effect setUIntArray3(string uniformName, Uint32Array array)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
+                entity => new Effect() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "setUIntArray3" }, uniformName, array }
+            );
+        }
+
+        public Effect setUIntArray4(string uniformName, Uint32Array array)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
+                entity => new Effect() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "setUIntArray4" }, uniformName, array }
             );
         }
 
@@ -728,6 +820,19 @@ namespace BABYLON
             return EventHorizonBlazorInterop.FuncClass<Effect>(
                 entity => new Effect() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "setVector4" }, uniformName, vector4 }
+            );
+        }
+
+        public Effect setQuaternion(string uniformName, IQuaternionLike quaternion)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Effect>(
+                entity => new Effect() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "setQuaternion" },
+                    uniformName,
+                    quaternion
+                }
             );
         }
 

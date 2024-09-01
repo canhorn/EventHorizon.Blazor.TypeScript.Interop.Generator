@@ -13,7 +13,7 @@ namespace Static.Class
     
     
     [JsonConverter(typeof(CachedEntityConverter<ExampleClass<CachedEntity>>))]
-    public class ExampleClass<T> : CachedEntityObject where T : CachedEntity, new()
+    public class ExampleClass<T> : CachedEntityObject
     {
         #region Static Accessors
 
@@ -51,10 +51,20 @@ namespace Static.Class
         #region Methods
         public async ValueTask promiseVoid()
         {
-            await EventHorizonBlazorInterop.Task<CachedEntity>(
+            await EventHorizonBlazorInterop.Task<Void_>(
                 new object[]
                 {
                     new string[] { this.___guid, "promiseVoid" }
+                }
+            );
+        }
+
+        public async ValueTask promiseVoidVoid()
+        {
+            EventHorizonBlazorInterop.TaskArray<Void_>(
+                new object[]
+                {
+                    new string[] { this.___guid, "promiseVoidVoid" }
                 }
             );
         }

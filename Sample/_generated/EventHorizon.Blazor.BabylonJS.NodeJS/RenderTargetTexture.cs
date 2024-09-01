@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     [JsonConverter(typeof(CachedEntityConverter<RenderTargetTexture>))]
-    public class RenderTargetTexture : Texture
+    public class RenderTargetTexture : Texture, IRenderTargetTexture
     {
         #region Static Accessors
 
@@ -79,20 +79,53 @@ namespace BABYLON
             }
         }
 
-        private RenderTargetCreationOptions __renderTargetOptions;
-        public RenderTargetCreationOptions renderTargetOptions
+        public PostProcess[] postProcesses
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetArrayClass<PostProcess>(
+                    this.___guid,
+                    "postProcesses",
+                    (entity) =>
+                    {
+                        return new PostProcess() { ___guid = entity.___guid };
+                    }
+                );
+            }
+        }
+
+        public decimal[] renderPassIds
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "renderPassIds");
+            }
+        }
+
+        public decimal currentRefreshId
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "currentRefreshId"); }
+        }
+
+        public bool isMulti
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isMulti"); }
+        }
+
+        private RenderTargetCreationOptionsCachedEntity __renderTargetOptions;
+        public RenderTargetCreationOptionsCachedEntity renderTargetOptions
         {
             get
             {
                 if (__renderTargetOptions == null)
                 {
                     __renderTargetOptions =
-                        EventHorizonBlazorInterop.GetClass<RenderTargetCreationOptions>(
+                        EventHorizonBlazorInterop.GetClass<RenderTargetCreationOptionsCachedEntity>(
                             this.___guid,
                             "renderTargetOptions",
                             (entity) =>
                             {
-                                return new RenderTargetCreationOptions()
+                                return new RenderTargetCreationOptionsCachedEntity()
                                 {
                                     ___guid = entity.___guid
                                 };
@@ -100,6 +133,26 @@ namespace BABYLON
                         );
                 }
                 return __renderTargetOptions;
+            }
+        }
+
+        private RenderTargetWrapper __renderTarget;
+        public RenderTargetWrapper renderTarget
+        {
+            get
+            {
+                if (__renderTarget == null)
+                {
+                    __renderTarget = EventHorizonBlazorInterop.GetClass<RenderTargetWrapper>(
+                        this.___guid,
+                        "renderTarget",
+                        (entity) =>
+                        {
+                            return new RenderTargetWrapper() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __renderTarget;
             }
         }
 
@@ -193,6 +246,16 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "renderSprites", value);
+            }
+        }
+
+        public bool forceLayerMaskCheck
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "forceLayerMaskCheck"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "forceLayerMaskCheck", value);
             }
         }
 
@@ -311,19 +374,21 @@ namespace BABYLON
 
         // onAfterRenderObservable is not supported by the platform yet
 
-        private Observable<Engine> __onClearObservable;
-        public Observable<Engine> onClearObservable
+        private Observable<AbstractEngine> __onClearObservable;
+        public Observable<AbstractEngine> onClearObservable
         {
             get
             {
                 if (__onClearObservable == null)
                 {
-                    __onClearObservable = EventHorizonBlazorInterop.GetClass<Observable<Engine>>(
+                    __onClearObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<AbstractEngine>
+                    >(
                         this.___guid,
                         "onClearObservable",
                         (entity) =>
                         {
-                            return new Observable<Engine>() { ___guid = entity.___guid };
+                            return new Observable<AbstractEngine>() { ___guid = entity.___guid };
                         }
                     );
                 }
@@ -391,6 +456,26 @@ namespace BABYLON
             }
         }
 
+        public bool skipInitialClear
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "skipInitialClear"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "skipInitialClear", value);
+            }
+        }
+
+        public decimal renderPassId
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "renderPassId"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "renderPassId", value);
+            }
+        }
+
         private Vector3 __boundingBoxPosition;
         public Vector3 boundingBoxPosition
         {
@@ -427,17 +512,8 @@ namespace BABYLON
         public RenderTargetTexture(
             string name,
             decimal size,
-            Scene scene,
-            System.Nullable<bool> generateMipMaps = null,
-            System.Nullable<bool> doNotChangeAspectRatio = null,
-            System.Nullable<decimal> type = null,
-            System.Nullable<bool> isCube = null,
-            System.Nullable<decimal> samplingMode = null,
-            System.Nullable<bool> generateDepthBuffer = null,
-            System.Nullable<bool> generateStencilBuffer = null,
-            System.Nullable<bool> isMulti = null,
-            System.Nullable<decimal> format = null,
-            System.Nullable<bool> delayAllocation = null
+            Scene scene = null,
+            RenderTargetTextureOptions options = null
         )
             : base()
         {
@@ -446,206 +522,157 @@ namespace BABYLON
                 name,
                 size,
                 scene,
-                generateMipMaps,
-                doNotChangeAspectRatio,
-                type,
-                isCube,
+                options
+            );
+            ___guid = entity.___guid;
+        }
+
+        public RenderTargetTexture(
+            string url = null,
+            Scene sceneOrEngine = null,
+            System.Nullable<bool> noMipmapOrOptions = null,
+            System.Nullable<bool> invertY = null,
+            System.Nullable<decimal> samplingMode = null,
+            ActionCallback onLoad = null,
+            ActionCallback<string, CachedEntity> onError = null,
+            string buffer = null,
+            System.Nullable<bool> deleteBuffer = null,
+            System.Nullable<decimal> format = null,
+            string mimeType = null,
+            object loaderOptions = null,
+            System.Nullable<decimal> creationFlags = null,
+            string forcedExtension = null
+        )
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "RenderTargetTexture" },
+                url,
+                sceneOrEngine,
+                noMipmapOrOptions,
+                invertY,
                 samplingMode,
-                generateDepthBuffer,
-                generateStencilBuffer,
-                isMulti,
+                onLoad,
+                onError,
+                buffer,
+                deleteBuffer,
                 format,
-                delayAllocation
+                mimeType,
+                loaderOptions,
+                creationFlags,
+                forcedExtension
+            );
+            ___guid = entity.___guid;
+        }
+
+        public RenderTargetTexture(
+            Scene sceneOrEngine = null,
+            InternalTexture internalTexture = null
+        )
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "RenderTargetTexture" },
+                sceneOrEngine,
+                internalTexture
+            );
+            ___guid = entity.___guid;
+        }
+
+        public RenderTargetTexture(InternalTexture internalTexture)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "RenderTargetTexture" },
+                internalTexture
             );
             ___guid = entity.___guid;
         }
         #endregion
 
         #region Methods
-        #region renderListPredicate TODO: Get Comments as metadata identification
-        private bool _isRenderListPredicateEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _renderListPredicateActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string renderListPredicate(Func<Task> callback)
+        public bool renderListPredicate(AbstractMesh AbstractMesh)
         {
-            SetupRenderListPredicateLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _renderListPredicateActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool renderListPredicate_Remove(string handle)
-        {
-            return _renderListPredicateActionMap.Remove(handle);
-        }
-
-        private void SetupRenderListPredicateLoop()
-        {
-            if (_isRenderListPredicateEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "renderListPredicate",
-                "CallRenderListPredicateActions",
-                _invokableReference
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "renderListPredicate" }, AbstractMesh }
             );
-            _isRenderListPredicateEnabled = true;
         }
 
-        [JSInvokable]
-        public async Task CallRenderListPredicateActions()
+        public AbstractMesh[] getCustomRenderList(
+            decimal layerOrFace,
+            Immutable<T> renderList,
+            decimal renderListLength
+        )
         {
-            foreach (var action in _renderListPredicateActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region getCustomRenderList TODO: Get Comments as metadata identification
-        private bool _isGetCustomRenderListEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _getCustomRenderListActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string getCustomRenderList(Func<Task> callback)
-        {
-            SetupGetCustomRenderListLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _getCustomRenderListActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool getCustomRenderList_Remove(string handle)
-        {
-            return _getCustomRenderListActionMap.Remove(handle);
-        }
-
-        private void SetupGetCustomRenderListLoop()
-        {
-            if (_isGetCustomRenderListEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "getCustomRenderList",
-                "CallGetCustomRenderListActions",
-                _invokableReference
+            return EventHorizonBlazorInterop.FuncArrayClass<AbstractMesh>(
+                entity => new AbstractMesh() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "getCustomRenderList" },
+                    layerOrFace,
+                    renderList,
+                    renderListLength
+                }
             );
-            _isGetCustomRenderListEnabled = true;
         }
 
-        [JSInvokable]
-        public async Task CallGetCustomRenderListActions()
+        public bool customIsReadyFunction(
+            AbstractMesh mesh,
+            decimal refreshRate,
+            System.Nullable<bool> preWarm = null
+        )
         {
-            foreach (var action in _getCustomRenderListActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region customIsReadyFunction TODO: Get Comments as metadata identification
-        private bool _isCustomIsReadyFunctionEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _customIsReadyFunctionActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string customIsReadyFunction(Func<Task> callback)
-        {
-            SetupCustomIsReadyFunctionLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _customIsReadyFunctionActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool customIsReadyFunction_Remove(string handle)
-        {
-            return _customIsReadyFunctionActionMap.Remove(handle);
-        }
-
-        private void SetupCustomIsReadyFunctionLoop()
-        {
-            if (_isCustomIsReadyFunctionEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "customIsReadyFunction",
-                "CallCustomIsReadyFunctionActions",
-                _invokableReference
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[]
+                {
+                    new string[] { this.___guid, "customIsReadyFunction" },
+                    mesh,
+                    refreshRate,
+                    preWarm
+                }
             );
-            _isCustomIsReadyFunctionEnabled = true;
         }
 
-        [JSInvokable]
-        public async Task CallCustomIsReadyFunctionActions()
+        public void customRenderFunction(
+            SmartArray<SubMesh> opaqueSubMeshes,
+            SmartArray<SubMesh> alphaTestSubMeshes,
+            SmartArray<SubMesh> transparentSubMeshes,
+            SmartArray<SubMesh> depthOnlySubMeshes,
+            ActionCallback beforeTransparents = null
+        )
         {
-            foreach (var action in _customIsReadyFunctionActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region customRenderFunction TODO: Get Comments as metadata identification
-        private bool _isCustomRenderFunctionEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _customRenderFunctionActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string customRenderFunction(Func<Task> callback)
-        {
-            SetupCustomRenderFunctionLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _customRenderFunctionActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool customRenderFunction_Remove(string handle)
-        {
-            return _customRenderFunctionActionMap.Remove(handle);
-        }
-
-        private void SetupCustomRenderFunctionLoop()
-        {
-            if (_isCustomRenderFunctionEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "customRenderFunction",
-                "CallCustomRenderFunctionActions",
-                _invokableReference
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "customRenderFunction" },
+                    opaqueSubMeshes,
+                    alphaTestSubMeshes,
+                    transparentSubMeshes,
+                    depthOnlySubMeshes,
+                    beforeTransparents
+                }
             );
-            _isCustomRenderFunctionEnabled = true;
         }
 
-        [JSInvokable]
-        public async Task CallCustomRenderFunctionActions()
+        public void setMaterialForRendering(AbstractMesh mesh, Material material = null)
         {
-            foreach (var action in _customRenderFunctionActionMap.Values)
-            {
-                await action();
-            }
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "setMaterialForRendering" },
+                    mesh,
+                    material
+                }
+            );
         }
-        #endregion
 
         public void createDepthStencilTexture(
             System.Nullable<decimal> comparisonFunction = null,
             System.Nullable<bool> bilinearFiltering = null,
-            System.Nullable<bool> generateStencil = null
+            System.Nullable<bool> generateStencil = null,
+            System.Nullable<decimal> samples = null,
+            System.Nullable<decimal> format = null,
+            string label = null
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -654,7 +681,10 @@ namespace BABYLON
                     new string[] { this.___guid, "createDepthStencilTexture" },
                     comparisonFunction,
                     bilinearFiltering,
-                    generateStencil
+                    generateStencil,
+                    samples,
+                    format,
+                    label
                 }
             );
         }
@@ -715,6 +745,13 @@ namespace BABYLON
             );
         }
 
+        public void disableRescaling()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "disableRescaling" } }
+            );
+        }
+
         public void scale(decimal ratio)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -749,6 +786,13 @@ namespace BABYLON
                     useCameraPostProcess,
                     dumpForDebug
                 }
+            );
+        }
+
+        public bool isReadyForRendering()
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "isReadyForRendering" } }
             );
         }
 
@@ -805,6 +849,13 @@ namespace BABYLON
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "disposeFramebufferObjects" } }
+            );
+        }
+
+        public void releaseInternalTexture()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "releaseInternalTexture" } }
             );
         }
 

@@ -97,50 +97,12 @@ namespace BABYLON
             );
         }
 
-        #region checkInputs TODO: Get Comments as metadata identification
-        private bool _isCheckInputsEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _checkInputsActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string checkInputs(Func<Task> callback)
+        public void checkInputs()
         {
-            SetupCheckInputsLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _checkInputsActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool checkInputs_Remove(string handle)
-        {
-            return _checkInputsActionMap.Remove(handle);
-        }
-
-        private void SetupCheckInputsLoop()
-        {
-            if (_isCheckInputsEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "checkInputs",
-                "CallCheckInputsActions",
-                _invokableReference
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "checkInputs" } }
             );
-            _isCheckInputsEnabled = true;
         }
-
-        [JSInvokable]
-        public async Task CallCheckInputsActions()
-        {
-            foreach (var action in _checkInputsActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
         #endregion
     }
 }

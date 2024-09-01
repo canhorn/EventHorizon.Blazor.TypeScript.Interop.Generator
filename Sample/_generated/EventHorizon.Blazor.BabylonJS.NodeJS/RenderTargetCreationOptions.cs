@@ -10,8 +10,12 @@ namespace BABYLON
     using EventHorizon.Blazor.Interop.ResultCallbacks;
     using Microsoft.JSInterop;
 
-    [JsonConverter(typeof(CachedEntityConverter<RenderTargetCreationOptions>))]
-    public class RenderTargetCreationOptions : CachedEntityObject
+    public interface RenderTargetCreationOptions : ICachedEntity { }
+
+    [JsonConverter(typeof(CachedEntityConverter<RenderTargetCreationOptionsCachedEntity>))]
+    public class RenderTargetCreationOptionsCachedEntity
+        : CachedEntityObject,
+            RenderTargetCreationOptions
     {
         #region Static Accessors
 
@@ -30,16 +34,6 @@ namespace BABYLON
         #endregion
 
         #region Properties
-
-        public bool generateMipMaps
-        {
-            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "generateMipMaps"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "generateMipMaps", value);
-            }
-        }
 
         public bool generateDepthBuffer
         {
@@ -64,46 +58,48 @@ namespace BABYLON
             }
         }
 
-        public decimal type
+        public bool noColorAttachment
         {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "type"); }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "noColorAttachment"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(this.___guid, "type", value);
+                EventHorizonBlazorInterop.Set(this.___guid, "noColorAttachment", value);
             }
         }
 
-        public decimal samplingMode
+        private InternalTexture __colorAttachment;
+        public InternalTexture colorAttachment
         {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "samplingMode"); }
-            set
+            get
             {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "samplingMode", value);
+                if (__colorAttachment == null)
+                {
+                    __colorAttachment = EventHorizonBlazorInterop.GetClass<InternalTexture>(
+                        this.___guid,
+                        "colorAttachment",
+                        (entity) =>
+                        {
+                            return new InternalTexture() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __colorAttachment;
             }
-        }
-
-        public decimal format
-        {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "format"); }
             set
             {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "format", value);
+                __colorAttachment = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "colorAttachment", value);
             }
         }
         #endregion
 
         #region Constructor
-        public RenderTargetCreationOptions()
+        public RenderTargetCreationOptionsCachedEntity()
             : base() { }
 
-        public RenderTargetCreationOptions(ICachedEntity entity)
-            : base(entity)
-        {
-            ___guid = entity.___guid;
-        }
+        public RenderTargetCreationOptionsCachedEntity(ICachedEntity entity)
+            : base(entity) { }
 
         #endregion
 

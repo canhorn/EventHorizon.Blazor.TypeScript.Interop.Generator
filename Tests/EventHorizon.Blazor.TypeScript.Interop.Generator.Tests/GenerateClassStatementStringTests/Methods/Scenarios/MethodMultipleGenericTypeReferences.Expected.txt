@@ -34,6 +34,17 @@ namespace Static.Class
                 }
             );
         }
+
+        public static Observable<T> FromPromise<T, E>(ValueTask<T> promise, Observable<E> onErrorObservable = null) where T : CachedEntity, new() where E : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<Observable<T>>(
+                entity => new Observable<T>() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "Static", "Class", "ExampleClass", "FromPromise" }, promise, onErrorObservable
+                }
+            );
+        }
         #endregion
 
         #region Accessors

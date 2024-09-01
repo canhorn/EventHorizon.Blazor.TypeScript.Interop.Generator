@@ -45,9 +45,29 @@ namespace BABYLON
 
         #region Accessors
 
+        public bool loop
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "loop"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "loop", value);
+            }
+        }
+
         public decimal currentTime
         {
             get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "currentTime"); }
+        }
+
+        public bool spatialSound
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "spatialSound"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "spatialSound", value);
+            }
         }
 
         public decimal directionalConeInnerAngle
@@ -105,16 +125,6 @@ namespace BABYLON
             }
         }
 
-        public bool loop
-        {
-            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "loop"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "loop", value);
-            }
-        }
-
         public bool useCustomAttenuation
         {
             get
@@ -155,16 +165,6 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "isPaused", value);
-            }
-        }
-
-        public bool spatialSound
-        {
-            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "spatialSound"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "spatialSound", value);
             }
         }
 
@@ -267,7 +267,7 @@ namespace BABYLON
         public Sound(
             string name,
             object urlOrArrayBuffer,
-            Scene scene,
+            Scene scene = null,
             ActionCallback readyToPlayCallback = null,
             ISoundOptions options = null
         )
@@ -285,50 +285,12 @@ namespace BABYLON
         #endregion
 
         #region Methods
-        #region onended TODO: Get Comments as metadata identification
-        private bool _isOnendedEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _onendedActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string onended(Func<Task> callback)
+        public CachedEntity onended()
         {
-            SetupOnendedLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _onendedActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool onended_Remove(string handle)
-        {
-            return _onendedActionMap.Remove(handle);
-        }
-
-        private void SetupOnendedLoop()
-        {
-            if (_isOnendedEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "onended",
-                "CallOnendedActions",
-                _invokableReference
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "onended" } }
             );
-            _isOnendedEnabled = true;
         }
-
-        [JSInvokable]
-        public async Task CallOnendedActions()
-        {
-            foreach (var action in _onendedActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
 
         public void dispose()
         {
@@ -341,6 +303,13 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[] { new string[] { this.___guid, "isReady" } }
+            );
+        }
+
+        public string getClassName()
+        {
+            return EventHorizonBlazorInterop.Func<string>(
+                new object[] { new string[] { this.___guid, "getClassName" } }
             );
         }
 
@@ -523,6 +492,13 @@ namespace BABYLON
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "setPlaybackRate" }, newPlaybackRate }
+            );
+        }
+
+        public decimal getPlaybackRate()
+        {
+            return EventHorizonBlazorInterop.Func<decimal>(
+                new object[] { new string[] { this.___guid, "getPlaybackRate" } }
             );
         }
 

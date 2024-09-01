@@ -37,6 +37,16 @@ namespace BABYLON.GUI
             }
         }
 
+        public decimal spacing
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "spacing"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "spacing", value);
+            }
+        }
+
         public string width
         {
             get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "width"); }
@@ -103,7 +113,24 @@ namespace BABYLON.GUI
         #endregion
 
         #region Methods
+        public bool isDimensionFullyDefined(object dim)
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "isDimensionFullyDefined" }, dim }
+            );
+        }
 
+        public void serialize(object serializationObject, bool force)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "serialize" },
+                    serializationObject,
+                    force
+                }
+            );
+        }
         #endregion
     }
 }

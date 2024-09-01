@@ -11,7 +11,7 @@ namespace BABYLON.GUI
     using Microsoft.JSInterop;
 
     [JsonConverter(typeof(CachedEntityConverter<Control>))]
-    public class Control : CachedEntityObject
+    public class Control : CachedEntityObject, IAnimatable, IFocusableControl
     {
         #region Static Accessors
 
@@ -106,52 +106,95 @@ namespace BABYLON.GUI
         #endregion
 
         #region Static Methods
-        #region AddHeader TODO: Get Comments as metadata identification
-        private static bool IsAddHeaderEnabled = false;
-        private static readonly IDictionary<string, Func<Task>> AddHeaderActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public static string AddHeader(Func<Task> callback)
+        public static Control Parse(
+            object serializedObject,
+            AdvancedDynamicTexture host,
+            ActionResultCallback<string, string> urlRewriter = null
+        )
         {
-            SetupAddHeaderStaticLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            AddHeaderActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public static bool AddHeader_Remove(string handle)
-        {
-            return AddHeaderActionMap.Remove(handle);
-        }
-
-        private static void SetupAddHeaderStaticLoop()
-        {
-            if (IsAddHeaderEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.AssemblyFuncCallback(
-                "EventHorizon.Blazor.BabylonJS.NodeJS",
-                "BABYLON.GUI.Control.AddHeader",
-                "CallAddHeaderStaticActions"
+            return EventHorizonBlazorInterop.FuncClass<Control>(
+                entity => new Control() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "GUI", "Control", "Parse" },
+                    serializedObject,
+                    host,
+                    urlRewriter
+                }
             );
-            IsAddHeaderEnabled = true;
         }
 
-        [JSInvokable]
-        public static async Task CallAddHeaderStaticActions()
+        public static CachedEntity AddHeader(
+            Control control,
+            string text,
+            string size,
+            object options
+        )
         {
-            foreach (var action in AddHeaderActionMap.Values)
-            {
-                await action();
-            }
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { "BABYLON", "GUI", "Control", "AddHeader" },
+                    control,
+                    text,
+                    size,
+                    options
+                }
+            );
         }
-        #endregion
         #endregion
 
         #region Accessors
+
+        public bool isReadOnly
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isReadOnly"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "isReadOnly", value);
+            }
+        }
+
+        private Measure __transformedMeasure;
+        public Measure transformedMeasure
+        {
+            get
+            {
+                if (__transformedMeasure == null)
+                {
+                    __transformedMeasure = EventHorizonBlazorInterop.GetClass<Measure>(
+                        this.___guid,
+                        "transformedMeasure",
+                        (entity) =>
+                        {
+                            return new Measure() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __transformedMeasure;
+            }
+        }
+
+        public bool clipChildren
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "clipChildren"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "clipChildren", value);
+            }
+        }
+
+        public bool clipContent
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "clipContent"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "clipContent", value);
+            }
+        }
 
         public decimal shadowOffsetX
         {
@@ -198,6 +241,35 @@ namespace BABYLON.GUI
             get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "typeName"); }
         }
 
+        private IAccessibilityTagCachedEntity __accessibilityTag;
+        public IAccessibilityTagCachedEntity accessibilityTag
+        {
+            get
+            {
+                if (__accessibilityTag == null)
+                {
+                    __accessibilityTag =
+                        EventHorizonBlazorInterop.GetClass<IAccessibilityTagCachedEntity>(
+                            this.___guid,
+                            "accessibilityTag",
+                            (entity) =>
+                            {
+                                return new IAccessibilityTagCachedEntity()
+                                {
+                                    ___guid = entity.___guid
+                                };
+                            }
+                        );
+                }
+                return __accessibilityTag;
+            }
+            set
+            {
+                __accessibilityTag = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "accessibilityTag", value);
+            }
+        }
+
         private AdvancedDynamicTexture __host;
         public AdvancedDynamicTexture host
         {
@@ -238,6 +310,19 @@ namespace BABYLON.GUI
             }
         }
 
+        public decimal highlightLineWidth
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "highlightLineWidth");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "highlightLineWidth", value);
+            }
+        }
+
         public bool isHighlighted
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isHighlighted"); }
@@ -245,6 +330,16 @@ namespace BABYLON.GUI
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "isHighlighted", value);
+            }
+        }
+
+        public string highlightColor
+        {
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "highlightColor"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "highlightColor", value);
             }
         }
 
@@ -321,6 +416,29 @@ namespace BABYLON.GUI
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "verticalAlignment", value);
+            }
+        }
+
+        public decimal fixedRatio
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "fixedRatio"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "fixedRatio", value);
+            }
+        }
+
+        public bool fixedRatioMasterIsWidth
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "fixedRatioMasterIsWidth");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "fixedRatioMasterIsWidth", value);
             }
         }
 
@@ -449,6 +567,31 @@ namespace BABYLON.GUI
             }
         }
 
+        private BaseGradient __gradient;
+        public BaseGradient gradient
+        {
+            get
+            {
+                if (__gradient == null)
+                {
+                    __gradient = EventHorizonBlazorInterop.GetClass<BaseGradient>(
+                        this.___guid,
+                        "gradient",
+                        (entity) =>
+                        {
+                            return new BaseGradient() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __gradient;
+            }
+            set
+            {
+                __gradient = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "gradient", value);
+            }
+        }
+
         public decimal zIndex
         {
             get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "zIndex"); }
@@ -501,6 +644,19 @@ namespace BABYLON.GUI
                     );
                 }
                 return __linkedMesh;
+            }
+        }
+
+        public bool descendantsOnlyPadding
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "descendantsOnlyPadding");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "descendantsOnlyPadding", value);
             }
         }
 
@@ -724,6 +880,16 @@ namespace BABYLON.GUI
                 EventHorizonBlazorInterop.Set(this.___guid, "disabledColorItem", value);
             }
         }
+
+        public string focusedColor
+        {
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "focusedColor"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "focusedColor", value);
+            }
+        }
         #endregion
 
         #region Properties
@@ -762,6 +928,9 @@ namespace BABYLON.GUI
                 EventHorizonBlazorInterop.Set(this.___guid, "parent", value);
             }
         }
+
+        // onEnabledStateChangedObservable is not supported by the platform yet
+
 
         public decimal uniqueId
         {
@@ -823,26 +992,6 @@ namespace BABYLON.GUI
             }
         }
 
-        public bool clipChildren
-        {
-            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "clipChildren"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "clipChildren", value);
-            }
-        }
-
-        public bool clipContent
-        {
-            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "clipContent"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "clipContent", value);
-            }
-        }
-
         public bool useBitmapCache
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "useBitmapCache"); }
@@ -860,6 +1009,40 @@ namespace BABYLON.GUI
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "hoverCursor", value);
+            }
+        }
+
+        private Observable<IAccessibilityTagCachedEntity> __onAccessibilityTagChangedObservable;
+        public Observable<IAccessibilityTagCachedEntity> onAccessibilityTagChangedObservable
+        {
+            get
+            {
+                if (__onAccessibilityTagChangedObservable == null)
+                {
+                    __onAccessibilityTagChangedObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<IAccessibilityTagCachedEntity>
+                    >(
+                        this.___guid,
+                        "onAccessibilityTagChangedObservable",
+                        (entity) =>
+                        {
+                            return new Observable<IAccessibilityTagCachedEntity>()
+                            {
+                                ___guid = entity.___guid
+                            };
+                        }
+                    );
+                }
+                return __onAccessibilityTagChangedObservable;
+            }
+            set
+            {
+                __onAccessibilityTagChangedObservable = null;
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "onAccessibilityTagChangedObservable",
+                    value
+                );
             }
         }
 
@@ -1023,6 +1206,33 @@ namespace BABYLON.GUI
             }
         }
 
+        private Observable<Control> __onEnterPressedObservable;
+        public Observable<Control> onEnterPressedObservable
+        {
+            get
+            {
+                if (__onEnterPressedObservable == null)
+                {
+                    __onEnterPressedObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<Control>
+                    >(
+                        this.___guid,
+                        "onEnterPressedObservable",
+                        (entity) =>
+                        {
+                            return new Observable<Control>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __onEnterPressedObservable;
+            }
+            set
+            {
+                __onEnterPressedObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onEnterPressedObservable", value);
+            }
+        }
+
         private Observable<Control> __onPointerEnterObservable;
         public Observable<Control> onPointerEnterObservable
         {
@@ -1154,13 +1364,156 @@ namespace BABYLON.GUI
             }
         }
 
-        public decimal fixedRatio
+        // onIsVisibleChangedObservable is not supported by the platform yet
+
+
+        public bool isSerializable
         {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "fixedRatio"); }
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isSerializable"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(this.___guid, "fixedRatio", value);
+                EventHorizonBlazorInterop.Set(this.___guid, "isSerializable", value);
+            }
+        }
+
+        public decimal overlapGroup
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "overlapGroup"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "overlapGroup", value);
+            }
+        }
+
+        public decimal overlapDeltaMultiplier
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<decimal>(
+                    this.___guid,
+                    "overlapDeltaMultiplier"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "overlapDeltaMultiplier", value);
+            }
+        }
+
+        public Animation[] animations
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetArrayClass<Animation>(
+                    this.___guid,
+                    "animations",
+                    (entity) =>
+                    {
+                        return new Animation() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "animations", value);
+            }
+        }
+
+        public decimal tabIndex
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "tabIndex"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "tabIndex", value);
+            }
+        }
+
+        private Observable<Control> __onFocusObservable;
+        public Observable<Control> onFocusObservable
+        {
+            get
+            {
+                if (__onFocusObservable == null)
+                {
+                    __onFocusObservable = EventHorizonBlazorInterop.GetClass<Observable<Control>>(
+                        this.___guid,
+                        "onFocusObservable",
+                        (entity) =>
+                        {
+                            return new Observable<Control>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __onFocusObservable;
+            }
+            set
+            {
+                __onFocusObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onFocusObservable", value);
+            }
+        }
+
+        private Observable<Control> __onBlurObservable;
+        public Observable<Control> onBlurObservable
+        {
+            get
+            {
+                if (__onBlurObservable == null)
+                {
+                    __onBlurObservable = EventHorizonBlazorInterop.GetClass<Observable<Control>>(
+                        this.___guid,
+                        "onBlurObservable",
+                        (entity) =>
+                        {
+                            return new Observable<Control>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __onBlurObservable;
+            }
+            set
+            {
+                __onBlurObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onBlurObservable", value);
+            }
+        }
+
+        private Observable<IKeyboardEventCachedEntity> __onKeyboardEventProcessedObservable;
+        public Observable<IKeyboardEventCachedEntity> onKeyboardEventProcessedObservable
+        {
+            get
+            {
+                if (__onKeyboardEventProcessedObservable == null)
+                {
+                    __onKeyboardEventProcessedObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<IKeyboardEventCachedEntity>
+                    >(
+                        this.___guid,
+                        "onKeyboardEventProcessedObservable",
+                        (entity) =>
+                        {
+                            return new Observable<IKeyboardEventCachedEntity>()
+                            {
+                                ___guid = entity.___guid
+                            };
+                        }
+                    );
+                }
+                return __onKeyboardEventProcessedObservable;
+            }
+            set
+            {
+                __onKeyboardEventProcessedObservable = null;
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "onKeyboardEventProcessedObservable",
+                    value
+                );
             }
         }
         #endregion
@@ -1170,12 +1523,10 @@ namespace BABYLON.GUI
             : base() { }
 
         public Control(ICachedEntity entity)
-            : base(entity)
-        {
-            ___guid = entity.___guid;
-        }
+            : base(entity) { }
 
         public Control(string name = null)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "GUI", "Control" },
@@ -1193,11 +1544,68 @@ namespace BABYLON.GUI
             );
         }
 
+        public void onBlur()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "onBlur" } }
+            );
+        }
+
+        public void onFocus()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "onFocus" } }
+            );
+        }
+
+        public Control[] keepsFocusWith()
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<Control>(
+                entity => new Control() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "keepsFocusWith" } }
+            );
+        }
+
+        public void focus()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "focus" } }
+            );
+        }
+
+        public void blur()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "blur" } }
+            );
+        }
+
+        public void processKeyboard(IKeyboardEvent evt)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "processKeyboard" }, evt }
+            );
+        }
+
         public Control getAscendantOfClass(string className)
         {
             return EventHorizonBlazorInterop.FuncClass<Control>(
                 entity => new Control() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "getAscendantOfClass" }, className }
+            );
+        }
+
+        public void markAsDirty(System.Nullable<bool> force = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "markAsDirty" }, force }
+            );
+        }
+
+        public void markAllAsDirty()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "markAllAsDirty" } }
             );
         }
 
@@ -1292,6 +1700,51 @@ namespace BABYLON.GUI
             );
         }
 
+        public void setPadding(
+            string paddingTop,
+            string paddingRight = null,
+            string paddingBottom = null,
+            string paddingLeft = null
+        )
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "setPadding" },
+                    paddingTop,
+                    paddingRight,
+                    paddingBottom,
+                    paddingLeft
+                }
+            );
+        }
+
+        public void setPaddingInPixels(
+            decimal paddingTop,
+            System.Nullable<decimal> paddingRight = null,
+            System.Nullable<decimal> paddingBottom = null,
+            System.Nullable<decimal> paddingLeft = null
+        )
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "setPaddingInPixels" },
+                    paddingTop,
+                    paddingRight,
+                    paddingBottom,
+                    paddingLeft
+                }
+            );
+        }
+
+        public void invalidateRect()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "invalidateRect" } }
+            );
+        }
+
         public bool contains(decimal x, decimal y)
         {
             return EventHorizonBlazorInterop.Func<bool>(
@@ -1299,10 +1752,75 @@ namespace BABYLON.GUI
             );
         }
 
+        public bool isDimensionFullyDefined(object dim)
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "isDimensionFullyDefined" }, dim }
+            );
+        }
+
+        public ValueAndUnit getDimension(object dim)
+        {
+            return EventHorizonBlazorInterop.FuncClass<ValueAndUnit>(
+                entity => new ValueAndUnit() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getDimension" }, dim }
+            );
+        }
+
+        public Control clone(AdvancedDynamicTexture host = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Control>(
+                entity => new Control() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "clone" }, host }
+            );
+        }
+
+        public Control parse(
+            object serializedObject,
+            AdvancedDynamicTexture host = null,
+            ActionResultCallback<string, string> urlRewriter = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<Control>(
+                entity => new Control() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "parse" },
+                    serializedObject,
+                    host,
+                    urlRewriter
+                }
+            );
+        }
+
+        public void serialize(
+            object serializationObject,
+            System.Nullable<bool> force = null,
+            System.Nullable<bool> allowCanvas = null
+        )
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "serialize" },
+                    serializationObject,
+                    force,
+                    allowCanvas
+                }
+            );
+        }
+
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "dispose" } }
+            );
+        }
+
+        public bool isReady()
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "isReady" } }
             );
         }
         #endregion

@@ -8,16 +8,13 @@ public class ClassStatement
     public string Namespace { get; set; }
     public string Name { get; set; }
     public bool IsInterface { get; set; }
-    public IList<TypeStatement> GenericTypes { get; set; } = new List<TypeStatement>();
+    public IList<TypeStatement> GenericTypes { get; set; } = [];
     public TypeStatement ExtendedType { get; set; }
-    public IList<TypeStatement> ImplementedInterfaces { get; set; } = new List<TypeStatement>();
+    public IList<TypeStatement> ImplementedInterfaces { get; set; } = [];
     public ConstructorStatement ConstructorStatement { get; set; } = new ConstructorStatement();
-    public IList<PublicPropertyStatement> PublicPropertyStatements { get; set; } =
-        new List<PublicPropertyStatement>();
-    public IList<PublicMethodStatement> PublicMethodStatements { get; set; } =
-        new List<PublicMethodStatement>();
-    public IList<AccessorStatement> AccessorStatements { get; set; } =
-        new List<AccessorStatement>();
+    public IList<PublicPropertyStatement> PublicPropertyStatements { get; set; } = [];
+    public IList<PublicMethodStatement> PublicMethodStatements { get; set; } = [];
+    public IList<AccessorStatement> AccessorStatements { get; set; } = [];
 
     public override string ToString()
     {

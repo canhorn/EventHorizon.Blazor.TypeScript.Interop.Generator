@@ -156,53 +156,47 @@ namespace BABYLON
         public ShadowLight(ICachedEntity entity)
             : base(entity) { }
 
+        public ShadowLight(string name, Scene scene = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "ShadowLight" },
+                name,
+                scene
+            );
+            ___guid = entity.___guid;
+        }
+
+        public ShadowLight(string name, Scene scene = null, System.Nullable<bool> isPure = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "ShadowLight" },
+                name,
+                scene,
+                isPure
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods
-        #region customProjectionMatrixBuilder TODO: Get Comments as metadata identification
-        private bool _isCustomProjectionMatrixBuilderEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _customProjectionMatrixBuilderActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string customProjectionMatrixBuilder(Func<Task> callback)
+        public void customProjectionMatrixBuilder(
+            Matrix viewMatrix,
+            AbstractMesh[] renderList,
+            Matrix result
+        )
         {
-            SetupCustomProjectionMatrixBuilderLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _customProjectionMatrixBuilderActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool customProjectionMatrixBuilder_Remove(string handle)
-        {
-            return _customProjectionMatrixBuilderActionMap.Remove(handle);
-        }
-
-        private void SetupCustomProjectionMatrixBuilderLoop()
-        {
-            if (_isCustomProjectionMatrixBuilderEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "customProjectionMatrixBuilder",
-                "CallCustomProjectionMatrixBuilderActions",
-                _invokableReference
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "customProjectionMatrixBuilder" },
+                    viewMatrix,
+                    renderList,
+                    result
+                }
             );
-            _isCustomProjectionMatrixBuilderEnabled = true;
         }
-
-        [JSInvokable]
-        public async Task CallCustomProjectionMatrixBuilderActions()
-        {
-            foreach (var action in _customProjectionMatrixBuilderActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
 
         public bool computeTransformedInformation()
         {
@@ -305,6 +299,30 @@ namespace BABYLON
                 {
                     new string[] { this.___guid, "setShadowProjectionMatrix" },
                     matrix,
+                    viewMatrix,
+                    renderList
+                }
+            );
+        }
+
+        public Matrix getViewMatrix(System.Nullable<decimal> faceIndex = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getViewMatrix" }, faceIndex }
+            );
+        }
+
+        public Matrix getProjectionMatrix(
+            Matrix viewMatrix = null,
+            AbstractMesh[] renderList = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "getProjectionMatrix" },
                     viewMatrix,
                     renderList
                 }

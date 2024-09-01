@@ -367,6 +367,13 @@ namespace BABYLON
                 new object[] { new string[] { this.___guid, "intersectsMinMax" }, min, max }
             );
         }
+
+        public void dispose()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "dispose" } }
+            );
+        }
         #endregion
     }
 }

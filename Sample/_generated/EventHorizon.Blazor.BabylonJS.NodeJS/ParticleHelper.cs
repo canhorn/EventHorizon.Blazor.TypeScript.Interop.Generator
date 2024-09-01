@@ -50,6 +50,26 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set("BABYLON", "ParticleHelper.SnippetUrl", value);
             }
         }
+
+        public static ValueTask<IParticleSystemCachedEntity> CreateFromSnippetAsync
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<ValueTask<IParticleSystemCachedEntity>>(
+                    "BABYLON",
+                    "ParticleHelper.CreateFromSnippetAsync"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    "BABYLON",
+                    "ParticleHelper.CreateFromSnippetAsync",
+                    value
+                );
+            }
+        }
         #endregion
 
         #region Static Methods
@@ -76,7 +96,8 @@ namespace BABYLON
         public static ValueTask<ParticleSystemSet> CreateAsync(
             string type,
             Scene scene,
-            System.Nullable<bool> gpu = null
+            System.Nullable<bool> gpu = null,
+            System.Nullable<decimal> capacity = null
         )
         {
             return EventHorizonBlazorInterop.TaskClass<ParticleSystemSet>(
@@ -86,7 +107,8 @@ namespace BABYLON
                     new string[] { "BABYLON", "ParticleHelper", "CreateAsync" },
                     type,
                     scene,
-                    gpu
+                    gpu,
+                    capacity
                 }
             );
         }
@@ -104,7 +126,8 @@ namespace BABYLON
             Scene scene,
             string name = null,
             System.Nullable<bool> gpu = null,
-            string rootUrl = null
+            string rootUrl = null,
+            System.Nullable<decimal> capacity = null
         )
         {
             return EventHorizonBlazorInterop.TaskClass<IParticleSystemCachedEntity>(
@@ -116,27 +139,30 @@ namespace BABYLON
                     url,
                     scene,
                     gpu,
-                    rootUrl
+                    rootUrl,
+                    capacity
                 }
             );
         }
 
-        public static ValueTask<IParticleSystemCachedEntity> CreateFromSnippetAsync(
+        public static ValueTask<IParticleSystemCachedEntity> ParseFromSnippetAsync(
             string snippetId,
             Scene scene,
             System.Nullable<bool> gpu = null,
-            string rootUrl = null
+            string rootUrl = null,
+            System.Nullable<decimal> capacity = null
         )
         {
             return EventHorizonBlazorInterop.TaskClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { "BABYLON", "ParticleHelper", "CreateFromSnippetAsync" },
+                    new string[] { "BABYLON", "ParticleHelper", "ParseFromSnippetAsync" },
                     snippetId,
                     scene,
                     gpu,
-                    rootUrl
+                    rootUrl,
+                    capacity
                 }
             );
         }

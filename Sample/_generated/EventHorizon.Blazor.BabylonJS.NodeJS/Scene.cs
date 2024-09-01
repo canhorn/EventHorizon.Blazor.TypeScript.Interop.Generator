@@ -168,19 +168,6 @@ namespace BABYLON
             }
         }
 
-        public decimal environmentIntensity
-        {
-            get
-            {
-                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "environmentIntensity");
-            }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "environmentIntensity", value);
-            }
-        }
-
         private ImageProcessingConfiguration __imageProcessingConfiguration;
         public ImageProcessingConfiguration imageProcessingConfiguration
         {
@@ -202,6 +189,16 @@ namespace BABYLON
                         );
                 }
                 return __imageProcessingConfiguration;
+            }
+        }
+
+        public int performancePriority
+        {
+            get { return EventHorizonBlazorInterop.Get<int>(this.___guid, "performancePriority"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "performancePriority", value);
             }
         }
 
@@ -264,6 +261,129 @@ namespace BABYLON
             }
         }
 
+        public ActionResultCallback<AbstractMesh, bool> pointerDownPredicate
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<ActionResultCallback<AbstractMesh, bool>>(
+                    this.___guid,
+                    "pointerDownPredicate"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "pointerDownPredicate", value);
+            }
+        }
+
+        public ActionResultCallback<AbstractMesh, bool> pointerUpPredicate
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<ActionResultCallback<AbstractMesh, bool>>(
+                    this.___guid,
+                    "pointerUpPredicate"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "pointerUpPredicate", value);
+            }
+        }
+
+        public ActionResultCallback<AbstractMesh, bool> pointerMovePredicate
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<ActionResultCallback<AbstractMesh, bool>>(
+                    this.___guid,
+                    "pointerMovePredicate"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "pointerMovePredicate", value);
+            }
+        }
+
+        public bool pointerDownFastCheck
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "pointerDownFastCheck");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "pointerDownFastCheck", value);
+            }
+        }
+
+        public bool pointerUpFastCheck
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "pointerUpFastCheck"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "pointerUpFastCheck", value);
+            }
+        }
+
+        public bool pointerMoveFastCheck
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "pointerMoveFastCheck");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "pointerMoveFastCheck", value);
+            }
+        }
+
+        public bool skipPointerMovePicking
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "skipPointerMovePicking");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "skipPointerMovePicking", value);
+            }
+        }
+
+        public bool skipPointerDownPicking
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "skipPointerDownPicking");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "skipPointerDownPicking", value);
+            }
+        }
+
+        public bool skipPointerUpPicking
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "skipPointerUpPicking");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "skipPointerUpPicking", value);
+            }
+        }
+
         private Vector2 __unTranslatedPointer;
         public Vector2 unTranslatedPointer
         {
@@ -317,6 +437,11 @@ namespace BABYLON
             }
         }
 
+        public bool prePass
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "prePass"); }
+        }
+
         public bool shadowsEnabled
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "shadowsEnabled"); }
@@ -334,6 +459,26 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "lightsEnabled", value);
+            }
+        }
+
+        public Camera[] activeCameras
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetArrayClass<Camera>(
+                    this.___guid,
+                    "activeCameras",
+                    (entity) =>
+                    {
+                        return new Camera() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "activeCameras", value);
             }
         }
 
@@ -428,6 +573,26 @@ namespace BABYLON
                         );
                 }
                 return __collisionCoordinator;
+            }
+        }
+
+        private RenderingManager __renderingManager;
+        public RenderingManager renderingManager
+        {
+            get
+            {
+                if (__renderingManager == null)
+                {
+                    __renderingManager = EventHorizonBlazorInterop.GetClass<RenderingManager>(
+                        this.___guid,
+                        "renderingManager",
+                        (entity) =>
+                        {
+                            return new RenderingManager() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __renderingManager;
             }
         }
 
@@ -758,6 +923,39 @@ namespace BABYLON
             {
                 __environmentBRDFTexture = null;
                 EventHorizonBlazorInterop.Set(this.___guid, "environmentBRDFTexture", value);
+            }
+        }
+
+        public decimal environmentIntensity
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "environmentIntensity");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "environmentIntensity", value);
+            }
+        }
+
+        public Observable<int> onScenePerformancePriorityChangedObservable
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<Observable<int>>(
+                    this.___guid,
+                    "onScenePerformancePriorityChangedObservable"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "onScenePerformancePriorityChangedObservable",
+                    value
+                );
             }
         }
 
@@ -2182,6 +2380,33 @@ namespace BABYLON
             }
         }
 
+        private Observable<Scene> __onActiveCamerasChanged;
+        public Observable<Scene> onActiveCamerasChanged
+        {
+            get
+            {
+                if (__onActiveCamerasChanged == null)
+                {
+                    __onActiveCamerasChanged = EventHorizonBlazorInterop.GetClass<
+                        Observable<Scene>
+                    >(
+                        this.___guid,
+                        "onActiveCamerasChanged",
+                        (entity) =>
+                        {
+                            return new Observable<Scene>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __onActiveCamerasChanged;
+            }
+            set
+            {
+                __onActiveCamerasChanged = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onActiveCamerasChanged", value);
+            }
+        }
+
         private Observable<RenderingGroupInfo> __onBeforeRenderingGroupObservable;
         public Observable<RenderingGroupInfo> onBeforeRenderingGroupObservable
         {
@@ -2471,33 +2696,19 @@ namespace BABYLON
             }
         }
 
-        public bool prePass
-        {
-            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "prePass"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "prePass", value);
-            }
-        }
-
-        public Camera[] activeCameras
+        public bool needsPreviousWorldMatrices
         {
             get
             {
-                return EventHorizonBlazorInterop.GetArrayClass<Camera>(
+                return EventHorizonBlazorInterop.Get<bool>(
                     this.___guid,
-                    "activeCameras",
-                    (entity) =>
-                    {
-                        return new Camera() { ___guid = entity.___guid };
-                    }
+                    "needsPreviousWorldMatrices"
                 );
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(this.___guid, "activeCameras", value);
+                EventHorizonBlazorInterop.Set(this.___guid, "needsPreviousWorldMatrices", value);
             }
         }
 
@@ -2833,7 +3044,7 @@ namespace BABYLON
         public Scene(ICachedEntity entity)
             : base(entity) { }
 
-        public Scene(Engine engine, SceneOptions options = null)
+        public Scene(AbstractEngine engine, SceneOptions options = null)
             : base()
         {
             var entity = EventHorizonBlazorInterop.New(
@@ -2843,368 +3054,206 @@ namespace BABYLON
             );
             ___guid = entity.___guid;
         }
+
         #endregion
 
         #region Methods
-        #region customLODSelector TODO: Get Comments as metadata identification
-        private bool _isCustomLODSelectorEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _customLODSelectorActionMap =
+        public AbstractMesh customLODSelector(AbstractMesh mesh, Camera camera)
+        {
+            return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
+                entity => new AbstractMesh() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "customLODSelector" }, mesh, camera }
+            );
+        }
+
+        public void onPointerMove(IPointerEvent evt, PickingInfo pickInfo, PointerEventTypes type)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "onPointerMove" }, evt, pickInfo, type }
+            );
+        }
+
+        public void onPointerDown(IPointerEvent evt, PickingInfo pickInfo, PointerEventTypes type)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "onPointerDown" }, evt, pickInfo, type }
+            );
+        }
+
+        public void onPointerUp(IPointerEvent evt, PickingInfo pickInfo, PointerEventTypes type)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "onPointerUp" }, evt, pickInfo, type }
+            );
+        }
+
+        public void onPointerPick(IPointerEvent evt, PickingInfo pickInfo)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "onPointerPick" }, evt, pickInfo }
+            );
+        }
+
+        #region pointerMoveTrianglePredicate TODO: Get Comments as metadata identification
+        private bool _isPointerMoveTrianglePredicateEnabled = false;
+        private readonly IDictionary<string, Func<Task>> _pointerMoveTrianglePredicateActionMap =
             new Dictionary<string, Func<Task>>();
 
-        public string customLODSelector(Func<Task> callback)
+        public string pointerMoveTrianglePredicate(Func<Task> callback)
         {
-            SetupCustomLODSelectorLoop();
+            SetupPointerMoveTrianglePredicateLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _customLODSelectorActionMap.Add(handle, callback);
+            _pointerMoveTrianglePredicateActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool customLODSelector_Remove(string handle)
+        public bool pointerMoveTrianglePredicate_Remove(string handle)
         {
-            return _customLODSelectorActionMap.Remove(handle);
+            return _pointerMoveTrianglePredicateActionMap.Remove(handle);
         }
 
-        private void SetupCustomLODSelectorLoop()
+        private void SetupPointerMoveTrianglePredicateLoop()
         {
-            if (_isCustomLODSelectorEnabled)
+            if (_isPointerMoveTrianglePredicateEnabled)
             {
                 return;
             }
             EventHorizonBlazorInterop.FuncCallback(
                 this,
-                "customLODSelector",
-                "CallCustomLODSelectorActions",
+                "pointerMoveTrianglePredicate",
+                "CallPointerMoveTrianglePredicateActions",
                 _invokableReference
             );
-            _isCustomLODSelectorEnabled = true;
+            _isPointerMoveTrianglePredicateEnabled = true;
         }
 
         [JSInvokable]
-        public async Task CallCustomLODSelectorActions()
+        public async Task CallPointerMoveTrianglePredicateActions()
         {
-            foreach (var action in _customLODSelectorActionMap.Values)
+            foreach (var action in _pointerMoveTrianglePredicateActionMap.Values)
             {
                 await action();
             }
         }
         #endregion
 
-        #region pointerDownPredicate TODO: Get Comments as metadata identification
-        private bool _isPointerDownPredicateEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _pointerDownPredicateActionMap =
+        #region pointerDownTrianglePredicate TODO: Get Comments as metadata identification
+        private bool _isPointerDownTrianglePredicateEnabled = false;
+        private readonly IDictionary<string, Func<Task>> _pointerDownTrianglePredicateActionMap =
             new Dictionary<string, Func<Task>>();
 
-        public string pointerDownPredicate(Func<Task> callback)
+        public string pointerDownTrianglePredicate(Func<Task> callback)
         {
-            SetupPointerDownPredicateLoop();
+            SetupPointerDownTrianglePredicateLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _pointerDownPredicateActionMap.Add(handle, callback);
+            _pointerDownTrianglePredicateActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool pointerDownPredicate_Remove(string handle)
+        public bool pointerDownTrianglePredicate_Remove(string handle)
         {
-            return _pointerDownPredicateActionMap.Remove(handle);
+            return _pointerDownTrianglePredicateActionMap.Remove(handle);
         }
 
-        private void SetupPointerDownPredicateLoop()
+        private void SetupPointerDownTrianglePredicateLoop()
         {
-            if (_isPointerDownPredicateEnabled)
+            if (_isPointerDownTrianglePredicateEnabled)
             {
                 return;
             }
             EventHorizonBlazorInterop.FuncCallback(
                 this,
-                "pointerDownPredicate",
-                "CallPointerDownPredicateActions",
+                "pointerDownTrianglePredicate",
+                "CallPointerDownTrianglePredicateActions",
                 _invokableReference
             );
-            _isPointerDownPredicateEnabled = true;
+            _isPointerDownTrianglePredicateEnabled = true;
         }
 
         [JSInvokable]
-        public async Task CallPointerDownPredicateActions()
+        public async Task CallPointerDownTrianglePredicateActions()
         {
-            foreach (var action in _pointerDownPredicateActionMap.Values)
+            foreach (var action in _pointerDownTrianglePredicateActionMap.Values)
             {
                 await action();
             }
         }
         #endregion
 
-        #region pointerUpPredicate TODO: Get Comments as metadata identification
-        private bool _isPointerUpPredicateEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _pointerUpPredicateActionMap =
+        #region pointerUpTrianglePredicate TODO: Get Comments as metadata identification
+        private bool _isPointerUpTrianglePredicateEnabled = false;
+        private readonly IDictionary<string, Func<Task>> _pointerUpTrianglePredicateActionMap =
             new Dictionary<string, Func<Task>>();
 
-        public string pointerUpPredicate(Func<Task> callback)
+        public string pointerUpTrianglePredicate(Func<Task> callback)
         {
-            SetupPointerUpPredicateLoop();
+            SetupPointerUpTrianglePredicateLoop();
 
             var handle = Guid.NewGuid().ToString();
-            _pointerUpPredicateActionMap.Add(handle, callback);
+            _pointerUpTrianglePredicateActionMap.Add(handle, callback);
 
             return handle;
         }
 
-        public bool pointerUpPredicate_Remove(string handle)
+        public bool pointerUpTrianglePredicate_Remove(string handle)
         {
-            return _pointerUpPredicateActionMap.Remove(handle);
+            return _pointerUpTrianglePredicateActionMap.Remove(handle);
         }
 
-        private void SetupPointerUpPredicateLoop()
+        private void SetupPointerUpTrianglePredicateLoop()
         {
-            if (_isPointerUpPredicateEnabled)
+            if (_isPointerUpTrianglePredicateEnabled)
             {
                 return;
             }
             EventHorizonBlazorInterop.FuncCallback(
                 this,
-                "pointerUpPredicate",
-                "CallPointerUpPredicateActions",
+                "pointerUpTrianglePredicate",
+                "CallPointerUpTrianglePredicateActions",
                 _invokableReference
             );
-            _isPointerUpPredicateEnabled = true;
+            _isPointerUpTrianglePredicateEnabled = true;
         }
 
         [JSInvokable]
-        public async Task CallPointerUpPredicateActions()
+        public async Task CallPointerUpTrianglePredicateActions()
         {
-            foreach (var action in _pointerUpPredicateActionMap.Values)
+            foreach (var action in _pointerUpTrianglePredicateActionMap.Values)
             {
                 await action();
             }
         }
         #endregion
 
-        #region pointerMovePredicate TODO: Get Comments as metadata identification
-        private bool _isPointerMovePredicateEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _pointerMovePredicateActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string pointerMovePredicate(Func<Task> callback)
+        public Vector4 bindEyePosition(
+            Effect effect,
+            string variableName = null,
+            System.Nullable<bool> isVector3 = null
+        )
         {
-            SetupPointerMovePredicateLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _pointerMovePredicateActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool pointerMovePredicate_Remove(string handle)
-        {
-            return _pointerMovePredicateActionMap.Remove(handle);
-        }
-
-        private void SetupPointerMovePredicateLoop()
-        {
-            if (_isPointerMovePredicateEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "pointerMovePredicate",
-                "CallPointerMovePredicateActions",
-                _invokableReference
+            return EventHorizonBlazorInterop.FuncClass<Vector4>(
+                entity => new Vector4() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "bindEyePosition" },
+                    effect,
+                    variableName,
+                    isVector3
+                }
             );
-            _isPointerMovePredicateEnabled = true;
         }
 
-        [JSInvokable]
-        public async Task CallPointerMovePredicateActions()
+        public UniformBuffer finalizeSceneUbo()
         {
-            foreach (var action in _pointerMovePredicateActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region onPointerMove TODO: Get Comments as metadata identification
-        private bool _isOnPointerMoveEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _onPointerMoveActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string onPointerMove(Func<Task> callback)
-        {
-            SetupOnPointerMoveLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _onPointerMoveActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool onPointerMove_Remove(string handle)
-        {
-            return _onPointerMoveActionMap.Remove(handle);
-        }
-
-        private void SetupOnPointerMoveLoop()
-        {
-            if (_isOnPointerMoveEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "onPointerMove",
-                "CallOnPointerMoveActions",
-                _invokableReference
+            return EventHorizonBlazorInterop.FuncClass<UniformBuffer>(
+                entity => new UniformBuffer() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "finalizeSceneUbo" } }
             );
-            _isOnPointerMoveEnabled = true;
         }
-
-        [JSInvokable]
-        public async Task CallOnPointerMoveActions()
-        {
-            foreach (var action in _onPointerMoveActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region onPointerDown TODO: Get Comments as metadata identification
-        private bool _isOnPointerDownEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _onPointerDownActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string onPointerDown(Func<Task> callback)
-        {
-            SetupOnPointerDownLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _onPointerDownActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool onPointerDown_Remove(string handle)
-        {
-            return _onPointerDownActionMap.Remove(handle);
-        }
-
-        private void SetupOnPointerDownLoop()
-        {
-            if (_isOnPointerDownEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "onPointerDown",
-                "CallOnPointerDownActions",
-                _invokableReference
-            );
-            _isOnPointerDownEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallOnPointerDownActions()
-        {
-            foreach (var action in _onPointerDownActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region onPointerUp TODO: Get Comments as metadata identification
-        private bool _isOnPointerUpEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _onPointerUpActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string onPointerUp(Func<Task> callback)
-        {
-            SetupOnPointerUpLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _onPointerUpActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool onPointerUp_Remove(string handle)
-        {
-            return _onPointerUpActionMap.Remove(handle);
-        }
-
-        private void SetupOnPointerUpLoop()
-        {
-            if (_isOnPointerUpEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "onPointerUp",
-                "CallOnPointerUpActions",
-                _invokableReference
-            );
-            _isOnPointerUpEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallOnPointerUpActions()
-        {
-            foreach (var action in _onPointerUpActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region onPointerPick TODO: Get Comments as metadata identification
-        private bool _isOnPointerPickEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _onPointerPickActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string onPointerPick(Func<Task> callback)
-        {
-            SetupOnPointerPickLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _onPointerPickActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool onPointerPick_Remove(string handle)
-        {
-            return _onPointerPickActionMap.Remove(handle);
-        }
-
-        private void SetupOnPointerPickLoop()
-        {
-            if (_isOnPointerPickEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "onPointerPick",
-                "CallOnPointerPickActions",
-                _invokableReference
-            );
-            _isOnPointerPickEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallOnPointerPickActions()
-        {
-            foreach (var action in _onPointerPickActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
 
         public void setStepId(decimal newStepId)
         {
@@ -3281,10 +3330,10 @@ namespace BABYLON
             );
         }
 
-        public Engine getEngine()
+        public AbstractEngine getEngine()
         {
-            return EventHorizonBlazorInterop.FuncClass<Engine>(
-                entity => new Engine() { ___guid = entity.___guid },
+            return EventHorizonBlazorInterop.FuncClass<AbstractEngine>(
+                entity => new AbstractEngine() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "getEngine" } }
             );
         }
@@ -3434,10 +3483,10 @@ namespace BABYLON
             );
         }
 
-        public bool isReady()
+        public bool isReady(System.Nullable<bool> checkRenderTargets = null)
         {
             return EventHorizonBlazorInterop.Func<bool>(
-                new object[] { new string[] { this.___guid, "isReady" } }
+                new object[] { new string[] { this.___guid, "isReady" }, checkRenderTargets }
             );
         }
 
@@ -3491,6 +3540,20 @@ namespace BABYLON
             );
         }
 
+        public void addPendingData(object data)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "addPendingData" }, data }
+            );
+        }
+
+        public void removePendingData(object data)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "removePendingData" }, data }
+            );
+        }
+
         public decimal getWaitingItemsCount()
         {
             return EventHorizonBlazorInterop.Func<decimal>(
@@ -3498,17 +3561,25 @@ namespace BABYLON
             );
         }
 
-        public void executeWhenReady(ActionCallback func)
+        public void executeWhenReady(
+            ActionCallback func,
+            System.Nullable<bool> checkRenderTargets = null
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "executeWhenReady" }, func }
+                new object[]
+                {
+                    new string[] { this.___guid, "executeWhenReady" },
+                    func,
+                    checkRenderTargets
+                }
             );
         }
 
-        public async ValueTask whenReadyAsync()
+        public async ValueTask whenReadyAsync(System.Nullable<bool> checkRenderTargets = null)
         {
-            await EventHorizonBlazorInterop.Task<CachedEntity>(
-                new object[] { new string[] { this.___guid, "whenReadyAsync" } }
+            await EventHorizonBlazorInterop.Task<Void_>(
+                new object[] { new string[] { this.___guid, "whenReadyAsync" }, checkRenderTargets }
             );
         }
 
@@ -3567,6 +3638,21 @@ namespace BABYLON
             return EventHorizonBlazorInterop.FuncClass<UniformBuffer>(
                 entity => new UniformBuffer() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "getSceneUniformBuffer" } }
+            );
+        }
+
+        public UniformBuffer createSceneUniformBuffer(string name = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<UniformBuffer>(
+                entity => new UniformBuffer() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "createSceneUniformBuffer" }, name }
+            );
+        }
+
+        public void setSceneUniformBuffer(UniformBuffer ubo)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "setSceneUniformBuffer" }, ubo }
             );
         }
 
@@ -3814,11 +3900,11 @@ namespace BABYLON
             );
         }
 
-        public Camera setActiveCameraByID(string id)
+        public Camera setActiveCameraById(string id)
         {
             return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "setActiveCameraByID" }, id }
+                new object[] { new string[] { this.___guid, "setActiveCameraById" }, id }
             );
         }
 
@@ -3838,59 +3924,96 @@ namespace BABYLON
             );
         }
 
-        public Material getMaterialByUniqueID(decimal uniqueId)
+        public Material getMaterialByUniqueID(
+            decimal uniqueId,
+            System.Nullable<bool> allowMultiMaterials = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<Material>(
                 entity => new Material() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getMaterialByUniqueID" }, uniqueId }
+                new object[]
+                {
+                    new string[] { this.___guid, "getMaterialByUniqueID" },
+                    uniqueId,
+                    allowMultiMaterials
+                }
             );
         }
 
-        public Material getMaterialByID(string id)
+        public Material getMaterialById(string id, System.Nullable<bool> allowMultiMaterials = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Material>(
                 entity => new Material() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getMaterialByID" }, id }
+                new object[]
+                {
+                    new string[] { this.___guid, "getMaterialById" },
+                    id,
+                    allowMultiMaterials
+                }
             );
         }
 
-        public Material getLastMaterialByID(string id)
+        public Material getMaterialByName(
+            string name,
+            System.Nullable<bool> allowMultiMaterials = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<Material>(
                 entity => new Material() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getLastMaterialByID" }, id }
+                new object[]
+                {
+                    new string[] { this.___guid, "getMaterialByName" },
+                    name,
+                    allowMultiMaterials
+                }
             );
         }
 
-        public Material getMaterialByName(string name)
+        public Material getLastMaterialById(
+            string id,
+            System.Nullable<bool> allowMultiMaterials = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<Material>(
                 entity => new Material() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getMaterialByName" }, name }
+                new object[]
+                {
+                    new string[] { this.___guid, "getLastMaterialById" },
+                    id,
+                    allowMultiMaterials
+                }
             );
         }
 
-        public BaseTexture getTextureByUniqueID(decimal uniqueId)
+        public BaseTexture getTextureByUniqueId(decimal uniqueId)
         {
             return EventHorizonBlazorInterop.FuncClass<BaseTexture>(
                 entity => new BaseTexture() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getTextureByUniqueID" }, uniqueId }
+                new object[] { new string[] { this.___guid, "getTextureByUniqueId" }, uniqueId }
             );
         }
 
-        public Camera getCameraByID(string id)
+        public BaseTexture getTextureByName(string name)
         {
-            return EventHorizonBlazorInterop.FuncClass<Camera>(
-                entity => new Camera() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getCameraByID" }, id }
+            return EventHorizonBlazorInterop.FuncClass<BaseTexture>(
+                entity => new BaseTexture() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getTextureByName" }, name }
             );
         }
 
-        public Camera getCameraByUniqueID(decimal uniqueId)
+        public Camera getCameraById(string id)
         {
             return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getCameraByUniqueID" }, uniqueId }
+                new object[] { new string[] { this.___guid, "getCameraById" }, id }
+            );
+        }
+
+        public Camera getCameraByUniqueId(decimal uniqueId)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Camera>(
+                entity => new Camera() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getCameraByUniqueId" }, uniqueId }
             );
         }
 
@@ -3902,11 +4025,11 @@ namespace BABYLON
             );
         }
 
-        public Bone getBoneByID(string id)
+        public Bone getBoneById(string id)
         {
             return EventHorizonBlazorInterop.FuncClass<Bone>(
                 entity => new Bone() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getBoneByID" }, id }
+                new object[] { new string[] { this.___guid, "getBoneById" }, id }
             );
         }
 
@@ -3926,35 +4049,35 @@ namespace BABYLON
             );
         }
 
-        public Light getLightByID(string id)
+        public Light getLightById(string id)
         {
             return EventHorizonBlazorInterop.FuncClass<Light>(
                 entity => new Light() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getLightByID" }, id }
+                new object[] { new string[] { this.___guid, "getLightById" }, id }
             );
         }
 
-        public Light getLightByUniqueID(decimal uniqueId)
+        public Light getLightByUniqueId(decimal uniqueId)
         {
             return EventHorizonBlazorInterop.FuncClass<Light>(
                 entity => new Light() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getLightByUniqueID" }, uniqueId }
+                new object[] { new string[] { this.___guid, "getLightByUniqueId" }, uniqueId }
             );
         }
 
-        public IParticleSystemCachedEntity getParticleSystemByID(string id)
+        public IParticleSystemCachedEntity getParticleSystemById(string id)
         {
             return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
                 entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getParticleSystemByID" }, id }
+                new object[] { new string[] { this.___guid, "getParticleSystemById" }, id }
             );
         }
 
-        public Geometry getGeometryByID(string id)
+        public Geometry getGeometryById(string id)
         {
             return EventHorizonBlazorInterop.FuncClass<Geometry>(
                 entity => new Geometry() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getGeometryByID" }, id }
+                new object[] { new string[] { this.___guid, "getGeometryById" }, id }
             );
         }
 
@@ -3980,79 +4103,87 @@ namespace BABYLON
             );
         }
 
-        public AbstractMesh getMeshByID(string id)
+        public AbstractMesh getMeshById(string id)
         {
             return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
                 entity => new AbstractMesh() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getMeshByID" }, id }
+                new object[] { new string[] { this.___guid, "getMeshById" }, id }
             );
         }
 
-        public AbstractMesh[] getMeshesByID(string id)
+        public AbstractMesh[] getMeshesById(string id)
         {
             return EventHorizonBlazorInterop.FuncArrayClass<AbstractMesh>(
                 entity => new AbstractMesh() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getMeshesByID" }, id }
+                new object[] { new string[] { this.___guid, "getMeshesById" }, id }
             );
         }
 
-        public TransformNode getTransformNodeByID(string id)
+        public TransformNode getTransformNodeById(string id)
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getTransformNodeByID" }, id }
+                new object[] { new string[] { this.___guid, "getTransformNodeById" }, id }
             );
         }
 
-        public TransformNode getTransformNodeByUniqueID(decimal uniqueId)
+        public TransformNode getTransformNodeByUniqueId(decimal uniqueId)
         {
             return EventHorizonBlazorInterop.FuncClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "getTransformNodeByUniqueID" },
+                    new string[] { this.___guid, "getTransformNodeByUniqueId" },
                     uniqueId
                 }
             );
         }
 
-        public TransformNode[] getTransformNodesByID(string id)
+        public TransformNode[] getTransformNodesById(string id)
         {
             return EventHorizonBlazorInterop.FuncArrayClass<TransformNode>(
                 entity => new TransformNode() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getTransformNodesByID" }, id }
+                new object[] { new string[] { this.___guid, "getTransformNodesById" }, id }
             );
         }
 
-        public AbstractMesh getMeshByUniqueID(decimal uniqueId)
+        public AbstractMesh getMeshByUniqueId(decimal uniqueId)
         {
             return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
                 entity => new AbstractMesh() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getMeshByUniqueID" }, uniqueId }
+                new object[] { new string[] { this.___guid, "getMeshByUniqueId" }, uniqueId }
             );
         }
 
-        public AbstractMesh getLastMeshByID(string id)
+        public AbstractMesh getLastMeshById(string id)
         {
             return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
                 entity => new AbstractMesh() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getLastMeshByID" }, id }
+                new object[] { new string[] { this.___guid, "getLastMeshById" }, id }
             );
         }
 
-        public Node getLastEntryByID(string id)
+        public TransformNode getLastTransformNodeById(string id)
         {
-            return EventHorizonBlazorInterop.FuncClass<Node>(
-                entity => new Node() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getLastEntryByID" }, id }
+            return EventHorizonBlazorInterop.FuncClass<TransformNode>(
+                entity => new TransformNode() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getLastTransformNodeById" }, id }
             );
         }
 
-        public Node getNodeByID(string id)
+        public Node getLastEntryById(string id)
         {
             return EventHorizonBlazorInterop.FuncClass<Node>(
                 entity => new Node() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getNodeByID" }, id }
+                new object[] { new string[] { this.___guid, "getLastEntryById" }, id }
+            );
+        }
+
+        public Node getNodeById(string id)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Node>(
+                entity => new Node() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getNodeById" }, id }
             );
         }
 
@@ -4080,11 +4211,11 @@ namespace BABYLON
             );
         }
 
-        public Skeleton getLastSkeletonByID(string id)
+        public Skeleton getLastSkeletonById(string id)
         {
             return EventHorizonBlazorInterop.FuncClass<Skeleton>(
                 entity => new Skeleton() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getLastSkeletonByID" }, id }
+                new object[] { new string[] { this.___guid, "getLastSkeletonById" }, id }
             );
         }
 
@@ -4212,192 +4343,63 @@ namespace BABYLON
             );
         }
 
-        #region getActiveMeshCandidates TODO: Get Comments as metadata identification
-        private bool _isGetActiveMeshCandidatesEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _getActiveMeshCandidatesActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string getActiveMeshCandidates(Func<Task> callback)
+        public ISmartArrayLikeCachedEntity<AbstractMesh> getActiveMeshCandidates()
         {
-            SetupGetActiveMeshCandidatesLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _getActiveMeshCandidatesActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool getActiveMeshCandidates_Remove(string handle)
-        {
-            return _getActiveMeshCandidatesActionMap.Remove(handle);
-        }
-
-        private void SetupGetActiveMeshCandidatesLoop()
-        {
-            if (_isGetActiveMeshCandidatesEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "getActiveMeshCandidates",
-                "CallGetActiveMeshCandidatesActions",
-                _invokableReference
+            return EventHorizonBlazorInterop.FuncClass<ISmartArrayLikeCachedEntity<AbstractMesh>>(
+                entity => new ISmartArrayLikeCachedEntity<AbstractMesh>()
+                {
+                    ___guid = entity.___guid
+                },
+                new object[] { new string[] { this.___guid, "getActiveMeshCandidates" } }
             );
-            _isGetActiveMeshCandidatesEnabled = true;
         }
 
-        [JSInvokable]
-        public async Task CallGetActiveMeshCandidatesActions()
+        public ISmartArrayLikeCachedEntity<SubMesh> getActiveSubMeshCandidates(AbstractMesh mesh)
         {
-            foreach (var action in _getActiveMeshCandidatesActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region getActiveSubMeshCandidates TODO: Get Comments as metadata identification
-        private bool _isGetActiveSubMeshCandidatesEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _getActiveSubMeshCandidatesActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string getActiveSubMeshCandidates(Func<Task> callback)
-        {
-            SetupGetActiveSubMeshCandidatesLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _getActiveSubMeshCandidatesActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool getActiveSubMeshCandidates_Remove(string handle)
-        {
-            return _getActiveSubMeshCandidatesActionMap.Remove(handle);
-        }
-
-        private void SetupGetActiveSubMeshCandidatesLoop()
-        {
-            if (_isGetActiveSubMeshCandidatesEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "getActiveSubMeshCandidates",
-                "CallGetActiveSubMeshCandidatesActions",
-                _invokableReference
+            return EventHorizonBlazorInterop.FuncClass<ISmartArrayLikeCachedEntity<SubMesh>>(
+                entity => new ISmartArrayLikeCachedEntity<SubMesh>() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getActiveSubMeshCandidates" }, mesh }
             );
-            _isGetActiveSubMeshCandidatesEnabled = true;
         }
 
-        [JSInvokable]
-        public async Task CallGetActiveSubMeshCandidatesActions()
+        public ISmartArrayLikeCachedEntity<SubMesh> getIntersectingSubMeshCandidates(
+            AbstractMesh mesh,
+            Ray localRay
+        )
         {
-            foreach (var action in _getActiveSubMeshCandidatesActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region getIntersectingSubMeshCandidates TODO: Get Comments as metadata identification
-        private bool _isGetIntersectingSubMeshCandidatesEnabled = false;
-        private readonly IDictionary<
-            string,
-            Func<Task>
-        > _getIntersectingSubMeshCandidatesActionMap = new Dictionary<string, Func<Task>>();
-
-        public string getIntersectingSubMeshCandidates(Func<Task> callback)
-        {
-            SetupGetIntersectingSubMeshCandidatesLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _getIntersectingSubMeshCandidatesActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool getIntersectingSubMeshCandidates_Remove(string handle)
-        {
-            return _getIntersectingSubMeshCandidatesActionMap.Remove(handle);
-        }
-
-        private void SetupGetIntersectingSubMeshCandidatesLoop()
-        {
-            if (_isGetIntersectingSubMeshCandidatesEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "getIntersectingSubMeshCandidates",
-                "CallGetIntersectingSubMeshCandidatesActions",
-                _invokableReference
+            return EventHorizonBlazorInterop.FuncClass<ISmartArrayLikeCachedEntity<SubMesh>>(
+                entity => new ISmartArrayLikeCachedEntity<SubMesh>() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "getIntersectingSubMeshCandidates" },
+                    mesh,
+                    localRay
+                }
             );
-            _isGetIntersectingSubMeshCandidatesEnabled = true;
         }
 
-        [JSInvokable]
-        public async Task CallGetIntersectingSubMeshCandidatesActions()
+        public ISmartArrayLikeCachedEntity<SubMesh> getCollidingSubMeshCandidates(
+            AbstractMesh mesh,
+            Collider collider
+        )
         {
-            foreach (var action in _getIntersectingSubMeshCandidatesActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region getCollidingSubMeshCandidates TODO: Get Comments as metadata identification
-        private bool _isGetCollidingSubMeshCandidatesEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _getCollidingSubMeshCandidatesActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string getCollidingSubMeshCandidates(Func<Task> callback)
-        {
-            SetupGetCollidingSubMeshCandidatesLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _getCollidingSubMeshCandidatesActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool getCollidingSubMeshCandidates_Remove(string handle)
-        {
-            return _getCollidingSubMeshCandidatesActionMap.Remove(handle);
-        }
-
-        private void SetupGetCollidingSubMeshCandidatesLoop()
-        {
-            if (_isGetCollidingSubMeshCandidatesEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "getCollidingSubMeshCandidates",
-                "CallGetCollidingSubMeshCandidatesActions",
-                _invokableReference
+            return EventHorizonBlazorInterop.FuncClass<ISmartArrayLikeCachedEntity<SubMesh>>(
+                entity => new ISmartArrayLikeCachedEntity<SubMesh>() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "getCollidingSubMeshCandidates" },
+                    mesh,
+                    collider
+                }
             );
-            _isGetCollidingSubMeshCandidatesEnabled = true;
         }
-
-        [JSInvokable]
-        public async Task CallGetCollidingSubMeshCandidatesActions()
-        {
-            foreach (var action in _getCollidingSubMeshCandidatesActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
 
         public Scene freezeActiveMeshes(
             System.Nullable<bool> skipEvaluateActiveMeshes = null,
             ActionCallback onSuccess = null,
-            ActionCallback<string> onError = null
+            ActionCallback<string> onError = null,
+            System.Nullable<bool> freezeMeshes = null,
+            System.Nullable<bool> keepFrustumCulling = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<Scene>(
@@ -4407,7 +4409,9 @@ namespace BABYLON
                     new string[] { this.___guid, "freezeActiveMeshes" },
                     skipEvaluateActiveMeshes,
                     onSuccess,
-                    onError
+                    onError,
+                    freezeMeshes,
+                    keepFrustumCulling
                 }
             );
         }
@@ -4427,55 +4431,24 @@ namespace BABYLON
             );
         }
 
-        #region getDeterministicFrameTime TODO: Get Comments as metadata identification
-        private bool _isGetDeterministicFrameTimeEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _getDeterministicFrameTimeActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string getDeterministicFrameTime(Func<Task> callback)
+        public decimal getDeterministicFrameTime()
         {
-            SetupGetDeterministicFrameTimeLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _getDeterministicFrameTimeActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool getDeterministicFrameTime_Remove(string handle)
-        {
-            return _getDeterministicFrameTimeActionMap.Remove(handle);
-        }
-
-        private void SetupGetDeterministicFrameTimeLoop()
-        {
-            if (_isGetDeterministicFrameTimeEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "getDeterministicFrameTime",
-                "CallGetDeterministicFrameTimeActions",
-                _invokableReference
+            return EventHorizonBlazorInterop.Func<decimal>(
+                new object[] { new string[] { this.___guid, "getDeterministicFrameTime" } }
             );
-            _isGetDeterministicFrameTimeEnabled = true;
         }
-
-        [JSInvokable]
-        public async Task CallGetDeterministicFrameTimeActions()
-        {
-            foreach (var action in _getDeterministicFrameTimeActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
 
         public void animate()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "animate" } }
+            );
+        }
+
+        public void resetDrawCache(System.Nullable<decimal> passId = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "resetDrawCache" }, passId }
             );
         }
 
@@ -4566,7 +4539,8 @@ namespace BABYLON
             Matrix world,
             Ray result,
             Camera camera,
-            System.Nullable<bool> cameraViewSpace = null
+            System.Nullable<bool> cameraViewSpace = null,
+            System.Nullable<bool> enableDistantPicking = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<Scene>(
@@ -4579,7 +4553,8 @@ namespace BABYLON
                     world,
                     result,
                     camera,
-                    cameraViewSpace
+                    cameraViewSpace,
+                    enableDistantPicking
                 }
             );
         }
@@ -4624,7 +4599,16 @@ namespace BABYLON
             ActionResultCallback<AbstractMesh, bool> predicate = null,
             System.Nullable<bool> fastCheck = null,
             Camera camera = null,
-            ActionResultCallback<Vector3, Vector3, Vector3, Ray, bool> trianglePredicate = null
+            ActionResultCallback<
+                Vector3,
+                Vector3,
+                Vector3,
+                Ray,
+                decimal,
+                decimal,
+                decimal,
+                bool
+            > trianglePredicate = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<PickingInfo>(
@@ -4668,7 +4652,16 @@ namespace BABYLON
             Ray ray,
             ActionResultCallback<AbstractMesh, bool> predicate = null,
             System.Nullable<bool> fastCheck = null,
-            ActionResultCallback<Vector3, Vector3, Vector3, Ray, bool> trianglePredicate = null
+            ActionResultCallback<
+                Vector3,
+                Vector3,
+                Vector3,
+                Ray,
+                decimal,
+                decimal,
+                decimal,
+                bool
+            > trianglePredicate = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<PickingInfo>(
@@ -4689,7 +4682,16 @@ namespace BABYLON
             decimal y,
             ActionResultCallback<AbstractMesh, bool> predicate = null,
             Camera camera = null,
-            ActionResultCallback<Vector3, Vector3, Vector3, Ray, bool> trianglePredicate = null
+            ActionResultCallback<
+                Vector3,
+                Vector3,
+                Vector3,
+                Ray,
+                decimal,
+                decimal,
+                decimal,
+                bool
+            > trianglePredicate = null
         )
         {
             return EventHorizonBlazorInterop.FuncArrayClass<PickingInfo>(
@@ -4708,8 +4710,17 @@ namespace BABYLON
 
         public PickingInfo[] multiPickWithRay(
             Ray ray,
-            ActionResultCallback<AbstractMesh, bool> predicate,
-            ActionResultCallback<Vector3, Vector3, Vector3, Ray, bool> trianglePredicate = null
+            ActionResultCallback<AbstractMesh, bool> predicate = null,
+            ActionResultCallback<
+                Vector3,
+                Vector3,
+                Vector3,
+                Ray,
+                decimal,
+                decimal,
+                decimal,
+                bool
+            > trianglePredicate = null
         )
         {
             return EventHorizonBlazorInterop.FuncArrayClass<PickingInfo>(
@@ -4724,14 +4735,19 @@ namespace BABYLON
             );
         }
 
-        public void setPointerOverMesh(AbstractMesh mesh, System.Nullable<decimal> pointerId = null)
+        public void setPointerOverMesh(
+            AbstractMesh mesh,
+            System.Nullable<decimal> pointerId = null,
+            PickingInfo pickResult = null
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[]
                 {
                     new string[] { this.___guid, "setPointerOverMesh" },
                     mesh,
-                    pointerId
+                    pointerId,
+                    pickResult
                 }
             );
         }
@@ -4744,20 +4760,21 @@ namespace BABYLON
             );
         }
 
-        public Mesh[] getMeshesByTags(string tagsQuery, ActionCallback<AbstractMesh> forEach = null)
+        public AbstractMesh[] getMeshesByTags(
+            string tagsQuery,
+            ActionResultCallback<AbstractMesh, bool> filter = null
+        )
         {
-            return EventHorizonBlazorInterop.FuncArrayClass<Mesh>(
-                entity => new Mesh() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getMeshesByTags" },
-                    tagsQuery,
-                    forEach
-                }
+            return EventHorizonBlazorInterop.FuncArrayClass<AbstractMesh>(
+                entity => new AbstractMesh() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getMeshesByTags" }, tagsQuery, filter }
             );
         }
 
-        public Camera[] getCamerasByTags(string tagsQuery, ActionCallback<Camera> forEach = null)
+        public Camera[] getCamerasByTags(
+            string tagsQuery,
+            ActionResultCallback<Camera, bool> filter = null
+        )
         {
             return EventHorizonBlazorInterop.FuncArrayClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
@@ -4765,27 +4782,25 @@ namespace BABYLON
                 {
                     new string[] { this.___guid, "getCamerasByTags" },
                     tagsQuery,
-                    forEach
+                    filter
                 }
             );
         }
 
-        public Light[] getLightsByTags(string tagsQuery, ActionCallback<Light> forEach = null)
+        public Light[] getLightsByTags(
+            string tagsQuery,
+            ActionResultCallback<Light, bool> filter = null
+        )
         {
             return EventHorizonBlazorInterop.FuncArrayClass<Light>(
                 entity => new Light() { ___guid = entity.___guid },
-                new object[]
-                {
-                    new string[] { this.___guid, "getLightsByTags" },
-                    tagsQuery,
-                    forEach
-                }
+                new object[] { new string[] { this.___guid, "getLightsByTags" }, tagsQuery, filter }
             );
         }
 
         public Material[] getMaterialByTags(
             string tagsQuery,
-            ActionCallback<Material> forEach = null
+            ActionResultCallback<Material, bool> filter = null
         )
         {
             return EventHorizonBlazorInterop.FuncArrayClass<Material>(
@@ -4794,14 +4809,14 @@ namespace BABYLON
                 {
                     new string[] { this.___guid, "getMaterialByTags" },
                     tagsQuery,
-                    forEach
+                    filter
                 }
             );
         }
 
         public TransformNode[] getTransformNodesByTags(
             string tagsQuery,
-            ActionCallback<TransformNode> forEach = null
+            ActionResultCallback<TransformNode, bool> filter = null
         )
         {
             return EventHorizonBlazorInterop.FuncArrayClass<TransformNode>(
@@ -4810,7 +4825,7 @@ namespace BABYLON
                 {
                     new string[] { this.___guid, "getTransformNodesByTags" },
                     tagsQuery,
-                    forEach
+                    filter
                 }
             );
         }
@@ -4882,6 +4897,186 @@ namespace BABYLON
                     flag,
                     predicate
                 }
+            );
+        }
+
+        public PerformanceViewerCollector getPerfCollector()
+        {
+            return EventHorizonBlazorInterop.FuncClass<PerformanceViewerCollector>(
+                entity => new PerformanceViewerCollector() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getPerfCollector" } }
+            );
+        }
+
+        public Camera setActiveCameraByID(string id)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Camera>(
+                entity => new Camera() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "setActiveCameraByID" }, id }
+            );
+        }
+
+        public Material getMaterialByID(string id)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Material>(
+                entity => new Material() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getMaterialByID" }, id }
+            );
+        }
+
+        public Material getLastMaterialByID(string id)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Material>(
+                entity => new Material() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getLastMaterialByID" }, id }
+            );
+        }
+
+        public BaseTexture getTextureByUniqueID(decimal uniqueId)
+        {
+            return EventHorizonBlazorInterop.FuncClass<BaseTexture>(
+                entity => new BaseTexture() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getTextureByUniqueID" }, uniqueId }
+            );
+        }
+
+        public Camera getCameraByID(string id)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Camera>(
+                entity => new Camera() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getCameraByID" }, id }
+            );
+        }
+
+        public Camera getCameraByUniqueID(decimal uniqueId)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Camera>(
+                entity => new Camera() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getCameraByUniqueID" }, uniqueId }
+            );
+        }
+
+        public Bone getBoneByID(string id)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Bone>(
+                entity => new Bone() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getBoneByID" }, id }
+            );
+        }
+
+        public Light getLightByID(string id)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Light>(
+                entity => new Light() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getLightByID" }, id }
+            );
+        }
+
+        public Light getLightByUniqueID(decimal uniqueId)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Light>(
+                entity => new Light() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getLightByUniqueID" }, uniqueId }
+            );
+        }
+
+        public IParticleSystemCachedEntity getParticleSystemByID(string id)
+        {
+            return EventHorizonBlazorInterop.FuncClass<IParticleSystemCachedEntity>(
+                entity => new IParticleSystemCachedEntity() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getParticleSystemByID" }, id }
+            );
+        }
+
+        public Geometry getGeometryByID(string id)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Geometry>(
+                entity => new Geometry() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getGeometryByID" }, id }
+            );
+        }
+
+        public AbstractMesh getMeshByID(string id)
+        {
+            return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
+                entity => new AbstractMesh() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getMeshByID" }, id }
+            );
+        }
+
+        public AbstractMesh getMeshByUniqueID(decimal uniqueId)
+        {
+            return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
+                entity => new AbstractMesh() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getMeshByUniqueID" }, uniqueId }
+            );
+        }
+
+        public AbstractMesh getLastMeshByID(string id)
+        {
+            return EventHorizonBlazorInterop.FuncClass<AbstractMesh>(
+                entity => new AbstractMesh() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getLastMeshByID" }, id }
+            );
+        }
+
+        public AbstractMesh[] getMeshesByID(string id)
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<AbstractMesh>(
+                entity => new AbstractMesh() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getMeshesByID" }, id }
+            );
+        }
+
+        public TransformNode getTransformNodeByID(string id)
+        {
+            return EventHorizonBlazorInterop.FuncClass<TransformNode>(
+                entity => new TransformNode() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getTransformNodeByID" }, id }
+            );
+        }
+
+        public TransformNode getTransformNodeByUniqueID(decimal uniqueId)
+        {
+            return EventHorizonBlazorInterop.FuncClass<TransformNode>(
+                entity => new TransformNode() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "getTransformNodeByUniqueID" },
+                    uniqueId
+                }
+            );
+        }
+
+        public TransformNode[] getTransformNodesByID(string id)
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<TransformNode>(
+                entity => new TransformNode() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getTransformNodesByID" }, id }
+            );
+        }
+
+        public Node getNodeByID(string id)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Node>(
+                entity => new Node() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getNodeByID" }, id }
+            );
+        }
+
+        public Node getLastEntryByID(string id)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Node>(
+                entity => new Node() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getLastEntryByID" }, id }
+            );
+        }
+
+        public Skeleton getLastSkeletonByID(string id)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Skeleton>(
+                entity => new Skeleton() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getLastSkeletonByID" }, id }
             );
         }
         #endregion

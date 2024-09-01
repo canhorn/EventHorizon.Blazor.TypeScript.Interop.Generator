@@ -172,53 +172,74 @@ namespace BABYLON
             );
             ___guid = entity.___guid;
         }
+
+        public ProceduralTexture(
+            string url = null,
+            Scene sceneOrEngine = null,
+            System.Nullable<bool> noMipmapOrOptions = null,
+            System.Nullable<bool> invertY = null,
+            System.Nullable<decimal> samplingMode = null,
+            ActionCallback onLoad = null,
+            ActionCallback<string, CachedEntity> onError = null,
+            string buffer = null,
+            System.Nullable<bool> deleteBuffer = null,
+            System.Nullable<decimal> format = null,
+            string mimeType = null,
+            object loaderOptions = null,
+            System.Nullable<decimal> creationFlags = null,
+            string forcedExtension = null
+        )
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "ProceduralTexture" },
+                url,
+                sceneOrEngine,
+                noMipmapOrOptions,
+                invertY,
+                samplingMode,
+                onLoad,
+                onError,
+                buffer,
+                deleteBuffer,
+                format,
+                mimeType,
+                loaderOptions,
+                creationFlags,
+                forcedExtension
+            );
+            ___guid = entity.___guid;
+        }
+
+        public ProceduralTexture(Scene sceneOrEngine = null, InternalTexture internalTexture = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "ProceduralTexture" },
+                sceneOrEngine,
+                internalTexture
+            );
+            ___guid = entity.___guid;
+        }
+
+        public ProceduralTexture(InternalTexture internalTexture)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "ProceduralTexture" },
+                internalTexture
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods
-        #region onGenerated TODO: Get Comments as metadata identification
-        private bool _isOnGeneratedEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _onGeneratedActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string onGenerated(Func<Task> callback)
+        public void onGenerated()
         {
-            SetupOnGeneratedLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _onGeneratedActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool onGenerated_Remove(string handle)
-        {
-            return _onGeneratedActionMap.Remove(handle);
-        }
-
-        private void SetupOnGeneratedLoop()
-        {
-            if (_isOnGeneratedEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "onGenerated",
-                "CallOnGeneratedActions",
-                _invokableReference
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "onGenerated" } }
             );
-            _isOnGeneratedEnabled = true;
         }
-
-        [JSInvokable]
-        public async Task CallOnGeneratedActions()
-        {
-            foreach (var action in _onGeneratedActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
 
         public Effect getEffect()
         {
@@ -228,9 +249,9 @@ namespace BABYLON
             );
         }
 
-        public ArrayBufferView getContent()
+        public ValueTask<ArrayBufferView> getContent()
         {
-            return EventHorizonBlazorInterop.FuncClass<ArrayBufferView>(
+            return EventHorizonBlazorInterop.TaskClass<ArrayBufferView>(
                 entity => new ArrayBufferView() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "getContent" } }
             );
@@ -240,6 +261,13 @@ namespace BABYLON
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "reset" } }
+            );
+        }
+
+        public void executeWhenReady(ActionCallback<ProceduralTexture> func)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "executeWhenReady" }, func }
             );
         }
 
@@ -339,6 +367,14 @@ namespace BABYLON
             return EventHorizonBlazorInterop.FuncClass<ProceduralTexture>(
                 entity => new ProceduralTexture() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "setVector3" }, name, value }
+            );
+        }
+
+        public ProceduralTexture setVector4(string name, Vector4 value)
+        {
+            return EventHorizonBlazorInterop.FuncClass<ProceduralTexture>(
+                entity => new ProceduralTexture() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "setVector4" }, name, value }
             );
         }
 

@@ -1,5 +1,6 @@
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
 
+using System;
 using System.Linq;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
@@ -31,10 +32,14 @@ public static class TypeIdentifier
             case SyntaxKind.VoidKeyword:
                 return GenerationIdentifiedTypes.Void;
             case SyntaxKind.StringKeyword:
+            case SyntaxKind.StringLiteral:
                 return GenerationIdentifiedTypes.String;
             case SyntaxKind.BooleanKeyword:
+            case SyntaxKind.TrueKeyword:
+            case SyntaxKind.FalseKeyword:
                 return GenerationIdentifiedTypes.Bool;
             case SyntaxKind.NumberKeyword:
+            case SyntaxKind.NumericLiteral:
                 return GenerationIdentifiedTypes.Number;
             case SyntaxKind.ObjectKeyword:
                 return GenerationIdentifiedTypes.CachedEntity;
@@ -54,6 +59,11 @@ public static class TypeIdentifier
             childNode.Kind != SyntaxKind.NullKeyword
             && childNode.Kind != SyntaxKind.UndefinedKeyword
         );
+        if (firstNode is null)
+        {
+            return GenerationIdentifiedTypes.Unknown;
+        }
+
         return GetFromNode(firstNode, firstNode.Kind, classMetadata);
     }
 

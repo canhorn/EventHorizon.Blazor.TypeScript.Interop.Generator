@@ -35,14 +35,13 @@ namespace BABYLON
 
         #region Properties
 
-        public ActionResultCallback<string, string, string> processFinalCode
+        public ActionResultCallback<string, string, string[], string> processFinalCode
         {
             get
             {
-                return EventHorizonBlazorInterop.Get<ActionResultCallback<string, string, string>>(
-                    this.___guid,
-                    "processFinalCode"
-                );
+                return EventHorizonBlazorInterop.Get<
+                    ActionResultCallback<string, string, string[], string>
+                >(this.___guid, "processFinalCode");
             }
             set
             {

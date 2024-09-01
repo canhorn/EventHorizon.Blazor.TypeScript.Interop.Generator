@@ -9,38 +9,33 @@ public interface Node
     Node Last { get; }
     string IdentifierStr { get; }
     string Kind { get; }
-    IEnumerable<Node> Modifiers { get; }
+    List<Node> Modifiers { get; }
 
     #region ParameterDeclaration
     Node Type { get; }
     #endregion
 
-    #region ArrayTypeNode
-    Node ElementType { get; }
-    #endregion
-
     #region ClassDeclaration, InterfaceDeclaration, MethodDeclaration
-    IEnumerable<Node> TypeParameters { get; }
+    List<Node> TypeParameters { get; }
     #endregion
 
     #region ClassDefinition
-    IEnumerable<Node> HeritageClauses { get; }
+    List<Node> HeritageClauses { get; }
     #endregion
 
     #region HeritageClause
-    //public SyntaxKind Token { get; set; }
-    IEnumerable<Node> Types { get; }
+    List<Node> Types { get; }
     #endregion
 
     #region TypeReferenceNode ExpressionWithTypeArguments
-    public IEnumerable<Node> TypeArguments { get; }
+    public List<Node> TypeArguments { get; }
     #endregion
 
     #region FunctionTypeNode
-    public IEnumerable<Node> Parameters { get; }
+    public List<Node> Parameters { get; }
     #endregion
 
-    IEnumerable<Node> Children { get; }
+    List<Node> Children { get; }
 
-    IEnumerable<Node> OfKind(string kind);
+    List<Node> OfKind(string kind);
 }

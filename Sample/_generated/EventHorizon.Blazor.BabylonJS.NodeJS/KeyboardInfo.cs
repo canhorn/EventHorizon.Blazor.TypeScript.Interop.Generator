@@ -41,19 +41,19 @@ namespace BABYLON
             }
         }
 
-        private KeyboardEvent __event;
-        public KeyboardEvent @event
+        private IKeyboardEventCachedEntity __event;
+        public IKeyboardEventCachedEntity @event
         {
             get
             {
                 if (__event == null)
                 {
-                    __event = EventHorizonBlazorInterop.GetClass<KeyboardEvent>(
+                    __event = EventHorizonBlazorInterop.GetClass<IKeyboardEventCachedEntity>(
                         this.___guid,
                         "event",
                         (entity) =>
                         {
-                            return new KeyboardEvent() { ___guid = entity.___guid };
+                            return new IKeyboardEventCachedEntity() { ___guid = entity.___guid };
                         }
                     );
                 }
@@ -77,7 +77,7 @@ namespace BABYLON
             ___guid = entity.___guid;
         }
 
-        public KeyboardInfo(decimal type, KeyboardEvent @event)
+        public KeyboardInfo(decimal type, IKeyboardEvent @event)
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "KeyboardInfo" },

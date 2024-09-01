@@ -62,9 +62,16 @@ namespace BABYLON.GUI
         {
             get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "internalValue"); }
         }
-        #endregion
 
-        #region Properties
+        public decimal value
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "value"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "value", value);
+            }
+        }
 
         public decimal unit
         {
@@ -75,6 +82,9 @@ namespace BABYLON.GUI
                 EventHorizonBlazorInterop.Set(this.___guid, "unit", value);
             }
         }
+        #endregion
+
+        #region Properties
 
         public bool negativeValueAllowed
         {
@@ -99,6 +109,31 @@ namespace BABYLON.GUI
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "ignoreAdaptiveScaling", value);
+            }
+        }
+
+        private Observable<Void_> __onChangedObservable;
+        public Observable<Void_> onChangedObservable
+        {
+            get
+            {
+                if (__onChangedObservable == null)
+                {
+                    __onChangedObservable = EventHorizonBlazorInterop.GetClass<Observable<Void_>>(
+                        this.___guid,
+                        "onChangedObservable",
+                        (entity) =>
+                        {
+                            return new Observable<Void_>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __onChangedObservable;
+            }
+            set
+            {
+                __onChangedObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onChangedObservable", value);
             }
         }
         #endregion

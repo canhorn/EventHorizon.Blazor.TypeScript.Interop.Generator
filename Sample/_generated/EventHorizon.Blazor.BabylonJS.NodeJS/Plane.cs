@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     [JsonConverter(typeof(CachedEntityConverter<Plane>))]
-    public class Plane : CachedEntityObject
+    public class Plane : CachedEntityObject, IPlaneLike
     {
         #region Static Accessors
 
@@ -53,6 +53,21 @@ namespace BABYLON
                     new string[] { "BABYLON", "Plane", "FromPositionAndNormal" },
                     origin,
                     normal
+                }
+            );
+        }
+
+        public static T FromPositionAndNormalToRef<T>(Vector3 origin, Vector3 normal, T result)
+            where T : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "Plane", "FromPositionAndNormalToRef" },
+                    origin,
+                    normal,
+                    result
                 }
             );
         }
@@ -126,12 +141,10 @@ namespace BABYLON
             : base() { }
 
         public Plane(ICachedEntity entity)
-            : base(entity)
-        {
-            ___guid = entity.___guid;
-        }
+            : base(entity) { }
 
         public Plane(decimal a, decimal b, decimal c, decimal d)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Plane" },

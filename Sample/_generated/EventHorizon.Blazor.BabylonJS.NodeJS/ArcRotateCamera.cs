@@ -51,6 +51,31 @@ namespace BABYLON
             }
         }
 
+        private TransformNode __targetHost;
+        public TransformNode targetHost
+        {
+            get
+            {
+                if (__targetHost == null)
+                {
+                    __targetHost = EventHorizonBlazorInterop.GetClass<TransformNode>(
+                        this.___guid,
+                        "targetHost",
+                        (entity) =>
+                        {
+                            return new TransformNode() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __targetHost;
+            }
+            set
+            {
+                __targetHost = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "targetHost", value);
+            }
+        }
+
         private Vector3 __position;
         public Vector3 position
         {
@@ -223,6 +248,16 @@ namespace BABYLON
             }
         }
 
+        public bool zoomToMouseLocation
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "zoomToMouseLocation"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "zoomToMouseLocation", value);
+            }
+        }
+
         public decimal wheelDeltaPercentage
         {
             get
@@ -360,6 +395,22 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "radius", value);
+            }
+        }
+
+        public bool overrideCloneAlphaBetaRadius
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "overrideCloneAlphaBetaRadius"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "overrideCloneAlphaBetaRadius", value);
             }
         }
 
@@ -604,6 +655,26 @@ namespace BABYLON
             }
         }
 
+        public decimal restoreStateInterpolationFactor
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<decimal>(
+                    this.___guid,
+                    "restoreStateInterpolationFactor"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "restoreStateInterpolationFactor",
+                    value
+                );
+            }
+        }
+
         private ArcRotateCameraInputsManager __inputs;
         public ArcRotateCameraInputsManager inputs
         {
@@ -654,21 +725,31 @@ namespace BABYLON
             }
         }
 
-        private Observable<AbstractMesh> __onMeshTargetChangedObservable;
-        public Observable<AbstractMesh> onMeshTargetChangedObservable
+        public bool mapPanning
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "mapPanning"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "mapPanning", value);
+            }
+        }
+
+        private Observable<TransformNode> __onMeshTargetChangedObservable;
+        public Observable<TransformNode> onMeshTargetChangedObservable
         {
             get
             {
                 if (__onMeshTargetChangedObservable == null)
                 {
                     __onMeshTargetChangedObservable = EventHorizonBlazorInterop.GetClass<
-                        Observable<AbstractMesh>
+                        Observable<TransformNode>
                     >(
                         this.___guid,
                         "onMeshTargetChangedObservable",
                         (entity) =>
                         {
-                            return new Observable<AbstractMesh>() { ___guid = entity.___guid };
+                            return new Observable<TransformNode>() { ___guid = entity.___guid };
                         }
                     );
                 }
@@ -730,7 +811,7 @@ namespace BABYLON
             decimal beta,
             decimal radius,
             Vector3 target,
-            Scene scene,
+            Scene scene = null,
             System.Nullable<bool> setActiveOnSceneIfNoneActive = null
         )
             : base()
@@ -747,9 +828,47 @@ namespace BABYLON
             );
             ___guid = entity.___guid;
         }
+
+        public ArcRotateCamera(
+            string name,
+            Vector3 position,
+            Scene scene = null,
+            System.Nullable<bool> setActiveOnSceneIfNoneActive = null
+        )
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "ArcRotateCamera" },
+                name,
+                position,
+                scene,
+                setActiveOnSceneIfNoneActive
+            );
+            ___guid = entity.___guid;
+        }
+
+        public ArcRotateCamera(string name, Scene scene = null, System.Nullable<bool> isPure = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "ArcRotateCamera" },
+                name,
+                scene,
+                isPure
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods
+        public Vector3 getTarget()
+        {
+            return EventHorizonBlazorInterop.FuncClass<Vector3>(
+                entity => new Vector3() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getTarget" } }
+            );
+        }
+
         public void setMatUp()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -757,50 +876,12 @@ namespace BABYLON
             );
         }
 
-        #region onCollide TODO: Get Comments as metadata identification
-        private bool _isOnCollideEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _onCollideActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string onCollide(Func<Task> callback)
+        public void onCollide(AbstractMesh collidedMesh)
         {
-            SetupOnCollideLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _onCollideActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool onCollide_Remove(string handle)
-        {
-            return _onCollideActionMap.Remove(handle);
-        }
-
-        private void SetupOnCollideLoop()
-        {
-            if (_isOnCollideEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "onCollide",
-                "CallOnCollideActions",
-                _invokableReference
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "onCollide" }, collidedMesh }
             );
-            _isOnCollideEnabled = true;
         }
-
-        [JSInvokable]
-        public async Task CallOnCollideActions()
-        {
-            foreach (var action in _onCollideActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
 
         public Camera storeState()
         {
@@ -810,10 +891,22 @@ namespace BABYLON
             );
         }
 
-        public void attachControl(System.Nullable<bool> noPreventDefault = null)
+        public void attachControl(
+            object ignored,
+            bool useCtrlForPanning,
+            decimal panningMouseButton,
+            System.Nullable<bool> noPreventDefault = null
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "attachControl" }, noPreventDefault }
+                new object[]
+                {
+                    new string[] { this.___guid, "attachControl" },
+                    noPreventDefault,
+                    ignored,
+                    useCtrlForPanning,
+                    panningMouseButton
+                }
             );
         }
 
@@ -839,9 +932,10 @@ namespace BABYLON
         }
 
         public void setTarget(
-            AbstractMesh target,
+            TransformNode target,
             System.Nullable<bool> toBoundingCenter = null,
-            System.Nullable<bool> allowSamePosition = null
+            System.Nullable<bool> allowSamePosition = null,
+            System.Nullable<bool> cloneAlphaBetaRadius = null
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -850,7 +944,8 @@ namespace BABYLON
                     new string[] { this.___guid, "setTarget" },
                     target,
                     toBoundingCenter,
-                    allowSamePosition
+                    allowSamePosition,
+                    cloneAlphaBetaRadius
                 }
             );
         }

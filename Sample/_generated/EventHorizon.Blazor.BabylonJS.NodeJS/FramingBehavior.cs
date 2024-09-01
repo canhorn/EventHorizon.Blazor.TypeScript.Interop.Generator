@@ -207,6 +207,36 @@ namespace BABYLON
         #endregion
 
         #region Properties
+        private Observable<Void_> __onTargetFramingAnimationEndObservable;
+        public Observable<Void_> onTargetFramingAnimationEndObservable
+        {
+            get
+            {
+                if (__onTargetFramingAnimationEndObservable == null)
+                {
+                    __onTargetFramingAnimationEndObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<Void_>
+                    >(
+                        this.___guid,
+                        "onTargetFramingAnimationEndObservable",
+                        (entity) =>
+                        {
+                            return new Observable<Void_>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __onTargetFramingAnimationEndObservable;
+            }
+            set
+            {
+                __onTargetFramingAnimationEndObservable = null;
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "onTargetFramingAnimationEndObservable",
+                    value
+                );
+            }
+        }
 
         public bool autoCorrectCameraLimitsAndSensibility
         {
@@ -311,14 +341,14 @@ namespace BABYLON
             );
         }
 
-        public void zoomOnBoundingInfo(
+        public bool zoomOnBoundingInfo(
             Vector3 minimumWorld,
             Vector3 maximumWorld,
             System.Nullable<bool> focusOnOriginXZ = null,
             ActionCallback onAnimationEnd = null
         )
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.Func<bool>(
                 new object[]
                 {
                     new string[] { this.___guid, "zoomOnBoundingInfo" },

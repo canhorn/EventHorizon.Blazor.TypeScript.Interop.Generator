@@ -27,6 +27,15 @@ namespace BABYLON
 
         #region Accessors
 
+        public bool applyPostProcess
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "applyPostProcess"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "applyPostProcess", value);
+            }
+        }
         #endregion
 
         #region Properties
@@ -41,19 +50,19 @@ namespace BABYLON
             }
         }
 
-        private Texture __texture;
-        public Texture texture
+        private BaseTexture __texture;
+        public BaseTexture texture
         {
             get
             {
                 if (__texture == null)
                 {
-                    __texture = EventHorizonBlazorInterop.GetClass<Texture>(
+                    __texture = EventHorizonBlazorInterop.GetClass<BaseTexture>(
                         this.___guid,
                         "texture",
                         (entity) =>
                         {
-                            return new Texture() { ___guid = entity.___guid };
+                            return new BaseTexture() { ___guid = entity.___guid };
                         }
                     );
                 }
@@ -224,6 +233,16 @@ namespace BABYLON
             }
         }
 
+        public bool isEnabled
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isEnabled"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "isEnabled", value);
+            }
+        }
+
         private Observable<Layer> __onDisposeObservable;
         public Observable<Layer> onDisposeObservable
         {
@@ -335,6 +354,13 @@ namespace BABYLON
         #endregion
 
         #region Methods
+        public bool isReady()
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "isReady" } }
+            );
+        }
+
         public void render()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(

@@ -22,6 +22,21 @@ namespace BABYLON
         #endregion
 
         #region Static Methods
+        public static void RegisterShaderCodeProcessing(
+            string postProcessName = null,
+            CachedEntity customShaderCodeProcessing = null
+        )
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { "BABYLON", "PostProcess", "RegisterShaderCodeProcessing" },
+                    postProcessName,
+                    customShaderCodeProcessing
+                }
+            );
+        }
+
         public static PostProcess Parse(object parsedPostProcess, Scene scene, string rootUrl)
         {
             return EventHorizonBlazorInterop.FuncClass<PostProcess>(
@@ -49,19 +64,19 @@ namespace BABYLON
             }
         }
 
-        private InternalTexture __inputTexture;
-        public InternalTexture inputTexture
+        private RenderTargetWrapper __inputTexture;
+        public RenderTargetWrapper inputTexture
         {
             get
             {
                 if (__inputTexture == null)
                 {
-                    __inputTexture = EventHorizonBlazorInterop.GetClass<InternalTexture>(
+                    __inputTexture = EventHorizonBlazorInterop.GetClass<RenderTargetWrapper>(
                         this.___guid,
                         "inputTexture",
                         (entity) =>
                         {
-                            return new InternalTexture() { ___guid = entity.___guid };
+                            return new RenderTargetWrapper() { ___guid = entity.___guid };
                         }
                     );
                 }
@@ -223,6 +238,22 @@ namespace BABYLON
             }
         }
 
+        public bool forceAutoClearInAlphaMode
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "forceAutoClearInAlphaMode"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "forceAutoClearInAlphaMode", value);
+            }
+        }
+
         public decimal alphaMode
         {
             get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "alphaMode"); }
@@ -357,6 +388,22 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "adaptScaleToCurrentViewport", value);
+            }
+        }
+
+        public bool externalTextureSamplerBinding
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "externalTextureSamplerBinding"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "externalTextureSamplerBinding", value);
             }
         }
 
@@ -502,41 +549,13 @@ namespace BABYLON
             ___guid = entity.___guid;
         }
 
-        public PostProcess(
-            string name,
-            string fragmentUrl,
-            decimal options,
-            Camera camera,
-            string[] parameters = null,
-            string[] samplers = null,
-            System.Nullable<decimal> samplingMode = null,
-            Engine engine = null,
-            System.Nullable<bool> reusable = null,
-            string defines = null,
-            System.Nullable<decimal> textureType = null,
-            string vertexUrl = null,
-            object indexParameters = null,
-            System.Nullable<bool> blockCompilation = null,
-            System.Nullable<decimal> textureFormat = null
-        )
+        public PostProcess(string name, string fragmentUrl, System.Nullable<decimal> options = null)
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "PostProcess" },
                 name,
                 fragmentUrl,
-                parameters,
-                samplers,
-                options,
-                camera,
-                samplingMode,
-                engine,
-                reusable,
-                defines,
-                textureType,
-                vertexUrl,
-                indexParameters,
-                blockCompilation,
-                textureFormat
+                options
             );
             ___guid = entity.___guid;
         }
@@ -572,10 +591,10 @@ namespace BABYLON
             );
         }
 
-        public Engine getEngine()
+        public AbstractEngine getEngine()
         {
-            return EventHorizonBlazorInterop.FuncClass<Engine>(
-                entity => new Engine() { ___guid = entity.___guid },
+            return EventHorizonBlazorInterop.FuncClass<AbstractEngine>(
+                entity => new AbstractEngine() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "getEngine" } }
             );
         }
@@ -644,14 +663,35 @@ namespace BABYLON
             );
         }
 
-        public InternalTexture activate(
+        public void resize(
+            decimal width,
+            decimal height,
+            Camera camera = null,
+            System.Nullable<bool> needMipMaps = null,
+            System.Nullable<bool> forceDepthStencil = null
+        )
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "resize" },
+                    width,
+                    height,
+                    camera,
+                    needMipMaps,
+                    forceDepthStencil
+                }
+            );
+        }
+
+        public RenderTargetWrapper activate(
             Camera camera,
             InternalTexture sourceTexture = null,
             System.Nullable<bool> forceDepthStencil = null
         )
         {
-            return EventHorizonBlazorInterop.FuncClass<InternalTexture>(
-                entity => new InternalTexture() { ___guid = entity.___guid },
+            return EventHorizonBlazorInterop.FuncClass<RenderTargetWrapper>(
+                entity => new RenderTargetWrapper() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "activate" },
@@ -699,6 +739,14 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "serialize" } }
+            );
+        }
+
+        public PostProcess clone()
+        {
+            return EventHorizonBlazorInterop.FuncClass<PostProcess>(
+                entity => new PostProcess() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "clone" } }
             );
         }
         #endregion

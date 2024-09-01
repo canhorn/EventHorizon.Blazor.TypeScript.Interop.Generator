@@ -66,6 +66,26 @@ namespace BABYLON
             }
         }
 
+        public bool getAlphaFromRGB
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "getAlphaFromRGB"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "getAlphaFromRGB", value);
+            }
+        }
+
+        public decimal coordinatesIndex
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "coordinatesIndex"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "coordinatesIndex", value);
+            }
+        }
+
         public decimal coordinatesMode
         {
             get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "coordinatesMode"); }
@@ -99,31 +119,16 @@ namespace BABYLON
         public bool isCube
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isCube"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "isCube", value);
-            }
         }
 
         public bool is3D
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "is3D"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "is3D", value);
-            }
         }
 
         public bool is2DArray
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "is2DArray"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "is2DArray", value);
-            }
         }
 
         public bool gammaSpace
@@ -222,6 +227,16 @@ namespace BABYLON
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isBlocking"); }
         }
 
+        public bool loadingError
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "loadingError"); }
+        }
+
+        public CachedEntity errorObject
+        {
+            get { return EventHorizonBlazorInterop.Get<CachedEntity>(this.___guid, "errorObject"); }
+        }
+
         public bool canRescale
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "canRescale"); }
@@ -300,16 +315,6 @@ namespace BABYLON
             }
         }
 
-        public bool getAlphaFromRGB
-        {
-            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "getAlphaFromRGB"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "getAlphaFromRGB", value);
-            }
-        }
-
         public decimal level
         {
             get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "level"); }
@@ -320,13 +325,16 @@ namespace BABYLON
             }
         }
 
-        public decimal coordinatesIndex
+        public bool optimizeUVAllocation
         {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "coordinatesIndex"); }
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "optimizeUVAllocation");
+            }
             set
             {
 
-                EventHorizonBlazorInterop.Set(this.___guid, "coordinatesIndex", value);
+                EventHorizonBlazorInterop.Set(this.___guid, "optimizeUVAllocation", value);
             }
         }
 
@@ -441,12 +449,23 @@ namespace BABYLON
         public BaseTexture(ICachedEntity entity)
             : base(entity) { }
 
-        public BaseTexture(Scene sceneOrEngine)
+        public BaseTexture(Scene sceneOrEngine = null, InternalTexture internalTexture = null)
             : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "BaseTexture" },
-                sceneOrEngine
+                sceneOrEngine,
+                internalTexture
+            );
+            ___guid = entity.___guid;
+        }
+
+        public BaseTexture(InternalTexture internalTexture)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "BaseTexture" },
+                internalTexture
             );
             ___guid = entity.___guid;
         }
@@ -475,17 +494,6 @@ namespace BABYLON
             );
         }
 
-        public bool checkTransformsAreIdentical(BaseTexture texture)
-        {
-            return EventHorizonBlazorInterop.Func<bool>(
-                new object[]
-                {
-                    new string[] { this.___guid, "checkTransformsAreIdentical" },
-                    texture
-                }
-            );
-        }
-
         public Matrix getTextureMatrix()
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
@@ -499,6 +507,14 @@ namespace BABYLON
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "getReflectionTextureMatrix" } }
+            );
+        }
+
+        public Matrix getRefractionTextureMatrix()
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getRefractionTextureMatrix" } }
             );
         }
 
@@ -524,20 +540,32 @@ namespace BABYLON
             );
         }
 
-        public ArrayBufferView readPixels(
+        public ValueTask<ArrayBufferView> readPixels(
             System.Nullable<decimal> faceIndex = null,
             System.Nullable<decimal> level = null,
-            ArrayBufferView buffer = null
+            ArrayBufferView buffer = null,
+            System.Nullable<bool> flushRenderer = null,
+            System.Nullable<bool> noDataConversion = null,
+            System.Nullable<decimal> x = null,
+            System.Nullable<decimal> y = null,
+            System.Nullable<decimal> width = null,
+            System.Nullable<decimal> height = null
         )
         {
-            return EventHorizonBlazorInterop.FuncClass<ArrayBufferView>(
+            return EventHorizonBlazorInterop.TaskClass<ArrayBufferView>(
                 entity => new ArrayBufferView() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { this.___guid, "readPixels" },
                     faceIndex,
                     level,
-                    buffer
+                    buffer,
+                    flushRenderer,
+                    noDataConversion,
+                    x,
+                    y,
+                    width,
+                    height
                 }
             );
         }
@@ -549,10 +577,10 @@ namespace BABYLON
             );
         }
 
-        public CachedEntity serialize()
+        public CachedEntity serialize(System.Nullable<bool> allowEmptyName = null)
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "serialize" } }
+                new object[] { new string[] { this.___guid, "serialize" }, allowEmptyName }
             );
         }
         #endregion

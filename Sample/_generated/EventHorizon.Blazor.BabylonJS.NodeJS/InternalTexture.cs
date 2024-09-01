@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     [JsonConverter(typeof(CachedEntityConverter<InternalTexture>))]
-    public class InternalTexture : CachedEntityObject
+    public class InternalTexture : TextureSampler
     {
         #region Static Accessors
 
@@ -26,6 +26,21 @@ namespace BABYLON
         #endregion
 
         #region Accessors
+
+        public bool useMipMaps
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "useMipMaps"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "useMipMaps", value);
+            }
+        }
+
+        public decimal uniqueId
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "uniqueId"); }
+        }
 
         public int source
         {
@@ -95,16 +110,6 @@ namespace BABYLON
             }
         }
 
-        public decimal samplingMode
-        {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "samplingMode"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "samplingMode", value);
-            }
-        }
-
         public bool generateMipMaps
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "generateMipMaps"); }
@@ -169,6 +174,48 @@ namespace BABYLON
             {
                 __onLoadedObservable = null;
                 EventHorizonBlazorInterop.Set(this.___guid, "onLoadedObservable", value);
+            }
+        }
+
+        private Observable<CachedEntity> __onErrorObservable;
+        public Observable<CachedEntity> onErrorObservable
+        {
+            get
+            {
+                if (__onErrorObservable == null)
+                {
+                    __onErrorObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<CachedEntity>
+                    >(
+                        this.___guid,
+                        "onErrorObservable",
+                        (entity) =>
+                        {
+                            return new Observable<CachedEntity>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __onErrorObservable;
+            }
+            set
+            {
+                __onErrorObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onErrorObservable", value);
+            }
+        }
+
+        public ActionResultCallback<InternalTexture, InternalTexture> onRebuildCallback
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<
+                    ActionResultCallback<InternalTexture, InternalTexture>
+                >(this.___guid, "onRebuildCallback");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "onRebuildCallback", value);
             }
         }
 
@@ -248,16 +295,14 @@ namespace BABYLON
             : base() { }
 
         public InternalTexture(ICachedEntity entity)
-            : base(entity)
-        {
-            ___guid = entity.___guid;
-        }
+            : base(entity) { }
 
         public InternalTexture(
-            ThinEngine engine,
+            AbstractEngine engine,
             int source,
             System.Nullable<bool> delayAllocation = null
         )
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "InternalTexture" },
@@ -267,13 +312,14 @@ namespace BABYLON
             );
             ___guid = entity.___guid;
         }
+
         #endregion
 
         #region Methods
-        public ThinEngine getEngine()
+        public AbstractEngine getEngine()
         {
-            return EventHorizonBlazorInterop.FuncClass<ThinEngine>(
-                entity => new ThinEngine() { ___guid = entity.___guid },
+            return EventHorizonBlazorInterop.FuncClass<AbstractEngine>(
+                entity => new AbstractEngine() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "getEngine" } }
             );
         }

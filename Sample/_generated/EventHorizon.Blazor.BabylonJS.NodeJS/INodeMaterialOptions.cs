@@ -42,6 +42,16 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set(this.___guid, "emitComments", value);
             }
         }
+
+        public int shaderLanguage
+        {
+            get { return EventHorizonBlazorInterop.Get<int>(this.___guid, "shaderLanguage"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "shaderLanguage", value);
+            }
+        }
         #endregion
 
         #region Constructor

@@ -1,10 +1,13 @@
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator;
 
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model;
@@ -17,11 +20,15 @@ using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Writer;
 
 public class GenerateSource
 {
+    public static bool CacheEnabled { get; private set; } = true;
+
     public static void DisableCache()
     {
+        GlobalLogger.Warning("Disabling Cache");
         InterfaceResponseTypeIdentifier.DisableCache();
         EnumTypeIdentifier.DisableCache();
         AliasTypeIdentifier.DisableCache();
+        CacheEnabled = false;
     }
 
     public bool Run(
@@ -32,9 +39,13 @@ public class GenerateSource
         IWriter writer,
         TextFormatter textFormatter,
         IDictionary<string, string> typeOverrideMap,
-        ASTParserType parserType = ASTParserType.Sdcb
+        IEnumerable<string> ignoredIdentifiers = null,
+        ASTParserType parserType = ASTParserType.Sdcb,
+        int maxDegreeOfParallelism = 1
     )
     {
+        ignoredIdentifiers ??= [];
+
         var overallStopwatch = Stopwatch.StartNew();
         var stopwatch = Stopwatch.StartNew();
         GlobalLogger.Info($"=== Consolidate Source Files");
@@ -62,30 +73,48 @@ public class GenerateSource
         GlobalLogger.Info(
             $"=== Generated Cached Entity Object | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms"
         );
+        stopwatch.Restart();
+        GlobalLogger.Info($"=== Generate Void Type");
+        var voidType = GenerateVoidType.GenerateClassStatement();
+        generatedStatements.Add(
+            new GeneratedStatement(voidType, GenerateVoidType.GenerateString())
+        );
+        GlobalLogger.Info(
+            $"=== Generated Void Type | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms"
+        );
 
         stopwatch.Restart();
         GlobalLogger.Info($"=== Generate Class Statements");
-        var generatedClassStatements = GenerateClassFromList(
+        var generatedClassStatements = new ConcurrentDictionary<string, ClassStatement>();
+        generatedClassStatements.TryAdd(cachedEntityObject.Name, cachedEntityObject);
+        var processLock = new SemaphoreSlim(maxDegreeOfParallelism);
+        GenerateClassFromList(
+            processLock,
             ast,
             projectAssembly,
             generationList,
             notGeneratedClassNames,
             typeOverrideMap,
-            new List<ClassStatement> { cachedEntityObject }
+            ignoredIdentifiers,
+            generatedClassStatements
         );
-        generatedClassStatements.Remove(cachedEntityObject);
+        generatedClassStatements.TryRemove(cachedEntityObject.Name, out _);
         GlobalLogger.Info(
             $"=== Generated Class Statements | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms"
         );
 
         stopwatch.Restart();
         GlobalLogger.Info($"=== Generate Statements");
-        foreach (var generatedStatement in generatedClassStatements)
+        foreach (var generatedStatement in generatedClassStatements.Values)
         {
             generatedStatements.Add(
                 new GeneratedStatement(
                     generatedStatement,
-                    GenerateClassStatementString.Generate(generatedStatement, textFormatter)
+                    GenerateClassStatementString.Generate(
+                        generatedStatement,
+                        generatedClassStatements,
+                        textFormatter
+                    )
                 )
             );
         }
@@ -144,69 +173,84 @@ public class GenerateSource
         return stringBuilder.ToString();
     }
 
-    private static IList<ClassStatement> GenerateClassFromList(
+    private static void GenerateClassFromList(
+        SemaphoreSlim processLock,
         AbstractSyntaxTree ast,
         string projectAssembly,
         IList<string> generationList,
         IList<string> notGeneratedClassNames,
         IDictionary<string, string> typeOverrideMap,
-        IList<ClassStatement> generatedStatements
+        IEnumerable<string> ignoredIdentifiers,
+        ConcurrentDictionary<string, ClassStatement> generatedStatements
     )
     {
         var stopwatch = Stopwatch.StartNew();
-        foreach (var classIdentifier in generationList)
-        {
-            if (
-                generatedStatements.Any(a => a.Name == classIdentifier)
-                || notGeneratedClassNames.Contains(classIdentifier)
-            )
+        Parallel.ForEach(
+            generationList,
+            (classIdentifier) =>
             {
-                continue;
-            }
-            stopwatch.Restart();
-            var generated = GenerateInteropClassStatement.Generate(
-                projectAssembly,
-                classIdentifier,
-                ast,
-                typeOverrideMap
-            );
-            stopwatch.Stop();
-            GlobalLogger.Info(
-                $"Took {stopwatch.ElapsedMilliseconds}ms to generate {classIdentifier}"
-            );
-            if (generated == null)
-            {
-                if (!notGeneratedClassNames.Contains(classIdentifier))
+                processLock.Wait();
+                if (
+                    generatedStatements.ContainsKey(classIdentifier)
+                    || notGeneratedClassNames.Contains(classIdentifier)
+                )
                 {
-                    GlobalLogger.Warning(
-                        $"Was not found in AST. Adding to Shim Generation List. classIdentifier: {classIdentifier}"
-                    );
-                    notGeneratedClassNames.Add(classIdentifier);
+                    processLock.Release();
+                    return;
                 }
-                continue;
-            }
-            generatedStatements.Add(generated);
-            // Add Used Classes and add Generated List
-            var usesClasses = GetAllUsedClasses(generated);
-            var toGenerateList = new List<string>();
-            foreach (var className in usesClasses)
-            {
-                if (!generatedStatements.Any(a => a.Name == className))
+                stopwatch.Restart();
+                var generated = GenerateInteropClassStatement.Generate(
+                    projectAssembly,
+                    classIdentifier,
+                    ast,
+                    typeOverrideMap,
+                    ignoredIdentifiers
+                );
+                stopwatch.Stop();
+                // processLock.Release();
+                GlobalLogger.Info(
+                    $"Took {stopwatch.ElapsedMilliseconds}ms to generate {classIdentifier}"
+                );
+                if (generated == null)
                 {
-                    toGenerateList.Add(className);
+                    if (!notGeneratedClassNames.Contains(classIdentifier))
+                    {
+                        GlobalLogger.Warning(
+                            $"Was not found in AST. Adding to Shim Generation List. classIdentifier: {classIdentifier}"
+                        );
+                        notGeneratedClassNames.Add(classIdentifier);
+                    }
+                    processLock.Release();
+                    return;
                 }
+                generatedStatements.AddOrUpdate(
+                    generated.Name,
+                    _ => generated,
+                    (_, __) => generated
+                );
+                // Add Used Classes and add Generated List
+                var usesClasses = GetAllUsedClasses(generated);
+                processLock.Release();
+                var toGenerateList = new List<string>();
+                foreach (var className in usesClasses)
+                {
+                    if (!generatedStatements.ContainsKey(className))
+                    {
+                        toGenerateList.Add(className);
+                    }
+                }
+                GenerateClassFromList(
+                    processLock,
+                    ast,
+                    projectAssembly,
+                    toGenerateList,
+                    notGeneratedClassNames,
+                    typeOverrideMap,
+                    ignoredIdentifiers,
+                    generatedStatements
+                );
             }
-            generatedStatements = GenerateClassFromList(
-                ast,
-                projectAssembly,
-                toGenerateList,
-                notGeneratedClassNames,
-                typeOverrideMap,
-                generatedStatements
-            );
-        }
-
-        return generatedStatements;
+        );
     }
 
     private static IEnumerable<string> GetAllUsedClasses(ClassStatement generated)

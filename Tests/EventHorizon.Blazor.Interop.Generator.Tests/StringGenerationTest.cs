@@ -19,6 +19,7 @@ public class StringGenerationTest
     public void ShouldGenerateSourceForEverythingDefinition()
     {
         // Given
+        GenerateSource.DisableCache();
         var projectAssembly = "ProjectAssembly";
         var sourceDirectory = "";
         var sourceFileName = "MultipleGeneration.d.ts";
@@ -52,6 +53,7 @@ public class StringGenerationTest
     public void ShouldCallWriterWithGeneratedClassStatement()
     {
         // Given
+        GenerateSource.DisableCache();
         var projectAssembly = "ProjectAssembly";
         var sourceDirectory = "";
         var sourceFileName = "MultipleGeneration.d.ts";
@@ -86,6 +88,6 @@ public class StringGenerationTest
 
         // Then
         actual.Should().NotBeNull();
-        actual.Should().HaveCount(5);
+        actual.Should().HaveCount(6);
     }
 }

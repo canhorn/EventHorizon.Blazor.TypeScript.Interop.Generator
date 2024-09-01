@@ -161,7 +161,7 @@ namespace BABYLON
         #endregion
 
         #region Methods
-        public EventState initalize(
+        public EventState initialize(
             decimal mask,
             System.Nullable<bool> skipNextObservers = null,
             object target = null,
@@ -172,7 +172,7 @@ namespace BABYLON
                 entity => new EventState() { ___guid = entity.___guid },
                 new object[]
                 {
-                    new string[] { this.___guid, "initalize" },
+                    new string[] { this.___guid, "initialize" },
                     mask,
                     skipNextObservers,
                     target,

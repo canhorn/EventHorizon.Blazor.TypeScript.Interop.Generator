@@ -1,68 +1,65 @@
 /// Generated - Do Not Edit
-namespace BABYLON
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using EventHorizon.Blazor.Interop;
+using EventHorizon.Blazor.Interop.Callbacks;
+using EventHorizon.Blazor.Interop.ResultCallbacks;
+using Microsoft.JSInterop;
+
+public interface ICustomShaderNameResolveOptions : ICachedEntity { }
+
+[JsonConverter(typeof(CachedEntityConverter<ICustomShaderNameResolveOptionsCachedEntity>))]
+public class ICustomShaderNameResolveOptionsCachedEntity
+    : CachedEntityObject,
+        ICustomShaderNameResolveOptions
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-    using EventHorizon.Blazor.Interop;
-    using EventHorizon.Blazor.Interop.Callbacks;
-    using EventHorizon.Blazor.Interop.ResultCallbacks;
-    using Microsoft.JSInterop;
+    #region Static Accessors
 
-    public interface ICustomShaderNameResolveOptions : ICachedEntity { }
+    #endregion
 
-    [JsonConverter(typeof(CachedEntityConverter<ICustomShaderNameResolveOptionsCachedEntity>))]
-    public class ICustomShaderNameResolveOptionsCachedEntity
-        : CachedEntityObject,
-            ICustomShaderNameResolveOptions
+    #region Static Properties
+
+    #endregion
+
+    #region Static Methods
+
+    #endregion
+
+    #region Accessors
+
+    #endregion
+
+    #region Properties
+
+    public ActionResultCallback<string, string, string> processFinalCode
     {
-        #region Static Accessors
-
-        #endregion
-
-        #region Static Properties
-
-        #endregion
-
-        #region Static Methods
-
-        #endregion
-
-        #region Accessors
-
-        #endregion
-
-        #region Properties
-
-        public ActionResultCallback<string, string, string> processFinalCode
+        get
         {
-            get
-            {
-                return EventHorizonBlazorInterop.Get<ActionResultCallback<string, string, string>>(
-                    this.___guid,
-                    "processFinalCode"
-                );
-            }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "processFinalCode", value);
-            }
+            return EventHorizonBlazorInterop.Get<ActionResultCallback<string, string, string>>(
+                this.___guid,
+                "processFinalCode"
+            );
         }
-        #endregion
+        set
+        {
 
-        #region Constructor
-        public ICustomShaderNameResolveOptionsCachedEntity()
-            : base() { }
-
-        public ICustomShaderNameResolveOptionsCachedEntity(ICachedEntity entity)
-            : base(entity) { }
-
-        #endregion
-
-        #region Methods
-
-        #endregion
+            EventHorizonBlazorInterop.Set(this.___guid, "processFinalCode", value);
+        }
     }
+    #endregion
+
+    #region Constructor
+    public ICustomShaderNameResolveOptionsCachedEntity()
+        : base() { }
+
+    public ICustomShaderNameResolveOptionsCachedEntity(ICachedEntity entity)
+        : base(entity) { }
+
+    #endregion
+
+    #region Methods
+
+    #endregion
 }

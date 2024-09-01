@@ -70,13 +70,25 @@ namespace BABYLON
         public MultiMaterial(ICachedEntity entity)
             : base(entity) { }
 
-        public MultiMaterial(string name, Scene scene)
+        public MultiMaterial(string name, Scene scene = null)
             : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "MultiMaterial" },
                 name,
                 scene
+            );
+            ___guid = entity.___guid;
+        }
+
+        public MultiMaterial(string name, Scene scene = null, System.Nullable<bool> doNotAdd = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "MultiMaterial" },
+                name,
+                scene,
+                doNotAdd
             );
             ___guid = entity.___guid;
         }

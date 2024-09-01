@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\_generated\EventHorizon.Blazor.BabylonJS.WASM\EventHorizon.Blazor.BabylonJS.WASM.csproj" />
+    <ProjectReference Include="..\_generated\EventHorizon.Blazor.BabylonJS.NodeJS\EventHorizon.Blazor.BabylonJS.NodeJS.csproj" />
   </ItemGroup>
 
   <ItemGroup>

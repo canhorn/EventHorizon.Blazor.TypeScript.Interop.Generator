@@ -26,6 +26,64 @@ namespace BABYLON
         #endregion
 
         #region Accessors
+        private Texture __texture;
+        public Texture texture
+        {
+            get
+            {
+                if (__texture == null)
+                {
+                    __texture = EventHorizonBlazorInterop.GetClass<Texture>(
+                        this.___guid,
+                        "texture",
+                        (entity) =>
+                        {
+                            return new Texture() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __texture;
+            }
+            set
+            {
+                __texture = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "texture", value);
+            }
+        }
+
+        public string samplerName
+        {
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "samplerName"); }
+        }
+
+        public bool hasImageSource
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "hasImageSource"); }
+        }
+
+        public bool convertToGammaSpace
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "convertToGammaSpace"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "convertToGammaSpace", value);
+            }
+        }
+
+        public bool convertToLinearSpace
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "convertToLinearSpace");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "convertToLinearSpace", value);
+            }
+        }
+
         private NodeMaterialConnectionPoint __uv;
         public NodeMaterialConnectionPoint uv
         {
@@ -43,6 +101,66 @@ namespace BABYLON
                     );
                 }
                 return __uv;
+            }
+        }
+
+        private NodeMaterialConnectionPoint __source;
+        public NodeMaterialConnectionPoint source
+        {
+            get
+            {
+                if (__source == null)
+                {
+                    __source = EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
+                        this.___guid,
+                        "source",
+                        (entity) =>
+                        {
+                            return new NodeMaterialConnectionPoint() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __source;
+            }
+        }
+
+        private NodeMaterialConnectionPoint __layer;
+        public NodeMaterialConnectionPoint layer
+        {
+            get
+            {
+                if (__layer == null)
+                {
+                    __layer = EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
+                        this.___guid,
+                        "layer",
+                        (entity) =>
+                        {
+                            return new NodeMaterialConnectionPoint() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __layer;
+            }
+        }
+
+        private NodeMaterialConnectionPoint __lod;
+        public NodeMaterialConnectionPoint lod
+        {
+            get
+            {
+                if (__lod == null)
+                {
+                    __lod = EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
+                        this.___guid,
+                        "lod",
+                        (entity) =>
+                        {
+                            return new NodeMaterialConnectionPoint() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __lod;
             }
         }
 
@@ -166,58 +284,52 @@ namespace BABYLON
             }
         }
 
+        private NodeMaterialConnectionPoint __level;
+        public NodeMaterialConnectionPoint level
+        {
+            get
+            {
+                if (__level == null)
+                {
+                    __level = EventHorizonBlazorInterop.GetClass<NodeMaterialConnectionPoint>(
+                        this.___guid,
+                        "level",
+                        (entity) =>
+                        {
+                            return new NodeMaterialConnectionPoint() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __level;
+            }
+        }
+
         public int target
         {
             get { return EventHorizonBlazorInterop.Get<int>(this.___guid, "target"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "target", value);
+            }
         }
         #endregion
 
         #region Properties
-        private Texture __texture;
-        public Texture texture
+
+        public bool disableLevelMultiplication
         {
             get
             {
-                if (__texture == null)
-                {
-                    __texture = EventHorizonBlazorInterop.GetClass<Texture>(
-                        this.___guid,
-                        "texture",
-                        (entity) =>
-                        {
-                            return new Texture() { ___guid = entity.___guid };
-                        }
-                    );
-                }
-                return __texture;
-            }
-            set
-            {
-                __texture = null;
-                EventHorizonBlazorInterop.Set(this.___guid, "texture", value);
-            }
-        }
-
-        public bool convertToGammaSpace
-        {
-            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "convertToGammaSpace"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "convertToGammaSpace", value);
-            }
-        }
-
-        public bool convertToLinearSpace
-        {
-            get
-            {
-                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "convertToLinearSpace");
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "disableLevelMultiplication"
+                );
             }
             set
             {
 
-                EventHorizonBlazorInterop.Set(this.___guid, "convertToLinearSpace", value);
+                EventHorizonBlazorInterop.Set(this.___guid, "disableLevelMultiplication", value);
             }
         }
         #endregion
@@ -239,6 +351,22 @@ namespace BABYLON
             );
             ___guid = entity.___guid;
         }
+
+        public TextureBlock(
+            string name,
+            System.Nullable<int> target = null,
+            System.Nullable<bool> isFinalMerger = null
+        )
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "TextureBlock" },
+                name,
+                target,
+                isFinalMerger
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods
@@ -249,18 +377,25 @@ namespace BABYLON
             );
         }
 
-        public void autoConfigure(NodeMaterial material)
+        public void autoConfigure(
+            NodeMaterial material,
+            ActionResultCallback<NodeMaterialBlock, bool> additionalFilteringInfo = null
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "autoConfigure" }, material }
+                new object[]
+                {
+                    new string[] { this.___guid, "autoConfigure" },
+                    material,
+                    additionalFilteringInfo
+                }
             );
         }
 
         public void initializeDefines(
             AbstractMesh mesh,
             NodeMaterial nodeMaterial,
-            NodeMaterialDefines defines,
-            System.Nullable<bool> useInstances = null
+            NodeMaterialDefines defines
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -269,8 +404,7 @@ namespace BABYLON
                     new string[] { this.___guid, "initializeDefines" },
                     mesh,
                     nodeMaterial,
-                    defines,
-                    useInstances
+                    defines
                 }
             );
         }
@@ -299,10 +433,10 @@ namespace BABYLON
             );
         }
 
-        public void bind(Effect effect, NodeMaterial nodeMaterial, Mesh mesh = null)
+        public void bind(Effect effect)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "bind" }, effect, nodeMaterial, mesh }
+                new object[] { new string[] { this.___guid, "bind" }, effect }
             );
         }
 

@@ -220,6 +220,35 @@ namespace BABYLON
             }
         }
 
+        private WEBGL_compressed_texture_s3tc_srgb __s3tc_srgb;
+        public WEBGL_compressed_texture_s3tc_srgb s3tc_srgb
+        {
+            get
+            {
+                if (__s3tc_srgb == null)
+                {
+                    __s3tc_srgb =
+                        EventHorizonBlazorInterop.GetClass<WEBGL_compressed_texture_s3tc_srgb>(
+                            this.___guid,
+                            "s3tc_srgb",
+                            (entity) =>
+                            {
+                                return new WEBGL_compressed_texture_s3tc_srgb()
+                                {
+                                    ___guid = entity.___guid
+                                };
+                            }
+                        );
+                }
+                return __s3tc_srgb;
+            }
+            set
+            {
+                __s3tc_srgb = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "s3tc_srgb", value);
+            }
+        }
+
         public CachedEntity pvrtc
         {
             get
@@ -511,6 +540,16 @@ namespace BABYLON
             }
         }
 
+        public bool texelFetch
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "texelFetch"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "texelFetch", value);
+            }
+        }
+
         public bool drawBuffersExtension
         {
             get
@@ -544,6 +583,19 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "colorBufferFloat", value);
+            }
+        }
+
+        public bool colorBufferHalfFloat
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "colorBufferHalfFloat");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "colorBufferHalfFloat", value);
             }
         }
 
@@ -589,6 +641,19 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "canUseTimestampForTimerQuery", value);
+            }
+        }
+
+        public bool supportOcclusionQuery
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "supportOcclusionQuery");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "supportOcclusionQuery", value);
             }
         }
 
@@ -669,6 +734,139 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "blendMinMax", value);
+            }
+        }
+
+        public bool canUseGLInstanceID
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "canUseGLInstanceID"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "canUseGLInstanceID", value);
+            }
+        }
+
+        public bool canUseGLVertexID
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "canUseGLVertexID"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "canUseGLVertexID", value);
+            }
+        }
+
+        public bool supportComputeShaders
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "supportComputeShaders");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "supportComputeShaders", value);
+            }
+        }
+
+        public bool supportSRGBBuffers
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "supportSRGBBuffers"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "supportSRGBBuffers", value);
+            }
+        }
+
+        public bool supportTransformFeedbacks
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "supportTransformFeedbacks"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "supportTransformFeedbacks", value);
+            }
+        }
+
+        public bool textureMaxLevel
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "textureMaxLevel"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "textureMaxLevel", value);
+            }
+        }
+
+        public decimal texture2DArrayMaxLayerCount
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<decimal>(
+                    this.___guid,
+                    "texture2DArrayMaxLayerCount"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "texture2DArrayMaxLayerCount", value);
+            }
+        }
+
+        public bool disableMorphTargetTexture
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "disableMorphTargetTexture"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "disableMorphTargetTexture", value);
+            }
+        }
+
+        public bool supportFloatTexturesResolve
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "supportFloatTexturesResolve"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "supportFloatTexturesResolve", value);
+            }
+        }
+
+        public bool rg11b10ufColorRenderable
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "rg11b10ufColorRenderable"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "rg11b10ufColorRenderable", value);
             }
         }
         #endregion

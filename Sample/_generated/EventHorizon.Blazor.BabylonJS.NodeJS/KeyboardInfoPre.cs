@@ -27,45 +27,6 @@ namespace BABYLON
 
         #region Accessors
 
-        #endregion
-
-        #region Properties
-
-        public decimal type
-        {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "type"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "type", value);
-            }
-        }
-
-        private KeyboardEvent __event;
-        public KeyboardEvent @event
-        {
-            get
-            {
-                if (__event == null)
-                {
-                    __event = EventHorizonBlazorInterop.GetClass<KeyboardEvent>(
-                        this.___guid,
-                        "event",
-                        (entity) =>
-                        {
-                            return new KeyboardEvent() { ___guid = entity.___guid };
-                        }
-                    );
-                }
-                return __event;
-            }
-            set
-            {
-                __event = null;
-                EventHorizonBlazorInterop.Set(this.___guid, "event", value);
-            }
-        }
-
         public bool skipOnPointerObservable
         {
             get
@@ -80,6 +41,60 @@ namespace BABYLON
         }
         #endregion
 
+        #region Properties
+
+        public decimal type
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "type"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "type", value);
+            }
+        }
+
+        private IKeyboardEventCachedEntity __event;
+        public IKeyboardEventCachedEntity @event
+        {
+            get
+            {
+                if (__event == null)
+                {
+                    __event = EventHorizonBlazorInterop.GetClass<IKeyboardEventCachedEntity>(
+                        this.___guid,
+                        "event",
+                        (entity) =>
+                        {
+                            return new IKeyboardEventCachedEntity() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __event;
+            }
+            set
+            {
+                __event = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "event", value);
+            }
+        }
+
+        public bool skipOnKeyboardObservable
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "skipOnKeyboardObservable"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "skipOnKeyboardObservable", value);
+            }
+        }
+        #endregion
+
         #region Constructor
         public KeyboardInfoPre()
             : base() { }
@@ -87,7 +102,7 @@ namespace BABYLON
         public KeyboardInfoPre(ICachedEntity entity)
             : base(entity) { }
 
-        public KeyboardInfoPre(decimal type, KeyboardEvent @event)
+        public KeyboardInfoPre(decimal type, IKeyboardEvent @event)
             : base()
         {
             var entity = EventHorizonBlazorInterop.New(

@@ -8,7 +8,12 @@ public class ArrayResponseIdentifier
     public static bool Identify(TypeStatement typeStatement)
     {
         var type = typeStatement;
-        if (typeStatement.IsModifier || typeStatement.IsNullable || typeStatement.IsTask)
+        if (
+            typeStatement.IsModifier
+            || typeStatement.IsNullable
+            || typeStatement.IsTask
+            || typeStatement.IsReadonly
+        )
         {
             if (typeStatement.GenericTypes.Any())
             {

@@ -10,7 +10,7 @@ public class DeclarationGenericTypesIdentifier
     public static IList<string> Identify(Node node)
     {
         var list = default(IList<string>);
-        if (node.Kind == SyntaxKind.MethodDeclaration)
+        if (node.Kind == SyntaxKind.MethodDeclaration || node.Kind == SyntaxKind.MethodSignature)
         {
             list = node.TypeParameters?.Select(a => a.IdentifierStr).ToList();
         }

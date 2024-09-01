@@ -92,6 +92,36 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set(this.___guid, "step", value);
             }
         }
+
+        public IInspectableOptionsCachedEntity[] options
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetArrayClass<IInspectableOptionsCachedEntity>(
+                    this.___guid,
+                    "options",
+                    (entity) =>
+                    {
+                        return new IInspectableOptionsCachedEntity() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "options", value);
+            }
+        }
+
+        public string accept
+        {
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "accept"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "accept", value);
+            }
+        }
         #endregion
 
         #region Constructor
@@ -104,7 +134,19 @@ namespace BABYLON
         #endregion
 
         #region Methods
+        public void callback()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "callback" } }
+            );
+        }
 
+        public void fileCallback(File file)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "fileCallback" }, file }
+            );
+        }
         #endregion
     }
 }

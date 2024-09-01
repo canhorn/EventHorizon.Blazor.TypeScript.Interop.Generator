@@ -1,5 +1,6 @@
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassStatementStringTests;
 
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl;
@@ -16,6 +17,7 @@ public class InterfaceTests
     public void ShouldGenerateInterfaceStringWhenUsingSdcb()
     {
         // Given
+        GenerateSource.DisableCache();
         var sourceFile = "interface.ts";
         var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
         var expected = File.ReadAllText($"./ExpectedResults/interface.Expected.txt");
@@ -31,6 +33,7 @@ public class InterfaceTests
         );
         var actual = GenerateClassStatementString.Generate(
             generated,
+            new ConcurrentDictionary<string, Model.Statements.ClassStatement>(),
             new NoFormattingTextFormatter()
         );
 
@@ -44,6 +47,7 @@ public class InterfaceTests
     public void ShouldGenerateInterfaceStringWhenUsingNodeJS()
     {
         // Given
+        GenerateSource.DisableCache();
         var sourceFile = "interface.ts";
         var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
         var expected = File.ReadAllText($"./ExpectedResults/interface.Expected.txt");
@@ -59,6 +63,7 @@ public class InterfaceTests
         );
         var actual = GenerateClassStatementString.Generate(
             generated,
+            new ConcurrentDictionary<string, Model.Statements.ClassStatement>(),
             new NoFormattingTextFormatter()
         );
 

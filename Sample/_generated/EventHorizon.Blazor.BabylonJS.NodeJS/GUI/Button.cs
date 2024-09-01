@@ -134,22 +134,6 @@ namespace BABYLON.GUI
                 EventHorizonBlazorInterop.Set(this.___guid, "name", value);
             }
         }
-
-        public bool delegatePickingToChildren
-        {
-            get
-            {
-                return EventHorizonBlazorInterop.Get<bool>(
-                    this.___guid,
-                    "delegatePickingToChildren"
-                );
-            }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "delegatePickingToChildren", value);
-            }
-        }
         #endregion
 
         #region Constructor
@@ -171,185 +155,45 @@ namespace BABYLON.GUI
         #endregion
 
         #region Methods
-        #region pointerEnterAnimation TODO: Get Comments as metadata identification
-        private bool _isPointerEnterAnimationEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _pointerEnterAnimationActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string pointerEnterAnimation(Func<Task> callback)
+        public void pointerEnterAnimation()
         {
-            SetupPointerEnterAnimationLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _pointerEnterAnimationActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool pointerEnterAnimation_Remove(string handle)
-        {
-            return _pointerEnterAnimationActionMap.Remove(handle);
-        }
-
-        private void SetupPointerEnterAnimationLoop()
-        {
-            if (_isPointerEnterAnimationEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "pointerEnterAnimation",
-                "CallPointerEnterAnimationActions",
-                _invokableReference
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "pointerEnterAnimation" } }
             );
-            _isPointerEnterAnimationEnabled = true;
         }
 
-        [JSInvokable]
-        public async Task CallPointerEnterAnimationActions()
+        public void pointerOutAnimation()
         {
-            foreach (var action in _pointerEnterAnimationActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region pointerOutAnimation TODO: Get Comments as metadata identification
-        private bool _isPointerOutAnimationEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _pointerOutAnimationActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string pointerOutAnimation(Func<Task> callback)
-        {
-            SetupPointerOutAnimationLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _pointerOutAnimationActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool pointerOutAnimation_Remove(string handle)
-        {
-            return _pointerOutAnimationActionMap.Remove(handle);
-        }
-
-        private void SetupPointerOutAnimationLoop()
-        {
-            if (_isPointerOutAnimationEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "pointerOutAnimation",
-                "CallPointerOutAnimationActions",
-                _invokableReference
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "pointerOutAnimation" } }
             );
-            _isPointerOutAnimationEnabled = true;
         }
 
-        [JSInvokable]
-        public async Task CallPointerOutAnimationActions()
+        public void pointerDownAnimation()
         {
-            foreach (var action in _pointerOutAnimationActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region pointerDownAnimation TODO: Get Comments as metadata identification
-        private bool _isPointerDownAnimationEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _pointerDownAnimationActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string pointerDownAnimation(Func<Task> callback)
-        {
-            SetupPointerDownAnimationLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _pointerDownAnimationActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool pointerDownAnimation_Remove(string handle)
-        {
-            return _pointerDownAnimationActionMap.Remove(handle);
-        }
-
-        private void SetupPointerDownAnimationLoop()
-        {
-            if (_isPointerDownAnimationEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "pointerDownAnimation",
-                "CallPointerDownAnimationActions",
-                _invokableReference
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "pointerDownAnimation" } }
             );
-            _isPointerDownAnimationEnabled = true;
         }
 
-        [JSInvokable]
-        public async Task CallPointerDownAnimationActions()
+        public void pointerUpAnimation()
         {
-            foreach (var action in _pointerDownAnimationActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region pointerUpAnimation TODO: Get Comments as metadata identification
-        private bool _isPointerUpAnimationEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _pointerUpAnimationActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string pointerUpAnimation(Func<Task> callback)
-        {
-            SetupPointerUpAnimationLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _pointerUpAnimationActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool pointerUpAnimation_Remove(string handle)
-        {
-            return _pointerUpAnimationActionMap.Remove(handle);
-        }
-
-        private void SetupPointerUpAnimationLoop()
-        {
-            if (_isPointerUpAnimationEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "pointerUpAnimation",
-                "CallPointerUpAnimationActions",
-                _invokableReference
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "pointerUpAnimation" } }
             );
-            _isPointerUpAnimationEnabled = true;
         }
 
-        [JSInvokable]
-        public async Task CallPointerUpAnimationActions()
+        public void serialize(object serializationObject, bool force)
         {
-            foreach (var action in _pointerUpAnimationActionMap.Values)
-            {
-                await action();
-            }
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "serialize" },
+                    serializationObject,
+                    force
+                }
+            );
         }
-        #endregion
         #endregion
     }
 }

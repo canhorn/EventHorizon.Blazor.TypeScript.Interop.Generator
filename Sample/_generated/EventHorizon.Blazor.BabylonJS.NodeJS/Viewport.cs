@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     [JsonConverter(typeof(CachedEntityConverter<Viewport>))]
-    public class Viewport : CachedEntityObject
+    public class Viewport : CachedEntityObject, IViewportLike
     {
         #region Static Accessors
 
@@ -77,12 +77,10 @@ namespace BABYLON
             : base() { }
 
         public Viewport(ICachedEntity entity)
-            : base(entity)
-        {
-            ___guid = entity.___guid;
-        }
+            : base(entity) { }
 
         public Viewport(decimal x, decimal y, decimal width, decimal height)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "Viewport" },

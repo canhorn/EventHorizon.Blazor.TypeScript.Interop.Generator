@@ -40,7 +40,8 @@ namespace BABYLON
         public static ParticleSystemSet Parse(
             object data,
             Scene scene,
-            System.Nullable<bool> gpu = null
+            System.Nullable<bool> gpu = null,
+            System.Nullable<decimal> capacity = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<ParticleSystemSet>(
@@ -50,30 +51,36 @@ namespace BABYLON
                     new string[] { "BABYLON", "ParticleSystemSet", "Parse" },
                     data,
                     scene,
-                    gpu
+                    gpu,
+                    capacity
                 }
             );
         }
         #endregion
 
         #region Accessors
-        private TransformNode __emitterNode;
-        public TransformNode emitterNode
+        private AbstractMesh __emitterNode;
+        public AbstractMesh emitterNode
         {
             get
             {
                 if (__emitterNode == null)
                 {
-                    __emitterNode = EventHorizonBlazorInterop.GetClass<TransformNode>(
+                    __emitterNode = EventHorizonBlazorInterop.GetClass<AbstractMesh>(
                         this.___guid,
                         "emitterNode",
                         (entity) =>
                         {
-                            return new TransformNode() { ___guid = entity.___guid };
+                            return new AbstractMesh() { ___guid = entity.___guid };
                         }
                     );
                 }
                 return __emitterNode;
+            }
+            set
+            {
+                __emitterNode = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "emitterNode", value);
             }
         }
         #endregion

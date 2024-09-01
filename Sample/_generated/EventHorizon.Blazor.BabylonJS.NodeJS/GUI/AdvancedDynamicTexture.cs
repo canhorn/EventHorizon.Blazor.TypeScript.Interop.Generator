@@ -19,16 +19,114 @@ namespace BABYLON.GUI
 
         #region Static Properties
 
+        public static string SnippetUrl
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<string>(
+                    "BABYLON",
+                    "GUI.AdvancedDynamicTexture.SnippetUrl"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    "BABYLON",
+                    "GUI.AdvancedDynamicTexture.SnippetUrl",
+                    value
+                );
+            }
+        }
+
+        public static bool AllowGPUOptimizations
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    "BABYLON",
+                    "GUI.AdvancedDynamicTexture.AllowGPUOptimizations"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    "BABYLON",
+                    "GUI.AdvancedDynamicTexture.AllowGPUOptimizations",
+                    value
+                );
+            }
+        }
         #endregion
 
         #region Static Methods
+        public static ValueTask<AdvancedDynamicTexture> ParseFromSnippetAsync(
+            string snippetId,
+            System.Nullable<bool> scaleToSize = null,
+            AdvancedDynamicTexture appendToAdt = null,
+            ActionResultCallback<string, string> urlRewriter = null
+        )
+        {
+            return EventHorizonBlazorInterop.TaskClass<AdvancedDynamicTexture>(
+                entity => new AdvancedDynamicTexture() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[]
+                    {
+                        "BABYLON",
+                        "GUI",
+                        "AdvancedDynamicTexture",
+                        "ParseFromSnippetAsync"
+                    },
+                    snippetId,
+                    scaleToSize,
+                    appendToAdt,
+                    urlRewriter
+                }
+            );
+        }
+
+        public static ValueTask<AdvancedDynamicTexture> ParseFromFileAsync(
+            string url,
+            System.Nullable<bool> scaleToSize = null,
+            AdvancedDynamicTexture appendToAdt = null,
+            ActionResultCallback<string, string> urlRewriter = null
+        )
+        {
+            return EventHorizonBlazorInterop.TaskClass<AdvancedDynamicTexture>(
+                entity => new AdvancedDynamicTexture() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[]
+                    {
+                        "BABYLON",
+                        "GUI",
+                        "AdvancedDynamicTexture",
+                        "ParseFromFileAsync"
+                    },
+                    url,
+                    scaleToSize,
+                    appendToAdt,
+                    urlRewriter
+                }
+            );
+        }
+
         public static AdvancedDynamicTexture CreateForMesh(
             AbstractMesh mesh,
             System.Nullable<decimal> width = null,
             System.Nullable<decimal> height = null,
             System.Nullable<bool> supportPointerMove = null,
             System.Nullable<bool> onlyAlphaTesting = null,
-            System.Nullable<bool> invertY = null
+            System.Nullable<bool> invertY = null,
+            ActionCallback<
+                AbstractMesh,
+                string,
+                AdvancedDynamicTexture,
+                bool
+            > materialSetupCallback = null,
+            System.Nullable<decimal> sampling = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<AdvancedDynamicTexture>(
@@ -41,7 +139,9 @@ namespace BABYLON.GUI
                     height,
                     supportPointerMove,
                     onlyAlphaTesting,
-                    invertY
+                    invertY,
+                    materialSetupCallback,
+                    sampling
                 }
             );
         }
@@ -51,7 +151,8 @@ namespace BABYLON.GUI
             System.Nullable<decimal> width = null,
             System.Nullable<decimal> height = null,
             System.Nullable<bool> supportPointerMove = null,
-            System.Nullable<bool> invertY = null
+            System.Nullable<bool> invertY = null,
+            System.Nullable<decimal> sampling = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<AdvancedDynamicTexture>(
@@ -69,7 +170,8 @@ namespace BABYLON.GUI
                     width,
                     height,
                     supportPointerMove,
-                    invertY
+                    invertY,
+                    sampling
                 }
             );
         }
@@ -78,7 +180,8 @@ namespace BABYLON.GUI
             string name,
             System.Nullable<bool> foreground = null,
             Scene scene = null,
-            System.Nullable<decimal> sampling = null
+            System.Nullable<decimal> sampling = null,
+            System.Nullable<bool> adaptiveScaling = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<AdvancedDynamicTexture>(
@@ -95,7 +198,8 @@ namespace BABYLON.GUI
                     name,
                     foreground,
                     scene,
-                    sampling
+                    sampling,
+                    adaptiveScaling
                 }
             );
         }
@@ -218,25 +322,21 @@ namespace BABYLON.GUI
             }
         }
 
-        private IFocusableControlCachedEntity __focusedControl;
-        public IFocusableControlCachedEntity focusedControl
+        private Control __focusedControl;
+        public Control focusedControl
         {
             get
             {
                 if (__focusedControl == null)
                 {
-                    __focusedControl =
-                        EventHorizonBlazorInterop.GetClass<IFocusableControlCachedEntity>(
-                            this.___guid,
-                            "focusedControl",
-                            (entity) =>
-                            {
-                                return new IFocusableControlCachedEntity()
-                                {
-                                    ___guid = entity.___guid
-                                };
-                            }
-                        );
+                    __focusedControl = EventHorizonBlazorInterop.GetClass<Control>(
+                        this.___guid,
+                        "focusedControl",
+                        (entity) =>
+                        {
+                            return new Control() { ___guid = entity.___guid };
+                        }
+                    );
                 }
                 return __focusedControl;
             }
@@ -285,6 +385,47 @@ namespace BABYLON.GUI
         #endregion
 
         #region Properties
+
+        public string snippetId
+        {
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "snippetId"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "snippetId", value);
+            }
+        }
+
+        private Observable<AdvancedDynamicTexture> __onGuiReadyObservable;
+        public Observable<AdvancedDynamicTexture> onGuiReadyObservable
+        {
+            get
+            {
+                if (__onGuiReadyObservable == null)
+                {
+                    __onGuiReadyObservable = EventHorizonBlazorInterop.GetClass<
+                        Observable<AdvancedDynamicTexture>
+                    >(
+                        this.___guid,
+                        "onGuiReadyObservable",
+                        (entity) =>
+                        {
+                            return new Observable<AdvancedDynamicTexture>()
+                            {
+                                ___guid = entity.___guid
+                            };
+                        }
+                    );
+                }
+                return __onGuiReadyObservable;
+            }
+            set
+            {
+                __onGuiReadyObservable = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "onGuiReadyObservable", value);
+            }
+        }
+
         private Observable<ClipboardInfo> __onClipboardObservable;
         public Observable<ClipboardInfo> onClipboardObservable
         {
@@ -481,6 +622,42 @@ namespace BABYLON.GUI
                 EventHorizonBlazorInterop.Set(this.___guid, "applyYInversionOnUpdate", value);
             }
         }
+
+        public bool disableTabNavigation
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "disableTabNavigation");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "disableTabNavigation", value);
+            }
+        }
+
+        public decimal skipBlockEvents
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "skipBlockEvents"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "skipBlockEvents", value);
+            }
+        }
+
+        public bool checkPointerEveryFrame
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "checkPointerEveryFrame");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "checkPointerEveryFrame", value);
+            }
+        }
         #endregion
 
         #region Constructor
@@ -492,9 +669,9 @@ namespace BABYLON.GUI
 
         public AdvancedDynamicTexture(
             string name,
-            Scene scene,
             System.Nullable<decimal> width = null,
             System.Nullable<decimal> height = null,
+            Scene scene = null,
             System.Nullable<bool> generateMipMaps = null,
             System.Nullable<decimal> samplingMode = null,
             System.Nullable<bool> invertY = null
@@ -510,6 +687,92 @@ namespace BABYLON.GUI
                 generateMipMaps,
                 samplingMode,
                 invertY
+            );
+            ___guid = entity.___guid;
+        }
+
+        public AdvancedDynamicTexture(
+            string name,
+            object options,
+            Scene scene = null,
+            System.Nullable<bool> generateMipMaps = null,
+            System.Nullable<decimal> samplingMode = null,
+            System.Nullable<decimal> format = null,
+            System.Nullable<bool> invertY = null
+        )
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "AdvancedDynamicTexture" },
+                name,
+                options,
+                scene,
+                generateMipMaps,
+                samplingMode,
+                format,
+                invertY
+            );
+            ___guid = entity.___guid;
+        }
+
+        public AdvancedDynamicTexture(
+            string url = null,
+            Scene sceneOrEngine = null,
+            System.Nullable<bool> noMipmapOrOptions = null,
+            System.Nullable<bool> invertY = null,
+            System.Nullable<decimal> samplingMode = null,
+            ActionCallback onLoad = null,
+            ActionCallback<string, CachedEntity> onError = null,
+            string buffer = null,
+            System.Nullable<bool> deleteBuffer = null,
+            System.Nullable<decimal> format = null,
+            string mimeType = null,
+            object loaderOptions = null,
+            System.Nullable<decimal> creationFlags = null,
+            string forcedExtension = null
+        )
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "AdvancedDynamicTexture" },
+                url,
+                sceneOrEngine,
+                noMipmapOrOptions,
+                invertY,
+                samplingMode,
+                onLoad,
+                onError,
+                buffer,
+                deleteBuffer,
+                format,
+                mimeType,
+                loaderOptions,
+                creationFlags,
+                forcedExtension
+            );
+            ___guid = entity.___guid;
+        }
+
+        public AdvancedDynamicTexture(
+            Scene sceneOrEngine = null,
+            InternalTexture internalTexture = null
+        )
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "AdvancedDynamicTexture" },
+                sceneOrEngine,
+                internalTexture
+            );
+            ___guid = entity.___guid;
+        }
+
+        public AdvancedDynamicTexture(InternalTexture internalTexture)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "AdvancedDynamicTexture" },
+                internalTexture
             );
             ___guid = entity.___guid;
         }
@@ -537,6 +800,22 @@ namespace BABYLON.GUI
                     directDescendantsOnly,
                     predicate
                 }
+            );
+        }
+
+        public Control[] getControlsByType(string typeName)
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<Control>(
+                entity => new Control() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getControlsByType" }, typeName }
+            );
+        }
+
+        public Control getControlByName(string name)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Control>(
+                entity => new Control() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getControlByName" }, name }
             );
         }
 
@@ -609,6 +888,23 @@ namespace BABYLON.GUI
             );
         }
 
+        public void moveToNonOverlappedPosition(
+            System.Nullable<decimal> overlapGroup = null,
+            System.Nullable<decimal> deltaStep = null,
+            System.Nullable<decimal> repelFactor = null
+        )
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "moveToNonOverlappedPosition" },
+                    overlapGroup,
+                    deltaStep,
+                    repelFactor
+                }
+            );
+        }
+
         public void dispose()
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -639,6 +935,13 @@ namespace BABYLON.GUI
                     position,
                     worldMatrix
                 }
+            );
+        }
+
+        public void pick(decimal x, decimal y, PointerInfoPre pi = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "pick" }, x, y, pi }
             );
         }
 
@@ -675,10 +978,116 @@ namespace BABYLON.GUI
             );
         }
 
-        public void moveFocusToControl(IFocusableControl control)
+        public void moveFocusToControl(Control control)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "moveFocusToControl" }, control }
+            );
+        }
+
+        public CachedEntity serializeContent()
+        {
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "serializeContent" } }
+            );
+        }
+
+        public void parseSerializedObject(
+            object serializedObject,
+            System.Nullable<bool> scaleToSize = null,
+            ActionResultCallback<string, string> urlRewriter = null
+        )
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "parseSerializedObject" },
+                    serializedObject,
+                    scaleToSize,
+                    urlRewriter
+                }
+            );
+        }
+
+        public AdvancedDynamicTexture clone(string newName = null, AbstractMesh attachToMesh = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<AdvancedDynamicTexture>(
+                entity => new AdvancedDynamicTexture() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "clone" }, newName, attachToMesh }
+            );
+        }
+
+        public void parseContent(
+            object serializedObject,
+            System.Nullable<bool> scaleToSize = null,
+            ActionResultCallback<ActionResultCallback<string, string>> urlRewriter = null
+        )
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "parseContent" },
+                    serializedObject,
+                    scaleToSize,
+                    urlRewriter
+                }
+            );
+        }
+
+        public ValueTask<AdvancedDynamicTexture> parseFromSnippetAsync(
+            string snippetId,
+            System.Nullable<bool> scaleToSize = null,
+            ActionResultCallback<string, string> urlRewriter = null
+        )
+        {
+            return EventHorizonBlazorInterop.TaskClass<AdvancedDynamicTexture>(
+                entity => new AdvancedDynamicTexture() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "parseFromSnippetAsync" },
+                    snippetId,
+                    scaleToSize,
+                    urlRewriter
+                }
+            );
+        }
+
+        public ValueTask<AdvancedDynamicTexture> parseFromURLAsync(
+            string url,
+            System.Nullable<bool> scaleToSize = null,
+            ActionResultCallback<string, string> urlRewriter = null
+        )
+        {
+            return EventHorizonBlazorInterop.TaskClass<AdvancedDynamicTexture>(
+                entity => new AdvancedDynamicTexture() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "parseFromURLAsync" },
+                    url,
+                    scaleToSize,
+                    urlRewriter
+                }
+            );
+        }
+
+        public void scale(decimal ratio)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "scale" }, ratio }
+            );
+        }
+
+        public void scaleTo(decimal width, decimal height)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "scaleTo" }, width, height }
+            );
+        }
+
+        public bool guiIsReady()
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "guiIsReady" } }
             );
         }
         #endregion

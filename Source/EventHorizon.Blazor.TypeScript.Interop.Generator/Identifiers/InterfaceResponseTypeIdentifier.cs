@@ -14,10 +14,8 @@ public interface IInterfaceResponseTypeIdentifier
 
 public static class InterfaceResponseTypeIdentifier
 {
-    private static IInterfaceResponseTypeIdentifier CACHED =
-        new InterfaceResponseTypeIdentifierCached();
-    private static IInterfaceResponseTypeIdentifier NOT_CACHED =
-        new InterfaceResponseTypeIdentifierNotCached();
+    private static readonly InterfaceResponseTypeIdentifierCached CACHED = new();
+    private static readonly InterfaceResponseTypeIdentifierNotCached NOT_CACHED = new();
     private static IInterfaceResponseTypeIdentifier ACTIVE = CACHED;
 
     public static void DisableCache()
@@ -53,7 +51,7 @@ public class InterfaceResponseTypeIdentifierNotCached : IInterfaceResponseTypeId
     public virtual bool Identify(TypeStatement type, AbstractSyntaxTree ast)
     {
         var identifierString = type.Name;
-        if (type.IsModifier || type.IsArray || type.IsNullable)
+        if (type.IsModifier || type.IsArray || type.IsNullable || type.IsReadonly)
         {
             if (type.GenericTypes.Any())
             {
@@ -67,8 +65,8 @@ public class InterfaceResponseTypeIdentifierNotCached : IInterfaceResponseTypeId
 public class InterfaceResponseTypeIdentifierCached : InterfaceResponseTypeIdentifierNotCached
 {
     private bool _isCachedSetup;
-    private readonly List<string> _cacheClassDeclaration = new List<string>();
-    private readonly List<string> _cacheInterfaceDeclaration = new List<string>();
+    private readonly List<string> _cacheClassDeclaration = [];
+    private readonly List<string> _cacheInterfaceDeclaration = [];
 
     public override bool Identify(string identifierString, AbstractSyntaxTree ast)
     {

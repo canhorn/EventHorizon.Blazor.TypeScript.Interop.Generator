@@ -33,26 +33,6 @@ namespace BABYLON
 
         #region Properties
 
-        public decimal limitDeviceRatio
-        {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "limitDeviceRatio"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "limitDeviceRatio", value);
-            }
-        }
-
-        public bool autoEnableWebVR
-        {
-            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "autoEnableWebVR"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "autoEnableWebVR", value);
-            }
-        }
-
         public bool disableWebGL2Support
         {
             get
@@ -63,75 +43,6 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "disableWebGL2Support", value);
-            }
-        }
-
-        public bool audioEngine
-        {
-            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "audioEngine"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "audioEngine", value);
-            }
-        }
-
-        public bool deterministicLockstep
-        {
-            get
-            {
-                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "deterministicLockstep");
-            }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "deterministicLockstep", value);
-            }
-        }
-
-        public decimal lockstepMaxSteps
-        {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "lockstepMaxSteps"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "lockstepMaxSteps", value);
-            }
-        }
-
-        public decimal timeStep
-        {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "timeStep"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "timeStep", value);
-            }
-        }
-
-        public bool doNotHandleContextLost
-        {
-            get
-            {
-                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "doNotHandleContextLost");
-            }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "doNotHandleContextLost", value);
-            }
-        }
-
-        public bool doNotHandleTouchAction
-        {
-            get
-            {
-                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "doNotHandleTouchAction");
-            }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "doNotHandleTouchAction", value);
             }
         }
 
@@ -158,19 +69,6 @@ namespace BABYLON
             }
         }
 
-        public bool useHighPrecisionMatrix
-        {
-            get
-            {
-                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "useHighPrecisionMatrix");
-            }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "useHighPrecisionMatrix", value);
-            }
-        }
-
         public bool failIfMajorPerformanceCaveat
         {
             get
@@ -184,6 +82,35 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "failIfMajorPerformanceCaveat", value);
+            }
+        }
+
+        public bool forceSRGBBufferSupportState
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "forceSRGBBufferSupportState"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "forceSRGBBufferSupportState", value);
+            }
+        }
+
+        public bool loseContextOnDispose
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "loseContextOnDispose");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "loseContextOnDispose", value);
             }
         }
         #endregion

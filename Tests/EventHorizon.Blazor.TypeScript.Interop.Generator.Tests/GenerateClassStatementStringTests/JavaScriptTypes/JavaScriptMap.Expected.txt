@@ -1,0 +1,109 @@
+/// Generated - Do Not Edit
+namespace Examples
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter<ExampleClass>))]
+    public class ExampleClass : CachedEntityObject
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+        
+        public static CachedEntity staticMapProp
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
+                    "Examples",
+                    "ExampleClass.staticMapProp"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    "Examples",
+                    "ExampleClass.staticMapProp",
+                    value
+                );
+            }
+        }
+        #endregion
+
+        #region Static Methods
+        public static CachedEntity staticMapType(object theMap)
+        {
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { "Examples", "ExampleClass", "staticMapType" }, theMap
+                }
+            );
+        }
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+        
+        public CachedEntity mapProp
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<CachedEntity>(
+                    this.___guid,
+                    "mapProp"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "mapProp",
+                    value
+                );
+            }
+        }
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { }
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+
+        #endregion
+
+        #region Methods
+        public CachedEntity mapType(object theMap)
+        {
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "mapType" }, theMap
+                }
+            );
+        }
+        #endregion
+    }
+}

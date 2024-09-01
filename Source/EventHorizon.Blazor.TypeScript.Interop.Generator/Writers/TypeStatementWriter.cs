@@ -12,13 +12,19 @@ public class TypeStatementWriter
         bool ignorePrefix = false
     )
     {
-        if (type.IsTypeAlias && !type.IsNullable && !type.IsModifier && !type.IsArray)
+        if (
+            type.IsTypeAlias
+            && !type.IsNullable
+            && !type.IsModifier
+            && !type.IsArray
+            && !type.IsReadonly
+        )
         {
             type = type.AliasType;
         }
         var name = type.Name;
         var genericTypesAsString = string.Empty;
-        var actionResultTypeAsStirng = string.Empty;
+        var actionResultTypeAsString = string.Empty;
         var template = TypeStatementTemplates.StandardTemplate;
         var interfacePostfix = ignorePrefix ? string.Empty : Constants.INTERFACE_POSTFIX;
         if (type.IsInterface)
@@ -42,7 +48,9 @@ public class TypeStatementWriter
                 template = TypeStatementTemplates.ArrayTemplate;
             }
             var genericTypes = type.GenericTypes.Select(a =>
-                Write(a, includeArraySymbol, ignorePrefix)
+                a.IsVoid
+                    ? GenerationIdentifiedTypes.VoidNode
+                    : Write(a, includeArraySymbol, ignorePrefix)
             );
 
             genericTypesAsString = string.Join(", ", genericTypes);
@@ -50,6 +58,7 @@ public class TypeStatementWriter
         if (
             type.IsNullable
             || type.IsModifier
+            || type.IsReadonly
             || (type.IsArray && type.GenericTypes.Any() && !includeArraySymbol)
         )
         {
@@ -57,10 +66,7 @@ public class TypeStatementWriter
         }
         if (type.IsAction)
         {
-            if (
-                type.ActionResultType.IsTask
-                || type.ActionResultType.Name == GenerationIdentifiedTypes.Void
-            )
+            if (type.ActionResultType.IsTask || type.ActionResultType.IsVoid)
             {
                 template = TypeStatementTemplates.ActionTemplate;
 
@@ -78,7 +84,7 @@ public class TypeStatementWriter
                     template = TypeStatementTemplates.ActionResultArgsTemplate;
                 }
 
-                actionResultTypeAsStirng = Write(
+                actionResultTypeAsString = Write(
                     type.ActionResultType,
                     includeArraySymbol,
                     ignorePrefix
@@ -95,7 +101,9 @@ public class TypeStatementWriter
 
             if (
                 !type.GenericTypes.Any()
-                || type.GenericTypes.Any(type => type.Name == GenerationIdentifiedTypes.Void)
+                || type.GenericTypes.Any(type =>
+                    type.IsVoid || type.GenericTypes.Any(a => a.IsVoid)
+                )
             )
             {
                 template = TypeStatementTemplates.TaskVoidTemplate;
@@ -113,7 +121,7 @@ public class TypeStatementWriter
         return template
             .Replace("[[NAME]]", name)
             .Replace("[[GENERIC_TYPES]]", genericTypesAsString)
-            .Replace("[[ACTION_RESULT]]", actionResultTypeAsStirng)
+            .Replace("[[ACTION_RESULT]]", actionResultTypeAsString)
             .Replace("[[INTERFACE_POSTFIX]]", interfacePostfix);
     }
 }

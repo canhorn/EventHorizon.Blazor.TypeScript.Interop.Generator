@@ -13,7 +13,7 @@ namespace Static.Class
     
     
     [JsonConverter(typeof(CachedEntityConverter<ExampleClass<CachedEntity>>))]
-    public class ExampleClass<T> : CachedEntityObject where T : CachedEntity, new()
+    public class ExampleClass<T> : CachedEntityObject
     {
         #region Static Accessors
 
@@ -49,7 +49,7 @@ namespace Static.Class
         #endregion
 
         #region Methods
-        public Vector2 theOtherMatrix<D>(D methodData, T classData)
+        public Vector2 theOtherMatrix<D>(D methodData, T classData) where D : CachedEntity, new()
         {
             return EventHorizonBlazorInterop.FuncClass<Vector2>(
                 entity => new Vector2() { ___guid = entity.___guid },

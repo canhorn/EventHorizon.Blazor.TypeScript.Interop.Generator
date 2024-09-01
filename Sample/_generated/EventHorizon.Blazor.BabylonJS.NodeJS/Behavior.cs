@@ -14,7 +14,6 @@ namespace BABYLON
 
     [JsonConverter(typeof(CachedEntityConverter<BehaviorCachedEntity<CachedEntity>>))]
     public class BehaviorCachedEntity<T> : CachedEntityObject, Behavior<T>
-        where T : CachedEntity, new()
     {
         #region Static Accessors
 

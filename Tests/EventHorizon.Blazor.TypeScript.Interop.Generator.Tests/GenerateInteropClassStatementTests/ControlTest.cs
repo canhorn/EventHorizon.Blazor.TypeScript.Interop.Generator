@@ -14,17 +14,20 @@ public class ControlTest
     public void ShouldGenerateExpectedControl()
     {
         // Given
+        GenerateSource.DisableCache();
         var sourceFile = "babylon.gui.d.ts";
         var source = File.ReadAllText($"./SourceFiles/{sourceFile}");
         var ast = new Sdcb_TypeScriptASTWrapper(source);
         var typeOverrideMap = new Dictionary<string, string>();
+        var ignoredIdentifiers = new List<string>();
 
         // When
         var actual = GenerateInteropClassStatement.Generate(
             "ProjectAssembly",
             "Control",
             ast,
-            typeOverrideMap
+            typeOverrideMap,
+            ignoredIdentifiers
         );
 
         // Then
@@ -33,364 +36,351 @@ public class ControlTest
             .BeEquivalentTo(
                 new List<AccessorStatement>
                 {
-                    new AccessorStatement
+                    new()
                     {
                         Name = "shadowOffsetX",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "shadowOffsetY",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "shadowBlur",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "shadowColor",
                         Type = "string".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
-                    {
-                        Name = "typeName",
-                        Type = "string".MakeTypeStatement(),
-                    },
-                    new AccessorStatement
+                    new() { Name = "typeName", Type = "string".MakeTypeStatement(), },
+                    new()
                     {
                         Name = "host",
                         Type = new TypeStatement { Name = "AdvancedDynamicTexture", },
-                        UsedClassNames = new List<string> { "AdvancedDynamicTexture", },
+                        UsedClassNames = ["AdvancedDynamicTexture",],
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "fontOffset",
                         Type = new TypeStatement { Name = "CachedEntity", IsLiteral = true, },
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "alpha",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "isHighlighted",
                         Type = "bool".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "scaleX",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "scaleY",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "rotation",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "transformCenterY",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "transformCenterX",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "horizontalAlignment",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "verticalAlignment",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "width",
                         Type = "string".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "widthInPixels",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "height",
                         Type = "string".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "heightInPixels",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "fontFamily",
                         Type = "string".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "fontStyle",
                         Type = "string".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "fontWeight",
                         Type = "string".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "fontSizeInPixels",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "fontSize",
                         Type = "string".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "color",
                         Type = "string".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "zIndex",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "notRenderable",
                         Type = "bool".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "isVisible",
                         Type = "bool".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement { Name = "isDirty", Type = "bool".MakeTypeStatement(), },
-                    new AccessorStatement
+                    new() { Name = "isDirty", Type = "bool".MakeTypeStatement(), },
+                    new()
                     {
                         Name = "paddingLeft",
                         Type = "string".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "paddingLeftInPixels",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "paddingRight",
                         Type = "string".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "paddingRightInPixels",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "paddingTop",
                         Type = "string".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "paddingTopInPixels",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "paddingBottom",
                         Type = "string".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "paddingBottomInPixels",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "left",
                         Type = "string".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "leftInPixels",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "top",
                         Type = "string".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "topInPixels",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "linkOffsetX",
                         Type = "string".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "linkOffsetXInPixels",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "linkOffsetY",
                         Type = "string".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "linkOffsetYInPixels",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
-                    {
-                        Name = "centerX",
-                        Type = "decimal".MakeTypeStatement(),
-                    },
-                    new AccessorStatement
-                    {
-                        Name = "centerY",
-                        Type = "decimal".MakeTypeStatement(),
-                    },
-                    new AccessorStatement
+                    new() { Name = "centerX", Type = "decimal".MakeTypeStatement(), },
+                    new() { Name = "centerY", Type = "decimal".MakeTypeStatement(), },
+                    new()
                     {
                         Name = "isEnabled",
                         Type = "bool".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "disabledColor",
                         Type = "string".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "disabledColorItem",
                         Type = "string".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "style",
                         Type = new TypeStatement
                         {
                             Name = "Nullable",
                             IsNullable = true,
-                            GenericTypes = new List<TypeStatement>
-                            {
-                                new TypeStatement { Name = "Style", }
-                            }
+                            GenericTypes = [new() { Name = "Style", IsTypeReference = true, },],
+                            IsTypeReference = true,
                         },
                         HasSetter = true,
-                        UsedClassNames = new List<string> { "Style", },
+                        UsedClassNames = ["Style",],
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "linkedMesh",
                         Type = new TypeStatement
                         {
                             Name = "Nullable",
                             IsNullable = true,
-                            GenericTypes = new List<TypeStatement>
-                            {
-                                new TypeStatement { Name = "AbstractMesh", }
-                            }
+                            GenericTypes =
+                            [
+                                new() { Name = "AbstractMesh", IsTypeReference = true, }
+                            ],
+                            IsTypeReference = true,
                         },
-                        UsedClassNames = new List<string> { "AbstractMesh", },
+                        UsedClassNames = ["AbstractMesh",],
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "HORIZONTAL_ALIGNMENT_LEFT",
                         Type = "decimal".MakeTypeStatement(),
                         IsStatic = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "HORIZONTAL_ALIGNMENT_RIGHT",
                         Type = "decimal".MakeTypeStatement(),
                         IsStatic = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "HORIZONTAL_ALIGNMENT_CENTER",
                         Type = "decimal".MakeTypeStatement(),
                         IsStatic = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "VERTICAL_ALIGNMENT_TOP",
                         Type = "decimal".MakeTypeStatement(),
                         IsStatic = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "VERTICAL_ALIGNMENT_BOTTOM",
                         Type = "decimal".MakeTypeStatement(),
                         IsStatic = true,
                     },
-                    new AccessorStatement
+                    new()
                     {
                         Name = "VERTICAL_ALIGNMENT_CENTER",
                         Type = "decimal".MakeTypeStatement(),
@@ -404,267 +394,235 @@ public class ControlTest
             .BeEquivalentTo(
                 new List<PublicMethodStatement>
                 {
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "getLocalCoordinatesToRef",
                         Type = "Control".MakeTypeStatement(),
-                        UsedClassNames = new List<string>
-                        {
+                        UsedClassNames =
+                        [
                             //GenerationIdentifiedTypes.CachedEntityObject,
                             "Control"
-                        },
-                        Arguments = new List<ArgumentStatement>
-                        {
-                            new ArgumentStatement
+                        ],
+                        Arguments =
+                        [
+                            new()
                             {
                                 Name = "globalCoordinates",
                                 Type = "Vector2".MakeTypeStatement(),
-                                UsedClassNames = new List<string>
-                                {
+                                UsedClassNames =
+                                [
                                     //GenerationIdentifiedTypes.CachedEntityObject,
                                     "Vector2",
-                                },
+                                ],
                             },
-                            new ArgumentStatement
+                            new()
                             {
                                 Name = "result",
                                 Type = "Vector2".MakeTypeStatement(),
-                                UsedClassNames = new List<string>
-                                {
+                                UsedClassNames =
+                                [
                                     //GenerationIdentifiedTypes.CachedEntityObject,
                                     "Vector2",
-                                },
+                                ],
                             },
-                        },
+                        ],
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "getAscendantOfClass",
                         Type = new TypeStatement
                         {
                             Name = "Nullable",
                             IsNullable = true,
-                            GenericTypes = new List<TypeStatement>
-                            {
-                                new TypeStatement { Name = "Control", },
-                            },
+                            GenericTypes = [new() { Name = "Control", },],
                         },
-                        UsedClassNames = new List<string> { "Control", },
-                        Arguments = new List<ArgumentStatement>
-                        {
-                            new ArgumentStatement
-                            {
-                                Name = "className",
-                                Type = "string".MakeTypeStatement(),
-                            },
-                        },
+                        UsedClassNames = ["Control",],
+                        Arguments =
+                        [
+                            new() { Name = "className", Type = "string".MakeTypeStatement(), },
+                        ],
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "isAscendant",
                         Type = "bool".MakeTypeStatement(),
-                        Arguments = new List<ArgumentStatement>
-                        {
-                            new ArgumentStatement
+                        Arguments =
+                        [
+                            new()
                             {
                                 Name = "container",
                                 Type = "Control".MakeTypeStatement(),
-                                UsedClassNames = new List<string>
-                                {
+                                UsedClassNames =
+                                [
                                     //GenerationIdentifiedTypes.CachedEntityObject,
                                     "Control",
-                                },
+                                ],
                             },
-                        },
+                        ],
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "getLocalCoordinates",
                         Type = "Vector2".MakeTypeStatement(),
-                        UsedClassNames = new List<string>
-                        {
+                        UsedClassNames =
+                        [
                             //GenerationIdentifiedTypes.CachedEntityObject,
                             "Vector2",
-                        },
-                        Arguments = new List<ArgumentStatement>
-                        {
-                            new ArgumentStatement
+                        ],
+                        Arguments =
+                        [
+                            new()
                             {
                                 Name = "globalCoordinates",
                                 Type = "Vector2".MakeTypeStatement(),
-                                UsedClassNames = new List<string>
-                                {
+                                UsedClassNames =
+                                [
                                     //GenerationIdentifiedTypes.CachedEntityObject,
                                     "Vector2",
-                                },
+                                ],
                             },
-                        },
+                        ],
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "getParentLocalCoordinates",
                         Type = "Vector2".MakeTypeStatement(),
-                        UsedClassNames = new List<string>
-                        {
+                        UsedClassNames =
+                        [
                             //GenerationIdentifiedTypes.CachedEntityObject,
                             "Vector2"
-                        },
-                        Arguments = new List<ArgumentStatement>
-                        {
-                            new ArgumentStatement
+                        ],
+                        Arguments =
+                        [
+                            new()
                             {
                                 Name = "globalCoordinates",
                                 Type = "Vector2".MakeTypeStatement(),
-                                UsedClassNames = new List<string>
-                                {
+                                UsedClassNames =
+                                [
                                     //GenerationIdentifiedTypes.CachedEntityObject,
                                     "Vector2",
-                                },
+                                ],
                             },
-                        },
+                        ],
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "moveToVector3",
                         Type = "void".MakeTypeStatement(),
-                        Arguments = new List<ArgumentStatement>
-                        {
-                            new ArgumentStatement
+                        Arguments =
+                        [
+                            new()
                             {
                                 Name = "position",
                                 Type = "Vector3".MakeTypeStatement(),
-                                UsedClassNames = new List<string>
-                                {
+                                UsedClassNames =
+                                [
                                     //GenerationIdentifiedTypes.CachedEntityObject,
                                     "Vector3",
-                                },
+                                ],
                             },
-                            new ArgumentStatement
+                            new()
                             {
                                 Name = "scene",
                                 Type = "Scene".MakeTypeStatement(),
-                                UsedClassNames = new List<string>
-                                {
+                                UsedClassNames =
+                                [
                                     //GenerationIdentifiedTypes.CachedEntityObject,
                                     "Scene",
-                                },
+                                ],
                             },
-                        },
+                        ],
                     },
-                    new PublicMethodStatement
-                    {
-                        Name = "getClassName",
-                        Type = "string".MakeTypeStatement(),
-                    },
-                    new PublicMethodStatement
+                    new() { Name = "getClassName", Type = "string".MakeTypeStatement(), },
+                    new()
                     {
                         Name = "linkWithMesh",
                         Type = "void".MakeTypeStatement(),
-                        Arguments = new List<ArgumentStatement>
-                        {
-                            new ArgumentStatement
+                        Arguments =
+                        [
+                            new()
                             {
                                 Name = "mesh",
                                 Type = new TypeStatement
                                 {
                                     Name = "Nullable",
                                     IsNullable = true,
-                                    GenericTypes = new List<TypeStatement>
-                                    {
-                                        new TypeStatement { Name = "AbstractMesh", }
-                                    }
+                                    GenericTypes = [new() { Name = "AbstractMesh", }]
                                 },
-                                UsedClassNames = new List<string> { "AbstractMesh", },
+                                UsedClassNames = ["AbstractMesh",],
                             },
-                        },
+                        ],
                     },
-                    new PublicMethodStatement
-                    {
-                        Name = "dispose",
-                        Type = "void".MakeTypeStatement(),
-                    },
-                    new PublicMethodStatement
+                    new() { Name = "dispose", Type = "void".MakeTypeStatement(), },
+                    new()
                     {
                         Name = "contains",
                         Type = "bool".MakeTypeStatement(),
-                        Arguments = new List<ArgumentStatement>
-                        {
-                            new ArgumentStatement
-                            {
-                                Name = "x",
-                                Type = "decimal".MakeTypeStatement(),
-                            },
-                            new ArgumentStatement
-                            {
-                                Name = "y",
-                                Type = "decimal".MakeTypeStatement(),
-                            },
-                        },
+                        Arguments =
+                        [
+                            new() { Name = "x", Type = "decimal".MakeTypeStatement(), },
+                            new() { Name = "y", Type = "decimal".MakeTypeStatement(), },
+                        ],
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "getDescendantsToRef",
                         Type = "void".MakeTypeStatement(),
-                        Arguments = new List<ArgumentStatement>
-                        {
-                            new ArgumentStatement
+                        Arguments =
+                        [
+                            new()
                             {
                                 Name = "results",
                                 Type = new TypeStatement
                                 {
                                     Name = "Array",
                                     IsArray = true,
-                                    GenericTypes = new List<TypeStatement>
-                                    {
-                                        new TypeStatement { Name = "Control", },
-                                    },
+                                    GenericTypes = [new() { Name = "Control", },],
                                 },
-                                UsedClassNames = new List<string> { "Control", },
+                                UsedClassNames = ["Control",],
                             },
-                            new ArgumentStatement
+                            new()
                             {
                                 Name = "directDescendantsOnly",
                                 Type = "bool".MakeTypeStatement(),
                                 IsOptional = true,
                             },
-                            new ArgumentStatement
+                            new()
                             {
                                 Name = "predicate",
                                 Type = new TypeStatement { Name = "action", IsAction = true, },
                                 IsOptional = true,
                             },
-                        },
+                        ],
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "getDescendants",
                         Type = new TypeStatement
                         {
                             Name = "Array",
                             IsArray = true,
-                            GenericTypes = new List<TypeStatement>
-                            {
-                                new TypeStatement { Name = "Control", },
-                            },
+                            GenericTypes = [new() { Name = "Control", },],
                         },
-                        UsedClassNames = new List<string> { "Control", },
-                        Arguments = new List<ArgumentStatement>
-                        {
-                            new ArgumentStatement
+                        UsedClassNames = ["Control",],
+                        Arguments =
+                        [
+                            new()
                             {
                                 Name = "directDescendantsOnly",
                                 Type = "bool".MakeTypeStatement(),
                                 IsOptional = true,
                             },
-                            new ArgumentStatement
+                            new()
                             {
                                 Name = "predicate",
                                 Type = new TypeStatement { Name = "action", IsAction = true, },
                                 IsOptional = true,
                             },
-                        },
+                        ],
                     },
-                    new PublicMethodStatement
+                    new()
                     {
                         Name = "AddHeader",
                         Type = new TypeStatement { Name = "action", IsAction = true, },
@@ -677,205 +635,156 @@ public class ControlTest
             .BeEquivalentTo(
                 new List<PublicPropertyStatement>
                 {
-                    new PublicPropertyStatement
-                    {
-                        Name = "name",
-                        Type = "string".MakeTypeStatement(),
-                    },
-                    new PublicPropertyStatement
+                    new() { Name = "name", Type = "string".MakeTypeStatement(), },
+                    new()
                     {
                         Name = "AllowAlphaInheritance",
                         Type = "bool".MakeTypeStatement(),
                         IsStatic = true,
                     },
-                    new PublicPropertyStatement
-                    {
-                        Name = "uniqueId",
-                        Type = "decimal".MakeTypeStatement(),
-                    },
-                    new PublicPropertyStatement
+                    new() { Name = "uniqueId", Type = "decimal".MakeTypeStatement(), },
+                    new()
                     {
                         Name = "metadata",
                         Type = new TypeStatement { Name = "CachedEntity", IsLiteral = true, },
                     },
-                    new PublicPropertyStatement
-                    {
-                        Name = "isHitTestVisible",
-                        Type = "bool".MakeTypeStatement(),
-                    },
-                    new PublicPropertyStatement
-                    {
-                        Name = "isPointerBlocker",
-                        Type = "bool".MakeTypeStatement(),
-                    },
-                    new PublicPropertyStatement
-                    {
-                        Name = "isFocusInvisible",
-                        Type = "bool".MakeTypeStatement(),
-                    },
-                    new PublicPropertyStatement
-                    {
-                        Name = "clipChildren",
-                        Type = "bool".MakeTypeStatement(),
-                    },
-                    new PublicPropertyStatement
-                    {
-                        Name = "clipContent",
-                        Type = "bool".MakeTypeStatement(),
-                    },
-                    new PublicPropertyStatement
-                    {
-                        Name = "useBitmapCache",
-                        Type = "bool".MakeTypeStatement(),
-                    },
-                    new PublicPropertyStatement
-                    {
-                        Name = "hoverCursor",
-                        Type = "string".MakeTypeStatement(),
-                    },
-                    new PublicPropertyStatement
+                    new() { Name = "isHitTestVisible", Type = "bool".MakeTypeStatement(), },
+                    new() { Name = "isPointerBlocker", Type = "bool".MakeTypeStatement(), },
+                    new() { Name = "isFocusInvisible", Type = "bool".MakeTypeStatement(), },
+                    new() { Name = "clipChildren", Type = "bool".MakeTypeStatement(), },
+                    new() { Name = "clipContent", Type = "bool".MakeTypeStatement(), },
+                    new() { Name = "useBitmapCache", Type = "bool".MakeTypeStatement(), },
+                    new() { Name = "hoverCursor", Type = "string".MakeTypeStatement(), },
+                    new()
                     {
                         Name = "onWheelObservable",
                         Type = new TypeStatement
                         {
                             Name = "Observable",
-                            GenericTypes = new List<TypeStatement>
-                            {
-                                new TypeStatement { Name = "Vector2", },
-                            },
+                            GenericTypes = [new() { Name = "Vector2", IsTypeReference = true, },],
+                            IsTypeReference = true,
                         },
-                        UsedClassNames = new List<string> { "Observable", "Vector2", },
+                        UsedClassNames = ["Observable", "Vector2",],
                     },
-                    new PublicPropertyStatement
+                    new()
                     {
                         Name = "onPointerMoveObservable",
                         Type = new TypeStatement
                         {
                             Name = "Observable",
-                            GenericTypes = new List<TypeStatement>
-                            {
-                                new TypeStatement { Name = "Vector2", },
-                            },
+                            GenericTypes = [new() { Name = "Vector2", IsTypeReference = true, },],
+                            IsTypeReference = true,
                         },
-                        UsedClassNames = new List<string> { "Observable", "Vector2", },
+                        UsedClassNames = ["Observable", "Vector2",],
                     },
-                    new PublicPropertyStatement
+                    new()
                     {
                         Name = "onPointerOutObservable",
                         Type = new TypeStatement
                         {
                             Name = "Observable",
-                            GenericTypes = new List<TypeStatement>
-                            {
-                                new TypeStatement { Name = "Control", },
-                            },
+                            GenericTypes = [new() { Name = "Control", IsTypeReference = true, },],
+                            IsTypeReference = true,
                         },
-                        UsedClassNames = new List<string> { "Observable", "Control", },
+                        UsedClassNames = ["Observable", "Control",],
                     },
-                    new PublicPropertyStatement
+                    new()
                     {
                         Name = "onPointerDownObservable",
                         Type = new TypeStatement
                         {
                             Name = "Observable",
-                            GenericTypes = new List<TypeStatement>
-                            {
-                                new TypeStatement { Name = "Vector2WithInfo", },
-                            },
+                            GenericTypes =
+                            [
+                                new() { Name = "Vector2WithInfo", IsTypeReference = true, },
+                            ],
+                            IsTypeReference = true,
                         },
-                        UsedClassNames = new List<string> { "Observable", "Vector2WithInfo", },
+                        UsedClassNames = ["Observable", "Vector2WithInfo",],
                     },
-                    new PublicPropertyStatement
+                    new()
                     {
                         Name = "onPointerUpObservable",
                         Type = new TypeStatement
                         {
                             Name = "Observable",
-                            GenericTypes = new List<TypeStatement>
-                            {
-                                new TypeStatement { Name = "Vector2WithInfo", },
-                            },
+                            GenericTypes =
+                            [
+                                new() { Name = "Vector2WithInfo", IsTypeReference = true, },
+                            ],
+                            IsTypeReference = true,
                         },
-                        UsedClassNames = new List<string> { "Observable", "Vector2WithInfo", },
+                        UsedClassNames = ["Observable", "Vector2WithInfo",],
                     },
-                    new PublicPropertyStatement
+                    new()
                     {
                         Name = "onPointerClickObservable",
                         Type = new TypeStatement
                         {
                             Name = "Observable",
-                            GenericTypes = new List<TypeStatement>
-                            {
-                                new TypeStatement { Name = "Vector2WithInfo", },
-                            },
+                            GenericTypes =
+                            [
+                                new() { Name = "Vector2WithInfo", IsTypeReference = true, },
+                            ],
+                            IsTypeReference = true,
                         },
-                        UsedClassNames = new List<string> { "Observable", "Vector2WithInfo", },
+                        UsedClassNames = ["Observable", "Vector2WithInfo",],
                     },
-                    new PublicPropertyStatement
+                    new()
                     {
                         Name = "onPointerEnterObservable",
                         Type = new TypeStatement
                         {
                             Name = "Observable",
-                            GenericTypes = new List<TypeStatement>
-                            {
-                                new TypeStatement { Name = "Control", },
-                            },
+                            GenericTypes = [new() { Name = "Control", IsTypeReference = true, },],
+                            IsTypeReference = true,
                         },
-                        UsedClassNames = new List<string> { "Observable", "Control", },
+                        UsedClassNames = ["Observable", "Control",],
                     },
-                    new PublicPropertyStatement
+                    new()
                     {
                         Name = "onDirtyObservable",
                         Type = new TypeStatement
                         {
                             Name = "Observable",
-                            GenericTypes = new List<TypeStatement>
-                            {
-                                new TypeStatement { Name = "Control", },
-                            },
+                            GenericTypes = [new() { Name = "Control", IsTypeReference = true, },],
+                            IsTypeReference = true,
                         },
-                        UsedClassNames = new List<string> { "Observable", "Control", },
+                        UsedClassNames = ["Observable", "Control",],
                     },
-                    new PublicPropertyStatement
+                    new()
                     {
                         Name = "onBeforeDrawObservable",
                         Type = new TypeStatement
                         {
                             Name = "Observable",
-                            GenericTypes = new List<TypeStatement>
-                            {
-                                new TypeStatement { Name = "Control", },
-                            },
+                            GenericTypes = [new() { Name = "Control", IsTypeReference = true, },],
+                            IsTypeReference = true,
                         },
-                        UsedClassNames = new List<string> { "Observable", "Control", },
+                        UsedClassNames = ["Observable", "Control",],
                     },
-                    new PublicPropertyStatement
+                    new()
                     {
                         Name = "onAfterDrawObservable",
                         Type = new TypeStatement
                         {
                             Name = "Observable",
-                            GenericTypes = new List<TypeStatement>
-                            {
-                                new TypeStatement { Name = "Control", },
-                            },
+                            GenericTypes = [new() { Name = "Control", IsTypeReference = true, },],
+                            IsTypeReference = true,
                         },
-                        UsedClassNames = new List<string> { "Observable", "Control", },
+                        UsedClassNames = ["Observable", "Control",],
                     },
-                    new PublicPropertyStatement
+                    new()
                     {
                         Name = "parent",
                         Type = new TypeStatement
                         {
                             Name = "Nullable",
                             IsNullable = true,
-                            GenericTypes = new List<TypeStatement>
-                            {
-                                new TypeStatement { Name = "Container", },
-                            },
+                            GenericTypes = [new() { Name = "Container", IsTypeReference = true, },],
+                            IsTypeReference = true,
                         },
-                        UsedClassNames = new List<string> { "Container", },
+                        UsedClassNames = ["Container",],
                     }
                 }
             );

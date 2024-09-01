@@ -1,52 +1,48 @@
 /// Generated - Do Not Edit
-namespace BABYLON
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using EventHorizon.Blazor.Interop;
+using EventHorizon.Blazor.Interop.Callbacks;
+using EventHorizon.Blazor.Interop.ResultCallbacks;
+using Microsoft.JSInterop;
+
+public interface CameraInputsMap<TCamera> : ICachedEntity { }
+
+[JsonConverter(typeof(CachedEntityConverter<CameraInputsMapCachedEntity<CachedEntity>>))]
+public class CameraInputsMapCachedEntity<TCamera> : CachedEntityObject, CameraInputsMap<TCamera>
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text.Json.Serialization;
-    using System.Threading.Tasks;
-    using EventHorizon.Blazor.Interop;
-    using EventHorizon.Blazor.Interop.Callbacks;
-    using EventHorizon.Blazor.Interop.ResultCallbacks;
-    using Microsoft.JSInterop;
+    #region Static Accessors
 
-    public interface CameraInputsMap<TCamera> : ICachedEntity { }
+    #endregion
 
-    [JsonConverter(typeof(CachedEntityConverter<CameraInputsMapCachedEntity<CachedEntity>>))]
-    public class CameraInputsMapCachedEntity<TCamera> : CachedEntityObject, CameraInputsMap<TCamera>
-        where TCamera : CachedEntity, new()
-    {
-        #region Static Accessors
+    #region Static Properties
 
-        #endregion
+    #endregion
 
-        #region Static Properties
+    #region Static Methods
 
-        #endregion
+    #endregion
 
-        #region Static Methods
+    #region Accessors
 
-        #endregion
+    #endregion
 
-        #region Accessors
+    #region Properties
 
-        #endregion
+    #endregion
 
-        #region Properties
+    #region Constructor
+    public CameraInputsMapCachedEntity()
+        : base() { }
 
-        #endregion
+    public CameraInputsMapCachedEntity(ICachedEntity entity)
+        : base(entity) { }
 
-        #region Constructor
-        public CameraInputsMapCachedEntity()
-            : base() { }
+    #endregion
 
-        public CameraInputsMapCachedEntity(ICachedEntity entity)
-            : base(entity) { }
+    #region Methods
 
-        #endregion
-
-        #region Methods
-
-        #endregion
-    }
+    #endregion
 }

@@ -58,6 +58,7 @@ namespace BABYLON
             );
             ___guid = entity.___guid;
         }
+
         #endregion
 
         #region Methods

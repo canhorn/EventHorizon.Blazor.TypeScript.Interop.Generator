@@ -1,0 +1,143 @@
+/// Generated - Do Not Edit
+namespace Examples
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Text.Json.Serialization;
+    using System.Threading.Tasks;
+    using EventHorizon.Blazor.Interop;
+    using EventHorizon.Blazor.Interop.Callbacks;
+    using EventHorizon.Blazor.Interop.ResultCallbacks;
+    using Microsoft.JSInterop;
+
+    
+    
+    [JsonConverter(typeof(CachedEntityConverter<ExampleClass>))]
+    public class ExampleClass : CachedEntityObject
+    {
+        #region Static Accessors
+
+        #endregion
+
+        #region Static Properties
+        
+        public static CachedEntity VariableTypeOfConst
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                    "Examples",
+                    "ExampleClass.VariableTypeOfConst",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    "Examples",
+                    "ExampleClass.VariableTypeOfConst",
+                    value
+                );
+            }
+        }
+
+        
+        public static CachedEntity Constant
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                    "Examples",
+                    "ExampleClass.Constant",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    "Examples",
+                    "ExampleClass.Constant",
+                    value
+                );
+            }
+        }
+
+        
+        public static string property
+        {
+            get
+            {
+            return EventHorizonBlazorInterop.Get<string>(
+                    "Examples",
+                    "ExampleClass.property"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    "Examples",
+                    "ExampleClass.property",
+                    value
+                );
+            }
+        }
+        #endregion
+
+        #region Static Methods
+        public static Mesh CreateBoxTypeOfFunction(string name, object options = null, Scene scene = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Mesh>(
+                entity => new Mesh() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "Examples", "ExampleClass", "CreateBoxTypeOfFunction" }, name, options, scene
+                }
+            );
+        }
+
+        public static void method(string name)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { "Examples", "ExampleClass", "method" }, name
+                }
+            );
+        }
+        #endregion
+
+        #region Accessors
+
+        #endregion
+
+        #region Properties
+
+        #endregion
+        
+        #region Constructor
+        public ExampleClass() : base() { }
+
+        public ExampleClass(
+            ICachedEntity entity
+        ) : base(entity)
+        {
+            ___guid = entity.___guid;
+        }
+
+
+        #endregion
+
+        #region Methods
+
+        #endregion
+    }
+}

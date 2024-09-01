@@ -16,6 +16,7 @@ public class GenerateSourceEverythingTest
     public void ShouldGenerateSourceForEverythingDefinition()
     {
         // Given
+        GenerateSource.DisableCache();
         var projectAssembly = "ProjectAssembly";
         var sourceDirectory = "";
         var sourceFileName = "Everything.ts";
@@ -23,37 +24,7 @@ public class GenerateSourceEverythingTest
         var sourceFiles = new List<string> { sourceFile };
         var generationList = new List<string> { "Everything", };
         var typeOverrideMap = new Dictionary<string, string>();
-
-        var writerMock = new Mock<IWriter>();
-
-        // When
-        var generateSource = new GenerateSource();
-        var actual = generateSource.Run(
-            projectAssembly,
-            sourceDirectory,
-            sourceFiles,
-            generationList,
-            writerMock.Object,
-            new NoFormattingTextFormatter(),
-            typeOverrideMap
-        );
-
-        // Then
-        actual.Should().BeTrue();
-    }
-
-    [Fact]
-    [Trait("AST", "NodeJS")]
-    public void ShouldGenerateSourceForEverythingDefinitionWhenUsingTheNodeJS_AST()
-    {
-        // Given
-        var projectAssembly = "ProjectAssembly";
-        var sourceDirectory = "";
-        var sourceFileName = "Everything.ts";
-        var sourceFile = Path.Combine(".", "SourceFiles", sourceFileName);
-        var sourceFiles = new List<string> { sourceFile };
-        var generationList = new List<string> { "Everything", };
-        var typeOverrideMap = new Dictionary<string, string>();
+        var ignoredIdentifiers = new List<string>();
 
         var writerMock = new Mock<IWriter>();
 
@@ -67,6 +38,41 @@ public class GenerateSourceEverythingTest
             writerMock.Object,
             new NoFormattingTextFormatter(),
             typeOverrideMap,
+            ignoredIdentifiers
+        );
+
+        // Then
+        actual.Should().BeTrue();
+    }
+
+    [Fact]
+    [Trait("AST", "NodeJS")]
+    public void ShouldGenerateSourceForEverythingDefinitionWhenUsingTheNodeJS_AST()
+    {
+        // Given
+        GenerateSource.DisableCache();
+        var projectAssembly = "ProjectAssembly";
+        var sourceDirectory = "";
+        var sourceFileName = "Everything.ts";
+        var sourceFile = Path.Combine(".", "SourceFiles", sourceFileName);
+        var sourceFiles = new List<string> { sourceFile };
+        var generationList = new List<string> { "Everything", };
+        var typeOverrideMap = new Dictionary<string, string>();
+        var ignoredIdentifiers = new List<string>();
+
+        var writerMock = new Mock<IWriter>();
+
+        // When
+        var generateSource = new GenerateSource();
+        var actual = generateSource.Run(
+            projectAssembly,
+            sourceDirectory,
+            sourceFiles,
+            generationList,
+            writerMock.Object,
+            new NoFormattingTextFormatter(),
+            typeOverrideMap,
+            ignoredIdentifiers,
             ASTParserType.NodeJS
         );
 

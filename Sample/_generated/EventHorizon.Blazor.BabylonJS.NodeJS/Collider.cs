@@ -19,6 +19,18 @@ namespace BABYLON
 
         #region Static Properties
 
+        public static bool DoubleSidedCheck
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>("BABYLON", "Collider.DoubleSidedCheck");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set("BABYLON", "Collider.DoubleSidedCheck", value);
+            }
+        }
         #endregion
 
         #region Static Methods

@@ -167,6 +167,26 @@ namespace BABYLON
             );
         }
 
+        public BoundingInfo encapsulate(Vector3 point)
+        {
+            return EventHorizonBlazorInterop.FuncClass<BoundingInfo>(
+                entity => new BoundingInfo() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "encapsulate" }, point }
+            );
+        }
+
+        public BoundingInfo encapsulateBoundingInfo(BoundingInfo toEncapsulate)
+        {
+            return EventHorizonBlazorInterop.FuncClass<BoundingInfo>(
+                entity => new BoundingInfo() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "encapsulateBoundingInfo" },
+                    toEncapsulate
+                }
+            );
+        }
+
         public BoundingInfo scale(decimal factor)
         {
             return EventHorizonBlazorInterop.FuncClass<BoundingInfo>(

@@ -56,7 +56,7 @@ namespace BABYLON
         #region Methods
         public void directRender(
             PostProcess[] postProcesses,
-            InternalTexture targetTexture = null,
+            RenderTargetWrapper targetTexture = null,
             System.Nullable<bool> forceFullscreenViewport = null,
             System.Nullable<decimal> faceIndex = null,
             System.Nullable<decimal> lodLevel = null,

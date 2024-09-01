@@ -24,9 +24,9 @@ public class Sdcb_TypeScriptASTWrapper : AbstractSyntaxTree
     {
         if (Enum.TryParse<Sdcb_SyntaxKind>(kind, out var value))
         {
-            return _ast.OfKind(value).Select(a => new SdcbNode(a));
+            return _ast.OfKind(value).Select(a => new SdcbNode(a)).ToList();
         }
 
-        return new List<Node>();
+        return [];
     }
 }

@@ -199,50 +199,22 @@ namespace BABYLON
             );
         }
 
-        #region customProjectionMatrixBuilder TODO: Get Comments as metadata identification
-        private bool _isCustomProjectionMatrixBuilderEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _customProjectionMatrixBuilderActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string customProjectionMatrixBuilder(Func<Task> callback)
+        public void customProjectionMatrixBuilder(
+            Matrix viewMatrix,
+            AbstractMesh[] renderList,
+            Matrix result
+        )
         {
-            SetupCustomProjectionMatrixBuilderLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _customProjectionMatrixBuilderActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool customProjectionMatrixBuilder_Remove(string handle)
-        {
-            return _customProjectionMatrixBuilderActionMap.Remove(handle);
-        }
-
-        private void SetupCustomProjectionMatrixBuilderLoop()
-        {
-            if (_isCustomProjectionMatrixBuilderEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "customProjectionMatrixBuilder",
-                "CallCustomProjectionMatrixBuilderActions",
-                _invokableReference
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "customProjectionMatrixBuilder" },
+                    viewMatrix,
+                    renderList,
+                    result
+                }
             );
-            _isCustomProjectionMatrixBuilderEnabled = true;
         }
-
-        [JSInvokable]
-        public async Task CallCustomProjectionMatrixBuilderActions()
-        {
-            foreach (var action in _customProjectionMatrixBuilderActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
 
         public IShadowLightCachedEntity setShadowProjectionMatrix(
             Matrix matrix,

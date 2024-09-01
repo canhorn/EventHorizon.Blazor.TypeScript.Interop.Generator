@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     [JsonConverter(typeof(CachedEntityConverter<Light>))]
-    public class Light : Node
+    public class Light : Node, ISortableLight
     {
         #region Static Accessors
 
@@ -176,27 +176,11 @@ namespace BABYLON
         #endregion
 
         #region Static Methods
-        public static decimal CompareLightsPriority(Light a, Light b)
+        public static Light GetConstructorFromName()
         {
-            return EventHorizonBlazorInterop.Func<decimal>(
-                new object[] { new string[] { "BABYLON", "Light", "CompareLightsPriority" }, a, b }
-            );
-        }
-
-        public static ActionResultCallback<Light> GetConstructorFromName(
-            decimal type,
-            string name,
-            Scene scene
-        )
-        {
-            return EventHorizonBlazorInterop.Func<ActionResultCallback<Light>>(
-                new object[]
-                {
-                    new string[] { "BABYLON", "Light", "GetConstructorFromName" },
-                    type,
-                    name,
-                    scene
-                }
+            return EventHorizonBlazorInterop.FuncClass<Light>(
+                entity => new Light() { ___guid = entity.___guid },
+                new object[] { new string[] { "BABYLON", "Light", "GetConstructorFromName" } }
             );
         }
 
@@ -420,7 +404,7 @@ namespace BABYLON
         public Light(ICachedEntity entity)
             : base(entity) { }
 
-        public Light(string name, Scene scene)
+        public Light(string name, Scene scene = null)
             : base()
         {
             var entity = EventHorizonBlazorInterop.New(
@@ -430,9 +414,45 @@ namespace BABYLON
             );
             ___guid = entity.___guid;
         }
+
+        public Light(string name, Scene scene = null, System.Nullable<bool> isPure = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "Light" },
+                name,
+                scene,
+                isPure
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods
+        public Matrix getViewMatrix(System.Nullable<decimal> _faceIndex = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getViewMatrix" }, _faceIndex }
+            );
+        }
+
+        public Matrix getProjectionMatrix(
+            Matrix _viewMatrix = null,
+            AbstractMesh[] _renderList = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "getProjectionMatrix" },
+                    _viewMatrix,
+                    _renderList
+                }
+            );
+        }
+
         public Light transferToEffect(Effect effect, string lightIndex)
         {
             return EventHorizonBlazorInterop.FuncClass<Light>(
@@ -493,11 +513,18 @@ namespace BABYLON
             );
         }
 
-        public IShadowGeneratorCachedEntity getShadowGenerator()
+        public IShadowGeneratorCachedEntity getShadowGenerator(Camera camera = null)
         {
             return EventHorizonBlazorInterop.FuncClass<IShadowGeneratorCachedEntity>(
                 entity => new IShadowGeneratorCachedEntity() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getShadowGenerator" } }
+                new object[] { new string[] { this.___guid, "getShadowGenerator" }, camera }
+            );
+        }
+
+        public CachedEntity getShadowGenerators()
+        {
+            return EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "getShadowGenerators" } }
             );
         }
 

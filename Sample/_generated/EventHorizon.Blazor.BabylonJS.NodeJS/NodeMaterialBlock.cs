@@ -52,6 +52,16 @@ namespace BABYLON
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isInput"); }
         }
 
+        public bool isTeleportOut
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isTeleportOut"); }
+        }
+
+        public bool isTeleportIn
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isTeleportIn"); }
+        }
+
         public decimal buildId
         {
             get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "buildId"); }
@@ -101,6 +111,17 @@ namespace BABYLON
                 );
             }
         }
+
+        public bool willBeGeneratedIntoVertexShaderFromFragmentShader
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "willBeGeneratedIntoVertexShaderFromFragmentShader"
+                );
+            }
+        }
         #endregion
 
         #region Properties
@@ -144,6 +165,16 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set(this.___guid, "visibleInInspector", value);
             }
         }
+
+        public bool visibleOnFrame
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "visibleOnFrame"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "visibleOnFrame", value);
+            }
+        }
         #endregion
 
         #region Constructor
@@ -159,16 +190,14 @@ namespace BABYLON
         public NodeMaterialBlock(
             string name,
             System.Nullable<int> target = null,
-            System.Nullable<bool> isFinalMerger = null,
-            System.Nullable<bool> isInput = null
+            System.Nullable<bool> isFinalMerger = null
         )
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "NodeMaterialBlock" },
                 name,
                 target,
-                isFinalMerger,
-                isInput
+                isFinalMerger
             );
             ___guid = entity.___guid;
         }
@@ -221,6 +250,13 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.Func<string>(
                 new object[] { new string[] { this.___guid, "getClassName" } }
+            );
+        }
+
+        public bool isConnectedInFragmentShader()
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "isConnectedInFragmentShader" } }
             );
         }
 
@@ -291,6 +327,13 @@ namespace BABYLON
             return EventHorizonBlazorInterop.FuncClass<NodeMaterialConnectionPoint>(
                 entity => new NodeMaterialConnectionPoint() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "getSiblingOutput" }, current }
+            );
+        }
+
+        public bool isAnAncestorOf(NodeMaterialBlock block)
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "isAnAncestorOf" }, block }
             );
         }
 
@@ -368,10 +411,18 @@ namespace BABYLON
             );
         }
 
-        public void autoConfigure(NodeMaterial material)
+        public void autoConfigure(
+            NodeMaterial material,
+            ActionResultCallback<NodeMaterialBlock, bool> additionalFilteringInfo = null
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "autoConfigure" }, material }
+                new object[]
+                {
+                    new string[] { this.___guid, "autoConfigure" },
+                    material,
+                    additionalFilteringInfo
+                }
             );
         }
 

@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     [JsonConverter(typeof(CachedEntityConverter<Matrix>))]
-    public class Matrix : CachedEntityObject
+    public class Matrix : CachedEntityObject, Tensor<_Tuple<T, N, R>, Matrix>, IMatrixLike
     {
         #region Static Accessors
 
@@ -54,9 +54,11 @@ namespace BABYLON
             );
         }
 
-        public static void FromArrayToRef(decimal[] array, decimal offset, Matrix result)
+        public static T FromArrayToRef<T>(decimal[] array, decimal offset, T result)
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "FromArrayToRef" },
@@ -67,14 +69,16 @@ namespace BABYLON
             );
         }
 
-        public static void FromFloat32ArrayToRefScaled(
+        public static T FromFloat32ArrayToRefScaled<T>(
             decimal[] array,
             decimal offset,
             decimal scale,
-            Matrix result
+            T result
         )
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "FromFloat32ArrayToRefScaled" },
@@ -189,14 +193,16 @@ namespace BABYLON
             );
         }
 
-        public static void ComposeToRef(
+        public static T ComposeToRef<T>(
             Vector3 scale,
             Quaternion rotation,
             Vector3 translation,
-            Matrix result
+            T result
         )
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "ComposeToRef" },
@@ -216,9 +222,11 @@ namespace BABYLON
             );
         }
 
-        public static void IdentityToRef(Matrix result)
+        public static T IdentityToRef<T>(T result)
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[] { new string[] { "BABYLON", "Matrix", "IdentityToRef" }, result }
             );
         }
@@ -247,9 +255,11 @@ namespace BABYLON
             );
         }
 
-        public static void RotationXToRef(decimal angle, Matrix result)
+        public static T RotationXToRef<T>(decimal angle, T result)
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "RotationXToRef" },
@@ -267,9 +277,11 @@ namespace BABYLON
             );
         }
 
-        public static void RotationYToRef(decimal angle, Matrix result)
+        public static T RotationYToRef<T>(decimal angle, T result)
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "RotationYToRef" },
@@ -287,9 +299,11 @@ namespace BABYLON
             );
         }
 
-        public static void RotationZToRef(decimal angle, Matrix result)
+        public static T RotationZToRef<T>(decimal angle, T result)
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "RotationZToRef" },
@@ -307,9 +321,11 @@ namespace BABYLON
             );
         }
 
-        public static void RotationAxisToRef(Vector3 axis, decimal angle, Matrix result)
+        public static T RotationAxisToRef<T>(Vector3 axis, decimal angle, T result)
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "RotationAxisToRef" },
@@ -320,15 +336,23 @@ namespace BABYLON
             );
         }
 
-        public static void RotationAlignToRef(Vector3 from, Vector3 to, Matrix result)
+        public static T RotationAlignToRef<T>(
+            Vector3 from,
+            Vector3 to,
+            T result,
+            System.Nullable<bool> useYAxisForCoplanar = null
+        )
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "RotationAlignToRef" },
                     from,
                     to,
-                    result
+                    result,
+                    useYAxisForCoplanar
                 }
             );
         }
@@ -347,14 +371,16 @@ namespace BABYLON
             );
         }
 
-        public static void RotationYawPitchRollToRef(
+        public static T RotationYawPitchRollToRef<T>(
             decimal yaw,
             decimal pitch,
             decimal roll,
-            Matrix result
+            T result
         )
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "RotationYawPitchRollToRef" },
@@ -374,9 +400,11 @@ namespace BABYLON
             );
         }
 
-        public static void ScalingToRef(decimal x, decimal y, decimal z, Matrix result)
+        public static T ScalingToRef<T>(decimal x, decimal y, decimal z, T result)
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "ScalingToRef" },
@@ -396,9 +424,11 @@ namespace BABYLON
             );
         }
 
-        public static void TranslationToRef(decimal x, decimal y, decimal z, Matrix result)
+        public static T TranslationToRef<T>(decimal x, decimal y, decimal z, T result)
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "TranslationToRef" },
@@ -424,14 +454,11 @@ namespace BABYLON
             );
         }
 
-        public static void LerpToRef(
-            Matrix startValue,
-            Matrix endValue,
-            decimal gradient,
-            Matrix result
-        )
+        public static T LerpToRef<T>(Matrix startValue, Matrix endValue, decimal gradient, T result)
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "LerpToRef" },
@@ -457,14 +484,16 @@ namespace BABYLON
             );
         }
 
-        public static void DecomposeLerpToRef(
+        public static T DecomposeLerpToRef<T>(
             Matrix startValue,
             Matrix endValue,
             decimal gradient,
-            Matrix result
+            T result
         )
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "DecomposeLerpToRef" },
@@ -484,9 +513,10 @@ namespace BABYLON
             );
         }
 
-        public static void LookAtLHToRef(Vector3 eye, Vector3 target, Vector3 up, Matrix result)
+        public static Matrix LookAtLHToRef(Vector3 eye, Vector3 target, Vector3 up, Matrix result)
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "LookAtLHToRef" },
@@ -506,9 +536,11 @@ namespace BABYLON
             );
         }
 
-        public static void LookAtRHToRef(Vector3 eye, Vector3 target, Vector3 up, Matrix result)
+        public static T LookAtRHToRef<T>(Vector3 eye, Vector3 target, Vector3 up, T result)
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "LookAtRHToRef" },
@@ -520,7 +552,69 @@ namespace BABYLON
             );
         }
 
-        public static Matrix OrthoLH(decimal width, decimal height, decimal znear, decimal zfar)
+        public static Matrix LookDirectionLH(Vector3 forward, Vector3 up)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "Matrix", "LookDirectionLH" },
+                    forward,
+                    up
+                }
+            );
+        }
+
+        public static T LookDirectionLHToRef<T>(Vector3 forward, Vector3 up, T result)
+            where T : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "Matrix", "LookDirectionLHToRef" },
+                    forward,
+                    up,
+                    result
+                }
+            );
+        }
+
+        public static Matrix LookDirectionRH(Vector3 forward, Vector3 up)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "Matrix", "LookDirectionRH" },
+                    forward,
+                    up
+                }
+            );
+        }
+
+        public static T LookDirectionRHToRef<T>(Vector3 forward, Vector3 up, T result)
+            where T : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "Matrix", "LookDirectionRHToRef" },
+                    forward,
+                    up,
+                    result
+                }
+            );
+        }
+
+        public static Matrix OrthoLH(
+            decimal width,
+            decimal height,
+            decimal znear,
+            decimal zfar,
+            System.Nullable<bool> halfZRange = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
@@ -530,20 +624,24 @@ namespace BABYLON
                     width,
                     height,
                     znear,
-                    zfar
+                    zfar,
+                    halfZRange
                 }
             );
         }
 
-        public static void OrthoLHToRef(
+        public static T OrthoLHToRef<T>(
             decimal width,
             decimal height,
             decimal znear,
             decimal zfar,
-            Matrix result
+            T result,
+            System.Nullable<bool> halfZRange = null
         )
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "OrthoLHToRef" },
@@ -551,7 +649,8 @@ namespace BABYLON
                     height,
                     znear,
                     zfar,
-                    result
+                    result,
+                    halfZRange
                 }
             );
         }
@@ -562,7 +661,8 @@ namespace BABYLON
             decimal bottom,
             decimal top,
             decimal znear,
-            decimal zfar
+            decimal zfar,
+            System.Nullable<bool> halfZRange = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
@@ -575,22 +675,26 @@ namespace BABYLON
                     bottom,
                     top,
                     znear,
-                    zfar
+                    zfar,
+                    halfZRange
                 }
             );
         }
 
-        public static void OrthoOffCenterLHToRef(
+        public static T OrthoOffCenterLHToRef<T>(
             decimal left,
             decimal right,
             decimal bottom,
             decimal top,
             decimal znear,
             decimal zfar,
-            Matrix result
+            T result,
+            System.Nullable<bool> halfZRange = null
         )
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "OrthoOffCenterLHToRef" },
@@ -600,7 +704,43 @@ namespace BABYLON
                     top,
                     znear,
                     zfar,
-                    result
+                    result,
+                    halfZRange
+                }
+            );
+        }
+
+        public static T ObliqueOffCenterLHToRef<T>(
+            decimal left,
+            decimal right,
+            decimal bottom,
+            decimal top,
+            decimal znear,
+            decimal zfar,
+            decimal length,
+            decimal angle,
+            decimal distance,
+            T result,
+            System.Nullable<bool> halfZRange = null
+        )
+            where T : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "Matrix", "ObliqueOffCenterLHToRef" },
+                    left,
+                    right,
+                    bottom,
+                    top,
+                    znear,
+                    zfar,
+                    length,
+                    angle,
+                    distance,
+                    result,
+                    halfZRange
                 }
             );
         }
@@ -611,7 +751,8 @@ namespace BABYLON
             decimal bottom,
             decimal top,
             decimal znear,
-            decimal zfar
+            decimal zfar,
+            System.Nullable<bool> halfZRange = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
@@ -624,22 +765,26 @@ namespace BABYLON
                     bottom,
                     top,
                     znear,
-                    zfar
+                    zfar,
+                    halfZRange
                 }
             );
         }
 
-        public static void OrthoOffCenterRHToRef(
+        public static T OrthoOffCenterRHToRef<T>(
             decimal left,
             decimal right,
             decimal bottom,
             decimal top,
             decimal znear,
             decimal zfar,
-            Matrix result
+            T result,
+            System.Nullable<bool> halfZRange = null
         )
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "OrthoOffCenterRHToRef" },
@@ -649,7 +794,43 @@ namespace BABYLON
                     top,
                     znear,
                     zfar,
-                    result
+                    result,
+                    halfZRange
+                }
+            );
+        }
+
+        public static T ObliqueOffCenterRHToRef<T>(
+            decimal left,
+            decimal right,
+            decimal bottom,
+            decimal top,
+            decimal znear,
+            decimal zfar,
+            decimal length,
+            decimal angle,
+            decimal distance,
+            T result,
+            System.Nullable<bool> halfZRange = null
+        )
+            where T : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { "BABYLON", "Matrix", "ObliqueOffCenterRHToRef" },
+                    left,
+                    right,
+                    bottom,
+                    top,
+                    znear,
+                    zfar,
+                    length,
+                    angle,
+                    distance,
+                    result,
+                    halfZRange
                 }
             );
         }
@@ -658,7 +839,9 @@ namespace BABYLON
             decimal width,
             decimal height,
             decimal znear,
-            decimal zfar
+            decimal zfar,
+            System.Nullable<bool> halfZRange = null,
+            System.Nullable<decimal> projectionPlaneTilt = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
@@ -669,7 +852,9 @@ namespace BABYLON
                     width,
                     height,
                     znear,
-                    zfar
+                    zfar,
+                    halfZRange,
+                    projectionPlaneTilt
                 }
             );
         }
@@ -678,7 +863,10 @@ namespace BABYLON
             decimal fov,
             decimal aspect,
             decimal znear,
-            decimal zfar
+            decimal zfar,
+            System.Nullable<bool> halfZRange = null,
+            System.Nullable<decimal> projectionPlaneTilt = null,
+            System.Nullable<bool> reverseDepthBufferMode = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
@@ -689,21 +877,29 @@ namespace BABYLON
                     fov,
                     aspect,
                     znear,
-                    zfar
+                    zfar,
+                    halfZRange,
+                    projectionPlaneTilt,
+                    reverseDepthBufferMode
                 }
             );
         }
 
-        public static void PerspectiveFovLHToRef(
+        public static T PerspectiveFovLHToRef<T>(
             decimal fov,
             decimal aspect,
             decimal znear,
             decimal zfar,
-            Matrix result,
-            System.Nullable<bool> isVerticalFovFixed = null
+            T result,
+            System.Nullable<bool> isVerticalFovFixed = null,
+            System.Nullable<bool> halfZRange = null,
+            System.Nullable<decimal> projectionPlaneTilt = null,
+            System.Nullable<bool> reverseDepthBufferMode = null
         )
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "PerspectiveFovLHToRef" },
@@ -712,21 +908,28 @@ namespace BABYLON
                     znear,
                     zfar,
                     result,
-                    isVerticalFovFixed
+                    isVerticalFovFixed,
+                    halfZRange,
+                    projectionPlaneTilt,
+                    reverseDepthBufferMode
                 }
             );
         }
 
-        public static void PerspectiveFovReverseLHToRef(
+        public static T PerspectiveFovReverseLHToRef<T>(
             decimal fov,
             decimal aspect,
             decimal znear,
             decimal zfar,
-            Matrix result,
-            System.Nullable<bool> isVerticalFovFixed = null
+            T result,
+            System.Nullable<bool> isVerticalFovFixed = null,
+            System.Nullable<bool> halfZRange = null,
+            System.Nullable<decimal> projectionPlaneTilt = null
         )
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "PerspectiveFovReverseLHToRef" },
@@ -735,7 +938,9 @@ namespace BABYLON
                     znear,
                     zfar,
                     result,
-                    isVerticalFovFixed
+                    isVerticalFovFixed,
+                    halfZRange,
+                    projectionPlaneTilt
                 }
             );
         }
@@ -744,7 +949,10 @@ namespace BABYLON
             decimal fov,
             decimal aspect,
             decimal znear,
-            decimal zfar
+            decimal zfar,
+            System.Nullable<bool> halfZRange = null,
+            System.Nullable<decimal> projectionPlaneTilt = null,
+            System.Nullable<bool> reverseDepthBufferMode = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
@@ -755,21 +963,29 @@ namespace BABYLON
                     fov,
                     aspect,
                     znear,
-                    zfar
+                    zfar,
+                    halfZRange,
+                    projectionPlaneTilt,
+                    reverseDepthBufferMode
                 }
             );
         }
 
-        public static void PerspectiveFovRHToRef(
+        public static T PerspectiveFovRHToRef<T>(
             decimal fov,
             decimal aspect,
             decimal znear,
             decimal zfar,
-            Matrix result,
-            System.Nullable<bool> isVerticalFovFixed = null
+            T result,
+            System.Nullable<bool> isVerticalFovFixed = null,
+            System.Nullable<bool> halfZRange = null,
+            System.Nullable<decimal> projectionPlaneTilt = null,
+            System.Nullable<bool> reverseDepthBufferMode = null
         )
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "PerspectiveFovRHToRef" },
@@ -778,21 +994,28 @@ namespace BABYLON
                     znear,
                     zfar,
                     result,
-                    isVerticalFovFixed
+                    isVerticalFovFixed,
+                    halfZRange,
+                    projectionPlaneTilt,
+                    reverseDepthBufferMode
                 }
             );
         }
 
-        public static void PerspectiveFovReverseRHToRef(
+        public static T PerspectiveFovReverseRHToRef<T>(
             decimal fov,
             decimal aspect,
             decimal znear,
             decimal zfar,
-            Matrix result,
-            System.Nullable<bool> isVerticalFovFixed = null
+            T result,
+            System.Nullable<bool> isVerticalFovFixed = null,
+            System.Nullable<bool> halfZRange = null,
+            System.Nullable<decimal> projectionPlaneTilt = null
         )
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "PerspectiveFovReverseRHToRef" },
@@ -801,28 +1024,9 @@ namespace BABYLON
                     znear,
                     zfar,
                     result,
-                    isVerticalFovFixed
-                }
-            );
-        }
-
-        public static void PerspectiveFovWebVRToRef(
-            object fov,
-            decimal znear,
-            decimal zfar,
-            Matrix result,
-            System.Nullable<bool> rightHanded = null
-        )
-        {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[]
-                {
-                    new string[] { "BABYLON", "Matrix", "PerspectiveFovWebVRToRef" },
-                    fov,
-                    znear,
-                    zfar,
-                    result,
-                    rightHanded
+                    isVerticalFovFixed,
+                    halfZRange,
+                    projectionPlaneTilt
                 }
             );
         }
@@ -873,9 +1077,11 @@ namespace BABYLON
             );
         }
 
-        public static void TransposeToRef(Matrix matrix, Matrix result)
+        public static T TransposeToRef<T>(Matrix matrix, T result)
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "TransposeToRef" },
@@ -893,9 +1099,11 @@ namespace BABYLON
             );
         }
 
-        public static void ReflectionToRef(IPlaneLike plane, Matrix result)
+        public static T ReflectionToRef<T>(IPlaneLike plane, T result)
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "ReflectionToRef" },
@@ -905,14 +1113,11 @@ namespace BABYLON
             );
         }
 
-        public static void FromXYZAxesToRef(
-            Vector3 xaxis,
-            Vector3 yaxis,
-            Vector3 zaxis,
-            Matrix result
-        )
+        public static T FromXYZAxesToRef<T>(Vector3 xaxis, Vector3 yaxis, Vector3 zaxis, T result)
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "FromXYZAxesToRef" },
@@ -924,9 +1129,11 @@ namespace BABYLON
             );
         }
 
-        public static void FromQuaternionToRef(Quaternion quat, Matrix result)
+        public static T FromQuaternionToRef<T>(Quaternion quat, T result)
+            where T : CachedEntity, new()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[]
                 {
                     new string[] { "BABYLON", "Matrix", "FromQuaternionToRef" },
@@ -938,14 +1145,62 @@ namespace BABYLON
         #endregion
 
         #region Accessors
-
-        public decimal[] m
+        private _Tuple<T, N, R> __m;
+        public _Tuple<T, N, R> m
         {
-            get { return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "m"); }
+            get
+            {
+                if (__m == null)
+                {
+                    __m = EventHorizonBlazorInterop.GetClass<_Tuple<T, N, R>>(
+                        this.___guid,
+                        "m",
+                        (entity) =>
+                        {
+                            return new _Tuple<T, N, R>() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __m;
+            }
         }
         #endregion
 
         #region Properties
+        private CachedEntityObject __dimension;
+        public CachedEntityObject dimension
+        {
+            get
+            {
+                if (__dimension == null)
+                {
+                    __dimension = EventHorizonBlazorInterop.GetClass<CachedEntityObject>(
+                        this.___guid,
+                        "dimension",
+                        (entity) =>
+                        {
+                            return new CachedEntityObject() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __dimension;
+            }
+        }
+
+        public CachedEntity rank
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetClass<CachedEntity>(
+                    this.___guid,
+                    "rank",
+                    (entity) =>
+                    {
+                        return new CachedEntity() { ___guid = entity.___guid };
+                    }
+                );
+            }
+        }
 
         public decimal updateFlag
         {
@@ -963,14 +1218,18 @@ namespace BABYLON
             : base() { }
 
         public Matrix(ICachedEntity entity)
-            : base(entity)
-        {
-            ___guid = entity.___guid;
-        }
+            : base(entity) { }
 
         #endregion
 
         #region Methods
+        public void markAsUpdated()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "markAsUpdated" } }
+            );
+        }
+
         public bool isIdentity()
         {
             return EventHorizonBlazorInterop.Func<bool>(
@@ -992,17 +1251,57 @@ namespace BABYLON
             );
         }
 
-        public decimal[] toArray()
+        public string toString()
         {
-            return EventHorizonBlazorInterop.FuncArray<decimal>(
-                new object[] { new string[] { this.___guid, "toArray" } }
+            return EventHorizonBlazorInterop.Func<string>(
+                new object[] { new string[] { this.___guid, "toString" } }
             );
         }
 
-        public decimal[] asArray()
+        public decimal[] toArray(decimal[] array, decimal index)
         {
             return EventHorizonBlazorInterop.FuncArray<decimal>(
+                new object[] { new string[] { this.___guid, "toArray" }, array, index }
+            );
+        }
+
+        public _Tuple<T, N, R> asArray()
+        {
+            return EventHorizonBlazorInterop.FuncClass<_Tuple<T, N, R>>(
+                entity => new _Tuple<T, N, R>() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "asArray" } }
+            );
+        }
+
+        public Matrix fromArray(decimal[] array, System.Nullable<decimal> index = null)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "fromArray" }, array, index }
+            );
+        }
+
+        public Matrix copyFromFloats(_Tuple<T, N, R> floats)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "copyFromFloats" }, floats }
+            );
+        }
+
+        public Matrix set(_Tuple<T, N, R> values)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "set" }, values }
+            );
+        }
+
+        public Matrix setAll(decimal value)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "setAll" }, value }
             );
         }
 
@@ -1030,10 +1329,11 @@ namespace BABYLON
             );
         }
 
-        public Matrix addToRef(Matrix other, Matrix result)
+        public T addToRef<T>(Matrix other, T result)
+            where T : CachedEntity, new()
         {
-            return EventHorizonBlazorInterop.FuncClass<Matrix>(
-                entity => new Matrix() { ___guid = entity.___guid },
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "addToRef" }, other, result }
             );
         }
@@ -1046,10 +1346,69 @@ namespace BABYLON
             );
         }
 
-        public Matrix invertToRef(Matrix other)
+        public Matrix addInPlace(Matrix other)
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "addInPlace" }, other }
+            );
+        }
+
+        public Matrix addInPlaceFromFloats(_Tuple<T, N, R> floats)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "addInPlaceFromFloats" }, floats }
+            );
+        }
+
+        public Matrix subtract(Matrix other)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "subtract" }, other }
+            );
+        }
+
+        public T subtractToRef<T>(Matrix other, T result)
+            where T : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "subtractToRef" }, other, result }
+            );
+        }
+
+        public Matrix subtractInPlace(Matrix other)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "subtractInPlace" }, other }
+            );
+        }
+
+        public Matrix subtractFromFloats(_Tuple<T, N, R> floats)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "subtractFromFloats" }, floats }
+            );
+        }
+
+        public T subtractFromFloatsToRef<T>(T args)
+            where T : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "subtractFromFloatsToRef" }, args }
+            );
+        }
+
+        public T invertToRef<T>(T other)
+            where T : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "invertToRef" }, other }
             );
         }
@@ -1102,10 +1461,11 @@ namespace BABYLON
             );
         }
 
-        public Matrix getTranslationToRef(Vector3 result)
+        public T getTranslationToRef<T>(T result)
+            where T : CachedEntity, new()
         {
-            return EventHorizonBlazorInterop.FuncClass<Matrix>(
-                entity => new Matrix() { ___guid = entity.___guid },
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "getTranslationToRef" }, result }
             );
         }
@@ -1115,14 +1475,6 @@ namespace BABYLON
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "removeRotationAndScaling" } }
-            );
-        }
-
-        public Matrix multiply(Matrix other)
-        {
-            return EventHorizonBlazorInterop.FuncClass<Matrix>(
-                entity => new Matrix() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "multiply" }, other }
             );
         }
 
@@ -1142,10 +1494,44 @@ namespace BABYLON
             );
         }
 
-        public Matrix multiplyToRef(Matrix other, Matrix result)
+        public Matrix multiply(Matrix other)
         {
             return EventHorizonBlazorInterop.FuncClass<Matrix>(
                 entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "multiply" }, other }
+            );
+        }
+
+        public Matrix multiplyInPlace(Matrix other)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "multiplyInPlace" }, other }
+            );
+        }
+
+        public Matrix multiplyByFloats(_Tuple<T, N, R> floats)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "multiplyByFloats" }, floats }
+            );
+        }
+
+        public T multiplyByFloatsToRef<T>(T args)
+            where T : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "multiplyByFloatsToRef" }, args }
+            );
+        }
+
+        public T multiplyToRef<T>(Matrix other, T result)
+            where T : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "multiplyToRef" }, other, result }
             );
         }
@@ -1164,10 +1550,140 @@ namespace BABYLON
             );
         }
 
+        public Matrix divide(Matrix other)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "divide" }, other }
+            );
+        }
+
+        public T divideToRef<T>(Matrix other, T result)
+            where T : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "divideToRef" }, other, result }
+            );
+        }
+
+        public Matrix divideInPlace(Matrix other)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "divideInPlace" }, other }
+            );
+        }
+
+        public Matrix minimizeInPlace(Matrix other)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "minimizeInPlace" }, other }
+            );
+        }
+
+        public Matrix minimizeInPlaceFromFloats(_Tuple<T, N, R> floats)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "minimizeInPlaceFromFloats" }, floats }
+            );
+        }
+
+        public Matrix maximizeInPlace(Matrix other)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "maximizeInPlace" }, other }
+            );
+        }
+
+        public Matrix maximizeInPlaceFromFloats(_Tuple<T, N, R> floats)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "maximizeInPlaceFromFloats" }, floats }
+            );
+        }
+
+        public Matrix negate()
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "negate" } }
+            );
+        }
+
+        public Matrix negateInPlace()
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "negateInPlace" } }
+            );
+        }
+
+        public T negateToRef<T>(T result)
+            where T : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "negateToRef" }, result }
+            );
+        }
+
         public bool equals(Matrix value)
         {
             return EventHorizonBlazorInterop.Func<bool>(
                 new object[] { new string[] { this.___guid, "equals" }, value }
+            );
+        }
+
+        public bool equalsWithEpsilon(Matrix other, System.Nullable<decimal> epsilon = null)
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "equalsWithEpsilon" }, other, epsilon }
+            );
+        }
+
+        public bool equalsToFloats(_Tuple<T, N, R> floats)
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "equalsToFloats" }, floats }
+            );
+        }
+
+        public Matrix floor()
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "floor" } }
+            );
+        }
+
+        public T floorToRef<T>(T result)
+            where T : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "floorToRef" }, result }
+            );
+        }
+
+        public Matrix fract()
+        {
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "fract" } }
+            );
+        }
+
+        public T fractToRef<T>(T result)
+            where T : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "fractToRef" }, result }
             );
         }
 
@@ -1193,10 +1709,19 @@ namespace BABYLON
             );
         }
 
+        public bool decomposeToTransformNode(TransformNode node)
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "decomposeToTransformNode" }, node }
+            );
+        }
+
         public bool decompose(
             Vector3 scale = null,
             Quaternion rotation = null,
-            Vector3 translation = null
+            Vector3 translation = null,
+            TransformNode preserveScalingNode = null,
+            System.Nullable<bool> useAbsoluteScaling = null
         )
         {
             return EventHorizonBlazorInterop.Func<bool>(
@@ -1205,7 +1730,9 @@ namespace BABYLON
                     new string[] { this.___guid, "decompose" },
                     scale,
                     rotation,
-                    translation
+                    translation,
+                    preserveScalingNode,
+                    useAbsoluteScaling
                 }
             );
         }
@@ -1215,6 +1742,15 @@ namespace BABYLON
             return EventHorizonBlazorInterop.FuncClass<Vector4>(
                 entity => new Vector4() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "getRow" }, index }
+            );
+        }
+
+        public T getRowToRef<T>(decimal index, T rowVector)
+            where T : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getRowToRef" }, index, rowVector }
             );
         }
 
@@ -1234,10 +1770,11 @@ namespace BABYLON
             );
         }
 
-        public Matrix transposeToRef(Matrix result)
+        public T transposeToRef<T>(T result)
+            where T : CachedEntity, new()
         {
-            return EventHorizonBlazorInterop.FuncClass<Matrix>(
-                entity => new Matrix() { ___guid = entity.___guid },
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "transposeToRef" }, result }
             );
         }
@@ -1266,25 +1803,37 @@ namespace BABYLON
             );
         }
 
-        public Matrix scaleToRef(decimal scale, Matrix result)
+        public T scaleToRef<T>(decimal scale, T result)
+            where T : CachedEntity, new()
         {
-            return EventHorizonBlazorInterop.FuncClass<Matrix>(
-                entity => new Matrix() { ___guid = entity.___guid },
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "scaleToRef" }, scale, result }
             );
         }
 
-        public Matrix scaleAndAddToRef(decimal scale, Matrix result)
+        public T scaleAndAddToRef<T>(decimal scale, T result)
+            where T : CachedEntity, new()
         {
-            return EventHorizonBlazorInterop.FuncClass<Matrix>(
-                entity => new Matrix() { ___guid = entity.___guid },
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "scaleAndAddToRef" }, scale, result }
             );
         }
 
-        public void toNormalMatrix(Matrix @ref)
+        public Matrix scaleInPlace(decimal scale)
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "scaleInPlace" }, scale }
+            );
+        }
+
+        public T toNormalMatrix<T>(T @ref)
+            where T : CachedEntity, new()
+        {
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "toNormalMatrix" }, @ref }
             );
         }
@@ -1297,24 +1846,27 @@ namespace BABYLON
             );
         }
 
-        public Matrix getRotationMatrixToRef(Matrix result)
+        public T getRotationMatrixToRef<T>(T result)
+            where T : CachedEntity, new()
         {
-            return EventHorizonBlazorInterop.FuncClass<Matrix>(
-                entity => new Matrix() { ___guid = entity.___guid },
+            return EventHorizonBlazorInterop.FuncClass<T>(
+                entity => new T() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "getRotationMatrixToRef" }, result }
             );
         }
 
-        public void toggleModelMatrixHandInPlace()
+        public Matrix toggleModelMatrixHandInPlace()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "toggleModelMatrixHandInPlace" } }
             );
         }
 
-        public void toggleProjectionMatrixHandInPlace()
+        public Matrix toggleProjectionMatrixHandInPlace()
         {
-            EventHorizonBlazorInterop.Func<CachedEntity>(
+            return EventHorizonBlazorInterop.FuncClass<Matrix>(
+                entity => new Matrix() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "toggleProjectionMatrixHandInPlace" } }
             );
         }

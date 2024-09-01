@@ -53,6 +53,7 @@ class ArgumentWriter
                     || genericType.IsNullable
                     || genericType.IsArray
                     || genericType.IsModifier
+                    || genericType.IsReadonly
                     || genericType.IsAction
                     || genericType.IsTypeAlias
                     || genericType.Name == GenerationIdentifiedTypes.String
@@ -70,6 +71,7 @@ class ArgumentWriter
                 || typeStatement.IsNullable
                 || typeStatement.IsArray
                 || typeStatement.IsModifier
+                || typeStatement.IsReadonly
                 || typeStatement.IsAction
                 || typeStatement.Name == GenerationIdentifiedTypes.String
                 || typeStatement.Name == GenerationIdentifiedTypes.CachedEntity

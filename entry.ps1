@@ -35,14 +35,19 @@ function Invoke-LocationChangeBlock {
     }
 }
 
+$sampleDirectory = "./Sample"
 $consoleSampleDirectory = "./Sample/EventHorizon.BabylonJS.Interop.Generator.ConsoleApp"
 $wasmSampleProject = "./Sample/EventHorizon.Blazor.BabylonJS/EventHorizon.Blazor.BabylonJS.csproj"
 $serverSampleProject = "./Sample/EventHorizon.Blazor.Server.BabylonJS/EventHorizon.Blazor.Server.BabylonJS.csproj"
+$generatedSampleDirectory = "./Sample/_generated"
 
 $testProject = "./Tests/EventHorizon.Blazor.TypeScript.Interop.Generator.Tests/EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.csproj"
 $testServerProject = "./Tests/EventHorizon.Blazor.Interop.Generator.Tests/EventHorizon.Blazor.Interop.Generator.Tests.csproj"
 
 switch ($Command) {
+    "setup" {
+        dotnet tool install --global dotnet-trace
+    }
     "clean" {
         dotnet clean
     }
@@ -51,7 +56,7 @@ switch ($Command) {
     }
     "build" {
         dotnet csharpier .
-        dotnet build
+        dotnet build --no-cache
     }
     "run" {
         dotnet run --project $serverProject
@@ -91,7 +96,12 @@ switch ($Command) {
         Invoke-LocationChangeBlock {
             cd $consoleSampleDirectory
             dotnet clean
-            dotnet run 
+            dotnet run -c $Configuration
+        }
+
+        Invoke-LocationChangeBlock {
+            cd $sampleDirectory
+            dotnet build
         }
     }
     Default {

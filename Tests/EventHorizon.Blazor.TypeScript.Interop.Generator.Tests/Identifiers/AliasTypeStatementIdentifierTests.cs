@@ -1,6 +1,7 @@
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers;
 
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
+using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
 using FluentAssertions;
@@ -23,6 +24,8 @@ public class AliasTypeStatementIdentifierTests
         var typeOverrideDetails = new TypeOverrideDetails();
 
         astMock.Setup(mock => mock.RootNode).Returns(rootNode.Object);
+
+        rootNode.Setup(mock => mock.OfKind(SyntaxKind.TypeAliasDeclaration)).Returns([]);
 
         // When
         var actual = AliasTypeStatementIdentifier.Identify(

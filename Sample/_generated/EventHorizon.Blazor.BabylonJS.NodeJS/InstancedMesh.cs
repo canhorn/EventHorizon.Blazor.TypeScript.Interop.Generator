@@ -45,6 +45,11 @@ namespace BABYLON
         public bool receiveShadows
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "receiveShadows"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "receiveShadows", value);
+            }
         }
 
         private Material __material;
@@ -65,11 +70,21 @@ namespace BABYLON
                 }
                 return __material;
             }
+            set
+            {
+                __material = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "material", value);
+            }
         }
 
         public decimal visibility
         {
             get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "visibility"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "visibility", value);
+            }
         }
 
         private Skeleton __skeleton;
@@ -89,6 +104,11 @@ namespace BABYLON
                     );
                 }
                 return __skeleton;
+            }
+            set
+            {
+                __skeleton = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "skeleton", value);
             }
         }
 
@@ -149,6 +169,29 @@ namespace BABYLON
             );
             ___guid = entity.___guid;
         }
+
+        public InstancedMesh(string name, Scene scene = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "InstancedMesh" },
+                name,
+                scene
+            );
+            ___guid = entity.___guid;
+        }
+
+        public InstancedMesh(string name, Scene scene = null, System.Nullable<bool> isPure = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "InstancedMesh" },
+                name,
+                scene,
+                isPure
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods
@@ -188,15 +231,27 @@ namespace BABYLON
             );
         }
 
-        public decimal[] getVerticesData(string kind, System.Nullable<bool> copyWhenShared = null)
+        public decimal[] getVerticesData(
+            string kind,
+            System.Nullable<bool> copyWhenShared = null,
+            System.Nullable<bool> forceCopy = null
+        )
         {
             return EventHorizonBlazorInterop.FuncArray<decimal>(
                 new object[]
                 {
                     new string[] { this.___guid, "getVerticesData" },
                     kind,
-                    copyWhenShared
+                    copyWhenShared,
+                    forceCopy
                 }
+            );
+        }
+
+        public void copyVerticesData(string kind, object vertexData)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "copyVerticesData" }, kind, vertexData }
             );
         }
 
@@ -262,11 +317,19 @@ namespace BABYLON
             );
         }
 
-        public InstancedMesh refreshBoundingInfo(System.Nullable<bool> applySkeleton = null)
+        public InstancedMesh refreshBoundingInfo(
+            System.Nullable<bool> applySkeletonOrOptions = null,
+            System.Nullable<bool> applyMorph = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<InstancedMesh>(
                 entity => new InstancedMesh() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "refreshBoundingInfo" }, applySkeleton }
+                new object[]
+                {
+                    new string[] { this.___guid, "refreshBoundingInfo" },
+                    applySkeletonOrOptions,
+                    applyMorph
+                }
             );
         }
 
@@ -289,7 +352,8 @@ namespace BABYLON
         public InstancedMesh clone(
             string name,
             Node newParent = null,
-            System.Nullable<bool> doNotCloneChildren = null
+            System.Nullable<bool> doNotCloneChildren = null,
+            Mesh newSourceMesh = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<InstancedMesh>(
@@ -299,7 +363,8 @@ namespace BABYLON
                     new string[] { this.___guid, "clone" },
                     name,
                     newParent,
-                    doNotCloneChildren
+                    doNotCloneChildren,
+                    newSourceMesh
                 }
             );
         }
@@ -315,6 +380,24 @@ namespace BABYLON
                     new string[] { this.___guid, "dispose" },
                     doNotRecurse,
                     disposeMaterialAndTextures
+                }
+            );
+        }
+
+        public TransformNode instantiateHierarchy(
+            TransformNode newParent = null,
+            System.Nullable<bool> options = null,
+            ActionCallback<TransformNode, TransformNode> onNewNodeCreated = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<TransformNode>(
+                entity => new TransformNode() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "instantiateHierarchy" },
+                    newParent,
+                    options,
+                    onNewNodeCreated
                 }
             );
         }

@@ -13,7 +13,7 @@ namespace Generic.Properties
     
     
     [JsonConverter(typeof(CachedEntityConverter<ExampleClass<CachedEntity>>))]
-    public class ExampleClass<TCamera> : CachedEntityObject where TCamera : CachedEntity, new()
+    public class ExampleClass<TCamera> : CachedEntityObject
     {
         #region Static Accessors
 
@@ -67,6 +67,17 @@ namespace Generic.Properties
                 new object[]
                 {
                     new string[] { this.___guid, "initWebVR" }
+                }
+            );
+        }
+
+        public ExampleClass<TCamera> thisReturned()
+        {
+            return EventHorizonBlazorInterop.FuncClass<ExampleClass<TCamera>>(
+                entity => new ExampleClass<TCamera>() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "thisReturned" }
                 }
             );
         }

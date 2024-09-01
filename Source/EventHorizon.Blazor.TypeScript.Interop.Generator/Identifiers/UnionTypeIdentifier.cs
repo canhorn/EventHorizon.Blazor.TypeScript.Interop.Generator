@@ -9,7 +9,7 @@ using EventHorizon.Blazor.TypeScript.Interop.Generator.Rules;
 
 public class UnionTypeIdentifier
 {
-    private static IRule IsUnionTypeRule = new IsUnionType();
+    private static readonly IsUnionType IsUnionTypeRule = new();
 
     internal static bool Identify(
         Node parameter,
@@ -20,7 +20,16 @@ public class UnionTypeIdentifier
     )
     {
         type = new TypeStatement { Name = GenerationIdentifiedTypes.Unknown, };
-        if (IsUnionTypeRule.Check(parameter))
+        if (
+            parameter.Kind == SyntaxKind.ClassDeclaration
+            || parameter.Kind == SyntaxKind.InterfaceDeclaration
+            || parameter.Kind == SyntaxKind.EnumDeclaration
+            || parameter.Kind == SyntaxKind.TypeAliasDeclaration
+        )
+        {
+            return false;
+        }
+        else if (IsUnionTypeRule.Check(parameter))
         {
             var unionNode = parameter
                 .OfKind(SyntaxKind.UnionType)

@@ -74,7 +74,7 @@ namespace BABYLON
         public PointLight(ICachedEntity entity)
             : base(entity) { }
 
-        public PointLight(string name, Vector3 position, Scene scene)
+        public PointLight(string name, Vector3 position, Scene scene = null)
             : base()
         {
             var entity = EventHorizonBlazorInterop.New(
@@ -82,6 +82,29 @@ namespace BABYLON
                 name,
                 position,
                 scene
+            );
+            ___guid = entity.___guid;
+        }
+
+        public PointLight(string name, Scene scene = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "PointLight" },
+                name,
+                scene
+            );
+            ___guid = entity.___guid;
+        }
+
+        public PointLight(string name, Scene scene = null, System.Nullable<bool> isPure = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "PointLight" },
+                name,
+                scene,
+                isPure
             );
             ___guid = entity.___guid;
         }

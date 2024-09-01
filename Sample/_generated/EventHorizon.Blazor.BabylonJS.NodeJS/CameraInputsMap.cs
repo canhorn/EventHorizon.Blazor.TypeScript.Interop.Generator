@@ -14,7 +14,6 @@ namespace BABYLON
 
     [JsonConverter(typeof(CachedEntityConverter<CameraInputsMapCachedEntity<CachedEntity>>))]
     public class CameraInputsMapCachedEntity<TCamera> : CachedEntityObject, CameraInputsMap<TCamera>
-        where TCamera : CachedEntity, new()
     {
         #region Static Accessors
 

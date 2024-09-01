@@ -49,7 +49,8 @@ namespace BABYLON
             Matrix worldMatrix,
             Vector3 directionToUpdate,
             Particle particle,
-            bool isLocal
+            bool isLocal,
+            Matrix inverseWorldMatrix
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
@@ -59,7 +60,8 @@ namespace BABYLON
                     worldMatrix,
                     directionToUpdate,
                     particle,
-                    isLocal
+                    isLocal,
+                    inverseWorldMatrix
                 }
             );
         }
@@ -91,10 +93,17 @@ namespace BABYLON
             );
         }
 
-        public void applyToShader(Effect effect)
+        public void applyToShader(UniformBufferEffectCommonAccessor uboOrEffect)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "applyToShader" }, effect }
+                new object[] { new string[] { this.___guid, "applyToShader" }, uboOrEffect }
+            );
+        }
+
+        public void buildUniformLayout(UniformBuffer ubo)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "buildUniformLayout" }, ubo }
             );
         }
 

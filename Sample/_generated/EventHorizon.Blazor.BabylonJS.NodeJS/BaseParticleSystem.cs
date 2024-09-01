@@ -11,7 +11,7 @@ namespace BABYLON
     using Microsoft.JSInterop;
 
     [JsonConverter(typeof(CachedEntityConverter<BaseParticleSystem>))]
-    public class BaseParticleSystem : CachedEntityObject
+    public class BaseParticleSystem : CachedEntityObject, IClipPlanesHolder
     {
         #region Static Accessors
 
@@ -159,6 +159,16 @@ namespace BABYLON
             }
         }
 
+        public bool useLogarithmicDepth
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "useLogarithmicDepth"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "useLogarithmicDepth", value);
+            }
+        }
+
         private Vector3 __direction1;
         public Vector3 direction1
         {
@@ -256,6 +266,16 @@ namespace BABYLON
             {
                 __maxEmitBox = null;
                 EventHorizonBlazorInterop.Set(this.___guid, "maxEmitBox", value);
+            }
+        }
+
+        public decimal billboardMode
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "billboardMode"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "billboardMode", value);
             }
         }
 
@@ -660,6 +680,16 @@ namespace BABYLON
             }
         }
 
+        public bool applyFog
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "applyFog"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "applyFog", value);
+            }
+        }
+
         private Vector3 __noiseStrength;
         public Vector3 noiseStrength
         {
@@ -803,6 +833,16 @@ namespace BABYLON
             }
         }
 
+        public bool spriteCellLoop
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "spriteCellLoop"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "spriteCellLoop", value);
+            }
+        }
+
         public bool spriteRandomStartCell
         {
             get
@@ -909,6 +949,156 @@ namespace BABYLON
             {
                 __worldOffset = null;
                 EventHorizonBlazorInterop.Set(this.___guid, "worldOffset", value);
+            }
+        }
+
+        private Plane __clipPlane;
+        public Plane clipPlane
+        {
+            get
+            {
+                if (__clipPlane == null)
+                {
+                    __clipPlane = EventHorizonBlazorInterop.GetClass<Plane>(
+                        this.___guid,
+                        "clipPlane",
+                        (entity) =>
+                        {
+                            return new Plane() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __clipPlane;
+            }
+            set
+            {
+                __clipPlane = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "clipPlane", value);
+            }
+        }
+
+        private Plane __clipPlane2;
+        public Plane clipPlane2
+        {
+            get
+            {
+                if (__clipPlane2 == null)
+                {
+                    __clipPlane2 = EventHorizonBlazorInterop.GetClass<Plane>(
+                        this.___guid,
+                        "clipPlane2",
+                        (entity) =>
+                        {
+                            return new Plane() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __clipPlane2;
+            }
+            set
+            {
+                __clipPlane2 = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "clipPlane2", value);
+            }
+        }
+
+        private Plane __clipPlane3;
+        public Plane clipPlane3
+        {
+            get
+            {
+                if (__clipPlane3 == null)
+                {
+                    __clipPlane3 = EventHorizonBlazorInterop.GetClass<Plane>(
+                        this.___guid,
+                        "clipPlane3",
+                        (entity) =>
+                        {
+                            return new Plane() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __clipPlane3;
+            }
+            set
+            {
+                __clipPlane3 = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "clipPlane3", value);
+            }
+        }
+
+        private Plane __clipPlane4;
+        public Plane clipPlane4
+        {
+            get
+            {
+                if (__clipPlane4 == null)
+                {
+                    __clipPlane4 = EventHorizonBlazorInterop.GetClass<Plane>(
+                        this.___guid,
+                        "clipPlane4",
+                        (entity) =>
+                        {
+                            return new Plane() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __clipPlane4;
+            }
+            set
+            {
+                __clipPlane4 = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "clipPlane4", value);
+            }
+        }
+
+        private Plane __clipPlane5;
+        public Plane clipPlane5
+        {
+            get
+            {
+                if (__clipPlane5 == null)
+                {
+                    __clipPlane5 = EventHorizonBlazorInterop.GetClass<Plane>(
+                        this.___guid,
+                        "clipPlane5",
+                        (entity) =>
+                        {
+                            return new Plane() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __clipPlane5;
+            }
+            set
+            {
+                __clipPlane5 = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "clipPlane5", value);
+            }
+        }
+
+        private Plane __clipPlane6;
+        public Plane clipPlane6
+        {
+            get
+            {
+                if (__clipPlane6 == null)
+                {
+                    __clipPlane6 = EventHorizonBlazorInterop.GetClass<Plane>(
+                        this.___guid,
+                        "clipPlane6",
+                        (entity) =>
+                        {
+                            return new Plane() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __clipPlane6;
+            }
+            set
+            {
+                __clipPlane6 = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "clipPlane6", value);
             }
         }
 
@@ -1088,16 +1278,6 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set(this.___guid, "particleEmitterType", value);
             }
         }
-
-        public decimal billboardMode
-        {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "billboardMode"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "billboardMode", value);
-            }
-        }
         #endregion
 
         #region Constructor
@@ -1105,12 +1285,10 @@ namespace BABYLON
             : base() { }
 
         public BaseParticleSystem(ICachedEntity entity)
-            : base(entity)
-        {
-            ___guid = entity.___guid;
-        }
+            : base(entity) { }
 
         public BaseParticleSystem(string name)
+            : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "BaseParticleSystem" },
@@ -1330,6 +1508,26 @@ namespace BABYLON
             return EventHorizonBlazorInterop.FuncClass<ConeParticleEmitter>(
                 entity => new ConeParticleEmitter() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "createConeEmitter" }, radius, angle }
+            );
+        }
+
+        public ConeDirectedParticleEmitter createDirectedConeEmitter(
+            System.Nullable<decimal> radius = null,
+            System.Nullable<decimal> angle = null,
+            Vector3 direction1 = null,
+            Vector3 direction2 = null
+        )
+        {
+            return EventHorizonBlazorInterop.FuncClass<ConeDirectedParticleEmitter>(
+                entity => new ConeDirectedParticleEmitter() { ___guid = entity.___guid },
+                new object[]
+                {
+                    new string[] { this.___guid, "createDirectedConeEmitter" },
+                    radius,
+                    angle,
+                    direction1,
+                    direction2
+                }
             );
         }
 

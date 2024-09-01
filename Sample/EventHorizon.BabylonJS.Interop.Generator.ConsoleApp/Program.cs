@@ -14,19 +14,60 @@ public class Program
 {
     static void Main(string[] args)
     {
-        // pre-05/26/2024 - 75084ms/71877ms to generate.
-        // 05/26/2024 - 26662ms/27904ms/27486ms to generate.
-        Run(AstParser.Model.ASTParserType.NodeJS, true, "EventHorizon.Blazor.BabylonJS.NodeJS");
+        // pre-05/26/2024 - 75084ms | 71877ms
+        // 05/26/2024 - 26662ms | 27904ms | 27486ms
+        // - This is with a smaller class list.
+        // 08/16/2024 - 37792ms | 34831ms
+        // 08/31/2024 - 31830ms | 32695ms | 32146ms
+        Run(
+            AstParser.Model.ASTParserType.NodeJS,
+            useWasm: true,
+            projectAssembly: "EventHorizon.Blazor.BabylonJS.NodeJS",
+            sourceFiles: ["babylon.d.ts", "babylon.gui.d.ts",],
+            maxDegreeOfParallelism: 4
+        );
 
-        // pre-05/26/2024 - 22027ms/19835ms/18236ms to generate.
-        // 05/26/2024 - 10116ms/9721ms/9762ms to generate.
-        Run(AstParser.Model.ASTParserType.Sdcb, true, "EventHorizon.Blazor.BabylonJS.WASM");
+        // pre-05/26/2024 - 22027ms | 19835ms | 18236ms
+        // 05/26/2024 - 10116ms | 9721ms | 9762ms
+        // 08/16/2024 - 93478ms
+        // 08/31/2024 - 72651ms | 63212ms
+        // Run(
+        //     AstParser.Model.ASTParserType.Sdcb,
+        //     useWasm: true,
+        //     projectAssembly: "EventHorizon.Blazor.BabylonJS.WASM",
+        //     sourceFiles: ["babylon.d@4.2.2.ts", "babylon.gui.d@4.2.2.ts",],
+        //     maxDegreeOfParallelism: 4
+        // );
 
-        // 05/26/2024 - 10545ms/10603ms/10318ms to generate.
-        Run(AstParser.Model.ASTParserType.Sdcb, false, "EventHorizon.Blazor.BabylonJS.Server");
+        // Server Generation
+        // 08/16/2024 - 35424ms
+        // 08/31/2024 - 32488ms
+        // Run(
+        //     AstParser.Model.ASTParserType.NodeJS,
+        //     useWasm: false,
+        //     projectAssembly: "EventHorizon.Blazor.BabylonJS.ServerNodeJs",
+        //     sourceFiles: ["babylon.d.ts", "babylon.gui.d.ts",],
+        //     maxDegreeOfParallelism: 4
+        // );
+
+        // 05/26/2024 - 10545ms | 10603ms | 10318ms
+        // 8/31/2024 - 68459ms
+        // Run(
+        //     AstParser.Model.ASTParserType.Sdcb,
+        //     useWasm: false,
+        //     projectAssembly: "EventHorizon.Blazor.BabylonJS.Server",
+        //     sourceFiles: ["babylon.d@4.2.2.ts", "babylon.gui.d@4.2.2.ts",],
+        //     maxDegreeOfParallelism: 4
+        // );
     }
 
-    static void Run(AstParser.Model.ASTParserType type, bool useWasm, string projectAssembly)
+    static void Run(
+        AstParser.Model.ASTParserType type,
+        bool useWasm,
+        string projectAssembly,
+        List<string> sourceFiles,
+        int maxDegreeOfParallelism
+    )
     {
         var stopwatch = Stopwatch.StartNew();
         //var projectAssembly = "EventHorizon.Blazor.BabylonJS.WASM";
@@ -34,15 +75,9 @@ public class Program
 
         var sourceDirectory = Path.Combine(".", "SourceFiles");
         var textFormatter = new CSharpTextFormatter();
-        var sourceFiles = new List<string>
-        {
-            //"testing.d.ts",
-            "babylon.d.ts",
-            "babylon.gui.d.ts",
-        };
         var generationList = new List<string>
         {
-            //"Everything",
+            // "Everything",
             "Scene",
             "VertexBuffer",
             "ICameraInput",
@@ -68,6 +103,7 @@ public class Program
             "PointerInfoBase",
             "SceneLoader",
             "ParticleHelper",
+            "ParticleSystem",
             "Sound",
             "Tools",
         };
@@ -90,8 +126,10 @@ public class Program
                 generationList,
                 writer,
                 textFormatter,
-                new Dictionary<string, string> { { "BABYLON.PointerInfoBase | type", "int" } },
-                type
+                new Dictionary<string, string> { ["BABYLON.PointerInfoBase | type"] = "int" },
+                ["BABYLON.Matrix.T[PropertyDeclaration]",],
+                type,
+                maxDegreeOfParallelism
             );
         }
         else
@@ -112,8 +150,15 @@ public class Program
                 generationList,
                 writer,
                 noFormattingTextFormatter,
-                new Dictionary<string, string> { { "BABYLON.PointerInfoBase | type", "int" } },
-                type
+                new Dictionary<string, string>
+                {
+                    [".ThinEngine | onBeforeTextureInitObservable"] =
+                        "Observable<CachedEntityObject>",
+                    ["BABYLON.PointerInfoBase | type"] = "int"
+                },
+                ["BABYLON.Tensor.R[PropertySignature]", "BABYLON.Matrix.T[PropertyDeclaration]",],
+                type,
+                maxDegreeOfParallelism
             );
         }
         stopwatch.Stop();

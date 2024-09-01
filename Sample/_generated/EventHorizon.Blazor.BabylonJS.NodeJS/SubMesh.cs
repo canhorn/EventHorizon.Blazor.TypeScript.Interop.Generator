@@ -55,7 +55,8 @@ namespace BABYLON
             decimal startIndex,
             decimal indexCount,
             AbstractMesh mesh,
-            Mesh renderingMesh = null
+            Mesh renderingMesh = null,
+            System.Nullable<bool> createBoundingBox = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<SubMesh>(
@@ -67,7 +68,8 @@ namespace BABYLON
                     startIndex,
                     indexCount,
                     mesh,
-                    renderingMesh
+                    renderingMesh,
+                    createBoundingBox
                 }
             );
         }
@@ -215,10 +217,29 @@ namespace BABYLON
         #endregion
 
         #region Methods
-        public void setEffect(Effect effect, MaterialDefines defines = null)
+        public void setEffect(
+            Effect effect,
+            string defines = null,
+            IMaterialContext materialContext = null,
+            System.Nullable<bool> resetContext = null
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "setEffect" }, effect, defines }
+                new object[]
+                {
+                    new string[] { this.___guid, "setEffect" },
+                    effect,
+                    defines,
+                    materialContext,
+                    resetContext
+                }
+            );
+        }
+
+        public void resetDrawCache(System.Nullable<decimal> passId = null)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "resetDrawCache" }, passId }
             );
         }
 
@@ -270,11 +291,11 @@ namespace BABYLON
             );
         }
 
-        public Material getMaterial()
+        public Material getMaterial(System.Nullable<bool> getDefaultMaterial = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Material>(
                 entity => new Material() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "getMaterial" } }
+                new object[] { new string[] { this.___guid, "getMaterial" }, getDefaultMaterial }
             );
         }
 
@@ -332,7 +353,16 @@ namespace BABYLON
             Vector3[] positions,
             decimal[] indices,
             System.Nullable<bool> fastCheck = null,
-            ActionResultCallback<Vector3, Vector3, Vector3, Ray, bool> trianglePredicate = null
+            ActionResultCallback<
+                Vector3,
+                Vector3,
+                Vector3,
+                Ray,
+                decimal,
+                decimal,
+                decimal,
+                bool
+            > trianglePredicate = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<IntersectionInfo>(

@@ -206,8 +206,8 @@ namespace BABYLON
         }
 
         public static ISceneLoaderPluginCachedEntity ImportMesh(
-            object meshNames,
             string rootUrl,
+            string meshNames = null,
             string sceneFilename = null,
             Scene scene = null,
             ActionCallback<
@@ -217,11 +217,13 @@ namespace BABYLON
                 AnimationGroup[],
                 TransformNode[],
                 Geometry[],
-                Light[]
+                Light[],
+                ISpriteManager[]
             > onSuccess = null,
             ActionCallback<ISceneLoaderProgressEvent> onProgress = null,
             ActionCallback<Scene, string, CachedEntity> onError = null,
-            string pluginExtension = null
+            string pluginExtension = null,
+            string name = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<ISceneLoaderPluginCachedEntity>(
@@ -236,18 +238,20 @@ namespace BABYLON
                     onSuccess,
                     onProgress,
                     onError,
-                    pluginExtension
+                    pluginExtension,
+                    name
                 }
             );
         }
 
         public static ValueTask<ISceneLoaderAsyncResultCachedEntity> ImportMeshAsync(
-            object meshNames,
             string rootUrl,
+            string meshNames = null,
             string sceneFilename = null,
             Scene scene = null,
             ActionCallback<ISceneLoaderProgressEvent> onProgress = null,
-            string pluginExtension = null
+            string pluginExtension = null,
+            string name = null
         )
         {
             return EventHorizonBlazorInterop.TaskClass<ISceneLoaderAsyncResultCachedEntity>(
@@ -260,7 +264,8 @@ namespace BABYLON
                     sceneFilename,
                     scene,
                     onProgress,
-                    pluginExtension
+                    pluginExtension,
+                    name
                 }
             );
         }
@@ -268,11 +273,12 @@ namespace BABYLON
         public static ISceneLoaderPluginCachedEntity Load(
             string rootUrl,
             string sceneFilename = null,
-            Engine engine = null,
+            AbstractEngine engine = null,
             ActionCallback<Scene> onSuccess = null,
             ActionCallback<ISceneLoaderProgressEvent> onProgress = null,
             ActionCallback<Scene, string, CachedEntity> onError = null,
-            string pluginExtension = null
+            string pluginExtension = null,
+            string name = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<ISceneLoaderPluginCachedEntity>(
@@ -286,7 +292,8 @@ namespace BABYLON
                     onSuccess,
                     onProgress,
                     onError,
-                    pluginExtension
+                    pluginExtension,
+                    name
                 }
             );
         }
@@ -294,9 +301,10 @@ namespace BABYLON
         public static ValueTask<Scene> LoadAsync(
             string rootUrl,
             string sceneFilename = null,
-            Engine engine = null,
+            AbstractEngine engine = null,
             ActionCallback<ISceneLoaderProgressEvent> onProgress = null,
-            string pluginExtension = null
+            string pluginExtension = null,
+            string name = null
         )
         {
             return EventHorizonBlazorInterop.TaskClass<Scene>(
@@ -308,7 +316,8 @@ namespace BABYLON
                     sceneFilename,
                     engine,
                     onProgress,
-                    pluginExtension
+                    pluginExtension,
+                    name
                 }
             );
         }
@@ -320,7 +329,8 @@ namespace BABYLON
             ActionCallback<Scene> onSuccess = null,
             ActionCallback<ISceneLoaderProgressEvent> onProgress = null,
             ActionCallback<Scene, string, CachedEntity> onError = null,
-            string pluginExtension = null
+            string pluginExtension = null,
+            string name = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<ISceneLoaderPluginCachedEntity>(
@@ -334,7 +344,8 @@ namespace BABYLON
                     onSuccess,
                     onProgress,
                     onError,
-                    pluginExtension
+                    pluginExtension,
+                    name
                 }
             );
         }
@@ -344,7 +355,8 @@ namespace BABYLON
             string sceneFilename = null,
             Scene scene = null,
             ActionCallback<ISceneLoaderProgressEvent> onProgress = null,
-            string pluginExtension = null
+            string pluginExtension = null,
+            string name = null
         )
         {
             return EventHorizonBlazorInterop.TaskClass<Scene>(
@@ -356,7 +368,8 @@ namespace BABYLON
                     sceneFilename,
                     scene,
                     onProgress,
-                    pluginExtension
+                    pluginExtension,
+                    name
                 }
             );
         }
@@ -368,7 +381,8 @@ namespace BABYLON
             ActionCallback<AssetContainer> onSuccess = null,
             ActionCallback<ISceneLoaderProgressEvent> onProgress = null,
             ActionCallback<Scene, string, CachedEntity> onError = null,
-            string pluginExtension = null
+            string pluginExtension = null,
+            string name = null
         )
         {
             return EventHorizonBlazorInterop.FuncClass<ISceneLoaderPluginCachedEntity>(
@@ -382,7 +396,8 @@ namespace BABYLON
                     onSuccess,
                     onProgress,
                     onError,
-                    pluginExtension
+                    pluginExtension,
+                    name
                 }
             );
         }

@@ -1,7 +1,9 @@
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests;
 
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.CompilerServices;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl;
@@ -9,9 +11,10 @@ using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.SdcdImpl;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Formatter;
 using FluentAssertions;
 
-public class GenerateStringTestBase
+public abstract class GenerateStringTestBase
 {
-    public void ValidateGenerateStrings(
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public virtual void ValidateGenerateStrings(
         string path,
         string sourceFile,
         string expectedFile,
@@ -36,6 +39,7 @@ public class GenerateStringTestBase
         );
         var actual = GenerateClassStatementString.Generate(
             generated,
+            new ConcurrentDictionary<string, Model.Statements.ClassStatement>(),
             new NoFormattingTextFormatter()
         );
 
@@ -43,7 +47,8 @@ public class GenerateStringTestBase
         actual.Should().Be(expected);
     }
 
-    public void ValidateGenerateWithTypeOverrideStrings(
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public virtual void ValidateGenerateWithTypeOverrideStrings(
         string path,
         string sourceFile,
         IDictionary<string, string> typeOverrideMap,
@@ -67,6 +72,41 @@ public class GenerateStringTestBase
         );
         var actual = GenerateClassStatementString.Generate(
             generated,
+            new ConcurrentDictionary<string, Model.Statements.ClassStatement>(),
+            new NoFormattingTextFormatter()
+        );
+
+        // Then
+        actual.Should().Be(expected);
+    }
+
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public virtual void ValidateGenerateWithIgnoreIdentifiers(
+        string path,
+        string sourceFile,
+        IEnumerable<string> ignoredIdentifiers,
+        string expectedFile,
+        ASTParserType parserType = ASTParserType.Sdcb
+    )
+    {
+        // Given
+        GenerateSource.DisableCache();
+        var sourcePath = Path.Combine(".", "GenerateClassStatementStringTests", path);
+        string expected = File.ReadAllText(Path.Combine(sourcePath, expectedFile));
+        var source = File.ReadAllText(Path.Combine(sourcePath, sourceFile));
+        var ast = CreateParser(parserType, source);
+
+        // When
+        var generated = GenerateInteropClassStatement.Generate(
+            "ProjectAssembly",
+            "ExampleClass",
+            ast,
+            new Dictionary<string, string>(),
+            ignoredIdentifiers
+        );
+        var actual = GenerateClassStatementString.Generate(
+            generated,
+            new ConcurrentDictionary<string, Model.Statements.ClassStatement>(),
             new NoFormattingTextFormatter()
         );
 

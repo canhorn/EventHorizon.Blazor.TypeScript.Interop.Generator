@@ -9,22 +9,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         fetch-depth: '0'
     - name: Install GitVersion
-      uses: gittools/actions/gitversion/setup@v0.9.6
+      uses: gittools/actions/gitversion/setup@v3.0
       with:
         versionSpec: '5.x'
     - name: Use GitVersion
       id: gitversion
-      uses: gittools/actions/gitversion/execute@v0.9.6
+      uses: gittools/actions/gitversion/execute@v3.0
     - run: |
-        echo "NuGetVersionV2: ${{ steps.gitversion.outputs.NuGetVersionV2 }}"
+        echo "NuGetVersionV2: ${{ steps.gitversion.outputs.FullSemVer }}"
     - name: Bump version and push tag
-      uses: anothrNick/github-tag-action@1.67.0
+      uses: anothrNick/github-tag-action@1.70.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # We want to push to nuget the same version we tag
-        CUSTOM_TAG: ${{ steps.gitversion.outputs.NuGetVersionV2 }}
+        CUSTOM_TAG: ${{ steps.gitversion.outputs.FullSemVer }}
         RELEASE_BRANCHES: main

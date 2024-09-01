@@ -131,14 +131,6 @@ namespace BABYLON
             get { return EventHorizonBlazorInterop.Get<decimal>("BABYLON", "Camera.RIG_MODE_VR"); }
         }
 
-        public static decimal RIG_MODE_WEBVR
-        {
-            get
-            {
-                return EventHorizonBlazorInterop.Get<decimal>("BABYLON", "Camera.RIG_MODE_WEBVR");
-            }
-        }
-
         public static decimal RIG_MODE_CUSTOM
         {
             get
@@ -169,49 +161,13 @@ namespace BABYLON
         #endregion
 
         #region Static Methods
-        #region GetConstructorFromName TODO: Get Comments as metadata identification
-        private static bool IsGetConstructorFromNameEnabled = false;
-        private static readonly IDictionary<string, Func<Task>> GetConstructorFromNameActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public static string GetConstructorFromName(Func<Task> callback)
+        public static Camera GetConstructorFromName()
         {
-            SetupGetConstructorFromNameStaticLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            GetConstructorFromNameActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public static bool GetConstructorFromName_Remove(string handle)
-        {
-            return GetConstructorFromNameActionMap.Remove(handle);
-        }
-
-        private static void SetupGetConstructorFromNameStaticLoop()
-        {
-            if (IsGetConstructorFromNameEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.AssemblyFuncCallback(
-                "EventHorizon.Blazor.BabylonJS.NodeJS",
-                "BABYLON.Camera.GetConstructorFromName",
-                "CallGetConstructorFromNameStaticActions"
+            return EventHorizonBlazorInterop.FuncClass<Camera>(
+                entity => new Camera() { ___guid = entity.___guid },
+                new object[] { new string[] { "BABYLON", "Camera", "GetConstructorFromName" } }
             );
-            IsGetConstructorFromNameEnabled = true;
         }
-
-        [JSInvokable]
-        public static async Task CallGetConstructorFromNameStaticActions()
-        {
-            foreach (var action in GetConstructorFromNameActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
 
         public static Camera Parse(object parsedCamera, Scene scene)
         {
@@ -271,6 +227,66 @@ namespace BABYLON
                 __upVector = null;
                 EventHorizonBlazorInterop.Set(this.___guid, "upVector", value);
             }
+        }
+
+        public decimal screenArea
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "screenArea"); }
+        }
+
+        public decimal orthoLeft
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "orthoLeft"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "orthoLeft", value);
+            }
+        }
+
+        public decimal orthoRight
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "orthoRight"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "orthoRight", value);
+            }
+        }
+
+        public decimal orthoBottom
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "orthoBottom"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "orthoBottom", value);
+            }
+        }
+
+        public decimal orthoTop
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "orthoTop"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "orthoTop", value);
+            }
+        }
+
+        public decimal mode
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "mode"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "mode", value);
+            }
+        }
+
+        public bool hasMoved
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "hasMoved"); }
         }
 
         private Vector3 __globalPosition;
@@ -425,43 +441,28 @@ namespace BABYLON
             }
         }
 
-        public decimal orthoLeft
+        private IObliqueParamsCachedEntity __oblique;
+        public IObliqueParamsCachedEntity oblique
         {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "orthoLeft"); }
-            set
+            get
             {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "orthoLeft", value);
+                if (__oblique == null)
+                {
+                    __oblique = EventHorizonBlazorInterop.GetClass<IObliqueParamsCachedEntity>(
+                        this.___guid,
+                        "oblique",
+                        (entity) =>
+                        {
+                            return new IObliqueParamsCachedEntity() { ___guid = entity.___guid };
+                        }
+                    );
+                }
+                return __oblique;
             }
-        }
-
-        public decimal orthoRight
-        {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "orthoRight"); }
             set
             {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "orthoRight", value);
-            }
-        }
-
-        public decimal orthoBottom
-        {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "orthoBottom"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "orthoBottom", value);
-            }
-        }
-
-        public decimal orthoTop
-        {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "orthoTop"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "orthoTop", value);
+                __oblique = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "oblique", value);
             }
         }
 
@@ -472,6 +473,19 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "fov", value);
+            }
+        }
+
+        public decimal projectionPlaneTilt
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "projectionPlaneTilt");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "projectionPlaneTilt", value);
             }
         }
 
@@ -502,16 +516,6 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "inertia", value);
-            }
-        }
-
-        public decimal mode
-        {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "mode"); }
-            set
-            {
-
-                EventHorizonBlazorInterop.Set(this.___guid, "mode", value);
             }
         }
 
@@ -800,6 +804,16 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set(this.___guid, "rigParent", value);
             }
         }
+
+        public decimal renderPassId
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "renderPassId"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "renderPassId", value);
+            }
+        }
         #endregion
 
         #region Constructor
@@ -812,7 +826,7 @@ namespace BABYLON
         public Camera(
             string name,
             Vector3 position,
-            Scene scene,
+            Scene scene = null,
             System.Nullable<bool> setActiveOnSceneIfNoneActive = null
         )
             : base()
@@ -826,6 +840,18 @@ namespace BABYLON
             );
             ___guid = entity.___guid;
         }
+
+        public Camera(string name, Scene scene = null, System.Nullable<bool> isPure = null)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "Camera" },
+                name,
+                scene,
+                isPure
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods
@@ -834,6 +860,13 @@ namespace BABYLON
             return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
                 new object[] { new string[] { this.___guid, "storeState" } }
+            );
+        }
+
+        public bool hasStateStored()
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[] { new string[] { this.___guid, "hasStateStored" } }
             );
         }
 
@@ -855,6 +888,13 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.Func<string>(
                 new object[] { new string[] { this.___guid, "toString" }, fullDetails }
+            );
+        }
+
+        public void applyVerticalCorrection()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "applyVerticalCorrection" } }
             );
         }
 
@@ -880,17 +920,22 @@ namespace BABYLON
             );
         }
 
-        public void attachControl(System.Nullable<bool> noPreventDefault = null)
+        public void attachControl(object ignored, System.Nullable<bool> noPreventDefault = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "attachControl" }, noPreventDefault }
+                new object[]
+                {
+                    new string[] { this.___guid, "attachControl" },
+                    noPreventDefault,
+                    ignored
+                }
             );
         }
 
-        public void detachControl()
+        public void detachControl(object ignored = null)
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "detachControl" } }
+                new object[] { new string[] { this.___guid, "detachControl" }, ignored }
             );
         }
 
@@ -1086,11 +1131,11 @@ namespace BABYLON
             );
         }
 
-        public Camera clone(string name)
+        public Camera clone(string name, Node newParent = null)
         {
             return EventHorizonBlazorInterop.FuncClass<Camera>(
                 entity => new Camera() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "clone" }, name }
+                new object[] { new string[] { this.___guid, "clone" }, name, newParent }
             );
         }
 

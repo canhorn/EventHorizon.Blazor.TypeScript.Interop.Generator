@@ -172,6 +172,14 @@ namespace BABYLON
                 new object[] { new string[] { this.___guid, "subtract" }, otherSize }
             );
         }
+
+        public Size scale(decimal scale)
+        {
+            return EventHorizonBlazorInterop.FuncClass<Size>(
+                entity => new Size() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "scale" }, scale }
+            );
+        }
         #endregion
     }
 }

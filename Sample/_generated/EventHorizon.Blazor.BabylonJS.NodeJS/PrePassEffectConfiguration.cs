@@ -95,6 +95,19 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set(this.___guid, "enabled", value);
             }
         }
+
+        public bool needsImageProcessing
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(this.___guid, "needsImageProcessing");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "needsImageProcessing", value);
+            }
+        }
         #endregion
 
         #region Constructor
@@ -107,95 +120,20 @@ namespace BABYLON
         #endregion
 
         #region Methods
-        #region dispose TODO: Get Comments as metadata identification
-        private bool _isDisposeEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _disposeActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string dispose(Func<Task> callback)
+        public void dispose()
         {
-            SetupDisposeLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _disposeActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool dispose_Remove(string handle)
-        {
-            return _disposeActionMap.Remove(handle);
-        }
-
-        private void SetupDisposeLoop()
-        {
-            if (_isDisposeEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "dispose",
-                "CallDisposeActions",
-                _invokableReference
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "dispose" } }
             );
-            _isDisposeEnabled = true;
         }
 
-        [JSInvokable]
-        public async Task CallDisposeActions()
+        public PostProcess createPostProcess()
         {
-            foreach (var action in _disposeActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region createPostProcess TODO: Get Comments as metadata identification
-        private bool _isCreatePostProcessEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _createPostProcessActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string createPostProcess(Func<Task> callback)
-        {
-            SetupCreatePostProcessLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _createPostProcessActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool createPostProcess_Remove(string handle)
-        {
-            return _createPostProcessActionMap.Remove(handle);
-        }
-
-        private void SetupCreatePostProcessLoop()
-        {
-            if (_isCreatePostProcessEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "createPostProcess",
-                "CallCreatePostProcessActions",
-                _invokableReference
+            return EventHorizonBlazorInterop.FuncClass<PostProcess>(
+                entity => new PostProcess() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "createPostProcess" } }
             );
-            _isCreatePostProcessEnabled = true;
         }
-
-        [JSInvokable]
-        public async Task CallCreatePostProcessActions()
-        {
-            foreach (var action in _createPostProcessActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
         #endregion
     }
 }

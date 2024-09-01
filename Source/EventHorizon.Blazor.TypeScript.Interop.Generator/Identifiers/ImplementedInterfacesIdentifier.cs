@@ -1,5 +1,6 @@
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
@@ -9,6 +10,8 @@ using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 
 public class ImplementedInterfacesIdentifier
 {
+    private static List<Node> InterfaceDeclarationCache;
+
     public static IList<TypeStatement> Identify(
         Node node,
         AbstractSyntaxTree ast,
@@ -18,11 +21,17 @@ public class ImplementedInterfacesIdentifier
     {
         var interfaces = new List<TypeStatement>();
         // Check if Class
-        var interfaceCache = ast.RootNode.OfKind(SyntaxKind.InterfaceDeclaration);
+        var interfaceCache =
+            InterfaceDeclarationCache ?? ast.RootNode.OfKind(SyntaxKind.InterfaceDeclaration);
+        if (InterfaceDeclarationCache == null && GenerateSource.CacheEnabled)
+        {
+            InterfaceDeclarationCache = interfaceCache;
+        }
+
         if (
             node.Kind == SyntaxKind.ClassDeclaration
             && node.HeritageClauses != null
-            && node.HeritageClauses.Any()
+            && node.HeritageClauses.Count != 0
         )
         {
             foreach (var heritageClauses in node.HeritageClauses)

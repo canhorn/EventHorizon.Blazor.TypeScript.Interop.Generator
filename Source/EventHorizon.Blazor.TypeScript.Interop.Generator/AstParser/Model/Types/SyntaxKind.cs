@@ -6,6 +6,8 @@ public static class SyntaxKind
     public const string ModuleDeclaration = nameof(ModuleDeclaration);
     public const string ClassDeclaration = nameof(ClassDeclaration);
     public const string InterfaceDeclaration = nameof(InterfaceDeclaration);
+    public const string VariableDeclaration = nameof(VariableDeclaration);
+    public const string FunctionDeclaration = nameof(FunctionDeclaration);
     public const string EnumDeclaration = nameof(EnumDeclaration);
     public const string Constructor = nameof(Constructor);
     public const string PropertyDeclaration = nameof(PropertyDeclaration);
@@ -21,13 +23,18 @@ public static class SyntaxKind
     public const string TypeReference = nameof(TypeReference);
     public const string ArrayType = nameof(ArrayType);
     public const string TypeQuery = nameof(TypeQuery);
+    public const string TypeOperator = nameof(TypeOperator);
     public const string UnionType = nameof(UnionType);
     public const string ParenthesizedType = nameof(ParenthesizedType);
     public const string FunctionType = nameof(FunctionType);
     public const string StringKeyword = nameof(StringKeyword);
+    public const string StringLiteral = nameof(StringLiteral);
     public const string VoidKeyword = nameof(VoidKeyword);
     public const string BooleanKeyword = nameof(BooleanKeyword);
+    public const string TrueKeyword = nameof(TrueKeyword);
+    public const string FalseKeyword = nameof(FalseKeyword);
     public const string NumberKeyword = nameof(NumberKeyword);
+    public const string NumericLiteral = nameof(NumericLiteral);
     public const string ObjectKeyword = nameof(ObjectKeyword);
     public const string StaticKeyword = nameof(StaticKeyword);
     public const string ReadonlyKeyword = nameof(ReadonlyKeyword);
@@ -40,8 +47,5 @@ public static class SyntaxKind
     public const string ThisType = nameof(ThisType);
     public const string Parameter = nameof(Parameter);
     public const string TypeParameter = nameof(TypeParameter);
-
-    // TODO: Sdcb Speical Types
-    //public const string TypeReferenceNode = nameof(TypeReferenceNode);
-    //public const string ParameterDeclaration = nameof(ParameterDeclaration);
+    public const string Block = nameof(Block);
 }

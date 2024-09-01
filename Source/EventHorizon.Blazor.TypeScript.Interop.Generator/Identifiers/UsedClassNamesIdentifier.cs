@@ -8,17 +8,16 @@ public static class UsedClassNamesIdentifier
 {
     public static IList<string> Identify(TypeStatement type, IList<string> list = null)
     {
-        if (list == null)
-        {
-            list = new List<string>();
-        }
+        list ??= [];
+
         if (
             !type.IsAction
             && !type.IsArray
             && !type.IsLiteral
             && !type.IsModifier
             && !type.IsNullable
-            && !type.IsTypeAlias
+            && !type.IsReadonly
+            && !type.IsTypeParameter
         )
         {
             // Using The Type get
@@ -52,6 +51,10 @@ public static class UsedClassNamesIdentifier
         if (type.IsTypeAlias)
         {
             Identify(type.AliasType, list);
+        }
+        if (type.ActionResultType != null)
+        {
+            Identify(type.ActionResultType, list);
         }
 
         return list;

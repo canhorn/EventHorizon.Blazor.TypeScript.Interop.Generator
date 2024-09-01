@@ -61,6 +61,17 @@ namespace BABYLON
                 );
             }
         }
+
+        public static decimal TONEMAPPING_KHR_PBR_NEUTRAL
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<decimal>(
+                    "BABYLON",
+                    "ImageProcessingConfiguration.TONEMAPPING_KHR_PBR_NEUTRAL"
+                );
+            }
+        }
         #endregion
 
         #region Static Methods
@@ -220,6 +231,26 @@ namespace BABYLON
             }
         }
 
+        public decimal vignetteCentreY
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "vignetteCentreY"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "vignetteCentreY", value);
+            }
+        }
+
+        public decimal vignetteCentreX
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "vignetteCentreX"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "vignetteCentreX", value);
+            }
+        }
+
         public decimal vignetteBlendMode
         {
             get
@@ -240,6 +271,39 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "vignetteEnabled", value);
+            }
+        }
+
+        public bool ditheringEnabled
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "ditheringEnabled"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "ditheringEnabled", value);
+            }
+        }
+
+        public decimal ditheringIntensity
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "ditheringIntensity");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "ditheringIntensity", value);
+            }
+        }
+
+        public bool skipFinalColorClamp
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "skipFinalColorClamp"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "skipFinalColorClamp", value);
             }
         }
 
@@ -300,23 +364,23 @@ namespace BABYLON
             }
         }
 
-        public decimal vignetteCentreX
+        public decimal vignetteCenterX
         {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "vignetteCentreX"); }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "vignetteCenterX"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(this.___guid, "vignetteCentreX", value);
+                EventHorizonBlazorInterop.Set(this.___guid, "vignetteCenterX", value);
             }
         }
 
-        public decimal vignetteCentreY
+        public decimal vignetteCenterY
         {
-            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "vignetteCentreY"); }
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "vignetteCenterY"); }
             set
             {
 
-                EventHorizonBlazorInterop.Set(this.___guid, "vignetteCentreY", value);
+                EventHorizonBlazorInterop.Set(this.___guid, "vignetteCenterY", value);
             }
         }
 

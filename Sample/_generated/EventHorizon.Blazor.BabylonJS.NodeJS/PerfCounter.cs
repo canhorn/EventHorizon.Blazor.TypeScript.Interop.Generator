@@ -116,6 +116,13 @@ namespace BABYLON
                 new object[] { new string[] { this.___guid, "endMonitoring" }, newFrame }
             );
         }
+
+        public void endFrame()
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[] { new string[] { this.___guid, "endFrame" } }
+            );
+        }
         #endregion
     }
 }

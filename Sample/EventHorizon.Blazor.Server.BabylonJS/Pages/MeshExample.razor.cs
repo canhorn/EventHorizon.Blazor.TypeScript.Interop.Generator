@@ -41,7 +41,7 @@ namespace EventHorizon.Blazor.Server.BabylonJS.Pages
                 await Vector3.NewVector3(0, 100, 8),
                 scene
             );
-            var house = await SceneLoader.ImportMesh(null, "assets/", "House.gltf", scene);
+            var house = await SceneLoader.ImportMesh("assets/House.gltf", scene: scene);
             var freeCamera = await FreeCamera.NewFreeCamera(
                 "FreeCamera",
                 await Vector3.NewVector3(0, 0, -100),

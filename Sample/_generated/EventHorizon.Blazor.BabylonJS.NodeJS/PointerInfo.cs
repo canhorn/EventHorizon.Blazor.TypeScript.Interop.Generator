@@ -26,10 +26,6 @@ namespace BABYLON
         #endregion
 
         #region Accessors
-
-        #endregion
-
-        #region Properties
         private PickingInfo __pickInfo;
         public PickingInfo pickInfo
         {
@@ -48,12 +44,11 @@ namespace BABYLON
                 }
                 return __pickInfo;
             }
-            set
-            {
-                __pickInfo = null;
-                EventHorizonBlazorInterop.Set(this.___guid, "pickInfo", value);
-            }
         }
+        #endregion
+
+        #region Properties
+
         #endregion
 
         #region Constructor
@@ -63,14 +58,31 @@ namespace BABYLON
         public PointerInfo(ICachedEntity entity)
             : base(entity) { }
 
-        public PointerInfo(decimal type, PointerEvent @event, PickingInfo pickInfo)
+        public PointerInfo(
+            decimal type,
+            IMouseEvent @event,
+            PickingInfo pickInfo,
+            InputManager inputManager = null
+        )
             : base()
         {
             var entity = EventHorizonBlazorInterop.New(
                 new string[] { "BABYLON", "PointerInfo" },
                 type,
                 @event,
-                pickInfo
+                pickInfo,
+                inputManager
+            );
+            ___guid = entity.___guid;
+        }
+
+        public PointerInfo(decimal type, IMouseEvent @event)
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "PointerInfo" },
+                type,
+                @event
             );
             ___guid = entity.___guid;
         }

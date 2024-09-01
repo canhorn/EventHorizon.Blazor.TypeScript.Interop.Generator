@@ -28,22 +28,33 @@ public static class MethodsSectionWriter
         {
             GlobalLogger.Info($"Generating Method: {method}");
             var isLast = current == methods.Count();
+            var methodType = method.Type.IsNullable
+                ? method.Type.GenericTypes.First()
+                : method.Type;
+            var methodArguments = method.Arguments;
+            var methodGenericTypes = method.GenericTypes;
+            var methodIsInterfaceResponse = methodType.IsInterface;
+            if (methodType.ActionResultType != null)
+            {
+                methodType = methodType.ActionResultType;
+                methodArguments = method.Type.Arguments.ToList();
+            }
+
             var isClassResponse = ClassResponseIdentifier.Identify(
-                method.Type,
+                methodType,
                 method.UsedClassNames
             );
-            var isArray = ArrayResponseIdentifier.Identify(method.Type);
+            var isArray = ArrayResponseIdentifier.Identify(methodType);
             var template = templates.Method;
-            var methodType = method.Type;
             var type = TypeStatementWriter.Write(methodType);
             var typeNoModifier = TypeStatementWriter.Write(methodType, false);
             var propertyArguments = string.Empty;
             var isNotSupported = NotSupportedIdentifier.Identify(method);
-            var isTask = method.Type.IsTask;
-            var isEnum = TypeEnumIdentifier.Identify(method.Type);
+            var isTask = methodType.IsTask;
+            var isEnum = TypeEnumIdentifier.Identify(methodType);
             var isAction =
-                method.Type.Name == GenerationIdentifiedTypes.Action
-                || (method.Arguments.Take(1).Any(a => a.Type.IsAction && a.Name == "callback"));
+                methodType.Name == GenerationIdentifiedTypes.Action
+                || methodArguments.Take(1).Any(a => a.Type.IsAction && a.Name == "callback");
 
             var bodyTemplate = templates.ReturnTypePrimitiveTemplate;
             var returnTypeContent = templates.InteropFunc;
@@ -74,7 +85,7 @@ public static class MethodsSectionWriter
             if (isAction)
             {
                 var functionGenericsStrings = new List<string>();
-                var actionArgument = method.Arguments.FirstOrDefault(argument =>
+                var actionArgument = methodArguments.FirstOrDefault(argument =>
                     argument.Type.Name == GenerationIdentifiedTypes.Action
                 );
                 if (actionArgument != null)
@@ -110,21 +121,21 @@ public static class MethodsSectionWriter
             else
             {
                 // TODO: [Re-factor] : Move to Writer
-                foreach (var argument in method.Arguments.OrderBy(a => a.IsOptional))
+                foreach (var argument in methodArguments.OrderBy(a => a.IsOptional))
                 {
                     argumentStrings.Add(ArgumentWriter.Write(argument, true, " = null"));
                 }
-                propertyArguments = method.Arguments.Any()
+                propertyArguments = methodArguments.Any()
                     ? ", "
                         + string.Join(
                             ", ",
-                            method.Arguments.Select(argument =>
+                            methodArguments.Select(argument =>
                                 DotNetNormalizer.Normalize(argument.Name)
                             )
                         )
                     : string.Empty;
 
-                if (VoidArgumentIdenfifier.Identify(method.Arguments))
+                if (VoidArgumentIdentifier.Identify(methodArguments))
                 {
                     GlobalLogger.Error($"Found void argument in method: {method.Name}");
                     continue;
@@ -180,10 +191,10 @@ public static class MethodsSectionWriter
                 }
 
                 // Change up the taskType if 'void';
-                if (taskType == GenerationIdentifiedTypes.Void)
+                if (taskType == GenerationIdentifiedTypes.VoidNode)
                 {
                     bodyTemplate = templates.ReturnTypeVoidTemplate;
-                    taskType = GenerationIdentifiedTypes.CachedEntity;
+                    taskType = GenerationIdentifiedTypes.VoidNode;
                     taskAsync = "async ";
                     taskAwait = "await ";
                 }
@@ -210,7 +221,7 @@ public static class MethodsSectionWriter
 
             // Replace the Type in the Return TypeContent to Object
             // This is to avoid parsing errors and just get a generic object back from method calls.
-            if (method.Type.Name == GenerationIdentifiedTypes.Void)
+            if (methodType.Name == GenerationIdentifiedTypes.Void)
             {
                 bodyTemplate = templates.ReturnTypeVoidTemplate;
                 returnTypeContent = returnTypeContent
@@ -218,21 +229,20 @@ public static class MethodsSectionWriter
                     .Replace("[[NEW_TYPE]]", GenerationIdentifiedTypes.CachedEntity);
             }
 
-            if (method.GenericTypes.Any())
+            if (methodGenericTypes.Any())
             {
-                var genericTypeString = string.Join(", ", method.GenericTypes);
+                var genericTypeString = string.Join(", ", methodGenericTypes);
                 // TODO: [Template] : Move to templates
                 genericSection = $"<{genericTypeString}>";
 
-                if (
-                    isClassResponse
-                    && method.GenericTypes.Any(genericType => genericType == typeNoModifier)
+                if (isClassResponse
+                // && method.GenericTypes.Any(genericType => genericType == typeNoModifier)
                 )
                 {
                     // TODO: [Template] : Move to templates
                     whereConstraint = string.Join(
                         "",
-                        method.GenericTypes.Select(genericType =>
+                        methodGenericTypes.Select(genericType =>
                             $" where {genericType} : CachedEntity, new()"
                         )
                     );
@@ -252,7 +262,7 @@ public static class MethodsSectionWriter
                 //    "[[CACHE_SECTION]]",
                 //    string.Empty
                 //).Replace(
-                //    "[[CACHE_SETTTER_SECTION]]",
+                //    "[[CACHE_SETTER_SECTION]]",
                 //    string.Empty
                 //)
                 .Replace("[[ARRAY]]", string.Empty)
@@ -272,7 +282,7 @@ public static class MethodsSectionWriter
                 .Replace("[[PROPERTY_ARGUMENTS]]", propertyArguments)
                 .Replace(
                     "[[INTERFACE_POSTFIX]]",
-                    method.IsInterfaceResponse ? Constants.INTERFACE_POSTFIX : string.Empty
+                    methodIsInterfaceResponse ? Constants.INTERFACE_POSTFIX : string.Empty
                 )
                 .Replace("[[FUNCTION_GENERICS]]", functionGenerics)
                 .Replace("[[TASK_ASYNC]]", taskAsync)

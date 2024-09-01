@@ -149,6 +149,13 @@ public class PropertyGenerationTests : GenerateStringTestBase
         "UnionLiteralPropertyType.Expected.txt",
         ASTParserType.Sdcb
     )]
+    [InlineData(
+        "NullableArrayResponse.ts",
+        "Properties",
+        "Scenarios",
+        "NullableArrayResponse.Expected.txt",
+        ASTParserType.Sdcb
+    )]
     public void ShouldGeneratePropertyScenarioStringsUsingSdcb(
         string sourceFile,
         string rootPath,
@@ -309,6 +316,13 @@ public class PropertyGenerationTests : GenerateStringTestBase
         "Properties",
         "Scenarios",
         "UnionLiteralPropertyType.Expected.txt",
+        ASTParserType.NodeJS
+    )]
+    [InlineData(
+        "NullableArrayResponse.ts",
+        "Properties",
+        "Scenarios",
+        "NullableArrayResponse.Expected.txt",
         ASTParserType.NodeJS
     )]
     public void ShouldGeneratePropertyScenarioStringsUsingNodeJS(

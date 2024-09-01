@@ -112,6 +112,45 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set(this.___guid, "interpolation", value);
             }
         }
+
+        public bool lockedTangent
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "lockedTangent"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "lockedTangent", value);
+            }
+        }
+
+        private IEasingFunctionCachedEntity __easingFunction;
+        public IEasingFunctionCachedEntity easingFunction
+        {
+            get
+            {
+                if (__easingFunction == null)
+                {
+                    __easingFunction =
+                        EventHorizonBlazorInterop.GetClass<IEasingFunctionCachedEntity>(
+                            this.___guid,
+                            "easingFunction",
+                            (entity) =>
+                            {
+                                return new IEasingFunctionCachedEntity()
+                                {
+                                    ___guid = entity.___guid
+                                };
+                            }
+                        );
+                }
+                return __easingFunction;
+            }
+            set
+            {
+                __easingFunction = null;
+                EventHorizonBlazorInterop.Set(this.___guid, "easingFunction", value);
+            }
+        }
         #endregion
 
         #region Constructor

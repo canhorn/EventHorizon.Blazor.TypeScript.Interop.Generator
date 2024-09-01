@@ -13,7 +13,7 @@ namespace Static.Class
     
     
     [JsonConverter(typeof(CachedEntityConverter<ExampleClass<CachedEntity>>))]
-    public class ExampleClass<T> : CachedEntityObject where T : CachedEntity, new()
+    public class ExampleClass<T> : CachedEntityObject
     {
         #region Static Accessors
 

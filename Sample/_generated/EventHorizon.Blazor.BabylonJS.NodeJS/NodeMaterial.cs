@@ -64,10 +64,35 @@ namespace BABYLON
                 );
             }
         }
+
+        public static int DefaultShaderLanguage
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<int>(
+                    "BABYLON",
+                    "NodeMaterial.DefaultShaderLanguage"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    "BABYLON",
+                    "NodeMaterial.DefaultShaderLanguage",
+                    value
+                );
+            }
+        }
         #endregion
 
         #region Static Methods
-        public static NodeMaterial Parse(object source, Scene scene, string rootUrl = null)
+        public static NodeMaterial Parse(
+            object source,
+            Scene scene,
+            string rootUrl = null,
+            System.Nullable<int> shaderLanguage = null
+        )
         {
             return EventHorizonBlazorInterop.FuncClass<NodeMaterial>(
                 entity => new NodeMaterial() { ___guid = entity.___guid },
@@ -76,7 +101,8 @@ namespace BABYLON
                     new string[] { "BABYLON", "NodeMaterial", "Parse" },
                     source,
                     scene,
-                    rootUrl
+                    rootUrl,
+                    shaderLanguage
                 }
             );
         }
@@ -84,7 +110,11 @@ namespace BABYLON
         public static ValueTask<NodeMaterial> ParseFromFileAsync(
             string name,
             string url,
-            Scene scene
+            Scene scene,
+            string rootUrl = null,
+            System.Nullable<bool> skipBuild = null,
+            NodeMaterial targetMaterial = null,
+            ActionResultCallback<string, string> urlRewriter = null
         )
         {
             return EventHorizonBlazorInterop.TaskClass<NodeMaterial>(
@@ -94,16 +124,23 @@ namespace BABYLON
                     new string[] { "BABYLON", "NodeMaterial", "ParseFromFileAsync" },
                     name,
                     url,
-                    scene
+                    scene,
+                    rootUrl,
+                    skipBuild,
+                    targetMaterial,
+                    urlRewriter
                 }
             );
         }
 
         public static ValueTask<NodeMaterial> ParseFromSnippetAsync(
             string snippetId,
-            Scene scene,
+            Scene scene = null,
             string rootUrl = null,
-            NodeMaterial nodeMaterial = null
+            NodeMaterial nodeMaterial = null,
+            System.Nullable<bool> skipBuild = null,
+            System.Nullable<bool> waitForTextureReadyness = null,
+            ActionResultCallback<string, string> urlRewriter = null
         )
         {
             return EventHorizonBlazorInterop.TaskClass<NodeMaterial>(
@@ -114,7 +151,10 @@ namespace BABYLON
                     snippetId,
                     scene,
                     rootUrl,
-                    nodeMaterial
+                    nodeMaterial,
+                    skipBuild,
+                    waitForTextureReadyness,
+                    urlRewriter
                 }
             );
         }
@@ -134,6 +174,17 @@ namespace BABYLON
         #endregion
 
         #region Accessors
+
+        public int shaderLanguage
+        {
+            get { return EventHorizonBlazorInterop.Get<int>(this.___guid, "shaderLanguage"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "shaderLanguage", value);
+            }
+        }
+
         private INodeMaterialOptionsCachedEntity __options;
         public INodeMaterialOptionsCachedEntity options
         {
@@ -195,6 +246,48 @@ namespace BABYLON
         public int mode
         {
             get { return EventHorizonBlazorInterop.Get<int>(this.___guid, "mode"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "mode", value);
+            }
+        }
+
+        public decimal buildId
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "buildId"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "buildId", value);
+            }
+        }
+
+        public bool isPrePassCapable
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isPrePassCapable"); }
+        }
+
+        public decimal[] prePassTextureOutputs
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetArray<decimal>(
+                    this.___guid,
+                    "prePassTextureOutputs"
+                );
+            }
+        }
+
+        public decimal[] prePassTextureInputs
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.GetArray<decimal>(
+                    this.___guid,
+                    "prePassTextureInputs"
+                );
+            }
         }
 
         public string compiledShaders
@@ -317,6 +410,16 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set(this.___guid, "comment", value);
             }
         }
+
+        public bool forceAlphaBlending
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "forceAlphaBlending"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "forceAlphaBlending", value);
+            }
+        }
         #endregion
 
         #region Constructor
@@ -334,6 +437,22 @@ namespace BABYLON
                 name,
                 scene,
                 options
+            );
+            ___guid = entity.___guid;
+        }
+
+        public NodeMaterial(
+            string name,
+            Scene scene = null,
+            System.Nullable<bool> storeEffectOnSubMeshes = null
+        )
+            : base()
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "NodeMaterial" },
+                name,
+                scene,
+                storeEffectOnSubMeshes
             );
             ___guid = entity.___guid;
         }
@@ -438,10 +557,20 @@ namespace BABYLON
             );
         }
 
-        public void build(System.Nullable<bool> verbose = null)
+        public void build(
+            System.Nullable<bool> verbose = null,
+            System.Nullable<bool> updateBuildId = null,
+            System.Nullable<bool> autoConfigure = null
+        )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "build" }, verbose }
+                new object[]
+                {
+                    new string[] { this.___guid, "build" },
+                    verbose,
+                    updateBuildId,
+                    autoConfigure
+                }
             );
         }
 
@@ -452,11 +581,22 @@ namespace BABYLON
             );
         }
 
+        public bool setPrePassRenderer(PrePassRenderer prePassRenderer)
+        {
+            return EventHorizonBlazorInterop.Func<bool>(
+                new object[]
+                {
+                    new string[] { this.___guid, "setPrePassRenderer" },
+                    prePassRenderer
+                }
+            );
+        }
+
         public PostProcess createPostProcess(
             Camera camera,
             System.Nullable<decimal> options = null,
             System.Nullable<decimal> samplingMode = null,
-            Engine engine = null,
+            AbstractEngine engine = null,
             System.Nullable<bool> reusable = null,
             System.Nullable<decimal> textureType = null,
             System.Nullable<decimal> textureFormat = null
@@ -519,6 +659,17 @@ namespace BABYLON
             );
         }
 
+        public void createAsShadowDepthWrapper(Material targetMaterial)
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "createAsShadowDepthWrapper" },
+                    targetMaterial
+                }
+            );
+        }
+
         public bool isReadyForSubMesh(
             AbstractMesh mesh,
             SubMesh subMesh,
@@ -572,6 +723,14 @@ namespace BABYLON
             );
         }
 
+        public TextureBlock[] getAllTextureBlocks()
+        {
+            return EventHorizonBlazorInterop.FuncArrayClass<TextureBlock>(
+                entity => new TextureBlock() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "getAllTextureBlocks" } }
+            );
+        }
+
         public bool hasTexture(BaseTexture texture)
         {
             return EventHorizonBlazorInterop.Func<bool>(
@@ -598,7 +757,7 @@ namespace BABYLON
 
         public async ValueTask edit(INodeMaterialEditorOptions config = null)
         {
-            await EventHorizonBlazorInterop.Task<CachedEntity>(
+            await EventHorizonBlazorInterop.Task<Void_>(
                 new object[] { new string[] { this.___guid, "edit" }, config }
             );
         }
@@ -638,10 +797,11 @@ namespace BABYLON
             );
         }
 
-        public async ValueTask loadAsync(string url)
+        public ValueTask<NodeMaterial> loadAsync(string url, string rootUrl = null)
         {
-            await EventHorizonBlazorInterop.Task<CachedEntity>(
-                new object[] { new string[] { this.___guid, "loadAsync" }, url }
+            return EventHorizonBlazorInterop.TaskClass<NodeMaterial>(
+                entity => new NodeMaterial() { ___guid = entity.___guid },
+                new object[] { new string[] { this.___guid, "loadAsync" }, url, rootUrl }
             );
         }
 
@@ -656,6 +816,25 @@ namespace BABYLON
         {
             return EventHorizonBlazorInterop.Func<CachedEntity>(
                 new object[] { new string[] { this.___guid, "serialize" }, selectedBlocks }
+            );
+        }
+
+        public void parseSerializedObject(
+            object source,
+            string rootUrl = null,
+            System.Nullable<bool> merge = null,
+            ActionResultCallback<string, string> urlRewriter = null
+        )
+        {
+            EventHorizonBlazorInterop.Func<CachedEntity>(
+                new object[]
+                {
+                    new string[] { this.___guid, "parseSerializedObject" },
+                    source,
+                    rootUrl,
+                    merge,
+                    urlRewriter
+                }
             );
         }
 
@@ -676,11 +855,18 @@ namespace BABYLON
             );
         }
 
-        public NodeMaterial clone(string name)
+        public NodeMaterial clone(string name, System.Nullable<bool> shareEffect = null)
         {
             return EventHorizonBlazorInterop.FuncClass<NodeMaterial>(
                 entity => new NodeMaterial() { ___guid = entity.___guid },
-                new object[] { new string[] { this.___guid, "clone" }, name }
+                new object[] { new string[] { this.___guid, "clone" }, name, shareEffect }
+            );
+        }
+
+        public async ValueTask whenTexturesReadyAsync()
+        {
+            EventHorizonBlazorInterop.TaskArray<Void_>(
+                new object[] { new string[] { this.___guid, "whenTexturesReadyAsync" } }
             );
         }
         #endregion

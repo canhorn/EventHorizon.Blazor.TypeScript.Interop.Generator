@@ -153,6 +153,13 @@ public class MethodScenarioTests : GenerateStringTestBase
         ASTParserType.Sdcb
     )]
     [InlineData(
+        "MethodCallbackWithGenerics.ts",
+        "Methods",
+        "Scenarios",
+        "MethodCallbackWithGenerics.Expected.txt",
+        ASTParserType.Sdcb
+    )]
+    [InlineData(
         "ArrayDestructuring.ts",
         "Methods",
         "Scenarios",
@@ -227,6 +234,13 @@ public class MethodScenarioTests : GenerateStringTestBase
         "Methods",
         "Scenarios",
         "PromiseResponse.Expected.txt",
+        ASTParserType.Sdcb
+    )]
+    [InlineData(
+        "MultipleSameMethod.ts",
+        "Methods",
+        "Scenarios",
+        "MultipleSameMethod.Expected.txt",
         ASTParserType.Sdcb
     )]
     public void ShouldGenerateMethodScenarioStringsUsingSdcb(
@@ -390,6 +404,13 @@ public class MethodScenarioTests : GenerateStringTestBase
         ASTParserType.NodeJS
     )]
     [InlineData(
+        "MethodCallbackWithGenerics.ts",
+        "Methods",
+        "Scenarios",
+        "MethodCallbackWithGenerics.Expected.txt",
+        ASTParserType.NodeJS
+    )]
+    [InlineData(
         "ArrayDestructuring.ts",
         "Methods",
         "Scenarios",
@@ -464,6 +485,13 @@ public class MethodScenarioTests : GenerateStringTestBase
         "Methods",
         "Scenarios",
         "PromiseResponse.Expected.txt",
+        ASTParserType.NodeJS
+    )]
+    [InlineData(
+        "MultipleSameMethod.ts",
+        "Methods",
+        "Scenarios",
+        "MultipleSameMethod.Expected.txt",
         ASTParserType.NodeJS
     )]
     public void ShouldGenerateMethodScenarioStringsUsingNodeJS(

@@ -11,7 +11,7 @@ using Microsoft.JSInterop;
 public interface ExampleInterface<T> : ICachedEntity { }
 
 [JsonConverter(typeof(CachedEntityConverter<ExampleInterfaceCachedEntity<CachedEntity>>))]
-public class ExampleInterfaceCachedEntity<T> : CachedEntityObject, ExampleInterface<T> where T : CachedEntity, new()
+public class ExampleInterfaceCachedEntity<T> : CachedEntityObject, ExampleInterface<T>
 {
     #region Static Accessors
 

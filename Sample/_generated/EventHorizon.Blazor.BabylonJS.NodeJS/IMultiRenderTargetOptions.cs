@@ -68,6 +68,16 @@ namespace BABYLON
             }
         }
 
+        public bool[] useSRGBBuffers
+        {
+            get { return EventHorizonBlazorInterop.GetArray<bool>(this.___guid, "useSRGBBuffers"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "useSRGBBuffers", value);
+            }
+        }
+
         public bool generateDepthBuffer
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "generateDepthBuffer"); }
@@ -104,6 +114,29 @@ namespace BABYLON
             }
         }
 
+        public decimal[] formats
+        {
+            get { return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "formats"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "formats", value);
+            }
+        }
+
+        public decimal depthTextureFormat
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "depthTextureFormat");
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "depthTextureFormat", value);
+            }
+        }
+
         public decimal textureCount
         {
             get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "textureCount"); }
@@ -134,6 +167,86 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "defaultType", value);
+            }
+        }
+
+        public bool drawOnlyOnFirstAttachmentByDefault
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<bool>(
+                    this.___guid,
+                    "drawOnlyOnFirstAttachmentByDefault"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(
+                    this.___guid,
+                    "drawOnlyOnFirstAttachmentByDefault",
+                    value
+                );
+            }
+        }
+
+        public decimal[] targetTypes
+        {
+            get { return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "targetTypes"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "targetTypes", value);
+            }
+        }
+
+        public decimal[] faceIndex
+        {
+            get { return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "faceIndex"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "faceIndex", value);
+            }
+        }
+
+        public decimal[] layerIndex
+        {
+            get { return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "layerIndex"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "layerIndex", value);
+            }
+        }
+
+        public decimal[] layerCounts
+        {
+            get { return EventHorizonBlazorInterop.GetArray<decimal>(this.___guid, "layerCounts"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "layerCounts", value);
+            }
+        }
+
+        public string[] labels
+        {
+            get { return EventHorizonBlazorInterop.GetArray<string>(this.___guid, "labels"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "labels", value);
+            }
+        }
+
+        public string label
+        {
+            get { return EventHorizonBlazorInterop.Get<string>(this.___guid, "label"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "label", value);
             }
         }
         #endregion

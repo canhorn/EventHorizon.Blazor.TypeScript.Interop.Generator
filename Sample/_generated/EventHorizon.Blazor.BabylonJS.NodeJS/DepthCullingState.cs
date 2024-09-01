@@ -42,6 +42,16 @@ namespace BABYLON
             }
         }
 
+        public decimal zOffsetUnits
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "zOffsetUnits"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "zOffsetUnits", value);
+            }
+        }
+
         public decimal cullFace
         {
             get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "cullFace"); }
@@ -117,6 +127,14 @@ namespace BABYLON
             ___guid = entity.___guid;
         }
 
+        public DepthCullingState(System.Nullable<bool> reset = null)
+        {
+            var entity = EventHorizonBlazorInterop.New(
+                new string[] { "BABYLON", "DepthCullingState" },
+                reset
+            );
+            ___guid = entity.___guid;
+        }
         #endregion
 
         #region Methods

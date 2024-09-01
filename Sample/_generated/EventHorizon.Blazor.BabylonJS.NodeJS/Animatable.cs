@@ -70,6 +70,16 @@ namespace BABYLON
                 EventHorizonBlazorInterop.Set(this.___guid, "speedRatio", value);
             }
         }
+
+        public decimal elapsedTime
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "elapsedTime"); }
+        }
+
+        public bool paused
+        {
+            get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "paused"); }
+        }
         #endregion
 
         #region Properties
@@ -124,6 +134,38 @@ namespace BABYLON
             }
         }
 
+        public ActionCallback onAnimationEnd
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<ActionCallback>(
+                    this.___guid,
+                    "onAnimationEnd"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "onAnimationEnd", value);
+            }
+        }
+
+        public ActionCallback onAnimationLoop
+        {
+            get
+            {
+                return EventHorizonBlazorInterop.Get<ActionCallback>(
+                    this.___guid,
+                    "onAnimationLoop"
+                );
+            }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "onAnimationLoop", value);
+            }
+        }
+
         public bool isAdditive
         {
             get { return EventHorizonBlazorInterop.Get<bool>(this.___guid, "isAdditive"); }
@@ -131,6 +173,16 @@ namespace BABYLON
             {
 
                 EventHorizonBlazorInterop.Set(this.___guid, "isAdditive", value);
+            }
+        }
+
+        public decimal playOrder
+        {
+            get { return EventHorizonBlazorInterop.Get<decimal>(this.___guid, "playOrder"); }
+            set
+            {
+
+                EventHorizonBlazorInterop.Set(this.___guid, "playOrder", value);
             }
         }
 
@@ -226,10 +278,11 @@ namespace BABYLON
             System.Nullable<decimal> toFrame = null,
             System.Nullable<bool> loopAnimation = null,
             System.Nullable<decimal> speedRatio = null,
-            ActionResultCallback<ActionCallback> onAnimationEnd = null,
+            ActionCallback onAnimationEnd = null,
             Animation[] animations = null,
-            ActionResultCallback<ActionCallback> onAnimationLoop = null,
-            System.Nullable<bool> isAdditive = null
+            ActionCallback onAnimationLoop = null,
+            System.Nullable<bool> isAdditive = null,
+            System.Nullable<decimal> playOrder = null
         )
         {
             var entity = EventHorizonBlazorInterop.New(
@@ -243,103 +296,14 @@ namespace BABYLON
                 onAnimationEnd,
                 animations,
                 onAnimationLoop,
-                isAdditive
+                isAdditive,
+                playOrder
             );
             ___guid = entity.___guid;
         }
         #endregion
 
         #region Methods
-        #region onAnimationEnd TODO: Get Comments as metadata identification
-        private bool _isOnAnimationEndEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _onAnimationEndActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string onAnimationEnd(Func<Task> callback)
-        {
-            SetupOnAnimationEndLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _onAnimationEndActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool onAnimationEnd_Remove(string handle)
-        {
-            return _onAnimationEndActionMap.Remove(handle);
-        }
-
-        private void SetupOnAnimationEndLoop()
-        {
-            if (_isOnAnimationEndEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "onAnimationEnd",
-                "CallOnAnimationEndActions",
-                _invokableReference
-            );
-            _isOnAnimationEndEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallOnAnimationEndActions()
-        {
-            foreach (var action in _onAnimationEndActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
-        #region onAnimationLoop TODO: Get Comments as metadata identification
-        private bool _isOnAnimationLoopEnabled = false;
-        private readonly IDictionary<string, Func<Task>> _onAnimationLoopActionMap =
-            new Dictionary<string, Func<Task>>();
-
-        public string onAnimationLoop(Func<Task> callback)
-        {
-            SetupOnAnimationLoopLoop();
-
-            var handle = Guid.NewGuid().ToString();
-            _onAnimationLoopActionMap.Add(handle, callback);
-
-            return handle;
-        }
-
-        public bool onAnimationLoop_Remove(string handle)
-        {
-            return _onAnimationLoopActionMap.Remove(handle);
-        }
-
-        private void SetupOnAnimationLoopLoop()
-        {
-            if (_isOnAnimationLoopEnabled)
-            {
-                return;
-            }
-            EventHorizonBlazorInterop.FuncCallback(
-                this,
-                "onAnimationLoop",
-                "CallOnAnimationLoopActions",
-                _invokableReference
-            );
-            _isOnAnimationLoopEnabled = true;
-        }
-
-        [JSInvokable]
-        public async Task CallOnAnimationLoopActions()
-        {
-            foreach (var action in _onAnimationLoopActionMap.Values)
-            {
-                await action();
-            }
-        }
-        #endregion
-
         public Animatable syncWith(Animatable root)
         {
             return EventHorizonBlazorInterop.FuncClass<Animatable>(
@@ -436,11 +400,18 @@ namespace BABYLON
 
         public void stop(
             string animationName = null,
-            ActionResultCallback<object, bool> targetMask = null
+            ActionResultCallback<object, bool> targetMask = null,
+            System.Nullable<bool> useGlobalSplice = null
         )
         {
             EventHorizonBlazorInterop.Func<CachedEntity>(
-                new object[] { new string[] { this.___guid, "stop" }, animationName, targetMask }
+                new object[]
+                {
+                    new string[] { this.___guid, "stop" },
+                    animationName,
+                    targetMask,
+                    useGlobalSplice
+                }
             );
         }
 
