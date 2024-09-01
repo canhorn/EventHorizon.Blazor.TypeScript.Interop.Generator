@@ -47,10 +47,4 @@ public class ASTNode
     public bool isNameFirst { get; set; }
     public bool isBracketed { get; set; }
     #endregion
-
-
-    public override string ToString()
-    {
-        return $"{Kind} {Text ?? EscapedText}";
-    }
 }

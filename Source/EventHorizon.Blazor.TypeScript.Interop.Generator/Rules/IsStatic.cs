@@ -11,7 +11,7 @@ public class IsStatic : IRule
 
     public bool Check(Node node)
     {
-        return node.Children.Count(a => a.Kind == SyntaxKind.StaticKeyword) > 0
+        return node.Children.Any(a => a.Kind == SyntaxKind.StaticKeyword)
             || node.Modifiers.Any(a => a.Kind == SyntaxKind.StaticKeyword);
     }
 

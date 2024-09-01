@@ -201,12 +201,7 @@ public class NodeJS_Node : Node
             children.AddRange(node.Types.Select(a => new NodeJS_Node(a, this)));
         }
 
-        if (node.Kind == TypeScriptSyntaxKind.TypeOperator)
-        {
-            Type = new NodeJS_Node(node.Type, this);
-            children.Add(Type);
-        }
-        else if (node.Type is not null)
+        if (node.Type is not null)
         {
             Type = new NodeJS_Node(node.Type, this);
             children.Add(Type);
@@ -276,35 +271,12 @@ public class NodeJS_Node : Node
         }
         return list;
     }
-
-    public override string ToString()
-    {
-        return $"{Kind} {IdentifierStr}";
-    }
 }
 
 public static class NodeJSTypeMapper
 {
     public static string NodeJSTypeToSyntaxKind(ASTNode typeNode, TypeScriptSyntaxKind? kind)
     {
-        // if (typeNode?.Kind == TypeScriptSyntaxKind.MethodDeclaration && kind is not null)
-        // {
-        //     switch (kind)
-        //     {
-        //         // case TypeScriptSyntaxKind.MethodSignature:
-        //         case TypeScriptSyntaxKind.MethodDeclaration:
-        //             return SyntaxKind.MethodDeclaration;
-        //         case TypeScriptSyntaxKind.Constructor:
-        //             return SyntaxKind.Constructor;
-        //         case TypeScriptSyntaxKind.GetAccessor:
-        //             return SyntaxKind.GetAccessor;
-        //         case TypeScriptSyntaxKind.SetAccessor:
-        //             return SyntaxKind.SetAccessor;
-        //         default:
-        //             break;
-        //     }
-        // }
-
         switch (kind)
         {
             // case "TSModuleDeclaration":
