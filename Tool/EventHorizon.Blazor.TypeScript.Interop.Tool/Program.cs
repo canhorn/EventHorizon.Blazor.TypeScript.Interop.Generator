@@ -1,3 +1,4 @@
+#pragma warning disable CA2208 // Instantiate argument exceptions correctly
 namespace EventHorizon.Blazor.TypeScript.Interop.Tool;
 
 using System;
@@ -6,7 +7,6 @@ using System.CommandLine;
 using System.CommandLine.Invocation;
 using System.Diagnostics;
 using System.IO;
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using EventHorizon.Blazor.Interop.Generator;
@@ -28,41 +28,41 @@ class Program
         var rootCommand = new RootCommand
         {
             new Option<IList<string>>(
-                new string[] { "--source", "-s" },
+                ["--source", "-s"],
                 description: "TypeScript Definition to generate from, can be a File or URL, accepts multiple or as Array"
             )
             {
                 IsRequired = true,
             },
             new Option<IList<string>>(
-                new string[] { "--class-to-generate", "-c" },
+                ["--class-to-generate", "-c"],
                 description: "A Class to generate, accepts multiple or as Array"
             )
             {
                 IsRequired = true,
             },
             new Option<string>(
-                new string[] { "--project-assembly", "-a" },
+                ["--project-assembly", "-a"],
                 getDefaultValue: () => "Generated.Code",
                 description: "The project name of the Assembly that will be generated"
             ),
             new Option<string>(
-                new string[] { "--project-generation-location", "-l" },
+                ["--project-generation-location", "-l"],
                 getDefaultValue: () => "_generated",
                 description: "The directory where the Generated Project assembly will be saved"
             ),
             new Option<bool>(
-                new string[] { "--force", "-f" },
+                ["--force", "-f"],
                 getDefaultValue: () => false,
                 description: "This will force generation, by deleting --project-generation-location"
             ),
             new Option<string>(
-                new string[] { "--parser", "-p" },
+                ["--parser", "-p"],
                 getDefaultValue: () => "dotnet",
                 description: "The type of TypeScript parser to use, 'dotnet' will use the embedded .NET parser. 'nodejs' will use the TypeScript compiler through NodeJS (requires NodeJS installed)."
             ),
             new Option<string>(
-                new string[] { "--host-type", "-h" },
+                ["--host-type", "-h"],
                 getDefaultValue: () => "wasm",
                 description: "The host type the source should be generator for. Is 'wasm' by default, will only work for Wasm hosted Blazor projects. Supports 'server' to generate a async first interop layer that works in both Blazor Server and Wasm hosted models."
             ),
@@ -240,7 +240,10 @@ class Program
         }
         if (
             string.IsNullOrWhiteSpace(parser)
-            || (parser.ToLower() != "dotnet" && parser.ToLower() != "nodejs")
+            || (
+                !parser.Equals("dotnet", StringComparison.CurrentCultureIgnoreCase)
+                && !parser.Equals("nodejs", StringComparison.CurrentCultureIgnoreCase)
+            )
         )
         {
             throw new ToolArgumentException(
@@ -250,7 +253,10 @@ class Program
         }
         if (
             string.IsNullOrWhiteSpace(hostType)
-            || (hostType.ToLower() != "server" && hostType.ToLower() != "wasm")
+            || (
+                !hostType.Equals("server", StringComparison.CurrentCultureIgnoreCase)
+                && !hostType.Equals("wasm", StringComparison.CurrentCultureIgnoreCase)
+            )
         )
         {
             throw new ToolArgumentException(

@@ -185,10 +185,8 @@ public class GenerateSource
     )
     {
         var stopwatch = Stopwatch.StartNew();
-        // foreach (var classIdentifier in generationList)
         Parallel.ForEach(
             generationList,
-            // new ParallelOptions { MaxDegreeOfParallelism = 2 },
             (classIdentifier) =>
             {
                 processLock.Wait();

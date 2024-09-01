@@ -1,7 +1,7 @@
+namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
+
 using System.Collections.Generic;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
-
-namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
 
 public class ClassMetadata
 {

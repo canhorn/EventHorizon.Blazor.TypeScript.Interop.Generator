@@ -11,28 +11,17 @@ public class NodeJS_Node : Node
 {
     private readonly ASTNode _node;
 
-    public NodeJS_Node(
-        ASTNode node,
-        Node parent = null,
-        // bool typeReference = false,
-        string overrideKind = null,
-        ASTNode typeParameters = null
-    )
+    public NodeJS_Node(ASTNode node, Node parent = null, string overrideKind = null)
     {
         var children = new List<Node>();
         var modifiers = new List<Node>();
         var heritageClauses = new List<Node>();
-        // Look at moving all this logic into ad/hoc caching from the getters
         _node = node;
         IdentifierStr = node?.Text ?? node?.EscapedText;
         if (node.Kind == TypeScriptSyntaxKind.Constructor)
         {
             IdentifierStr = null;
         }
-        // if (node.Id is not null)
-        // {
-        //     IdentifierStr = node.Id.Name;
-        // }
         if (node.Name is not null)
         {
             IdentifierStr = node.Name.Text ?? node.Name.EscapedText;
@@ -43,14 +32,7 @@ public class NodeJS_Node : Node
         }
         if (node.Expression is not null)
         {
-            // if (node.Expression.Kind == TypeScriptSyntaxKind.Identifier)
-            // {
-            //     IdentifierStr = node.Expression.Text ?? node.Expression.EscapedText;
-            // }
-            // else
-            // {
             children.Add(new NodeJS_Node(node.Expression, parent: this));
-            // }
         }
         if (node.Left is not null)
         {
@@ -71,51 +53,7 @@ public class NodeJS_Node : Node
         if (node.TypeName is not null)
         {
             children.Add(new NodeJS_Node(node.TypeName, this));
-            // if (node.TypeName.Left is not null)
-            // {
-            //     children.Add(new NodeJS_Node(node.TypeName.Left, this));
-            // }
-            // if (node.TypeName.Right is not null)
-            // {
-            //     children.Add(new NodeJS_Node(node.TypeName.Right, this));
-            // }
         }
-
-        // Declaration
-        // if (node.Declaration is not null)
-        // {
-        //     children.Add(new NodeJS_Node(node.Declaration, this));
-        // }
-        // Body as Node
-        // if (node.BodyNode is not null)
-        // {
-        //     var bodyNode = new NodeJS_Node(node.BodyNode, this);
-        //     if (bodyNode.Kind == SyntaxKind.ModuleDeclaration)
-        //     {
-        //         children.Add(bodyNode);
-        //     }
-        //     else
-        //     {
-        //         var bodyNodeChildren = new NodeJS_Node(
-        //             node.BodyNode,
-        //             this
-        //         ).Children.Cast<NodeJS_Node>();
-        //         foreach (var child in bodyNodeChildren)
-        //         {
-        //             child.Parent = this;
-        //             children.Add(child);
-        //         }
-        //     }
-        // }
-        // // Body as Array
-        // if (node.BodyArray is not null)
-        // {
-        //     var bodyArrayChildren = node.BodyArray.Select(a => new NodeJS_Node(a, this));
-        //     foreach (var bodyNode in bodyArrayChildren)
-        //     {
-        //         children.Add(bodyNode);
-        //     }
-        // }
 
         // Children as Body
         if (node.Body is not null)
@@ -152,7 +90,6 @@ public class NodeJS_Node : Node
             }
         }
 
-        // Kind = overrideKind ?? NodeJSTypeMapper.NodeJSTypeToSyntaxKind(node.Type, node.Kind);
         Kind = overrideKind ?? NodeJSTypeMapper.NodeJSTypeToSyntaxKind(node.Type, node.Kind);
 
         if (node.Modifiers is not null)
@@ -253,16 +190,6 @@ public class NodeJS_Node : Node
             children.AddRange(types);
         }
 
-        if (typeParameters is not null)
-        {
-            var types = typeParameters
-                .Parameters.Select(a => new NodeJS_Node(a, parent: this))
-                .Cast<Node>()
-                .ToList();
-            TypeArguments = types;
-            children.AddRange(types);
-        }
-
         if (node.Elements is not null)
         {
             children.AddRange(node.Elements.Select(a => new NodeJS_Node(a, parent: this)));
@@ -291,25 +218,6 @@ public class NodeJS_Node : Node
             children.Add(ElementType);
         }
 
-        if (node.Members is not null)
-        {
-            // TODO: Members are on Object Literals, not currently used by framework
-            //Members = typeAnnotation.Members.Select(
-            //    a => new NodeJS_Node(a)
-            //);
-        }
-
-        // TODO: Look into this a TypeAnnotation might be something I have to handle, since it changes the Type on the node
-        // if (node.TypeAnnotation is not null && node.TypeAnnotation.Type == "TSTypeAnnotation")
-        // {
-        //     var type = new NodeJS_Node(node.TypeAnnotation.TypeAnnotation, parent: this);
-        //     if (Kind == SyntaxKind.Parameter)
-        //     {
-        //         Type = type;
-        //     }
-        //     children.Add(type);
-        // }
-
         if (node.Literal is not null)
         {
             children.Add(new NodeJS_Node(node.Literal, parent: this));
@@ -329,14 +237,14 @@ public class NodeJS_Node : Node
         Kind = kind;
         IdentifierStr = name;
         Parent = parent;
-        Children = new List<Node>();
+        Children = [];
     }
 
     public NodeJS_Node(string kind, Node parent)
     {
         Kind = kind;
         Parent = parent;
-        Children = new List<Node>();
+        Children = [];
     }
 
     public string IdentifierStr { get; }

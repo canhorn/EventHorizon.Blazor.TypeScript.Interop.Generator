@@ -56,41 +56,41 @@ public class MethodScenarioTests : GenerateStringTestBase
         "MethodStaticAction.Expected.txt",
         ASTParserType.Sdcb
     )]
-    // [InlineData(
-    //     "MethodStaticClassWithLiteralInArguments.ts",
-    //     "Methods",
-    //     "Scenarios",
-    //     "MethodStaticClassWithLiteralInArguments.Expected.txt",
-    //     ASTParserType.Sdcb
-    // )]
-    // [InlineData(
-    //     "MethodStaticClassWithNullArgument.ts",
-    //     "Methods",
-    //     "Scenarios",
-    //     "MethodStaticClassWithNullArgument.Expected.txt",
-    //     ASTParserType.Sdcb
-    // )]
-    // [InlineData(
-    //     "MethodStaticClassWithUndefinedArgument.ts",
-    //     "Methods",
-    //     "Scenarios",
-    //     "MethodStaticClassWithUndefinedArgument.Expected.txt",
-    //     ASTParserType.Sdcb
-    // )]
-    // [InlineData(
-    //     "MethodStaticWithLiteralAsResult.ts",
-    //     "Methods",
-    //     "Scenarios",
-    //     "MethodStaticWithLiteralAsResult.Expected.txt",
-    //     ASTParserType.Sdcb
-    // )]
-    // [InlineData(
-    //     "StaticNoNamespace.d.ts",
-    //     "Methods",
-    //     "Scenarios",
-    //     "StaticNoNamespace.d.Expected.txt",
-    //     ASTParserType.Sdcb
-    // )]
+    [InlineData(
+        "MethodStaticClassWithLiteralInArguments.ts",
+        "Methods",
+        "Scenarios",
+        "MethodStaticClassWithLiteralInArguments.Expected.txt",
+        ASTParserType.Sdcb
+    )]
+    [InlineData(
+        "MethodStaticClassWithNullArgument.ts",
+        "Methods",
+        "Scenarios",
+        "MethodStaticClassWithNullArgument.Expected.txt",
+        ASTParserType.Sdcb
+    )]
+    [InlineData(
+        "MethodStaticClassWithUndefinedArgument.ts",
+        "Methods",
+        "Scenarios",
+        "MethodStaticClassWithUndefinedArgument.Expected.txt",
+        ASTParserType.Sdcb
+    )]
+    [InlineData(
+        "MethodStaticWithLiteralAsResult.ts",
+        "Methods",
+        "Scenarios",
+        "MethodStaticWithLiteralAsResult.Expected.txt",
+        ASTParserType.Sdcb
+    )]
+    [InlineData(
+        "StaticNoNamespace.d.ts",
+        "Methods",
+        "Scenarios",
+        "StaticNoNamespace.d.Expected.txt",
+        ASTParserType.Sdcb
+    )]
     public void ShouldGenerateStaticMethodScenarioStringsUsingSdcb(
         string sourceFile,
         string rootPath,

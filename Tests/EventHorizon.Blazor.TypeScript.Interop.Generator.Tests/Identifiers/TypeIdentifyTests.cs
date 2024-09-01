@@ -1,6 +1,5 @@
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.Identifiers;
 
-using System.Collections.Generic;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Identifiers;

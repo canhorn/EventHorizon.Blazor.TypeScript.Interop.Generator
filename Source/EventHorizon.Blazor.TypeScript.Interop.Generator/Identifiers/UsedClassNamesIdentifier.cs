@@ -16,7 +16,6 @@ public static class UsedClassNamesIdentifier
             && !type.IsLiteral
             && !type.IsModifier
             && !type.IsNullable
-            // && !type.IsTypeAlias
             && !type.IsReadonly
             && !type.IsTypeParameter
         )

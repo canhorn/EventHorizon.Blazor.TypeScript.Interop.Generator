@@ -54,10 +54,6 @@ public class TypeStatementWriter
             );
 
             genericTypesAsString = string.Join(", ", genericTypes);
-            if (genericTypesAsString == "void")
-            {
-                genericTypesAsString = GenerationIdentifiedTypes.CachedEntityObject;
-            }
         }
         if (
             type.IsNullable
