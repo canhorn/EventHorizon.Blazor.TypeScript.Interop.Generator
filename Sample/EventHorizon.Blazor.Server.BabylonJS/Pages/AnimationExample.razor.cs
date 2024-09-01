@@ -58,7 +58,7 @@ namespace EventHorizon.Blazor.Server.BabylonJS.Pages
 
             await advancedTexture.addControl(UiPanel);
 
-            var house = await SceneLoader.ImportMeshAsync(null, "assets/", "Player.glb", scene);
+            var house = await SceneLoader.ImportMeshAsync("assets/Player.glb", scene: scene);
             var animationGroups = await house.get_animationGroups();
             foreach (var animation in animationGroups)
             {
