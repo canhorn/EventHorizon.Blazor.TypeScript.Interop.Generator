@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         fetch-depth: '0'
     - name: Install GitVersion
@@ -22,7 +22,7 @@ jobs:
     - run: |
         echo "NuGetVersionV2: ${{ steps.gitversion.outputs.NuGetVersionV2 }}"
     - name: Bump version and push tag
-      uses: anothrNick/github-tag-action@1.67.0
+      uses: anothrNick/github-tag-action@1.70.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # We want to push to nuget the same version we tag
