@@ -18,7 +18,7 @@ public class Program
         // 05/26/2024 - 26662ms | 27904ms | 27486ms
         // - This is with a smaller class list.
         // 08/16/2024 - 37792ms | 34831ms
-        // 08/31/2024 - 31830ms | 32695ms
+        // 08/31/2024 - 31830ms | 32695ms | 32146ms
         Run(
             AstParser.Model.ASTParserType.NodeJS,
             useWasm: true,
@@ -30,7 +30,7 @@ public class Program
         // pre-05/26/2024 - 22027ms | 19835ms | 18236ms
         // 05/26/2024 - 10116ms | 9721ms | 9762ms
         // 08/16/2024 - 93478ms
-        // 08/31/2024 - 72651ms
+        // 08/31/2024 - 72651ms | 63212ms
         // Run(
         //     AstParser.Model.ASTParserType.Sdcb,
         //     useWasm: true,

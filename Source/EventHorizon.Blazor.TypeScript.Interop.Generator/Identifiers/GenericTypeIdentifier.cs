@@ -105,27 +105,6 @@ public class GenericTypeIdentifier
                 genericTypes.Add(Identify(typeParameter, classMetadata, ast, typeOverrideDetails));
             }
         }
-        else if (isTypeOperator && node.Type != null && node.Type.Kind == SyntaxKind.ArrayType)
-        {
-            // This Type is an Array, so we will take the ElementType and use that as the result.
-            return Identify(node.Type, classMetadata, ast, typeOverrideDetails);
-        }
-        else if (
-            typeIdentifier == GenerationIdentifiedTypes.Array
-            && node.Type != null
-            && node.Type.Kind == SyntaxKind.ArrayType
-        )
-        {
-            // This Type is an Array, so we will take the ElementType and use that as the result.
-            var resultType = Identify(
-                node.Type.ElementType,
-                classMetadata,
-                ast,
-                typeOverrideDetails
-            );
-            resultType.IsArray = true;
-            return resultType;
-        }
         else if (IsNumericArrayRule.Check(node))
         {
             genericTypes.Add(new TypeStatement { Name = GenerationIdentifiedTypes.Number, });
@@ -140,16 +119,6 @@ public class GenericTypeIdentifier
             {
                 typeIdentifier = GenerationIdentifiedTypes.Void;
             }
-        }
-        else if (
-            isNullable
-            && node.Type is not null
-            && node.Type.TypeArguments is not null
-            && node.Type.TypeArguments.Count != 0
-            && node.Type.TypeArguments.First() is Node typeArgumentFirst
-        )
-        {
-            genericTypes.Add(Identify(typeArgumentFirst, classMetadata, ast, typeOverrideDetails));
         }
         else if (
             UnionTypeIdentifier.Identify(
