@@ -183,7 +183,7 @@ namespace EventHorizon.Maui.BabylonJS.Pages
                         await Tools.ToRadians(0),
                         await Tools.ToRadians(0),
                         await Tools.ToRadians(180)
-                    )
+                    ),
                 },
                 new Vector3[]
                 {
@@ -192,7 +192,7 @@ namespace EventHorizon.Maui.BabylonJS.Pages
                         await Tools.ToRadians(0),
                         await Tools.ToRadians(0),
                         await Tools.ToRadians(180)
-                    )
+                    ),
                 },
                 new Vector3[]
                 {
@@ -201,7 +201,7 @@ namespace EventHorizon.Maui.BabylonJS.Pages
                         await Tools.ToRadians(0),
                         await Tools.ToRadians(90),
                         await Tools.ToRadians(180)
-                    )
+                    ),
                 },
                 new Vector3[]
                 {
@@ -210,7 +210,7 @@ namespace EventHorizon.Maui.BabylonJS.Pages
                         await Tools.ToRadians(0),
                         await Tools.ToRadians(90),
                         await Tools.ToRadians(180)
-                    )
+                    ),
                 },
                 new Vector3[]
                 {
@@ -219,7 +219,7 @@ namespace EventHorizon.Maui.BabylonJS.Pages
                         await Tools.ToRadians(0),
                         await Tools.ToRadians(90),
                         await Tools.ToRadians(180)
-                    )
+                    ),
                 },
                 new Vector3[]
                 {
@@ -228,7 +228,7 @@ namespace EventHorizon.Maui.BabylonJS.Pages
                         await Tools.ToRadians(0),
                         await Tools.ToRadians(-90),
                         await Tools.ToRadians(180)
-                    )
+                    ),
                 },
                 new Vector3[]
                 {
@@ -237,7 +237,7 @@ namespace EventHorizon.Maui.BabylonJS.Pages
                         await Tools.ToRadians(0),
                         await Tools.ToRadians(180),
                         await Tools.ToRadians(180)
-                    )
+                    ),
                 },
                 new Vector3[]
                 {
@@ -246,7 +246,7 @@ namespace EventHorizon.Maui.BabylonJS.Pages
                         await Tools.ToRadians(0),
                         await Tools.ToRadians(180),
                         await Tools.ToRadians(180)
-                    )
+                    ),
                 },
                 new Vector3[]
                 {
@@ -255,7 +255,7 @@ namespace EventHorizon.Maui.BabylonJS.Pages
                         await Tools.ToRadians(0),
                         await Tools.ToRadians(180),
                         await Tools.ToRadians(180)
-                    )
+                    ),
                 },
                 new Vector3[]
                 {
@@ -264,8 +264,8 @@ namespace EventHorizon.Maui.BabylonJS.Pages
                         await Tools.ToRadians(0),
                         await Tools.ToRadians(-90),
                         await Tools.ToRadians(180)
-                    )
-                }
+                    ),
+                },
             };
 
             //create 10 cannon clones, each with unique position/rotation data. Note that particle systems are cloned with parent meshes

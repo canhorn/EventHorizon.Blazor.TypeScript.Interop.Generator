@@ -15,7 +15,7 @@ public static class DotNetNormalizer
         "virtual",
         "string",
         "this",
-        "params"
+        "params",
     };
 
     public static string Normalize(string text)

@@ -39,7 +39,7 @@ public static class JavaScriptTypes
         IndicesArray,
         Uint8Array,
     ];
-    public static readonly IList<string> MapTypes = [Map,];
+    public static readonly IList<string> MapTypes = [Map];
     #endregion
 
     #region Special BabylonJS Types - We want to track these because they have special cases for performance

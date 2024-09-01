@@ -17,7 +17,7 @@ public class AliasTypeIdentifierCachedTests
         // Given
         var expected = 1;
         var identifierString = "identifier-string";
-        var mockNode = new NodeMock { IdentifierStr = identifierString, };
+        var mockNode = new NodeMock { IdentifierStr = identifierString };
 
         var astMock = new Mock<AbstractSyntaxTree>();
         var rootNodeMock = new Mock<Node>();

@@ -17,8 +17,8 @@ public class TypeStatementTests
             IsArray = true,
             IsTypeAlias = true,
             IsTypeReference = true,
-            GenericTypes = [new(), new(),],
-            Arguments = [new(), new(),],
+            GenericTypes = [new(), new()],
+            Arguments = [new(), new()],
             IsNullable = true,
             IsReadonly = true,
             IsAction = true,
@@ -48,7 +48,7 @@ public class TypeStatementTests
     public void CalculateExpectedScoreWhenNoFieldsAreSet()
     {
         // Given
-        var typeStatement = new TypeStatement { Name = "name", };
+        var typeStatement = new TypeStatement { Name = "name" };
 
         var expected = 0;
 
@@ -71,18 +71,18 @@ public class TypeStatementTests
             IsArray = true,
             IsTypeAlias = true,
             IsTypeReference = true,
-            GenericTypes = [new() { Name = "GenericType1" }, new() { Name = "GenericType2" },],
+            GenericTypes = [new() { Name = "GenericType1" }, new() { Name = "GenericType2" }],
             Arguments =
             [
                 new()
                 {
                     Name = "Argument1",
-                    Type = new() { Name = "ArgumentType1" }
+                    Type = new() { Name = "ArgumentType1" },
                 },
                 new()
                 {
                     Name = "Argument2",
-                    Type = new() { Name = "ArgumentType2" }
+                    Type = new() { Name = "ArgumentType2" },
                 },
             ],
             IsReadonly = true,
@@ -118,7 +118,7 @@ public class TypeStatementTests
         {
             IsNullable = true,
             Name = "name",
-            GenericTypes = [new() { Name = "GenericType1" },],
+            GenericTypes = [new() { Name = "GenericType1" }],
         };
 
         var expected = "GenericType1";

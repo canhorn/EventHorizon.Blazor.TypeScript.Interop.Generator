@@ -36,41 +36,49 @@ public class ControlTest
             .BeEquivalentTo(
                 new List<AccessorStatement>
                 {
-                    new()
+                    new() // [0]
                     {
                         Name = "shadowOffsetX",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new()
+                    new() // [1]
                     {
                         Name = "shadowOffsetY",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new()
+                    new() // [2]
                     {
                         Name = "shadowBlur",
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new()
+                    new() // [3]
                     {
                         Name = "shadowColor",
                         Type = "string".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new() { Name = "typeName", Type = "string".MakeTypeStatement(), },
-                    new()
+                    new() // [4]
+                    {
+                        Name = "typeName",
+                        Type = "string".MakeTypeStatement(),
+                    },
+                    new() // [5]
                     {
                         Name = "host",
-                        Type = new TypeStatement { Name = "AdvancedDynamicTexture", },
-                        UsedClassNames = ["AdvancedDynamicTexture",],
+                        Type = new TypeStatement
+                        {
+                            Name = "AdvancedDynamicTexture",
+                            IsOptional = true,
+                        },
+                        UsedClassNames = ["AdvancedDynamicTexture"],
                     },
                     new()
                     {
                         Name = "fontOffset",
-                        Type = new TypeStatement { Name = "CachedEntity", IsLiteral = true, },
+                        Type = new TypeStatement { Name = "CachedEntity", IsLiteral = true },
                         HasSetter = true,
                     },
                     new()
@@ -205,7 +213,7 @@ public class ControlTest
                         Type = "bool".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new() { Name = "isDirty", Type = "bool".MakeTypeStatement(), },
+                    new() { Name = "isDirty", Type = "bool".MakeTypeStatement() },
                     new()
                     {
                         Name = "paddingLeft",
@@ -302,8 +310,8 @@ public class ControlTest
                         Type = "decimal".MakeTypeStatement(),
                         HasSetter = true,
                     },
-                    new() { Name = "centerX", Type = "decimal".MakeTypeStatement(), },
-                    new() { Name = "centerY", Type = "decimal".MakeTypeStatement(), },
+                    new() { Name = "centerX", Type = "decimal".MakeTypeStatement() },
+                    new() { Name = "centerY", Type = "decimal".MakeTypeStatement() },
                     new()
                     {
                         Name = "isEnabled",
@@ -329,11 +337,11 @@ public class ControlTest
                         {
                             Name = "Nullable",
                             IsNullable = true,
-                            GenericTypes = [new() { Name = "Style", IsTypeReference = true, },],
+                            GenericTypes = [new() { Name = "Style", IsTypeReference = true }],
                             IsTypeReference = true,
                         },
                         HasSetter = true,
-                        UsedClassNames = ["Style",],
+                        UsedClassNames = ["Style"],
                     },
                     new()
                     {
@@ -344,11 +352,11 @@ public class ControlTest
                             IsNullable = true,
                             GenericTypes =
                             [
-                                new() { Name = "AbstractMesh", IsTypeReference = true, }
+                                new() { Name = "AbstractMesh", IsTypeReference = true },
                             ],
                             IsTypeReference = true,
                         },
-                        UsedClassNames = ["AbstractMesh",],
+                        UsedClassNames = ["AbstractMesh"],
                     },
                     new()
                     {
@@ -385,7 +393,7 @@ public class ControlTest
                         Name = "VERTICAL_ALIGNMENT_CENTER",
                         Type = "decimal".MakeTypeStatement(),
                         IsStatic = true,
-                    }
+                    },
                 }
             );
         actual.ExtendedType.Should().BeNull();
@@ -401,7 +409,7 @@ public class ControlTest
                         UsedClassNames =
                         [
                             //GenerationIdentifiedTypes.CachedEntityObject,
-                            "Control"
+                            "Control",
                         ],
                         Arguments =
                         [
@@ -434,12 +442,12 @@ public class ControlTest
                         {
                             Name = "Nullable",
                             IsNullable = true,
-                            GenericTypes = [new() { Name = "Control", },],
+                            GenericTypes = [new() { Name = "Control" }],
                         },
-                        UsedClassNames = ["Control",],
+                        UsedClassNames = ["Control"],
                         Arguments =
                         [
-                            new() { Name = "className", Type = "string".MakeTypeStatement(), },
+                            new() { Name = "className", Type = "string".MakeTypeStatement() },
                         ],
                     },
                     new()
@@ -490,7 +498,7 @@ public class ControlTest
                         UsedClassNames =
                         [
                             //GenerationIdentifiedTypes.CachedEntityObject,
-                            "Vector2"
+                            "Vector2",
                         ],
                         Arguments =
                         [
@@ -534,7 +542,7 @@ public class ControlTest
                             },
                         ],
                     },
-                    new() { Name = "getClassName", Type = "string".MakeTypeStatement(), },
+                    new() { Name = "getClassName", Type = "string".MakeTypeStatement() },
                     new()
                     {
                         Name = "linkWithMesh",
@@ -548,21 +556,21 @@ public class ControlTest
                                 {
                                     Name = "Nullable",
                                     IsNullable = true,
-                                    GenericTypes = [new() { Name = "AbstractMesh", }]
+                                    GenericTypes = [new() { Name = "AbstractMesh" }],
                                 },
-                                UsedClassNames = ["AbstractMesh",],
+                                UsedClassNames = ["AbstractMesh"],
                             },
                         ],
                     },
-                    new() { Name = "dispose", Type = "void".MakeTypeStatement(), },
+                    new() { Name = "dispose", Type = "void".MakeTypeStatement() },
                     new()
                     {
                         Name = "contains",
                         Type = "bool".MakeTypeStatement(),
                         Arguments =
                         [
-                            new() { Name = "x", Type = "decimal".MakeTypeStatement(), },
-                            new() { Name = "y", Type = "decimal".MakeTypeStatement(), },
+                            new() { Name = "x", Type = "decimal".MakeTypeStatement() },
+                            new() { Name = "y", Type = "decimal".MakeTypeStatement() },
                         ],
                     },
                     new()
@@ -578,9 +586,9 @@ public class ControlTest
                                 {
                                     Name = "Array",
                                     IsArray = true,
-                                    GenericTypes = [new() { Name = "Control", },],
+                                    GenericTypes = [new() { Name = "Control" }],
                                 },
-                                UsedClassNames = ["Control",],
+                                UsedClassNames = ["Control"],
                             },
                             new()
                             {
@@ -591,7 +599,7 @@ public class ControlTest
                             new()
                             {
                                 Name = "predicate",
-                                Type = new TypeStatement { Name = "action", IsAction = true, },
+                                Type = new TypeStatement { Name = "action", IsAction = true },
                                 IsOptional = true,
                             },
                         ],
@@ -603,9 +611,9 @@ public class ControlTest
                         {
                             Name = "Array",
                             IsArray = true,
-                            GenericTypes = [new() { Name = "Control", },],
+                            GenericTypes = [new() { Name = "Control" }],
                         },
-                        UsedClassNames = ["Control",],
+                        UsedClassNames = ["Control"],
                         Arguments =
                         [
                             new()
@@ -617,7 +625,7 @@ public class ControlTest
                             new()
                             {
                                 Name = "predicate",
-                                Type = new TypeStatement { Name = "action", IsAction = true, },
+                                Type = new TypeStatement { Name = "action", IsAction = true },
                                 IsOptional = true,
                             },
                         ],
@@ -625,7 +633,7 @@ public class ControlTest
                     new()
                     {
                         Name = "AddHeader",
-                        Type = new TypeStatement { Name = "action", IsAction = true, },
+                        Type = new TypeStatement { Name = "action", IsAction = true },
                         IsStatic = true,
                     },
                 }
@@ -635,36 +643,36 @@ public class ControlTest
             .BeEquivalentTo(
                 new List<PublicPropertyStatement>
                 {
-                    new() { Name = "name", Type = "string".MakeTypeStatement(), },
+                    new() { Name = "name", Type = "string".MakeTypeStatement() },
                     new()
                     {
                         Name = "AllowAlphaInheritance",
                         Type = "bool".MakeTypeStatement(),
                         IsStatic = true,
                     },
-                    new() { Name = "uniqueId", Type = "decimal".MakeTypeStatement(), },
+                    new() { Name = "uniqueId", Type = "decimal".MakeTypeStatement() },
                     new()
                     {
                         Name = "metadata",
-                        Type = new TypeStatement { Name = "CachedEntity", IsLiteral = true, },
+                        Type = new TypeStatement { Name = "CachedEntity", IsLiteral = true },
                     },
-                    new() { Name = "isHitTestVisible", Type = "bool".MakeTypeStatement(), },
-                    new() { Name = "isPointerBlocker", Type = "bool".MakeTypeStatement(), },
-                    new() { Name = "isFocusInvisible", Type = "bool".MakeTypeStatement(), },
-                    new() { Name = "clipChildren", Type = "bool".MakeTypeStatement(), },
-                    new() { Name = "clipContent", Type = "bool".MakeTypeStatement(), },
-                    new() { Name = "useBitmapCache", Type = "bool".MakeTypeStatement(), },
-                    new() { Name = "hoverCursor", Type = "string".MakeTypeStatement(), },
+                    new() { Name = "isHitTestVisible", Type = "bool".MakeTypeStatement() },
+                    new() { Name = "isPointerBlocker", Type = "bool".MakeTypeStatement() },
+                    new() { Name = "isFocusInvisible", Type = "bool".MakeTypeStatement() },
+                    new() { Name = "clipChildren", Type = "bool".MakeTypeStatement() },
+                    new() { Name = "clipContent", Type = "bool".MakeTypeStatement() },
+                    new() { Name = "useBitmapCache", Type = "bool".MakeTypeStatement() },
+                    new() { Name = "hoverCursor", Type = "string".MakeTypeStatement() },
                     new()
                     {
                         Name = "onWheelObservable",
                         Type = new TypeStatement
                         {
                             Name = "Observable",
-                            GenericTypes = [new() { Name = "Vector2", IsTypeReference = true, },],
+                            GenericTypes = [new() { Name = "Vector2", IsTypeReference = true }],
                             IsTypeReference = true,
                         },
-                        UsedClassNames = ["Observable", "Vector2",],
+                        UsedClassNames = ["Observable", "Vector2"],
                     },
                     new()
                     {
@@ -672,10 +680,10 @@ public class ControlTest
                         Type = new TypeStatement
                         {
                             Name = "Observable",
-                            GenericTypes = [new() { Name = "Vector2", IsTypeReference = true, },],
+                            GenericTypes = [new() { Name = "Vector2", IsTypeReference = true }],
                             IsTypeReference = true,
                         },
-                        UsedClassNames = ["Observable", "Vector2",],
+                        UsedClassNames = ["Observable", "Vector2"],
                     },
                     new()
                     {
@@ -683,10 +691,10 @@ public class ControlTest
                         Type = new TypeStatement
                         {
                             Name = "Observable",
-                            GenericTypes = [new() { Name = "Control", IsTypeReference = true, },],
+                            GenericTypes = [new() { Name = "Control", IsTypeReference = true }],
                             IsTypeReference = true,
                         },
-                        UsedClassNames = ["Observable", "Control",],
+                        UsedClassNames = ["Observable", "Control"],
                     },
                     new()
                     {
@@ -696,11 +704,11 @@ public class ControlTest
                             Name = "Observable",
                             GenericTypes =
                             [
-                                new() { Name = "Vector2WithInfo", IsTypeReference = true, },
+                                new() { Name = "Vector2WithInfo", IsTypeReference = true },
                             ],
                             IsTypeReference = true,
                         },
-                        UsedClassNames = ["Observable", "Vector2WithInfo",],
+                        UsedClassNames = ["Observable", "Vector2WithInfo"],
                     },
                     new()
                     {
@@ -710,11 +718,11 @@ public class ControlTest
                             Name = "Observable",
                             GenericTypes =
                             [
-                                new() { Name = "Vector2WithInfo", IsTypeReference = true, },
+                                new() { Name = "Vector2WithInfo", IsTypeReference = true },
                             ],
                             IsTypeReference = true,
                         },
-                        UsedClassNames = ["Observable", "Vector2WithInfo",],
+                        UsedClassNames = ["Observable", "Vector2WithInfo"],
                     },
                     new()
                     {
@@ -724,11 +732,11 @@ public class ControlTest
                             Name = "Observable",
                             GenericTypes =
                             [
-                                new() { Name = "Vector2WithInfo", IsTypeReference = true, },
+                                new() { Name = "Vector2WithInfo", IsTypeReference = true },
                             ],
                             IsTypeReference = true,
                         },
-                        UsedClassNames = ["Observable", "Vector2WithInfo",],
+                        UsedClassNames = ["Observable", "Vector2WithInfo"],
                     },
                     new()
                     {
@@ -736,10 +744,10 @@ public class ControlTest
                         Type = new TypeStatement
                         {
                             Name = "Observable",
-                            GenericTypes = [new() { Name = "Control", IsTypeReference = true, },],
+                            GenericTypes = [new() { Name = "Control", IsTypeReference = true }],
                             IsTypeReference = true,
                         },
-                        UsedClassNames = ["Observable", "Control",],
+                        UsedClassNames = ["Observable", "Control"],
                     },
                     new()
                     {
@@ -747,10 +755,10 @@ public class ControlTest
                         Type = new TypeStatement
                         {
                             Name = "Observable",
-                            GenericTypes = [new() { Name = "Control", IsTypeReference = true, },],
+                            GenericTypes = [new() { Name = "Control", IsTypeReference = true }],
                             IsTypeReference = true,
                         },
-                        UsedClassNames = ["Observable", "Control",],
+                        UsedClassNames = ["Observable", "Control"],
                     },
                     new()
                     {
@@ -758,10 +766,10 @@ public class ControlTest
                         Type = new TypeStatement
                         {
                             Name = "Observable",
-                            GenericTypes = [new() { Name = "Control", IsTypeReference = true, },],
+                            GenericTypes = [new() { Name = "Control", IsTypeReference = true }],
                             IsTypeReference = true,
                         },
-                        UsedClassNames = ["Observable", "Control",],
+                        UsedClassNames = ["Observable", "Control"],
                     },
                     new()
                     {
@@ -769,10 +777,10 @@ public class ControlTest
                         Type = new TypeStatement
                         {
                             Name = "Observable",
-                            GenericTypes = [new() { Name = "Control", IsTypeReference = true, },],
+                            GenericTypes = [new() { Name = "Control", IsTypeReference = true }],
                             IsTypeReference = true,
                         },
-                        UsedClassNames = ["Observable", "Control",],
+                        UsedClassNames = ["Observable", "Control"],
                     },
                     new()
                     {
@@ -781,11 +789,11 @@ public class ControlTest
                         {
                             Name = "Nullable",
                             IsNullable = true,
-                            GenericTypes = [new() { Name = "Container", IsTypeReference = true, },],
+                            GenericTypes = [new() { Name = "Container", IsTypeReference = true }],
                             IsTypeReference = true,
                         },
-                        UsedClassNames = ["Container",],
-                    }
+                        UsedClassNames = ["Container"],
+                    },
                 }
             );
     }

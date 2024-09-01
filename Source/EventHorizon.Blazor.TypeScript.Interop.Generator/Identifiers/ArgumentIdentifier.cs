@@ -25,11 +25,33 @@ public static class ArgumentIdentifier
             .Select(parameter =>
             {
                 var type = GenericTypeIdentifier.Identify(
-                    parameter.Last,
+                    parameter.Type,
                     classMetadata,
                     ast,
                     typeOverrideDetails
                 );
+                if (
+                    !type.IsNullable
+                    && !type.IsTypeReference
+                    && !type.IsTypeParameter
+                    && !type.IsTypeOperator
+                    && !type.IsTypeQuery
+                    && !type.IsTask
+                    && !type.IsAction
+                    && !type.IsTypeAlias
+                    && !type.GenericTypes.Any()
+                    && parameter.Children.Any(a => a.Kind == SyntaxKind.QuestionToken)
+                    && !parameter.Children.Any(a => a.Kind == SyntaxKind.UnionType)
+                )
+                {
+                    type = GenericTypeIdentifier.Identify(
+                        parameter,
+                        classMetadata,
+                        ast,
+                        typeOverrideDetails
+                    );
+                }
+
                 if (
                     UnionTypeIdentifier.Identify(
                         parameter,

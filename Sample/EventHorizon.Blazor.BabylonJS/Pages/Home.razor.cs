@@ -41,7 +41,7 @@ public partial class Home
         {
             lowerRadiusLimit = 2,
             upperRadiusLimit = 10,
-            wheelDeltaPercentage = 0.01m
+            wheelDeltaPercentage = 0.01m,
         };
         scene.activeCamera = camera;
         camera.attachControl(false);

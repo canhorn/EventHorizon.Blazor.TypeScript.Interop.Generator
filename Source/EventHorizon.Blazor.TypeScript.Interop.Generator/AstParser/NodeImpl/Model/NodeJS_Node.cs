@@ -2,6 +2,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.NodeImpl.Mo
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Api;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model.Types;
@@ -270,6 +271,12 @@ public class NodeJS_Node : Node
             list.AddRange(child.OfKind(kind));
         }
         return list;
+    }
+
+    [ExcludeFromCodeCoverage]
+    public override string ToString()
+    {
+        return $"{Kind} {IdentifierStr}";
     }
 }
 

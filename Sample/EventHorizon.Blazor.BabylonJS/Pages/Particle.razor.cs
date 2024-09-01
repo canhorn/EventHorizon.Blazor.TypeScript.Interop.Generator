@@ -43,7 +43,7 @@ public partial class Particle : IDisposable
             width = "220px",
             fontSize = "14px",
             horizontalAlignment = Control.HORIZONTAL_ALIGNMENT_RIGHT,
-            verticalAlignment = Control.VERTICAL_ALIGNMENT_CENTER
+            verticalAlignment = Control.VERTICAL_ALIGNMENT_CENTER,
         };
         advancedTexture.addControl(UiPanel);
 
@@ -90,7 +90,7 @@ public partial class Particle : IDisposable
         {
             lowerRadiusLimit = 2,
             upperRadiusLimit = 10,
-            wheelDeltaPercentage = 0.01m
+            wheelDeltaPercentage = 0.01m,
         };
         scene.activeCamera = camera;
         camera.attachControl(false);

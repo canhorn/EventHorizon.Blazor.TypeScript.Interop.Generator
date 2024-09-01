@@ -22,7 +22,7 @@ public class GenerateSourceEverythingTest
         var sourceFileName = "Everything.ts";
         var sourceFile = Path.Combine(".", "SourceFiles", sourceFileName);
         var sourceFiles = new List<string> { sourceFile };
-        var generationList = new List<string> { "Everything", };
+        var generationList = new List<string> { "Everything" };
         var typeOverrideMap = new Dictionary<string, string>();
         var ignoredIdentifiers = new List<string>();
 
@@ -56,7 +56,7 @@ public class GenerateSourceEverythingTest
         var sourceFileName = "Everything.ts";
         var sourceFile = Path.Combine(".", "SourceFiles", sourceFileName);
         var sourceFiles = new List<string> { sourceFile };
-        var generationList = new List<string> { "Everything", };
+        var generationList = new List<string> { "Everything" };
         var typeOverrideMap = new Dictionary<string, string>();
         var ignoredIdentifiers = new List<string>();
 

@@ -2,6 +2,7 @@ namespace EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.SdcdImpl.Mo
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Sdcb.TypeScript.TsTypes;
 using GenNode = Api.Node;
@@ -208,5 +209,11 @@ public class SdcbNode : GenNode
         }
 
         return [];
+    }
+
+    [ExcludeFromCodeCoverage]
+    public override string ToString()
+    {
+        return $"{Kind} {IdentifierStr}";
     }
 }

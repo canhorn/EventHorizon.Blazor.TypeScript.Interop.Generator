@@ -39,11 +39,7 @@ public static class GenerateInteropClassStatement
         }
 
         var namespaceIdentifier = string.Join(".", GetNamespace(toGenerateNode));
-        var classMetadata = new ClassMetadata
-        {
-            Namespace = namespaceIdentifier,
-            Name = className,
-        };
+        var classMetadata = new ClassMetadata { Namespace = namespaceIdentifier, Name = className };
 
         var typeOverrideDetails = new TypeOverrideDetails
         {
@@ -54,7 +50,7 @@ public static class GenerateInteropClassStatement
             toGenerateNode,
             classMetadata,
             ast,
-            new TypeOverrideDetails { IsStatic = false, TypeOverrideMap = typeOverrideMap, }
+            new TypeOverrideDetails { IsStatic = false, TypeOverrideMap = typeOverrideMap }
         );
         classMetadata.GenericTypes = genericTypes;
 
@@ -335,7 +331,7 @@ public static class GenerateInteropClassStatement
             classStatement,
             classMetadata,
             ast,
-            new TypeOverrideDetails { IsStatic = false, TypeOverrideMap = typeOverrideMap, }
+            new TypeOverrideDetails { IsStatic = false, TypeOverrideMap = typeOverrideMap }
         );
 
         return classStatement;

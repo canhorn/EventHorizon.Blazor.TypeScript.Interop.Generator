@@ -47,8 +47,8 @@ public class ButtonTest
                             Name = "name",
                             Type = new TypeStatement { Name = "string" },
                             IsOptional = true,
-                        }
-                    }
+                        },
+                    },
                 }
             );
         actual
@@ -64,9 +64,9 @@ public class ButtonTest
                             Name = "Nullable",
                             IsNullable = true,
                             IsTypeReference = true,
-                            GenericTypes = [new() { Name = "Image", IsTypeReference = true, }]
+                            GenericTypes = [new() { Name = "Image", IsTypeReference = true }],
                         },
-                        UsedClassNames = ["Image",]
+                        UsedClassNames = ["Image"],
                     },
                     new()
                     {
@@ -76,10 +76,10 @@ public class ButtonTest
                             Name = "Nullable",
                             IsNullable = true,
                             IsTypeReference = true,
-                            GenericTypes = [new() { Name = "TextBlock", IsTypeReference = true, }]
+                            GenericTypes = [new() { Name = "TextBlock", IsTypeReference = true }],
                         },
-                        UsedClassNames = ["TextBlock",]
-                    }
+                        UsedClassNames = ["TextBlock"],
+                    },
                 }
             );
         actual
@@ -90,22 +90,22 @@ public class ButtonTest
                     new()
                     {
                         Name = "pointerEnterAnimation",
-                        Type = new TypeStatement { Name = "action", IsAction = true, },
+                        Type = new TypeStatement { Name = "action", IsAction = true },
                     },
                     new()
                     {
                         Name = "pointerOutAnimation",
-                        Type = new TypeStatement { Name = "action", IsAction = true, },
+                        Type = new TypeStatement { Name = "action", IsAction = true },
                     },
                     new()
                     {
                         Name = "pointerDownAnimation",
-                        Type = new TypeStatement { Name = "action", IsAction = true, },
+                        Type = new TypeStatement { Name = "action", IsAction = true },
                     },
                     new()
                     {
                         Name = "pointerUpAnimation",
-                        Type = new TypeStatement { Name = "action", IsAction = true, },
+                        Type = new TypeStatement { Name = "action", IsAction = true },
                     },
                     new()
                     {
@@ -115,7 +115,7 @@ public class ButtonTest
                         UsedClassNames =
                         [
                             //GenerationIdentifiedTypes.CachedEntityObject,
-                            "Button"
+                            "Button",
                         ],
                         Arguments =
                         [
@@ -144,7 +144,7 @@ public class ButtonTest
                         UsedClassNames =
                         [
                             //GenerationIdentifiedTypes.CachedEntityObject,
-                            "Button"
+                            "Button",
                         ],
                         Arguments =
                         [
@@ -168,7 +168,7 @@ public class ButtonTest
                         UsedClassNames =
                         [
                             //GenerationIdentifiedTypes.CachedEntityObject,
-                            "Button"
+                            "Button",
                         ],
                         Arguments =
                         [
@@ -182,7 +182,7 @@ public class ButtonTest
                                 Name = "text",
                                 Type = new TypeStatement { Name = "string" },
                             },
-                        ]
+                        ],
                     },
                     new()
                     {
@@ -192,7 +192,7 @@ public class ButtonTest
                         UsedClassNames =
                         [
                             //GenerationIdentifiedTypes.CachedEntityObject,
-                            "Button"
+                            "Button",
                         ],
                         Arguments =
                         [
@@ -225,7 +225,7 @@ public class ButtonTest
                         Name = "name",
                         Type = new TypeStatement { Name = "string" },
                     },
-                    new() { Name = "delegatePickingToChildren", Type = "bool".MakeTypeStatement(), }
+                    new() { Name = "delegatePickingToChildren", Type = "bool".MakeTypeStatement() },
                 }
             );
     }

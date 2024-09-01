@@ -76,7 +76,7 @@ public partial class PirateFort : IDisposable
         var cannonBallMat = new StandardMaterial("cannonBallMat", scene)
         {
             diffuseColor = Color3.Black(),
-            specularPower = 256
+            specularPower = 256,
         };
         cannonBall.material = cannonBallMat;
         cannonBall.isVisible = false;
@@ -88,7 +88,7 @@ public partial class PirateFort : IDisposable
             {
                 width = 400,
                 depth = 400,
-                heigh = 4
+                heigh = 4,
             },
             scene
         );
@@ -168,53 +168,53 @@ public partial class PirateFort : IDisposable
 
             [
                 new Vector3(0.97m, 5.52m, 1.79m),
-                new Vector3(Tools.ToRadians(0), Tools.ToRadians(0), Tools.ToRadians(180))
+                new Vector3(Tools.ToRadians(0), Tools.ToRadians(0), Tools.ToRadians(180)),
             ],
 
             [
                 new Vector3(1.08m, 2.32m, 3.05m),
-                new Vector3(Tools.ToRadians(0), Tools.ToRadians(0), Tools.ToRadians(180))
+                new Vector3(Tools.ToRadians(0), Tools.ToRadians(0), Tools.ToRadians(180)),
             ],
 
             [
                 new Vector3(1.46m, 2.35m, -0.73m),
-                new Vector3(Tools.ToRadians(0), Tools.ToRadians(90), Tools.ToRadians(180))
+                new Vector3(Tools.ToRadians(0), Tools.ToRadians(90), Tools.ToRadians(180)),
             ],
 
             [
                 new Vector3(1.45m, 5.52m, -1.66m),
-                new Vector3(Tools.ToRadians(0), Tools.ToRadians(90), Tools.ToRadians(180))
+                new Vector3(Tools.ToRadians(0), Tools.ToRadians(90), Tools.ToRadians(180)),
             ],
 
             [
                 new Vector3(1.49m, 8.69m, -0.35m),
-                new Vector3(Tools.ToRadians(0), Tools.ToRadians(90), Tools.ToRadians(180))
+                new Vector3(Tools.ToRadians(0), Tools.ToRadians(90), Tools.ToRadians(180)),
             ],
 
             [
                 new Vector3(-1.37m, 8.69m, -0.39m),
-                new Vector3(Tools.ToRadians(0), Tools.ToRadians(-90), Tools.ToRadians(180))
+                new Vector3(Tools.ToRadians(0), Tools.ToRadians(-90), Tools.ToRadians(180)),
             ],
 
             [
                 new Vector3(0.58m, 4, -2.18m),
-                new Vector3(Tools.ToRadians(0), Tools.ToRadians(180), Tools.ToRadians(180))
+                new Vector3(Tools.ToRadians(0), Tools.ToRadians(180), Tools.ToRadians(180)),
             ],
 
             [
                 new Vector3(1.22m, 8.69m, -2.5m),
-                new Vector3(Tools.ToRadians(0), Tools.ToRadians(180), Tools.ToRadians(180))
+                new Vector3(Tools.ToRadians(0), Tools.ToRadians(180), Tools.ToRadians(180)),
             ],
 
             [
                 new Vector3(-1.31m, 2.33m, -2.45m),
-                new Vector3(Tools.ToRadians(0), Tools.ToRadians(180), Tools.ToRadians(180))
+                new Vector3(Tools.ToRadians(0), Tools.ToRadians(180), Tools.ToRadians(180)),
             ],
 
             [
                 new Vector3(-3.54m, 5.26m, -2.12m),
-                new Vector3(Tools.ToRadians(0), Tools.ToRadians(-90), Tools.ToRadians(180))
-            ]
+                new Vector3(Tools.ToRadians(0), Tools.ToRadians(-90), Tools.ToRadians(180)),
+            ],
         };
 
         //create 10 cannon clones, each with unique position/rotation data. Note that particle systems are cloned with parent meshes

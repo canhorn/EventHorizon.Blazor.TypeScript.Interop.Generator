@@ -1,3 +1,5 @@
+namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +10,6 @@ using EventHorizon.Blazor.TypeScript.Interop.Generator.Model;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Model.Statements;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.Normalizers;
 
-namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Writers;
-
 public static class MethodsSectionWriter
 {
     public static string Write(
@@ -18,10 +18,11 @@ public static class MethodsSectionWriter
         ClassGenerationTemplates templates
     )
     {
-        if (methods.Count() == 0)
+        if (!methods.Any())
         {
             return string.Empty;
         }
+
         var section = new StringBuilder();
         var current = 1;
         foreach (var method in methods)
@@ -93,7 +94,11 @@ public static class MethodsSectionWriter
                     foreach (var genericType in actionArgument.Type.GenericTypes)
                     {
                         functionGenericsStrings.Add(
-                            TypeStatementWriter.Write(genericType, ignorePrefix: true)
+                            TypeStatementWriter.Write(
+                                genericType,
+                                ignorePrefix: true,
+                                checkOptional: true
+                            )
                         );
                     }
 
@@ -202,7 +207,7 @@ public static class MethodsSectionWriter
 
             if (method.IsStatic)
             {
-                var classStatementIdentitiferList = new string[] { classStatement.Name, };
+                var classStatementIdentitiferList = new string[] { classStatement.Name };
                 if (classNamespace != string.Empty)
                 {
                     classStatementIdentitiferList = new string[]

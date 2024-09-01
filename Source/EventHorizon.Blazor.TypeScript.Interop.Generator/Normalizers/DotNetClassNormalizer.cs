@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class DotNetClassNormalizer
 {
-    public static IList<string> DOTNET_NOT_SUPPORTED_LIST = new List<string> { "IDisposable", };
+    public static IList<string> DOTNET_NOT_SUPPORTED_LIST = new List<string> { "IDisposable" };
 
     public static string Normalize(string text)
     {

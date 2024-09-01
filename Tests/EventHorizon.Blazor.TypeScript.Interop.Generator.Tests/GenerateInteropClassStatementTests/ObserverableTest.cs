@@ -76,12 +76,12 @@ public class ObserverableTest
                                 {
                                     Name = "Observer",
                                     IsTypeReference = true,
-                                    GenericTypes = [new() { Name = "T", IsTypeReference = true, },],
+                                    GenericTypes = [new() { Name = "T", IsTypeReference = true }],
                                 },
                             ],
                         },
-                        UsedClassNames = ["Observer", "T",],
-                    }
+                        UsedClassNames = ["Observer", "T"],
+                    },
                 }
             );
         actual
@@ -92,7 +92,7 @@ public class ObserverableTest
                     new()
                     {
                         Name = "notifyObserversWithPromise",
-                        Type = new TypeStatement { Name = "void", },
+                        Type = new TypeStatement { Name = "void" },
                         //UsedClassNames = new List<string>
                         //{
                         //    "Task",
@@ -103,7 +103,7 @@ public class ObserverableTest
                             {
                                 Name = "eventData",
                                 Type = "T".MakeTypeStatement(),
-                                UsedClassNames = ["T",],
+                                UsedClassNames = ["T"],
                             },
                             new()
                             {
@@ -134,20 +134,16 @@ public class ObserverableTest
                             IsNullable = true,
                             GenericTypes =
                             [
-                                new()
-                                {
-                                    Name = "Observer",
-                                    GenericTypes = [new() { Name = "T", },],
-                                },
+                                new() { Name = "Observer", GenericTypes = [new() { Name = "T" }] },
                             ],
                         },
-                        UsedClassNames = ["Observer", "T",],
+                        UsedClassNames = ["Observer", "T"],
                         Arguments =
                         [
                             new()
                             {
                                 Name = "callback",
-                                Type = new TypeStatement { Name = "action", IsAction = true, },
+                                Type = new TypeStatement { Name = "action", IsAction = true },
                             },
                             new()
                             {
@@ -173,7 +169,7 @@ public class ObserverableTest
                                 Type = "bool".MakeTypeStatement(),
                                 IsOptional = true,
                             },
-                        ]
+                        ],
                     },
                     new()
                     {
@@ -184,22 +180,18 @@ public class ObserverableTest
                             IsNullable = true,
                             GenericTypes =
                             [
-                                new()
-                                {
-                                    Name = "Observer",
-                                    GenericTypes = [new() { Name = "T", },],
-                                },
+                                new() { Name = "Observer", GenericTypes = [new() { Name = "T" }] },
                             ],
                         },
-                        UsedClassNames = ["Observer", "T",],
+                        UsedClassNames = ["Observer", "T"],
                         Arguments =
                         [
                             new()
                             {
                                 Name = "callback",
-                                Type = new TypeStatement { Name = "action", IsAction = true, },
+                                Type = new TypeStatement { Name = "action", IsAction = true },
                             },
-                        ]
+                        ],
                     },
                     new()
                     {
@@ -219,11 +211,11 @@ public class ObserverableTest
                                         new()
                                         {
                                             Name = "Observer",
-                                            GenericTypes = [new() { Name = "T", },],
+                                            GenericTypes = [new() { Name = "T" }],
                                         },
                                     ],
                                 },
-                                UsedClassNames = ["Observer", "T",],
+                                UsedClassNames = ["Observer", "T"],
                             },
                         ],
                     },
@@ -236,7 +228,7 @@ public class ObserverableTest
                             new()
                             {
                                 Name = "callback",
-                                Type = new TypeStatement { Name = "action", IsAction = true, },
+                                Type = new TypeStatement { Name = "action", IsAction = true },
                             },
                             new()
                             {
@@ -258,9 +250,9 @@ public class ObserverableTest
                                 Type = new TypeStatement
                                 {
                                     Name = "Observer",
-                                    GenericTypes = [new() { Name = "T", },],
+                                    GenericTypes = [new() { Name = "T" }],
                                 },
-                                UsedClassNames = ["Observer", "T",],
+                                UsedClassNames = ["Observer", "T"],
                             },
                         ],
                     },
@@ -276,9 +268,9 @@ public class ObserverableTest
                                 Type = new TypeStatement
                                 {
                                     Name = "Observer",
-                                    GenericTypes = [new() { Name = "T", },],
+                                    GenericTypes = [new() { Name = "T" }],
                                 },
-                                UsedClassNames = ["Observer", "T",],
+                                UsedClassNames = ["Observer", "T"],
                             },
                         ],
                     },
@@ -292,7 +284,7 @@ public class ObserverableTest
                             {
                                 Name = "eventData",
                                 Type = new TypeStatement { Name = "T" },
-                                UsedClassNames = ["T",],
+                                UsedClassNames = ["T"],
                             },
                             new()
                             {
@@ -326,15 +318,15 @@ public class ObserverableTest
                                 Type = new TypeStatement
                                 {
                                     Name = "Observer",
-                                    GenericTypes = [new() { Name = "T", },],
+                                    GenericTypes = [new() { Name = "T" }],
                                 },
-                                UsedClassNames = ["Observer", "T",],
+                                UsedClassNames = ["Observer", "T"],
                             },
                             new()
                             {
                                 Name = "eventData",
                                 Type = "T".MakeTypeStatement(),
-                                UsedClassNames = ["T",],
+                                UsedClassNames = ["T"],
                             },
                             new()
                             {
@@ -344,17 +336,17 @@ public class ObserverableTest
                             },
                         ],
                     },
-                    new() { Name = "hasObservers", Type = "bool".MakeTypeStatement(), },
-                    new() { Name = "clear", Type = "void".MakeTypeStatement(), },
+                    new() { Name = "hasObservers", Type = "bool".MakeTypeStatement() },
+                    new() { Name = "clear", Type = "void".MakeTypeStatement() },
                     new()
                     {
                         Name = "clone",
                         Type = new TypeStatement
                         {
                             Name = "Observable",
-                            GenericTypes = [new() { Name = "T", },],
+                            GenericTypes = [new() { Name = "T" }],
                         },
-                        UsedClassNames = ["Observable", "T",],
+                        UsedClassNames = ["Observable", "T"],
                     },
                     new()
                     {
