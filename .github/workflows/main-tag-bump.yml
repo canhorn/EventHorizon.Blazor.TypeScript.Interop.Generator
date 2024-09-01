@@ -20,11 +20,11 @@ jobs:
       id: gitversion
       uses: gittools/actions/gitversion/execute@v3.0
     - run: |
-        echo "NuGetVersionV2: ${{ steps.gitversion.outputs.FullSemVer }}"
+        echo "NuGetVersionV2: ${{ steps.gitversion.outputs.SemVer }}"
     - name: Bump version and push tag
       uses: anothrNick/github-tag-action@1.70.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # We want to push to nuget the same version we tag
-        CUSTOM_TAG: ${{ steps.gitversion.outputs.FullSemVer }}
+        CUSTOM_TAG: ${{ steps.gitversion.outputs.SemVer }}
         RELEASE_BRANCHES: main
