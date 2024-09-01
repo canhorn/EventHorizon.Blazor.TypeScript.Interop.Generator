@@ -15,10 +15,6 @@ public interface Node
     Node Type { get; }
     #endregion
 
-    #region ArrayTypeNode
-    Node ElementType { get; }
-    #endregion
-
     #region ClassDeclaration, InterfaceDeclaration, MethodDeclaration
     List<Node> TypeParameters { get; }
     #endregion
@@ -28,7 +24,6 @@ public interface Node
     #endregion
 
     #region HeritageClause
-    //public SyntaxKind Token { get; set; }
     List<Node> Types { get; }
     #endregion
 

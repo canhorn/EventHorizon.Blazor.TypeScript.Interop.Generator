@@ -67,21 +67,6 @@ public class SdcbNode : GenNode
     }
     #endregion
 
-    #region ArrayTypeNode
-    private GenNode _elementType;
-    public GenNode ElementType
-    {
-        get
-        {
-            if (_elementType is null && _node is ArrayTypeNode parameterDeclaration)
-            {
-                _elementType = new SdcbNode(parameterDeclaration.ElementType);
-            }
-            return _elementType;
-        }
-    }
-    #endregion
-
     #region TypeReferenceNode ExpressionWithTypeArguments
     private List<GenNode> _typeArguments;
     public List<GenNode> TypeArguments
@@ -222,11 +207,6 @@ public class SdcbNode : GenNode
             return node.OfKind(value).Select(a => new SdcbNode(a)).OfType<GenNode>().ToList();
         }
 
-        return new List<GenNode>();
-    }
-
-    public override string ToString()
-    {
-        return _node.ToString();
+        return [];
     }
 }
