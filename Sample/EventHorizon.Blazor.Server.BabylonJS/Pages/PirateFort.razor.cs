@@ -8,17 +8,16 @@ using BABYLON;
 using EventHorizon.Blazor.BabylonJS.Model;
 using EventHorizon.Blazor.Interop;
 using EventHorizon.Blazor.Server.BabylonJS.Model;
+using EventHorizon.Blazor.Server.Interop;
 using EventHorizon.Blazor.Server.Interop.Callbacks;
-
-public class CannonGroup
-{
-    public AnimationGroup animationGroup { get; set; }
-    public Particle smokeBlast { get; set; }
-    public Sound sound { get; set; }
-}
+using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 public partial class PirateFort : IAsyncDisposable
 {
+    [Inject]
+    public IJSRuntime JSRuntime { get; set; }
+
     private Engine _engine;
     private Scene _scene;
 
@@ -64,8 +63,16 @@ public partial class PirateFort : IAsyncDisposable
         await camera.attachControl(true);
 
         // enable physics in the scene
-        // TODO: Implement Physics
-        // await scene.enablePhysics(new await Vector3.NewVector3(0, -9.81, 0), await AmmoJSPlugin.NewAmmoJSPlugin());
+        await EventHorizonBlazorInterop.RunScript(
+            "setupPhysics",
+            "const setup = async () => {window.HK = await HavokPhysics()}; setup()",
+            new { }
+        );
+        await JSRuntime.InvokeVoidAsync("HavokPhysics");
+        await scene.enablePhysics(
+            await Vector3.NewVector3(0, -9.81m, 0),
+            await HavokPlugin.NewHavokPlugin(true)
+        );
 
         //array for holding the cannon and "paired" animation group
         var cannonAnimationPairings = new Dictionary<string, string>();
@@ -83,13 +90,22 @@ public partial class PirateFort : IAsyncDisposable
             "cannonBallMaterial",
             scene
         );
-        await cannonBallMaterial.set_diffuseColor(await Color3.NewColor3(0.1m, 0.1m, 0.1m));
-        await cannonBallMaterial.set_specularColor(await Color3.NewColor3(0.1m, 0.1m, 0.1m));
+        await cannonBallMaterial.set_diffuseColor(await Color3.Black());
+        await cannonBallMaterial.set_specularPower(256);
         await cannonBall.set_material(cannonBallMaterial);
         await cannonBall.set_isVisible(false);
 
         // create a large box far underneath the tower, that will act as a trigger to destroy the cannon balls
-        var killBox = await MeshBuilder.CreateBox("killBox", new { size = 100 }, scene);
+        var killBox = await MeshBuilder.CreateBox(
+            "killBox",
+            new
+            {
+                width = 400,
+                depth = 400,
+                height = 4,
+            },
+            scene
+        );
         await killBox.set_position(await Vector3.NewVector3(0, -50, 0));
         await killBox.set_isVisible(false);
 
@@ -365,18 +381,66 @@ public partial class PirateFort : IAsyncDisposable
                         //loop through all particle systems in the scene, loop through all picked mesh submeshes. if there is a matching mesh and particle system emitter, start the particle system.
                         var childMeshes = await (
                             await pickResult.get_pickedMesh()
-                        ).getChildMeshes<Node>();
+                        ).getChildMeshes<TransformNode>();
                         for (var i = 0; i < smokeBlasts.Length; i++)
                         {
                             for (var j = 0; j < childMeshes.Length; j++)
                             {
                                 if (
                                     childMeshes[j].___guid
-                                    == (await smokeBlasts[i].get_emitter()).___guid
+                                    != (await smokeBlasts[i].get_emitter()).___guid
                                 )
                                 {
-                                    await smokeBlasts[i].start();
+                                    continue;
                                 }
+
+                                await smokeBlasts[i].start();
+
+                                var cannonBallClone = await cannonBall.clone<AbstractMesh>(
+                                    "cannonBallClone"
+                                );
+                                await cannonBallClone.set_visibility(1);
+                                await cannonBallClone.set_isVisible(true);
+                                await cannonBallClone.set_position(
+                                    await (await childMeshes[j].get_absolutePosition()).clone()
+                                );
+
+                                var cannonBallCloneAggregate =
+                                    await BABYLON.PhysicsAggregate.NewPhysicsAggregate(
+                                        cannonBallClone,
+                                        0,
+                                        new PhysicsAggregateParametersCachedEntity(
+                                            await ClientObject.NewClientObject(
+                                                new { mass = 1, restitution = 0.75 }
+                                            )
+                                        ),
+                                        scene
+                                    );
+
+                                await (await cannonBallCloneAggregate.get_body()).applyImpulse(
+                                    await (await childMeshes[j].get_up()).scale(40),
+                                    await Vector3.Zero()
+                                );
+
+                                //create an action manager for the cannonBallClone that will fire when intersecting the killbox. It will then dispose of the cannonBallClone.
+                                await cannonBallClone.set_actionManager(
+                                    await ActionManager.NewActionManager(scene)
+                                );
+                                await (await cannonBallClone.get_actionManager()).registerAction(
+                                    await ExecuteCodeAction.NewExecuteCodeAction(
+                                        new
+                                        {
+                                            trigger = await ActionManager.get_OnIntersectionEnterTrigger(),
+                                            parameter = killBox,
+                                        },
+                                        new ActionCallback<ActionEvent>(
+                                            async (evt) =>
+                                            {
+                                                await cannonBallClone.dispose();
+                                            }
+                                        )
+                                    )
+                                );
                             }
                         }
                         await cannonBlastSound.play();
@@ -384,52 +448,6 @@ public partial class PirateFort : IAsyncDisposable
                 }
             }
         );
-        //scene.onPointerDown = function(evt, pickResult) {
-        //    //check if a mesh was picked and if that mesh has specific metadata
-        //    if (pickResult.pickedMesh && pickResult.pickedMesh.metadata === "cannon")
-        //    {
-        //        //find the top level parent (necessary since the cannon is an extra layer below the clone root)
-        //        var topParent = pickResult.pickedMesh.parent;
-        //        if (topParent.parent)
-        //        {
-        //            topParent = topParent.parent;
-        //        }
-
-        //        //wrap all 'play' elements into a check to make sure the cannon can be played.
-        //        if (cannonReadyToPlay[topParent.name] === 1)
-        //        {
-        //            //set the readyToPlay status to 0
-        //            cannonReadyToPlay[topParent.name] = 0;
-        //            //loop through all of the animation groups in the scene and play the correct group based on the top level parent of the picked mesh.
-        //            var animationToPlay = cannonAnimationPairings[topParent.name];
-        //            for (var i = 0; i < scene.animationGroups.length; i++)
-        //            {
-        //                if (scene.animationGroups[i].name === animationToPlay)
-        //                {
-        //                    scene.animationGroups[i].play();
-        //                    //after the animation has finished, set the readyToPlay status for this cannon to 1;
-        //                    scene.animationGroups[i].onAnimationGroupEndObservable.addOnce(() =>
-        //                    {
-        //                        cannonReadyToPlay[topParent.name] = 1;
-        //                    });
-        //                }
-        //            }
-        //            //loop through all particle systems in the scene, loop through all picked mesh submeshes. if there is a matching mesh and particle system emitter, start the particle system.
-        //            var childMeshes = pickResult.pickedMesh.getChildMeshes();
-        //            for (var i = 0; i < smokeBlasts.length; i++)
-        //            {
-        //                for (var j = 0; j < childMeshes.length; j++)
-        //                {
-        //                    if (childMeshes[j] === smokeBlasts[i].emitter)
-        //                    {
-        //                        smokeBlasts[i].start();
-        //                    }
-        //                }
-        //            }
-        //            cannonBlastSound.play();
-        //        }
-        //    }
-        //};
 
         _scene = scene;
         await _scene.set_activeCamera(camera);

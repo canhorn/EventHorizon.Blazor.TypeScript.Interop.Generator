@@ -79,6 +79,10 @@ public class Program
         {
             // "Everything",
             "Scene",
+            "AmmoJSPlugin",
+            "HavokPlugin",
+            "ExecuteCodeAction",
+            "PhysicsAggregate",
             "VertexBuffer",
             "ICameraInput",
             "AbstractActionManager",

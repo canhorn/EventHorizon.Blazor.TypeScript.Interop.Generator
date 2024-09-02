@@ -3,6 +3,7 @@ namespace EventHorizon.Blazor.BabylonJS.Pages;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using BABYLON;
@@ -10,16 +11,14 @@ using BABYLON.GUI;
 using EventHorizon.Blazor.BabylonJS.Model;
 using EventHorizon.Blazor.Interop;
 using EventHorizon.Blazor.Interop.Callbacks;
-
-public class CannonGroup
-{
-    public AnimationGroup? animationGroup { get; set; }
-    public Particle? smokeBlast { get; set; }
-    public Sound? sound { get; set; }
-}
+using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 public partial class PirateFort : IDisposable
 {
+    [Inject]
+    public required IJSRuntime JSRuntime { get; set; }
+
     private Engine? _engine;
     private Scene? _scene;
 
@@ -62,8 +61,13 @@ public partial class PirateFort : IDisposable
         camera.attachControl(true);
 
         // enable physics in the scene
-        // TODO: Implement Physics
-        // scene.enablePhysics(new Vector3(0, -9.81m, 0), new AmmoJSPlugin());
+        await EventHorizonBlazorInterop.RunScript(
+            "setupPhysics",
+            "const setup = async () => {window.HK = await HavokPhysics()}; setup()",
+            new { }
+        );
+        await JSRuntime.InvokeVoidAsync("HavokPhysics");
+        scene.enablePhysics(new Vector3(0, -9.81m, 0), new HavokPlugin(true));
 
         //array for holding the cannon and "paired" animation group
         var cannonAnimationPairings = new Dictionary<string, string>();
@@ -88,7 +92,7 @@ public partial class PirateFort : IDisposable
             {
                 width = 400,
                 depth = 400,
-                heigh = 4,
+                height = 4,
             },
             scene
         );
@@ -112,6 +116,7 @@ public partial class PirateFort : IDisposable
                 scene: scene
             )
         ).ToEntity<SceneLoaderImportMeshEntity>();
+
         //remove the top level root node
         var cannon = cannonImportResult.meshes[0].getChildren<Node>()[0];
         cannon.setParent(null);
@@ -307,32 +312,51 @@ public partial class PirateFort : IDisposable
                         {
                             for (var j = 0; j < childMeshes.Length; j++)
                             {
-                                if (childMeshes[j].___guid == smokeBlasts[i].emitter.___guid)
+                                if (childMeshes[j].___guid != smokeBlasts[i].emitter.___guid)
                                 {
-                                    smokeBlasts[i].start();
-
-                                    //clone the cannonBall, make it visible, and add a physics imposter to it. Finally apply a force by scaling the up vector of the particle emitter box
-                                    var cannonBallClone = cannonBall.clone("cannonBallClone");
-                                    cannonBallClone.visibility = 1;
-                                    cannonBallClone.position = childMeshes[j].absolutePosition;
-                                    // TODO: Implement Physics
-                                    // cannonBallClone.physicsImpostor = new BABYLON.PhysicsImpostor(cannonBallClone, BABYLON.PhysicsImpostor.SphereImpostor, {mass:2, friction:0.5, restitution:0}, scene);
-                                    // cannonBallClone.physicsImpostor.applyImpulse(childMeshes[j].up.scale(40), BABYLON.Vector3.Zero());
-
-                                    //create an action manager for the cannonBallClone that will fire when intersecting the killbox. It will then dispose of the cannonBallClone.
-                                    // cannonBallClone.actionManager = new BABYLON.ActionManager(scene);
-                                    // cannonBallClone.actionManager.registerAction(
-                                    //     new BABYLON.ExecuteCodeAction(
-                                    //         new {
-                                    //              trigger = BABYLON.ActionManager.OnIntersectionEnterTrigger,
-                                    //              parameter = killBox,
-                                    //         },
-                                    //         () => {
-                                    //             cannonBallClone.dispose();
-                                    //         }
-                                    //     )
-                                    // );
+                                    continue;
                                 }
+
+                                smokeBlasts[i].start();
+
+                                //clone the cannonBall, make it visible, and add a physics imposter to it. Finally apply a force by scaling the up vector of the particle emitter box
+                                var cannonBallClone = cannonBall.clone("cannonBallClone");
+                                cannonBallClone.visibility = 1;
+                                cannonBallClone.isVisible = true;
+                                cannonBallClone.position = childMeshes[j].absolutePosition.clone();
+
+                                var cannonBallCloneAggregate = new BABYLON.PhysicsAggregate(
+                                    cannonBallClone,
+                                    0,
+                                    new PhysicsAggregateParametersCachedEntity(
+                                        new ClientObject(new { mass = 1, restitution = 0.75 })
+                                    ),
+                                    scene
+                                );
+
+                                cannonBallCloneAggregate.body.applyImpulse(
+                                    childMeshes[j].up.scale(40),
+                                    BABYLON.Vector3.Zero()
+                                );
+
+                                //create an action manager for the cannonBallClone that will fire when intersecting the killbox. It will then dispose of the cannonBallClone.
+                                cannonBallClone.actionManager = new BABYLON.ActionManager(scene);
+                                cannonBallClone.actionManager.registerAction(
+                                    new BABYLON.ExecuteCodeAction(
+                                        new
+                                        {
+                                            trigger = BABYLON
+                                                .ActionManager
+                                                .OnIntersectionEnterTrigger,
+                                            parameter = killBox,
+                                        },
+                                        new ActionCallback<ActionEvent>(_ =>
+                                        {
+                                            cannonBallClone.dispose();
+                                            return Task.CompletedTask;
+                                        })
+                                    )
+                                );
                             }
                         }
                         cannonBlastSound.play();
