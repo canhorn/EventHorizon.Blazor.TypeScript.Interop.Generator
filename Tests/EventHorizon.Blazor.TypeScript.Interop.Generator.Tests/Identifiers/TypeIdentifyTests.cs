@@ -21,7 +21,7 @@ public class TypeIdentifyTests
         var expected = classMetadataName;
 
         var nodeMock = new Mock<Node>();
-        var classMetadata = new ClassMetadata { Name = classMetadataName, };
+        var classMetadata = new ClassMetadata { Name = classMetadataName };
 
         nodeMock.SetupGet(mock => mock.Kind).Returns(nodeKind);
 

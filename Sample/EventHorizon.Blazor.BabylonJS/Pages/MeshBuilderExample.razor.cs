@@ -57,7 +57,7 @@ public partial class MeshBuilderExample : IDisposable
             width = 1,
             height = 2,
             depth = 3,
-            faceColors = new List<Color4> { green, green, green, green, blue, red }
+            faceColors = new List<Color4> { green, green, green, green, blue, red },
         };
 
         var box = MeshBuilder.CreateBox("box", options, scene);

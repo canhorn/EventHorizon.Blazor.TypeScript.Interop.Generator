@@ -14,6 +14,7 @@ public class GenericTypeIdentifier
     private static readonly IsArrayResponseType IsArrayResponseTypeRule = new();
     private static readonly IsMapResponseType IsMapResponseTypeRule = new();
     private static readonly IsExcludeResponseType IsExcludeResponseTypeRule = new();
+    private static readonly IsOptional IsOptionalRule = new();
     private static readonly IsNumericArray IsNumericArrayRule = new();
     private static readonly IsTypeLiteral IsTypeLiteralRule = new();
     private static readonly IsVoidType IsVoidTypeRule = new();
@@ -32,11 +33,16 @@ public class GenericTypeIdentifier
     {
         var isParameter = IsParameterIdentifierRule.Check(node);
         var isExclude = IsExcludeResponseTypeRule.Check(node);
+        var isOptional = IsOptionalRule.Check(node);
         if (isExclude && node.TypeArguments.Count != 0)
         {
             return Identify(node.TypeArguments.First(), classMetadata, ast, typeOverrideDetails);
         }
-        else if (isParameter)
+        else if (isParameter && (!isOptional || IsArrayResponseTypeRule.Check(node.Type)))
+        {
+            return Identify(node.Type, classMetadata, ast, typeOverrideDetails);
+        }
+        else if (node.Kind == SyntaxKind.TypeOperator)
         {
             return Identify(node.Type, classMetadata, ast, typeOverrideDetails);
         }
@@ -107,7 +113,7 @@ public class GenericTypeIdentifier
         }
         else if (IsNumericArrayRule.Check(node))
         {
-            genericTypes.Add(new TypeStatement { Name = GenerationIdentifiedTypes.Number, });
+            genericTypes.Add(new TypeStatement { Name = GenerationIdentifiedTypes.Number });
         }
         else if (IsArrayResponseTypeRule.Check(node))
         {
@@ -162,6 +168,7 @@ public class GenericTypeIdentifier
             IsTypeReference = isTypeReference,
             AliasType = aliasType,
             IsNullable = isNullable,
+            IsOptional = isOptional,
             IsReadonly = ReadonlyTypeIdentifier.Identify(typeIdentifier),
             IsAction = isAction,
             IsVoid = VoidTypeIdentifier.Identify(typeIdentifier),

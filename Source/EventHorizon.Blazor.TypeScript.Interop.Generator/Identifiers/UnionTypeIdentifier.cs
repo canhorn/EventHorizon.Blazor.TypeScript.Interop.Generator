@@ -19,7 +19,7 @@ public class UnionTypeIdentifier
         out TypeStatement type
     )
     {
-        type = new TypeStatement { Name = GenerationIdentifiedTypes.Unknown, };
+        type = new TypeStatement { Name = GenerationIdentifiedTypes.Unknown };
         if (
             parameter.Kind == SyntaxKind.ClassDeclaration
             || parameter.Kind == SyntaxKind.InterfaceDeclaration

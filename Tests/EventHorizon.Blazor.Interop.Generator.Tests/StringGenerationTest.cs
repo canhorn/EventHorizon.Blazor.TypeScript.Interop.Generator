@@ -25,7 +25,7 @@ public class StringGenerationTest
         var sourceFileName = "MultipleGeneration.d.ts";
         var sourceFile = Path.Combine(".", "SourceFiles", sourceFileName);
         var sourceFiles = new List<string> { sourceFile };
-        var generationList = new List<string> { "Mesh", "Mesh", "Engine", "Vector3", };
+        var generationList = new List<string> { "Mesh", "Mesh", "Engine", "Vector3" };
         var typeOverrideMap = new Dictionary<string, string>();
 
         var writerMock = new Mock<IWriter>();
@@ -59,7 +59,7 @@ public class StringGenerationTest
         var sourceFileName = "MultipleGeneration.d.ts";
         var sourceFile = Path.Combine(".", "SourceFiles", sourceFileName);
         var sourceFiles = new List<string> { sourceFile };
-        var generationList = new List<string> { "Vector3", };
+        var generationList = new List<string> { "Vector3" };
         var typeOverrideMap = new Dictionary<string, string>();
 
         var writerMock = new Mock<IWriter>();

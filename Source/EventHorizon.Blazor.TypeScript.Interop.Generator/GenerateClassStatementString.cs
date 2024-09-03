@@ -221,7 +221,7 @@ public static class GenerateClassStatementString
             || classStatement.ExtendedType?.Name == classStatement.Name
         )
         {
-            classStatement.ExtendedType = new TypeStatement { Name = "CachedEntityObject", };
+            classStatement.ExtendedType = new TypeStatement { Name = "CachedEntityObject" };
         }
 
         return " : "

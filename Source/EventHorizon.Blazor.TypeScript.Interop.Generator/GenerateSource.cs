@@ -58,7 +58,7 @@ public class GenerateSource
         GlobalLogger.Info($"=== Generated AST - {parserType}");
         var ast = ASTParser.ParseText(
             sourceFilesAsText,
-            new ASTParserOptions { ParserType = parserType, }
+            new ASTParserOptions { ParserType = parserType }
         );
         GlobalLogger.Info($"=== Generated AST | ElapsedTime: {stopwatch.ElapsedMilliseconds}ms");
         var notGeneratedClassNames = new List<string>();

@@ -53,7 +53,7 @@ public class NodeJS_ASTWrapper : AbstractSyntaxTree
         GlobalLogger.Info("NodeJS_ASTWrapper: Deserializing AST");
         var ast = JsonSerializer.Deserialize<ASTModel>(
             fileContent,
-            new JsonSerializerOptions { PropertyNameCaseInsensitive = true, }
+            new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
         );
         GlobalLogger.Info(
             $"NodeJS_ASTWrapper: AST deserialization took {stopwatch.ElapsedMilliseconds}ms"

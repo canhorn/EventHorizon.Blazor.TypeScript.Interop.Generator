@@ -24,7 +24,7 @@ public class ActualStringGenerationTest
         var sourceFileName = "MultipleGeneration.d.ts";
         var sourceFile = Path.Combine(".", "SourceFiles", sourceFileName);
         var sourceFiles = new List<string> { sourceFile };
-        var generationList = new List<string> { "Mesh", "Mesh", "Engine", "Vector3", };
+        var generationList = new List<string> { "Mesh", "Mesh", "Engine", "Vector3" };
         var typeOverrideMap = new Dictionary<string, string>();
         var ignoredIdentifiers = new List<string>();
 
@@ -59,7 +59,7 @@ public class ActualStringGenerationTest
         var sourceFileName = "MultipleGeneration.d.ts";
         var sourceFile = Path.Combine(".", "SourceFiles", sourceFileName);
         var sourceFiles = new List<string> { sourceFile };
-        var generationList = new List<string> { "Vector3", };
+        var generationList = new List<string> { "Vector3" };
         var typeOverrideMap = new Dictionary<string, string>();
         var ignoredIdentifiers = new List<string>();
 
@@ -105,7 +105,7 @@ public class ActualStringGenerationTest
         var sourceFileName = "ComplexGeneration.d.ts";
         var sourceFile = Path.Combine(".", "SourceFiles", sourceFileName);
         var sourceFiles = new List<string> { sourceFile };
-        var generationList = new List<string> { "ExampleClass", };
+        var generationList = new List<string> { "ExampleClass" };
         var typeOverrideMap = new Dictionary<string, string>();
         var ignoredIdentifiers = new List<string>();
 
@@ -152,7 +152,7 @@ public class ActualStringGenerationTest
         var sourceFileName = "ComplexGeneration.d.ts";
         var sourceFile = Path.Combine(".", "SourceFiles", sourceFileName);
         var sourceFiles = new List<string> { sourceFile };
-        var generationList = new List<string> { "ExampleClass", };
+        var generationList = new List<string> { "ExampleClass" };
         var typeOverrideMap = new Dictionary<string, string>();
         var ignoredIdentifiers = new List<string>();
 
@@ -199,7 +199,7 @@ public class ActualStringGenerationTest
         var sourceFileName = "InterfaceTypeReference.d.ts";
         var sourceFile = Path.Combine(".", "SourceFiles", sourceFileName);
         var sourceFiles = new List<string> { sourceFile };
-        var generationList = new List<string> { "ExampleInterface", };
+        var generationList = new List<string> { "ExampleInterface" };
         var typeOverrideMap = new Dictionary<string, string>();
         var ignoredIdentifiers = new List<string>();
 
@@ -240,7 +240,7 @@ public class ActualStringGenerationTest
                     "Void_",
                     "IPerfViewerCollectionStrategy",
                     "PerfStrategyInitialization",
-                    "ExampleInterface"
+                    "ExampleInterface",
                 ]
             );
     }

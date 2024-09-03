@@ -28,7 +28,10 @@ class ArgumentWriter
         }
         return argumentsTemplate
             .Replace("[[NAME]]", DotNetNormalizer.Normalize(argument.Name))
-            .Replace("[[TYPE]]", TypeStatementWriter.Write(argument.Type, true, ignorePrefix));
+            .Replace(
+                "[[TYPE]]",
+                TypeStatementWriter.Write(argument.Type, true, ignorePrefix)
+            );
     }
 
     private static string GenericTypeWriter(

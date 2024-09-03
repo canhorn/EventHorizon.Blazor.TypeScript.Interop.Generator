@@ -1,5 +1,8 @@
 namespace EventHorizon.Blazor.TypeScript.Interop.Generator.Tests.GenerateClassStatementStringTests;
 
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using EventHorizon.Blazor.TypeScript.Interop.Generator.AstParser.Model;
 using Xunit;
 

@@ -23,7 +23,7 @@ public class Program
             AstParser.Model.ASTParserType.NodeJS,
             useWasm: true,
             projectAssembly: "EventHorizon.Blazor.BabylonJS.NodeJS",
-            sourceFiles: ["babylon.d.ts", "babylon.gui.d.ts",],
+            sourceFiles: ["babylon.d.ts", "babylon.gui.d.ts"],
             maxDegreeOfParallelism: 4
         );
 
@@ -79,6 +79,10 @@ public class Program
         {
             // "Everything",
             "Scene",
+            "AmmoJSPlugin",
+            "HavokPlugin",
+            "ExecuteCodeAction",
+            "PhysicsAggregate",
             "VertexBuffer",
             "ICameraInput",
             "AbstractActionManager",
@@ -127,7 +131,7 @@ public class Program
                 writer,
                 textFormatter,
                 new Dictionary<string, string> { ["BABYLON.PointerInfoBase | type"] = "int" },
-                ["BABYLON.Matrix.T[PropertyDeclaration]",],
+                ["BABYLON.Matrix.T[PropertyDeclaration]"],
                 type,
                 maxDegreeOfParallelism
             );
@@ -154,9 +158,9 @@ public class Program
                 {
                     [".ThinEngine | onBeforeTextureInitObservable"] =
                         "Observable<CachedEntityObject>",
-                    ["BABYLON.PointerInfoBase | type"] = "int"
+                    ["BABYLON.PointerInfoBase | type"] = "int",
                 },
-                ["BABYLON.Tensor.R[PropertySignature]", "BABYLON.Matrix.T[PropertyDeclaration]",],
+                ["BABYLON.Tensor.R[PropertySignature]", "BABYLON.Matrix.T[PropertyDeclaration]"],
                 type,
                 maxDegreeOfParallelism
             );

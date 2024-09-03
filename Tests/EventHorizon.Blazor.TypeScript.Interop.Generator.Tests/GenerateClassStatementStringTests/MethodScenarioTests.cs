@@ -139,6 +139,13 @@ public class MethodScenarioTests : GenerateStringTestBase
     [Trait("Category", "Method.Scenarios")]
     [Trait("AST", "Sdcb")]
     [InlineData(
+        "ActionArgumentWithOptionalParameter.ts",
+        "Methods",
+        "Scenarios",
+        "ActionArgumentWithOptionalParameter.Expected.txt",
+        ASTParserType.Sdcb
+    )]
+    [InlineData(
         "ActionWithArguments.ts",
         "Methods",
         "Scenarios",
@@ -241,6 +248,13 @@ public class MethodScenarioTests : GenerateStringTestBase
         "Methods",
         "Scenarios",
         "MultipleSameMethod.Expected.txt",
+        ASTParserType.Sdcb
+    )]
+    [InlineData(
+        "MethodWithReferenceTypeArgument.ts",
+        "Methods",
+        "Scenarios",
+        "MethodWithReferenceTypeArgument.Expected.txt",
         ASTParserType.Sdcb
     )]
     public void ShouldGenerateMethodScenarioStringsUsingSdcb(
@@ -390,6 +404,13 @@ public class MethodScenarioTests : GenerateStringTestBase
     [Trait("Category", "Method.Scenarios")]
     [Trait("AST", "NodeJS")]
     [InlineData(
+        "ActionArgumentWithOptionalParameter.ts",
+        "Methods",
+        "Scenarios",
+        "ActionArgumentWithOptionalParameter.Expected.txt",
+        ASTParserType.NodeJS
+    )]
+    [InlineData(
         "ActionWithArguments.ts",
         "Methods",
         "Scenarios",
@@ -492,6 +513,13 @@ public class MethodScenarioTests : GenerateStringTestBase
         "Methods",
         "Scenarios",
         "MultipleSameMethod.Expected.txt",
+        ASTParserType.NodeJS
+    )]
+    [InlineData(
+        "MethodWithReferenceTypeArgument.ts",
+        "Methods",
+        "Scenarios",
+        "MethodWithReferenceTypeArgument.Expected.txt",
         ASTParserType.NodeJS
     )]
     public void ShouldGenerateMethodScenarioStringsUsingNodeJS(

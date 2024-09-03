@@ -22,7 +22,7 @@ public class TypeQueryIdentifier
         return new TypeQueryStatement
         {
             Class = TypeIdentifier.Identify(firstNode.First, classMetadata),
-            Type = TypeIdentifier.Identify(firstNode.Last, classMetadata)
+            Type = TypeIdentifier.Identify(firstNode.Last, classMetadata),
         };
     }
 }

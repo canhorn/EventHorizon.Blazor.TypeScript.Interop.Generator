@@ -135,6 +135,14 @@ public class AccessorsGenerationTests : GenerateStringTestBase
         "StaticRootNamespace.Expected.txt",
         ASTParserType.Sdcb
     )]
+    [InlineData(
+        "ReadonlyType.ts",
+        "Accessors",
+        "Scenarios",
+        // NOTE: This is the expected file for Sdcb, as the NodeJS version is different.
+        "ReadonlyType.Expected.Sdcb.txt",
+        ASTParserType.Sdcb
+    )]
     public void ShouldGenerateAccessorScenarioStringsWithSdcb(
         string sourceFile,
         string rootPath,
@@ -281,6 +289,13 @@ public class AccessorsGenerationTests : GenerateStringTestBase
         "Accessors",
         "Scenarios",
         "StaticRootNamespace.Expected.txt",
+        ASTParserType.NodeJS
+    )]
+    [InlineData(
+        "ReadonlyType.ts",
+        "Accessors",
+        "Scenarios",
+        "ReadonlyType.Expected.txt",
         ASTParserType.NodeJS
     )]
     public void ShouldGenerateAccessorScenarioStringsWithNodeJS(

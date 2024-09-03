@@ -9,7 +9,8 @@ public class TypeStatementWriter
     public static string Write(
         TypeStatement type,
         bool includeArraySymbol = true,
-        bool ignorePrefix = false
+        bool ignorePrefix = false,
+        bool checkOptional = false
     )
     {
         if (
@@ -116,6 +117,11 @@ public class TypeStatementWriter
         if (type.IsEnum)
         {
             template = template.Replace("[[NAME]]", "int");
+        }
+
+        if (checkOptional && type.IsOptional)
+        {
+            template = template.Replace("[[NAME]]", "System.Nullable<[[NAME]]>");
         }
 
         return template

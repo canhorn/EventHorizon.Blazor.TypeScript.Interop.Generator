@@ -19,12 +19,12 @@ public class TypeParameterIdentifierTests
         var typeParameterIdentifierStr = "identifier-str";
         var typeParemters = new List<Node>
         {
-            new NodeMock { IdentifierStr = typeParameterIdentifierStr, },
+            new NodeMock { IdentifierStr = typeParameterIdentifierStr },
         };
 
-        var expected = new List<string> { typeParameterIdentifierStr, };
+        var expected = new List<string> { typeParameterIdentifierStr };
 
-        var node = new NodeMock { Kind = kind, TypeParameters = typeParemters, };
+        var node = new NodeMock { Kind = kind, TypeParameters = typeParemters };
 
         // When
         var actual = TypeParameterIdentifier.Identify(node);
@@ -42,7 +42,7 @@ public class TypeParameterIdentifierTests
         // Given
         var typeParemters = default(List<Node>);
 
-        var node = new NodeMock { Kind = kind, TypeParameters = typeParemters, };
+        var node = new NodeMock { Kind = kind, TypeParameters = typeParemters };
 
         // When
         var actual = TypeParameterIdentifier.Identify(node);

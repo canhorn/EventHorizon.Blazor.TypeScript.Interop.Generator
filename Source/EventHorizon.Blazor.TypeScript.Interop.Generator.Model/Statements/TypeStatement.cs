@@ -15,6 +15,7 @@ public class TypeStatement
     public IEnumerable<TypeStatement> GenericTypes { get; set; } = [];
     public IEnumerable<ArgumentStatement> Arguments { get; set; } = [];
     public bool IsNullable { get; set; }
+    public bool IsOptional { get; set; }
     public bool IsReadonly { get; set; }
     public bool IsAction { get; set; }
     public bool IsVoid { get; set; }

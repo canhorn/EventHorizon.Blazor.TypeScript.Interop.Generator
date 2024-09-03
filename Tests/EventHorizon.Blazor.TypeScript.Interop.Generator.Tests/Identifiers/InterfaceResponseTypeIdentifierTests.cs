@@ -107,7 +107,7 @@ public class InterfaceResponseTypeIdentifierTests
             IsModifier = isModifier,
             IsArray = isArray,
             IsNullable = isNullable,
-            GenericTypes = new List<TypeStatement> { new TypeStatement { Name = genericName } }
+            GenericTypes = new List<TypeStatement> { new TypeStatement { Name = genericName } },
         };
 
         var sourceFile = "interface.ts";
@@ -146,7 +146,7 @@ public class InterfaceResponseTypeIdentifierTests
             IsModifier = isModifier,
             IsArray = isArray,
             IsNullable = isNullable,
-            GenericTypes = new List<TypeStatement> { new TypeStatement { Name = genericName } }
+            GenericTypes = new List<TypeStatement> { new TypeStatement { Name = genericName } },
         };
 
         var sourceFile = "interface.ts";
@@ -254,7 +254,7 @@ public class InterfaceResponseTypeIdentifierTests
             IsModifier = isModifier,
             IsArray = isArray,
             IsNullable = isNullable,
-            GenericTypes = new List<TypeStatement> { new TypeStatement { Name = genericName } }
+            GenericTypes = new List<TypeStatement> { new TypeStatement { Name = genericName } },
         };
 
         var sourceFile = "interface.ts";
@@ -293,7 +293,7 @@ public class InterfaceResponseTypeIdentifierTests
             IsModifier = isModifier,
             IsArray = isArray,
             IsNullable = isNullable,
-            GenericTypes = new List<TypeStatement> { new TypeStatement { Name = genericName } }
+            GenericTypes = new List<TypeStatement> { new TypeStatement { Name = genericName } },
         };
 
         var sourceFile = "interface.ts";
@@ -321,7 +321,7 @@ public class InterfaceResponseTypeIdentifierTests
         // Given
         var expected = 1;
         var identifierString = "identifier-string";
-        var mockNode = new NodeMock { IdentifierStr = identifierString, };
+        var mockNode = new NodeMock { IdentifierStr = identifierString };
 
         var astMock = new Mock<AbstractSyntaxTree>();
         var rootNodeMock = new Mock<Node>();
